@@ -24,10 +24,43 @@ We recommend the binary installer available from python.org:
 
 We are using VErsion 2.7 for this class. Either 32bit or 64bit is fine, although you may have an easier time finding binary packages (see below) for the 32bit version.
 
-setting up your system
+setting up the `PATH`
 ---------------------------
 
-put the stuff you need on PATH.
+The installer will install to a stardard location, and set itself up in the registry and Start menu. However, for command line use, you will want to put the appropriate locations on your `PATH`. The `PATH` environemnt variable tells the commadn line shell where to look for executables. by adding teh appropriate directory, you can simply type "`python`" on the command line to run python. You will want to add tow directories to the `PATH`::
+
+    C:\Python27
+    C:\Python27\Scripts
+
+The `Scripts` dir is where Python puts scripts installed by python packages -- ti is very handy to have it on your `PATH` as well.
+
+Add `";C:\Python27;C:\Python27\Scripts"` (without the quotes) to the end of your DOS path environment variable by following the instructions (these are copied from here: <http://www.ehow.com/how_7781683_add-path.html> )
+
+Instructions
+ 1. Click on the Windows "Start" button and then click "Control Panel" from the menu that appears.
+ 2. Click "System" in the Windows control panel, then click "Advanced system settings" to open the "System Properties" dialog box.
+
+ 3. Click the "Environment Variables" button on the "Advanced" tab of the dialog box.
+
+4. Scroll down in the "System variables" box until you see the "Path" variable. Click on the "Path" entry to highlight, then click the "Edit" button underneath the box.
+
+5. Add a semicolon to the end of the current path line, which is used as a delimiter, and then type the directory path to add. Click "OK" until all the dialog boxes are closed.
+
+6. Restart any open command windows to allow the changeto take effect.
+
+Read more: <http://www.ehow.com/how_7781683_add-path.html#ixzz2evrTwviw>
+
+Opening a command Window ("DOS box")
+--------------------------------------
+ a) click Start
+ b) click Run...
+ c) type "cmd" (without the quotes) in the text entry field
+ d) click OK
+
+"Command line here"
+---------------------
+"Command line here" is a utility for the file explorer tht lets you open up a command window already set the the vcurrent directory seen in Windows Explorer. A little googling should find it -- it's very handy. (I think it's built in to Windows 7)
+
 
 Installing Packages
 =====================
@@ -112,31 +145,6 @@ That should install the latest setuptools. Once that's done, you should be able 
 whew! that was harder than it should be.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Four steps get swampy on Windows with Python 2.7:
-
-1. Download and run setuptools-0.6c11.win32-py2.7.exe which is available from the table at the bottom of:
-     http://pypi.python.org/pypi/setuptools
 
 2. Add ";C:\Python27;C:\Python27\Scripts" (without the quotes) to the end of your DOS path environment variable. For instructions try:
      http://www.ehow.com/how_7781683_add-path.html
