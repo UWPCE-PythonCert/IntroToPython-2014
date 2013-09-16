@@ -33,6 +33,11 @@ There will generally be weekly homework assignments. They will usually be flexib
 
 In addition, I will ask each student to identify a small project, ideally related to your work, that you can develop as a class project -- that project will be the primary homework for the last few classes.
 
+Lightning Talks:
+-----------------
+
+Each student is expected to give one "lightning talk" during the class -- this is a simple 5-minute talk on something related to Python -- totally up to you. We will randomly assign the talks schedule (using Python, of course) during the first class.
+
 Class format:
 =================
 
@@ -51,10 +56,6 @@ Each class will be broken down something like this:
 
 (there will be no official breaks, but we should all feel free to move about during lab/exercise time)
 
-Lightning Talks:
------------------
-
-Each student is expected to give one "lightning talk" during the class -- this is a simple 5-minute talk on something related to Python -- totally up to you. We will randomly assign the talks schedule (using Python, of course) during the first class.
 
 gitHub:
 =============
@@ -127,58 +128,62 @@ Class Schedule:
 Topics of each week
 ------------------------------
 
-Week 1: General Introduction, basic data types, functions.
-..........................................................................
-Oct 1
-
-`Assignment week 1 <https://github.com/PythonCHB/PythonIntroClass/wiki/Assignment-01>`_
+Week 1: Oct 1
+..............
+General Introductionto Python and the class. Using the command interpreter and development environment. Finding and using the documentation. Getting help. Class github project. Basic data types, functions.
 
 
-Week 2:  Modules, Control Flow, Sequences
-..........................................................................
-Oct 8 
+Week 2: Oct 8 
+................
 
-`Assignment week 2 <https://github.com/PythonCHB/PythonIntroClass/wiki/Assignment-02>`_
+Variables, values, expressions, and assignment. Functions. Definition and use. Arguments. Block structure. Scope. Modules and import.
 
-
-Week 3: Exceptions, Unicode, File Processing
-..........................................................................
-Oct 15
-
-`Assignment week 3 <https://github.com/PythonCHB/PythonIntroClass/wiki/Assignment-03>`_
+Boolean expressions. Conditionals and control flow. Iteration and recursion.
 
 
-Week 4: Built in container classes, Argument passing, Text Processing 
-..........................................................................
-Oct 22
+Week 3: Oct 15
+.................
+
+Data types. Sequences. Strings. Files. Exceptions. Text Processing. Regular expressions. Unicode.
+
+Week 4: Oct 22
+................
+
+Data types. Sequences again. Tuples, Lists, Dictionaries. Mutability. Aliasing. Argument passing. List comprehensions.
 
 
-Week 5: Build a dynamic HTTP server from scratch. 
-..........................................................................
-Oct 29
+Week 5: Oct 29
+........................
+
+Data types, comprehensions again. Sets, Arrays. Functional programming, lambda, and callables
 
 
-Week 6: Object-oriented programming
-..........................................................................
-November 5
+Week 6: November 5
+..........................
+
+Object oriented programming. Classes, instances, and methods. Inheritance and duck typing.
 
 
-Week 7: More OO -- Special methods, Iterators and Generators.
-..........................................................................
-November 12
+Week 7: November 12 
+.......................
+
+More OO -- Special methods, Iterators and Generators.
 
 
-Week 8: Decorators, Debugging, Packages and packaging
-..........................................................................
-November 19
+Week 8: November 19
+........................
+
+Decorators, Packages and packaging
 
 
-Week 9: Testing, profiling, performance.
-..........................................................................
-November 26
+Week 9: November 26
+....................................
+
+Testing, profiling, performance.
 
 
-Week 10: Persistence / Serialization
-..........................................................................
-December 3
+Week 10: December 3
+.....................................
+
+Persistence / Serialization / Databases and Python
 
