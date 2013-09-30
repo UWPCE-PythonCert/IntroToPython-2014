@@ -1,0 +1,76 @@
+Notes for class 1 demo:
+
+Values
+
+integers -- regular, long -- sys.maxint
+
+sys.maxint + 1
+
+floats (C doubles)
+
+Special values:
+ None
+ True False
+
+note:  True False not key words -- but don't re-assign!
+
+strings:
+
+'a string'
+
+"also a string"
+
+"""and this"""
+
+r"a raw string"
+
+
+
+equals vs. is:
+
+5 == 5.0
+5 is 5.0
+
+In [1]: 5 == 5.0
+Out[1]: True
+
+In [2]: 5 is 5.0
+Out[2]: False
+
+In [3]: 
+
+In [3]: 5 is 5
+Out[3]: True
+
+In [4]: 
+
+In [4]: x = 32
+
+In [5]: y = 32
+
+In [6]: x is y
+Out[6]: True
+
+In [7]: x = 45e234
+
+In [8]: y = 45e234
+
+In [9]: x is y
+Out[9]: False
+
+In [10]: s = 'this'
+
+In [11]: s2 = 'this'
+
+In [12]: s is s2
+Out[12]: True
+
+In [13]: s2 = 'this is a fairly long string'
+
+In [14]: s1 = 'this is a fairly long string'
+
+In [15]: 
+
+In [15]: s1 is s2
+Out[15]: False
+
