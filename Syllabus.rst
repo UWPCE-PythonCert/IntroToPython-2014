@@ -187,13 +187,13 @@ Week 8: November 19
 Decorators, Packages and packaging
 
 
-Week 9: November 26
+Week 9: December 3
 ....................................
 
 Testing, profiling, performance.
 
 
-Week 10: December 3
+Week 10: December 10
 .....................................
 
 Persistence / Serialization / Databases and Python
