@@ -1,6 +1,6 @@
 studentNames = list()
 fr = open('C:\Users\Josh\PYTHON100\courseenrollees 9-30-13 - Sheet1.csv')
-lines = fr.readlines()
+lines = fr.readlines()[1:]
 fr.close()
 #print(type(lines))
 #print(len(lines))
