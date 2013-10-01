@@ -1,4 +1,3 @@
-lastName, firstName
 Antoun, Jo-Anne
 AuBuchon, Harlan
 Bae, Andrew
