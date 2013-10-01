@@ -583,7 +583,32 @@ end_of_the_block
 \vfill
 \end{frame}
 
+\begin{frame}[fragile]{The print statement}
 
+{\large
+Kind of obvious, but handy when playing with code:
+
+\vfill
+\verb|print something| prints \verb|something| to the console.
+
+\vfill
+Can print multiple things: \verb|print "the value is", 5|
+
+\vfill
+Automatically adds a newline.
+
+\vfill
+You can suppress the newline with a comma: \\
+\verb|print "the value is",|\\
+\verb|print 5|
+
+\vfill
+Any python object can be printed\\
+(though it might not be pretty...)
+
+}
+
+\end{frame}
 
 \begin{frame}[fragile]{Values, expressions, and types}
 
@@ -642,40 +667,77 @@ this is where the dynamic comes from
   \item A value can have many names (or none!)
 \end{itemize}
 
-{\large
-\vspace{0.1in}
-\verb+=+ assigns (binds a name)
+\vfill
+{\large \verb|=| assigns (binds a name)}
 
-\vspace{0.1in}
-\verb+del+ only unbinds a name
+\vfill
+{\large \verb|+=| also an assignment: \verb|a += 1| same as \verb|a = a+1|}
 
-\vspace{0.1in}
-{\Large  Multiple Assignment}
+\hspace{0.1in}also: \verb|-=, *=, /=, **=, \%=|
 
-\vspace{0.1in}
+(not quite -- really in-place assignment for mutables....)
 
-\verb+a, b = 1, 2+
+\end{frame}
 
-\vspace{0.1in}
-This will come in handy later...
-}
 
-\vspace{0.1in}
+\begin{frame}[fragile]{Multiple Assignment}
+
+{\large You can assign multiple variables from multiple expressions in one statement}
+
+\vfill
+\verb|i, j = 2 + x,  3 * y| \# commas separate variables on lhs, exprs on rhs
+
+\vfill
+{\large Python evaluates all the expressions on the right before doing any assignments}
+
+\vfill
+\verb|i, j = j, i| \# parlor trick: swap in one statement
+
+\vfill
+\large{These are just tricks, but multiple assignment is more helpful in other contexts}
+
+\vfill
+(more on what's really going on later...)
+
+\vfill
+(demo)
+\end{frame}
+
+
+\begin{frame}[fragile]{Deleting}
+
+{\large You can't actually delete anything in python...}
+
+\vfill
+
+{\large \verb|del| only unbinds a name}
+
+\vfill
+\begin{verbatim}
+a = 5
+b = a
+del a
+\end{verbatim}
+
+The object is still there...python will only delete it if there are no references to it.
+
+\vfill
 (demo)
 
 \end{frame}
+
 
 \begin{frame}[fragile]{equality and identity}
 
 {\large
 \vspace{0.1in}
-\verb+==+ checks equality
+\verb|==| checks equality
 
 \vspace{0.1in}
-\verb+is+ checks identity
+\verb|is| checks identity
 
 \vspace{0.1in}
-\verb+id()+ queries identity
+\verb|id()| queries identity
 }
 
 \vspace{0.2in}
@@ -1076,15 +1138,10 @@ UnboundLocalError                         Traceback (most recent call last)
 {\Large write a function that:}
 \begin{itemize}
   \item takes a number and returns the square and cube of that number
-   -- use local variables to store the results
+   -- use variables to store the results
   \item takes a string and a number, and returns a new string containing the input string repeated the given number of times
-  \item uses both global and local variable to compute a result.
   \item calls another function to do part of its job.
-  \item take some code with functions, add this to each function:
-    \begin{verbatim}
-        print locals()
-    \end{verbatim}
-  \item computes the factorial with a recursive function (needs something we haven't covered yet..)
+  
 \end{itemize}
 
 \end{frame}
@@ -1106,26 +1163,21 @@ UnboundLocalError                         Traceback (most recent call last)
 \begin{frame}[fragile]{Homework}
 
 Recommended Reading:
-
-\hspace{0.2in} Think Python: Chapters 1--7 \\
-
-\hspace{0.2in} Dive Into Python: Chapters 1--3 \\
-
-\hspace{0.2in} LPTHW: ex. 1--10, 18-21 \\
-
-\vfill
-Pick something you'd like to automate that Python may be able to do.
-Write out a description of the problem
-
+\begin{itemize}
+  \item Think Python: Chapters 1--7 \\
+  \item Dive Into Python: Chapters 1--3 \\
+  \item LPTHW: ex. 1--10, 18-21 \\
+\end{itemize}
 
 \vfill
-Coding is the only way to learn to code.\\
+Problems in \verb|week-01\homework.rst|
+
+\vfill
+Coding is the only way to learn to code: 
 CodingBat exercises are a good way to build skills.
 \begin{itemize}
   \item visit \url{http://codingbat.com}
-  \item sign up for an account
-  \item goto ‘prefs’ page
-  \item Share To: \url{PythonCHB@gmailcom}
+  \item sign up for an account and goto ‘prefs’ page and share To: \url{PythonCHB@gmailcom}
 \end{itemize}
 
 Do at least two exercises from CodingBat: Warmup-1 
