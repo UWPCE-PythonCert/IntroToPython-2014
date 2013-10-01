@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-some sample examples from LAB 1-c (functions)
+some sample examples from LAB 1 (functions)
 """
 
 x = 5
@@ -27,3 +27,4 @@ print "factorial of 1 is:", fact(1)
 print "factorial of 2 is:", fact(2)    
 print "factorial of 3 is:", fact(3)    
 print "factorial of 3 is:", fact(4)    
+

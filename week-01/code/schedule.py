@@ -13,7 +13,7 @@ random.shuffle(students)
 
 weeks = range(2,11)
 
-weeks4 = weeks*2
+weeks4 = weeks*4
 
 schedule = zip(weeks4, students)
 
