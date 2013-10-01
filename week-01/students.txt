@@ -1,7 +1,32 @@
-Students in the 2013 Python Cert Class
-
-Name: 
-Programming Background:
-
-Languages:
-
+lastName, firstName
+Antoun, Jo-Anne
+AuBuchon, Harlan
+Bae, Andrew
+Chan, Lawrence
+Chhen, Rithy
+Colwell, Kimberly
+Cypret, Luke
+Eaton, Sako
+Edson, Howard
+Flagg, Nate
+Gapasin, Anne-Lynn
+Grizzel, Travis
+Ivers, Brandon
+Kang, Dong
+Leblanc, Adam
+Onen, Omer
+Parrish, Brent
+Pei, Guangyu
+Petrova, Maria
+Popish, Mario
+Rajagopalan, Sridharan
+Salkodu Parameshwar, Maitri
+Savage, Nathan
+Schmitz, Brian
+Small, Edward
+Smith, Richard
+Thach, Phuc
+Tran, Linh
+Warren, Catherine
+Werner, Steven
+Wright, Duane
