@@ -33,7 +33,10 @@ One learns programming by doing -- I'll be demonstrating as I talk about concept
 
 Homework:
 =================
-There will generally be weekly homework assignments. They will usually be flexible to allow for student's varying time constants. However, you learn by doing, so I do encourage you to put some time in to the homework. I will review your work, and do a mini code-review of selected assignments during class.
+There will generally be weekly homework assignments. They will usually be flexible to allow for
+students' varying time constraints. However, you learn by doing, so I do encourage you to put
+some time in to the homework. I will review your work if you ask me to, and do a mini code-review
+of selected assignments during class.
 
 `Teach Yourself Programming in Ten Years <http://norvig.com/21-days.html>`_
 
@@ -50,15 +53,17 @@ Class format:
 Each class will be broken down something like this:
 
 - 30 minutes talk
-- 30 minutes exercises
+- 25 minutes lab time
 
 - 5 minute lightning talk
-- 25 minutes talk
-- 30 minutes exercises
+- 5 minute lightning talk
+- 20 minutes talk
+- 30 minutes lab time
 
 - 5 minute lightning talk
-- 25 minutes talk
-- 30 minutes exercises
+- 5 minute lightning talk
+- 20 minutes talk
+- 30 minutes lab time
 
 (there will be no official breaks, but we should all feel free to move about during lab/exercise time)
 
