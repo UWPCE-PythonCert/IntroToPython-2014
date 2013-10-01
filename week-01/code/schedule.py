@@ -1,5 +1,5 @@
 """
-Schedule students for lightning talks, fall 2011
+Schedule students for lightning talks, fall 2013
 """
 import random
 
