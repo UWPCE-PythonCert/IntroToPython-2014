@@ -141,44 +141,47 @@ Topics of each week
 
 Week 1: Oct 1
 ..............
-General Introductionto Python and the class. Using the command interpreter and development environment. Finding and using the documentation. Getting help. Class github project. Basic data types, functions.
+General Introductionto Python and the class. Using the command interpreter and development environment.
+Finding and using the documentation. Getting help. Class github project. Basic data types, functions.
 
 
 Week 2: Oct 8 
 ................
 
-Variables, values, expressions, and assignment. Functions. Definition and use. Arguments. Block structure. Scope. Modules and import.
-
+More on functions: definition and use; arguments; block structure; scope.
+Modules and import.
 Boolean expressions. Conditionals and control flow. Iteration and recursion.
 
 
 Week 3: Oct 15
 .................
 
-Data types. Sequences. Strings. Files. Exceptions. Text Processing. Regular expressions. Unicode.
+Data types. Sequences. Strings. Tuples, Lists, Dictionaries. Mutability.
+Files. Exceptions. Text Processing. Unicode.
 
 Week 4: Oct 22
 ................
 
-Data types. Sequences again. Tuples, Lists, Dictionaries. Mutability. Aliasing. Argument passing. List comprehensions.
+Data types. Sequences again. Tuples, Lists, Dictionaries. Mutability. Aliasing.
+Argument passing. List comprehensions. Regular expressions. 
 
 
 Week 5: Oct 29
 ........................
 
-Data types, comprehensions again. Sets, Arrays. Functional programming, lambda, and callables
+Testing, omprehensions again. More data types: Sets, Arrays. Functional programming, lambda, and callables
 
 
 Week 6: November 5
 ..........................
 
-Object oriented programming. Classes, instances, and methods. Inheritance and duck typing.
+Object oriented programming. Classes, instances, and methods. 
 
 
 Week 7: November 12 
 .......................
 
-More OO -- Special methods, Iterators and Generators.
+More OO -- Inheritance and duck typing, Special methods, Iterators and Generators.
 
 
 Week 8: November 19
@@ -190,7 +193,7 @@ Decorators, Packages and packaging
 Week 9: December 3
 ....................................
 
-Testing, profiling, performance.
+profiling, performance.
 
 
 Week 10: December 10
