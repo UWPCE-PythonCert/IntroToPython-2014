@@ -206,6 +206,25 @@ Interrupt me with questions -- please!
 \end{frame}
 
 
+\begin{frame}{Mailing list and Office Hours}
+
+\vfill
+{\Large We've set up a google group\\
+ -- you will all be invited to join.}
+
+\url{programming-in-python@googlegroups.com}
+
+\vfill
+{\Large ``Office Hours'' \\
+-- Useful? Will you come?}
+
+\vfill
+
+\end{frame}
+
+
+
+
 \begin{frame}{Python Ecosystem}
 
 {\Large Used for:} 
@@ -843,17 +862,38 @@ def       for       lambda    try
 
 \section{Functions}
 
+\begin{frame}[fragile]{Functions}
+
+\vfill
+{\Large What is a function?}
+
+\vfill
+{\large A function is a self-contained chunk of code}
+
+\vfill
+{\large You use them when you need the same code to run multiple times,
+or in multiple parts of the program.}
+
+\hspace{1in}{\Large (DRY) }
+
+\vfill
+{\large Or just to keep the code clean}
+
+\vfill
+{\large Functions can take and return information}
+
+\end{frame}
+
 
 \begin{frame}[fragile]{Functions}
 
-{\Large Minimal Function}
+{\Large Minimal Function does nothing}
 
 \begin{verbatim}
 ￼def <name>():
     <statement>
 \end{verbatim}
 
-\pause
 \vspace{0.25in}
 {\Large Pass Statement (Note the indentation!)}
 \begin{verbatim}
@@ -995,24 +1035,23 @@ Out[153]: 3
 
 \end{frame}
 
-\begin{frame}[fragile]{Functions: return}
+% \begin{frame}[fragile]{Functions: return}
 
-{\Large Actually a tuple of results...}
+% {\Large Actually a tuple of results...}
 
-\begin{verbatim}
-In [154]: t = fun()
+% \begin{verbatim}
+% In [154]: t = fun()
 
-In [155]: t
-Out[155]: (1, 2, 3)
+% In [155]: t
+% Out[155]: (1, 2, 3)
 
-In [156]: type(t)
-Out[156]: tuple
-\end{verbatim}
+% In [156]: type(t)
+% Out[156]: tuple
+% \end{verbatim}
 
-{\Large Multiple assignment is really "tuple unpacking"}
+% {\Large Multiple assignment is really "tuple unpacking"}
 
-\end{frame}
-
+% \end{frame}
 
 
 \begin{frame}[fragile]{Functions: parameters}
