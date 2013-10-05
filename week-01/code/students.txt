@@ -1,8 +1,8 @@
-name languages
-Barker, Chris  Python C C++ Shell Fortran Pascal
-Rakita, Joshua C# Java Python JavaScript
+name: languages
+Barker, Chris:  Python, C, C++, Shell, Fortran, Pascal
+Rakita, Joshua: C#, Java, Python, JavaScript
 Antoun, Jo-Anne: python (GIS)
-AuBuchon, Harlan: py (java)
+AuBuchon, Harlan: python, java
 Bae, Andrew: pascal, C, C#
 Chan, Lawrence: VB
 Chhen, Rithy: PHP, java, JS, SQL
@@ -28,8 +28,8 @@ Savage, Nathan: py3, PHP,
 Schmitz, Brian: javascript, PHP
 Small, Edward (Ryan): python, JS
 Smith, Richard: C++, Java, XML, Shell
-Thach, Phuc: all of them: php, JS
+Thach, Phuc: php, JS
 Tran, Linh: html, java
 Warren, Catherine: SQL
 Werner, Steven: javascript
-Wright, Duane
+Wright, Duane:

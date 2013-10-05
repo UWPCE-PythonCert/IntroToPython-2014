@@ -148,16 +148,28 @@ Finding and using the documentation. Getting help. Class github project. Basic d
 Week 2: Oct 8 
 ................
 
-More on functions: definition and use; arguments; block structure; scope.
+More on functions: definition and use, arguments, block structure, scope, recursion.
+
 Modules and import.
-Boolean expressions. Conditionals and control flow. Iteration and recursion.
+
+Boolean expressions.
+
+Conditionals
+
+Sequences: Strings, Tuples, Lists
 
 
 Week 3: Oct 15
 .................
 
-Data types. Sequences. Strings. Tuples, Lists, Dictionaries. Mutability.
+Looping and control flow.
+
+Data types, Dictionaries. Mutability.
+
+Iteration
+
 Files. Exceptions. Text Processing. Unicode.
+
 
 Week 4: Oct 22
 ................
@@ -169,7 +181,9 @@ Argument passing. List comprehensions. Regular expressions.
 Week 5: Oct 29
 ........................
 
-Testing, omprehensions again. More data types: Sets, Arrays. Functional programming, lambda, and callables
+Testing, Comprehensions again. More data types: Sets, Arrays.
+
+Functional programming, lambda, and callables
 
 
 Week 6: November 5
