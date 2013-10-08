@@ -148,70 +148,85 @@ Finding and using the documentation. Getting help. Class github project. Basic d
 Week 2: Oct 8 
 ................
 
-More on functions: definition and use, arguments, block structure, scope, recursion.
+More on functions: definition and use, arguments, block structure, scope, recursion
 
-Modules and import.
+Modules and import
 
-Boolean expressions.
+Conditionals and Boolean expressions
 
-Conditionals
-
-Sequences: Strings, Tuples, Lists
 
 
 Week 3: Oct 15
 .................
 
-Looping and control flow.
+Sequences: Strings, Tuples, Lists
+
+Iteration, Looping and control flow.
 
 Data types, Dictionaries. Mutability.
-
-Iteration
-
-Files. Exceptions. Text Processing. Unicode.
 
 
 Week 4: Oct 22
 ................
 
-Data types. Sequences again. Tuples, Lists, Dictionaries. Mutability. Aliasing.
-Argument passing. List comprehensions. Regular expressions. 
+Exceptions.
+
+Unicode.
+
+Files and Text Processing
+
+Data types. Sequences again. Tuples, Lists, Dictionaries. Mutability. Aliasing. List comprehensions
+
 
 
 Week 5: Oct 29
 ........................
 
-Testing, Comprehensions again. More data types: Sets, Arrays.
+Argument passing
 
-Functional programming, lambda, and callables
+Comprehensions again. More data types: Sets, Arrays
+
+Testing
 
 
 Week 6: November 5
 ..........................
 
-Object oriented programming. Classes, instances, and methods. 
+Functional programming, lambda, and callables
+
+Object oriented programming. Classes, instances, and methods
 
 
 Week 7: November 12 
 .......................
 
-More OO -- Inheritance and duck typing, Special methods, Iterators and Generators.
+More OO -- Inheritance and duck typing
+
+Special methods
+
+Iterators and Generators
+
+Regular expressions
 
 
 Week 8: November 19
 ........................
 
-Decorators, Packages and packaging
+Decorators
+
+Packages and packaging
 
 
 Week 9: December 3
 ....................................
 
-profiling, performance.
+Profiling, Performance.
 
 
 Week 10: December 10
 .....................................
 
-Persistence / Serialization / Databases and Python
+Persistence / Serialization
+
+Databases and Python
 

@@ -1,10 +1,11 @@
 \documentclass{beamer}
 %\usepackage[latin1]{inputenc}
 \usetheme{Warsaw}
-\title[Intro to Python: Week 1]{Introduction  to Python\\ Functions, Modules, and Sequences}
+\title[Intro to Python: Week 2]{Introduction  to Python\\ Functions, Booleans, Modules}
 \author{Christopher Barker}
 \institute{UW Continuing Education}
 \date{October 8, 2013}
+%-------------------------------
 
 \usepackage{listings}
 \usepackage{hyperref}
@@ -69,6 +70,12 @@ Catherine Warren
   {\Large Homework Questions? }
 
   \vfill
+  {\Large To loop or not to loop?}
+
+  \vfill
+  {\Large Build up strings, then print...}
+
+  \vfill
   {\Large My Solution}
 
   \vfill
@@ -84,8 +91,8 @@ Catherine Warren
   \vfill
   {\Large Please send me code:
     \begin{itemize}
-      \item{enclosed in an email}
-      \item{with your name at the beginning of the filename: \verb|chris_problem1.py|}
+      \item Enclosed in an email
+      \item With your name at the beginning of the filename: \verb|chris_problem1.py|
     \end{itemize}
   }
 
@@ -104,25 +111,64 @@ Catherine Warren
 \begin{frame}[fragile]{Basics}
 
 \vfill
-{\Large It turns out you can't really do much at all without at least a container type, conditionals and looping...}
+{\LARGE It turns out you can't really do much at all without at least a container type, conditionals and looping...}
 \vfill
 
 \end{frame}
 
+%-------------------------------
 \begin{frame}[fragile]{if}
 
-{\Large When you need to make a decision:}
-
+{\Large Making Decisions...}
 \begin{verbatim}
-if x > 500:
-    print "x is big!"
+if a:
+    print 'a'
+elif b:
+    print 'b'
+elif c:
+    print 'c'
 else:
-    print "x is small"
+    print 'that was unexpected'
 \end{verbatim}
 
 \end{frame}
 
 
+%-------------------------------
+\begin{frame}[fragile]{if}
+
+{\Large Making Decisions...}
+\begin{verbatim}
+if a:
+    print 'a'
+elif b:
+    print 'b'
+
+## versus...
+
+if a:
+    print 'a'
+if b:
+    print 'b'
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{switch?}
+
+\vfill
+{\Large No switch/case in Python}
+
+\vfill
+{\Large use \verb|if..elif..elif..else|}
+
+\vfill
+
+(or a dictionary, or subclassing....)
+\end{frame}
+
+%-------------------------------
 \begin{frame}[fragile]{lists}
 
 \vfill
@@ -142,6 +188,7 @@ a_list_of_strings = ['this', 'that', 'the', 'other']
 
 \end{frame}
 
+%-------------------------------
 \begin{frame}[fragile]{tuples}
 
 \vfill
@@ -151,7 +198,7 @@ a_list_of_strings = ['this', 'that', 'the', 'other']
 \begin{verbatim}
 a_tuple = (2,3,4,5)
 
-a_list_of_strings = ('this', 'that', 'the', 'other')
+a_tuple_of_strings = ('this', 'that', 'the', 'other')
 \end{verbatim}
 
 \vfill
@@ -160,6 +207,7 @@ a_list_of_strings = ('this', 'that', 'the', 'other')
 \end{frame}
 
 
+%-------------------------------
 \begin{frame}[fragile]{for}
 
 {\Large When you need to do something to everything in a sequence}
@@ -178,7 +226,8 @@ a_list_of_strings = ('this', 'that', 'the', 'other')
 
 \end{frame}
 
-\begin{frame}[fragile]{range and for}
+%-------------------------------
+\begin{frame}[fragile]{range() and for}
 
 {\Large When you need to do something a set number of times}
 
@@ -195,6 +244,7 @@ a_list_of_strings = ('this', 'that', 'the', 'other')
 
 \end{frame}
 
+%-------------------------------
 \begin{frame}[fragile]{intricacies}
 
 \vfill
@@ -210,10 +260,10 @@ a_list_of_strings = ('this', 'that', 'the', 'other')
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{More on Functions}
-%%%%%%%%%%%%%%%%%%%%%%
 
+%-------------------------------
 \begin{frame}[fragile]{Functions: review}
 
 {\Large Defining a function:}
@@ -291,17 +341,18 @@ fun(3,4)
 %----------------------------------
 \begin{frame}[fragile]{Lab: more with functions}
 
-{\Large write a function that:}
+{\Large Write a function that:}
 \begin{itemize}
-  \item copnutes the distance between two points:\\
+  \item computes the distance between two points:\\
         dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )\\
         using tuple unpacking...
   \item Take some code with functions, add this to each function:\\
         \verb|print locals()|
-  \item Computes the Fiboacci series with a recursive function:\\
-  f(1) = 1\\
+  \item Computes the Fibonacci series with a recursive function:\\
+  f(0) = 0; f(1) = 1\\
   f(n) = f(n-1) + f(n-2)\\
-  0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+  0, 1, 1, 2, 3, 5, 8, 13, 21, ...\\
+  (If time: a non-recursive version)
 \end{itemize}
 
 \end{frame}
@@ -323,73 +374,7 @@ fun(3,4)
 
 
 
-%##########################
-\section{Conditionals}
-
-%-------------------------------
-\begin{frame}[fragile]{if}
-
-{\Large Making Decisions...}
-\begin{verbatim}
-if a:
-    print 'a'
-elif b:
-    print 'b'
-elif c:
-    print 'c'
-else:
-    print 'that was unexpected'
-\end{verbatim}
-
-\end{frame}
-
-
-%-------------------------------
-\begin{frame}[fragile]{if}
-
-{\Large Making Decisions...}
-\begin{verbatim}
-if a:
-    print 'a'
-elif b:
-    print 'b'
-
-## versus...
-
-if a:
-    print 'a'
-if b:
-    print 'b'
-\end{verbatim}
-
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{switch?}
-
-\vfill
-{\Large No switch/case in Python}
-
-\vfill
-{\Large use \verb|if..elif..elif..else|}
-
-\vfill
-
-(or a dictionary, or subclassing....)
-\end{frame}
-
-%%-------------------------------
-%\begin{frame}[fragile]{LAB}
-%
-%\begin{itemize}
-%
-%
-%\item some if .. elif, etc. examples
-%
-%\end{itemize}
-%
-%\end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Boolean Expressions}
 
 % ---------------------------------------------
@@ -406,7 +391,7 @@ if b:
 
 \end{frame}
 
-%-------------------------------
+% -------------------------------
 \begin{frame}[fragile]{Truthiness}
 
 {\Large ￼Determining Truthiness:}
@@ -597,22 +582,14 @@ else:
 But for multiples of three print ``Fizz'' instead of the number and for the
 multiples of five print ``Buzz''. For numbers which are multiples of both three
 and five print ``FizzBuzz'' instead.
+
+  \item Re-write a couple CodingBat exercises, using a conditional expression
+
+
+  \item Re-write a couple CodingBat exercises, returning the direct boolean results\\
 \end{itemize}
 
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{LAB}
-
-\vfill
-{\large Re-write a couple CodingBat exercises, using a conditional expression}
-
-
-\vfill
-{\large Re-write a couple CodingBat exercises, returning the direct boolean results}
-
-\vfill
-{\large (use whichever you like, or the ones in: \verb|code/codingbat.rst|)}
+(use whichever you like, or the ones in: \verb|code/codingbat.rst| )
 
 \end{frame}
 
@@ -640,13 +617,12 @@ Catherine Warren
 
 {\Large Python is all about namespaces --  the ``dots'' }
 
-\vspace{0.2in}
-\verb+name.another_name+
-\vspace{0.2in}
+\vfill
+\verb|name.another_name|
 
-the ``dot'' indicates looking for a name in the namespace of the given object.
-
-could be:
+\vfill
+The ``dot'' indicates looking for a name in the namespace of the
+given object. It could be:
 
 \begin{itemize}
 \item name in a module
@@ -710,7 +686,7 @@ In [168]: if x > 4: print x
 \end{itemize}
 
 \vfill
-{\LARGE Use four spaces -- really!}
+{\LARGE Always use four spaces -- really!}
 
 \vfill
 (PEP 8)
@@ -768,309 +744,114 @@ x = 3*4 + 12 /   func (x,   y, z)
 \end{frame}
 
 
-% ************************************
-\section {Sequences}
+%-----------------------------------
+\begin{frame}{modules and packages}
 
-\begin{frame}[fragile]{Sequences}
-
-{\Large Sequences are ordered collections of objects}
+{\Large A module is simply a namespace}
 
 \vfill
-{\Large They can be indexed, sliced, iterated over,...}
+{\Large A package is a module with other modules in it}
 
 \vfill
-{\Large They have a length:  \verb+len(sequence)+}
-
-\vfill
-{\Large Common sequences (Remember Duck Typing?):}
-
-{\Large
-\begin{itemize}
-   \item strings
-   \item tuples
-   \item lists
-\end{itemize}
-}
+{\Large The code in the module is run when it is imported}
 
 \end{frame}
 
-%-------------------------------
-\begin{frame}[fragile]{Indexing}
-
-{\Large square brackets for indexing: \verb+[]+}
-
-\vfill
-{\Large Indexing starts at zero}
+% ---------------------------------------------
+\begin{frame}[fragile]{importing modules}
 
 \begin{verbatim}
-In [98]: s = "this is a string"
 
-In [99]: s[0]
-Out[99]: 't'
+import modulename
 
-In [100]: s[5]
-Out[100]: 'i'
-\end{verbatim}
+from modulename import this, that
 
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{Indexing}
-
-{\Large Negative indexes count from the end}
-
-\vfill
-\begin{verbatim}
-In [105]: s = "this is a string"
-
-In [106]: s[-1]
-Out[106]: 'g'
-
-In [107]: s[-6]
-Out[107]: 's'
-\end{verbatim}
-
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{Slices}
-
-{\Large Slicing: Pulling a range out of a sequence}
-
-\begin{verbatim}
-sequence[start:finish]  
-
-indexes for which:
-
-start <= i < finish
-\end{verbatim}
-
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{Slices}
-\begin{verbatim}
-In [121]: s = "a bunch of words"
-In [122]: s[2]
-Out[122]: 'b'
-
-In [123]: s[6]
-Out[123]: 'h'
-
-In [124]: s[2:6]
-Out[124]: 'bunc'
-
-In [125]: s[2:7]
-Out[125]: 'bunch'
-\end{verbatim}
-
-\end{frame}
-
-
-%-------------------------------
-\begin{frame}[fragile]{Slices}
-
-{\Large the indexes point to the spaces between the items}
-
-\vfill
-\begin{verbatim}
-   X   X   X   X   X   X   X   X
- |   |   |   |   |   |   |   | 
- 0   1   2   3   4   5   6   7
-\end{verbatim}
-
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{Slices}
-
-{\Large Slicing satisfies nifty properties:
-
-\vfill
-\begin{verbatim}
-len( seq[a:b] ) == b - a
-
-seq[a:b] + seq [b:c] == seq
-
-\end{verbatim}
-
-}
-
-\end{frame}
-
-% ------------------------------------------------
-\begin{frame}[fragile]{Slicing vs. Indexing}
-
-{\Large Indexing returns a single element}
-
-\begin{verbatim}
-In [86]: l
-Out[86]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-In [87]: type(l)
-Out[87]: list
-
-In [88]: l[3]
-Out[88]: 3
-
-In [89]: type( l[3] )
-Out[89]: int
-\end{verbatim}
-\end{frame}
-
-% ------------------------------------------------
-\begin{frame}[fragile]{Slicing vs. Indexing}
-
-{\Large Unless it's a string:}
-
-\begin{verbatim}
-In [75]: s = "a string"
-
-In [76]: s[3]
-Out[76]: 't'
-
-In [77]: type(s[3])
-Out[77]: str
+import modulename as a_new_name
 \end{verbatim}
 
 \vfill
-There is no single character type
-
-\end{frame}
-
-
-%-------------------------------
-\begin{frame}[fragile]{Slicing vs. Indexing}
-
-{\Large Slicing returns a sequence:}
-
-\begin{verbatim}
-In [68]: l
-Out[68]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-In [69]: l[2:4]
-Out[69]: [2, 3]
-\end{verbatim}
-
-Even if it's one element long
-
-\begin{verbatim}
-In [70]: l[2:3]
-Out[70]: [2]
-
-In [71]: type(l[2:3])
-Out[71]: list
-\end{verbatim}
-
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{Slicing vs. Indexing}
-
-{\Large Indexing out of range produces an error}
-\vfill
-\begin{verbatim}
-In [129]: s = "a bunch of words"
-In [130]: s[17]
-----> 1 s[17]
-IndexError: string index out of range
-\end{verbatim}
-
-\vfill
-{\Large Slicing just gives you what's there}
-
-\begin{verbatim}
-In [131]: s[10:20]
-Out[131]: ' words'
-
-In [132]: s[20:30]
-Out[132]: ''
-\end{verbatim}
 (demo)
-\end{frame}
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Multiplying and slicing}
-
-{\Large from CodingBat: Warmup-1 -- front3}
-
-\begin{verbatim}
-def front3(str):
-  if len(str) < 3:
-    return str+str+str
-  else:
-    return str[:3]+str[:3]+str[:3]
-\end{verbatim}
-
-{\Large or}
-
-\begin{verbatim}
-def front3(str):
-    return str[:3] * 3
-\end{verbatim}
 
 \end{frame} 
 
 % ---------------------------------------------
-\begin{frame}[fragile]{Slicing}
-
-{\Large from CodingBat: Warmup-1 -- \verb+missing_char+ }
+\begin{frame}[fragile]{importing from packages}
 
 \begin{verbatim}
-def missing_char(str, n):
-  front = str[0:n]
-  l = len(str)-1
-  back = str[n+1:l+1]
-  return front + back
-\end{verbatim}
 
-\begin{verbatim}
-def missing_char(str, n):
-    return str[:n] + str[n+1:]
+import packagename.modulename
+
+from packagename.modulename import this, that
+
+from package import modulename
+
 \end{verbatim}
+\vfill
+(demo)
+
+\vfill
+\url{http://effbot.org/zone/import-confusion.htm}
 
 \end{frame} 
 
 % ---------------------------------------------
-\begin{frame}[fragile]{Slicing}
-
-{\Large you can skip items, too}
+\begin{frame}[fragile]{importing from packages}
 
 \begin{verbatim}
-In [289]: string = "a fairly long string"
-
-In [290]: string[0:15]
-Out[290]: 'a fairly long s'
-
-In [291]: string[0:15:2]
-Out[291]: 'afil ogs'
-
-In [292]: string[0:15:3]
-Out[292]: 'aallg'
-\end{verbatim}
-
-\end{frame} 
-
-% ---------------------------------------
-\begin{frame}[fragile]{Command Line Input}
-
-{\Large \verb|input| evaluates the input:}
-\begin{verbatim}
-In [265]: val = input("a message> ")
-a message> 4.5
-In [266]: type(val)
-Out[266]: float
-\end{verbatim}
-
-{\Large \verb|raw_input| gives you the plain string:}
-\begin{verbatim}
-In [265]: val = input("a message> ")
-a message> 4.5
-In [266]: type(val)
-Out[266]: float
+from modulename import *
 \end{verbatim}
 
 \vfill
+{\LARGE Don't do this!}
+\vfill
+{\Large (``Namespaces are one honking great idea...'')}
+
+\vfill
+(wxPython and numpy example...)
+
+\vfill
+Except \emph{maybe} math module
+
+\vfill
+(demo)
+\end{frame} 
+
+
+%------------------------------------
+\begin{frame}[fragile]{import}
+
+\vfill
+If you don’t know the module name before execution.
+
+\vfill
+\begin{verbatim}
+__import__(module)
+\end{verbatim}
+
+\vfill
+where \verb|module| is a Python string.
+
+\vfill
+\end{frame}
+
+\begin{frame}[fragile]{modules and packages}
+
+\vfill
+{\Large The code in a module is NOT re-run when imported again
+ -- it must be explicitly reloaded to be re-run}
+
+\begin{verbatim}
+import modulename
+
+reload(modulename)
+\end{verbatim}
+
+(demo)
+
+\begin{verbatim}
+import sys
+print sys.modules
+\end{verbatim}
 (demo)
 \end{frame}
 
@@ -1078,35 +859,40 @@ Out[266]: float
 %-------------------------------
 \begin{frame}[fragile]{LAB}
 
-\verb| def count_them(letter): |
-\begin{itemize}
-  \item prompts the user to input a letter
-  \item counts the number of times the given letter is input
-  \item prompts the user for another letter
-  \item continues until the user inputs "x"
-  \item returns the count of the letter input
-\end{itemize}
+{\Large  Experiment with importing different ways:}
+\begin{verbatim}
+import math
+dir(math) # or, in ipython -- math.<tab>
+math.sqrt(4)
 
-\verb| def count_letter_in_string(string, letter): |
-\begin{itemize}
-  \item counts the number of instances of the letter in the string
-  \item ends when a period is encountered
-  \item if no period is encountered -- prints "hey, there was no period!"
-\end{itemize}
+import math as m
+m.sqrt(4)
+
+from math import *
+sqrt(4)
+\end{verbatim}
+
 \end{frame}
 
 %-------------------------------
 \begin{frame}[fragile]{LAB}
-Write some functions that:
-\begin{itemize}
-  \item return a string with the first and last characters exchanged.
-  \item return a string with every other character removed
-  \item return a string with the first and last 4 characters removed, and every other char in between
-  \item return a string reversed (just with slicing)
-  \item return a string with the middle, then last, then first third in a new order
-\end{itemize}
+
+{\Large  Experiment with importing different ways:}
+\begin{verbatim}
+import sys
+print sys.path
+
+import os
+print os.path
+\end{verbatim}
+{\Large You wouldn't want to import * those -- check out}
+\begin{verbatim}
+os.path.split()
+os.path.join()
+\end{verbatim}
 
 \end{frame}
+
 
 
 %-------------------------------
@@ -1114,9 +900,9 @@ Write some functions that:
 
 Recommended Reading:
 \begin{itemize}
-  \item Read Think Python: 9, 14
-  \item extra: string methods: \url{http://docs.python.org/library/stdtypes.html#string-methods}
-  \item extra: unicode: \url{http://www.joelonsoftware.com/articles/Unicode.html}
+  \item Think Python: Chapters 8, 9, 10, 11, 12
+  \item String methods: \url{http://docs.python.org/library/stdtypes.html#string-methods}
+  \item Dive Into Python: Chapter 3
 \end{itemize}
 
 Do:
@@ -1126,9 +912,11 @@ Do:
     \begin{description}
         \item[strings:] ex5, ex6, ex7, ex8, ex9, ex10
         \item[raw\_input(), sys.argv:] ex12, ex13, ex14 (needed for files)
-        \item[files:] ex15, ex16, ex17 
     \end{description}    
 \end{itemize}
+
+\vfill
+(and any labs you didn't finish in class)
 
 \end{frame}
 
