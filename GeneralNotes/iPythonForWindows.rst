@@ -62,7 +62,7 @@ or typing ``ipython`` on the command line (DOS box)
 I recommend making a desktop shortcut and putting that in the target line.
 
 It brings up a commandline console with some initial text about
-resources available via commands, and the Ipython prompt:
+resources available via commands, and the Ipython prompt::
 
   IN [1]:
 

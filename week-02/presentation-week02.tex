@@ -1,0 +1,1137 @@
+\documentclass{beamer}
+%\usepackage[latin1]{inputenc}
+\usetheme{Warsaw}
+\title[Intro to Python: Week 1]{Introduction  to Python\\ Functions, Modules, and Sequences}
+\author{Christopher Barker}
+\institute{UW Continuing Education}
+\date{October 8, 2013}
+
+\usepackage{listings}
+\usepackage{hyperref}
+
+\begin{document}
+
+% ---------------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}
+\frametitle{Table of Contents}
+%\tableofcontents[currentsection]
+  \tableofcontents
+\end{frame}
+
+
+\section{Review/Questions}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Review of Previous Class}
+
+\begin{itemize}
+  \item Values and Types
+  \item Expressions
+  \item Intro to functions
+\end{itemize}
+
+\end{frame}
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Lightning Talks}
+
+\vfill
+{\LARGE Lightning talks today:}
+
+\vfill
+{\Large
+Jo-Anne Antoun 
+
+\vfill
+Omer Onen 
+
+\vfill
+Ryan Small
+
+\vfill
+Catherine Warren 
+}
+\vfill
+
+\end{frame}
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Homework review}
+
+  \vfill
+  {\Large Homework Questions? }
+
+  \vfill
+  {\Large My Solution}
+
+  \vfill
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Stuff brought up by homework}
+
+  \vfill
+  {\Large Bytecode and \verb|*.pyc| }
+
+  \vfill
+  {\Large Please send me code:
+    \begin{itemize}
+      \item{enclosed in an email}
+      \item{with your name at the beginning of the filename: \verb|chris_problem1.py|}
+    \end{itemize}
+  }
+
+  \vfill
+  {\Large PEP 8}
+
+  \vfill
+  {\Large Repeating variable names in nested loops}
+
+
+\end{frame}
+
+
+\section{Quick Intro to Basics}
+
+\begin{frame}[fragile]{Basics}
+
+\vfill
+{\Large It turns out you can't really do much at all without at least a container type, conditionals and looping...}
+\vfill
+
+\end{frame}
+
+\begin{frame}[fragile]{if}
+
+{\Large When you need to make a decision:}
+
+\begin{verbatim}
+if x > 500:
+    print "x is big!"
+else:
+    print "x is small"
+\end{verbatim}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{lists}
+
+\vfill
+{\Large A way to store a bunch of stuff in order}
+
+\vfill
+{\large ``array'' in other languages}
+
+\vfill
+\begin{verbatim}
+a_list = [2,3,5,9]
+
+a_list_of_strings = ['this', 'that', 'the', 'other']
+\end{verbatim}
+
+\vfill
+
+\end{frame}
+
+\begin{frame}[fragile]{tuples}
+
+\vfill
+{\Large Another way to store an ordered list of things}
+
+\vfill
+\begin{verbatim}
+a_tuple = (2,3,4,5)
+
+a_list_of_strings = ('this', 'that', 'the', 'other')
+\end{verbatim}
+
+\vfill
+{\Large Often interchangeable with lists, but not always...}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{for}
+
+{\Large When you need to do something to everything in a sequence}
+
+\vfill
+\begin{verbatim}
+>> a_list = [2,3,5,9]
+
+>> for item in a_list:
+>>     print item
+2
+3
+5
+9
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{range and for}
+
+{\Large When you need to do something a set number of times}
+
+\vfill
+\begin{verbatim}
+>>> range(4)
+[0, 1, 2, 3]
+>>> for i in range(6):
+...     print "*",
+... 
+* * * * * *
+>>> 
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{intricacies}
+
+\vfill
+{\Large This is enough to get you started.}
+
+\vfill
+{\Large Each of these have intricacies special to python}
+
+\vfill
+{\Large We'll get to those over the next couple classes}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{More on Functions}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Functions: review}
+
+{\Large Defining a function:}
+
+\begin{verbatim}
+def fun(x, y):
+    z = x+y
+    return z
+\end{verbatim}
+
+{\Large x, y, z are local names}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Functions: local vs. global}
+
+\begin{verbatim}
+x = 32
+def fun(y, z):
+    print x, y, z
+
+fun(3,4)
+
+32 3 4
+\end{verbatim}
+{\large x is global, y and z local}
+
+\vfill
+{\Large Use global variables mostly for constants}
+
+\end{frame}
+
+
+%----------------------------------
+\begin{frame}[fragile]{Recursion}
+
+\vfill
+{\Large￼Recursion is calling a function from itself.}
+
+\vfill
+{\Large￼Max stack depth, function call overhead.}
+
+\vfill
+{\Large￼Because of these two(?), recursion isn't used {\bf that} often in Python.}
+
+\vfill
+(demo: factorial)
+\end{frame}
+
+%----------------------------------
+\begin{frame}[fragile]{Tuple Unpacking}
+
+{\Large Remember: \verb| x,y = 3,4| ?}
+
+\vfill
+{\Large Really ``tuple unpacking'': \verb| (x, y) = (3, 4)|}
+
+\vfill
+{\Large This works in function arguments, too:}
+
+\begin{verbatim}
+>>> def a_fun( (a, b), (c, d) ):
+...     print a, b, c, d
+... 
+>>> t, u = (3,4), (5,6)
+>>> 
+>>> a_fun(t, u)
+3 4 5 6
+\end{verbatim}
+(demo)
+\end{frame}
+
+
+%----------------------------------
+\begin{frame}[fragile]{Lab: more with functions}
+
+{\Large write a function that:}
+\begin{itemize}
+  \item copnutes the distance between two points:\\
+        dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )\\
+        using tuple unpacking...
+  \item Take some code with functions, add this to each function:\\
+        \verb|print locals()|
+  \item Computes the Fiboacci series with a recursive function:\\
+  f(1) = 1\\
+  f(n) = f(n-1) + f(n-2)\\
+  0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Lightning Talks}
+
+\vfill
+{\LARGE Lightning Talks:}
+
+\vfill
+{\Large Jo-Anne Antoun }
+
+\vfill
+{\Large Omer Onen }
+
+\vfill
+\end{frame}
+
+
+
+%##########################
+\section{Conditionals}
+
+%-------------------------------
+\begin{frame}[fragile]{if}
+
+{\Large Making Decisions...}
+\begin{verbatim}
+if a:
+    print 'a'
+elif b:
+    print 'b'
+elif c:
+    print 'c'
+else:
+    print 'that was unexpected'
+\end{verbatim}
+
+\end{frame}
+
+
+%-------------------------------
+\begin{frame}[fragile]{if}
+
+{\Large Making Decisions...}
+\begin{verbatim}
+if a:
+    print 'a'
+elif b:
+    print 'b'
+
+## versus...
+
+if a:
+    print 'a'
+if b:
+    print 'b'
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{switch?}
+
+\vfill
+{\Large No switch/case in Python}
+
+\vfill
+{\Large use \verb|if..elif..elif..else|}
+
+\vfill
+
+(or a dictionary, or subclassing....)
+\end{frame}
+
+%%-------------------------------
+%\begin{frame}[fragile]{LAB}
+%
+%\begin{itemize}
+%
+%
+%\item some if .. elif, etc. examples
+%
+%\end{itemize}
+%
+%\end{frame}
+
+\section{Boolean Expressions}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Truthiness}
+
+{\Large What is true or false in Python?}
+
+\begin{itemize}
+  \item The Booleans: \verb+True+ and \verb+False+
+  \item ``Something or Nothing''
+\end{itemize}
+
+{\small \url{http://mail.python.org/pipermail/python-dev/2002-April/022107.html} }
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Truthiness}
+
+{\Large ￼Determining Truthiness:}
+
+\vfill
+{\Large \verb+bool(something)+ }
+
+\vfill
+
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Boolean Expressions}
+
+{\Large \verb+False+ }
+
+\begin{itemize}
+  \item \verb+None+
+  \item \verb+False+
+  \item zero of any numeric type, for example, \verb+ 0, 0L, 0.0, 0j+.
+  \item any empty sequence, for example, \verb+ '', (), [] +.
+  \item any empty mapping, for example, \verb+{}+.
+  \item instances of user-defined classes, if the class defines a
+        \verb+__nonzero__() or __len__()+ method, when that method
+        returns the integer zero or bool value \verb+False+.
+\end{itemize}
+
+\url{http://docs.python.org/library/stdtypes.html}
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Boolean Expressions}
+
+{ \Large￼Avoid: }
+
+\vspace{0.1in}
+\verb+if xx == True:+
+
+\vfill
+{ \Large￼Use: }
+
+\vspace{0.1in}
+\verb+if xx:+
+
+\vfill
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Boolean Expressions}
+
+{\Large ``Shortcutting''}
+
+\begin{verbatim}
+                  if x is false, 
+x or y               return y,
+                     else return x
+
+                  if x is false,
+x and y               return  x
+                      else return y
+
+                  if x is false,
+not x               return True,
+                    else return False 
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Boolean Expressions}
+
+{\Large Stringing them together}
+
+\begin{verbatim}
+￼ a or b or c or d
+
+a and b and c and d  
+\end{verbatim}
+
+{\Large The first value that defines the result is returned}
+
+\vfill
+(demo)
+\end{frame}
+
+
+%---------------------------------------------
+\begin{frame}[fragile]{Boolean returns}
+
+{\Large From CodingBat}
+\vfill
+\begin{verbatim}
+def sleep_in(weekday, vacation):
+    if weekday == True and vacation == False:
+        return False
+    else:
+        return True
+\end{verbatim}
+
+\end{frame}
+
+
+%---------------------------------------------
+\begin{frame}[fragile]{Boolean returns}
+
+{\Large From CodingBat}
+
+%\begin{verbatim}
+%def makes10(a, b):
+%    return a == 10 or b == 10 or a+b == 10
+%\end{verbatim}
+
+\begin{verbatim}
+def sleep_in(weekday, vacation):
+    return not (weekday == True and vacation == False)
+\end{verbatim}
+
+or
+
+\begin{verbatim}
+def sleep_in(weekday, vacation):
+    return (not weekday) or vacation
+\end{verbatim}
+
+
+\end{frame}
+
+
+% -------------------------------------------
+\begin{frame}[fragile]{bools are ints?}
+
+{\Large bool types are subclasses of integer}
+
+\begin{verbatim}
+In [1]: True == 1
+Out[1]: True
+
+In [2]: False == 0
+Out[2]: True  
+\end{verbatim}
+
+{\Large It gets weirder! }
+
+\begin{verbatim}
+In [6]: 3 + True
+Out[6]: 4
+\end{verbatim}
+
+(demo)
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Conditional expression}
+
+{\large A common idiom:}
+\begin{verbatim}
+if something:
+    x = a_value
+else:
+    x = another_value
+\end{verbatim}
+\vfill
+{\large Also, other languages have a ``ternary operator''}\\
+\hspace{0.2in}(C family: \verb|result = a > b ? x : y ;|)
+
+\vfill
+{ \Large \verb|y = 5 if x > 2 else 3| }
+
+\vfill
+{\large PEP 308:}
+(http://www.python.org/dev/peps/pep-0308/)
+
+\end{frame}
+
+
+
+%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\begin{itemize}
+  \item Look up the \verb+%+ operator. What do these do?\\
+    \verb| 10 % 7 == 3 | \\
+    \verb| 14 % 7 == 0 |
+  \item  Write a program that prints the numbers from 1 to 100 inclusive.
+But for multiples of three print ``Fizz'' instead of the number and for the
+multiples of five print ``Buzz''. For numbers which are multiples of both three
+and five print ``FizzBuzz'' instead.
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\vfill
+{\large Re-write a couple CodingBat exercises, using a conditional expression}
+
+
+\vfill
+{\large Re-write a couple CodingBat exercises, returning the direct boolean results}
+
+\vfill
+{\large (use whichever you like, or the ones in: \verb|code/codingbat.rst|)}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Lightning Talks}
+
+{\LARGE Lightning Talks:}
+
+\vfill
+Ryan Small
+
+\vfill
+Catherine Warren 
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Code structure, modules, and namespaces}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Code Structure}
+
+{\Large Python is all about namespaces --  the ``dots'' }
+
+\vspace{0.2in}
+\verb+name.another_name+
+\vspace{0.2in}
+
+the ``dot'' indicates looking for a name in the namespace of the given object.
+
+could be:
+
+\begin{itemize}
+\item name in a module
+\item module in a package
+\item attribute of an object
+\item method of an object
+\end{itemize}
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{indenting and blocks}
+
+{\Large  Indenting determines blocks of code }
+
+\vfill
+\begin{verbatim}
+something:
+    some code
+    some more code
+    another block:
+        code in 
+        that block
+\end{verbatim}
+
+\vfill
+{\Large But you need the colon too...}
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{indenting and blocks}
+
+{\Large  You can put a one-liner after the colon:}
+
+\vfill
+\begin{verbatim}
+In [167]: x = 12
+
+In [168]: if x > 4: print x
+12
+\end{verbatim}
+
+\vfill
+{\Large Only do this if it makes it more readable...}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Spaces and Tabs}
+
+{\Large  An indent can be:}
+\begin{itemize}
+  \item Any number of spaces
+  \item A tab
+  \item tabs and spaces:
+    \begin{itemize}
+      \item A tab is eight spaces (always!)
+      \item Are they eight in your editor?
+    \end{itemize}
+\end{itemize}
+
+\vfill
+{\LARGE Use four spaces -- really!}
+
+\vfill
+(PEP 8)
+
+\end{frame}
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Spaces Elsewhere}
+
+{\Large  Other than indenting -- space doesn't matter}
+
+\vfill
+\begin{verbatim}
+
+x = 3*4+12/func(x,y,z)
+
+x = 3*4 + 12 /   func (x,   y, z) 
+
+\end{verbatim}
+
+\vfill
+{\Large Choose based on readability/coding style}
+
+\vfill
+\center{\LARGE PEP 8}
+
+\end{frame}
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Various Brackets}
+
+{\Large Bracket types:}
+
+\begin{itemize}
+  \item parentheses \verb+( )+
+    \begin{itemize}
+      \item tuple literal: \verb+(1,2,3)+
+      \item function call: \verb+fun( arg1, arg2 )+
+      \item grouping: \verb| (a + b) * c |
+    \end{itemize}
+  \item square brackets \verb+[ ]+
+    \begin{itemize}
+      \item list literal: \verb+[1,2,3]+
+      \item sequence indexing: \verb+a_string[4]+
+    \end{itemize}
+  \item curly brackets \verb+{ }+
+    \begin{itemize}
+      \item dictionary literal: \verb+{"this":3, "that":6}+
+      \item (we'll get to those...)
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+% ************************************
+\section {Sequences}
+
+\begin{frame}[fragile]{Sequences}
+
+{\Large Sequences are ordered collections of objects}
+
+\vfill
+{\Large They can be indexed, sliced, iterated over,...}
+
+\vfill
+{\Large They have a length:  \verb+len(sequence)+}
+
+\vfill
+{\Large Common sequences (Remember Duck Typing?):}
+
+{\Large
+\begin{itemize}
+   \item strings
+   \item tuples
+   \item lists
+\end{itemize}
+}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Indexing}
+
+{\Large square brackets for indexing: \verb+[]+}
+
+\vfill
+{\Large Indexing starts at zero}
+
+\begin{verbatim}
+In [98]: s = "this is a string"
+
+In [99]: s[0]
+Out[99]: 't'
+
+In [100]: s[5]
+Out[100]: 'i'
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Indexing}
+
+{\Large Negative indexes count from the end}
+
+\vfill
+\begin{verbatim}
+In [105]: s = "this is a string"
+
+In [106]: s[-1]
+Out[106]: 'g'
+
+In [107]: s[-6]
+Out[107]: 's'
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Slices}
+
+{\Large Slicing: Pulling a range out of a sequence}
+
+\begin{verbatim}
+sequence[start:finish]  
+
+indexes for which:
+
+start <= i < finish
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Slices}
+\begin{verbatim}
+In [121]: s = "a bunch of words"
+In [122]: s[2]
+Out[122]: 'b'
+
+In [123]: s[6]
+Out[123]: 'h'
+
+In [124]: s[2:6]
+Out[124]: 'bunc'
+
+In [125]: s[2:7]
+Out[125]: 'bunch'
+\end{verbatim}
+
+\end{frame}
+
+
+%-------------------------------
+\begin{frame}[fragile]{Slices}
+
+{\Large the indexes point to the spaces between the items}
+
+\vfill
+\begin{verbatim}
+   X   X   X   X   X   X   X   X
+ |   |   |   |   |   |   |   | 
+ 0   1   2   3   4   5   6   7
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Slices}
+
+{\Large Slicing satisfies nifty properties:
+
+\vfill
+\begin{verbatim}
+len( seq[a:b] ) == b - a
+
+seq[a:b] + seq [b:c] == seq
+
+\end{verbatim}
+
+}
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}[fragile]{Slicing vs. Indexing}
+
+{\Large Indexing returns a single element}
+
+\begin{verbatim}
+In [86]: l
+Out[86]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+In [87]: type(l)
+Out[87]: list
+
+In [88]: l[3]
+Out[88]: 3
+
+In [89]: type( l[3] )
+Out[89]: int
+\end{verbatim}
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}[fragile]{Slicing vs. Indexing}
+
+{\Large Unless it's a string:}
+
+\begin{verbatim}
+In [75]: s = "a string"
+
+In [76]: s[3]
+Out[76]: 't'
+
+In [77]: type(s[3])
+Out[77]: str
+\end{verbatim}
+
+\vfill
+There is no single character type
+
+\end{frame}
+
+
+%-------------------------------
+\begin{frame}[fragile]{Slicing vs. Indexing}
+
+{\Large Slicing returns a sequence:}
+
+\begin{verbatim}
+In [68]: l
+Out[68]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+In [69]: l[2:4]
+Out[69]: [2, 3]
+\end{verbatim}
+
+Even if it's one element long
+
+\begin{verbatim}
+In [70]: l[2:3]
+Out[70]: [2]
+
+In [71]: type(l[2:3])
+Out[71]: list
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Slicing vs. Indexing}
+
+{\Large Indexing out of range produces an error}
+\vfill
+\begin{verbatim}
+In [129]: s = "a bunch of words"
+In [130]: s[17]
+----> 1 s[17]
+IndexError: string index out of range
+\end{verbatim}
+
+\vfill
+{\Large Slicing just gives you what's there}
+
+\begin{verbatim}
+In [131]: s[10:20]
+Out[131]: ' words'
+
+In [132]: s[20:30]
+Out[132]: ''
+\end{verbatim}
+(demo)
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Multiplying and slicing}
+
+{\Large from CodingBat: Warmup-1 -- front3}
+
+\begin{verbatim}
+def front3(str):
+  if len(str) < 3:
+    return str+str+str
+  else:
+    return str[:3]+str[:3]+str[:3]
+\end{verbatim}
+
+{\Large or}
+
+\begin{verbatim}
+def front3(str):
+    return str[:3] * 3
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Slicing}
+
+{\Large from CodingBat: Warmup-1 -- \verb+missing_char+ }
+
+\begin{verbatim}
+def missing_char(str, n):
+  front = str[0:n]
+  l = len(str)-1
+  back = str[n+1:l+1]
+  return front + back
+\end{verbatim}
+
+\begin{verbatim}
+def missing_char(str, n):
+    return str[:n] + str[n+1:]
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Slicing}
+
+{\Large you can skip items, too}
+
+\begin{verbatim}
+In [289]: string = "a fairly long string"
+
+In [290]: string[0:15]
+Out[290]: 'a fairly long s'
+
+In [291]: string[0:15:2]
+Out[291]: 'afil ogs'
+
+In [292]: string[0:15:3]
+Out[292]: 'aallg'
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------
+\begin{frame}[fragile]{Command Line Input}
+
+{\Large \verb|input| evaluates the input:}
+\begin{verbatim}
+In [265]: val = input("a message> ")
+a message> 4.5
+In [266]: type(val)
+Out[266]: float
+\end{verbatim}
+
+{\Large \verb|raw_input| gives you the plain string:}
+\begin{verbatim}
+In [265]: val = input("a message> ")
+a message> 4.5
+In [266]: type(val)
+Out[266]: float
+\end{verbatim}
+
+\vfill
+(demo)
+\end{frame}
+
+
+%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\verb| def count_them(letter): |
+\begin{itemize}
+  \item prompts the user to input a letter
+  \item counts the number of times the given letter is input
+  \item prompts the user for another letter
+  \item continues until the user inputs "x"
+  \item returns the count of the letter input
+\end{itemize}
+
+\verb| def count_letter_in_string(string, letter): |
+\begin{itemize}
+  \item counts the number of instances of the letter in the string
+  \item ends when a period is encountered
+  \item if no period is encountered -- prints "hey, there was no period!"
+\end{itemize}
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{LAB}
+Write some functions that:
+\begin{itemize}
+  \item return a string with the first and last characters exchanged.
+  \item return a string with every other character removed
+  \item return a string with the first and last 4 characters removed, and every other char in between
+  \item return a string reversed (just with slicing)
+  \item return a string with the middle, then last, then first third in a new order
+\end{itemize}
+
+\end{frame}
+
+
+%-------------------------------
+\begin{frame}[fragile]{Homework}
+
+Recommended Reading:
+\begin{itemize}
+  \item Read Think Python: 9, 14
+  \item extra: string methods: \url{http://docs.python.org/library/stdtypes.html#string-methods}
+  \item extra: unicode: \url{http://www.joelonsoftware.com/articles/Unicode.html}
+\end{itemize}
+
+Do:
+\begin{itemize}
+    \item Six more CodingBat exercises. 
+    \item LPTHW: for extra practice with the concepts -- some of:
+    \begin{description}
+        \item[strings:] ex5, ex6, ex7, ex8, ex9, ex10
+        \item[raw\_input(), sys.argv:] ex12, ex13, ex14 (needed for files)
+        \item[files:] ex15, ex16, ex17 
+    \end{description}    
+\end{itemize}
+
+\end{frame}
+
+\end{document}
+
+ 

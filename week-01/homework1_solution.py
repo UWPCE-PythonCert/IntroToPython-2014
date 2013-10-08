@@ -12,12 +12,15 @@ Note also that there is nore than one way to skin a cat -- or code a function
 def print_grid(size):
     """
     print a 2x2 grid with a total size of size
+
+    :param size: total size of grid -- it will be rounded if not onemore than a multiple of 2
     """
     N = 2
-    s = (size-1) / 2 # size of one grid box
+    s = int( (size-1) // 2 ) # size of one grid box
+    print "s:", s
     # top row
-    top = ('+' + ' -'*s)*N + ' +' +'\n'
-    middle = ('|' + ' '*2*s)*N + ' |' + '\n'
+    top = ('+ ' + '- '*s)*N + '+' + '\n'
+    middle = ('| ' + ' '*2*s)*N + '|' + '\n'
 
     row = top + middle*s
 
@@ -29,10 +32,14 @@ def print_grid(size):
 def print_grid2(N, s):
     """
     print a NxN grid with each box of size s
+
+    :param N: number of grid boxes (row and column)
+
+    :param s: size of each grid box
     """
     # top row
-    top = ('+' + ' -'*s)*N + ' +' +'\n'
-    middle = ('|' + ' '*2*s)*N + ' |' + '\n'
+    top = ('+ ' + '- '*s)*N + '+' + '\n'
+    middle = ('| ' + ' '*2*s)*N + '|' + '\n'
 
     row = top + middle*s
 
