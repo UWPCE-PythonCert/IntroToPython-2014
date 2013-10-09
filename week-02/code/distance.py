@@ -7,6 +7,8 @@ A version of TP's distance -- showing tuple unpacking
 
 import math
 
+something = 3
+
 # TP's version:
 def distance(x1, y1, x2, y2):
     dx = x2 - x1
