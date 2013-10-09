@@ -55,7 +55,7 @@ IPython itself:
 
 ipython-1.1.0.win32-py2.7.exe
 
-Run it by double-clicking on C:\Python27\Scripts\ipython.exe
+Run it by double-clicking on ``C:\Python27\Scripts\ipython.exe``
 
 or typing ``ipython`` on the command line (DOS box)
 
