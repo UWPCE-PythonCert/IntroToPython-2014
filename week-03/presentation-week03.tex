@@ -1436,6 +1436,443 @@ else:
 \end{frame}
 
 
+% ##################################
+\section{Dictionaries and Sets}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary}
+
+{\Large Python calls it a \verb|dict| }
+
+\vfill
+{\Large Other languages call it:}
+\begin{itemize}
+  \item dictionary
+  \item associative array
+  \item map
+  \item hash table
+  \item hash
+  \item key-value pair
+\end{itemize}
+
+\vfill
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Constructors}
+
+\begin{verbatim}
+>>> {'key1': 3, 'key2': 5}
+{'key1': 3, 'key2': 5}
+
+>>> dict([('key1', 3),('key2', 5)])
+{'key1': 3, 'key2': 5}
+
+>>> dict(key1=3, key2= 5)
+{'key1': 3, 'key2': 5}
+
+>>> d = {}
+>>> d['key1'] = 3
+>>> d['key2'] = 5
+>>> d
+{'key1': 3, 'key2': 5}
+\end{verbatim}
+% {\Large Which to use depends on the shape of your data}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Indexing}
+
+\begin{verbatim}
+>>> d = {'name': 'Brian', 'score': 42}
+>>> d['score']
+42
+>>> d = {1: 'one', 0: 'zero'}
+>>> d[0]
+'zero'
+>>> d['non-existing key']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'non-existing key'
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Indexing}
+
+{\Large Keys can be any immutable:}
+\begin{itemize}
+  \item numbers
+  \item string
+  \item tuples
+\end{itemize}
+
+\begin{verbatim}
+In [325]: d[3] = 'string'
+In [326]: d[3.14] = 'pi'
+In [327]: d['pi'] = 3.14
+In [328]: d[ (1,2,3) ] = 'a tuple key'
+In [329]: d[ [1,2,3] ] = 'a list key'
+   TypeError: unhashable type: 'list'
+\end{verbatim}
+
+\vfill
+Actually -- any "hashable" type.
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Indexing}
+
+\vfill
+{\Large hash functions convert arbitrarily large data to a small proxy (usually int)
+
+\vfill
+always return the same proxy for the same input
+
+\vfill
+MD5, SHA, etc
+\vfill
+}
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Indexing}
+
+\vfill
+{\Large
+Dictionaries hash the key to an integer proxy and use it to find the key and value
+}
+\vfill
+{\Large
+Key lookup is efficient because the hash function leads directly to a bucket with a very few keys (often just one)
+}
+\vfill
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Indexing}
+
+\vfill
+{\Large
+What would happen if the proxy changed after storing a key?
+}
+\vfill
+{\Large
+Hashability requires immutability}
+\vfill
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Indexing}
+
+\vfill
+{\Large
+
+Key lookup is very efficient
+
+\vfill
+Same average time regardless of size
+}
+
+\vfill
+also... Python name look-ups are implemented with dict:
+
+ --- its highly optimized
+\end{frame} 
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Indexing}
+
+\vfill
+{\Large
+{\center 
+
+key to value
+
+lookup is one way
+
+}}
+\vfill
+{\Large
+{\center 
+
+value to key
+
+requires visiting the whole dict
+
+}}
+
+\vfill
+{\Large
+if you need to check dict values often, create another dict or set (up to you to keep them in sync)
+
+}
+\vfill
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Ordering (not)}
+
+\vfill
+{\Large
+dictionaries have no defined order
+}
+\vfill
+\begin{verbatim}
+In [352]: d = {'one':1, 'two':2, 'three':3}
+
+In [353]: d
+Out[353]: {'one': 1, 'three': 3, 'two': 2}
+
+In [354]: d.keys()
+Out[354]: ['three', 'two', 'one']
+\end{verbatim}
+\vfill
+\end{frame} 
+
+%-------------------------------
+\begin{frame}[fragile]{Dictionary Iterating}
+
+{\Large \verb|for| iterates the keys}
+\vfill
+\begin{verbatim}
+>>> d = {'name': 'Brian', 'score': 42}
+>>> for x in d:
+...   print x
+...
+score name
+\end{verbatim}
+\vfill
+{note the different order...}
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{dict keys and values}
+
+\vfill
+\begin{verbatim}
+>>> d.keys()
+['score', 'name']
+
+>>> d.values()
+[42, 'Brian']
+
+>>> d.items()
+[('score', 42), ('name', 'Brian')]
+\end{verbatim}
+\vfill
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{dict keys and values}
+
+{\Large iterating on everything}
+\vfill
+\begin{verbatim}
+>>> d = {'name': 'Brian', 'score': 42}
+>>> for k, v in d.items():
+...   print "%s: %s" % (k, v)
+...
+score: 42
+name: Brian
+\end{verbatim}
+\vfill
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Dictionary Performance }
+
+\begin{itemize}
+  \item indexing is fast and constant time: O(1)
+  \item x in s cpnstant time: O(1)
+  \item visiting all is proportional to n: O(n)
+  \item inserting is constant time: O(1)
+  \item deleting is constant time: O(1)
+\end{itemize}
+
+\vfill
+\url{ http://wiki.python.org/moin/TimeComplexity}
+
+\end{frame} 
+
+% ----------------------------------------------
+\begin{frame}[fragile]{Dict Comprehensions}
+
+{\Large You can do it with dicts, too:}
+
+\begin{verbatim}
+new_dict = { key:value for variable in a_sequence}
+\end{verbatim}
+
+{\Large same as for loop:}
+
+\begin{verbatim}
+new_dict = {}
+for key in a_list:
+    new_dict[key] = value
+\end{verbatim}
+
+\end{frame} 
+
+% ----------------------------------------------
+\begin{frame}[fragile]{Dict Comprehensions}
+
+{\Large Example}
+
+\begin{verbatim}
+In [340]: { i: "this_%i"%i for i in range(5) }
+Out[340]: {0: 'this_0', 1: 'this_1', 2: 'this_2',
+           3: 'this_3', 4: 'this_4'}
+\end{verbatim}
+
+\vfill
+(not as useful with the dict() constructor...)
+\end{frame} 
+
+% ----------------------------------------------
+\begin{frame}[fragile]{Switch ?}
+
+{\Large How do you spell switch/case in Python?}
+
+\vfill
+{\Large Put the values to switch on in the keys:}
+
+\vfill
+{\Large Functions to call in values:}
+
+\vfill
+demo: sample code (\verb|switch_case.py|)
+\end{frame} 
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{ Sets }
+
+\vfill
+{\Large \verb|set| is an unordered collection of distinct values}
+
+\vfill
+{\Large Essentially a dict with only keys}
+
+\vfill
+
+\end{frame} 
+
+%-------------------------------
+\begin{frame}[fragile]{Set Constructors}
+
+\vfill
+\begin{verbatim}
+>>> set()
+set([])
+>>> set([1, 2, 3])
+set([1, 2, 3])
+# as of 2.7
+>>> {1, 2, 3}
+set([1, 2, 3])
+>>> s = set()
+>>> s.update([1, 2, 3])
+>>> s
+set([1, 2, 3])
+\end{verbatim}
+\vfill
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{ Set Properties}
+
+\vfill
+{\Large \verb|Set| members must be hashable}
+
+\vfill
+{\Large Like dictionary keys -- and for same reason (efficient lookup)}
+
+\vfill
+{\Large No indexing (unordered) }
+
+\vfill
+\begin{verbatim}
+>>> s[1]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'set' object does not support indexing
+\end{verbatim}
+
+\vfill
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{ Set Methods}
+
+\begin{verbatim}
+>> s = set([1])
+>>> s.pop() # an arbitrary member
+1
+>>> s.pop()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'pop from an empty set'
+
+>>> s = set([1, 2, 3])
+>>> s.remove(2)
+>>> s.remove(2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 2
+\end{verbatim}
+
+\vfill
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{ Set Methods}
+
+\begin{verbatim}
+s.isdisjoint(other)
+
+s.issubset(other)
+
+s.union(other, ...)
+
+s.intersection(other, ...)
+
+s.difference(other, ...)
+
+s.symmetric_difference( other, ...)
+\end{verbatim}
+
+\vfill
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{ Frozen Set}
+
+\vfill
+{\Large Also \verb|frozenset|}
+
+\vfill
+{\Large immutable -- for use as a key in a dict\\
+(or another set...)}
+
+\vfill
+\begin{verbatim}
+>>> fs = frozenset((3,8,5))
+>>> fs.add(9)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'frozenset' object has no attribute 'add'
+\end{verbatim}
+
+\vfill
+\end{frame} 
+
+
+
 
 %-------------------------------
 \begin{frame}{LAB}
