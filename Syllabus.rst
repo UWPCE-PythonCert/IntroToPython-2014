@@ -155,7 +155,6 @@ Modules and import
 Conditionals and Boolean expressions
 
 
-
 Week 3: Oct 15
 .................
 
@@ -163,7 +162,7 @@ Sequences: Strings, Tuples, Lists
 
 Iteration, Looping and control flow.
 
-Data types, Dictionaries. Mutability.
+String methods and formatting
 
 
 Week 4: Oct 22
@@ -175,16 +174,17 @@ Unicode.
 
 Files and Text Processing
 
-Data types. Sequences again. Tuples, Lists, Dictionaries. Mutability. Aliasing. List comprehensions
-
+Dictionaries. Mutability.
 
 
 Week 5: Oct 29
 ........................
 
-Argument passing
+Advanced Argument passing
 
-Comprehensions again. More data types: Sets, Arrays
+List Comprehensions
+
+More data types: Sets, Arrays
 
 Testing
 
@@ -204,9 +204,6 @@ More OO -- Inheritance and duck typing
 
 Special methods
 
-Iterators and Generators
-
-Regular expressions
 
 
 Week 8: November 19
@@ -214,11 +211,15 @@ Week 8: November 19
 
 Decorators
 
+Iterators and Generators
+
 Packages and packaging
 
 
 Week 9: December 3
 ....................................
+
+Regular expressions
 
 Profiling, Performance.
 

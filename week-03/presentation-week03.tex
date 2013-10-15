@@ -1,7 +1,7 @@
 \documentclass{beamer}
 %\usepackage[latin1]{inputenc}
 \usetheme{Warsaw}
-\title[Intro to Python: Week 3]{Introduction  to Python\\ Topics}
+\title[Intro to Python: Week 3]{Introduction  to Python\\ Sequences, List, Tuples}
 \author{Christopher Barker}
 \institute{UW Continuing Education}
 \date{October 15, 2013}
@@ -34,6 +34,25 @@
   \item Truthiness
   \item Modules and name spaces
 \end{itemize}
+
+\vfill
+{\large New sublime theme...}
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}{Note about homework}
+
+{\large About a 1/3 of you have been sending me homework to review.}
+
+\vfill
+{\large Which is jsut fine!}
+
+\vfill
+{\large But how do I know if you have learned the material?}
+
+\vfill
+{\large Final Project...}
 
 \end{frame}
 
@@ -73,6 +92,7 @@ Josh Rakita
   {\Large My Solution}
 
   \vfill
+  {\Large Gary's Solution}
 
 \end{frame}
 
@@ -359,50 +379,6 @@ Out[292]: 'aallg'
 
 \end{frame} 
 
-% ---------------------------------------
-\begin{frame}[fragile]{Command Line Input}
-
-{\Large \verb|input| evaluates the input:}
-\begin{verbatim}
-In [265]: val = input("a message> ")
-a message> 4.5
-In [266]: type(val)
-Out[266]: float
-\end{verbatim}
-
-{\Large \verb|raw_input| gives you the plain string:}
-\begin{verbatim}
-In [265]: val = input("a message> ")
-a message> 4.5
-In [266]: type(val)
-Out[266]: float
-\end{verbatim}
-
-\vfill
-(demo)
-\end{frame}
-
-
-%-------------------------------
-\begin{frame}[fragile]{LAB}
-
-\verb| def count_them(letter): |
-\begin{itemize}
-  \item prompts the user to input a letter
-  \item counts the number of times the given letter is input
-  \item prompts the user for another letter
-  \item continues until the user inputs "x"
-  \item returns the count of the letter input
-\end{itemize}
-
-\verb| def count_letter_in_string(string, letter): |
-\begin{itemize}
-  \item counts the number of instances of the letter in the string
-  \item ends when a period is encountered
-  \item if no period is encountered -- prints "hey, there was no period!"
-\end{itemize}
-\end{frame}
-
 %-------------------------------
 \begin{frame}[fragile]{LAB}
 Write some functions that:
@@ -428,7 +404,6 @@ Write some functions that:
 {\large Duane Wright}
 
 \end{frame}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1385,7 +1360,7 @@ for c in letters:
 x = 0
 while True:
     print x
-    if x > 3:
+    if x > 2:
         break
     x = x + 1
 In [216]: run for_while.py
@@ -1393,10 +1368,10 @@ In [216]: run for_while.py
 1
 2
 3
-4
 \end{verbatim}
 
-This is a pretty common idiom
+\vfill
+(This is a pretty common idiom)
 
 \end{frame}
 
@@ -1474,503 +1449,407 @@ else:
 \end{verbatim}
 \end{frame}
 
-
-% ##################################
-\section{Dictionaries and Sets}
+\section{Fun with Strings}
 
 % ---------------------------------------------
-\begin{frame}[fragile]{Dictionary}
+\begin{frame}[fragile]{Strings}
 
-{\Large Python calls it a \verb|dict| }
-
-\vfill
-{\Large Other languages call it:}
-\begin{itemize}
-  \item dictionary
-  \item associative array
-  \item map
-  \item hash table
-  \item hash
-  \item key-value pair
-\end{itemize}
-
-\vfill
-
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Constructors}
+{\Large A string literal creates a string type}
 
 \begin{verbatim}
->>> {'key1': 3, 'key2': 5}
-{'key1': 3, 'key2': 5}
-
->>> dict([('key1', 3),('key2', 5)])
-{'key1': 3, 'key2': 5}
-
->>> dict(key1=3, key2= 5)
-{'key1': 3, 'key2': 5}
-
->>> d = {}
->>> d['key1'] = 3
->>> d['key2'] = 5
->>> d
-{'key1': 3, 'key2': 5}
-\end{verbatim}
-% {\Large Which to use depends on the shape of your data}
-
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Indexing}
-
-\begin{verbatim}
->>> d = {'name': 'Brian', 'score': 42}
->>> d['score']
-42
->>> d = {1: 'one', 0: 'zero'}
->>> d[0]
-'zero'
->>> d['non-existing key']
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-KeyError: 'non-existing key'
+"this is a string"
 \end{verbatim}
 
+{\Large Can also use \verb|str()|}
+
+\begin{verbatim}
+In [256]: str(34)
+Out[256]: '34'
+\end{verbatim}
+{\Large or "back ticks"}
+\begin{verbatim}
+In [258]: `34`
+Out[258]: '34'
+\end{verbatim}
+(demo)
 \end{frame} 
 
 % ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Indexing}
+\begin{frame}[fragile]{The String Type}
 
-{\Large Keys can be any immutable:}
-\begin{itemize}
-  \item numbers
-  \item string
-  \item tuples
-\end{itemize}
+{\Large Lots of nifty methods:}
 
 \begin{verbatim}
-In [325]: d[3] = 'string'
-In [326]: d[3.14] = 'pi'
-In [327]: d['pi'] = 3.14
-In [328]: d[ (1,2,3) ] = 'a tuple key'
-In [329]: d[ [1,2,3] ] = 'a list key'
-   TypeError: unhashable type: 'list'
+s.lower()
+s.upper()
+     ...
+s.capitalize()
+s.swapcase()
+s.title()
 \end{verbatim}
 
-\vfill
-Actually -- any "hashable" type.
+\url{http://docs.python.org/library/stdtypes.html#index-23}
+
 \end{frame} 
 
 % ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Indexing}
+\begin{frame}[fragile]{The String Type}
 
-\vfill
-{\Large hash functions convert arbitrarily large data to a small proxy (usually int)
+{\Large Lots of nifty methods:}
 
-\vfill
-always return the same proxy for the same input
-
-\vfill
-MD5, SHA, etc
-\vfill
-}
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Indexing}
-
-\vfill
-{\Large
-Dictionaries hash the key to an integer proxy and use it to find the key and value
-}
-\vfill
-{\Large
-Key lookup is efficient because the hash function leads directly to a bucket with a very few keys (often just one)
-}
-\vfill
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Indexing}
-
-\vfill
-{\Large
-What would happen if the proxy changed after storing a key?
-}
-\vfill
-{\Large
-Hashability requires immutability}
-\vfill
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Indexing}
-
-\vfill
-{\Large
-
-Key lookup is very efficient
-
-\vfill
-Same average time regardless of size
-}
-
-\vfill
-also... Python name look-ups are implemented with dict:
-
- --- its highly optimized
-\end{frame} 
-
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Indexing}
-
-\vfill
-{\Large
-{\center 
-
-key to value
-
-lookup is one way
-
-}}
-\vfill
-{\Large
-{\center 
-
-value to key
-
-requires visiting the whole dict
-
-}}
-
-\vfill
-{\Large
-if you need to check dict values often, create another dict or set (up to you to keep them in sync)
-
-}
-\vfill
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Ordering (not)}
-
-\vfill
-{\Large
-dictionaries have no defined order
-}
-\vfill
 \begin{verbatim}
-In [352]: d = {'one':1, 'two':2, 'three':3}
-
-In [353]: d
-Out[353]: {'one': 1, 'three': 3, 'two': 2}
-
-In [354]: d.keys()
-Out[354]: ['three', 'two', 'one']
-\end{verbatim}
-\vfill
-\end{frame} 
-
-%-------------------------------
-\begin{frame}[fragile]{Dictionary Iterating}
-
-{\Large \verb|for| iterates the keys}
-\vfill
-\begin{verbatim}
->>> d = {'name': 'Brian', 'score': 42}
->>> for x in d:
-...   print x
+x in s
+s.startswith(x)
+s.endswith(x)
 ...
-score name
+s.index(x)
+s.find(x)
+s.rfind(x)
 \end{verbatim}
-\vfill
-{note the different order...}
-\end{frame}
 
-%-------------------------------
-\begin{frame}[fragile]{dict keys and values}
+\url{http://docs.python.org/library/stdtypes.html#index-23}
 
-\vfill
-\begin{verbatim}
->>> d.keys()
-['score', 'name']
-
->>> d.values()
-[42, 'Brian']
-
->>> d.items()
-[('score', 42), ('name', 'Brian')]
-\end{verbatim}
-\vfill
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{dict keys and values}
-
-{\Large iterating on everything}
-\vfill
-\begin{verbatim}
->>> d = {'name': 'Brian', 'score': 42}
->>> for k, v in d.items():
-...   print "%s: %s" % (k, v)
-...
-score: 42
-name: Brian
-\end{verbatim}
-\vfill
-\end{frame}
+\end{frame} 
 
 % ---------------------------------------------
-\begin{frame}[fragile]{Dictionary Performance }
+\begin{frame}[fragile]{The String Type}
+
+{\Large Lots of nifty methods:}
+
+\begin{verbatim}
+s.split()
+s.join(list)
+...
+s.splitlines()
+\end{verbatim}
+
+\url{http://docs.python.org/library/stdtypes.html#index-23}
+\vfill
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Joining Strings}
+
+{\Large The Join Method:}
+
+\vfill
+\begin{verbatim}
+In [289]: t = ("some", "words","to","join")
+
+In [290]: " ".join(t)
+Out[290]: 'some words to join'
+
+In [291]: ",".join(t)
+Out[291]: 'some,words,to,join'
+
+In [292]: "".join(t)
+Out[292]: 'somewordstojoin'
+\end{verbatim}
+
+\vfill
+(demo -- join)
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{The string module}
+
+{\Large Lots of handy constants, etc.}
+\begin{verbatim}
+string.ascii_letters
+string.ascii_lowercase 
+string.ascii_uppercase  
+string.letters
+string.hexdigits 
+string.whitespace
+string.printable
+string.digits
+string.punctuation      
+\end{verbatim}
+
+\vfill
+(and the string methods -- legacy)
+
+\vfill
+{\small \url{http://docs.python.org/2/library/string.html#module-string} }
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{String Literals}
+
+{\Large Common Escape Sequences}
+\vfill
+\begin{verbatim}
+\\  Backslash (\)   
+\a  ASCII Bell (BEL)  
+\b  ASCII Backspace (BS)  
+\n  ASCII Linefeed (LF)   
+\r  ASCII Carriage Return (CR)  
+\t  ASCII Horizontal Tab (TAB)  
+\ooo  Character with octal value ooo 
+\xhh  Character with hex value hh
+\end{verbatim}
+(\url{http://docs.python.org/release/2.5.2/ref/strings.html})
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Raw Strings}
+
+{\Large Escape Sequences Ignored}
+\vfill
+\begin{verbatim}
+In [408]: print "this\nthat"
+this
+that
+In [409]: print r"this\nthat"
+this\nthat
+\end{verbatim}
+
+{\Large Gotcha:}
+\begin{verbatim}
+In [415]: r"\"
+SyntaxError: EOL while scanning string literal
+\end{verbatim}
+
+\vfill
+(handy for regex, windows paths...)
+\end{frame} 
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Building Strings}
+
+{\Large Please don't do this:
+
+\vfill
+\begin{verbatim}
+'Hello ' + name + '!'
+\end{verbatim}
+}
+\vfill
+(much)
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Character Values}
+
+{\Large Characters in strings are stored as numeric values}
+
+\vfill
+{\large ``ASCII'' values: 1-127}
+
+\vfill
+{\large ``ANSI'' values: 1-255}
+
+
+\vfill
+{\large To get the value:}
+\begin{verbatim}
+In [109]: for i in 'Chris':
+   .....:     print ord(i), 
+67 104 114 105 115
+
+In [110]: for i in (67,104,114,105,115):
+   .....:     print chr(i),
+C h r i s
+\end{verbatim}
+
+\vfill
+(next week: unicode!)
+\end{frame} 
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Building Strings}
+
+{\Large Do this instead:
+
+\vfill
+\begin{verbatim}
+'Hello %s!' % name
+\end{verbatim}
+
+\vfill
+much faster and safer:
+
+\vfill
+easier to modify as code gets complicated
+}
+
+\vfill
+\url{http://docs.python.org/library/stdtypes.html#string-formatting-operations}
+\end{frame} 
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{String Formatting}
+
+{\Large The string format operator: \%}
+
+\begin{verbatim}
+In [261]: "an integer is: %i"%34
+Out[261]: 'an integer is: 34'
+
+In [262]: "a floating point is: %f"%34.5
+Out[262]: 'a floating point is: 34.500000'
+
+In [263]: "a string is: %s"%"anything"
+Out[263]: 'a string is: anything'
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{String Formatting}
+
+{\Large multiple arguments:}
+
+\begin{verbatim}
+In [264]: "the number %s is %i"%('five', 5)
+Out[264]: 'the number five is 5'
+
+In [266]: "the first 3 numbers are: %i, %i, %i"%(1,2,3)
+Out[266]: 'the first 3 numbers are: 1, 2, 3'
+
+\end{verbatim}
+
+\end{frame} 
+
+%-------------------------------
+\begin{frame}[fragile]{String formatting}
+
+{\Large Gotcha}
+
+\begin{verbatim}
+In [127]: "this is a string with %i formatting item"%1 
+Out[127]: 'this is a string with 1 formatting item'
+
+In [128]: "string with %i formatting %s: "%2, "items" 
+TypeError: not enough arguments for format string
+
+# Done right:
+In [131]: "string with %i formatting %s"%(2, "items")
+Out[131]: 'string with 2 formatting items'
+
+In [132]: "string with %i formatting item"%(1,)
+Out[132]: 'string with 1 formatting item' 
+\end{verbatim}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{String formatting}
+
+{\Large Named arguments}
+
+\begin{verbatim}
+'Hello %(name)s!'%{'name':'Joe'}
+'Hello Joe!'
+
+'Hello %(name)s, how are you, %(name)s!' %{'name':'Joe'}
+'Hello Joe, how are you, Joe!'
+\end{verbatim}
+\vfill
+{\Large That last bit is a dictionary (next week) }
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{String formatting}
+
+{\Large The format operator works with string variables, too:}
+
+\begin{verbatim}
+In [45]: s = "%i / %i = %i"
+
+In [46]: a, b = 12, 3
+
+In [47]: s%(a, b, a/b)
+Out[47]: '12 / 3 = 4'
+\end{verbatim}
+\vfill
+So you can dynamically build a format string
+\end{frame}
+
+%-------------------------------
+\begin{frame}[fragile]{Advanced Formatting}
+
+{\Large The format method}
+
+\begin{verbatim}
+In [14]: 'Hello {0} {1}!'.format('Joe', 'Barnes')
+Out[14]: 'Hello Joe Barnes!'
+
+In [12]: 'Hello {name}!'.format(name='Joe')
+Out[12]: 'Hello Joe!'
+\end{verbatim}
+\vfill
+{\Large pick one (probably regular string formatting): \\
+  -- get comfy with it }
+
+\end{frame}
+
+
+%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+{\Large Fun with strings}
 
 \begin{itemize}
-  \item indexing is fast and constant time: O(1)
-  \item x in s cpnstant time: O(1)
-  \item visiting all is proportional to n: O(n)
-  \item inserting is constant time: O(1)
-  \item deleting is constant time: O(1)
+  \item Rewrite: \verb| the first 3 numbers are: %i, %i, %i"%(1,2,3)| \\
+        for an arbitrary number of numbers...
+  \item write a format string that will take:\\
+        \verb|( 2, 123.4567, 10000)| \\
+        and produce: \\
+        \verb|'file_002 :   123.46, 1e+04'|
+  \item Write a (really simple) mail merge program
+  \item ROT13 -- see next slide
 \end{itemize}
 
-\vfill
-\url{ http://wiki.python.org/moin/TimeComplexity}
-
-\end{frame} 
-
-% ----------------------------------------------
-\begin{frame}[fragile]{Dict Comprehensions}
-
-{\Large You can do it with dicts, too:}
-
-\begin{verbatim}
-new_dict = { key:value for variable in a_sequence}
-\end{verbatim}
-
-{\Large same as for loop:}
-
-\begin{verbatim}
-new_dict = {}
-for key in a_list:
-    new_dict[key] = value
-\end{verbatim}
-
-\end{frame} 
-
-% ----------------------------------------------
-\begin{frame}[fragile]{Dict Comprehensions}
-
-{\Large Example}
-
-\begin{verbatim}
-In [340]: { i: "this_%i"%i for i in range(5) }
-Out[340]: {0: 'this_0', 1: 'this_1', 2: 'this_2',
-           3: 'this_3', 4: 'this_4'}
-\end{verbatim}
-
-\vfill
-(not as useful with the dict() constructor...)
-\end{frame} 
-
-% ----------------------------------------------
-\begin{frame}[fragile]{Switch ?}
-
-{\Large How do you spell switch/case in Python?}
-
-\vfill
-{\Large Put the values to switch on in the keys:}
-
-\vfill
-{\Large Functions to call in values:}
-
-\vfill
-demo: sample code (\verb|switch_case.py|)
-\end{frame} 
-
-
-% ---------------------------------------------
-\begin{frame}[fragile]{ Sets }
-
-\vfill
-{\Large \verb|set| is an unordered collection of distinct values}
-
-\vfill
-{\Large Essentially a dict with only keys}
-
-\vfill
-
-\end{frame} 
+\end{frame}
 
 %-------------------------------
-\begin{frame}[fragile]{Set Constructors}
+\begin{frame}[fragile]{LAB}
 
 \vfill
-\begin{verbatim}
->>> set()
-set([])
->>> set([1, 2, 3])
-set([1, 2, 3])
-# as of 2.7
->>> {1, 2, 3}
-set([1, 2, 3])
->>> s = set()
->>> s.update([1, 2, 3])
->>> s
-set([1, 2, 3])
-\end{verbatim}
+\Large￼ROT13 encryption
+
 \vfill
+Applying ROT13 to a piece of text merely requires examining its alphabetic
+characters and replacing each one by the letter 13 places further along in
+the alphabet, wrapping back to the beginning if necessary
+
+\begin{itemize}
+  \item Implement rot13 decoding 
+  \item  decode this message: \\
+     \hspace{0.5in} Zntargvp sebz bhgfvqr arne pbeare \\
+     \hspace{0.5in} (from a geo-caching hint)
+\end{itemize}
 
 \end{frame}
 
-% ---------------------------------------------
-\begin{frame}[fragile]{ Set Properties}
-
-\vfill
-{\Large \verb|Set| members must be hashable}
-
-\vfill
-{\Large Like dictionary keys -- and for same reason (efficient lookup)}
-
-\vfill
-{\Large No indexing (unordered) }
-
-\vfill
-\begin{verbatim}
->>> s[1]
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: 'set' object does not support indexing
-\end{verbatim}
-
-\vfill
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{ Set Methods}
-
-\begin{verbatim}
->> s = set([1])
->>> s.pop() # an arbitrary member
-1
->>> s.pop()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-KeyError: 'pop from an empty set'
-
->>> s = set([1, 2, 3])
->>> s.remove(2)
->>> s.remove(2)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-KeyError: 2
-\end{verbatim}
-
-\vfill
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{ Set Methods}
-
-\begin{verbatim}
-s.isdisjoint(other)
-
-s.issubset(other)
-
-s.union(other, ...)
-
-s.intersection(other, ...)
-
-s.difference(other, ...)
-
-s.symmetric_difference( other, ...)
-\end{verbatim}
-
-\vfill
-\end{frame} 
-
-% ---------------------------------------------
-\begin{frame}[fragile]{ Frozen Set}
-
-\vfill
-{\Large Also \verb|frozenset|}
-
-\vfill
-{\Large immutable -- for use as a key in a dict\\
-(or another set...)}
-
-\vfill
-\begin{verbatim}
->>> fs = frozenset((3,8,5))
->>> fs.add(9)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AttributeError: 'frozenset' object has no attribute 'add'
-\end{verbatim}
-
-\vfill
-\end{frame} 
-
-
-
-
-%-------------------------------
-\begin{frame}{LAB}
-
-\vfill
-{\large Some lab excercises}
-\vfill
-
-\end{frame}
-
-
-%-------------------------------
-\begin{frame}{Lightning Talk}
-
-{\LARGE Lightning Talks:}
-
-\vfill
-{\large person 1}
-
-\vfill
-{\large person 2}
-
-\end{frame}
 
 
 %-------------------------------
 \begin{frame}[fragile]{Homework}
 
-Recommended Reading:
+{\Large Recommended Reading:}
 \begin{itemize}
-  \item some stuff
+  \item Think Python: Chapt. 9 -- 14
+  \item Dive Into Python: Chapt. 6
+  \item String methods: \url{http://docs.python.org/library/stdtypes.html#string-methods}
+  \item Extra: unicode: \url{http://www.joelonsoftware.com/articles/Unicode.html}
 \end{itemize}
 
-Do:
+\vfill
+{\Large Do:}
 \begin{itemize}
-    \item Some things    
-\end{itemize}
-
-\end{frame}
-
-%-------------------------------
-\begin{frame}[fragile]{Homework}
-
-Recommended Reading:
-\begin{itemize}
-  \item Read Think Python: 9, 14
-  \item extra: string methods: \url{http://docs.python.org/library/stdtypes.html#string-methods}
-  \item extra: unicode: \url{http://www.joelonsoftware.com/articles/Unicode.html}
-\end{itemize}
-
-Do:
-\begin{itemize}
+    \item Finish the LABs
     \item Six more CodingBat exercises. 
-    \item LPTHW: for extra practice with the concepts -- some of:
-    \begin{description}
-        \item[strings:] ex5, ex6, ex7, ex8, ex9, ex10
-        \item[raw\_input(), sys.argv:] ex12, ex13, ex14 (needed for files)
-        \item[files:] ex15, ex16, ex17 
-    \end{description}    
+    \item LPTHW: for extra practice with the concepts -- some of:\\
+          excercises 5 -- 14
 \end{itemize}
 
 \end{frame}
