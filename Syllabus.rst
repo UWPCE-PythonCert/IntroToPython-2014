@@ -141,7 +141,7 @@ Topics of each week
 
 Week 1: Oct 1
 ..............
-General Introductionto Python and the class. Using the command interpreter and development environment.
+General Introduction to Python and the class. Using the command interpreter and development environment.
 Finding and using the documentation. Getting help. Class github project. Basic data types, functions.
 
 
@@ -168,26 +168,23 @@ String methods and formatting
 Week 4: Oct 22
 ................
 
+Dictionaries, Sets and Mutability.
+
 Exceptions.
 
-Unicode.
-
 Files and Text Processing
-
-Dictionaries. Mutability.
 
 
 Week 5: Oct 29
 ........................
 
+Unicode.
+
 Advanced Argument passing
 
 List Comprehensions
 
-More data types: Sets, Arrays
-
 Testing
-
 
 Week 6: November 5
 ..........................
@@ -205,7 +202,6 @@ More OO -- Inheritance and duck typing
 Special methods
 
 
-
 Week 8: November 19
 ........................
 
@@ -219,10 +215,11 @@ Packages and packaging
 Week 9: December 3
 ....................................
 
+More data types: arrays and the collections module
+
 Regular expressions
 
 Profiling, Performance.
-
 
 Week 10: December 10
 .....................................
