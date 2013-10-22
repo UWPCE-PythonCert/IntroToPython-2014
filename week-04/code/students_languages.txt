@@ -1,0 +1,35 @@
+name: languages
+Barker, Chris:  Python, C, C++, Shell, Fortran, Pascal
+Rakita, Joshua: C#, Java, Python, JavaScript
+Antoun, Jo-Anne: python (GIS)
+AuBuchon, Harlan: python, java
+Bae, Andrew: pascal, C, C#
+Chan, Lawrence: VB
+Chhen, Rithy: PHP, java, JS, SQL
+Colwell, Kimberly: pascal
+Cypret, Luke: bash, python, sql
+Eaton, Sako: php, sql
+Edson, Howard: SQL, C++
+Flagg, Nate: basic, pascal, C, c#, TCL
+Gapasin, Anne-Lynn: java, C#, perl, XML, assembly
+Grizzel, Travis: shell, 
+Ivers, Brandon: ruby, 
+Kang, Dong: Java
+Leblanc, Adam: C, C++, ADA, Java, C#
+Moore, Blane: C++, java 
+Onen, Omer: matlab, skil
+Parrish, Brent: python, JS
+Pei, Guangyu (gary): C, C++
+Petrova, Maria: R, SQL
+Popish, Mario: shell
+Rajagopalan, Sridharan: C, Java, C++
+Salkodu Parameshwar, Maitri: C, C++, bash
+Savage, Nathan: py3, PHP, 
+Schmitz, Brian: javascript, PHP
+Small, Edward (Ryan): python, JS
+Smith, Richard: C++, Java, XML, Shell
+Thach, Phuc: php, JS
+Tran, Linh: html, java
+Warren, Catherine: SQL
+Werner, Steven: javascript
+Wright, Duane:
