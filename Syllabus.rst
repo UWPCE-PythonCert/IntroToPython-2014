@@ -182,7 +182,7 @@ Unicode.
 
 Advanced Argument passing
 
-List Comprehensions
+List and Dict Comprehensions
 
 Testing
 
