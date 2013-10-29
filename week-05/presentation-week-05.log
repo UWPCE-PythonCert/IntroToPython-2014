@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  28 OCT 2013 23:26
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  29 OCT 2013 00:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -994,13 +994,16 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ]
 \openout4 = `presentation-week-05.vrb'.
 
- (./presentation-week-05.vrb) [17
+ (./presentation-week-05.vrb)
+Overfull \vbox (3.35751pt too high) detected at line 328
+ []
+
+[17
 
 ]
 \openout4 = `presentation-week-05.vrb'.
 
-
-(./presentation-week-05.vrb) [18
+ (./presentation-week-05.vrb) [18
 
 ]
 \openout4 = `presentation-week-05.vrb'.
@@ -1012,7 +1015,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 
 (./presentation-week-05.vrb)
-Overfull \vbox (3.35751pt too high) detected at line 381
+Overfull \vbox (3.35751pt too high) detected at line 387
  []
 
 [20
@@ -1033,13 +1036,16 @@ Overfull \hbox (26.13402pt too wide) in paragraph at lines 14--14
 
  (./presentation-week-05.vrb) [22
 
-] [23
+]
+\openout4 = `presentation-week-05.vrb'.
+
+ (./presentation-week-05.vrb) [23
 
 ]
 \openout4 = `presentation-week-05.vrb'.
 
- (./presentation-week-05.vrb)
-[24
+
+(./presentation-week-05.vrb) [24
 
 ]
 \openout4 = `presentation-week-05.vrb'.
@@ -1049,7 +1055,8 @@ Overfull \hbox (26.13402pt too wide) in paragraph at lines 14--14
 ]
 \openout4 = `presentation-week-05.vrb'.
 
- (./presentation-week-05.vrb
+
+(./presentation-week-05.vrb
 Overfull \hbox (3.13927pt too wide) in paragraph at lines 12--12
 []\OT1/cmtt/m/n/10.95 [name for name in dir(__builtin__) if "Error" in name][] 
 
@@ -1110,7 +1117,7 @@ Overfull \hbox (12.95734pt too wide) in paragraph at lines 19--19
  []
 
 )
-Overfull \vbox (7.17966pt too high) detected at line 642
+Overfull \vbox (7.17966pt too high) detected at line 649
  []
 
 [34
@@ -1147,7 +1154,7 @@ ents[]
  []
 
 )
-Overfull \vbox (7.9463pt too high) detected at line 746
+Overfull \vbox (7.9463pt too high) detected at line 753
  []
 
 [39
@@ -1231,11 +1238,11 @@ Overfull \hbox (11.33963pt too wide) in paragraph at lines 11--12
 \tf@snm=\write8
 \openout8 = `presentation-week-05.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 957.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 957.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 975.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 975.
  (./presentation-week-05.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 957.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 957.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 975.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 975.
 Package rerunfilecheck Info: File `presentation-week-05.out' has not changed.
 (rerunfilecheck)             Checksum: 57794C8D06794128DF86960A8EE2428E;263.
 
@@ -1243,12 +1250,12 @@ Package rerunfilecheck Info: File `presentation-week-05.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 957.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 975.
  ) 
 Here is how much of TeX's memory you used:
- 17026 strings out of 493633
- 316445 string characters out of 3143378
- 389869 words of memory out of 3000000
+ 17028 strings out of 493633
+ 316495 string characters out of 3143378
+ 389867 words of memory out of 3000000
  19753 multiletter control sequences out of 15000+200000
  15076 words of font info for 58 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
@@ -1259,10 +1266,10 @@ Here is how much of TeX's memory you used:
 /usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></u
 sr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on presentation-week-05.pdf (48 pages, 180778 bytes).
+Output written on presentation-week-05.pdf (48 pages, 181555 bytes).
 PDF statistics:
- 1634 PDF objects out of 1728 (max. 8388607)
- 1544 compressed objects within 16 object streams
+ 1637 PDF objects out of 1728 (max. 8388607)
+ 1547 compressed objects within 16 object streams
  102 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

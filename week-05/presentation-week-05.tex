@@ -131,7 +131,7 @@ Unicode is a biggie
 Strings vs Unicode 
 }
 
-{\large (\verb|str()| vs. \verb|unicode()| ) }
+{\large (\verb|str()| vs. \verb|bytes()| vs. \verb|unicode()| ) }
 
 \vfill
 {\Large Python 2.x vs 3.x}
@@ -254,6 +254,11 @@ for line in f:
     print repr(line)
 \end{verbatim}
 
+\vfill
+{\Large Encodings Built-in to Python:}
+
+\url{http://docs.python.org/2/library/codecs.html#standard-encodings}
+
 \end{frame}
 
 %-------------------------------
@@ -302,7 +307,8 @@ Howard Edson
 % ---------------------------------------------
 \begin{frame}[fragile]{Keyword arguments}
 
- {\Large You can specify only what you need -- any order}
+ {\Large When defining a function, you can specify only
+         what you need -- any order}
 
 \begin{verbatim}
 In [151]: def fun(x,y=0,z=0):
@@ -324,11 +330,11 @@ In [154]: fun(1, z=3, y=2)
 % ---------------------------------------------
 \begin{frame}[fragile]{Keyword arguments}
 
- {\Large A Common Idiom}
+ {\Large A Common Idiom:}
 
 \vfill
 \begin{verbatim}
-def fun(x,y=None):
+def fun(x, y=None):
     if y is None:
         do_something_different
 
@@ -419,7 +425,7 @@ the keyword arguments are: {'this': 5, 'that': 7}
 \end{frame} 
 
 %-------------------------------
-\begin{frame}{LAB}
+\begin{frame}[fragile]{LAB}
 
 {\Large keyword arguments}
 \begin{itemize}
@@ -432,7 +438,8 @@ the keyword arguments are: {'this': 5, 'that': 7}
       \item visited\_link\_color
   \end{itemize}
   \item Have it print the colors.
-  \item Call it with a couple different parameters set 
+  \item Call it with a couple different parameters set
+  \item Have it pull the parameters out with \verb|*args, **kwargs| 
 \end{itemize}
 
 \end{frame}
@@ -904,6 +911,17 @@ def test_eval(input, expected):
 %-------------------------------
 \begin{frame}[fragile]{LAB}
 
+{\Large First: get pip installed:}
+
+{\small \url{http://www.pip-installer.org/en/latest/installing.html} }
+
+\vfill
+{\Large Second: install nose and/or pytest:}
+
+{\large \verb|pip install nose| -- \verb|pip install pytest|}
+
+
+\vfill
 {\Large Unit Testing:}
 
 \begin{itemize}
