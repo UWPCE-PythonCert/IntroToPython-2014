@@ -1,0 +1,21 @@
+\frametitle {Homework}\par Recommended Reading:
+\begin{itemize}
+  \item TP: ch 15-18
+  \item LPTHW: Ex 40 - 45
+  \item Dive Into Python: chapter 4, 5
+\end{itemize}
+
+Do:
+\begin{itemize}
+  \item Finish (or re-factor) the Labs you didn't finish in class.
+  \item Write some unit tests for a couple of the functions you've
+        written for previous excercises (Or something new)
+  \item Using the unit tests you jsut wrote, refactor the above functions
+        using list and/or dict comprehensions.
+  \item Write a script which does something useful (to you) and reads and writes
+        files. Very, very small scope is good. something useful at work would
+        be great, but no job secrets!
+  \item Start thinking about what you want to do for your project!
+\end{itemize}
+
+
