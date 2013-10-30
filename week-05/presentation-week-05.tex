@@ -469,20 +469,71 @@ for variable in a_list:
 % ----------------------------------------------
 \begin{frame}[fragile]{List comprehensions}
 
+{\Large More than one ``for'':}
+
+\begin{verbatim}
+new_list = \
+[exp for var in a_list for var2 in a_list2]
+\end{verbatim}
+
+{\Large same as nested for loop:}
+
+\begin{verbatim}
+new_list = []
+for var in a_list:
+    for var2 in a_list2:
+        new_list.append(expression)
+\end{verbatim}
+
+{\large You get the ``outer product'', i.e. all combinations.}
+
+\vfill
+(demo)
+\end{frame} 
+
+% ----------------------------------------------
+\begin{frame}[fragile]{List comprehensions}
+
+{\Large Add a conditional:}
+
+\begin{verbatim}
+new_list = \
+[expression for variable in a_list if something_is_true]
+\end{verbatim}
+
+{\Large same as for loop:}
+
+\begin{verbatim}
+new_list = []
+for variable in a_list:
+    if something_is_true:
+        new_list.append(expression)
+\end{verbatim}
+
+\vfill
+(demo)
+\end{frame} 
+
+
+
+% ----------------------------------------------
+\begin{frame}[fragile]{List comprehensions}
+
 {\Large Examples:}
 
 \begin{verbatim}
 In [341]: [x**2 for x in range(3)]
 Out[341]: [0, 1, 4]
 
-In [342]: [x+y for x in range(3) for y in range(2)]
-Out[342]: [0, 1, 1, 2, 2, 3]
+In [342]: [x+y for x in range(3) for y in range(5,7)]
+Out[342]: [5, 6, 6, 7, 7, 8]
 
 In [343]: [x*2 for x in range(6) if not x%2]
 Out[343]: [0, 4, 8]
 \end{verbatim}
 
 \end{frame} 
+
 
 % ----------------------------------------------
 \begin{frame}[fragile]{List comprehensions}
@@ -503,9 +554,45 @@ Out[343]: [0, 4, 8]
 \end{frame} 
 
 % ----------------------------------------------
+\begin{frame}[fragile]{Set Comprehensions}
+
+{\Large You can do it with sets, too:}
+
+\begin{verbatim}
+new_set = { value for variable in a_sequence}
+\end{verbatim}
+
+{\Large same as for loop:}
+
+\begin{verbatim}
+new_set = set()
+for key in a_list:
+    new_set.add(value)
+\end{verbatim}
+
+\end{frame} 
+
+% ----------------------------------------------
+\begin{frame}[fragile]{Set Comprehensions}
+
+
+\begin{verbatim}
+In [33]: s = "a fairly long string"
+
+In [34]: vowels = 'aeiou'
+
+In [35]: { l for l in s if l in vowels}
+Out[35]: set(['a', 'i', 'o'])
+\end{verbatim}
+
+\end{frame} 
+
+
+
+% ----------------------------------------------
 \begin{frame}[fragile]{Dict Comprehensions}
 
-{\Large You can do it with dicts, too:}
+{\Large and with dicts:}
 
 \begin{verbatim}
 new_dict = { key:value for variable in a_sequence}
@@ -533,16 +620,20 @@ Out[340]: {0: 'this_0', 1: 'this_1', 2: 'this_2',
 \end{verbatim}
 
 \vfill
-(not as useful with the dict() constructor...)
+(not as useful with the \verb|dict()| constructor...)
 \end{frame} 
 
 
 %-------------------------------
-\begin{frame}{LAB}
+\begin{frame}[fragile]{LAB}
 
-{\Large List and Dict comprehension lab}
+\vfill
+{\Large List and Dict comprehension lab:}
 
+\vfill
+{\large \verb|code/comprehensions.rst[html]| }
 
+\vfill
 
 \end{frame}
 
