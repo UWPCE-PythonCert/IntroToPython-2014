@@ -36,7 +36,7 @@ Exercises
 
 1.
 ----
-Create a dictionary containing name, city, and cake for Chris from Seattle Edmonds who likes Chocolate. Display the dictionary. Delete the entry for cake. Display the dictionary. Add an entry for fruit with "Mango" and display the dictionary. Display the dictionary keys. Display the dictionary values. Display whether or not cake is a key in the dictionary (i.e. False). Display whether or not "Mango" is a value in the dictionary.
+Create a dictionary containing name, city, and cake for Chris from Seattle who likes Chocolate. Display the dictionary. Delete the entry for cake. Display the dictionary. Add an entry for fruit with "Mango" and display the dictionary. Display the dictionary keys. Display the dictionary values. Display whether or not cake is a key in the dictionary (i.e. False). Display whether or not "Mango" is a value in the dictionary.
 
 2.
 ----
@@ -44,7 +44,7 @@ Using the dict constructor and zip, build a dictionary of numbers from zero to f
 
 3.
 ----
-Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 'n's in each value.
+Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 't's in each value.
 
 4.
 ----
