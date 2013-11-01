@@ -564,7 +564,7 @@ defaults, etc.
 % ---------------------------------------------
 \begin{frame}[fragile]{Python Classes}
 
-{\Large Basic Structure of a real class}
+{\Large Basic Structure of a real class:}
 
 \begin{verbatim}
 class Point(object):
@@ -580,7 +580,8 @@ print "p.x is:", p.x
 print "p.y is:", p.y
 \end{verbatim}
 
-see: \verb|simple_class| in \verb|code| dir
+{\large see: \verb|code/simple_class| }
+
 \end{frame} 
 
 
@@ -715,16 +716,17 @@ class Circle(object):
     def grow(self, factor=2):
         self.diameter = self.diameter * factor
 ...
-
 In [205]: C = Circle(5)
 In [206]: C.grow(2,3)
 
 TypeError: grow() takes at most 2 arguments (3 given)
-
 \end{verbatim}
 
 \vfill
 {\LARGE Huh???? I only gave 2} 
+
+\vfill
+{\Large (``self`` is implicitly passed in...)}
 \end{frame} 
 
 
@@ -732,7 +734,7 @@ TypeError: grow() takes at most 2 arguments (3 given)
 \begin{frame}[fragile]{LAB}
 
 \vfill
-{\Large We had such a good time last class -- we'll do something similar}
+{\Large Let's say you need to render some html...}
 
 \vfill
 {\Large The goal is to build a set of classes that render an html page:
