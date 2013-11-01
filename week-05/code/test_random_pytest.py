@@ -16,7 +16,7 @@ def test_shuffle():
     seq.sort()
     print "seq:", seq
     ## expect this to fail -- so we can see the output.
-    assert seq == range(8)
+    assert seq == range(10)
 
 def test_shuffle_immutable():
     pytest.raises(TypeError, random.shuffle,  (1,2,3) )

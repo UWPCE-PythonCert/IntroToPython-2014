@@ -189,7 +189,7 @@ Testing
 Week 6: November 5
 ..........................
 
-Functional programming, lambda, and callables
+Lambda and Functional programming.
 
 Object oriented programming. Classes, instances, and methods
 
