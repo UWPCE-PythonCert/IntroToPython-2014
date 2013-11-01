@@ -395,7 +395,7 @@ Element(content=None)
 <p>It should have a <tt class="docutils literal">render(file_out, ind = &quot;&quot;)</tt> method that renders the tag
 and the strings in the content.</p>
 <p><tt class="docutils literal">file_out</tt> could be any file-like object (i.e have a <tt class="docutils literal">write()</tt> method ).</p>
-<p><tt class="docutils literal">ind</tt> is a string with the indentation level in it -- i.e the amount that the tag should be indented (for pretty printing). (maybe 4 spaces per level).</p>
+<p><tt class="docutils literal">ind</tt> is a string with the indentation level in it -- i.e the amount that the tag should be indented for pretty printing (maybe 4 spaces per level).</p>
 <p>The amount of indentation should be set by the class attribute: <tt class="docutils literal">indent</tt></p>
 <p>You can test with <tt class="docutils literal">sys.stdout</tt> to print to the console, and/or use a
 <tt class="docutils literal">cStringIO.sStringIO</tt> object to store it in a string - or pass a file</p>
@@ -403,7 +403,7 @@ and the strings in the content.</p>
 </div>
 <div class="section" id="step-2">
 <h1>Step 2:</h1>
-<p>Create a couple subclasses of <tt class="docutils literal">Element</tt>, for a &lt;body&gt; tag and &lt;p&gt; tag. All you should have to do is override the <tt class="docutils literal">tag</tt> class attribute.</p>
+<p>Create a couple subclasses of <tt class="docutils literal">Element</tt>, for a &lt;body&gt; tag and &lt;p&gt; tag. All you should have to do is override the <tt class="docutils literal">tag</tt> class attribute (you may need to add a <tt class="docutils literal">tag</tt> class attribute to the Element class...).</p>
 <p>Now you can render a few different types of element.</p>
 <p>Extend the <tt class="docutils literal">Element.render()</tt> method so that it can render other elements
 inside the tag in addition to strings. Simple recursion should

@@ -278,20 +278,21 @@ In [189]: for f in l:
 %-------------------------------
 \begin{frame}[fragile]{LAB}
 
-
+{\large
 \vfill
 \begin{itemize}
   \item Write a function that returns a list of n functions,
 such that each one, when called, will return the input value,
 incremented by an increasing number.
 
-  \item you should use a for loop, lambda, and a keyword argument
+  \item Use a for loop, \verb|lambda|, and a keyword argument
 \end{itemize}
 
 \vfill
 \verb|code/lambda/lambda_keyword.html(rst)| \\
 \verb|code/lambda/lambda_keyword.py| \\
 \verb|code/lambda/test_lambda_keyword.py| \\
+}
 
 \end{frame}
 
@@ -302,7 +303,7 @@ incremented by an increasing number.
 
 {\LARGE Lightning Talks:}
 
-{\large
+{\l\Large
 \vfill
 Lawrence Chan
 
@@ -444,7 +445,7 @@ In Python: just another namespace.
 
 \vfill
 {\Large 
-``OO languages'' give you some handy tools to make it easier (and safer).
+``OO languages'' give you some handy tools to make it easier (and safer):
 }
 
 \vfill
@@ -745,7 +746,7 @@ TypeError: grow() takes at most 2 arguments (3 given)
 {\Large We'll start with a single class, then add some sub-classes to specialize the behavior}
 
 \vfill
-More details in \verb+week-06/LAB_instuctions.txt+
+More details in \verb|week-06/LAB_instuctions.rst(html)|
 \end{frame}
 
 %%-------------------------------
@@ -761,8 +762,7 @@ More details in \verb+week-06/LAB_instuctions.txt+
   \item the constructor signature should look like:
     \verb|Element(content=None)| where content is a string
   \item It should have an "append" method that can add another string to the content
-  \item It should have a \verb|render(file_out, ind = "")| method that renders the tag
-     and the strings in the content.
+  \item It should have a \verb|render(file_out, ind = "")| method that renders the tag and the strings in the content.
 
      \verb|file_out| could be any file-like object.
 
@@ -780,26 +780,171 @@ More details in \verb+week-06/LAB_instuctions.txt+
 {\LARGE Lightning Talk:  }
 
 \vfill
-{\Huge Brett}
+{\Large Maria Petrova}
 
 \vfill
 }
 \end{frame}
 
+\section{Subclassing/Inheritance}
 
+% ---------------------------------------------
+\begin{frame}[fragile]{Inheritance}
+
+In object-oriented programming (OOP), inheritance is a way to reuse code of
+existing objects, or to establish a subtype from an existing object.
+
+\vfill
+...
+
+\vfill
+objects are defined by classes, classes can inherit attributes and behavior
+from pre-existing classes called base classes, or super classes.
+
+\vfill
+The resulting classes are known as derived classes or subclasses.
+
+\vfill
+(\url{http://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29})
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Subclassing}
+
+A subclass ``inherits'' all the attributes (methods, etc) of the parent class.
+
+\vfill
+You can then change (``override'') some or all of the attributes to change the behavior.
+
+\vfill
+The simplest subclass in Python:
+
+\begin{verbatim}
+class A_Subclass(The_SuperClass):
+    pass
+\end{verbatim}
+
+\vfill
+\verb|A_subclass| now has exactly the same behavior as \verb|The_SuperClass|
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Overriding attributes}
+
+{\Large Overriding is as simple as creating a new attribute with the same name:}
+
+\vfill
+\begin{verbatim}
+class Circle(object):
+    color = "red"
+...
+class NewCircle(Circle):
+    color = "blue"
+>>> nc = NewCircle
+>>> print nc.color
+blue
+\end{verbatim}
+
+\vfill
+all the \verb|self| instances will have the new attribute
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Overriding methods}
+
+{\Large Same thing, but with methods}
+
+\vfill
+\begin{verbatim}
+class Circle(object):
+...
+    def grow(self, factor=2):
+        """grows the circle's diameter by factor"""
+        self.diameter = self.diameter * factor
+...
+class NewCircle(Circle):
+...
+    def grow(self, factor=2):
+        """grows the area by factor..."""
+        self.diameter = self.diameter * math.sqrt(2)
+\end{verbatim}
+all the instances will have the new method
+\end{frame} 
+
+\begin{frame}
+
+{\Large
+``Here's a program design suggestion: whenever you override a method, the
+interface of the new method should be the same as the old.  It should take
+the same parameters, return the same type, and obey the same preconditions
+and postconditions.  If you obey this rule, you will find that any function
+designed to work with an instance of a superclass, like a Deck, will also work
+with instances of subclasses like a Hand or PokerHand.  If you violate this
+rule, your code will collapse like (sorry) a house of cards.''
+}
+\vfill
+\hfill ThinkPython 18.10
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\vfill
+{\Large Step 2:}
+
+\begin{itemize}
+  \item  Create a couple subclasses of \verb|Element|, for a \verb|<body>| tag
+         and \verb|<p>| tag. Simply override the \verb|tag| class attribute.
+  \item Extend the \verb|Element.render()| method so that it can render other
+        elements inside the tag in addition to strings. Simple recursion should
+        do it. i.e. it can call the \verb|render()| method of the elements it
+        contains.
+  \item Deal with the content items that could be either simple strings or
+        \verb|Element|s with \verb|render| methods...there are a few ways to handle that...
+\end{itemize}
+
+\end{frame}
+
+
+%%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\vfill
+{\Large Step 3:}
+
+\begin{itemize}
+  \item Create a \verb|<head>| element -- simple subclass.
+  \item Create a \verb|OneLineTag| subclass of Element:
+        It should override the render method, to render everything on one line --
+        for the simple tags, like:
+    
+        \verb|<title> PythonClass - Class 6 example </title>|
+  \item Create a Title subclass of \verb|OneLineTag| class for the title.
+  
+  \item You should now be able to render an html doc with a head element, with
+       a \verb|title| element in that, and a body element with some \verb|<P>|
+       elements and some text.
+\end{itemize}
+
+\end{frame}
 
 %-------------------------------
 \begin{frame}[fragile]{Homework}
 
-Recommended Reading:
-\begin{itemize}
-  \item some stuff
-\end{itemize}
+{\LARGE Catch Up!}
 
-Do:
-\begin{itemize}
-    \item Some things    
-\end{itemize}
+\vfill
+{\Large Read up on OO if you haven't already}
+
+\vfill
+{\Large Finish today's Lab}
+
+\vfill
+{\Large Finish other Homework / Labs you may not have gotten to.}
+
+\vfill
+{\Large Come up with a project proposal}
 
 \end{frame}
 
