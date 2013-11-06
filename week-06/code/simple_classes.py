@@ -70,12 +70,12 @@ nc = NewCircle
 print nc.color
 
 class CircleR(Circle):
-    def __init__(self. radius):
+    def __init__(self, radius):
         diameter = radius*2
         Circle.__init__(self, diameter)
 
 class CircleR2(Circle):
-    def __init__(self. radius):
+    def __init__(self, radius):
         self.radius = radius    
     
     def get_area(self):
