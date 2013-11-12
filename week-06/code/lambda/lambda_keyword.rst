@@ -52,14 +52,15 @@ In lambda_keyword.py, there is a function defined::
         pass
 
 Clearly, it does nothing. However in test_lambda_keyword.py there are some tests -- you can run them, but they will fail::
-  $ py.test test_lambda_keyword.py 
-  ...
-  ...
-  >   	assert func_list[0](12) == 12
-  E    TypeError: 'NoneType' object has no attribute '__getitem__'
 
-  test_lambda_keyword.py:42: TypeError
-  =========================== 3 failed in 0.04 seconds ===============
+    $ py.test test_lambda_keyword.py 
+    ...
+    ...
+    >   	assert func_list[0](12) == 12
+    E    TypeError: 'NoneType' object has no attribute '__getitem__'
+
+    test_lambda_keyword.py:42: TypeError
+    =========================== 3 failed in 0.04 seconds ===============
 
 
 Your goal is to fill in that funciton so that those tests pass.
