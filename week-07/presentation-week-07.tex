@@ -422,20 +422,40 @@ class Combined(Super1, Super2, Super3):
 \end{verbatim}
 (calls to the super class \verb|__init__| are optional -- case dependent)
 
-\vfill
-{\Large Attribute resolution -- left to right}
-
-\vfill
-( Why would you want to do this? )
-
 \end{frame} 
 
 % ---------------------------------------------
-\begin{frame}[fragile]{mix-ins}
+\begin{frame}[fragile]{multiple inheritance}
 
 \vfill
-{\Large Hierarchies are not always simple}
+{\Large Attribute resolution -- left to right}
+
+\begin{enumerate}
+  \item Is it an instance attribute ?
+  \item Is it a class attribute ?
+  \item Is it a superclass attribute ?
+  \begin{enumerate}
+     \item is the it an attribute of the left-most superclass?
+     \item is the it an attribute of the next superclass?
+     \item ....
+  \end{enumerate}
+  \item Is it a super-superclass attribute ?
+  \item ...also left to right...
+\end{enumerate}
+
 \vfill
+\url{http://python-history.blogspot.com/2010/06/method-resolution-order.html}
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Mix-ins}
+
+{\Large Why would you want to do this?}
+
+\vfill
+{\Large Hierarchies are not always simple:}
+\vfill
+{\large
 \begin{itemize}
   \item Animal
   \begin{itemize}
@@ -449,12 +469,15 @@ class Combined(Super1, Super2, Super3):
     \end{itemize}
   \end{itemize}
 \end{itemize}
+}
+
 \vfill
 {\Large Where do you put a Platypus or an Armadillo?}
 
 \vfill
 {\Large Real World Example: \verb|FloatCanvas|}
 \end{frame} 
+
 
 %-------------------------------
 \begin{frame}[fragile]{New Style classes}
@@ -468,7 +491,7 @@ class Combined(Super1, Super2, Super3):
 {\Large Introduced in python2.2 to better merge types and classes, and clean up a few things}
 
 \vfill
-{\Large differences in method resolution order and properties}
+{\Large Differences in method resolution order and properties}
 
 \vfill
 {\Large Mostly the same, often makes no difference}
@@ -477,6 +500,202 @@ class Combined(Super1, Super2, Super3):
 {\Large My advice: always subclass from \verb|object|}
 
 \end{frame}
+
+%-----------------------------------
+\begin{frame}[fragile]{super}
+
+{\Large \verb|super(): |use it to call a superclass method, rather than exlicitly calling it:}
+
+\vfill
+{\large instead of:}
+\begin{verbatim}
+class A(B):
+    def __init__(self, *args, **kwargs)
+        B.__init__(self, *argw, **kwargs)
+        ...
+\end{verbatim}
+
+{\large You can do:}
+\begin{verbatim}
+class A(B):
+    def __init__(self, *args, **kwargs)
+        super(B, self).__init__(self, *argw, **kwargs)
+        ...
+\end{verbatim}
+
+\vfill
+{\Large There are some subtle differences with multiple inheritance}
+
+\end{frame}
+
+%--------------------------
+\begin{frame}[fragile]{super}
+
+{\Large Two seminal articles about \verb|super()|:}
+
+\vfill
+{\LARGE ``Super Considered Harmful''}\\[0.1in]
+{\Large \hspace{0.5in}-- James Knight }
+
+\vfill
+\url{https://fuhm.net/super-harmful/}
+
+\vfill
+{\LARGE ``super() considered super!''}\\[0.1in]
+{\Large  \hspace{0.5in}--  Raymond Hettinger }
+
+\vfill
+\url{http://rhettinger.wordpress.com/2011/05/26/super-considered-super/}
+\vfill
+
+{\large (Both worth reading....)}
+\end{frame} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Special Methods}
+
+\begin{frame}[fragile]{special methods}
+
+{\Large Python's Duck typing:}
+
+\vfill
+{\Large Defining special (or magic) methods in your classes is how you make
+your class act like standard classes}
+
+\end{frame} 
+
+\begin{frame}[fragile]{special methods}
+
+{\Large We've seen at least one:}
+
+\begin{verbatim}
+__init__
+\end{verbatim}
+
+\vfill
+{\Large it's all in the double underscores...}
+
+\vfill
+{\Large Pronounced ``dunder'' (or ``under-under'') }
+
+\vfill
+{\Large try: \verb|dir(2)| or \verb|dir(list)|}
+
+\end{frame} 
+
+\begin{frame}[fragile]{special methods}
+
+{\Large Emulating Numeric types}
+
+\begin{verbatim}
+object.__add__(self, other)
+object.__sub__(self, other)
+object.__mul__(self, other)
+object.__floordiv__(self, other)
+object.__mod__(self, other)
+object.__divmod__(self, other)
+object.__pow__(self, other[, modulo])
+object.__lshift__(self, other)
+object.__rshift__(self, other)
+object.__and__(self, other)
+object.__xor__(self, other)
+object.__or__(self, other)¶
+\end{verbatim}
+
+\end{frame} 
+
+\begin{frame}[fragile]{special methods}
+
+{\Large Emulating container types:}
+
+\begin{verbatim}
+object.__len__(self)
+object.__getitem__(self, key)
+object.__setitem__(self, key, value)
+object.__delitem__(self, key)
+object.__iter__(self)
+object.__reversed__(self)
+object.__contains__(self, item)
+object.__getslice__(self, i, j)
+object.__setslice__(self, i, j, sequence)
+object.__delslice__(self, i, j)
+\end{verbatim}
+
+\end{frame} 
+
+\begin{frame}[fragile]{special methods}
+
+{\Large Example -- to define addition:}
+
+\begin{verbatim}
+def __add__(self, v):
+    """
+    redefine + as element-wise vector sum
+    """
+    assert len(self) == len(v)
+    return vector([x1 + x2 for x1, x2 in zip(self, v)])
+\end{verbatim}
+
+( from a nice complete example in \verb|code/vector.py| )
+
+\end{frame} 
+
+
+\begin{frame}[fragile]{special methods}
+
+{\Large You get the idea...}
+
+\vfill
+{\Large You only need to define the ones that are going to get used}
+
+\vfill
+{\Large But you probably want to define at least these:}
+
+\vfill
+\verb|object.__str__|: Called by the str() built-in function and by the print statement to compute the “informal” string representation of an object.
+
+\vfill
+\verb|object.__repr__|: Called by the repr() built-in function and by string conversions (reverse quotes) to compute the “official” string representation of an object.
+
+\end{frame} 
+
+\begin{frame}[fragile]{special methods}
+
+\vfill
+{\Large When you want your class to act like a "standard" class in some way:}
+
+\vfill
+{\Large Look up the magic methods you need and define them}
+
+\vfill
+\url{http://docs.python.org/reference/datamodel.html#special-method-names}
+
+\vfill
+\url{http://www.rafekettler.com/magicmethods.html}
+\end{frame} 
+
+\begin{frame}[fragile]{LAB}
+
+{Write a ``Circle'' class:}
+
+Example run code in \verb|test_circle.py|
+
+\begin{verbatim}
+>> c = Circle(radius=3)
+>> c.diameter
+6
+>> c.diameter = 8
+>> c.radius 
+4
+\end{verbatim}
+Use properties so you can keep the radius and diameter in sync
+
+Write an \verb|__add__| method so you can add two circles
+
+(and have \verb|__str__| and \verb|__repr__| methods)
+\end{frame}
+
+
 
 
 %-------------------------------
