@@ -115,7 +115,7 @@ class Circle(object):
         self.diameter = diameter
 ...
 class CircleR(Circle):
-    def __init__(self. radius):
+    def __init__(self, radius):
         diameter = radius*2
         Circle.__init__(self, diameter)
 \end{verbatim}
@@ -126,13 +126,13 @@ exception to: "don't change the method signature" rule.
 % ---------------------------------------------
 \begin{frame}[fragile]{More subclassing}
 
-{\large You can also call the superclass's other methods:}
+{\large You can also call the superclass' other methods:}
 \vfill
 \begin{verbatim}
 class Circle(object):
 ...
     def get_area(self, diameter):
-        return math.pi * diameter / 2.0
+        return math.pi * (diameter/2.0)**2
 
 class CircleR2(Circle):
 ...
@@ -259,7 +259,7 @@ GvR: ``Five Minute Multi- methods in Python'':\\
 %-------------------------------
 \begin{frame}[fragile]{LAB}
 
-{\Large We're going to the rest: steps 4 - 8}
+{\Large We're going to do the rest: steps 4 - 8}
 
 {(Still using \verb|week-06/code/htmlrender|) }
 
@@ -676,26 +676,31 @@ def __add__(self, v):
 
 \begin{frame}[fragile]{LAB}
 
-{Write a ``Circle'' class:}
+{\Large Write a ``Circle'' class:}
 
-Example run code in \verb|test_circle.py|
 
+\vfill
+{\large A Circle has a radius and can compute its area:}
 \begin{verbatim}
->> c = Circle(radius=3)
->> c.diameter
-6
->> c.diameter = 8
->> c.radius 
-4
+In [2]: c = Circle(3)
+In [3]: c.radius
+Out[3]: 3
+In [4]: c.get_area()
+Out[4]: 28.274333882308138
+In [5]: print c
+Circle Object with radius: 3.000000
 \end{verbatim}
-Use properties so you can keep the radius and diameter in sync
+{\large Write an \verb|__add__| method so you can add two circles }
 
-Write an \verb|__add__| method so you can add two circles
+\vfill
+{\large Have \verb|__str__| and \verb|__repr__| methods }
 
-(and have \verb|__str__| and \verb|__repr__| methods)
+\vfill
+{\large Extra credit: also compare them... (\verb|c1 > c2|, etc)}
+
+\vfill
+{\large \verb|code/circle.py| and \verb|code/test_circle.py|}
 \end{frame}
-
-
 
 
 %-------------------------------
@@ -763,33 +768,13 @@ Write an \verb|__add__| method so you can add two circles
   \item By next week, send me a project proposal: can be short and sweet.
   \item Think about how you might use OO:
   \begin{itemize}
-    \item What classes naturally fal out of the problem?
+    \item What classes naturally fall out of the problem?
     \item NOTE: maybe none!
   \end{itemize}
 \end{itemize}
 
 \end{frame}
  
-
-
-
-
-
-%-------------------------------
-\begin{frame}[fragile]{Homework}
-
-Recommended Reading:
-\begin{itemize}
-  \item some stuff
-\end{itemize}
-
-Do:
-\begin{itemize}
-    \item Some things    
-\end{itemize}
-
-\end{frame}
-
 
 \end{document}
 
