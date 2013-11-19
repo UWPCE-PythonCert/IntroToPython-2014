@@ -23,6 +23,34 @@
   \tableofcontents
 \end{frame}
 
+% ---------------------------------------------
+\begin{frame}{Schedule...}
+
+\vfill
+{\Large Three more classes (including this one)!}
+
+\vfill
+{\Large No class next week: Thanksgiving!}
+
+\vfill
+{\Large Extra time to work on project...}
+
+\end{frame}
+
+% ---------------------------------------------
+\begin{frame}{Desktop GUIs}
+
+\vfill
+{\Large A number of people are interested in desktop GUIs}
+
+\vfill
+{\Large No time to cover that in class}
+
+\vfill
+{\Large Extra class T-day week on wxPython?}
+
+\end{frame}
+
 
 \section{Review/Questions}
 
@@ -30,9 +58,9 @@
 \begin{frame}{Review of Previous Class}
 
 \begin{itemize}
-  \item .
-  \item .
-  \item .
+  \item object oriented programing
+  \item classes, subclasses, instances.
+  \item the html generator
 \end{itemize}
 
 \end{frame}
@@ -46,15 +74,14 @@
 
 \vfill
 {\Large
- 
-
+Luke Cypret
 \vfill
-
+Blane Moore
 \vfill
-
+Brent Parrish
 \vfill
-
 }
+
 \vfill
 
 \end{frame}
@@ -74,7 +101,220 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Special Methods}
+\section{Properties}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Accessing Attributes}
+
+{\Large One of the strengths of Python is lack of clutter}
+
+\vfill
+{\Large Simple attributes:}
+
+\begin{verbatim}
+In [5]: class C(object):
+        def __init__(self):
+                self.x = 5
+In [6]: c = C()
+In [7]: c.x
+Out[7]: 5
+In [8]: c.x = 8
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Getter and Setters?}
+
+{\Large What if you need to add behavior later?}
+
+\begin{itemize}
+  \item do some calculation
+  \item check data validity
+  \item keep things in sync
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Getter and Setters?}
+
+\begin{verbatim}
+class C(object):
+    def get_x(self):
+        return self.x
+    def set_x(self, x):
+        self.x = x
+>>> c = C()
+>>> c.get_x()
+>>> 5
+>>> c.set_x(8)
+>>> c.get_x()
+>>> 8
+\end{verbatim}
+{\Large Ugly and verbose -- Java?}
+
+\url{http://dirtsimple.org/2004/12/python-is-not-java.html}
+
+\end{frame} 
+
+\begin{frame}[fragile]{properties}
+
+{ \Large When (and if) you need them: }
+
+\begin{verbatim}
+class C(object):
+    def getx(self):
+        return self._x
+    def setx(self, value):
+        self._x = value
+    def delx(self):
+        del self._x
+    x = property(getx, setx, delx, "docstring")
+\end{verbatim}
+{\Large Interface is still like simple attribute access}
+(\verb|properties_sample.py| )
+\end{frame} 
+
+
+\begin{frame}[fragile]{properties}
+
+{ \Large When (and if) you need them: }
+
+\begin{verbatim}
+class C(object):
+    def getx(self):
+        return self._x
+    def setx(self, value):
+        self._x = value
+    def delx(self):
+        del self._x
+    x = property(getx, setx, delx, "docstring")
+\end{verbatim}
+{\Large Interface is still like simple attribute access}
+(\verb|properties_sample.py| )
+\end{frame} 
+
+\begin{frame}[fragile]{staticmethod}
+
+{ \Large A method that doesn't get self! }
+
+\begin{verbatim}
+class C(object):
+    def add(a, b):
+        return a + b
+    add = staticmethod(add)
+>>> C.add(3,4)
+7
+>>> c = C()
+>>> c.add(2, 2)
+4
+\end{verbatim}
+{\Large When you don't need self -- can be used from either an instance or the class itself}
+
+\vfill
+see: \verb|static_method.py|
+\end{frame} 
+
+\begin{frame}[fragile]{classmethod}
+
+{ \Large Method gets the class object, rather than an instance the first argument}
+
+\begin{verbatim}
+class C(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def a_class_method(klass, y):
+        print "in a_class_method", klass
+        return klass( y, y**2 )
+    a_class_method = classmethod(a_class_method)
+\end{verbatim}
+{\Large When you need the class object rather than an instance -- plays well with subclassing}
+\vfill
+see: \verb|class_method.py|
+\end{frame} 
+
+\begin{frame}[fragile]{dict.fromkeys()}
+
+{ \Large \verb|classmethod| often used for alternate constructors:}
+
+\begin{verbatim}
+>>> d = dict([1,2,3])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: cannot convert dictionary update
+sequence element #0 to a sequence
+>>> d = dict.fromkeys([1,2,3])
+>>> d
+{1: None, 2: None, 3: None}
+\end{verbatim}
+
+\end{frame} 
+
+\begin{frame}[fragile]{dict.fromkeys()}
+
+\begin{verbatim}
+￼class Dict: ...
+    def fromkeys(klass, iterable, value=None):
+        "Emulate dict_fromkeys() in dictobject.c"
+        d = klass()
+        for key in iterable:
+            d[key] = value
+        return d
+    fromkeys = classmethod(fromkeys)
+\end{verbatim}
+
+\vfill
+{\Large See also datetime.datetime.now(), etc....}
+
+\vfill
+For a low-level look:\\
+\url{http://docs.python.org/howto/descriptor.html}
+
+\end{frame} 
+
+\begin{frame}[fragile]{super}
+
+{\Large getting the superclass:}
+\begin{verbatim}
+￼class SafeVehicle(Vehicle):
+    """
+    Safe Vehicle subclass of Vehicle base class...
+    """
+    def __init__(self, position=0, velocity=0, icon='S'):
+        Vehicle.__init__(self, position, velocity, icon)
+\end{verbatim}
+
+{\Large
+\vfill
+not DRY
+\vfill
+also, what if we had a bunch of references to superclass?
+}
+\end{frame} 
+
+\begin{frame}[fragile]{super}
+
+{\Large getting the superclass:}
+\begin{verbatim}
+￼class SafeVehicle(Vehicle):
+    """
+    Safe Vehicle subclass of Vehicle base class
+    """
+    def __init__(self, position=0, velocity=0, icon='S'):
+        super(SafeVehicle, self).__init__(position, velocity, icon)
+\end{verbatim}
+
+\vfill
+{\Large ``super() considered super!'' by Raymond Hettinger }
+\vfill
+\url{http://rhettinger.wordpress.com/2011/05/26/super-considered-super/}
+\vfill
+ maybe use super() for your html subclassing...
+\end{frame} 
+
+\section{Special Attributes}
 
 \begin{frame}[fragile]{special methods}
 
@@ -95,14 +335,13 @@ __init__
 \end{verbatim}
 
 \vfill
-{\Large it's all in the double underscores...}
+{\large it's all in the double underscores...}
 
 \vfill
-{\Large Pronounced ``dunder'' (or ``under-under'') }
+{\large Pronounced ``dunder'' (or ``under-under'') }
 
 \vfill
-{\Large try: \verb|dir(2)| or \verb|dir(list)|}
-
+try: \verb|dir(2)| or \verb|dir(list)|
 \end{frame} 
 
 \begin{frame}[fragile]{special methods}
@@ -198,31 +437,286 @@ def __add__(self, v):
 
 \begin{frame}[fragile]{LAB}
 
-{\Large Write a ``Circle'' class:}
+{Write a ``Circle'' class:}
 
+Example run code in \verb|test_circle.py|
 
-\vfill
-{\large A Circle has a radius and can compute its area:}
 \begin{verbatim}
-In [2]: c = Circle(3)
-In [3]: c.radius
-Out[3]: 3
-In [4]: c.get_area()
-Out[4]: 28.274333882308138
-In [5]: print c
-Circle Object with radius: 3.000000
+>> c = Circle(radius=3)
+>> c.diameter
+6
+>> c.diameter = 8
+>> c.radius 
+4
 \end{verbatim}
-{\large Write an \verb|__add__| method so you can add two circles }
+Use properties so you can keep the radius and diameter in sync
 
-\vfill
-{\large Have \verb|__str__| and \verb|__repr__| methods }
+Write an \verb|__add__| method so you can add two circles
 
-\vfill
-{\large Extra credit: also compare them... (\verb|c1 > c2|, etc)}
-
-\vfill
-{\large \verb|code/circle.py| and \verb|code/test_circle.py|}
+(and have \verb|__str__| and \verb|__repr__| methods)
 \end{frame}
+
+%-------------------------------
+\begin{frame}{Lightning Talk}
+
+{\centering
+
+\vfill
+{\LARGE Lightning Talk:  }
+
+\vfill
+{\Huge Jeffery}
+
+\vfill
+}
+\end{frame}
+
+\section{Iterators / Generators}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Iterators}
+
+{\Large Iterators are one of the main reasons Python code is so readable:}
+
+\begin{verbatim}
+for x in just_about_anything:
+    do_stuff(x)
+\end{verbatim}
+
+{\Large you can loop through anything that satisfies the iterator protocol}
+
+\vfill
+\url{http://docs.python.org/library/stdtypes.html#iterator-types}
+\end{frame} 
+
+\begin{frame}[fragile]{Iterator Protocol}
+
+{\Large An iterator must have the following methods:}
+
+\begin{verbatim}
+iterator.__iter__()
+\end{verbatim}
+
+Return the iterator object itself. This is required to allow both containers
+and iterators to be used with the for and in statements.
+
+\begin{verbatim}
+iterator.next()
+\end{verbatim}
+
+Return the next item from the container. If there are no further items,
+raise the StopIteration exception.
+
+\end{frame} 
+
+
+\begin{frame}[fragile]{Example Iterator}
+
+\begin{verbatim}
+class IterateMe_1(object):
+    def __init__(self, stop=5):
+        self.current = 0
+        self.stop = stop
+    def __iter__(self):
+        return self
+    def next(self):
+        if self.current < self.stop:
+            self.current += 1
+            return self.current
+        else:
+            raise StopIteration
+\end{verbatim}
+
+{\Large This is a simple version of \verb|xrange()|}
+
+\end{frame} 
+
+%------------------------------
+\begin{frame}[fragile]{itertools}
+
+{\Large \verb|itertools| is a collection of utilities that make it easy to
+build an iterator that iterates over sequences in various common ways}
+
+\begin{verbatim}
+
+\end{verbatim}
+
+\url{http://docs.python.org/library/itertools.html}
+
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\begin{itemize}
+  \item  Extend (\verb|iterator_1.py|) to be more like \verb|xrange()| --
+         add three input parameters: \verb|iterator_2(start, stop, step=1)|
+  \item  See what happens if you break out in the middle of the loop:
+\begin{verbatim}
+    it = IterateMe_2(2, 20, 2)
+    for i in it:
+        if i > 10:  break
+        print i
+\end{verbatim}
+And then pick up again:
+\begin{verbatim}
+    for i in it:
+        print i
+\end{verbatim}
+  \item  Does \verb|xrange()| behave the same?\\
+          -- make yours match \verb|xrange()|.
+\end{itemize}
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{generators}
+
+\Large{￼Generators give you the iterator immediately:
+no access to the underlying data ... if it even exists}
+
+\vfill
+{\bf Conceptually:}
+
+iterators are about various ways to loop over data,
+
+generators generate the data on the fly
+
+\vfill
+{\bf Practically:}
+
+You can use either either way (and a generator is one type of iterator)
+
+Generators do some of the book-keeping for you.
+
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{yield}
+
+\Large{￼\verb|yield| is a way to make a quickie generator with a function:}
+
+\begin{verbatim}
+def a_generator_function(params):
+    some_stuff
+    yield(something)
+\end{verbatim}
+
+\vfill
+\Large{ Generator functions "yield" a value, rather than returning it }
+
+\vfill
+\Large{ State is preserved in between yields }
+
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{yield}
+
+\Large{￼A function with \verb|yield| in it is a ``factory'' for a generator}
+
+\vfill
+\Large{￼Each time you call it, you get a new generator:}
+ 
+\vfill
+\begin{verbatim}
+gen_a = a_generator()
+gen_b = a_generator()
+\end{verbatim}
+
+\vfill
+\Large{ Each instance keeps its own state. }
+
+\vfill
+\Large{ Really just a shorthand for an iterator class that does the book keeping for you.}
+
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{yield}
+
+\Large{￼An example: like \verb|xrange()|}
+
+\begin{verbatim}
+def y_xrange(start, stop, step=1):
+    i = start
+    while i < stop:
+        yield i
+        i += step
+\end{verbatim}
+
+\vfill
+{\Large Real World Example: \verb|FloatCanvas|}
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{yield}
+
+{\Large Note:}
+
+\begin{verbatim}
+In [164]: gen = y_xrange(2,6)
+
+In [165]: type(gen)
+Out[165]: generator
+
+In [166]: dir(gen)
+Out[166]: 
+...
+ '__iter__',
+...
+ 'next',
+\end{verbatim}
+{\Large So the generator {\bf is} an iterator}
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{yield}
+
+{\Large A generator function can also be a method in a class}
+
+\vfill
+{\Large More about iterators and generators:}
+
+\vfill
+\url{http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/}
+
+\vfill
+\verb|yield_example.py|
+\end{frame}
+
+%%-------------------------------
+\begin{frame}[fragile]{generator comprehension}
+
+{\Large another way to make a generator:}
+
+\begin{verbatim}
+￼>>> [x * 2 for x in [1, 2, 3]]
+[2, 4, 6]
+>>> (x * 2 for x in [1, 2, 3])
+<generator object <genexpr> at 0x10911bf50>
+>>> for n in (x * 2 for x in [1, 2, 3]):
+...   print n
+... 2 4 6
+\end{verbatim}
+
+\vfill
+More interesting if [1, 2, 3] is also a generator
+
+\end{frame}
+
+
+%%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\vfill
+{\LARGE generator lab:}
+
+\vfill
+{\LARGE \verb| code/primer.py |}
+\vfill
+
+\end{frame}
+
 
 
 %-------------------------------
@@ -303,18 +797,11 @@ Circle Object with radius: 3.000000
 %-------------------------------
 \begin{frame}[fragile]{Homework}
 
+{\LARGE Project Proposals!}
+
 {\Large Finish the labs.}
 
 {\Large You should have a good start on your project by the end of this week}
-
-\end{frame}
- 
-
-
-
-
-%-------------------------------
-\begin{frame}[fragile]{Homework}
 
 Recommended Reading:
 \begin{itemize}
