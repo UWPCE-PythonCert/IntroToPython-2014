@@ -199,27 +199,25 @@ Week 7: November 12
 
 More OO -- Inheritance and duck typing
 
-Special methods
-
 
 Week 8: November 19
 ........................
 
-Decorators
+More OO: Special methods
 
 Iterators and Generators
-
-Packages and packaging
 
 
 Week 9: December 3
 ....................................
 
+Decorators
+
+Packages and packaging
+
 More data types: arrays and the collections module
 
 Regular expressions
-
-Profiling, Performance.
 
 Week 10: December 10
 .....................................

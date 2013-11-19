@@ -1,7 +1,9 @@
 \documentclass{beamer}
 %\usepackage[latin1]{inputenc}
 \usetheme{Warsaw}
-\title[Intro to Python: Week 8]{Introduction  to Python\\ More OO}
+\title[Intro to Python: Week 8]{Introduction  to Python\\
+More OO: Special methods, magic methods\\
+Iterators and Generators}
 \author{Christopher Barker}
 \institute{UW Continuing Education}
 \date{November 19, 2013}
@@ -58,9 +60,9 @@
 \begin{frame}{Review of Previous Class}
 
 \begin{itemize}
-  \item object oriented programing
-  \item classes, subclasses, instances.
-  \item the html generator
+  \item Object oriented programing
+  \item Classes, subclasses, instances.
+  \item The html generator
 \end{itemize}
 
 \end{frame}
@@ -87,18 +89,6 @@ Brent Parrish
 \end{frame}
 
 
-% ---------------------------------------------
-\begin{frame}{Homework review}
-
-  \vfill
-  {\Large Homework Questions? }
-
-  \vfill
-  {\Large My Solution}
-
-  \vfill
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Properties}
@@ -164,35 +154,18 @@ class C(object):
 
 \begin{verbatim}
 class C(object):
-    def getx(self):
+    def _getx(self):
         return self._x
-    def setx(self, value):
+    def _setx(self, value):
         self._x = value
-    def delx(self):
+    def _delx(self):
         del self._x
-    x = property(getx, setx, delx, "docstring")
+    x = property(_getx, _setx, _delx, doc="docstring")
 \end{verbatim}
 {\Large Interface is still like simple attribute access}
-(\verb|properties_sample.py| )
-\end{frame} 
 
-
-\begin{frame}[fragile]{properties}
-
-{ \Large When (and if) you need them: }
-
-\begin{verbatim}
-class C(object):
-    def getx(self):
-        return self._x
-    def setx(self, value):
-        self._x = value
-    def delx(self):
-        del self._x
-    x = property(getx, setx, delx, "docstring")
-\end{verbatim}
-{\Large Interface is still like simple attribute access}
-(\verb|properties_sample.py| )
+\vfill
+(demo: \verb|properties_sample.py| )
 \end{frame} 
 
 \begin{frame}[fragile]{staticmethod}
@@ -218,7 +191,7 @@ see: \verb|static_method.py|
 
 \begin{frame}[fragile]{classmethod}
 
-{ \Large Method gets the class object, rather than an instance the first argument}
+{ \Large Method gets the class object, rather than an instance, as the first argument}
 
 \begin{verbatim}
 class C(object):
@@ -274,49 +247,50 @@ For a low-level look:\\
 
 \end{frame} 
 
-\begin{frame}[fragile]{super}
+\begin{frame}[fragile]{LAB}
 
-{\Large getting the superclass:}
+{\Large Write a simple ``Circle'' class:}
+
+\vfill
 \begin{verbatim}
-￼class SafeVehicle(Vehicle):
-    """
-    Safe Vehicle subclass of Vehicle base class...
-    """
-    def __init__(self, position=0, velocity=0, icon='S'):
-        Vehicle.__init__(self, position, velocity, icon)
+In [13]: c = Circle(radius=3)
+In [15]: c.diameter
+Out[15]: 6
+In [16]: c.diameter = 8
+In [17]: c.radius
+Out[17]: 4.0
+In [18]: c.area
+Out[18]: 50.26548245743669
 \end{verbatim}
-
-{\Large
-\vfill
-not DRY
-\vfill
-also, what if we had a bunch of references to superclass?
-}
-\end{frame} 
-
-\begin{frame}[fragile]{super}
-
-{\Large getting the superclass:}
-\begin{verbatim}
-￼class SafeVehicle(Vehicle):
-    """
-    Safe Vehicle subclass of Vehicle base class
-    """
-    def __init__(self, position=0, velocity=0, icon='S'):
-        super(SafeVehicle, self).__init__(position, velocity, icon)
-\end{verbatim}
+Use properties so you can keep the radius and diameter in sync, and the area computed on the fly.
 
 \vfill
-{\Large ``super() considered super!'' by Raymond Hettinger }
+Extra Credit: use a class method to make an alternate constructor that takes the diameter instead.
 \vfill
-\url{http://rhettinger.wordpress.com/2011/05/26/super-considered-super/}
-\vfill
- maybe use super() for your html subclassing...
-\end{frame} 
+{\large \verb|code/circle.py| and \verb|code/test_circle1.py|}
+\end{frame}
 
+%-------------------------------
+\begin{frame}{Lightning Talks}
+
+\vfill
+{\LARGE Lightning Talk:  }
+
+\vfill
+{\Large Luke Cypret}
+
+\vfill
+{\Large Blane Moore}
+
+\vfill
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Special Attributes}
 
-\begin{frame}[fragile]{special methods}
+\begin{frame}[fragile]{``magic'' methods}
 
 {\Large Python's Duck typing:}
 
@@ -330,18 +304,18 @@ your class act like standard classes}
 
 {\Large We've seen at least one:}
 
-\begin{verbatim}
-__init__
-\end{verbatim}
+\vfill
+{\Large \verb|__init__|}
 
 \vfill
-{\large it's all in the double underscores...}
+{\Large It's all in the double underscores...}
 
 \vfill
-{\large Pronounced ``dunder'' (or ``under-under'') }
+{\Large Pronounced ``dunder'' (or ``under-under'') }
 
 \vfill
-try: \verb|dir(2)| or \verb|dir(list)|
+{\Large try: \verb|dir(2)| or \verb|dir(list)| }
+
 \end{frame} 
 
 \begin{frame}[fragile]{special methods}
@@ -404,8 +378,6 @@ def __add__(self, v):
 
 \begin{frame}[fragile]{special methods}
 
-{\Large You get the idea...}
-
 \vfill
 {\Large You only need to define the ones that are going to get used}
 
@@ -417,6 +389,9 @@ def __add__(self, v):
 
 \vfill
 \verb|object.__repr__|: Called by the repr() built-in function and by string conversions (reverse quotes) to compute the “official” string representation of an object.
+
+\vfill
+(ideally: \verb|eval( repr(something) ) == something| )
 
 \end{frame} 
 
@@ -437,39 +412,44 @@ def __add__(self, v):
 
 \begin{frame}[fragile]{LAB}
 
-{Write a ``Circle'' class:}
+{\Large Extend your ``Circle'' class:}
 
-Example run code in \verb|test_circle.py|
+\vfill
+{\large Add \verb|__str__| and \verb|__repr__| methods }
 
+\vfill
+{\large Write an \verb|__add__| method so you can add two circles }
+
+(and multiply by a number....)
 \begin{verbatim}
->> c = Circle(radius=3)
->> c.diameter
-6
->> c.diameter = 8
->> c.radius 
-4
+In [22]: c1 = Circle(3)
+In [23]: c2 = Circle(4)
+In [24]: c3 = c1+c2
+In [25]: c3.radius
+Out[25]: 7
+In [26]: c1*3
+Out[26]: Circle(9)
 \end{verbatim}
-Use properties so you can keep the radius and diameter in sync
+{\large If you have time: compare them... (\verb|c1 > c2|, etc)}
 
-Write an \verb|__add__| method so you can add two circles
-
-(and have \verb|__str__| and \verb|__repr__| methods)
+\vfill
+{\large \verb|code/circle.py| and \verb|code/test_circle2.py|}
 \end{frame}
 
 %-------------------------------
 \begin{frame}{Lightning Talk}
 
-{\centering
-
 \vfill
 {\LARGE Lightning Talk:  }
 
 \vfill
-{\Huge Jeffery}
+{\Large Brent Parrish}
+
 
 \vfill
-}
+
 \end{frame}
+
 
 \section{Iterators / Generators}
 
@@ -512,6 +492,8 @@ raise the StopIteration exception.
 
 \begin{frame}[fragile]{Example Iterator}
 
+{\Large A simple version of \verb|xrange()|}
+
 \begin{verbatim}
 class IterateMe_1(object):
     def __init__(self, stop=5):
@@ -526,8 +508,6 @@ class IterateMe_1(object):
         else:
             raise StopIteration
 \end{verbatim}
-
-{\Large This is a simple version of \verb|xrange()|}
 
 \end{frame} 
 
@@ -709,109 +689,42 @@ More interesting if [1, 2, 3] is also a generator
 \begin{frame}[fragile]{LAB}
 
 \vfill
-{\LARGE generator lab:}
+{\LARGE Generator lab:}
 
 \vfill
-{\LARGE \verb| code/primer.py |}
-\vfill
-
-\end{frame}
-
-
-
-%-------------------------------
-\begin{frame}{LAB}
-
-\vfill
-{\large Some lab excercises}
-\vfill
-
-\end{frame}
-
-
-%-------------------------------
-\begin{frame}{Lightning Talk}
-
-{\LARGE Lightning Talks:}
-
-\vfill
-{\large person 1}
-
-\vfill
-{\large person 2}
-
-\end{frame}
-
-
-
-%-------------------------------
-\begin{frame}[fragile]{Wrap Up}
-
-{\LARGE Thinking OO in Python:}
-
-\vfill
-{\large Think about what makes sense for your code:}
+{\Large Write a few generators:}
 \begin{itemize}
-  \item {\large Code re-use}
-  \item {\large Clean APIs}
-  \item {\large ... }
+  \item Sum of integers
+  \item Doubler
+  \item Fibonacci sequence
+  \item Prime numbers
 \end{itemize}
 
 \vfill
-{\large Don't be a slave to what OO is \emph{supposed} to look like. }
+{\Large \verb|code/generatorLAB.html|}
 
-\vfill
-{\large Let OO work for you, not \emph{create} work for you}
+{\Large \verb|code/test_generator.py|}
 
 \end{frame}
-
-
-%-------------------------------
-\begin{frame}[fragile]{Wrap Up}
-
-{\Large OO in Python:}
-
-\vfill
-{\Large The Art of Subclassing}: Raymond Hettinger
-
-\vfill
-{\small \url{http://pyvideo.org/video/879/the-art-of-subclassing}}
-
-\vfill
-''classes are for code re-use -- not creating taxonomies''
-
-\vfill
-{\Large Stop Writing Classes}: Jack Diederich
-
-\vfill
-{\small \url{http://pyvideo.org/video/880/stop-writing-classes}}
-
-\vfill
-``If your class has only two methods -- and one of them is \verb|__init__|
--- you don't need a class ''
-\end{frame}
-
 
 
 
 %-------------------------------
 \begin{frame}[fragile]{Homework}
 
+\vfill
+{\Large Finish the labs}
+
+\vfill
 {\LARGE Project Proposals!}
 
-{\Large Finish the labs.}
-
+\vfill
 {\Large You should have a good start on your project by the end of this week}
 
-Recommended Reading:
-\begin{itemize}
-  \item some stuff
-\end{itemize}
+\vfill
+{\Large Remember: no class next week!}
 
-Do:
-\begin{itemize}
-    \item Some things    
-\end{itemize}
+\vfill
 
 \end{frame}
 
