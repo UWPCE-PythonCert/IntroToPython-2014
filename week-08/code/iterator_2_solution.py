@@ -16,18 +16,19 @@ class IterateMe_2(object):
 
     """
     def __init__(self, start, stop, step=1):
-        self.current = start
+        self.current = start-step
         self.stop = stop
         self.step = step
     def __iter__(self):
         return self
     def next(self):
+        self.current += self.step
         if self.current < self.stop:
-            self.current += self.step
             return self.current
         else:
             raise StopIteration
-        
+
+
 if __name__ == "__main__":
     
     print "second version"

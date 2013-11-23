@@ -8,24 +8,26 @@ class IterateMe_3(object):
     """
     Almost a replacement for xrange:
    
-    Iterate_2 (start, stop, step=1)
+    IterateMe_3 (start, stop, step=1)
 
     returns the sequence of numbers from start (inclusive) to stop (exclusive),
     skipping every step number
+
     ( like xrange(start, stop, step) )
     
     This version re-sets itself when used again.
     """
     def __init__(self, start, stop, step=1):
-        self.current = self.start = start
+        self.start = start
         self.stop = stop
         self.step = step
+        self.current = start-step
     def __iter__(self):
-        self.current = self.start
+        self.current = self.start-self.step
         return self
     def next(self):
+        self.current += self.step
         if self.current < self.stop:
-            self.current += self.step
             return self.current
         else:
             raise StopIteration

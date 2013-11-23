@@ -13,13 +13,13 @@ class IterateMe_1(object):
     ( like xrange(4) )
     """
     def __init__(self, stop=5):
-        self.current = 0
-        self.stop = 5
+        self.current = -1
+        self.stop = stop
     def __iter__(self):
         return self
     def next(self):
+        self.current += 1
         if self.current < self.stop:
-            self.current += 1
             return self.current
         else:
             raise StopIteration
