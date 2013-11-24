@@ -1,0 +1,47 @@
+[
+    {
+        "first_name": "Chris", 
+        "last_name": "Barker", 
+        "office_phone": "123-456-7890", 
+        "home_phone": "206-555-1234", 
+        "address": {
+            "line_1": "835 NE 33rd St", 
+            "city": "Seattle", 
+            "state": "WA", 
+            "line_2": "", 
+            "zip": "96543"
+        }, 
+        "cell_phone": "234-567-8901", 
+        "email": "PythonCHB@gmail.com"
+    }, 
+    {
+        "first_name": "Fred", 
+        "last_name": "Jones", 
+        "office_phone": "564-466-7990", 
+        "home_phone": "510-555-1234", 
+        "address": {
+            "line_1": "123 SE 13th St", 
+            "city": "Tacoma", 
+            "state": "WA", 
+            "line_2": "Apt. 43", 
+            "zip": "93465"
+        }, 
+        "cell_phone": "403-561-8911", 
+        "email": "FredJones@some_company.com"
+    }, 
+    {
+        "first_name": "Nancy", 
+        "last_name": "Wilson", 
+        "office_phone": "123-765-9877", 
+        "home_phone": "423-321-9876", 
+        "address": {
+            "line_1": "8654 Walnut St", 
+            "city": "Pasadena", 
+            "state": "CA", 
+            "line_2": "Suite 567", 
+            "zip": "12345"
+        }, 
+        "cell_phone": "432-567-8466", 
+        "email": "Wilson.Nancy@gmail.com"
+    }
+]

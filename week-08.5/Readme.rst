@@ -53,6 +53,16 @@ Documentation and Examples:
 
 There are many sources of documentation and examples. Start with the wxpython.org web site, but here are a few other pointers:
 
+
+Learning wxPython
+-------------------
+
+This page is a good place to start:
+
+http://wiki.wxpython.org/How%20to%20Learn%20wxPython
+
+It has a lot of good hints for getting started.
+
 The Demo
 ----------
 
@@ -73,7 +83,7 @@ http://www.blog.pythonlibrary.org/
 My Demo Collection
 --------------------
 
-Over the years, I've built up a substantial collection of small wxPthon demos. Most of them are tiny stand-alone apps that test or demonstrate individual fetures of teh toolkit. you can find it on gitHub here:
+Over the years, I've built up a substantial collection of small wxPthon demos. Most of them are tiny stand-alone apps that test or demonstrate individual features of teh toolkit. you can find it on gitHub here:
 
 https://github.com/PythonCHB/wxPythonDemos
 
