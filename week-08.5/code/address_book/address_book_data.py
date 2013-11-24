@@ -43,3 +43,12 @@ if __name__ == "__main__":
     print "the data in the address book is:"
     pprint.pprint(a_book.book)
 
+    print 
+    print "the first entry is:"
+    entry = a_book.book[0]
+    print entry
+    print "the first entry's name is:"
+    print entry['first_name'], entry['last_name']
+
+
+

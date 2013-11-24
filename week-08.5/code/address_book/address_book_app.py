@@ -20,6 +20,9 @@ class AddBookFrame(wx.Frame):
         self.add_book = add_book
         self.current_index = 1
 
+        # creae a status bar for messages...
+        self.CreateStatusBar()
+
         # put the Panel on the frame
         self.entryPanel = AddBookForm(add_book.book[self.current_index], self)
 
@@ -27,11 +30,14 @@ class AddBookFrame(wx.Frame):
         menuBar = wx.MenuBar()
         
         fileMenu = wx.Menu()
-        openMenuItem = fileMenu.Append(wx.ID_ANY, "&Open", "Open a file" )
+        openMenuItem = fileMenu.Append(wx.ID_OPEN, "&Open", "Open a file" )
         self.Bind(wx.EVT_MENU, self.onOpen, openMenuItem)
 
-        closeMenuItem = fileMenu.Append(wx.ID_ANY, "&Close", "Close a file" )
+        closeMenuItem = fileMenu.Append(wx.ID_EXIT, "&Close", "Close a file" )
         self.Bind(wx.EVT_MENU, self.onClose, closeMenuItem)
+
+        saveMenuItem = fileMenu.Append(wx.ID_SAVE, "&Save", "Save the file" )
+        self.Bind(wx.EVT_MENU, self.onSave, saveMenuItem)
 
         exitMenuItem = fileMenu.Append(wx.ID_EXIT, "Exit", "Exit the application")
         self.Bind(wx.EVT_MENU, self.onExit, exitMenuItem)
@@ -45,14 +51,6 @@ class AddBookFrame(wx.Frame):
         
     def onOpen(self, evt=None):
         """This method opens an existing file"""
-        print "Open a file: "
-        # Create the dialog. In this case the current directory is forced as the starting
-        # directory for the dialog, and no default file name is forced. This can easily
-        # be changed in your program. This is an 'open' dialog, and allows multiple
-        # file selections as well.
-        #
-        # Finally, if the directory is changed in the process of getting files, this
-        # dialog is set up to change the current working directory to the path chosen.
         dlg = wx.FileDialog(
             self, message="Choose a file",
             defaultDir=os.getcwd(), 
@@ -67,13 +65,15 @@ class AddBookFrame(wx.Frame):
             # This returns a Python list of files that were selected.
             path = dlg.GetPath()
             print "I'd be opening file in onOpen ", path
-            self.add_book.save_to_file( path )
+            self.add_book.load_from_file(filename=path)
         else :
-            print "The file dialog was canceled before anything was selected"
-
-        # Destroy the dialog. Don't do this until you are done with it!
-        # BAD things can happen otherwise!
+            print "The file dialog was canceled"
         dlg.Destroy()
+
+    def onSave(self, evt=None):
+        print "in onSave"
+        self.SetStatusText("Saving: %s"%self.add_book.filename)
+        self.add_book.save_to_file()
 
     def onClose(self, evt=None):
         print "close menu selected"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-The basic from for the address book
+The basic formm for the address book
 
 This gets a Panel to itself
 """

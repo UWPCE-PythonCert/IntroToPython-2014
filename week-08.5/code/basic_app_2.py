@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Example of the very basic, minimal farmework for a wxPython application
+Example of the very basic, minimal framework for a wxPython application
 
 This version adds a basic menu bar with a file menu
 """
