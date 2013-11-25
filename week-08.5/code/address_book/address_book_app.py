@@ -11,20 +11,48 @@ import os
 import wx
 from address_book_data import AddressBook
 from entry_form import AddBookForm
+from switcher import Switcher
         
 class AddBookFrame(wx.Frame):
     def __init__(self, add_book, *args, **kwargs):
+        """
+        initilizer for the main from for the AddressBook app.
+
+        :param add_book: the address book class to manipulate
+        :type add_book: A address_book_data.AddressBook instance
+
+        """
+
         kwargs.setdefault('title', "Micro Address Book")
         wx.Frame.__init__(self, *args, **kwargs)
 
         self.add_book = add_book
-        self.current_index = 1
+        self.current_index = 0
 
         # creae a status bar for messages...
         self.CreateStatusBar()
 
-        # put the Panel on the frame
+        # create the switcher
+        self.switcher = Switcher(self)
+
+        # create the entryPanel
         self.entryPanel = AddBookForm(add_book.book[self.current_index], self)
+        
+        # A new record button:
+        new_record_but = wx.Button(self, label="New Record")
+        new_record_but.Bind(wx.EVT_BUTTON, self.onNewRecord)
+
+        # put them in a Sizer to lay out
+        S = wx.BoxSizer(wx.VERTICAL)
+        S.Add(self.switcher, 0, wx.ALL|wx.ALIGN_CENTER, 4)
+        S.Add(wx.StaticLine(self,style=wx.LI_HORIZONTAL), 0, wx.EXPAND)
+        S.Add(self.entryPanel, 0, wx.ALL|wx.EXPAND, 4)
+        S.Add((1,5))
+        S.Add(wx.StaticLine(self,style=wx.LI_HORIZONTAL), 0, wx.EXPAND)
+        S.Add(new_record_but, 0, wx.ALL|wx.ALIGN_RIGHT, 4)
+
+        self.SetSizerAndFit(S)
+        self.switcher.Fit()
 
         # Build up the menu bar:
         menuBar = wx.MenuBar()
@@ -48,7 +76,28 @@ class AddBookFrame(wx.Frame):
         menuBar.Append(helpMenu, "&Help")
 
         self.SetMenuBar(menuBar)
-        
+    
+    def next(self):
+        """
+        move to the next record in the address book
+        """
+        try:
+            self.entryPanel.entry = self.add_book.book[self.current_index+1]
+            self.current_index+=1
+        except IndexError:
+            print "At end of records...."
+    def previous(self):
+        """
+        move to the next record in the address book
+        """
+        if self.current_index > 0:
+            self.current_index-=1
+            self.entryPanel.entry = self.add_book.book[self.current_index]
+
+    def onNewRecord(self, evt=None):
+        index = self.add_book.new_record()
+        self.entryPanel.entry = self.add_book.book[index]
+
     def onOpen(self, evt=None):
         """This method opens an existing file"""
         dlg = wx.FileDialog(
@@ -105,7 +154,7 @@ if __name__ == "__main__":
 
 
     ## set up the WIT -- to help debug sizers
-#    import wx.lib.inspection
-#    wx.lib.inspection.InspectionTool().Show()
+    import wx.lib.inspection
+    wx.lib.inspection.InspectionTool().Show()
     app.MainLoop()
 

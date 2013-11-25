@@ -13,9 +13,25 @@ class AddressBook(object):
     
     each dict represents an entry in the address book
     """
-    def __init__(self):
-        self.book = [{},]
-        self.filename = "a_book.json"
+    fields = [ "phone", 
+               "first_name",
+               "last_name",
+               "email",
+              ]
+
+    def __init__(self, filename="a_book.json"):
+        self.filename = filename
+        self.book = []
+        self.new_record()
+
+    def new_record(self):
+        """
+        and a new, empty record
+
+        :returns index: index of the new, empty record
+        """
+        self.book.append(dict.fromkeys(self.fields, ""))
+        return len(self.book) - 1
 
     def save_to_file(self, filename=None):
         if filename is not None :

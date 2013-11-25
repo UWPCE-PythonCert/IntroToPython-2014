@@ -17,7 +17,7 @@ class AddBookForm(wx.Panel):
         """
         wx.Panel.__init__(self, *args, **kwargs)
 
-        self.a_entry = a_entry
+        self._entry = a_entry
 
         ## create text boxes to edit: first name, last name, phone, email.
         self.fname_text = wx.TextCtrl(self)
@@ -46,9 +46,9 @@ class AddBookForm(wx.Panel):
         S.Add(self.email_text, flag=wx.EXPAND)
 
         # Save and Cancel buttons
-        sav_but = wx.Button(self, label="Save")
+        sav_but = wx.Button(self, label="Save Record")
         sav_but.Bind(wx.EVT_BUTTON, self.onSave)
-        can_but = wx.Button(self, label="Cancel")
+        can_but = wx.Button(self, label="Reset Record")
         can_but.Bind(wx.EVT_BUTTON, self.onCancel)
 
         # a sizer for the buttons:
@@ -74,11 +74,20 @@ class AddBookForm(wx.Panel):
         # restore the form
         self.load_data()
 
+    def _get_entry(self, entry):
+        return self._entry
+
+    def _set_entry(self, entry):
+        self._entry = entry
+        self.load_data()
+
+    entry = property(_get_entry, _set_entry)
+
     def load_data(self):
         """
         load the data into the form from the data dict
         """
-        data = self.a_entry
+        data = self._entry
         self.fname_text.Value = data.setdefault( u'first_name', "" ) 
         self.lname_text.Value = data.setdefault( u'last_name', "" )
         self.phone_text.Value = data.setdefault( u'phone', "" )
@@ -88,7 +97,7 @@ class AddBookForm(wx.Panel):
         """
         save the data from the form from the data dict
         """
-        data = self.a_entry
+        data = self._entry
         data[u'first_name'] = self.fname_text.Value
         data[u'last_name'] = self.lname_text.Value 
         data[u'phone'] = self.phone_text.Value

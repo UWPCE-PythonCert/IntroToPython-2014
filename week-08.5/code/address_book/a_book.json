@@ -1,14 +1,14 @@
 [
     {
-        "phone": "123-456-7890", 
+        "phone": "123-456-8888", 
         "first_name": "Chris", 
         "last_name": "Barker", 
         "email": "PythonCHB@gmail.com"
     }, 
     {
         "phone": "510-555-1234", 
-        "first_name": "Fanabio", 
-        "last_name": "Fabulous", 
+        "first_name": "Fred", 
+        "last_name": "Jones", 
         "email": "FredJones@some_company.com"
     }, 
     {
@@ -16,5 +16,11 @@
         "first_name": "Nancy", 
         "last_name": "Wilson", 
         "email": "Wilson.Nancy@gmail.com"
+    }, 
+    {
+        "phone": "555-555-5555", 
+        "first_name": "Charles", 
+        "last_name": "Dickens", 
+        "email": "chuck@victorian.england.com"
     }
 ]
