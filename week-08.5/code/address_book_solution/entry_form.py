@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 
 """
-The basic form for the address book
+The basic formm for the address book
 
-This is the GUI for editing a single record.
-
+This gets a Panel to itself
 """
 
 import wx
@@ -23,7 +22,8 @@ class AddBookForm(wx.Panel):
         ## create text boxes to edit: first name, last name, phone, email.
         self.fname_text = wx.TextCtrl(self)
         self.lname_text = wx.TextCtrl(self)
-        ## still need phone and email here...
+        self.phone_text = wx.TextCtrl(self)
+        self.email_text = wx.TextCtrl(self)
 
         ## use a FlexGridSizer:
         S = wx.FlexGridSizer(rows=0, cols=2, vgap=8, hgap=8)
@@ -37,6 +37,14 @@ class AddBookForm(wx.Panel):
               wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL)
         S.Add(self.lname_text, flag=wx.EXPAND)
         
+        S.Add(wx.StaticText(self, label="Phone Number:"), 0,
+              wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL)
+        S.Add(self.phone_text, flag=wx.EXPAND)
+        
+        S.Add(wx.StaticText(self, label="Email Address:"), 0,
+              wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL)
+        S.Add(self.email_text, flag=wx.EXPAND)
+
         # Save and Cancel buttons
         sav_but = wx.Button(self, label="Save Record")
         sav_but.Bind(wx.EVT_BUTTON, self.onSave)
@@ -66,14 +74,14 @@ class AddBookForm(wx.Panel):
         # restore the form
         self.load_data()
 
-    ### propery for changing the active record
     def _get_entry(self, entry):
         return self._entry
 
     def _set_entry(self, entry):
         self._entry = entry
         self.load_data()
-    entry = property(_get_entry, _set_entry, doc="dict of record to be edited")
+
+    entry = property(_get_entry, _set_entry)
 
     def load_data(self):
         """
@@ -82,14 +90,18 @@ class AddBookForm(wx.Panel):
         data = self._entry
         self.fname_text.Value = data.setdefault( u'first_name', "" ) 
         self.lname_text.Value = data.setdefault( u'last_name', "" )
+        self.phone_text.Value = data.setdefault( u'phone', "" )
+        self.email_text.Value = data.setdefault( u'email', "" )
 
     def save_data(self):
         """
-        save the data from the form to the data dict
+        save the data from the form from the data dict
         """
         data = self._entry
         data[u'first_name'] = self.fname_text.Value
         data[u'last_name'] = self.lname_text.Value 
+        data[u'phone'] = self.phone_text.Value
+        data[u'email'] = self.email_text.Value
 
 
 # I like to have a little test app so it can be run on its own
