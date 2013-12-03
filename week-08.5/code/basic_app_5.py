@@ -89,13 +89,6 @@ class TestFrame(wx.Frame):
 
         self.SetMenuBar(menuBar)
 
-        ## add just a single button:
-        self.theButton = wx.Button(self, label="Push Me")
-        self.theButton.Bind(wx.EVT_BUTTON, self.onButton)
-                                   
-    def onButton(self, evt=None):
-        print "You pushed the button!"
-
     def onClose(self, evt=None):
         print "close menu selected"
         self.file_close()

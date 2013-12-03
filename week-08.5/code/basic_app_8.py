@@ -94,7 +94,7 @@ class MainForm(wx.Panel):
         contents = self.inTextControl.Value
         print "the contents are:", contents
 
-        self.outTextControl.Value = self.inTextControl.Value
+        self.outTextControl.Value = self.inTextControl.Value.upper()
 
 
 class TestFrame(wx.Frame):

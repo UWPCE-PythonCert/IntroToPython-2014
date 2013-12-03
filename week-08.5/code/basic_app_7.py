@@ -57,13 +57,15 @@ class ButtonPanel(wx.Panel):
         ## do the layout
         buttonSizer = wx.BoxSizer(wx.VERTICAL)
         
+        buttonSizer.Add((1,1), 1)    # stretchable space
         buttonSizer.Add(theButton1, 0, wx.GROW | wx.ALL, 4)
         buttonSizer.Add(theButton2, 0, wx.GROW | wx.ALL, 4)
+        buttonSizer.Add((1,1), 3)    # stretchable space
 
         ## need another sizer to get the horizonal placement right:
         mainSizer = wx.BoxSizer(wx.HORIZONTAL)
         mainSizer.Add((1,1), 1)    # stretchable space
-        mainSizer.Add(buttonSizer, 0, wx.ALIGN_LEFT) # the sizer with the buttons in it
+        mainSizer.Add(buttonSizer, 0, wx.GROW) # the sizer with the buttons in it
         mainSizer.Add((1,1), 1)    # stretchable space
 
         self.SetSizer(mainSizer)

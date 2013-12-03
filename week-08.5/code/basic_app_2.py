@@ -63,6 +63,7 @@ class TestFrame(wx.Frame):
 
     def onOpen(self, evt=None):
         print "open menu selected"
+        print evt
         self.app_logic.file_open()
 
     def onClose(self, evt=None):

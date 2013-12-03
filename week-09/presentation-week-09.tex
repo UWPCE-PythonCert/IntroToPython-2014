@@ -1,10 +1,12 @@
 \documentclass{beamer}
 %\usepackage[latin1]{inputenc}
 \usetheme{Warsaw}
-\title[Intro to Python: Week 1]{Introduction  to Python\\ Topics}
+\title[Intro to Python: Week 9]{Introduction  to Python\\ 
+Decorators, Context Managers, \\
+Packages and Packaging}
 \author{Christopher Barker}
 \institute{UW Continuing Education}
-\date{October 15, 2013}
+\date{December 3, 2013}
 
 \usepackage{listings}
 \usepackage{hyperref}
@@ -30,9 +32,10 @@
 \begin{frame}{Review of Previous Class}
 
 \begin{itemize}
-  \item .
-  \item .
-  \item .
+  \item Magic methods
+  \item Iterators
+  \item Generators
+  \item (wxPython)
 \end{itemize}
 
 \end{frame}
@@ -46,12 +49,11 @@
 
 \vfill
 {\Large
- 
 
 \vfill
-
+ Harlan AuBuchon
 \vfill
-
+ Brian Schmitz
 \vfill
 
 }
@@ -61,20 +63,300 @@
 
 
 % ---------------------------------------------
-\begin{frame}{Homework review}
+\begin{frame}{Review}
 
   \vfill
-  {\Large Homework Questions? }
+  {\Large Questions about labs? }
 
   \vfill
-  {\Large My Solution}
+  {\Large My Solutions? }
 
   \vfill
 
 \end{frame}
 
+\begin{frame}[fragile]{A diversion...}
+
+\Large{A number of you are already using \verb|iPython|}
+
+\vfill
+\Large{It's a very useful tool}
+
+\vfill
+\Large{And the \verb|iPython| notebook is even cooler .. paticularly for in-class demos.}
+
+\vfill
+\Large{So I'll use it some today:}
+
+\vfill
+\url{http://ipython.org/ipython-doc/dev/interactive/notebook.html}
+
+
+\end{frame}
+
+
 %########################
-\section{First Section}
+\section{Decorators}
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorators}
+
+{\LARGE Decorators are wrappers around functions}
+
+\vfill
+{\LARGE They let you add code before and after the execution of a function}
+
+\vfill
+{\LARGE Creating a custom version of that function}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorators}
+
+{\LARGE Syntax:}
+
+\vfill
+\begin{verbatim}
+@logged
+def add(a, b):
+    """add() adds things"""
+    return a + b
+\end{verbatim}
+
+\vfill
+{\Large Demo and Motivation: \verb|basic_math.py [ipnb]| }
+
+\vfill
+PEP: \url{http://www.python.org/dev/peps/pep-0318/}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorators}
+
+{\LARGE \verb|@| decorator operator is an abbreviation:}
+
+{\large
+\vfill
+\begin{verbatim}
+@f
+def g:
+    pass
+\end{verbatim}
+
+\vfill
+same as
+
+\vfill
+\begin{verbatim}
+def g:
+    pass
+g = f(g)
+\end{verbatim}
+}
+
+\vfill
+{\Large ``Syntactic Sugar'' -- but really quite nice}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorators}
+
+{\LARGE demo:
+
+\vfill
+\begin{verbatim}
+decorator.py
+\end{verbatim}
+
+}
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorator  examples}
+
+{\LARGE Examples from the stdlib:}
+
+\vfill
+{\Large Does this structure:}
+
+\vfill
+\begin{verbatim}
+def g:
+    pass
+g = f(g)
+\end{verbatim}
+
+\vfill
+
+{\Large look familiar from last class?}
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorator examples}
+
+{\LARGE \verb|staticmethod()|}
+
+\vfill
+\begin{verbatim}
+￼class C(object):
+    def add(a, b):
+        return a + b
+    add = staticmethod(add)
+\end{verbatim}
+
+\vfill
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorator examples}
+
+{\LARGE \verb|staticmethod()|}
+
+\vfill
+{\Large Decorator form:}
+\begin{verbatim}
+￼class C(object):
+    @staticmethod
+    def add(a, b):
+        return a + b
+\end{verbatim}
+
+\vfill
+
+{\LARGE ( and \verb|classmethod| )}
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{examples}
+
+{\LARGE \verb|property()|}
+
+\vfill
+\begin{verbatim}
+￼￼class C(object):
+    def __init__(self):
+        self._x = None
+    def getx(self):
+        return self._x
+    def setx(self, value):
+        self._x = value
+    def delx(self):
+        del self._x
+    x = property(getx, setx, delx,
+                 "I'm the 'x' property.")
+\end{verbatim}
+
+\vfill
+{\large becomes...}
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{Decorator examples}
+
+\begin{verbatim}
+class C(object):
+    def __init__(self):
+        self._x = None
+    @property
+    def x(self):
+        return self._x
+    @x.setter
+    def x(self, value):
+        self._x = value
+    @x.deleter
+    def x(self):
+        del self._x
+\end{verbatim}
+
+\vfill
+{\large Puts the info close to where it is used}
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{examples}
+
+{\LARGE CherryPy}
+
+\vfill
+\begin{verbatim}
+import cherrypy
+class HelloWorld(object):
+    @cherrypy.expose
+    def index(self):
+        return "Hello World!"
+cherrypy.quickstart(HelloWorld())
+\end{verbatim}
+
+\end{frame} 
+
+% ---------------------------------------------
+\begin{frame}[fragile]{examples}
+
+{\LARGE Pyramid}
+
+\vfill
+\begin{verbatim}
+
+@template
+def A_view_function(request)
+   .....
+@json
+def A_view_function(request)
+   ......
+
+
+\end{verbatim}
+
+so you don't need to think about what your view is returning...
+
+\end{frame} 
+
+
+% ---------------------------------------------
+\begin{frame}[fragile]{decorators...}
+
+{\Large For this class:}
+
+\vfill
+{\Large Mostly want to you to know how to use decorators that someone else has written}
+
+\vfill
+{\Large Have a basic idea what they do when you do use them}
+
+\end{frame} 
+
+
+%-------------------------------
+\begin{frame}[fragile]{LAB}
+
+\begin{itemize}
+  \item Re-write the properties from last week's \verb|Circle| class to use the
+        decorator syntax (see a couple slides back for an example)\\
+        (\verb|circle.py| and \verb|test_circle.py|)
+  \vspace{0.5in}
+  \item Write a decorator that can be used to wrap any function that returns a
+        string in a \verb|<p>| element from the html builder from the previous
+        couple classes (the \verb|P Element| subclass).\\
+        (\verb|html_gen.py|)      
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------
+\begin{frame}{Lightning Talk}
+
+{\LARGE Lightning Talk:}
+
+\vfill
+{\large  Harlan AuBuchon}
+
+\end{frame}
+
+
 
 \begin{frame}[fragile]{topic}
 
@@ -101,13 +383,10 @@ sample code
 %-------------------------------
 \begin{frame}{Lightning Talk}
 
-{\LARGE Lightning Talks:}
+{\LARGE Lightning Talk:}
 
 \vfill
-{\large person 1}
-
-\vfill
-{\large person 2}
+{\large   Brian Schmitz}
 
 \end{frame}
 
