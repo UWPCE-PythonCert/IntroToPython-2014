@@ -213,16 +213,13 @@ Week 9: December 3
 
 Decorators
 
+Context Managers
+
 Packages and packaging
-
-More data types: arrays and the collections module
-
-Regular expressions
 
 Week 10: December 10
 .....................................
 
 Persistence / Serialization
 
-Databases and Python
 
