@@ -64,20 +64,119 @@ Course Materials Online
 
 A rendered HTML copy of the slides for this course may be found online at:
 
-http://uwpce-pythoncert.github.io/IntroToPython/session01.html
+http://uwpce-pythoncert.github.io/IntroToPython
 
 Also there are same homework descriptions and supplemental materials.
 
-The source of these materials are in Class gitHub repo:
+The source of these materials are in the class gitHub repo:
 
 https://github.com/UWPCE-PythonCert/IntroToPython
 
 Class email list: We will be using this list to communicate for this class:
 
- programming-in-python@googlegroups.com
+programming-in-python@googlegroups.com
 
-You should have (or will soone) received and email invitation to join
+You should have (or will soon) received and email invitation to join
 the mailing list.
+
+
+Class Structure
+---------------
+
+Class Time:
+
+ *  Some lecture, lots of demos
+ * Lab time: lots of hand-on practice
+ * Lather, Rinse, Repeat.....
+
+Interrupt me with questions -- please!
+
+(Some of the best learning prompted by questions)
+
+Homework:
+----------
+
+* Assigned at each class
+
+* You are adults -- it's up to you to do it
+
+* You can do a gitHub "pull request" if you want us to review it.
+
+* I'll review at the next class
+
+
+Mailing list and Office Hours
+------------------------------
+
+We've set up a google group -- you will all be invited to join::
+
+programming-in-python@googlegroups.com
+
+Office Hours:
+
+I generally will hold "office hours" at a coffee shop for a couple hours each
+weekend.
+
+Nathan can do some as well.
+
+What are good times for you?
+
+
+
+Lightning Talks
+----------------
+
+Lightning Talks:
+
+ * 5 minutes (including setup) - no kidding!
+ * Every student will give one
+ * Purposes: introduce yourself, share interests, also show Python applications
+ * Any topic you like, that is related to Python -- according to you!
+
+We need to schedule them -- let's use Python for that!
+
+
+Python Ecosystem
+-----------------
+
+Python is  Used for:
+
+ * CS education (this course!)
+ * Application scripting (GIS, GNU Radio, Blender...)
+ * Systems administration and "glue"
+ * Web applications (Django etc. etc. etc.)
+ * Scientific/technical computing (a la MATLAB, R, .... )
+ * Software tools (automated software testing, distributed version control, ...)
+ * Research (natural language, graph theory, distributed computing, ...)
+
+An unusually large number of niches -- versatile
+
+.. nextslide::
+
+Used by:
+
+* Beginners
+* Professional software developers, computer system administrators, ...
+* Professionals OTHER THAN computer specialists: biologists, urban planners, ....
+
+An unusually large number of types of users -- versatile
+
+You can be productive in Python WITHOUT full-time immersion!
+
+
+Python Features
+---------------
+
+Gets many things right:
+
+* Readable -- looks nice, makes sense
+* No ideology about best way to program --  object-oriented programming,  functional, etc.
+* No platform preference -- Windows, Mac, Linux, ...
+* Easy to connect to other languages -- C, Fortran - essential for science/math
+* Large standard library
+* Even larger network of external packages
+* Countless conveniences, large and small, make it pleasant to work with
+
 
 What is Python?
 ---------------

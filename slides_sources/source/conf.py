@@ -291,16 +291,8 @@ slide_theme_options = {
             'name': u'Christopher Barker',
             'email': u'PythonCHB@gmail.com',
             'github': u'https://github.com/PythonCHB',
-            'company': u'UW Prof. and Continuing Education Program'
+            'company': u'UW Professional and Continuing Education Program'
         },
-        # {
-        #     'name': u'Dan Hable',
-        #     'email': u'dhable@gmail.com',
-        # #     'twitter': '@crisewing',
-        # #     'www': 'http://crisewing.com',
-        #     'github': u'http://github.com/dhable',
-        #     'company': u''
-        #  },
         # {
         #     'name': 'Cris Ewing',
         #     'twitter': '@crisewing',
