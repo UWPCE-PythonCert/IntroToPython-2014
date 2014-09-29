@@ -23,7 +23,7 @@ In This Course
 
     Lectures:
     ---------
-    
+
     .. toctree::
         :maxdepth: 1
 
@@ -48,7 +48,8 @@ In This Course
 .. rst-class:: credit
 
 These materials copyright Christopher Barker and Cris Ewing, with thanks to
-Jon Jacky and Brian Dorsey for the materials from which these were derived. Licenced under the Creative Commons Attribution-ShareAlike 4.0 International Public License.
+Jon Jacky and Brian Dorsey for the materials from which these were derived.
+Licenced under the Creative Commons Attribution-ShareAlike 4.0 International Public License.
 
 https://creativecommons.org/licenses/by-sa/4.0/legalcode
 

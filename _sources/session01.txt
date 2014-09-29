@@ -36,9 +36,8 @@ Your instructors
 
 .. rst-class:: center large
 
-
-| Dan Hable
-| (dhable at gmail dot com)
+| Nathan Savage
+| (nathansavagemail at gmail dot com)
 |
 
 Who are you?
@@ -57,7 +56,7 @@ Introduction to This Class
 
 .. rst-class:: center large
 
-Python Programming
+Intro to Python
 
 
 Course Materials Online
@@ -65,25 +64,20 @@ Course Materials Online
 
 A rendered HTML copy of the slides for this course may be found online at:
 
-http://codefellows.github.io/sea-f2-python-sept14/
+http://uwpce-pythoncert.github.io/IntroToPython/session01.html
 
-Also there are homework descriptions and supplemental materials.
+Also there are same homework descriptions and supplemental materials.
 
-The source of these materials are in Chris' gitHub repo:
+The source of these materials are in Class gitHub repo:
 
-http://github.com/PythonCHB/codefellows_f2_python
+https://github.com/UWPCE-PythonCert/IntroToPython
 
 Class email list: We will be using this list to communicate for this class:
 
-sea-c25@codefellows.com 
+ programming-in-python@googlegroups.com
 
-**Canvas**:
-
-We will be using Canvas to track your homework submission, but not much else:
-
-https://canvas.instructure.com/courses/881467
-
-You should have received and email invitation to join the class.
+You should have (or will soone) received and email invitation to join
+the mailing list.
 
 What is Python?
 ---------------
@@ -489,73 +483,37 @@ To find packages (and their proper names), you can search the python package ind
 https://pypi.python.org/pypi
 
 
-
-Step 3: Optional -- Virtualenv
--------------------------------
-
-Python packages come in many versions.
-
-Often you need one version for one project, and a different one for another.
-
-`Virtualenv`_ allows you to create isolated environments.
-
-You can then install potentially conflicting software safely.
-
-For this class, this is no big deal, but as you start to work on "real" projects, it can be a key tool.
-
-.. _Virtualenv: http://www.virtualenv.org/
-
-If you want to install it, here are some notes:
-
-`Intro to VirtualEnv <./supplements/virtualenv.html>`_
-
-
 Step 4: Clone Class Repository
 ------------------------------
 
-`gitHub <www.github.com>`_ is an industry-standard system for collaboration on software projects -- particularly open source ones.
-
-We will use it this class to manage submitting and reviewing your work, etc.
-
-**Wait!** Don't have a gitHub account? Set one up now.
+`gitHub <www.github.com>`_ is an industry-standard system for collaboration
+on software projects -- particularly open source ones.
 
 Next, you'll make a copy of the class repository using ``git``.
 
-The canonical copy is in the CodeFellows organization on GitHub:
+The canonical copy is in the UWPCE organization on GitHub:
 
-https://github.com/codefellows/sea-f2-python-sept14
+https://github.com/UWPCE-PythonCert/IntroToPython
 
-Open that URL, and click on the *Fork* button at the top right corner.
+Open that URL, and look for: "HTTPS clone URL"
 
-This will make a copy of this repository in *your* github account.
-
-
-.. nextslide:: Clone Your Fork
-
-From here, you'll want to make a clone of your copy on your local machine.
+You can click in there an copy and paste to get the clone url.
 
 At your command line, run the following commands:
 
 .. code-block:: bash
 
     $ cd your_working_directory_for_the_class
-    $ git clone https://github.com/<yourname>/sea-f2-python-sept14.git
+    $ git clone https://github.com/UWPCE-PythonCert/IntroToPython.git
 
 (you can copy and paste that link from the gitHub page)
-
-If you have an SSH key set up for gitHub, you'll want to do this instead:
-
-.. code-block:: bash
-
-    git@github.com:<yourname>/sea-f2-python-sept14.git
-
-**Remember**, <yourname> should be replaced by your github account name.
 
 
 Step 5: Install Requirements
 ----------------------------
 
-As this is an intro class, we are going to use almost entirely features of standand library. But there are a couple things you may want:
+As this is an intro class, we are going to use almost entirely features
+of standand library. But there are a couple things you may want:
 
 **iPython**
 
@@ -607,7 +565,7 @@ Start it up
     $ipython
 
     $ ipython
-    Python 2.7.6 (v2.7.6:3a1db0d2747e, Nov 10 2013, 00:42:54) 
+    Python 2.7.6 (v2.7.6:3a1db0d2747e, Nov 10 2013, 00:42:54)
     Type "copyright", "credits" or "license" for more information.
 
     IPython 2.0.0 -- An enhanced Interactive Python.
@@ -652,7 +610,7 @@ This is the stuff I use every day:
 
 * tab completion:
 
-  - ``something.<tab>`` 
+  - ``something.<tab>``
 
 * running a python file:
 
@@ -1714,44 +1672,10 @@ exercises in Python programming
 Homework
 ========
 
-Four Tasks by Next Monday
+??? Tasks by Next Week
 
 
 Task 1
-------
-
-**Tell Us About Yourself**
-
-This is a way for you to learn a bit about gitHub, and how you are going to submit most of your homework.
-
-* Create a new folder in the ``students`` folder in the class repository.
-
-  * Create the folder in your clone of your fork of the repository.
-  * Name it with your own name in CamelCase, like: ``ChrisBarker``.
-  * In the folder create one new file, named ``README.md``
-  * In that new file, write up a few paragraphs about yourself.
-
-    * Use proper `markdown`_ syntax. (or `reStructuredText`_)
-    * Include at least two headings, of different levels.
-    * Include at least one link.
-
-.. _markdown: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-.. _reStructuredText: http://docutils.sourceforge.net/rst.html
-
-.. nextslide::
-
-* Using ``git add``, add the new folder and file to your clone of the
-  repository.
-* Using ``git commit``, commit your changes to your clone (write a good commit
-  message). If you later edit your file, don't forget to commit those changes
-  too.
-* Using ``git push``, push your commits to your fork on GitHub.
-* In GitHub's Web UI, make a ``pull request`` to the original CodeFellows
-  repository.
-
-
-Task 2
 ------
 
 **Set Up a Great Dev Environment**
@@ -1761,7 +1685,8 @@ Make sure you have the basics of command line usage down:
 Work through the supplemental tutorials on setting up your
 `Command Line`_ for good development support.
 
-Make sure you've got your editor set up productively -- at the very very least, make sure it does Python indentation well.
+Make sure you've got your editor set up productively -- at the very very
+least, make sure it does Python indentation and syntax coloring well.
 
 **Advanced Editor Setup:**
 
@@ -1780,7 +1705,9 @@ editor.
 .. _SublimeText: supplements/sublime_as_ide.html
 .. _Command Line: supplements/shell.html
 
-Task 3
+Also make sure you've got iPython working, if you didn't get to that in class.
+
+Task 2
 ------
 
 **Python Pushups**
@@ -1792,37 +1719,30 @@ Begin by making an account on the site. Once you have done so, go to the
 'prefs' link at the top right and enter your name so we know who you are.
 
 In addition, add the following email address to the 'Share To' box.  This will
-allow your instructors to see the work you have done.
+allow me instructors to see the work you have done.
 
 ::
 
-    pyinstructor@codefellows.com
+    PythonCHB@gmail.com
 
 There are 8 sets of puzzles. Do as many as you can, starting with the Warmups.
 
 .. _CodingBat: http://codingbat.com
 
-**Please Note:** Do Not send emails to the above email address, they will not
-be answered.
 
-
-Task 4
+Task 3
 ------
 
 **Explore Errors**
 
-* Create a new directory in your personal folder in the ``students`` folder of the class repository::
-  
+* Create a new directory in your working dir for the class.
+
   $ mkdir session01
   $ cd session01
 
-* Make sure you create it in your clone of your fork of the repository.
 
 * Add a new file to it called ``break_me.py``
 
-* Use ``git add`` to add the file to the repository.
-
-.. nextslide::
 
 * In the ``break_me.py`` file write four simple Python functions:
 
@@ -1836,19 +1756,6 @@ Task 4
 
   * Use the Python standard library reference on `Built In Exceptions`_ as a
     reference
-
-.. nextslide::
-
-* Use ``git commit`` to commit changes you make to your clone
-
-  * Make frequent, small commits using ``git commit`` when working.
-  * Write clear, concise commit messages that explain what you are doing.
-
-* When you are finished with your work, use ``git push`` to push your changes
-  to your fork on GitHub.
-
-* Finally, issue a pull request to the original CodeFellows repository with
-  your work.
 
 .. _Built In Exceptions: https://docs.python.org/2/library/exceptions.html
 

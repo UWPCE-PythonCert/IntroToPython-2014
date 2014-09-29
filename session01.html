@@ -210,8 +210,8 @@
 <div class="line"><br /></div>
 </div>
 <div class="center large line-block">
-<div class="line">Dan Hable</div>
-<div class="line">(dhable at gmail dot com)</div>
+<div class="line">Nathan Savage</div>
+<div class="line">(nathansavagemail at gmail dot com)</div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -227,20 +227,19 @@
 </div>
 <div class="section" id="introduction-to-this-class">
 <h2>Introduction to This Class<a class="headerlink" href="#introduction-to-this-class" title="Permalink to this headline">¶</a></h2>
-<p class="center large">Python Programming</p>
+<p class="center large">Intro to Python</p>
 <div class="section" id="course-materials-online">
 <h3>Course Materials Online<a class="headerlink" href="#course-materials-online" title="Permalink to this headline">¶</a></h3>
 <p>A rendered HTML copy of the slides for this course may be found online at:</p>
-<p><a class="reference external" href="http://codefellows.github.io/sea-f2-python-sept14/">http://codefellows.github.io/sea-f2-python-sept14/</a></p>
-<p>Also there are homework descriptions and supplemental materials.</p>
-<p>The source of these materials are in Chris&#8217; gitHub repo:</p>
-<p><a class="reference external" href="http://github.com/PythonCHB/codefellows_f2_python">http://github.com/PythonCHB/codefellows_f2_python</a></p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/session01.html">http://uwpce-pythoncert.github.io/IntroToPython/session01.html</a></p>
+<p>Also there are same homework descriptions and supplemental materials.</p>
+<p>The source of these materials are in Class gitHub repo:</p>
+<p><a class="reference external" href="https://github.com/UWPCE-PythonCert/IntroToPython">https://github.com/UWPCE-PythonCert/IntroToPython</a></p>
 <p>Class email list: We will be using this list to communicate for this class:</p>
-<p><a class="reference external" href="mailto:sea-c25&#37;&#52;&#48;codefellows&#46;com">sea-c25<span>&#64;</span>codefellows<span>&#46;</span>com</a></p>
-<p><strong>Canvas</strong>:</p>
-<p>We will be using Canvas to track your homework submission, but not much else:</p>
-<p><a class="reference external" href="https://canvas.instructure.com/courses/881467">https://canvas.instructure.com/courses/881467</a></p>
-<p>You should have received and email invitation to join the class.</p>
+<blockquote>
+<div><a class="reference external" href="mailto:programming-in-python&#37;&#52;&#48;googlegroups&#46;com">programming-in-python<span>&#64;</span>googlegroups<span>&#46;</span>com</a></div></blockquote>
+<p>You should have (or will soone) received and email invitation to join
+the mailing list.</p>
 </div>
 <div class="section" id="what-is-python">
 <h3>What is Python?<a class="headerlink" href="#what-is-python" title="Permalink to this headline">¶</a></h3>
@@ -503,42 +502,26 @@ $
 <p>To find packages (and their proper names), you can search the python package index (PyPI):</p>
 <p><a class="reference external" href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a></p>
 </div>
-<div class="section" id="step-3-optional-virtualenv">
-<h3>Step 3: Optional &#8211; Virtualenv<a class="headerlink" href="#step-3-optional-virtualenv" title="Permalink to this headline">¶</a></h3>
-<p>Python packages come in many versions.</p>
-<p>Often you need one version for one project, and a different one for another.</p>
-<p><a class="reference external" href="http://www.virtualenv.org/">Virtualenv</a> allows you to create isolated environments.</p>
-<p>You can then install potentially conflicting software safely.</p>
-<p>For this class, this is no big deal, but as you start to work on &#8220;real&#8221; projects, it can be a key tool.</p>
-<p>If you want to install it, here are some notes:</p>
-<p><a class="reference external" href="./supplements/virtualenv.html">Intro to VirtualEnv</a></p>
-</div>
 <div class="section" id="step-4-clone-class-repository">
 <h3>Step 4: Clone Class Repository<a class="headerlink" href="#step-4-clone-class-repository" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="www.github.com">gitHub</a> is an industry-standard system for collaboration on software projects &#8211; particularly open source ones.</p>
-<p>We will use it this class to manage submitting and reviewing your work, etc.</p>
-<p><strong>Wait!</strong> Don&#8217;t have a gitHub account? Set one up now.</p>
+<p><a class="reference external" href="www.github.com">gitHub</a> is an industry-standard system for collaboration
+on software projects &#8211; particularly open source ones.</p>
 <p>Next, you&#8217;ll make a copy of the class repository using <tt class="docutils literal"><span class="pre">git</span></tt>.</p>
-<p>The canonical copy is in the CodeFellows organization on GitHub:</p>
-<p><a class="reference external" href="https://github.com/codefellows/sea-f2-python-sept14">https://github.com/codefellows/sea-f2-python-sept14</a></p>
-<p>Open that URL, and click on the <em>Fork</em> button at the top right corner.</p>
-<p>This will make a copy of this repository in <em>your</em> github account.</p>
-<p>From here, you&#8217;ll want to make a clone of your copy on your local machine.</p>
+<p>The canonical copy is in the UWPCE organization on GitHub:</p>
+<p><a class="reference external" href="https://github.com/UWPCE-PythonCert/IntroToPython">https://github.com/UWPCE-PythonCert/IntroToPython</a></p>
+<p>Open that URL, and look for: &#8220;HTTPS clone URL&#8221;</p>
+<p>You can click in there an copy and paste to get the clone url.</p>
 <p>At your command line, run the following commands:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>your_working_directory_for_the_class
-<span class="nv">$ </span>git clone https://github.com/&lt;yourname&gt;/sea-f2-python-sept14.git
+<span class="nv">$ </span>git clone https://github.com/UWPCE-PythonCert/IntroToPython.git
 </pre></div>
 </div>
 <p>(you can copy and paste that link from the gitHub page)</p>
-<p>If you have an SSH key set up for gitHub, you&#8217;ll want to do this instead:</p>
-<div class="highlight-bash"><div class="highlight"><pre>git@github.com:&lt;yourname&gt;/sea-f2-python-sept14.git
-</pre></div>
-</div>
-<p><strong>Remember</strong>, &lt;yourname&gt; should be replaced by your github account name.</p>
 </div>
 <div class="section" id="step-5-install-requirements">
 <h3>Step 5: Install Requirements<a class="headerlink" href="#step-5-install-requirements" title="Permalink to this headline">¶</a></h3>
-<p>As this is an intro class, we are going to use almost entirely features of standand library. But there are a couple things you may want:</p>
+<p>As this is an intro class, we are going to use almost entirely features
+of standand library. But there are a couple things you may want:</p>
 <p><strong>iPython</strong></p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$pip</span> install ipython
 </pre></div>
@@ -1399,43 +1382,15 @@ exercises in Python programming</p>
 </div>
 <div class="section" id="homework">
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<p>Four Tasks by Next Monday</p>
+<p>??? Tasks by Next Week</p>
 <div class="section" id="task-1">
 <h3>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h3>
-<p><strong>Tell Us About Yourself</strong></p>
-<p>This is a way for you to learn a bit about gitHub, and how you are going to submit most of your homework.</p>
-<ul class="simple">
-<li>Create a new folder in the <tt class="docutils literal"><span class="pre">students</span></tt> folder in the class repository.<ul>
-<li>Create the folder in your clone of your fork of the repository.</li>
-<li>Name it with your own name in CamelCase, like: <tt class="docutils literal"><span class="pre">ChrisBarker</span></tt>.</li>
-<li>In the folder create one new file, named <tt class="docutils literal"><span class="pre">README.md</span></tt></li>
-<li>In that new file, write up a few paragraphs about yourself.<ul>
-<li>Use proper <a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">markdown</a> syntax. (or <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>)</li>
-<li>Include at least two headings, of different levels.</li>
-<li>Include at least one link.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="simple">
-<li>Using <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt>, add the new folder and file to your clone of the
-repository.</li>
-<li>Using <tt class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></tt>, commit your changes to your clone (write a good commit
-message). If you later edit your file, don&#8217;t forget to commit those changes
-too.</li>
-<li>Using <tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></tt>, push your commits to your fork on GitHub.</li>
-<li>In GitHub&#8217;s Web UI, make a <tt class="docutils literal"><span class="pre">pull</span> <span class="pre">request</span></tt> to the original CodeFellows
-repository.</li>
-</ul>
-</div>
-<div class="section" id="task-2">
-<h3>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h3>
 <p><strong>Set Up a Great Dev Environment</strong></p>
 <p>Make sure you have the basics of command line usage down:</p>
 <p>Work through the supplemental tutorials on setting up your
 <a class="reference external" href="supplements/shell.html">Command Line</a> for good development support.</p>
-<p>Make sure you&#8217;ve got your editor set up productively &#8211; at the very very least, make sure it does Python indentation well.</p>
+<p>Make sure you&#8217;ve got your editor set up productively &#8211; at the very very
+least, make sure it does Python indentation and syntax coloring well.</p>
 <p><strong>Advanced Editor Setup:</strong></p>
 <p>If you are using SublimeText, here are some notes to make it super-nifty:</p>
 <p>Setting up <a class="reference external" href="supplements/sublime_as_ide.html">SublimeText</a> .</p>
@@ -1445,42 +1400,34 @@ and give you information about your git repository when you are inside one.</p>
 <p>If you are not using SublimeText, look for plugins that accomplish the same
 goals for your own editor.  If none are available, please consider a change of
 editor.</p>
+<p>Also make sure you&#8217;ve got iPython working, if you didn&#8217;t get to that in class.</p>
 </div>
-<div class="section" id="task-3">
-<h3>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="task-2">
+<h3>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h3>
 <p><strong>Python Pushups</strong></p>
 <p>To get a bit of exercise solving some puzzles with Python, work on the Python
 exercises at <a class="reference external" href="http://codingbat.com">CodingBat</a>.</p>
 <p>Begin by making an account on the site. Once you have done so, go to the
 &#8216;prefs&#8217; link at the top right and enter your name so we know who you are.</p>
 <p>In addition, add the following email address to the &#8216;Share To&#8217; box.  This will
-allow your instructors to see the work you have done.</p>
-<div class="highlight-python"><div class="highlight"><pre>pyinstructor@codefellows.com
+allow me instructors to see the work you have done.</p>
+<div class="highlight-python"><div class="highlight"><pre>PythonCHB@gmail.com
 </pre></div>
 </div>
 <p>There are 8 sets of puzzles. Do as many as you can, starting with the Warmups.</p>
-<p><strong>Please Note:</strong> Do Not send emails to the above email address, they will not
-be answered.</p>
 </div>
-<div class="section" id="task-4">
-<h3>Task 4<a class="headerlink" href="#task-4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="task-3">
+<h3>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h3>
 <p><strong>Explore Errors</strong></p>
 <ul>
-<li><p class="first">Create a new directory in your personal folder in the <tt class="docutils literal"><span class="pre">students</span></tt> folder of the class repository:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ mkdir session01
-$ cd session01
-</pre></div>
-</div>
-</li>
-<li><p class="first">Make sure you create it in your clone of your fork of the repository.</p>
+<li><p class="first">Create a new directory in your working dir for the class.</p>
+<p>$ mkdir session01
+$ cd session01</p>
 </li>
 <li><p class="first">Add a new file to it called <tt class="docutils literal"><span class="pre">break_me.py</span></tt></p>
 </li>
-<li><p class="first">Use <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> to add the file to the repository.</p>
-</li>
-</ul>
+<li><p class="first">In the <tt class="docutils literal"><span class="pre">break_me.py</span></tt> file write four simple Python functions:</p>
 <ul class="simple">
-<li>In the <tt class="docutils literal"><span class="pre">break_me.py</span></tt> file write four simple Python functions:<ul>
 <li>Each function, when called, should cause an exception to happen</li>
 <li>Each function should result in one of the four common exceptions from our
 lecture.<ul>
@@ -1497,17 +1444,6 @@ lecture.<ul>
 reference</li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li>Use <tt class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></tt> to commit changes you make to your clone<ul>
-<li>Make frequent, small commits using <tt class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></tt> when working.</li>
-<li>Write clear, concise commit messages that explain what you are doing.</li>
-</ul>
-</li>
-<li>When you are finished with your work, use <tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></tt> to push your changes
-to your fork on GitHub.</li>
-<li>Finally, issue a pull request to the original CodeFellows repository with
-your work.</li>
-</ul>
 </div>
 </div>
 </div>
