@@ -7,4 +7,9 @@ This repository contains the source materials for the first class in the the Uni
 
 .. _Certificate in Python Programming : http://www.pce.uw.edu/certificates/python-programming.html
 
-See the Syllabus for more detail, and the individual class notes for the instructional material itself.
+See the Syllabus for more detail.
+
+Class lecture materials are available in a rendered version from:
+
+http://UWPCE-PythonCert.github.io/IntroToPython
+

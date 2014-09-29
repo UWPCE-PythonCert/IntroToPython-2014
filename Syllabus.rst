@@ -70,11 +70,11 @@ gitHub:
 
 All class materials will be up on gitHub (where you probably found this). This allows me to update things at the last minute, and the students can all have easy access to the latest versions. It also familiarizes you with a very useful tool for software development. We'll spend a bit of time during the first class getting everyone up and running with git....
 
-<https://github.com/UWPCE-PythonCert/IntroToPython>_
+https://github.com/UWPCE-PythonCert/IntroToPython
 
 for rendered and ready to read version:
 
-<http://UWPCE-PythonCert.github.io/IntroToPython/>
+http://UWPCE-PythonCert.github.io/IntroToPython
 
 Reading:
 ========
