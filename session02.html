@@ -1,0 +1,1147 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Session Two: Functions, Booleans and Modules &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
+        <link rel="next" title="Session Three: Sequences, Iteration and String Formatting" href="session03.html"/>
+        <link rel="prev" title="Session One: Introductions" href="session01.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Introduction To Python</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-ipython">Introduction to iPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#basic-python-syntax">Basic Python Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Two: Functions, Booleans and Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boolean-expressions">Boolean Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#lists-tuples">Lists, Tuples...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#mutability">Mutability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#string-features">String Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#a-little-warm-up">A little warm up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#file-reading-and-writing">File Reading and Writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#paths-and-directories">Paths and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#object-oriented-programming">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#python-classes">Python Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#more-on-subclassing">More on Subclassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#static-and-class-methods">Static and Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#special-methods">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: Generators, Iterators, Decorators, and Context Managers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#iterators-and-generators">Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#homework">Homework</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="homework/index.html">Homework Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="homework/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework/html_builder.html">HTML Renderer Homework Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_mac.html">Setting up your Mac for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_linux.html">Setting up Linux for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/unicode.html">Unicode in Python 2</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Session Two: Functions, Booleans and Modules</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/session02.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="session-two-functions-booleans-and-modules">
+<h1>Session Two: Functions, Booleans and Modules<a class="headerlink" href="#session-two-functions-booleans-and-modules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="review-questions">
+<h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="review-of-previous-session">
+<h3>Review of Previous Session<a class="headerlink" href="#review-of-previous-session" title="Permalink to this headline">¶</a></h3>
+<ul class="build simple">
+<li>Values and Types</li>
+<li>Expressions</li>
+<li>Intro to functions</li>
+</ul>
+</div>
+<div class="section" id="homework-review">
+<h3>Homework Review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
+<p class="center large">Any questions that are nagging?</p>
+</div>
+</div>
+<div class="section" id="git-work">
+<h2>Git Work<a class="headerlink" href="#git-work" title="Permalink to this headline">¶</a></h2>
+<p class="center large">Let&#8217;s get to know your fellow students!</p>
+<div class="section" id="working-with-an-upstream">
+<h3>Working with an Upstream<a class="headerlink" href="#working-with-an-upstream" title="Permalink to this headline">¶</a></h3>
+<p>You&#8217;ve created a fork of the class repository from the <tt class="docutils literal"><span class="pre">codefellows</span></tt> account
+on GitHub.</p>
+<p>You&#8217;ve pushed your own changes to that fork, and then issued pull requests to
+have that worked merged back to the <tt class="docutils literal"><span class="pre">codefellows</span></tt> original.</p>
+<p>You want to keep your fork up-to-date with that original copy as the class goes
+forward.</p>
+<p>To do this, you use the git concept of an <strong>upstream</strong> repository.</p>
+<p>Since <tt class="docutils literal"><span class="pre">git</span></tt> is a <em>distributed</em> versioning system, there is no <strong>central</strong>
+repository that serves as the one to rule them all.</p>
+<p>Instead, you work with <em>local</em> repositories, and <em>remotes</em> that they are
+connected to.</p>
+<p>Cloned repositories get an <em>origin</em> remote for free:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote -v
+origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<p>This shows that the local repo on my machine <em>originated</em> from the one in my gitHub account (the one it was cloned from)</p>
+<p>You can add <em>remotes</em> at will, to connect your <em>local</em> repository to other
+copies of it in different remote locations.</p>
+<p>This allows you to grab changes made to the repository in these other
+locations.</p>
+<p>For our class, we will add an <em>upstream</em> remote to our local copy that points
+to the original copy of the material in the <tt class="docutils literal"><span class="pre">codefellows</span></tt> account.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add upstream https://github.com/codefellows/sea-f2-python-sept14.git
+
+<span class="nv">$ </span>git remote -v
+origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>push<span class="o">)</span>
+upstream  https://github.com/codefellows/sea-f2-python-sept14.git <span class="o">(</span>fetch<span class="o">)</span>
+upstream  https://github.com/codefellows/sea-f2-python-sept14.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<p>To get the updates from your new remote, you&#8217;ll need first to fetch everything:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch --all
+Fetching origin
+Fetching upstream
+...
+</pre></div>
+</div>
+<p>Then you can see the branches you have locally available:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch -a
+* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/gh-pages
+  remotes/origin/master
+  remotes/upstream/gh-pages
+  remotes/upstream/master
+</pre></div>
+</div>
+<p>(the gh-pages branch is used to publish these notes)</p>
+<p>Finally, you can fetch and then merge changes from the upstream master.</p>
+<p>Start by making sure you are on your own master branch:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout master
+</pre></div>
+</div>
+<p>This is <strong>really really</strong> important.  Take the time to ensure you are where you
+think you are.</p>
+<p>Then, fetch the upstream master branch and merge it into your master:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch upstream master
+From https://github.com/codefellows/sea-f2-python-sept14
+ * branch            master     -&gt; FETCH_HEAD
+
+<span class="nv">$ </span>git merge upstream/master
+Updating 3239de7..9ddbdbb
+Fast-forward
+ Examples/README.rst              |  4 ++++
+...
+ create mode 100644 Examples/README.rst
+...
+</pre></div>
+</div>
+<p>NOTE: you can do that in one step with:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git pull upstream master
+</pre></div>
+</div>
+<p>Now all the changes from <em>upstream</em> are present in your local clone.</p>
+<p>In order to preserve them in your fork on GitHub, you&#8217;ll have to push:</p>
+<div class="highlight-bash"><div class="highlight"><pre>$ git status
+On branch master
+Your branch is ahead of &#39;origin/master&#39; by 10 commits.
+  (use &quot;git push&quot; to publish your local commits)
+$ git push origin master
+Counting objects: 44, done.
+...
+$
+</pre></div>
+</div>
+<p>(A simple <tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></tt> will usually do the right thing)</p>
+<p>You can incorporate this into your daily workflow:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git checkout master
+$ git pull upstream master
+$ git push
+[do some work]
+$ git commit -a
+[add a good commit message]
+$ git push
+[make a pull request]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="quick-intro-to-basics">
+<h2>Quick Intro to Basics<a class="headerlink" href="#quick-intro-to-basics" title="Permalink to this headline">¶</a></h2>
+<p class="center large">Because there&#8217;s a few things you just gotta have</p>
+<div class="section" id="basics">
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<p>It turns out you can&#8217;t really do much at all without at least a container type,
+conditionals and looping...</p>
+<p><tt class="docutils literal"><span class="pre">if</span></tt> and <tt class="docutils literal"><span class="pre">elif</span></tt> allow you to make decisions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;a&#39;</span>
+<span class="k">elif</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;b&#39;</span>
+<span class="k">elif</span> <span class="n">c</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;c&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;that was unexpected&#39;</span>
+</pre></div>
+</div>
+<p>What&#8217;s the difference between these two:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;a&#39;</span>
+<span class="k">elif</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;b&#39;</span>
+<span class="c">## versus...</span>
+<span class="k">if</span> <span class="n">a</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;a&#39;</span>
+<span class="k">if</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;b&#39;</span>
+</pre></div>
+</div>
+<p>Many languages have a <tt class="docutils literal"><span class="pre">switch</span></tt> construct:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="k">switch</span> <span class="p">(</span><span class="nx">expr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="s2">&quot;Oranges&quot;</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Oranges are $0.59 a pound.&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="s2">&quot;Apples&quot;</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Apples are $0.32 a pound.&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="s2">&quot;Mangoes&quot;</span><span class="o">:</span>
+  <span class="k">case</span> <span class="s2">&quot;Papayas&quot;</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Mangoes and papayas are $2.79 a pound.&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Sorry, we are out of &quot;</span> <span class="o">+</span> <span class="nx">expr</span> <span class="o">+</span> <span class="s2">&quot;.&lt;br&gt;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Not Python</strong></p>
+<p>use <tt class="docutils literal"><span class="pre">if..elif..elif..else</span></tt></p>
+<p>(or a dictionary, or subclassing....)</p>
+<p>A way to store a bunch of stuff in order</p>
+<p>Pretty much like an &#8220;array&#8221; or &#8220;vector&#8221; in other languages</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">a_list_of_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">,</span> <span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="s">&#39;other&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Another way to store an ordered list of things</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a_tuple_of_strings</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">,</span> <span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="s">&#39;other&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tuples are <strong>not</strong> the same as lists.</p>
+<p>The exact difference is a topic for next session.</p>
+<p>Sometimes called a &#8216;determinate&#8217; loop</p>
+<p>When you need to do something to everything in a sequence</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="gp">In [11]: </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">item</span>
+<span class="gp">   ....:</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>Range builds lists of numbers automatically</p>
+<p>Use it when you need to do something a set number of times</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gh">Out[12]: </span><span class="go">[0, 1, 2, 3, 4, 5]</span>
+
+<span class="gp">In [13]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="s">&quot;*&quot;</span><span class="p">,</span>
+<span class="gp">   ....:</span>
+<span class="go">* * * * * *</span>
+</pre></div>
+</div>
+<p>This is enough to get you started.</p>
+<p>Each of these have intricacies special to python</p>
+<p>We&#8217;ll get to those over the next couple of classes</p>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="review">
+<h3>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h3>
+<p>Defining a function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>x, y, z are <em>local</em> names</p>
+</div>
+<div class="section" id="local-vs-global">
+<h3>Local vs. Global<a class="headerlink" href="#local-vs-global" title="Permalink to this headline">¶</a></h3>
+<p>Symbols bound in Python have a <em>scope</em></p>
+<p>That <em>scope</em> determines where a symbol is visible, or what value it has in a
+given block.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [14]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="gp">In [15]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">33</span>
+<span class="gp">In [16]: </span><span class="n">z</span> <span class="o">=</span> <span class="mi">34</span>
+<span class="gp">In [17]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+<span class="gp">   ....:</span>
+<span class="gp">In [18]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">32 3 4</span>
+</pre></div>
+</div>
+<p>x is global, y and z local to the function</p>
+<p>But, did the value of y and z change in the <em>global</em> scope?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">y</span>
+<span class="gh">Out[19]: </span><span class="go">33</span>
+
+<span class="gp">In [20]: </span><span class="n">z</span>
+<span class="gh">Out[20]: </span><span class="go">34</span>
+</pre></div>
+</div>
+<p>In general, you should use global bindings mostly for constants.</p>
+<p>In python we designate global constants by typing the symbols we bind to them
+in ALL_CAPS</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span><span class="s">u&#39;foo&#39;</span><span class="p">,</span> <span class="s">u&#39;bar&#39;</span><span class="p">,</span> <span class="s">u&#39;baz&#39;</span><span class="p">]</span>
+<span class="n">CONFIGURATION_KEY</span> <span class="o">=</span> <span class="s">u&#39;some secret value&#39;</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>This is just a convention, but it&#8217;s a good one to follow.</p>
+<p>Take a look at this function definition:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="gp">In [22]: </span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="gp">   ....: </span>    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">x</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">y</span>
+<span class="gp">   ....:</span>
+</pre></div>
+</div>
+<p>What is going to happen when we call <tt class="docutils literal"><span class="pre">f</span></tt></p>
+<p>Try it and see:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">f</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-23-0ec059b9bfe1&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">f</span><span class="p">()</span>
+
+<span class="nn">&lt;ipython-input-22-9225fa53a20a&gt;</span> in <span class="ni">f</span><span class="nt">()</span>
+<span class="g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="g-Whitespace">      </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="g-Whitespace">      </span><span class="mi">4</span>     <span class="k">print</span> <span class="n">x</span>
+<span class="g-Whitespace">      </span><span class="mi">5</span>     <span class="k">print</span> <span class="n">y</span>
+
+<span class="ne">UnboundLocalError</span>: local variable &#39;x&#39; referenced before assignment
+</pre></div>
+</div>
+<p>Because you are binding the symbol <tt class="docutils literal"><span class="pre">x</span></tt> locally, it becomes a local and masks
+the global value already bound.</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>So far we&#8217;ve seen simple parameter lists:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>These types of parameters are called <em>positional</em></p>
+<p>When you call a function, you <strong>must</strong> provide arguments for all <em>positional</em>
+parameters <em>in the order they are listed</em></p>
+<p>You can provide <em>default values</em> for parameters in a function definition:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+<span class="gp">   ....:</span>
+</pre></div>
+</div>
+<p>When parameters are given with default values, they become <em>optional</em></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">fun</span><span class="p">()</span>
+<span class="go">1 2 3</span>
+</pre></div>
+</div>
+<p>You can provide arguments to a function call for <em>optional</em> parameters
+positionally:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">6 2 3</span>
+<span class="gp">In [27]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="go">6 7 3</span>
+<span class="gp">In [28]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="go">6 7 8</span>
+</pre></div>
+</div>
+<p>Or, you can use the parameter name as a <em>keyword</em> to indicate which you mean:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">fun</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1 4 3</span>
+</pre></div>
+</div>
+<p>Once you&#8217;ve provided a <em>keyword</em> argument in this way, you can no longer
+provide any <em>positional</em> arguments:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [30]: </span><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-30-4529e5befb95&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="ne">SyntaxError</span>: non-keyword arg after keyword arg
+</pre></div>
+</div>
+<p>This brings us to a fun feature of Python function definitions.</p>
+<p>You can define a parameter list that requires an <strong>unspecified</strong> number of
+<em>positional</em> or <em>keyword</em> arguments.</p>
+<p>The key is the <tt class="docutils literal"><span class="pre">*</span></tt> (splat) or <tt class="docutils literal"><span class="pre">**</span></tt> (double-splat) operator:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
+<span class="gp">   ....:</span>
+<span class="gp">In [32]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">(1,) {}</span>
+<span class="gp">In [33]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">zombies</span><span class="o">=</span><span class="s">&quot;brains&quot;</span><span class="p">)</span>
+<span class="go">(1, 2) {&#39;zombies&#39;: &#39;brains&#39;}</span>
+<span class="gp">In [34]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">zombies</span><span class="o">=</span><span class="s">&quot;brains&quot;</span><span class="p">,</span> <span class="n">vampires</span><span class="o">=</span><span class="s">&quot;blood&quot;</span><span class="p">)</span>
+<span class="go">(1, 2, 3) {&#39;vampires&#39;: &#39;blood&#39;, &#39;zombies&#39;: &#39;brains&#39;}</span>
+</pre></div>
+</div>
+<p><strong>args</strong> and <strong>kwargs</strong> are <em>conventional</em> names for these.</p>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>It&#8217;s often helpful to leave information in your code about what you were
+thinking when you wrote it.</p>
+<p>This can help reduce the number of <a class="reference external" href="http://www.osnews.com/story/19266/WTFs_m">WTFs per minute</a> in reading it later.</p>
+<p>There are two approaches to this:</p>
+<ul class="build simple">
+<li>Comments</li>
+<li>Docstrings</li>
+</ul>
+<p>Comments go inline in the body of your code, to explain reasoning:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">frobnaglers</span> <span class="o">&gt;</span> <span class="n">whozits</span><span class="p">):</span>
+    <span class="c"># borangas are shermed to ensure frobnagler population</span>
+    <span class="c"># does not grow out of control</span>
+    <span class="n">sherm_the_boranga</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can use them to mark places you want to revisit later:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">partygoer</span> <span class="ow">in</span> <span class="n">partygoers</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">baloon</span> <span class="ow">in</span> <span class="n">baloons</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">cupcake</span> <span class="ow">in</span> <span class="n">cupcakes</span><span class="p">:</span>
+            <span class="c"># TODO: Reduce time complexity here.  It&#39;s killing us</span>
+            <span class="c">#  for large parties.</span>
+            <span class="n">resolve_party_favor</span><span class="p">(</span><span class="n">partygoer</span><span class="p">,</span> <span class="n">baloon</span><span class="p">,</span> <span class="n">cupcake</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Be judicious in your use of comments.</p>
+<p>Use them when you need to.</p>
+<p>Make them useful.</p>
+<p>This is not useful:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">sponge</span> <span class="ow">in</span> <span class="n">sponges</span><span class="p">:</span>
+    <span class="c"># apply soap to each sponge</span>
+    <span class="n">worker</span><span class="o">.</span><span class="n">apply_soap</span><span class="p">(</span><span class="n">sponge</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In Python, <tt class="docutils literal"><span class="pre">docstrings</span></tt> are used to provide in-line documentation in a number
+of places.</p>
+<p>The first place we will see is in the definition of <tt class="docutils literal"><span class="pre">functions</span></tt>.</p>
+<p>To define a function you use the <tt class="docutils literal"><span class="pre">def</span></tt> keyword.</p>
+<p>If a <tt class="docutils literal"><span class="pre">string</span> <span class="pre">literal</span></tt> is the first thing in the function block following the
+header, it is a <tt class="docutils literal"><span class="pre">docstring</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">complex_function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">kwarg1</span><span class="o">=</span><span class="s">u&#39;bannana&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a value resulting from a complex calculation.&quot;&quot;&quot;</span>
+    <span class="c"># code block here</span>
+</pre></div>
+</div>
+<p>You can then read this in an interpreter as the <tt class="docutils literal"><span class="pre">__doc__</span></tt> attribute of the
+function object.</p>
+<p>A <tt class="docutils literal"><span class="pre">docstring</span></tt> should:</p>
+<ul class="build simple">
+<li>be a complete sentence in the form of a command describing what the function
+does.<ul>
+<li>&#8220;&#8221;&#8220;Return a list of values based on blah blah&#8221;&#8220;&#8221; is a good docstring</li>
+<li>&#8220;&#8221;&#8220;Returns a list of values based on blah blah&#8221;&#8220;&#8221; is <em>not</em></li>
+</ul>
+</li>
+<li>fit onto a single line.<ul>
+<li>If more description is needed, make the first line a complete sentence and
+add more lines below for enhancement.</li>
+</ul>
+</li>
+<li>be enclosed with triple-quotes.<ul>
+<li>This allows for easy expansion if required at a later date</li>
+<li>Always close on the same line if the docstring is only one line.</li>
+</ul>
+</li>
+</ul>
+<p>For more information see <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0257/">PEP 257: Docstring Conventions</a>.</p>
+</div>
+<div class="section" id="recursion">
+<h3>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h3>
+<p>You&#8217;ve seen functions that call other functions.</p>
+<p>If a function calls <em>itself</em>, we call that <strong>recursion</strong></p>
+<p>Like with other functions, a call within a call establishes a <em>call stack</em></p>
+<p>With recursion, if you are not careful, this stack can get <em>very</em> deep.</p>
+<p>Python has a maximum limit to how much it can recurse. This is intended to
+save your machine from running out of RAM.</p>
+<p>Recursion is especially useful for a particular set of problems.</p>
+<p>For example, take the case of the <em>factorial</em> function.</p>
+<p>In mathematics, the <em>factorial</em> of an integer is the result of multiplying that
+integer by every integer smaller than it down to 1.</p>
+<div class="highlight-python"><div class="highlight"><pre>5! == 5 * 4 * 3 * 2 * 1
+</pre></div>
+</div>
+<p>We can use a recursive function nicely to model this mathematical function</p>
+</div>
+</div>
+<div class="section" id="in-class-lab">
+<h2>In-Class Lab:<a class="headerlink" href="#in-class-lab" title="Permalink to this headline">¶</a></h2>
+<p class="center large">Fun With Functions</p>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<p>Try your hand at writing a function that computes the distance between two
+points:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Experiment with <tt class="docutils literal"><span class="pre">locals</span></tt> by adding this statement to the function you just
+wrote::</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="nb">locals</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-expressions">
+<h2>Boolean Expressions<a class="headerlink" href="#boolean-expressions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="truthiness">
+<h3>Truthiness<a class="headerlink" href="#truthiness" title="Permalink to this headline">¶</a></h3>
+<p>What is true or false in Python?</p>
+<ul class="build simple">
+<li>The Booleans: <tt class="docutils literal"><span class="pre">True</span></tt>  and <tt class="docutils literal"><span class="pre">False</span></tt></li>
+<li>&#8220;Something or Nothing&#8221;</li>
+<li><a class="reference external" href="http://mail.python.org/pipermail/python-dev/2002-April/022107.html">http://mail.python.org/pipermail/python-dev/2002-April/022107.html</a></li>
+</ul>
+<p>Determining Truthiness:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">bool</span><span class="p">(</span><span class="n">something</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="build simple">
+<li><tt class="docutils literal"><span class="pre">None</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">False</span></tt></li>
+<li><strong>Nothing:</strong></li>
+<li>zero of any numeric type: <tt class="docutils literal"><span class="pre">0,</span> <span class="pre">0L,</span> <span class="pre">0.0,</span> <span class="pre">0j</span></tt>.</li>
+<li>any empty sequence, for example, <tt class="docutils literal"><span class="pre">&quot;&quot;,</span> <span class="pre">(),</span> <span class="pre">[]</span></tt>.</li>
+<li>any empty mapping, for example, <tt class="docutils literal"><span class="pre">{}</span></tt> .</li>
+<li>instances of user-defined classes, if the class defines a <tt class="docutils literal"><span class="pre">__nonzero__()</span></tt>
+or <tt class="docutils literal"><span class="pre">__len__()</span></tt> method, when that method returns the integer zero or bool
+value <tt class="docutils literal"><span class="pre">False</span></tt>.</li>
+<li><a class="reference external" href="http://docs.python.org/library/stdtypes.html">http://docs.python.org/library/stdtypes.html</a></li>
+</ul>
+<p class="center large">Everything Else</p>
+<p>Any object in Python, when passed to the <tt class="docutils literal"><span class="pre">bool()</span></tt> type object, will
+evaluate to <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+<p>When you use the <tt class="docutils literal"><span class="pre">if</span></tt> keyword, it automatically does this to the statement provided.</p>
+<p>Which means that this is redundant, and not Pythonic:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">xx</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="c"># or even worse:</span>
+<span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Instead, use what Python gives you:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">xx</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="and-or-and-not">
+<h3>and, or and not<a class="headerlink" href="#and-or-and-not" title="Permalink to this headline">¶</a></h3>
+<p>Python has three boolean keywords, <tt class="docutils literal"><span class="pre">and</span></tt>, <tt class="docutils literal"><span class="pre">or</span></tt> and <tt class="docutils literal"><span class="pre">not</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">and</span></tt> and <tt class="docutils literal"><span class="pre">or</span></tt> are binary expressions, and evaluate from left to right.</p>
+<p><tt class="docutils literal"><span class="pre">and</span></tt> will return the first operand that evaluates to False, or the last
+operand if none are True:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [35]: </span><span class="mi">0</span> <span class="ow">and</span> <span class="mi">456</span>
+<span class="gh">Out[35]: </span><span class="go">0</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">or</span></tt> will return the first operand that evaluates to True, or the last
+operand if none are True:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="mi">0</span> <span class="ow">or</span> <span class="mi">456</span>
+<span class="gh">Out[36]: </span><span class="go">456</span>
+</pre></div>
+</div>
+<p>On the other hand, <tt class="docutils literal"><span class="pre">not</span></tt> is a unary expression and inverts the boolean value
+of its operand:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [39]: </span><span class="ow">not</span> <span class="bp">True</span>
+<span class="gh">Out[39]: </span><span class="go">False</span>
+
+<span class="gp">In [40]: </span><span class="ow">not</span> <span class="bp">False</span>
+<span class="gh">Out[40]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>Because of the return value of these keywords, you can write concise
+statements:</p>
+<div class="highlight-python"><div class="highlight"><pre>                  if x is false,
+x or y               return y,
+                     else return x
+
+                  if x is false,
+x and y               return  x
+                      else return y
+
+                  if x is false,
+not x               return True,
+                    else return False
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">d</span>
+<span class="n">a</span> <span class="ow">and</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">d</span>
+</pre></div>
+</div>
+<p>The first value that defines the result is returned</p>
+<p>This is a fairly common idiom:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">something</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a_value</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">another_value</span>
+</pre></div>
+</div>
+<p>In other languages, this can be compressed with a &#8220;ternary operator&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>result = a &gt; b ? x : y;
+</pre></div>
+</div>
+<p>In python, the same is accomplished with the ternary expression:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>PEP 308:
+(<a class="reference external" href="http://www.python.org/dev/peps/pep-0308/">http://www.python.org/dev/peps/pep-0308/</a>)</p>
+</div>
+<div class="section" id="boolean-return-values">
+<h3>Boolean Return Values<a class="headerlink" href="#boolean-return-values" title="Permalink to this headline">¶</a></h3>
+<p>Remember this puzzle from your CodingBat exercises?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">sleep_in</span><span class="p">(</span><span class="n">weekday</span><span class="p">,</span> <span class="n">vacation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">weekday</span> <span class="o">==</span> <span class="bp">True</span> <span class="ow">and</span> <span class="n">vacation</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Though correct, that&#8217;s not a particularly Pythonic way of solving the problem.</p>
+<p>Here&#8217;s a better solution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">sleep_in</span><span class="p">(</span><span class="n">weekday</span><span class="p">,</span> <span class="n">vacation</span><span class="p">):</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span><span class="n">weekday</span> <span class="o">==</span> <span class="bp">True</span> <span class="ow">and</span> <span class="n">vacation</span> <span class="o">==</span> <span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And here&#8217;s an even better one:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">sleep_in</span><span class="p">(</span><span class="n">weekday</span><span class="p">,</span> <span class="n">vacation</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="ow">not</span> <span class="n">weekday</span><span class="p">)</span> <span class="ow">or</span> <span class="n">vacation</span>
+</pre></div>
+</div>
+<p>In python, the boolean types are subclasses of integer:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="bp">True</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="gh">Out[1]: </span><span class="go">True</span>
+<span class="gp">In [2]: </span><span class="bp">False</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="gh">Out[2]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>And you can even do math with them (though it&#8217;s a bit odd to do so):</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="mi">3</span> <span class="o">+</span> <span class="bp">True</span>
+<span class="gh">Out[6]: </span><span class="go">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>In-Class Lab:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p class="center large">Better With Booleans</p>
+<div class="section" id="id2">
+<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Look up the <tt class="docutils literal"><span class="pre">%</span></tt>  operator. What do these do?<ul>
+<li><tt class="docutils literal"><span class="pre">10</span> <span class="pre">%</span> <span class="pre">7</span> <span class="pre">==</span> <span class="pre">3</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">14</span> <span class="pre">%</span> <span class="pre">7</span> <span class="pre">==</span> <span class="pre">0</span></tt></li>
+</ul>
+</li>
+<li>Write a program that prints the numbers from 1 to 100 inclusive. But for
+multiples of three print &#8220;Fizz&#8221; instead of the number and for the
+multiples of five print &#8220;Buzz&#8221;. For numbers which are multiples of both
+three and five print &#8220;FizzBuzz&#8221; instead.</li>
+<li>Re-write a couple of CodingBat exercises, using a conditional expression</li>
+<li>Re-write a couple of CodingBat exercises, returning the direct boolean results</li>
+</ul>
+</div></blockquote>
+<p>use whichever you like, or the ones in:
+<tt class="xref download docutils literal"><span class="pre">codingbat.rst</span></tt></p>
+</div>
+</div>
+<div class="section" id="code-structure-modules-and-namespaces">
+<h2>Code Structure, Modules, and Namespaces<a class="headerlink" href="#code-structure-modules-and-namespaces" title="Permalink to this headline">¶</a></h2>
+<p class="center large">How to get what you want when you want it.</p>
+<div class="section" id="code-structure">
+<h3>Code Structure<a class="headerlink" href="#code-structure" title="Permalink to this headline">¶</a></h3>
+<p>In Python, the structure of your code is determined by whitespace.</p>
+<p>How you <em>indent</em> your code determines how it is structured</p>
+<div class="highlight-python"><div class="highlight"><pre>block statement:
+    some code body
+    some more code body
+    another block statement:
+        code body in
+        that block
+</pre></div>
+</div>
+<p>The colon that terminates a block statement is also important...</p>
+<p>You can put a one-liner after the colon:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [167]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="gp">In [168]: </span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span> <span class="k">print</span> <span class="n">x</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+<p>But this should only be done if it makes your code <strong>more</strong> readable.</p>
+<p>Whitespace is important in Python.</p>
+<p>An indent <em>could</em> be:</p>
+<ul class="simple">
+<li>Any number of spaces</li>
+<li>A tab</li>
+<li>A mix of tabs and spaces:</li>
+</ul>
+<p>If you want anyone to take you seriously as a Python developer:</p>
+<p class="centered"><strong>Always use four spaces &#8211; really!</strong></p>
+<p><a class="reference external" href="http://legacy.python.org/dev/peps/pep-0008/">(PEP 8)</a></p>
+<p>Other than indenting &#8211; space doesn&#8217;t matter, technically.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">12</span><span class="o">/</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">/</span>   <span class="n">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span>   <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But you should strive for proper style.  Read <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0008/">PEP 8</a> and install a linter in
+your editor.</p>
+</div>
+<div class="section" id="modules-and-packages">
+<h3>Modules and Packages<a class="headerlink" href="#modules-and-packages" title="Permalink to this headline">¶</a></h3>
+<p>Python is all about <em>namespaces</em> &#8211;  the &#8220;dots&#8221;</p>
+<p><tt class="docutils literal"><span class="pre">name.another_name</span></tt></p>
+<p>The &#8220;dot&#8221; indicates that you are looking for a name in the <em>namespace</em> of the
+given object. It could be:</p>
+<ul class="simple">
+<li>name in a module</li>
+<li>module in a package</li>
+<li>attribute of an object</li>
+<li>method of an object</li>
+</ul>
+<p>A module is simply a namespace.</p>
+<p>It might be a single file, or it could be a collection of files that define a
+shared API.</p>
+<p>To a first approximation, you can think of the files you write that end in
+<tt class="docutils literal"><span class="pre">.py</span></tt> as modules.</p>
+<p>A package is a module with other modules in it.</p>
+<p>On a filesystem, this is represented as a directory that contains one or more
+<tt class="docutils literal"><span class="pre">.py</span></tt> files, one of which <strong>must</strong> be called <tt class="docutils literal"><span class="pre">__init__.py</span></tt>.</p>
+<p>When you have a package, you can import the package, or any of the modules
+inside it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">modulename</span>
+<span class="kn">from</span> <span class="nn">modulename</span> <span class="kn">import</span> <span class="n">this</span><span class="p">,</span> <span class="n">that</span>
+<span class="kn">import</span> <span class="nn">modulename</span> <span class="kn">as</span> <span class="nn">a_new_name</span>
+<span class="kn">from</span> <span class="nn">modulename</span> <span class="kn">import</span> <span class="n">this</span> <span class="k">as</span> <span class="n">that</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">packagename.modulename</span>
+<span class="kn">from</span> <span class="nn">packagename.modulename</span> <span class="kn">import</span> <span class="n">this</span><span class="p">,</span> <span class="n">that</span>
+<span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">modulename</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://effbot.org/zone/import-confusion.htm">http://effbot.org/zone/import-confusion.htm</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">modulename</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p class="centered large"><strong>Don&#8217;t do this!</strong></p>
+</div>
+<div class="section" id="import">
+<h3>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
+<p>When you import a module, or a symbol from a module, the Python code is
+<em>compiled</em> to <strong>bytecode</strong>.</p>
+<p>The result is a <tt class="docutils literal"><span class="pre">module.pyc</span></tt> file.</p>
+<p>This process <strong>executes all code at the module scope</strong>.</p>
+<p>For this reason, it is good to avoid module-scope statements that have global
+side-effects.</p>
+<p>The code in a module is NOT re-run when imported again</p>
+<p>It must be explicitly reloaded to be re-run</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">modulename</span>
+<span class="nb">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition to importing modules, you can run them.</p>
+<p>There are a few ways to do this:</p>
+<ul class="build simple">
+<li><tt class="docutils literal"><span class="pre">$</span> <span class="pre">python</span> <span class="pre">hello.py</span></tt>   &#8211; must be in current working directory</li>
+<li><tt class="docutils literal"><span class="pre">$</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">hello</span></tt>   &#8211; any module on PYTHONPATH anywhere on the system</li>
+<li><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./hello.py</span></tt>        &#8211; put <tt class="docutils literal"><span class="pre">#!/usr/env/python</span></tt>  at top of module (Unix)</li>
+<li><tt class="docutils literal"><span class="pre">In</span> <span class="pre">[149]:</span> <span class="pre">run</span> <span class="pre">hello.py</span></tt>     &#8211; at the IPython prompt &#8211; running a module brings its names into the interactive namespace</li>
+</ul>
+<p>Like importing, running a module executes all statements at the module level.</p>
+<p>But there&#8217;s an important difference.</p>
+<p>When you <em>import</em> a module, the value of the symbol <tt class="docutils literal"><span class="pre">__name__</span></tt> in the module
+is the same as the filename.</p>
+<p>When you <em>run</em> a module, the value of the symbol <tt class="docutils literal"><span class="pre">__name__</span></tt> is <tt class="docutils literal"><span class="pre">__main__</span></tt>.</p>
+<p>This allows you to create blocks of code that are executed <em>only when you run a
+module</em></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c"># Do something interesting here</span>
+    <span class="c"># It will only happen when the module is run</span>
+</pre></div>
+</div>
+<p>This is useful in a number of cases.</p>
+<p>You can put code here that lets your module be a utility script</p>
+<p>You can put code here that demonstrates the functions contained in your module</p>
+<p>You can put code here that proves that your module works.</p>
+<p>Writing <tt class="docutils literal"><span class="pre">tests</span></tt> that demonstrate that your program works is an important part
+of learning to program.</p>
+<p>The python <tt class="docutils literal"><span class="pre">assert</span></tt> statement is useful in writing <tt class="docutils literal"><span class="pre">main</span></tt> blocks that test
+your code.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [2]: </span><span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span>
+
+<span class="gp">In [3]: </span><span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-6731d4ac4476&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+
+<span class="ne">AssertionError</span>:
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>In-Class Lab<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Import Interactions</p>
+<div class="section" id="id5">
+<h3>Exercises<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Experiment with importing different ways:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="gp">In [4]: </span><span class="n">math</span><span class="o">.&lt;</span><span class="n">TAB</span><span class="o">&gt;</span>
+<span class="go">math.acos       math.degrees    math.fsum       math.pi</span>
+<span class="go">math.acosh      math.e          math.gamma      math.pow</span>
+<span class="go">math.asin       math.erf        math.hypot      math.radians</span>
+<span class="go">math.asinh      math.erfc       math.isinf      math.sin</span>
+<span class="go">math.atan       math.exp        math.isnan      math.sinh</span>
+<span class="go">math.atan2      math.expm1      math.ldexp      math.sqrt</span>
+<span class="go">math.atanh      math.fabs       math.lgamma     math.tan</span>
+<span class="go">math.ceil       math.factorial  math.log        math.tanh</span>
+<span class="go">math.copysign   math.floor      math.log10      math.trunc</span>
+<span class="go">math.cos        math.fmod       math.log1p</span>
+<span class="go">math.cosh       math.frexp      math.modf</span>
+</pre></div>
+</div>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[6]: </span><span class="go">2.0</span>
+<span class="gp">In [7]: </span><span class="kn">import</span> <span class="nn">math</span> <span class="kn">as</span> <span class="nn">m</span>
+<span class="gp">In [8]: </span><span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[8]: </span><span class="go">2.0</span>
+<span class="gp">In [9]: </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="gp">In [10]: </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[10]: </span><span class="go">2.0</span>
+</pre></div>
+</div>
+<p>Experiment with importing different ways:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span>
+</pre></div>
+</div>
+<p>You wouldn&#8217;t want to import * those!</p>
+<blockquote>
+<div>&#8211; check out</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;/foo/bar/baz.txt&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#39;/foo/bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="homework">
+<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<p>You have two tasks to complete by next class:</p>
+<div class="section" id="task-1">
+<h3>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h3>
+<p>The Ackermann function, A(m, n), is defined:</p>
+<div class="highlight-python"><div class="highlight"><pre>A(m, n) =
+    n+1   if  m = 0
+    A(m−1, 1)   if  m &gt; 0  and  n = 0
+    A(m−1, A(m, n−1))   if  m &gt; 0  and  n &gt; 0.
+</pre></div>
+</div>
+<p>See <a class="reference external" href="http://en.wikipedia.org/wiki/Ackermann_function">http://en.wikipedia.org/wiki/Ackermann_function</a>.</p>
+<p>Create a new module called <tt class="docutils literal"><span class="pre">ack.py</span></tt> in a <tt class="docutils literal"><span class="pre">session02</span></tt> folder in your student folder. In that module, write a function named <tt class="docutils literal"><span class="pre">ack</span></tt> that performs Ackermann&#8217;s function.</p>
+<ul class="simple">
+<li>Write a good <tt class="docutils literal"><span class="pre">docstring</span></tt> for your function according to PEP 257.</li>
+<li>Ackermann&#8217;s function is not defined for input values less than 0.  Validate
+inputs to your function and return None if they are negative.</li>
+</ul>
+<p>The wikipedia page provides a table of output values for inputs between 0 and
+4. Using this table, add a <tt class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></tt> block to test your
+function.</p>
+<p>Test each pair of inputs between 0 and 4 and assert that the result produced by
+your function is the result expected by the wikipedia table.</p>
+<p>When your module is run from the command line, these tests should be executed.
+If they all pass, print &#8220;All Tests Pass&#8221; as the result.</p>
+<p>Add your new module to your git clone and commit frequently while working on
+your implementation. Include good commit messages that explain concisely both
+<em>what</em> you are doing and <em>why</em>.</p>
+<p>When you are finished, push your changes to your fork of the class repository
+in GitHub. Then make a pull request and submit your assignment in Canvas.</p>
+<div class="highlight-python"><div class="highlight"><pre>- Adapted from &quot;Think Python&quot;: Chapter 6, exercise 5.
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-2">
+<h3>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="http://en.wikipedia.org/wiki/Fibbonaci_Series">Fibonacci Series</a> is a numeric series starting with the integers 0 and 1.
+In this series, the next integer is determined by summing the previous two.
+This gives us:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Create a new module <tt class="docutils literal"><span class="pre">series.py</span></tt> in the <tt class="docutils literal"><span class="pre">session02</span></tt> folder in your student folder. In it, add a function called <tt class="docutils literal"><span class="pre">fibonacci</span></tt>. The function should have one parameter <tt class="docutils literal"><span class="pre">n</span></tt>. The function should return the <tt class="docutils literal"><span class="pre">nth</span></tt> value in the fibonacci series.</p>
+<p>Ensure that your function has a well-formed <tt class="docutils literal"><span class="pre">docstring</span></tt></p>
+<p>The <a class="reference external" href="http://en.wikipedia.org/wiki/Lucas_number">Lucas Numbers</a> are a related series of integers that start with the
+values 2 and 1 rather than 0 and 1. The resulting series looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>In your <tt class="docutils literal"><span class="pre">series.py</span></tt> module, add a new function <tt class="docutils literal"><span class="pre">lucas</span></tt> that returns the
+<tt class="docutils literal"><span class="pre">nth</span></tt> value in the <em>lucas numbers</em></p>
+<p>Ensure that your function has a well-formed <tt class="docutils literal"><span class="pre">docstring</span></tt></p>
+<p>Both the <em>fibonacci series</em> and the <em>lucas numbers</em> are based on an identical
+formula.</p>
+<p>Add a third function called <tt class="docutils literal"><span class="pre">sum_series</span></tt> with one required parameter and two
+optional parameters. The required parameter will determine which element in the
+series to print. The two optional parameters will have default values of 0 and
+1 and will determine the first two values for the series to be produced.</p>
+<p>Calling this function with no optional parameters will produce numbers from the
+<em>fibonacci series</em>.  Calling it with the optional arguments 2 and 1 will
+produce values from the <em>lucas numbers</em>. Other values for the optional
+parameters will produce other series.</p>
+<p>Ensure that your function has a well-formed <tt class="docutils literal"><span class="pre">docstring</span></tt></p>
+<p>Add an <tt class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></tt> block to the end of your <tt class="docutils literal"><span class="pre">series.py</span></tt>
+module. Use the block to write a series of <tt class="docutils literal"><span class="pre">assert</span></tt> statements that
+demonstrate that your three functions work properly.</p>
+<p>Use comments in this block to inform the observer what your tests do.</p>
+<p>Add your new module to your git clone and commit frequently while working on
+your implementation. Include good commit messages that explain concisely both
+<em>what</em> you are doing and <em>why</em>.</p>
+<p>When you are finished, push your changes to your fork of the class repository
+in GitHub. Then make a pull request and submit your assignment in Canvas.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="session03.html" class="btn btn-neutral float-right" title="Session Three: Sequences, Iteration and String Formatting"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="session01.html" class="btn btn-neutral" title="Session One: Introductions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

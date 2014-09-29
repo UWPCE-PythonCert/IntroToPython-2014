@@ -1,0 +1,651 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Unicode in Python 2 &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
+        <link rel="up" title="Supplemental Materials" href="index.html"/>
+        <link rel="prev" title="Shell Customizations for Python Development" href="shell.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-ipython">Introduction to iPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#basic-python-syntax">Basic Python Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: Functions, Booleans and Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#boolean-expressions">Boolean Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#lists-tuples">Lists, Tuples...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutability">Mutability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#string-features">String Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#a-little-warm-up">A little warm up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#file-reading-and-writing">File Reading and Writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#paths-and-directories">Paths and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#object-oriented-programming">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#python-classes">Python Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#more-on-subclassing">More on Subclassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#static-and-class-methods">Static and Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#special-methods">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Generators, Iterators, Decorators, and Context Managers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#iterators-and-generators">Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#homework">Homework</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../homework/index.html">Homework Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/html_builder.html">HTML Renderer Homework Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting up Linux for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Unicode in Python 2</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
+      
+    <li>Unicode in Python 2</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/supplements/unicode.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="unicode-in-python-2">
+<span id="unicode-supplement"></span><h1>Unicode in Python 2<a class="headerlink" href="#unicode-in-python-2" title="Permalink to this headline">¶</a></h1>
+<p>A quick run-down of Unicode, its use in Python 2, and some of the gotchas that arise.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Chris Barker</li>
+</ul>
+</div></blockquote>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-the-heck-is-unicode-anyway">
+<h3>What the heck is Unicode anyway?<a class="headerlink" href="#what-the-heck-is-unicode-anyway" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>First there was chaos...<ul>
+<li>Different machines used different encodings</li>
+</ul>
+</li>
+<li>Then there was ASCII &#8211; and all was good (7 bit), 127 characters<ul>
+<li>(for English speakers, anyway)</li>
+</ul>
+</li>
+<li>But each vendor used the top half (127-255) for different things.<ul>
+<li>MacRoman, Windows 1252, etc...</li>
+<li>There is now &#8220;latin-1&#8221;, but still a lot of old files around</li>
+</ul>
+</li>
+<li>Non-Western European languages required totally incompatible 1-byte encodings</li>
+<li>No way to mix languages with different alphabets.</li>
+</ul>
+</div>
+<div class="section" id="enter-unicode">
+<h3>Enter Unicode<a class="headerlink" href="#enter-unicode" title="Permalink to this headline">¶</a></h3>
+<p>The Unicode idea is pretty simple:
+* one &#8220;code point&#8221; for all characters in all languages</p>
+<dl class="docutils">
+<dt>But how do you express that in bytes?</dt>
+<dd><ul class="first last simple">
+<li>Early days: we can fit all the code points in a two byte integer (65536 characters)</li>
+<li>Turns out that didn&#8217;t work &#8211; now need 32 bit integer to hold all of unicode &#8220;raw&#8221; (UTC-4)</li>
+</ul>
+</dd>
+<dt>Enter &#8220;encodings&#8221;:</dt>
+<dd><ul class="first last simple">
+<li>An encoding is a way to map specific bytes to a code point.</li>
+<li>Each code point can have one or more bytes.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="unicode">
+<h3>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h3>
+<p>A good start:</p>
+<p>The Absolute Minimum Every Software Developer Absolutely,
+Positively Must Know About Unicode and Character Sets (No Excuses!)</p>
+<p><a class="reference external" href="http://www.joelonsoftware.com/articles/Unicode.html">http://www.joelonsoftware.com/articles/Unicode.html</a></p>
+<p><strong>Everything is Bytes</strong></p>
+<ul class="simple">
+<li>If it&#8217;s on disk or on a network, it&#8217;s bytes</li>
+<li>Python provides some abstractions to make it easier to deal with bytes</li>
+</ul>
+<p>Unicode is a biggie</p>
+<p>(actually, dealing with numbers rather than bytes is big &#8211; but we take that
+for granted)</p>
+</div>
+</div>
+<div class="section" id="mechanics">
+<h2>Mechanics<a class="headerlink" href="#mechanics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-are-strings">
+<h3>What are strings?<a class="headerlink" href="#what-are-strings" title="Permalink to this headline">¶</a></h3>
+<p>Py2 strings are sequences of bytes</p>
+<p>Unicode strings are sequences of platonic characters</p>
+<p>It&#8217;s almost one code point per character &#8211; but there are complications
+with combined characters: accents, etc.</p>
+<p>Platonic characters cannot be written to disk or network!</p>
+<p>(ANSI: one character == one byte &#8211; so easy!)</p>
+</div>
+<div class="section" id="strings-vs-unicode">
+<h3>Strings vs unicode<a class="headerlink" href="#strings-vs-unicode" title="Permalink to this headline">¶</a></h3>
+<p>Python 2 has two types that let you work with text:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">str</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">unicode</span></tt></li>
+</ul>
+<p>And two ways to work with binary data:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">str</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">bytes()</span></tt>  (and <tt class="docutils literal"><span class="pre">bytearray</span></tt>)</li>
+</ul>
+<p><strong>but:</strong></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [86]: </span><span class="nb">str</span> <span class="ow">is</span> <span class="nb">bytes</span>
+<span class="gh">Out[86]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">bytes</span></tt> is there for py3 compatibility - -but it&#8217;s good for making your
+intentions clear, too.</p>
+</div>
+<div class="section" id="id1">
+<h3>Unicode<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">unicode</span></tt> object lets you work with characters</p>
+<p>It has all the same methods as the string object.</p>
+<p>&#8220;encoding&#8221; is converting from a unicode object to bytes</p>
+<p>&#8220;decoding&#8221; is converting from bytes to a unicode object</p>
+<p>(sometimes this feels backwards...)</p>
+</div>
+<div class="section" id="using-unicode-in-py2">
+<h3>Using unicode in Py2<a class="headerlink" href="#using-unicode-in-py2" title="Permalink to this headline">¶</a></h3>
+<p>Built in functions</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">ord</span><span class="p">()</span>
+<span class="nb">chr</span><span class="p">()</span>
+<span class="nb">unichr</span><span class="p">()</span>
+<span class="nb">str</span><span class="p">()</span>
+<span class="nb">unicode</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The codecs module</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">codecs</span>
+<span class="n">codecs</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<span class="n">codecs</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="c"># better to use ``io.open``</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="encoding-and-decoding">
+<h3>Encoding and Decoding<a class="headerlink" href="#encoding-and-decoding" title="Permalink to this headline">¶</a></h3>
+<p>Encoding</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [17]: </span><span class="s">u&quot;this&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="gh">Out[17]: </span><span class="go">&#39;this&#39;</span>
+
+<span class="gp">In [18]: </span><span class="s">u&quot;this&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-16&#39;</span><span class="p">)</span>
+<span class="gh">Out[18]: </span><span class="go">&#39;\xff\xfet\x00h\x00i\x00s\x00&#39;</span>
+</pre></div>
+</div>
+<p>Decoding</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [99]: </span><span class="k">print</span> <span class="s">&#39;</span><span class="se">\xff\xfe</span><span class="s">.&quot;+&quot;x</span><span class="se">\x00\xb2\x00</span><span class="s">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-16&#39;</span><span class="p">)</span>
+<span class="go">∮∫x²</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicode-literals">
+<h3>Unicode Literals<a class="headerlink" href="#unicode-literals" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Use unicode in your source files:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>escape the unicode characters:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">u&quot;The integral sign: </span><span class="se">\u222B</span><span class="s">&quot;</span>
+<span class="k">print</span> <span class="s">u&quot;The integral sign: </span><span class="se">\N{integral}</span><span class="s">&quot;</span>
+</pre></div>
+</div>
+<p>Lots of tables of code points online:</p>
+<dl class="docutils">
+<dt>One example:</dt>
+<dd><a class="reference external" href="http://inamidst.com/stuff/unidata/">http://inamidst.com/stuff/unidata/</a></dd>
+</dl>
+<p><a class="reference download internal" href="../_downloads/hello_unicode.py"><tt class="xref download docutils literal"><span class="pre">hello_unicode.py</span></tt></a>.</p>
+</div>
+<div class="section" id="using-unicode">
+<h3>Using Unicode<a class="headerlink" href="#using-unicode" title="Permalink to this headline">¶</a></h3>
+<p>Use <tt class="docutils literal"><span class="pre">unicode</span></tt> objects in all your code</p>
+<p>Decode on input</p>
+<p>Encode on output</p>
+<p>Many packages do this for you: <em>XML processing, databases, ...</em></p>
+<p><strong>Gotcha:</strong></p>
+<p>Python has a default encoding (usually ascii)</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">()</span>
+<span class="gh">Out[2]: </span><span class="go">&#39;ascii&#39;</span>
+</pre></div>
+</div>
+<p>The default encoding will get used in unexpected places!</p>
+</div>
+<div class="section" id="using-unicode-everywhere">
+<h3>Using unicode everywhere<a class="headerlink" href="#using-unicode-everywhere" title="Permalink to this headline">¶</a></h3>
+<p>Python 2.6 and above have a nice feature to make it easier to use unicode everywhere</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+</pre></div>
+</div>
+<p>After running that line, the <tt class="docutils literal"><span class="pre">u''</span></tt> is assumed</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;this is a regular py2 string&quot;</span>
+<span class="gp">In [2]: </span><span class="k">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">&lt;type &#39;str&#39;&gt;</span>
+
+<span class="gp">In [3]: </span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<span class="gp">In [4]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;this is now a unicode string&quot;</span>
+<span class="gp">In [5]: </span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">unicode</span>
+</pre></div>
+</div>
+<p>NOTE: You can still get py2 strings from other sources!</p>
+</div>
+<div class="section" id="encodings">
+<h3>Encodings<a class="headerlink" href="#encodings" title="Permalink to this headline">¶</a></h3>
+<p>What encoding should I use???</p>
+<p>There are a lot:</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Comparison_of_Unicode_encodings">http://en.wikipedia.org/wiki/Comparison_of_Unicode_encodings</a></p>
+<p>But only a couple you are likely to need:</p>
+<ul class="simple">
+<li>utf-8  (<tt class="docutils literal"><span class="pre">*nix</span></tt>)</li>
+<li>utf-16  (Windows)</li>
+</ul>
+<p>and of course, still the one-bytes ones.</p>
+<ul class="simple">
+<li>ASCII</li>
+<li>Latin-1</li>
+</ul>
+</div>
+<div class="section" id="utf-8">
+<h3>UTF-8<a class="headerlink" href="#utf-8" title="Permalink to this headline">¶</a></h3>
+<p>Probably the one you&#8217;ll use most &#8211; most common in Internet protocols (xml, JSON, etc.)</p>
+<p>Nice properties:</p>
+<ul class="simple">
+<li>ASCII compatible: first 127 characters are the same</li>
+<li>Any ascii string is a utf-8 string</li>
+<li>compact for mostly-english text.</li>
+</ul>
+<p>Gotchas:</p>
+<ul class="simple">
+<li>&#8220;higher&#8221; code points may use more than one byte: up to 4 for one character</li>
+<li>ASCII compatible means in may work with default encoding in tests &#8211; but then blow up with real data...</li>
+</ul>
+</div>
+<div class="section" id="utf-16">
+<h3>UTF-16<a class="headerlink" href="#utf-16" title="Permalink to this headline">¶</a></h3>
+<p>Kind of like UTF-8, except it uses at least 16bits (2 bytes) for each character: not ASCII compatible.</p>
+<p>But is still needs more than two bytes for some code points, so you still can&#8217;t process</p>
+<p>In C/C++ held in a &#8220;wide char&#8221; or &#8220;wide string&#8221;.</p>
+<p>MS Windows uses UTF-16, as does (I think) Java.</p>
+</div>
+<div class="section" id="utf-16-criticism">
+<h3>UTF-16 criticism<a class="headerlink" href="#utf-16-criticism" title="Permalink to this headline">¶</a></h3>
+<p>There is a lot of criticism on the net about UTF-16 &#8211; it&#8217;s kind of the worst of both worlds:</p>
+<ul class="simple">
+<li>You can&#8217;t assume every character is the same number of bytes</li>
+<li>It takes up more memory than UTF-8</li>
+</ul>
+<p><a class="reference external" href="http://programmers.stackexchange.com/questions/102205/should-utf-16-be-considered-harmful">UTF Considered Harmful</a></p>
+<p>But to be fair:</p>
+<p>Early versions of Unicode: everything fit into two bytes (65536 code points). MS and Java were fairly early adopters, and it seemed simple enough to just use 2 bytes per character.</p>
+<p>When it turned out that 4 bytes were really needed, they were kind of stuck in the middle.</p>
+</div>
+<div class="section" id="latin-1">
+<h3>Latin-1<a class="headerlink" href="#latin-1" title="Permalink to this headline">¶</a></h3>
+<p><strong>NOT Unicode</strong>:</p>
+<p>a 1-byte per char encoding.</p>
+<ul class="simple">
+<li>Superset of ASCII suitable for Western European languages.</li>
+<li>The most common one-byte per char encoding for European text.</li>
+<li>Nice property &#8211; every byte value from 0 to 255 is a valid character ( at least in Python )</li>
+</ul>
+<ul class="simple">
+<li>You will never get an UnicodeDecodeError if you try to decode arbitrary bytes with latin-1.</li>
+<li>And it can &#8220;round-trip&#8221; through a unicode object.</li>
+<li>Useful if you don&#8217;t know the encoding &#8211; at least it won&#8217;t raise an Exception</li>
+<li>Useful if you need to work with combined text+binary data.</li>
+</ul>
+<p><a class="reference download internal" href="../_downloads/latin1_test.py"><tt class="xref download docutils literal"><span class="pre">latin1_test.py</span></tt></a>.</p>
+</div>
+<div class="section" id="unicode-docs">
+<h3>Unicode Docs<a class="headerlink" href="#unicode-docs" title="Permalink to this headline">¶</a></h3>
+<p>Python Docs Unicode HowTo:</p>
+<p><a class="reference external" href="http://docs.python.org/howto/unicode.html">http://docs.python.org/howto/unicode.html</a></p>
+<p>&#8220;Reading Unicode from a file is therefore simple&#8221;</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">codecs</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;unicode.rst&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">print</span> <span class="nb">repr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Encodings Built-in to Python:</dt>
+<dd><a class="reference external" href="http://docs.python.org/2/library/codecs.html#standard-encodings">http://docs.python.org/2/library/codecs.html#standard-encodings</a></dd>
+</dl>
+</div>
+<div class="section" id="gotchas-in-python-2">
+<h3>Gotchas in Python 2<a class="headerlink" href="#gotchas-in-python-2" title="Permalink to this headline">¶</a></h3>
+<p>file names, etc:</p>
+<p>If you pass in unicode, you get unicode</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">&#39;./&#39;</span><span class="p">)</span>
+<span class="gh">Out[9]: </span><span class="go">[&#39;hello_unicode.py&#39;, &#39;text.utf16&#39;, &#39;text.utf32&#39;]</span>
+
+<span class="gp">In [10]: </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">u&#39;./&#39;</span><span class="p">)</span>
+<span class="gh">Out[10]: </span><span class="go">[u&#39;hello_unicode.py&#39;, u&#39;text.utf16&#39;, u&#39;text.utf32&#39;]</span>
+</pre></div>
+</div>
+<p>Python deals with the file system encoding for you...</p>
+<p>But: some more obscure calls don&#8217;t support unicode filenames:</p>
+<p><tt class="docutils literal"><span class="pre">os.statvfs()</span></tt> (<a class="reference external" href="http://bugs.python.org/issue18695">http://bugs.python.org/issue18695</a>)</p>
+<p>Exception messages:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Py2 Exceptions use str when they print messages.</li>
+<li>But what if you pass in a unicode object?<ul>
+<li>It is encoded with the default encoding.</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">UnicodeDecodeError</span></tt> Inside an Exception????</li>
+</ul>
+<p>NOPE: it swallows it instead.</p>
+</div></blockquote>
+<p><a class="reference download internal" href="../_downloads/exception_test.py"><tt class="xref download docutils literal"><span class="pre">exception_test.py</span></tt></a>.</p>
+</div>
+<div class="section" id="unicode-in-python-3">
+<h3>Unicode in Python 3<a class="headerlink" href="#unicode-in-python-3" title="Permalink to this headline">¶</a></h3>
+<p>The &#8220;string&#8221; object is unicode.</p>
+<p>Py3 has two distinct concepts:</p>
+<ul class="simple">
+<li>&#8220;text&#8221; &#8211; uses the str object (which is always unicode!)</li>
+<li>&#8220;binary data&#8221; &#8211; uses bytes or bytearray</li>
+</ul>
+<p>Everything that&#8217;s about text is unicode.</p>
+<p>Everything that requires binary data uses bytes.</p>
+<p>It&#8217;s all much cleaner.</p>
+<p>(by the way, the recent implementations are very efficient...)</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-unicode-lab">
+<h3>Basic Unicode LAB<a class="headerlink" href="#basic-unicode-lab" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Find some nifty non-ascii characters you might use.<ul>
+<li>Create a unicode object with them in two different ways.</li>
+<li><a class="reference download internal" href="../_downloads/hello_unicode.py"><tt class="xref download docutils literal"><span class="pre">here</span></tt></a> is one example</li>
+</ul>
+</li>
+<li>Read the contents into unicode objects:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference download internal" href="../_downloads/ICanEatGlass.utf8.txt"><tt class="xref download docutils literal"><span class="pre">ICanEatGlass.utf8.txt</span></tt></a></li>
+<li><a class="reference download internal" href="../_downloads/ICanEatGlass.utf16.txt"><tt class="xref download docutils literal"><span class="pre">ICanEatGlass.utf16.txt</span></tt></a></li>
+</ul>
+</div></blockquote>
+<p>and/ or</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference download internal" href="../_downloads/text.utf8"><tt class="xref download docutils literal"><span class="pre">text.utf8</span></tt></a></li>
+<li><a class="reference download internal" href="../_downloads/text.utf16"><tt class="xref download docutils literal"><span class="pre">text.utf16</span></tt></a></li>
+<li><a class="reference download internal" href="../_downloads/text.utf32"><tt class="xref download docutils literal"><span class="pre">text.utf32</span></tt></a></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>write some of the text from the first exercise to file &#8211; read that file back in.</li>
+</ul>
+<p>reference: <a class="reference external" href="http://inamidst.com/stuff/unidata/">http://inamidst.com/stuff/unidata/</a></p>
+<p>NOTE: if your terminal does not support unicode &#8211; you&#8217;ll get an error trying
+to print. Try a different terminal or IDE, or google for a solution.</p>
+</div>
+<div class="section" id="challenge-unicode-lab">
+<h3>Challenge Unicode LAB<a class="headerlink" href="#challenge-unicode-lab" title="Permalink to this headline">¶</a></h3>
+<p>We saw this earlier</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [38]: </span><span class="s">u&#39;to </span><span class="se">\N{INFINITY}</span><span class="s"> and beyond!&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnicodeEncodeError</span><span class="g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-38-7f87d44dfcfa&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s">u&#39;to </span><span class="se">\N{INFINITY}</span><span class="s"> and beyond!&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.pyc</span> in <span class="ni">decode</span><span class="nt">(input, errors)</span>
+<span class="g-Whitespace">     </span><span class="mi">14</span>
+<span class="g-Whitespace">     </span><span class="mi">15</span> <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s">&#39;strict&#39;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>     <span class="k">return</span> <span class="n">codecs</span><span class="o">.</span><span class="n">utf_8_decode</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="g-Whitespace">     </span><span class="mi">17</span>
+<span class="g-Whitespace">     </span><span class="mi">18</span> <span class="k">class</span> <span class="nc">IncrementalEncoder</span><span class="p">(</span><span class="n">codecs</span><span class="o">.</span><span class="n">IncrementalEncoder</span><span class="p">):</span>
+
+<span class="nn">UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode character u&#39;\u221e&#39; in position 3: ordinal not</span> in <span class="ni">range</span><span class="nt">(128)</span>
+</pre></div>
+</div>
+<p>But why would you <strong>decode</strong> a unicode object?</p>
+<p>And it should be a no-op &#8211; why the exception?</p>
+<p>And why &#8216;ascii&#8217;? I specified &#8216;utf-8&#8217;!</p>
+<p>It&#8217;s there for backward compatibility</p>
+<p>What&#8217;s happening under the hood</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">u&#39;to </span><span class="se">\N{INFINITY}</span><span class="s"> and beyond!&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It encodes with the default encoding (ascii), then decodes</p>
+<p>In this case, it barfs on attempting to encode to &#8216;ascii&#8217;</p>
+<p>So never call decode on a unicode object!</p>
+<p>But what if someone passes one into a function of yours that&#8217;s expecting a py2 string?</p>
+<p>Type checking and converting &#8211; yeach!</p>
+<p>Read:</p>
+<p><a class="reference external" href="http://axialcorps.com/2014/03/20/unicode-str/">http://axialcorps.com/2014/03/20/unicode-str/</a></p>
+<p>See if you can figure out the decorators:</p>
+<p><a class="reference download internal" href="../_downloads/unicodify.py"><tt class="xref download docutils literal"><span class="pre">unicodify.py</span></tt></a>.</p>
+<p>(This is advanced Python JuJu: Aren&#8217;t you glad I didn&#8217;t ask you to write that yourself?)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="shell.html" class="btn btn-neutral" title="Shell Customizations for Python Development"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

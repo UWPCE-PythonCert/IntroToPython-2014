@@ -1,0 +1,546 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Turning Sublime Text Into a Lightweight Python IDE &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
+        <link rel="up" title="Supplemental Materials" href="index.html"/>
+        <link rel="next" title="Shell Customizations for Python Development" href="shell.html"/>
+        <link rel="prev" title="Working with Virtualenv" href="virtualenv.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-ipython">Introduction to iPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#basic-python-syntax">Basic Python Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: Functions, Booleans and Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#boolean-expressions">Boolean Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#lists-tuples">Lists, Tuples...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutability">Mutability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#string-features">String Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#a-little-warm-up">A little warm up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#file-reading-and-writing">File Reading and Writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#paths-and-directories">Paths and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#object-oriented-programming">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#python-classes">Python Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#more-on-subclassing">More on Subclassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#static-and-class-methods">Static and Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#special-methods">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Generators, Iterators, Decorators, and Context Managers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#iterators-and-generators">Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#homework">Homework</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../homework/index.html">Homework Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/html_builder.html">HTML Renderer Homework Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting up Linux for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
+      
+    <li>Turning Sublime Text Into a Lightweight Python IDE</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/supplements/sublime_as_ide.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="turning-sublime-text-into-a-lightweight-python-ide">
+<h1>Turning Sublime Text Into a Lightweight Python IDE<a class="headerlink" href="#turning-sublime-text-into-a-lightweight-python-ide" title="Permalink to this headline">¶</a></h1>
+<p>A solid text editor is a developer&#8217;s best friend. You use it constantly and it
+becomes like a second pair of hands. The keyboard commands you use daily
+become so engrained in your muscle memory that you stop thinking about them
+entirely.</p>
+<p>With Sublime Text, it&#8217;s possible to turn your text editor into the functional
+equivalent of a Python IDE.  The best part is you don&#8217;t have to install an IDE
+to do it.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Here are <em>my</em> requirements for an &#8216;IDE&#8217;:</p>
+<ul class="simple">
+<li>It should provide excellent, configurable syntax colorization.</li>
+<li>It should allow for robust tab completion.</li>
+<li>It should offer the ability to jump to the definition of symbols in other
+files.</li>
+<li>It should perform automatic code linting to help avoid silly mistakes.</li>
+<li>It should be able to interact with a Python interpreter such that when
+debugging, the editor will follow along with the debugger.</li>
+</ul>
+</div>
+<div class="section" id="which-version">
+<h2>Which Version?<a class="headerlink" href="#which-version" title="Permalink to this headline">¶</a></h2>
+<p>Version 2 will be fine, but I would urge you to consider updating to version 3.
+Some of the plugins I recommend are not available for version 2.</p>
+</div>
+<div class="section" id="basic-settings">
+<h2>Basic Settings<a class="headerlink" href="#basic-settings" title="Permalink to this headline">¶</a></h2>
+<p>All configuration in Sublime Text is done via <a class="reference external" href="http://www.json.org">JSON</a>. It&#8217;s simple to learn. go
+and read that link then return here.</p>
+<p>There are a number of <a class="reference external" href="http://www.sublimetext.com/docs/3/settings.html">different levels of configuration</a> in Sublime Text. You
+will most often work on settings at the user level.</p>
+<p>Open <tt class="docutils literal"><span class="pre">Preferences</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">Default</span></tt> to see all the default settings
+and choose which to override.</p>
+<p>Create your own set of preferences by opening <tt class="docutils literal"><span class="pre">Preferences</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span>
+<span class="pre">User</span></tt>. This will create an empty file, you can then copy the settings you want
+to override from the default set into your personal settings.</p>
+<p>Here&#8217;s a reasonable set of preliminary settings (theme, color scheme and font
+are quite personal, find ones that suit you.):</p>
+<div class="highlight-json"><div class="highlight"><pre>source
+
+{
+    &quot;color_scheme&quot;: &quot;Packages/User/Cobalt (SL).tmTheme&quot;,
+    &quot;theme&quot;: &quot;Soda Light 3.sublime-theme&quot;,
+    // A font face that helps distinguish between 0 (the number) and &#39;O&#39; (the letter)
+    // among other problem characters.
+    &quot;font_face&quot;: &quot;DroidSansMonoSlashed&quot;,
+    // getting older. I wonder if comfy font size increases as a linear
+    //  function of age?
+    &quot;font_size&quot;: 15,
+    &quot;ignored_packages&quot;:
+    [
+        // I&#39;m not a vi user, so this is of no use to me.
+        &quot;Vintage&quot;
+    ],
+    &quot;rulers&quot;:
+    [
+        // set text rulers so I can judge line length for pep8
+        72, // docstrings
+        79, // optimum code line length
+        100  // maximum allowable length
+    ],
+    &quot;word_wrap&quot;: false, // I hate auto-wrapped text.
+    &quot;wrap_width&quot;: 79 // This is used by a plugin elsewhere
+    &quot;tab_size&quot;: 4,
+    &quot;translate_tabs_to_spaces&quot;: true,
+    &quot;use_tab_stops&quot;: true,
+}
+</pre></div>
+</div>
+<p>Especially important is the setting <tt class="docutils literal"><span class="pre">translate_tabs_to_spaces</span></tt>, which ensures
+that any time you hit a tab key, the single <tt class="docutils literal"><span class="pre">\t</span></tt> character is replaced by four
+<tt class="docutils literal"><span class="pre">\s</span></tt> characters.  In Python this is <strong>vital</strong>!</p>
+</div>
+<div class="section" id="extending-the-editor">
+<h2>Extending the Editor<a class="headerlink" href="#extending-the-editor" title="Permalink to this headline">¶</a></h2>
+<p>Most of the requirements above go beyond basic editor function. Use Plugins.</p>
+<p>Sublime Text comes with a great system for <a class="reference external" href="https://sublime.wbond.net">Package Control</a>. It handles
+installing and uninstalling plugins, and even updates installed plugins for
+you. You can also manually install plugins that haven&#8217;t made it to the big-time
+yet, including <a class="reference external" href="http://docs.sublimetext.info/en/latest/extensibility/plugins.html">ones you write yourself</a>. Happily, the plugin system is
+Python!</p>
+<p>To install a plugin using Package Control, open the <tt class="docutils literal"><span class="pre">command</span> <span class="pre">palette</span></tt> with
+<tt class="docutils literal"><span class="pre">shift-super-P</span></tt> (<tt class="docutils literal"><span class="pre">ctrl-shift-P</span></tt> on Windows/Linux). The <tt class="docutils literal"><span class="pre">super</span></tt> key is <tt class="docutils literal"><span class="pre">command</span></tt>
+or <tt class="docutils literal"><span class="pre">⌘</span></tt> on OS X. When the palette opens, typing <tt class="docutils literal"><span class="pre">install</span></tt> will bring up the
+<tt class="docutils literal"><span class="pre">Package</span> <span class="pre">Control:</span> <span class="pre">Install</span> <span class="pre">Package</span></tt> command. Hit <tt class="docutils literal"><span class="pre">enter</span></tt> to select it.</p>
+<a class="reference internal image-reference" href="../_images/pc_menu.png"><img alt="The package control command in the command palette." class="align-center" src="../_images/pc_menu.png" style="width: 600px;" /></a>
+<p>After you select the command, Sublime Text fetches an updated list of packages
+from the network. It might take a second or two for the list to appear. When it
+does, start to type the name of the package you want. Sublime Text filters the
+list and shows you what you want to see. To install a plugin, select it with
+the mouse, or use arrow keys to navigate the list and hit <tt class="docutils literal"><span class="pre">enter</span></tt> when your
+plugin is highlighted.</p>
+<a class="reference internal image-reference" href="../_images/plugin_list.png"><img alt="../_images/plugin_list.png" class="align-center" src="../_images/plugin_list.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="useful-plugins">
+<h2>Useful Plugins<a class="headerlink" href="#useful-plugins" title="Permalink to this headline">¶</a></h2>
+<p>Here are the plugins I&#8217;ve installed to achieve the requirements above.</p>
+<div class="section" id="autocompletion">
+<h3>Autocompletion<a class="headerlink" href="#autocompletion" title="Permalink to this headline">¶</a></h3>
+<p>By default, Sublime Text will index symbols in open files and projects, but
+that doesn&#8217;t cover installed python packages that may be part of a non-standard
+run environment.</p>
+<p>There are two to choose from:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://sublime.wbond.net/packages/SublimeCodeIntel">SublimeCodeIntel</a> offers strong support for multiple languages through
+it&#8217;s own plugin system.  It is a bit heavy and requires building an index.</li>
+<li><a class="reference external" href="https://sublime.wbond.net/packages/Jedi%20-%20Python%20autocompletion">SublimeJedi</a> only supports Python, but is faster and keeps an index on its
+own.</li>
+</ol>
+<p>I&#8217;ve installed <tt class="docutils literal"><span class="pre">SublimeJedi</span></tt>, and used the following settings <em>per project</em> to
+ensure that all relevant code is found:</p>
+<div class="highlight-json"><div class="highlight"><pre>{
+    &quot;folders&quot;:
+    [
+        // ...
+    ],
+
+    &quot;settings&quot;: {
+        // ...
+        &quot;python_interpreter_path&quot;: &quot;/Users/cewing/pythons/python-2.7/bin/python&quot;,
+
+        &quot;python_package_paths&quot;: [
+            &quot;/path/to/project/buildout/parts/omelette&quot;
+        ]
+    }
+}
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">python_interpreter_path</span></tt> allows me to indicate which Python executable
+should be introspected for symbol definitions.</p>
+<p>The <tt class="docutils literal"><span class="pre">python_package_paths</span></tt> setting allows designating additional paths that
+will be searched for Python packages containing symbols.</p>
+<a class="reference internal image-reference" href="../_images/tab_completion.png"><img alt="Tab completion provided by SublimeJedi" class="align-center" src="../_images/tab_completion.png" style="width: 600px;" /></a>
+<p>Once configured, you should be able to use the <tt class="docutils literal"><span class="pre">ctrl-shift-G</span></tt> keyboard
+shortcut to jump directly to the definition of a symbol. You can also use
+<tt class="docutils literal"><span class="pre">alt-shift-F</span></tt> to find other usages of the same symbol elsewhere in your code.</p>
+</div>
+<div class="section" id="code-linting">
+<h3>Code Linting<a class="headerlink" href="#code-linting" title="Permalink to this headline">¶</a></h3>
+<p>Code linting shows you mistakes you&#8217;ve made in your source <em>before</em> you attempt
+to run the code. This saves time. Sublime Text has an available plugin for code
+linters called <a class="reference external" href="http://sublimelinter.readthedocs.org/en/latest/">SublimeLinter</a>.</p>
+<p>Python has a couple of great tools available for linting, the <a class="reference external" href="https://pypi.python.org/pypi/pep8">pep8</a> and
+<a class="reference external" href="https://pypi.python.org/pypi/pyflakes">pyflakes</a> packages. <tt class="docutils literal"><span class="pre">Pep8</span></tt> checks for style violations, lines too long,
+extra spaces and so on. <tt class="docutils literal"><span class="pre">Pyflakes</span></tt> checks for syntactic violations, like
+using a symbol that isn&#8217;t defined or importing a symbol you don&#8217;t use.</p>
+<p>Another Python linting package, <a class="reference external" href="https://pypi.python.org/pypi/flake8">flake8</a> combines these two, and adds in
+<a class="reference external" href="https://pypi.python.org/pypi/mccabe">mccabe</a>, a tool to check the <a class="reference external" href="http://en.wikipedia.org/wiki/Cyclomatic_complexity">cyclomatic complexity</a> of code you write. This
+can be of great help in discovering methods and functions that could be
+simplified and thus made easier to understand and more testable.</p>
+<p>There is a nice plugin for the SublimeLinter that <a class="reference external" href="https://sublime.wbond.net/packages/SublimeLinter-flake8">utilizes flake8</a>. For it to
+work, the plugin will need to have a Python executable that has the Python
+tools it needs installed.</p>
+<p>Use <a class="reference external" href="http://virtualenv.org">virtualenv</a> to accomplish this. First, create a virtualenv and activate
+it:</p>
+<div class="highlight-bash"><div class="highlight"><pre>$ cd /Users/cewing/virtualenvs
+$ virtualenv sublenv
+New python executable in sublenv/bin/python
+Installing setuptools, pip...done.
+$ source sublenv/bin/activate
+(sublenv)$
+</pre></div>
+</div>
+<p>Then use Python packaging tools to install the required packages:</p>
+<div class="highlight-bash"><div class="highlight"><pre>(sublenv)$ pip install flake8
+Downloading/unpacking flake8
+[...]
+Downloading/unpacking pyflakes&gt;=0.7.3 (from flake8)
+[...]
+Downloading/unpacking pep8&gt;=1.4.6 (from flake8)
+[...]
+Downloading/unpacking mccabe&gt;=0.2.1 (from flake8)
+[...]
+Installing collected packages: flake8, pyflakes, pep8, mccabe
+[...]
+Successfully installed flake8 pyflakes pep8 mccabe
+Cleaning up...
+(sublenv)$
+</pre></div>
+</div>
+<p>The Python executable for this <tt class="docutils literal"><span class="pre">virtualenv</span></tt> now has the required packages
+installed. You can look in <tt class="docutils literal"><span class="pre">/path/to/sublenv/bin</span></tt> to see the executable
+commands for each:</p>
+<blockquote>
+<div>(sublenv)$ ls sublenv/bin
+activate            easy_install-2.7    pip2.7
+activate.csh        flake8              pyflakes
+activate.fish       pep8                python
+activate_this.py    pip                 python2
+easy_install        pip2                python2.7</div></blockquote>
+<p>Now install SublimeLinter and then SublimeLinter-flake8 using Package Control.</p>
+<p>Here are the settings you can add to <tt class="docutils literal"><span class="pre">Preferences</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Package</span> <span class="pre">Settings</span></tt> -&gt;
+<tt class="docutils literal"><span class="pre">SublimeLinter</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">User</span></tt>:</p>
+<div class="highlight-json"><div class="highlight"><pre>{
+    //...
+    &quot;linters&quot;: {
+        &quot;flake8&quot;: {
+            &quot;@disable&quot;: false,
+            &quot;args&quot;: [],
+            &quot;builtins&quot;: &quot;&quot;,
+            &quot;excludes&quot;: [],
+            &quot;ignore&quot;: &quot;&quot;,
+            &quot;max-complexity&quot;: 10,
+            &quot;max-line-length&quot;: null,
+            &quot;select&quot;: &quot;&quot;
+        }
+    },
+    //...
+    &quot;paths&quot;: {
+        &quot;linux&quot;: [],
+        &quot;osx&quot;: [
+            &quot;/Users/cewing/virtualenvs/sublenv/bin&quot;
+        ],
+        &quot;windows&quot;: []
+    },
+    &quot;python_paths&quot;: {
+        &quot;linux&quot;: [],
+        &quot;osx&quot;: [
+            &quot;/Users/cewing/virtualenvs/sublenv/bin&quot;
+        ],
+        &quot;windows&quot;: []
+    },
+    //...
+}
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">paths</span></tt> key points to the path that contains the <tt class="docutils literal"><span class="pre">flake8</span></tt> executable
+command.</p>
+<p>The <tt class="docutils literal"><span class="pre">python_paths</span></tt> key points to the location of the python executable to be
+used.</p>
+<p>The settings inside the <tt class="docutils literal"><span class="pre">flake8</span></tt> object control the performance of the
+linter. <a class="reference external" href="https://github.com/SublimeLinter/SublimeLinter-flake8#settings">Read more about them here</a>.</p>
+<a class="reference internal image-reference" href="../_images/flake8_output.png"><img alt="Flake8 shows unused import and trailing whitespace issues." class="align-center" src="../_images/flake8_output.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="white-space-management">
+<h3>White Space Management<a class="headerlink" href="#white-space-management" title="Permalink to this headline">¶</a></h3>
+<p>One of the issues highlighted by <tt class="docutils literal"><span class="pre">flake8</span></tt> is trailing spaces.  Sublime text
+provides a setting that allows you to remove them every time you save a file:</p>
+<div class="highlight-json"><div class="highlight"><pre>source
+
+{
+    &quot;trim_trailing_whitespace_on_save&quot;: true
+}
+</pre></div>
+</div>
+<p><strong>Do not use this setting</strong></p>
+<p>Removing trailing whitespace by default causes a <em>ton</em> of noise in commits.</p>
+<p>Keep commits for stylistic cleanup separate from those that make important
+changes to code.</p>
+<p>The <a class="reference external" href="https://github.com/SublimeText/TrailingSpaces">TrailingSpaces</a> SublimeText plugin can help with this.</p>
+<p>Here are the settings you can use:</p>
+<div class="highlight-json"><div class="highlight"><pre>{
+    //...
+    &quot;trailing_spaces_modified_lines_only&quot;: true,
+    &quot;trailing_spaces_trim_on_save&quot;: true,
+    // ...
+}
+</pre></div>
+</div>
+<p>This allows trimming whitespace on save, but <em>only on lines you have directly
+modified</em>. You can still trim <em>all</em> whitespace manually and keep changesets
+free of noise.</p>
+</div>
+<div class="section" id="follow-along">
+<h3>Follow-Along<a class="headerlink" href="#follow-along" title="Permalink to this headline">¶</a></h3>
+<p>The final requirement for a reasonable IDE experience is to be able to follow a
+debugging session in the file where the code exists.</p>
+<p>There is no plugin for SublimeText that supports this. But there is a Python
+package you can install into the virtualenv for each of your projects that does
+it.</p>
+<p>The package is called <a class="reference external" href="https://pypi.python.org/pypi/PdbSublimeTextSupport">PDBSublimeTextSupport</a> and its simple to install with <tt class="docutils literal"><span class="pre">pip</span></tt>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>projectenv<span class="o">)</span><span class="nv">$ </span>pip install PDBSublimeTextSupport
+</pre></div>
+</div>
+<p>With that package installed in the Python that is used for your project, any
+breakpoint you set will automatically pop to the surface in SublimeText.  And
+as you step through the code, you will see the current line in your Sublime
+Text file move along with you.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shell.html" class="btn btn-neutral float-right" title="Shell Customizations for Python Development"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="virtualenv.html" class="btn btn-neutral" title="Working with Virtualenv"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

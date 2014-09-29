@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
+        <link rel="next" title="Session Six: Object oriented programming: Classes, instances, attributes, and subclassing" href="session06.html"/>
+        <link rel="prev" title="Session Four: Dictionaries, Sets, Exceptions, and Files" href="session04.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Introduction To Python</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-ipython">Introduction to iPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#basic-python-syntax">Basic Python Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: Functions, Booleans and Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#boolean-expressions">Boolean Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#lists-tuples">Lists, Tuples...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#mutability">Mutability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#string-features">String Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#a-little-warm-up">A little warm up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#file-reading-and-writing">File Reading and Writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#paths-and-directories">Paths and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-argument-passing">Advanced Argument Passing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#object-oriented-programming">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#python-classes">Python Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#more-on-subclassing">More on Subclassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#static-and-class-methods">Static and Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#special-methods">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session07.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: Generators, Iterators, Decorators, and Context Managers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#iterators-and-generators">Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session08.html#homework">Homework</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="homework/index.html">Homework Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="homework/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework/html_builder.html">HTML Renderer Homework Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_mac.html">Setting up your Mac for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_linux.html">Setting up Linux for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supplements/unicode.html">Unicode in Python 2</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/session05.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="session-five-advanced-argument-passing-list-and-dict-comprehensions-lambda-and-functional-programming">
+<h1>Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming<a class="headerlink" href="#session-five-advanced-argument-passing-list-and-dict-comprehensions-lambda-and-functional-programming" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="review-questions">
+<h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="review-of-previous-class">
+<h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Dictionaries</li>
+<li>Exceptions</li>
+<li>Files, etc.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="homework-review">
+<h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
+<p>Homework Questions?</p>
+<p>My Solutions to the dict/set lab, and some others in the class repo in: <tt class="docutils literal"><span class="pre">Solutions</span></tt></p>
+<p>A few tidbits:</p>
+<p>dicts aren&#8217;t sorted, so what if you want to do something in a sorted way?</p>
+<p>The &#8220;old&#8221; way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">keys</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">keys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span>
+
+<span class="nb">sorted</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(demo)</p>
+</div>
+</div>
+<div class="section" id="advanced-argument-passing">
+<h2>Advanced Argument Passing<a class="headerlink" href="#advanced-argument-passing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="keyword-arguments">
+<h3>Keyword arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<p>When defining a function, you can specify only what you need &#8211; in any order</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [151]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="go">        print x,y,z</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [152]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">1 2 3</span>
+<span class="gp">In [153]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">1 0 3</span>
+<span class="gp">In [154]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">1 2 3</span>
+</pre></div>
+</div>
+<p>A Common Idiom:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">do_something_different</span>
+    <span class="n">go_on_here</span>
+</pre></div>
+</div>
+<p>Can set defaults to variables</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
+<span class="go">    print &quot;x is:&quot;, x</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [158]: </span><span class="n">fun</span><span class="p">()</span>
+<span class="go">x is: 4</span>
+</pre></div>
+</div>
+<p>Defaults are evaluated when the function is defined</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
+<span class="go">    print &quot;x is:&quot;, x</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [158]: </span><span class="n">fun</span><span class="p">()</span>
+<span class="go">x is: 4</span>
+<span class="gp">In [159]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="gp">In [160]: </span><span class="n">fun</span><span class="p">()</span>
+<span class="go">x is: 4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-arguments-in-variables">
+<h3>Function arguments in variables<a class="headerlink" href="#function-arguments-in-variables" title="Permalink to this headline">¶</a></h3>
+<p>function arguments are really just</p>
+<ul class="simple">
+<li>a tuple (positional arguments)</li>
+<li>a dict (keyword arguments)</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;position: </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s"> -- shape: </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+<span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;h&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span> <span class="o">*</span><span class="n">position</span><span class="p">,</span> <span class="o">**</span><span class="n">size</span><span class="p">)</span>
+<span class="n">position</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="o">--</span> <span class="n">shape</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-parameters-in-variables">
+<h3>Function parameters in variables<a class="headerlink" href="#function-parameters-in-variables" title="Permalink to this headline">¶</a></h3>
+<p>You can also pull the parameters out in the function as a tuple and a dict:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;the positional arguments are:&quot;</span><span class="p">,</span> <span class="n">args</span>
+    <span class="k">print</span> <span class="s">&quot;the keyword arguments are:&quot;</span><span class="p">,</span> <span class="n">kwargs</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">389</span><span class="p">]:</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">this</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">that</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">the</span> <span class="n">positional</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">the</span> <span class="n">keyword</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;this&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="passing-a-dict-to-the-string-format-method">
+<h3>Passing a dict to the <tt class="docutils literal"><span class="pre">string.format()</span></tt> method<a class="headerlink" href="#passing-a-dict-to-the-string-format-method" title="Permalink to this headline">¶</a></h3>
+<p>Now that you know that keyword args are really a dict, you can do this nifty trick:</p>
+<p>The <tt class="docutils literal"><span class="pre">format</span></tt> method takes keyword arguments:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="s">u&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">last</span><span class="o">=</span><span class="s">u&quot;Barker&quot;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="s">u&quot;Chris&quot;</span><span class="p">)</span>
+<span class="gh">Out[24]: </span><span class="go">u&#39;My name is Chris Barker&#39;</span>
+</pre></div>
+</div>
+<p>Build a dict of the keys and values:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">u&quot;last&quot;</span><span class="p">:</span><span class="s">u&quot;Barker&quot;</span><span class="p">,</span> <span class="s">u&quot;first&quot;</span><span class="p">:</span><span class="s">u&quot;Chris&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>And pass to <tt class="docutils literal"><span class="pre">format()``with</span> <span class="pre">``**</span></tt></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="s">u&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
+<span class="gh">Out[26]: </span><span class="go">u&#39;My name is Chris Barker&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lab">
+<h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s do this right now:</p>
+<p>keyword arguments</p>
+<ul class="simple">
+<li>Write a function that has four optional parameters (with defaults):<ul>
+<li>foreground_color</li>
+<li>background_color</li>
+<li>link_color</li>
+<li>visited_link_color</li>
+</ul>
+</li>
+<li>Have it print the colors (use strings for the colors)</li>
+<li>Call it with a couple different parameters set</li>
+<li>Have it pull the parameters out with <tt class="docutils literal"><span class="pre">*args,</span> <span class="pre">**kwargs</span></tt></li>
+</ul>
+</div>
+</div>
+<div class="section" id="a-bit-more-on-mutability-and-copies">
+<h2>A bit more on mutability (and copies)<a class="headerlink" href="#a-bit-more-on-mutability-and-copies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mutable-objects">
+<h3>mutable objects<a class="headerlink" href="#mutable-objects" title="Permalink to this headline">¶</a></h3>
+<p>We&#8217;ve talked about this: mutable objects can have their contents changed in place.</p>
+<p>Immutable objects can not.</p>
+<p>This has implications when you have a container with mutable objects in it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>one way to make a copy of a list:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span><span class="p">[:]</span>
+
+<span class="gp">In [30]: </span><span class="n">list2</span> <span class="ow">is</span> <span class="n">list1</span>
+<span class="gh">Out[30]: </span><span class="go">False</span>
+</pre></div>
+</div>
+<p>they are different lists.</p>
+<p>What if we set an element to a new value?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+
+<span class="gp">In [32]: </span><span class="n">list1</span>
+<span class="gh">Out[32]: </span><span class="go">[[5, 6, 7], [&#39;a&#39;, &#39;b&#39;]]</span>
+
+<span class="gp">In [33]: </span><span class="n">list2</span>
+<span class="gh">Out[33]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;]]</span>
+</pre></div>
+</div>
+<p>So they are independent.</p>
+<p>But what if we mutate an element?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [34]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;c&#39;</span><span class="p">)</span>
+
+<span class="gp">In [35]: </span><span class="n">list1</span>
+<span class="gh">Out[35]: </span><span class="go">[[5, 6, 7], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+
+<span class="gp">In [36]: </span><span class="n">list2</span>
+<span class="gh">Out[36]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+</pre></div>
+</div>
+<p>uuh oh! mutating an element in one list mutated the one in the other list.</p>
+<p>Why is that?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [38]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="n">list2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gh">Out[38]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>The elements are the same object!</p>
+<p>This is known as a &#8220;shallow&#8221; copy &#8211; Python doesn&#8217;t want to copy more than it needs to, so in this case, it makes a new list, but does not make copies of the contents.</p>
+<p>Same for dicts (and any container type)</p>
+<p>If the elements are immutable, it doesn&#8217;t really make a differnce &#8211; but be very careful with mutable elements.</p>
+</div>
+<div class="section" id="the-copy-module">
+<h3>The copy module<a class="headerlink" href="#the-copy-module" title="Permalink to this headline">¶</a></h3>
+<p>most objects have a way to make copies (<tt class="docutils literal"><span class="pre">dict.copy()</span></tt> for instance).</p>
+<p>but if not, you can use the <tt class="docutils literal"><span class="pre">copy</span></tt> module to make a copy:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [39]: </span><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="gp">In [40]: </span><span class="n">list3</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+
+<span class="gp">In [41]: </span><span class="n">list3</span>
+<span class="gh">Out[41]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+</pre></div>
+</div>
+<p>This is also a shallow copy.</p>
+<p>But there is another option:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">list1</span>
+<span class="gh">Out[3]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+
+<span class="gp">In [4]: </span><span class="n">list2</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+
+<span class="gp">In [5]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [6]: </span><span class="n">list1</span>
+<span class="gh">Out[6]: </span><span class="go">[[1, 2, 3, 4], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+
+<span class="gp">In [7]: </span><span class="n">list2</span>
+<span class="gh">Out[7]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">deepcopy</span></tt> recurses through the object, making copies of everything as it goes.</p>
+<p>I happened on this thread on stack overflow:</p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/3975376/understanding-dict-copy-shallow-or-deep">http://stackoverflow.com/questions/3975376/understanding-dict-copy-shallow-or-deep</a></p>
+<p>The OP is pretty confused &#8211; can you sort it out?</p>
+<p>Make sure you understand the difference between a reference, a shallow copy, and a deep copy.</p>
+</div>
+<div class="section" id="mutables-as-default-arguments">
+<h3>Mutables as default arguments:<a class="headerlink" href="#mutables-as-default-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Another &#8220;gotcha&#8221; is using mutables as default arguments:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">[]):</span>
+<span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">a</span>
+<span class="gp">   ....:</span>
+</pre></div>
+</div>
+<p>This makes sense: maybe you&#8217;d pass in a list, but the default is an empty list.</p>
+<p>But:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">[3]</span>
+
+<span class="gp">In [13]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">[3, 4]</span>
+</pre></div>
+</div>
+<p>Huh?!</p>
+<p>Remember that that default argument is defined when the function is created: there will be only one list, and every time the function is called, that same list is used.</p>
+<p>The solution:</p>
+<p>The standard practice for such a mutable default argument:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">   ....: </span>        <span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">a</span>
+<span class="gp">In [16]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">[3]</span>
+<span class="gp">In [17]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">[4]</span>
+</pre></div>
+</div>
+<p>You get a new list every time the function is called</p>
+</div>
+</div>
+<div class="section" id="list-and-dict-comprehensions">
+<h2>List and Dict Comprehensions<a class="headerlink" href="#list-and-dict-comprehensions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-comprehensions">
+<h3>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>A bit of functional programming</p>
+<p>consider this common for loop structure:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This can be expressed with a single line using a &#8220;list comprehension&#8221;</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>What about nested for loops?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">var2</span> <span class="ow">in</span> <span class="n">a_list2</span><span class="p">:</span>
+        <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Can also be expressed in one line:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span>  <span class="p">[</span><span class="n">exp</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">a_list</span> <span class="k">for</span> <span class="n">var2</span> <span class="ow">in</span> <span class="n">a_list2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You get the &#8220;outer product&#8221;, i.e. all combinations.</p>
+<p>(demo)</p>
+<p>But usually you at least have a conditional in the loop:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">something_is_true</span><span class="p">:</span>
+        <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can add a conditional to the comprehension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expr</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">a_list</span> <span class="k">if</span> <span class="n">something_is_true</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>(demo)</p>
+<p>Examples:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [341]: </span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="gh">Out[341]: </span><span class="go">[0, 1, 4]</span>
+
+<span class="gp">In [342]: </span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">)]</span>
+<span class="gh">Out[342]: </span><span class="go">[5, 6, 6, 7, 7, 8]</span>
+
+<span class="gp">In [343]: </span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span><span class="p">]</span>
+<span class="gh">Out[343]: </span><span class="go">[0, 4, 8]</span>
+</pre></div>
+</div>
+<p>Remember this from last week?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">__builtin__</span><span class="p">)</span> <span class="k">if</span> <span class="s">&quot;Error&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
+<span class="p">[</span><span class="s">&#39;ArithmeticError&#39;</span><span class="p">,</span>
+ <span class="s">&#39;AssertionError&#39;</span><span class="p">,</span>
+ <span class="s">&#39;AttributeError&#39;</span><span class="p">,</span>
+ <span class="s">&#39;BufferError&#39;</span><span class="p">,</span>
+ <span class="s">&#39;EOFError&#39;</span><span class="p">,</span>
+ <span class="o">....</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-comprehensions">
+<h3>Set Comprehensions<a class="headerlink" href="#set-comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>You can do it with sets, too:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_set</span> <span class="o">=</span> <span class="p">{</span> <span class="n">value</span> <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">a_sequence</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>same as for loop:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="n">new_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example: finding all the vowels in a string...</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;a not very long string&quot;</span>
+
+<span class="gp">In [20]: </span><span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s">&#39;aeiou&#39;</span><span class="p">)</span>
+
+<span class="gp">In [21]: </span><span class="p">{</span> <span class="n">let</span> <span class="k">for</span> <span class="n">let</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">let</span> <span class="ow">in</span> <span class="n">vowels</span> <span class="p">}</span>
+<span class="gh">Out[21]: </span><span class="go">{&#39;a&#39;, &#39;e&#39;, &#39;i&#39;, &#39;o&#39;}</span>
+</pre></div>
+</div>
+<p>Side note: why did I do <tt class="docutils literal"><span class="pre">set('aeiou')</span></tt> rather than just <cite>aeiou</cite> ?</p>
+</div>
+<div class="section" id="dict-comprehensions">
+<h3>Dict Comprehensions<a class="headerlink" href="#dict-comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>Also with dictionaries</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="n">key</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">a_sequence</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>same as for loop:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="n">new_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="p">{</span> <span class="n">i</span><span class="p">:</span> <span class="s">&quot;this_</span><span class="si">%i</span><span class="s">&quot;</span><span class="o">%</span><span class="k">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">}</span>
+<span class="gh">Out[22]: </span><span class="go">{0: &#39;this_0&#39;, 1: &#39;this_1&#39;, 2: &#39;this_2&#39;,</span>
+<span class="go">          3: &#39;this_3&#39;, 4: &#39;this_4&#39;}</span>
+</pre></div>
+</div>
+<p>(not as useful with the <tt class="docutils literal"><span class="pre">dict()</span></tt>  constructor...)</p>
+</div>
+</div>
+<div class="section" id="anonymous-functions">
+<h2>Anonymous functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lambda">
+<h3>lambda<a class="headerlink" href="#lambda" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [171]: </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="gp">In [172]: </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[172]: </span><span class="go">5</span>
+</pre></div>
+</div>
+<p>Content can only be an expression &#8211; not a statement</p>
+<p>Anyone remember what the difference is?</p>
+<p>Called &#8220;Anonymous&#8221;: it doesn&#8217;t need a name.</p>
+<p>It&#8217;s a python object, it can be stored in a list or other container</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">]</span>
+<span class="gp">In [8]: </span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gh">Out[8]: </span><span class="go">function</span>
+</pre></div>
+</div>
+<p>And you can call it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[9]: </span><span class="go">7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-as-first-class-objects">
+<h3>Functions as first class objects<a class="headerlink" href="#functions-as-first-class-objects" title="Permalink to this headline">¶</a></h3>
+<p>You can do that with &#8220;regular&#8221; functions too:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="gp">   ....:</span>
+<span class="gp">In [13]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">fun</span><span class="p">]</span>
+<span class="gp">In [14]: </span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gh">Out[14]: </span><span class="go">function</span>
+<span class="gp">In [15]: </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[15]: </span><span class="go">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="functional-programming">
+<h2>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="map">
+<h3>map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">map</span></tt>  &#8220;maps&#8221; a function onto a sequence of objects &#8211; It applies the function to each item in the list, returning another list</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [24]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="go">             return x*2 + 10</span>
+<span class="gp">In [25]: </span><span class="nb">map</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[25]: </span><span class="go">[14, 20, 24, 34, 22, 18]</span>
+</pre></div>
+</div>
+<p>But if it&#8217;s a small function, and you only need it once:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[26]: </span><span class="go">[14, 20, 24, 34, 22, 18]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter">
+<h3>filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">filter</span></tt>  &#8220;filters&#8221; a sequence of objects with a boolean function &#8211;
+It keeps only those for which the function is True</p>
+<p>To get only the even numbers:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [28]: </span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[28]: </span><span class="go">[2, 12, 6, 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reduce">
+<h3>reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">reduce</span></tt>  &#8220;reduces&#8221; a sequence of objects to a single object with a function that combines two arguments</p>
+<p>To get the sum:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [30]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [31]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[31]: </span><span class="go">36</span>
+</pre></div>
+</div>
+<p>To get the product:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [32]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[32]: </span><span class="go">20160</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comprehensions">
+<h3>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>Couldn&#8217;t you do all this with comprehensions?</p>
+<p>Yes:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [33]: </span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+<span class="gh">Out[33]: </span><span class="go">[14, 17, 19, 24, 18, 16]</span>
+<span class="gp">In [34]: </span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span><span class="p">]</span>
+<span class="gh">Out[34]: </span><span class="go">[2, 12, 6, 4]</span>
+</pre></div>
+</div>
+<p>(Except Reduce)</p>
+<p>But Guido thinks almost all uses of reduce are really <tt class="docutils literal"><span class="pre">sum()</span></tt></p>
+</div>
+<div class="section" id="id1">
+<h3>Functional Programming<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Comprehensions and map, filter, reduce are all &#8220;functional programming&#8221; approaches}</p>
+<p><tt class="docutils literal"><span class="pre">map,</span> <span class="pre">filter</span></tt>  and <tt class="docutils literal"><span class="pre">reduce</span></tt>  pre-date comprehensions in Python&#8217;s history</p>
+<p>Some people like that syntax better</p>
+<p>And &#8220;map-reduce&#8221; is a big concept these days for parallel processing of &#8220;Big Data&#8221; in NoSQL databases.</p>
+<p>(Hadoop, MongoDB, etc.)</p>
+</div>
+<div class="section" id="a-bit-more-about-lambda">
+<h3>A bit more about lambda<a class="headerlink" href="#a-bit-more-about-lambda" title="Permalink to this headline">¶</a></h3>
+<p>Can also use keyword arguments}</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [186]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">In [187]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="go">    l.append(lambda x, e=i: x**e)</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [189]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+<span class="go">    print f(3)</span>
+<span class="go">1</span>
+<span class="go">3</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p>Note when the keyword argument is evaluated: this turns out to be very handy!</p>
+</div>
+</div>
+<div class="section" id="homework">
+<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>List comprehensions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Note: this is a bit of a &#8220;backwards&#8221; exercise &#8211;
+we show you code, you figure out what it does.</p>
+<p>As a result, not much to submit &#8211; but so we can give you credit, submit
+a file with a solution to the final problem.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;lambs&#39;</span><span class="p">,</span> <span class="s">&#39;sloths&#39;</span><span class="p">,</span> <span class="s">&#39;orangutans&#39;</span><span class="p">,</span> <span class="s">&#39;breakfast cereals&#39;</span><span class="p">,</span> <span class="s">&#39;fruit bats&#39;</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span><span class="n">delicacy</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">delicacy</span> <span class="ow">in</span> <span class="n">feast</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>What is the output of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">???</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">???</span>
+</pre></div>
+</div>
+<p>(figure it out before you try it)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;sloths&#39;</span><span class="p">,</span> <span class="s">&#39;orangutans&#39;</span><span class="p">,</span> <span class="s">&#39;breakfast cereals&#39;</span><span class="p">,</span>
+<span class="go">            &#39;fruit bats&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span><span class="n">delicacy</span> <span class="k">for</span> <span class="n">delicacy</span> <span class="ow">in</span> <span class="n">feast</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">delicacy</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>What is the output of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">feast</span><span class="p">)</span>
+<span class="go">???</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">)</span>
+<span class="go">???</span>
+</pre></div>
+</div>
+<p>(figure it out first!)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;lumberjack&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;inquisition&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">)]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span> <span class="n">skit</span> <span class="o">*</span> <span class="n">number</span> <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">skit</span> <span class="ow">in</span> <span class="n">list_of_tuples</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>What is the output of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">???</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="go">???</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_eggs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;poached egg&#39;</span><span class="p">,</span> <span class="s">&#39;fried egg&#39;</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_meats</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;lite spam&#39;</span><span class="p">,</span> <span class="s">&#39;ham spam&#39;</span><span class="p">,</span> <span class="s">&#39;fried spam&#39;</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;{0} and {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">egg</span><span class="p">,</span> <span class="n">meat</span><span class="p">)</span> <span class="k">for</span> <span class="n">egg</span> <span class="ow">in</span> <span class="n">list_of_eggs</span> <span class="k">for</span> <span class="n">meat</span> <span class="ow">in</span> <span class="n">list_of_meats</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>What is the output of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">)</span>
+<span class="go">???</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">???</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s">&#39;aabbbcccc&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>What is the output of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span>
+<span class="go">???</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dict_of_weapons</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;first&#39;</span><span class="p">:</span> <span class="s">&#39;fear&#39;</span><span class="p">,</span>
+<span class="go">                       &#39;second&#39;: &#39;surprise&#39;,</span>
+<span class="go">                       &#39;third&#39;:&#39;ruthless efficiency&#39;,</span>
+<span class="go">                       &#39;forth&#39;:&#39;fanatical devotion&#39;,</span>
+<span class="go">                       &#39;fifth&#39;: None}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_comprehension</span> <span class="o">=</span> \
+<span class="go">{ k.upper(): weapon for k, weapon in dict_of_weapons.iteritems() if weapon}</span>
+</pre></div>
+</div>
+<p>What is the output of:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;first&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
+<span class="go">???</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;FIRST&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
+<span class="go">???</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">dict_of_weapons</span><span class="p">)</span>
+<span class="go">???</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">dict_comprehension</span><span class="p">)</span>
+<span class="go">???</span>
+</pre></div>
+</div>
+<p>See also:</p>
+<p><a class="reference external" href="https://github.com/gregmalcolm/python_koans">https://github.com/gregmalcolm/python_koans</a></p>
+<p><a class="reference external" href="https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comprehension.py">https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comprehension.py</a></p>
+<p>(submit this one to gitHub for credit on this assignment)</p>
+<p>This is from CodingBat &#8220;count_evens&#8221; (<a class="reference external" href="http://codingbat.com/prob/p189616">http://codingbat.com/prob/p189616</a>)</p>
+<p><em>Using a list comprehension</em>, return the number of even ints in the given array.</p>
+<p>Note: the % &#8220;mod&#8221; operator computes the remainder, e.g. <tt class="docutils literal"><span class="pre">5</span> <span class="pre">%</span> <span class="pre">2</span></tt> is 1.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">count_evens</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span>
+
+<span class="n">count_evens</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span>
+
+<span class="n">count_evens</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">count_evens</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+   <span class="n">one_line_comprehension_here</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dict-and-set-comprehensions">
+<h3><tt class="docutils literal"><span class="pre">dict</span></tt> and <tt class="docutils literal"><span class="pre">set</span></tt> comprehensions<a class="headerlink" href="#dict-and-set-comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s revisiting the dict/set lab &#8211; see how much you can do with
+comprehensions instead.</p>
+<p>Specifically,  look at these:</p>
+<p>First a slightly bigger, more interesting (or at least bigger..) dict:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">food_prefs</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">u&quot;Chris&quot;</span><span class="p">,</span>
+              <span class="s">u&quot;city&quot;</span><span class="p">:</span> <span class="s">u&quot;Seattle&quot;</span><span class="p">,</span>
+              <span class="s">u&quot;cake&quot;</span><span class="p">:</span> <span class="s">u&quot;chocolate&quot;</span><span class="p">,</span>
+              <span class="s">u&quot;fruit&quot;</span><span class="p">:</span> <span class="s">u&quot;mango&quot;</span><span class="p">,</span>
+              <span class="s">u&quot;salad&quot;</span><span class="p">:</span> <span class="s">u&quot;greek&quot;</span><span class="p">,</span>
+              <span class="s">u&quot;pasta&quot;</span><span class="p">:</span> <span class="s">u&quot;lasagna&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>1. Print the dict by passing it to a string format method, so that you
+get something like:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&#8220;Chris is from Seattle, and he likes chocolate cake, mango fruit,</dt>
+<dd>greek salad, and lasagna pasta&#8221;</dd>
+</dl>
+</div></blockquote>
+<p>2. Using a list comprehension, build a dictionary of numbers from zero
+to fifteen and the hexadecimal equivalent (string is fine).</p>
+<ol class="arabic simple" start="3">
+<li>Do the previous entirely with a dict comprehension &#8211; should be a one-liner</li>
+</ol>
+<p>4. Using the dictionary from item 1: Make a dictionary using the same
+keys but with the number of &#8216;a&#8217;s in each value. You can do this either
+by editing the dict in place, or making a new one. If you edit in place,
+make a copy first!</p>
+<p>5. Create sets s2, s3 and s4 that contain numbers from zero through twenty,
+divisible 2, 3 and 4.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Do this with one set comprehension for each set.</li>
+<li>What if you had a lot more than 3? &#8211; Don&#8217;t Repeat Yourself (DRY)<ul>
+<li>create a sequence that holds all three sets</li>
+<li>loop through that sequence to build the sets up &#8211; so no repeated code.</li>
+</ul>
+</li>
+<li>Extra credit:  do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, that may be getting carried away!)</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="lambda-and-keyword-argument-magic">
+<h3>lambda and keyword argument magic<a class="headerlink" href="#lambda-and-keyword-argument-magic" title="Permalink to this headline">¶</a></h3>
+<p>Write a function that returns a list of n functions,
+such that each one, when called, will return the input value,
+incremented by an increasing number.</p>
+<p>Use a for loop, <tt class="docutils literal"><span class="pre">lambda</span></tt>, and a keyword argument</p>
+<p>( Extra credit ):</p>
+<p>Do it with a list comprehension, instead of a for loop</p>
+<p>Not clear? here&#8217;s what you should get</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [96]: </span><span class="n">the_list</span> <span class="o">=</span> <span class="n">function_builder</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">### so the_list should contain n functions (callables)</span>
+<span class="gp">In [97]: </span><span class="n">the_list</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[97]: </span><span class="go">2</span>
+<span class="go">## the zeroth element of the list is a function that add 0</span>
+<span class="go">## to the input, hence called with 2, returns 2</span>
+<span class="gp">In [98]: </span><span class="n">the_list</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[98]: </span><span class="go">3</span>
+<span class="go">## the 1st element of the list is a function that adds 1</span>
+<span class="go">## to the input value, thus called with 2, returns 3</span>
+<span class="gp">In [100]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">the_list</span><span class="p">:</span>
+<span class="go">    print f(5)</span>
+<span class="gp">   .....:</span>
+<span class="go">5</span>
+<span class="go">6</span>
+<span class="go">7</span>
+<span class="go">8</span>
+<span class="go">### If you loop through them all, and call them, each one adds one more</span>
+<span class="go">to the input, 5... i.e. the nth function in the list adds n to the input.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functional-files">
+<h3>Functional files<a class="headerlink" href="#functional-files" title="Permalink to this headline">¶</a></h3>
+<p>Write a program that takes a filename and &#8220;cleans&#8221; the file be removing all the leading and trailing whitespace from each line.</p>
+<p>Read in the original file and write out a new one, either creating a new file or overwriting the existing one.</p>
+<p>Give your user the option of which to perform.</p>
+<p>Use <tt class="docutils literal"><span class="pre">map()</span></tt> to do the work.</p>
+<p>Write a second version using a comprehension.</p>
+<p><tt class="docutils literal"><span class="pre">sys.argv</span></tt> hold the command line arguments the user typed in. If the user types:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python the_script a_file_name
+</pre></div>
+</div>
+<p>Then:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>will get <tt class="docutils literal"><span class="pre">filename</span> <span class="pre">==</span> <span class="pre">&quot;a_file_name&quot;</span></tt></p>
+</div>
+<div class="section" id="recommended-reading">
+<h3>Recommended Reading<a class="headerlink" href="#recommended-reading" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>LPTHW: Ex 40 - 45</li>
+</ul>
+<p><a class="reference external" href="http://learnpythonthehardway.org/book/">http://learnpythonthehardway.org/book/</a></p>
+<ul class="simple">
+<li>Dive Into Python: chapter 4, 5</li>
+</ul>
+<p><a class="reference external" href="http://www.diveintopython.net/toc/index.html">http://www.diveintopython.net/toc/index.html</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="session06.html" class="btn btn-neutral float-right" title="Session Six: Object oriented programming: Classes, instances, attributes, and subclassing"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="session04.html" class="btn btn-neutral" title="Session Four: Dictionaries, Sets, Exceptions, and Files"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

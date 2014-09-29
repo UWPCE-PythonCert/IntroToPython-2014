@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HTML Renderer Homework Assignment &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
+        <link rel="up" title="Homework Materials" href="index.html"/>
+        <link rel="next" title="Supplemental Materials" href="../supplements/index.html"/>
+        <link rel="prev" title="Kata Fourteen: Tom Swift Under Milk Wood" href="kata_fourteen.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-ipython">Introduction to iPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#basic-python-syntax">Basic Python Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: Functions, Booleans and Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#boolean-expressions">Boolean Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#lists-tuples">Lists, Tuples...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutability">Mutability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#string-features">String Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#a-little-warm-up">A little warm up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#file-reading-and-writing">File Reading and Writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#paths-and-directories">Paths and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#object-oriented-programming">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#python-classes">Python Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#more-on-subclassing">More on Subclassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#static-and-class-methods">Static and Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#special-methods">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Generators, Iterators, Decorators, and Context Managers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#iterators-and-generators">Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#homework">Homework</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Homework Materials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">HTML Renderer Homework Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_mac.html">Setting up your Mac for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_linux.html">Setting up Linux for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/unicode.html">Unicode in Python 2</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Homework Materials</a> &raquo;</li>
+      
+    <li>HTML Renderer Homework Assignment</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/homework/html_builder.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="html-renderer-homework-assignment">
+<span id="homework-html-renderer"></span><h1>HTML Renderer Homework Assignment<a class="headerlink" href="#html-renderer-homework-assignment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="html-render">
+<h2>HTML Render<a class="headerlink" href="#html-render" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="goal">
+<h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
+<p>The goal is to create a set of classes to render html pages &#8211; in a &#8220;pretty printed&#8221; way. i.e nicely indented and human readable. We&#8217;ll try to get to all the features required to render:</p>
+<p><a class="reference download internal" href="../_downloads/sample_html.html"><tt class="xref download docutils literal"><span class="pre">sample_html.html</span></tt></a></p>
+<p>The exercise is broken down into a number of steps &#8211; each requiring a few more OO concepts in Python.</p>
+</div>
+<div class="section" id="general-instructions">
+<h3>General Instructions:<a class="headerlink" href="#general-instructions" title="Permalink to this headline">¶</a></h3>
+<p>For each step, add the required functionality. There is example code to run your code for each step in: <tt class="docutils literal"><span class="pre">code\session06\run_html_render.py</span></tt></p>
+<p>name your file: <tt class="docutils literal"><span class="pre">html_render.py</span></tt> &#8211; so it can be imported by <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt></p>
+<p>You should be able to run that code at each step, uncommenting each new step in <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt> as you go.</p>
+<p>It builds up a html tree, and then calls the <tt class="docutils literal"><span class="pre">render()</span></tt> method of your element to render the page.</p>
+<p>It uses a <tt class="docutils literal"><span class="pre">cStringIO</span></tt> object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.</p>
+<p>The html generated at each step is in the files: <tt class="docutils literal"><span class="pre">test_html_ouput?.html</span></tt></p>
+<p>At each step, your results should look similar that those (maybe not identical...)</p>
+</div>
+<div class="section" id="step-1">
+<h3>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
+<p>Create an <tt class="docutils literal"><span class="pre">Element</span></tt> class for rendering an html element (xml element).</p>
+<p>It should have class attributes for the tag name (&#8220;html&#8221; first) and the indentation (spaces to indent for pretty printing)</p>
+<p>The constructor signature should look like</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">content</span></tt> is a string</p>
+<p>It should have an <tt class="docutils literal"><span class="pre">append</span></tt> method that can add another string to the content.</p>
+<p>It should have a <tt class="docutils literal"><span class="pre">render(file_out,</span> <span class="pre">ind</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></tt> method that renders the tag and the strings in the content.</p>
+<p><tt class="docutils literal"><span class="pre">file_out</span></tt> could be any file-like object ( i.e. have a <tt class="docutils literal"><span class="pre">write()</span></tt> method ).</p>
+<p><tt class="docutils literal"><span class="pre">ind</span></tt> is a string with the indentation level in it: the amount that the tag should be indented for pretty printing.</p>
+<blockquote>
+<div><ul class="simple">
+<li>This is a little tricky: <tt class="docutils literal"><span class="pre">ind</span></tt> will be the amount that this element should be indented already. It will be from zero (an empty string) to a lot of spaces, depending on how deep it is in the tree.</li>
+</ul>
+</div></blockquote>
+<p>The amount of indentation should be set by the class attribute: <tt class="docutils literal"><span class="pre">indent</span></tt></p>
+<p>You should now be able to render an html tag with text in it as contents.</p>
+<p>See: step 1. in <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt></p>
+</div>
+<div class="section" id="step-2">
+<h3>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
+<p>Create a couple subclasses of <tt class="docutils literal"><span class="pre">Element</span></tt>, for a <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag and <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tag. All you should have to do is override the <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute (you may need to add a <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute to the Element class first...).</p>
+<p>Now you can render a few different types of element.</p>
+<p>Extend the <tt class="docutils literal"><span class="pre">Element.render()</span></tt> method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the <tt class="docutils literal"><span class="pre">render()</span></tt> method of the elements it contains. You&#8217;ll need to be smart about setting the <tt class="docutils literal"><span class="pre">ind</span></tt> optional parameter &#8211; so that the nested elements get indented correctly.</p>
+<p>Figure out a way to deal with the fact that the contained elements could be either simple strings or <tt class="docutils literal"><span class="pre">Element</span></tt> s with render methods (there are a few ways to handle that...).</p>
+<p>You should now be able to render a basic web page with an html tag around
+the whole thing, a <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag inside, and multiple <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tags inside that,
+with text inside that. And all indended nicely.</p>
+<p>See <tt class="docutils literal"><span class="pre">test_html_output2.html</span></tt></p>
+</div>
+<div class="section" id="step-3">
+<h3>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h3>
+<p>Create a <tt class="docutils literal"><span class="pre">&lt;head&gt;</span></tt> element &#8211; simple subclass.</p>
+<p>Create a <tt class="docutils literal"><span class="pre">OneLineTag</span></tt> subclass of <tt class="docutils literal"><span class="pre">Element</span></tt>:</p>
+<ul>
+<li><p class="first">It should override the render method, to render everything on one line &#8211; for the simple tags, like:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;title&gt; PythonClass - Session 6 example &lt;/title&gt;
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Create a <tt class="docutils literal"><span class="pre">Title</span></tt> subclass of <tt class="docutils literal"><span class="pre">OneLineTag</span></tt> class for the title.</p>
+<p>You should now be able to render an html doc with a head element, with a
+title element in that, and a body element with some <tt class="docutils literal"><span class="pre">&lt;P&gt;</span></tt> elements and some text.</p>
+<p>See <tt class="docutils literal"><span class="pre">test_html_output3.html</span></tt></p>
+</div>
+<div class="section" id="step-4">
+<h3>Step 4:<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h3>
+<p>Extend the <tt class="docutils literal"><span class="pre">Element</span></tt> class to accept a set of attributes as keywords to the
+constructor, ie. (<tt class="docutils literal"><span class="pre">run_html_render.py</span></tt>)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="s">&quot;some text content&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;TheList&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;line-height:200%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>( remember <tt class="docutils literal"><span class="pre">**kwargs</span></tt>? )</p>
+<p>The render method will need to be extended to render the attributes properly.</p>
+<p>You can now render some <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tags (and others) with attributes</p>
+<p>See <tt class="docutils literal"><span class="pre">test_html_output4.html</span></tt></p>
+</div>
+<div class="section" id="step-5">
+<h3>Step 5:<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h3>
+<p>Create a <tt class="docutils literal"><span class="pre">SelfClosingTag</span></tt> subclass of Element, to render tags like:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;hr /&gt; and &lt;br /&gt; (horizontal rule and line break).
+</pre></div>
+</div>
+<p>You will need to override the render method to render just the one tag and
+attributes, if any.</p>
+<p>Create a couple subclasses of <tt class="docutils literal"><span class="pre">SelfClosingTag</span></tt> for and &lt;hr /&gt; and &lt;br /&gt;</p>
+<p>See <tt class="docutils literal"><span class="pre">test_html_output5.html</span></tt></p>
+</div>
+<div class="section" id="step-6">
+<h3>Step 6:<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h3>
+<p>Create a <tt class="docutils literal"><span class="pre">A</span></tt> class for an anchor (link) element. Its constructor should look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where link is the link, and content is what you see. It can be called like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="s">u&quot;http://google.com&quot;</span><span class="p">,</span> <span class="s">u&quot;link to google&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should be able to subclass from <tt class="docutils literal"><span class="pre">Element</span></tt>, and only override the <tt class="docutils literal"><span class="pre">__init__</span></tt> &#8212; Calling the <tt class="docutils literal"><span class="pre">Element</span></tt> <tt class="docutils literal"><span class="pre">__init__</span></tt> from the  <tt class="docutils literal"><span class="pre">A</span> <span class="pre">__init__</span></tt></p>
+<p>You can now add a link to your web page.</p>
+<p>See <tt class="docutils literal"><span class="pre">test_html_output6.html</span></tt></p>
+</div>
+<div class="section" id="step-7">
+<h3>Step 7:<a class="headerlink" href="#step-7" title="Permalink to this headline">¶</a></h3>
+<p>Create <tt class="docutils literal"><span class="pre">Ul</span></tt> class for an unordered list (really simple subclass of <tt class="docutils literal"><span class="pre">Element</span></tt>)</p>
+<p>Create <tt class="docutils literal"><span class="pre">Li</span></tt> class for an element in a list (also really simple)</p>
+<p>Add a list to your web page.</p>
+<p>Create a <tt class="docutils literal"><span class="pre">Header</span></tt> class &#8211; this one should take an integer argument for the
+header level. i.e &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, called like</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">H</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;The text of the header&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>for an &lt;h2&gt; header</p>
+<p>It can subclass from <tt class="docutils literal"><span class="pre">OneLineTag</span></tt> &#8211; overriding the <tt class="docutils literal"><span class="pre">__init__</span></tt>, then calling the superclass <tt class="docutils literal"><span class="pre">__init__</span></tt></p>
+<p>See <tt class="docutils literal"><span class="pre">test_html_output7.html</span></tt></p>
+</div>
+<div class="section" id="step-8">
+<h3>Step 8:<a class="headerlink" href="#step-8" title="Permalink to this headline">¶</a></h3>
+<p>Update the <tt class="docutils literal"><span class="pre">Html</span></tt> element class to render the &#8220;&lt;!DOCTYPE html&gt;&#8221; tag at the head of the page, before the html element.</p>
+<p>You can do this by subclassing <tt class="docutils literal"><span class="pre">Element</span></tt>, overriding <tt class="docutils literal"><span class="pre">render()</span></tt>, but then calling the <tt class="docutils literal"><span class="pre">Element</span></tt> render from the new render.</p>
+<p>Create a subclass of <tt class="docutils literal"><span class="pre">SelfClosingTag</span></tt> for <tt class="docutils literal"><span class="pre">&lt;meta</span> <span class="pre">charset=&quot;UTF-8&quot;</span> <span class="pre">/&gt;</span></tt> (like for <tt class="docutils literal"><span class="pre">&lt;hr</span> <span class="pre">/&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;br</span> <span class="pre">/&gt;</span></tt> and add the meta element to the beginning of the head element to give your document an encoding.</p>
+<p>The doctype and encoding are HTML 5 and you can check this at: <a class="reference external" href="http://validator.w3.org">http://validator.w3.org</a>.</p>
+<p>You now have a pretty full-featured html renderer &#8211; play with it, add some
+new tags, etc....</p>
+<p>See <tt class="docutils literal"><span class="pre">test_html_output8.html</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../supplements/index.html" class="btn btn-neutral float-right" title="Supplemental Materials"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kata_fourteen.html" class="btn btn-neutral" title="Kata Fourteen: Tom Swift Under Milk Wood"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

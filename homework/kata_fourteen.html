@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kata Fourteen: Tom Swift Under Milk Wood &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
+        <link rel="up" title="Homework Materials" href="index.html"/>
+        <link rel="next" title="HTML Renderer Homework Assignment" href="html_builder.html"/>
+        <link rel="prev" title="Homework Materials" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-ipython">Introduction to iPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#basic-python-syntax">Basic Python Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: Functions, Booleans and Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#boolean-expressions">Boolean Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#lists-tuples">Lists, Tuples...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutability">Mutability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#string-features">String Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session03.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#a-little-warm-up">A little warm up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#file-reading-and-writing">File Reading and Writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#paths-and-directories">Paths and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session04.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#object-oriented-programming">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#python-classes">Python Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session06.html#more-on-subclassing">More on Subclassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#static-and-class-methods">Static and Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#special-methods">Special Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session07.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Generators, Iterators, Decorators, and Context Managers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#iterators-and-generators">Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session08.html#homework">Homework</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Homework Materials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html_builder.html">HTML Renderer Homework Assignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_mac.html">Setting up your Mac for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_linux.html">Setting up Linux for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/unicode.html">Unicode in Python 2</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Homework Materials</a> &raquo;</li>
+      
+    <li>Kata Fourteen: Tom Swift Under Milk Wood</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/homework/kata_fourteen.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="kata-fourteen-tom-swift-under-milk-wood">
+<h1>Kata Fourteen: Tom Swift Under Milk Wood<a class="headerlink" href="#kata-fourteen-tom-swift-under-milk-wood" title="Permalink to this headline">¶</a></h1>
+<p>Adapted from Dave Thomas&#8217;s work:</p>
+<p><a class="reference external" href="http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/">http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/</a></p>
+<p>Trigrams can be used to mutate text into new, surreal, forms. But what
+heuristics do we apply to get a reasonable result?</p>
+<p>As a boy, one of my treats was go to the shops on a Saturday and spend part
+of my allowance on books; for a nine-year old, I had quite a collection of
+Tom Swift and Hardy Boys. Wouldn’t it be great to be able to create
+more and more of these classic books, to be able to generate a new Tom
+Swift adventure on demand?</p>
+<p>OK, perhaps not. But that won’t stop us trying. I coded up a quick
+program to generate some swash-buckling scientific adventure on demand. It
+came up with:</p>
+<blockquote>
+<div><p>... it was in the wind that was what he thought was his companion. I
+think would be a good one and accordingly the ship their situation
+improved. Slowly so slowly that it beat the band! You’d think no one
+was a low voice. &#8220;Don’t take any of the elements and the
+inventors of the little Frenchman in the enclosed car or cabin completely
+fitted up in front of the gas in the house and wringing her hands.
+&#8220;I’m sure they’ll fall!&#8221;</p>
+<p>She looked up at them. He dug a mass of black vapor which it had
+refused to accept any. As for Mr. Swift as if it goes too high I’ll
+warn you and you can and swallow frequently. That will make the airship was
+shooting upward again and just before the raid wouldn’t have been
+instrumental in capturing the scoundrels right out of jail.&#8221;&lt;/em&gt;</p>
+</div></blockquote>
+<p>Stylistically, it’s Victor Appleton meets Dylan Thomas. Technically,
+it’s all done with trigrams.</p>
+<p>Trigram analysis is very simple. Look at each set of three adjacent words
+in a document. Use the first two words of the set as a key, and remember
+the fact that the third word followed that key. Once you’ve finished,
+you know the list of individual words that can follow each two word
+sequence in the document. For example, given the input:</p>
+<div class="highlight-python"><div class="highlight"><pre>I wish I may I wish I might
+</pre></div>
+</div>
+<p>You might generate:</p>
+<div class="highlight-python"><div class="highlight"><pre>&quot;I wish&quot; =&gt; [&quot;I&quot;, &quot;I&quot;]
+&quot;wish I&quot; =&gt; [&quot;may&quot;, &quot;might&quot;]
+&quot;may I&quot;  =&gt; [&quot;wish&quot;]
+&quot;I may&quot;  =&gt; [&quot;I&quot;]
+</pre></div>
+</div>
+<p>This says that the words &#8220;I wish&#8221; are twice followed by the word
+&#8220;I&#8221;, the words &#8220;wish I&#8221; are followed once by
+&#8220;may&#8221; and once by &#8220;might&#8221; and so on.</p>
+<p>To generate new text from this analysis, choose an arbitrary word pair as a
+starting point. Use these to look up a random next word (using the table
+above) and append this new word to the text so far. This now gives you a
+new word pair at the end of the text, so look up a potential next word
+based on these. Add this to the list, and so on. In the previous example,
+we could start with &#8220;I may&#8221;. The only possible next word is
+&#8220;I&#8221;, so now we have:</p>
+<div class="highlight-python"><div class="highlight"><pre>I may I
+</pre></div>
+</div>
+<p>The last two words are &#8220;may I&#8221;, so the next word is
+&#8220;wish&#8221;. We then look up &#8220;I wish&#8221;, and find our choice
+is constrained to another &#8220;I&#8221;.:</p>
+<div class="highlight-python"><div class="highlight"><pre>I may I wish I
+</pre></div>
+</div>
+<p>Now we look up &#8220;wish I&#8221;, and find we have a choice. Let’s
+choose &#8220;may&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>I may I wish I may
+</pre></div>
+</div>
+<p>Now we’re back where we started from, with &#8220;I may.&#8221;
+Following the same sequence, but choosing &#8220;might&#8221; this time, we
+get:</p>
+<div class="highlight-python"><div class="highlight"><pre>I may I wish I may I wish I might
+</pre></div>
+</div>
+<p>At this point we stop, as no sequence starts &#8220;I might.&#8221;</p>
+<p>Given a short input text, the algorithm isn’t too interesting. Feed
+it a book, however, and you give it more options, so the resulting output
+can be surprising.</p>
+<p>For this kata, try implementing a trigram algorithm that generates a couple
+of hundred words of text using a book-sized file as input.
+<a class="reference external" href="http://www.gutenberg.org/">Project Gutenberg</a> is a good source of online
+books (Tom Swift and His Airship is <a class="reference external" href="http://sailor.gutenberg.org/etext02/03tom10.txt">here</a>.)</p>
+<p>Be warned that these files have DOS line endings (carriage return followed by
+newline).</p>
+<p>There is a copy of sherlock holmes right here:</p>
+<p><a class="reference download internal" href="../_downloads/sherlock.txt"><tt class="xref download docutils literal"><span class="pre">sherlock.txt</span></tt></a>.</p>
+<p>And a shorter copy for testing:</p>
+<p><a class="reference download internal" href="../_downloads/sherlock_small.txt"><tt class="xref download docutils literal"><span class="pre">sherlock_small.txt</span></tt></a>.</p>
+<div class="section" id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<p>Kata’s are about trying something many times. In this one, what
+we’re experimenting with is not just the code, but the heuristics of
+processing the text. What do we do with punctuation? Paragraphs? Do we have
+to implement backtracking if we chose a next word that turns out to be a
+dead end?</p>
+<p>I’ll fire the signal and the fun will commence...</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="html_builder.html" class="btn btn-neutral float-right" title="HTML Renderer Homework Assignment"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Homework Materials"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
