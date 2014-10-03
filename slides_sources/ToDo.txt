@@ -24,6 +24,9 @@ too mcuh when you dn't really know what a tuple or dict is...
 Add more to the function lab -- should be 20min or so of work.
   - they have learned about returning multiple values.
 
+Put in solution to this weeks homework in Solutions
+  --Chris has soem kicking around to find...
+
 
 Future Sessions:
 
