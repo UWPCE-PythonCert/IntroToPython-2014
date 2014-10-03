@@ -30,8 +30,8 @@ Homework Review
 Any questions that are nagging?
 
 
-Git Work
-========
+First a little git Primer...
+==============================
 
 .. rst-class:: center large
 
@@ -430,14 +430,12 @@ Try it and see:
     UnboundLocalError                         Traceback (most recent call last)
     <ipython-input-23-0ec059b9bfe1> in <module>()
     ----> 1 f()
-
     <ipython-input-22-9225fa53a20a> in f()
           1 def f():
     ----> 2     y = x
           3     x = 5
           4     print x
           5     print y
-
     UnboundLocalError: local variable 'x' referenced before assignment
 
 Because you are binding the symbol ``x`` locally, it becomes a local and masks
