@@ -24,7 +24,7 @@ Klock, Andrew P : C++, R, perl
 Kramer, Aleksey :Java, R, shell
 Lottsfeldt, Erik Ivan : basic, fortran, 
 Marcos, Danielle G : python
-Mier, Benjamin C : 
+Mier, Benjamin C : C++, C#,  
 Nunn, James Brent : shell, SQL, perl, pl1
 Perkins, Robert W : fortran, pascal, stata, javascript, sql
 Reece, Lesley D : html, SQL, PLSQL, perl, shell
