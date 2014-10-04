@@ -41,11 +41,11 @@ Let's get to know your fellow students!
 Working with an Upstream
 ------------------------
 
-You've created a fork of the class repository from the ``codefellows`` account
+You've created a fork of the class repository from the ``UWPCE-PythonCert`` account
 on GitHub.
 
 You've pushed your own changes to that fork, and then issued pull requests to
-have that worked merged back to the ``codefellows`` original.
+have that worked merged back to the ``UWPCE-PythonCert`` original.
 
 You want to keep your fork up-to-date with that original copy as the class goes
 forward.
@@ -79,17 +79,17 @@ This allows you to grab changes made to the repository in these other
 locations.
 
 For our class, we will add an *upstream* remote to our local copy that points
-to the original copy of the material in the ``codefellows`` account.
+to the original copy of the material in the ``UWPCE-PythonCert`` account.
 
 .. code-block:: bash
 
-  $ git remote add upstream https://github.com/codefellows/sea-f2-python-sept14.git
+  $ git remote add upstream https://github.com/UWPCE-PythonCert/IntroToPython.git
 
   $ git remote -v
   origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (fetch)
   origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (push)
-  upstream  https://github.com/codefellows/sea-f2-python-sept14.git (fetch)
-  upstream  https://github.com/codefellows/sea-f2-python-sept14.git (push)
+  upstream  https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
+  upstream  https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
 
 .. nextslide:: Fetching Everything.
 
@@ -136,7 +136,7 @@ Then, fetch the upstream master branch and merge it into your master:
 .. code-block:: bash
 
   $ git fetch upstream master
-  From https://github.com/codefellows/sea-f2-python-sept14
+  From https://github.com/UWPCE-PythonCert/IntroToPython
    * branch            master     -> FETCH_HEAD
 
   $ git merge upstream/master
