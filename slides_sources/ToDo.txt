@@ -5,26 +5,26 @@ For Session 2:
 Note: I decided to not confuse things with unicode off teh bat --
 so I'm stripping the 'u' from string literals wherever I find them.
 
-Update presentaion for UWPCE instead of CodeFellows
- - mention of CodeFellows
- - urls for git
+[x] Update presentaion for UWPCE instead of CodeFellows
+[x]  - mention of CodeFellows
+[x]  - urls for git
 
- Add outline of class to beginning of slides
+[ ] Add outline of class to beginning of slides
 
- Add section breaks to slides for LAB time and lightning talks:
+[ ] Add section breaks to slides for LAB time and lightning talks:
     some lecture
     some lab time
     two lightning talks
 
-General slide proofread and clean up for layout, etc.
+[ ] General slide proofread and clean up for layout, etc.
 
 I think we shouod remove the parameter unpacking: *args and **kwargs --
 too mcuh when you dn't really know what a tuple or dict is...
 
-Add more to the function lab -- should be 20min or so of work.
+[ ] Add more to the function lab -- should be 20min or so of work.
   - they have learned about returning multiple values.
 
-Put in solution to this weeks homework in Solutions
+[ ] Put in solution to this weeks homework in Solutions
   --Chris has soem kicking around to find...
 
 
