@@ -721,8 +721,8 @@ Determining Truthiness:
 
 .. rst-class:: build
 
-* ``None`` 
-* ``False`` 
+* ``None``
+* ``False``
 * **Nothing:**
 
 * zero of any numeric type: ``0, 0L, 0.0, 0j``.
