@@ -29,6 +29,17 @@ Homework Review
 
 Any questions that are nagging?
 
+Class Outline
+=============
+
+.. rst-class:: left
+
+ * git primer
+ * Some basic Python
+ * More on Functions
+ * Boolean Expressions
+ * Code Structure, Modules, and Namespaces
+
 
 First a little git Primer...
 ==============================

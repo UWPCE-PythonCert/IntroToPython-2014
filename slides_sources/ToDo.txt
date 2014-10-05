@@ -9,7 +9,7 @@ so I'm stripping the 'u' from string literals wherever I find them.
 [x]  - mention of CodeFellows
 [x]  - urls for git
 
-[ ] Add outline of class to beginning of slides
+[x] Add outline of class to beginning of slides
 
 [ ] Add section breaks to slides for LAB time and lightning talks:
     some lecture
@@ -19,7 +19,7 @@ so I'm stripping the 'u' from string literals wherever I find them.
 [ ] General slide proofread and clean up for layout, etc.
 
 I think we shouod remove the parameter unpacking: *args and **kwargs --
-too mcuh when you dn't really know what a tuple or dict is...
+too much when you don't really know what a tuple or dict is...
 
 [ ] Add more to the function lab -- should be 20min or so of work.
   - they have learned about returning multiple values.
