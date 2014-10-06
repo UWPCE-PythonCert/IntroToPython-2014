@@ -11,7 +11,7 @@ def print_grid(box_dimensions):
 
     box_dimensions = int(box_dimensions)
 
-    box_dimensions = (box_dimensions - 3) /2
+    box_dimensions = (box_dimensions - 3)
 
     if box_dimensions % 2 == 0:
     
