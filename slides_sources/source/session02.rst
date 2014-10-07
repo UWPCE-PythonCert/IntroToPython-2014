@@ -455,18 +455,6 @@ You can incorporate this into your daily workflow: ::
     [make a pull request]
 
 
-BREAK TIME
-==========
-
-Take a few moments to take a breather, when we return we'll do two lightning
-talks:
-
-.. ifslides::
-
-    * Chantal Huynh
-    * David Fugelso
-
-
 Quick Intro to Basics
 =====================
 
@@ -614,6 +602,18 @@ This is enough to get you started.
 Each of these have intricacies special to python
 
 We'll get to those over the next couple of classes
+
+
+BREAK TIME
+==========
+
+Take a few moments to take a breather, when we return we'll do two lightning
+talks:
+
+.. ifslides::
+
+    * Chantal Huynh
+    * David Fugelso
 
 
 Functions
