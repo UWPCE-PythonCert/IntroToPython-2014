@@ -71,14 +71,16 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: Functions, Booleans and Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#class-outline">Class Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#first-a-little-git-primer">First a little git Primer...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#break-time">BREAK TIME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#in-class-lab">In-Class Lab:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#boolean-expressions">Boolean Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#id1">BREAK TIME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#id3">In-Class Lab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#homework">Homework</a></li>
 </ul>
 </li>
@@ -293,13 +295,13 @@
 <div class="section" id="function-parameters-in-variables">
 <h3>Function parameters in variables<a class="headerlink" href="#function-parameters-in-variables" title="Permalink to this headline">¶</a></h3>
 <p>You can also pull the parameters out in the function as a tuple and a dict:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&quot;the positional arguments are:&quot;</span><span class="p">,</span> <span class="n">args</span>
-    <span class="k">print</span> <span class="s">&quot;the keyword arguments are:&quot;</span><span class="p">,</span> <span class="n">kwargs</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go">def f(*args, **kwargs):</span>
+<span class="go">    print &quot;the positional arguments are:&quot;, args</span>
+<span class="go">    print &quot;the keyword arguments are:&quot;, kwargs</span>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">389</span><span class="p">]:</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">this</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">that</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">the</span> <span class="n">positional</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">the</span> <span class="n">keyword</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;this&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+<span class="gp">In [389]: </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">this</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">that</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">the positional arguments are: (2, 3)</span>
+<span class="go">the keyword arguments are: {&#39;this&#39;: 5, &#39;that&#39;: 7}</span>
 </pre></div>
 </div>
 </div>
