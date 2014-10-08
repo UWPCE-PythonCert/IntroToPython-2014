@@ -51,7 +51,7 @@ git
 
 Get a git client -- the gitHub GUI client may be nice -- I honestly don't know.
 
-There is also ToroiseGit:
+There is also TortoiseGit:
 
 https://code.google.com/p/tortoisegit/
 

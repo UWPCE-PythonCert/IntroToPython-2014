@@ -6,22 +6,32 @@ Setting up your Mac for Python and this class
 Getting The Tools
 ==================
 
+.. rst-class:: left
+
 OS-X comes with Python out of the box, but not the full setup you'll need for development, and this class.
 
+.. rst-class:: left
+
 **Note**:
+
+.. rst-class:: left
 
 If you use ``macports`` or ``homebrew`` to manage \*nix software on your machine, feel free to use those for ``python``, ``git``, etc, as well. If not, then read on.
 
 Python
 -------
 
-While OS-X does provide python our of the box -- it tends not to have the latest version, and you really don't want to mess with the system installation. So I recommend installing an independent installation from ``python.org``:
+While OS-X does provide python out of the box -- it tends not to have the
+latest version, and you really don't want to mess with the system
+installation. So I recommend installing an independent installation from
+``python.org``:
 
 Download and install Python 2.7.8 from Python.org:
 
 https://www.python.org/ftp/python/2.7.8/python-2.7.8-macosx10.6.dmg
 
 Simple as that.
+
 
 Terminal
 ---------

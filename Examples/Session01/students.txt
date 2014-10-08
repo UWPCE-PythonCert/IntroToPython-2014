@@ -1,36 +1,36 @@
 name: languages
-Albright, Ryan J :
-Ascoli, Louis John :
-Balcarce, Darcy :
-Brand, Ralph P :
-Buer, Eric :
-Claessens, Michel :
-Conde, Ousmane :
-Davis, Bryan L :
-Davis, Ian M :
-Evans, Carolyn J :
-Fischer, Henry B :
-Fries, Lauren :
-Fugelso, David :
-Fukuhara, Wayne R :
-Galvin, Alexander R :
-Gupta, Vinay :
-Hamed, Salim Hassan :
-Hart, Kyle R :
-Hashemloo, Alireza :
-Huynh, Chantal :
-Kazakova, Alexandra N :
-Klock, Andrew P :
-Kramer, Aleksey :
-Lottsfeldt, Erik Ivan :
-Marcos, Danielle G :
-Mier, Benjamin C :
-Nunn, James B :
-Perkins, Robert W :
-Reece, Lesley D :
-Schwafel, Schuyler Alan :
-Simmons, Arielle R :
+Albright, Ryan J : VBA, 
+Ascoli, Louis John : Basic, assm, shell
+Balcarce, Darcy : matlab, autocad, python
+Brand, Ralph P : C, C++, SQL, 
+Buer, Eric : matlab, VBA, SQL, 
+Claessens, Michel : VBA, basic SQL, pascal, matlab
+Conde, Ousmane : 
+Davis, Bryan L : 
+Davis, Ian M : C++
+Evans, Carolyn J : SQL, 
+Fischer, Henry B : C, VB, SQL, SAS, 
+Fries, Lauren : python
+Fugelso, David : C, C++, C#, Java
+Fukuhara, Wayne R : VB, 
+Galvin, Alexander R : shell, C++, python
+Gupta, Vinay : C, C++, shell
+Hamed, Salim Hassan : Java, R, SAS, VBA
+Hart, Kyle R : QBasic, HTML, 
+Hashemloo, Alireza :Javascript, PHP, C++
+Huynh, Chantal : Basic, SQL, Stata
+Kazakova, Alexandra N : R, python, 
+Klock, Andrew P : C++, R, perl
+Kramer, Aleksey :Java, R, shell
+Lottsfeldt, Erik Ivan : basic, fortran, 
+Marcos, Danielle G : python
+Mier, Benjamin C : C++, C#,  
+Nunn, James Brent : shell, SQL, perl, pl1
+Perkins, Robert W : fortran, pascal, stata, javascript, sql
+Reece, Lesley D : html, SQL, PLSQL, perl, shell
+Schwafel, Schuyler Alan : bash, python, perl, php
+Simmons, Arielle R : Scheme, Java, VBA, python
 Sylvan, Gideon I :
-Westman, Eric W :
-Zhang, Hui :
-Zhu, Changquing :
+Westman, Eric W : C#, PHP, SQL, javascript
+Zhang, Hui : FoxBase
+Zhu, Changqing : C, 
