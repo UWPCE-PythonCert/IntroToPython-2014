@@ -328,4 +328,64 @@ In Python, the boolean types are subclasses of integer:
 
     
 
+Whitespace is great because it encourages good formatting
+
+All statements must be correspondingly indented
+
+
+Other than indenting, space doesn't matter!
+
+Read PEP 8 (Python Style guide) and install a linter in your editor <----
+
+python is all about namespaces -- the "dots"
+
+    name.another_name
+
+    The dot indicates that you're looking for a name in the namespace of the given object
+
+    Namespace is collection of symbols that are bound to values
+
+    You can think of the files that you write that end in .py is a module
+
+    A MODULE is simply a namespace
+
+    A package is a module with other modules inside it 
+
+        on a filesystem, this is represented as a directory that contains one or more .py files, one of which must be called __init__.py <---TURNS DIRECTORY FULL OF FILES INTO A PACKAGE
+
+        Then you can import from that directory into another program
+
+
+When you import a module, or a symbol from a module, the Python code is compiled to bytecode, the result is a .pyc file 
+
+    This executes ALL CODE AT THE MODULE SCOPE
+
+    For this reason, it is good to avoid module-scope statements that have global side-effect
+
+
+The code in a module is NOT re-run when imported again, it must be explicitly reloaded with 
+
+    import modulename
+    reload(modulename)
+
+    python - m <---if module is somewhere in Python Path (set of directories it looks in) it will be executed
     
+   You can also use the "run" command from within Ipython  
+
+========================================
+
+
+Implement Ackermann function
+
+    create ack.py in session02
+
+    write a good docstring
+
+    Ackermann's function is not defined for input values less than 0, so check for that
+
+   Use an if __name__ == "__main__" to test your function
+
+
+    Create a Fibonacci script
+    
+   Check class site for homework :(
