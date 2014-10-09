@@ -13,9 +13,9 @@ def ack(m, n):
         return ack(m-1, ack(m, n-1))
 
 if __name__ == "__main__":
-    assert ack(-1, 2) == None
-    assert ack(2, -1) == None
-    assert ack(-1, -1) == None
+    assert ack(-1, 2) is None
+    assert ack(2, -1) is None
+    assert ack(-1, -1) is None
     assert ack(0, 0) == 1
     assert ack(0, 1) == 2
     assert ack(0, 2) == 3
