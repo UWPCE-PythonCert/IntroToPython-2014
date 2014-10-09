@@ -2,7 +2,7 @@ __author__ = 'Robert W. Perkins'
 
 
 def ack(m, n):
-    """Return the result of the Ackerman function on m and n"""
+    """Return the result of the Ackermann function on m and n"""
     if m < 0 or n < 0:
         return None
     elif m == 0:
@@ -12,6 +12,7 @@ def ack(m, n):
     elif m > 0 and n > 0:
         return ack(m-1, ack(m, n-1))
 
+# Testing Block
 if __name__ == "__main__":
     assert ack(-1, 2) is None
     assert ack(2, -1) is None
@@ -42,3 +43,4 @@ if __name__ == "__main__":
     #assert ack(4, 2) == (2**65536)-3
     #assert ack(4, 3) == (2**2**65536)-3
     #assert ack(4, 4) == (2**2**2**65536)-3
+    print 'All tests passed'
