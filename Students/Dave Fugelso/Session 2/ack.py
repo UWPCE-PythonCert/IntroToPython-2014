@@ -75,3 +75,5 @@ if __name__ == "__main__":
         print '\t',
         print ack(m, n),
     print '\t-\t-\t-\t-'
+    
+    print 'All Tests Pass'

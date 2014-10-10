@@ -74,7 +74,45 @@ def lucas (n):
     for seq in range (2, n):
         a,b = b,a+b
     return a+b
-       
+
+'''
+Second solution. Just have lucas and fibonacci start a series function with differing start arguments.
+'''
+
+def series (a, b, n):
+    ''' 
+    Calculate the nth number in a series based on starting at a, b.
+    Args:
+        a - value for element 0
+        b - value for element 1
+        n - the series element wanted
+    '''
+    
+    # special cases at front of series
+    if n == 0: return a
+    if n == 1: return b
+    
+    #else let's calculate
+    for seq in range (2, n):
+        a,b = b,a+b
+    return a+b
+    
+def fibonacci_2(n):
+    '''
+    Return the Nth value in the Fibonacci series.
+    Args:
+        n - Nth value 
+    '''
+    return series(0, 1, n)
+
+def lucas_2(n):
+    '''
+    Return the Nth value in the Lucas series.
+    Args:
+        n - Nth value 
+    '''
+    return series(2, 1, n)
+    
 if __name__ == "__main__":
     '''
     perform unit tests for fibonacci and lucas funcitons.
@@ -87,12 +125,26 @@ if __name__ == "__main__":
     assert fibonnacci (8)==21, 'Fibonnaci (8) is 21. Failed!'
     assert fibonnacci (25)==75025, 'Fibonnaci (25) is 75025. Failed!'
     
-    #Test lucas series: coose 0, 1, 6, 9, 26
+    #Test lucas series: choose 0, 1, 6, 9, 26
     assert lucas(0)==2, 'Lucas(0) is 2. Failed!'
     assert lucas(1)==1, 'Lucas(1) is 1. Failed!'
     assert lucas(6)==18, 'Lucas(6) is 2. Failed!'
     assert lucas(9)==76, 'Lucas(9) is 2. Failed!'
     assert lucas(26)==271443, 'Lucas(26) is 2. Failed!'
       
+    #Test the Fibinacci series: randomly selected 0, 1 5, 8 and 25
+    assert fibonnacci_2 (0)==0, 'Fibonnaci 2 (0) is 0. Failed!'
+    assert fibonnacci_2 (1)==1, 'Fibonnaci 2 (1) is 1. Failed!'
+    assert fibonnacci_2 (5)==5, 'Fibonnaci 2 (5) is 5. Failed!'
+    assert fibonnacci_2 (8)==21, 'Fibonnaci 2 (8) is 21. Failed!'
+    assert fibonnacci_2 (25)==75025, 'Fibonnaci 2 (25) is 75025. Failed!'
+    
+    # Test the second solutions
+    #Test lucas series: choose 0, 1, 6, 9, 26
+    assert lucas_2(0)==2, 'Lucas 2 (0) is 2. Failed!'
+    assert lucas_2(1)==1, 'Lucas 2 (1) is 1. Failed!'
+    assert lucas_2(6)==18, 'Lucas 2 (6) is 2. Failed!'
+    assert lucas_2(9)==76, 'Lucas 2 (9) is 2. Failed!'
+    assert lucas_2(26)==271443, 'Lucas 2 (26) is 2. Failed!'
     
     
