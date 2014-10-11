@@ -92,6 +92,6 @@ def lineDraw3 (size,border,filler):
 
     print border
 
-grid3(13)
+grid3(12)
 
 
