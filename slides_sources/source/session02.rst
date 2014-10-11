@@ -455,18 +455,6 @@ You can incorporate this into your daily workflow: ::
     [make a pull request]
 
 
-BREAK TIME
-==========
-
-Take a few moments to take a breather, when we return we'll do two lightning
-talks:
-
-.. ifslides::
-
-    * Chantal Huynh
-    * David Fugelso
-
-
 Quick Intro to Basics
 =====================
 
@@ -614,6 +602,18 @@ This is enough to get you started.
 Each of these have intricacies special to python
 
 We'll get to those over the next couple of classes
+
+
+BREAK TIME
+==========
+
+Take a few moments to take a breather, when we return we'll do two lightning
+talks:
+
+.. ifslides::
+
+    * Chantal Huynh
+    * David Fugelso
 
 
 Functions
@@ -791,29 +791,6 @@ provide any *positional* arguments:
         fun(x=5, 6)
     SyntaxError: non-keyword arg after keyword arg
 
-.. nextslide:: Parameters and Unpacking
-
-This brings us to a fun feature of Python function definitions.
-
-You can define a parameter list that requires an **unspecified** number of
-*positional* or *keyword* arguments.
-
-The key is the ``*`` (splat) or ``**`` (double-splat) operator:
-
-.. code-block:: ipython
-
-    In [31]: def fun(*args, **kwargs):
-       ....:     print args, kwargs
-       ....:
-    In [32]: fun(1)
-    (1,) {}
-    In [33]: fun(1, 2, zombies="brains")
-    (1, 2) {'zombies': 'brains'}
-    In [34]: fun(1, 2, 3, zombies="brains", vampires="blood")
-    (1, 2, 3) {'vampires': 'blood', 'zombies': 'brains'}
-
-**args** and **kwargs** are *conventional* names for these.
-
 
 Documentation
 -------------
@@ -952,39 +929,6 @@ We can use a recursive function nicely to model this mathematical function
     .. rst-class:: centered
 
     [demo]
-
-
-In-Class Lab:
-=============
-
-.. rst-class:: center large
-
-Fun With Functions
-
-Exercises
----------
-
-Try your hand at writing a function that computes the distance between two
-points::
-
-    dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
-
-Experiment with ``locals`` by adding this statement to the function you just
-wrote:::
-
-    print locals()
-
-
-BREAK TIME
-==========
-
-Again, let's take a few moments out to take a short break.  When we return
-we'll have our second two lightning talks:
-
-.. ifslides::
-
-    * Ian M Davis
-    * Schuyler Alan Schwafel
 
 
 Boolean Expressions
@@ -1222,24 +1166,44 @@ In-Class Lab:
 
 .. rst-class:: center large
 
-Better With Booleans
+Funky Bools
 
 Exercises
 ---------
 
-  * Look up the ``%``  operator. What do these do?
+* Try your hand at writing a function that computes the distance between two
+  points::
 
-    * ``10 % 7 == 3``
-    * ``14 % 7 == 0``
-  *  Write a program that prints the numbers from 1 to 100 inclusive. But for
-     multiples of three print "Fizz" instead of the number and for the
-     multiples of five print "Buzz". For numbers which are multiples of both
-     three and five print "FizzBuzz" instead.
-  * Re-write a couple of CodingBat exercises, using a conditional expression
-  * Re-write a couple of CodingBat exercises, returning the direct boolean results
+      dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
 
-use whichever you like, or the ones in:
-:download:`codingbat.rst <../code/session02/codingbat.rst>`
+    print locals()
+
+* Look up the ``%``  operator. What do these do?
+
+  * ``10 % 7 == 3``
+  * ``14 % 7 == 0``
+
+*  Write a program that prints the numbers from 1 to 100 inclusive. But for
+   multiples of three print "Fizz" instead of the number and for the multiples
+   of five print "Buzz". For numbers which are multiples of both three and five
+   print "FizzBuzz" instead.
+
+* Experiment with ``locals`` by adding this statement to the functions you just
+  wrote:::
+
+    print locals()
+
+
+BREAK TIME
+==========
+
+Again, let's take a few moments out to take a short break.  When we return
+we'll have our second two lightning talks:
+
+.. ifslides::
+
+    * Ian M Davis
+    * Schuyler Alan Schwafel
 
 
 Code Structure, Modules, and Namespaces
@@ -1466,7 +1430,7 @@ module*
 
 This is useful in a number of cases.
 
-You can put code here that lets your module be a utility script
+You can put code here that lets your module be a utility *script*
 
 You can put code here that demonstrates the functions contained in your module
 
