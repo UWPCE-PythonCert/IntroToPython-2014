@@ -6,7 +6,8 @@ Chris' solution to the week 1 homework problem.
 Note that we only did the basics of loops, and you can
 do all this without any loops at all, so that's what I did.
 
-Note also that there is nore than one way to skin a cat -- or code a function
+Note also that there is more than one way to skin a cat --
+   or code a function
 """
 
 
@@ -14,38 +15,38 @@ def print_grid(size):
     """
     print a 2x2 grid with a total size of size
 
-    :param size: total size of grid -- it will be rounded if not one
-                 more than a multiple of 2
+    :param size: total size of grid -- it will be rounded if not one more than
+        a multiple of 2
     """
-    N = 2
-    s = int( (size-1) // 2 ) # size of one grid box
-    print "s:", s
+    number = 2
+    box_size = int((size-1) // 2)  # size of one grid box
+    print "box_size:", box_size
     # top row
-    top = ('+ ' + '- '*s)*N + '+' + '\n'
-    middle = ('| ' + ' '*2*s)*N + '|' + '\n'
+    top = ('+ ' + '- ' * box_size) * number + '+' + '\n'
+    middle = ('| ' + ' ' * 2 * box_size) * number + '|' + '\n'
 
-    row = top + middle*s
+    row = top + middle*box_size
 
-    grid = row*N + top
+    grid = row*number + top
 
     print grid
 
 
-def print_grid2(N, s):
+def print_grid2(number, size):
     """
-    print a NxN grid with each box of size s
+    print a number x number grid with each box of size width and height
 
-    :param N: number of grid boxes (row and column)
+    :param number: number of grid boxes (row and column)
 
-    :param s: size of each grid box
+    :param size: size of each grid box
     """
     # top row
-    top = ('+ ' + '- '*s)*N + '+' + '\n'
-    middle = ('| ' + ' '*2*s)*N + '|' + '\n'
+    top = ('+ ' + '- '*size)*number + '+' + '\n'
+    middle = ('| ' + ' '*2*size)*number + '|' + '\n'
 
-    row = top + middle*s
+    row = top + middle*size
 
-    grid = row*N + top
+    grid = row*number + top
 
     print grid
 
@@ -54,14 +55,15 @@ def print_grid3(size):
     """
     same as print_grid, but calling print_grid2 to do the work
     """
-    N = 2
-    s = (size-1) / 2 # size of one grid box
-    print_grid2(N, s)
+    number = 2
+    box_size = (size-1) / 2  # size of one grid box
+    print_grid2(number, box_size)
+
 
 print_grid(11)
 print_grid(7)
 
-print_grid2(3,3)
-print_grid2(3,5)
+print_grid2(3, 3)
+print_grid2(3, 5)
 
 print_grid3(11)
