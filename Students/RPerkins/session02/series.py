@@ -35,13 +35,50 @@ def lucas(n):
     else:
         return lucas(n-1) + lucas(n-2)
 
+def sum_series(n,first=0,second=1):
+    """Return the 'n'th value of a variable series"""
+
+    """The first two numbers are passed via "first" and "second"
+    and each subsequent element is the sum of n-1 and n-2"""
+
+# test for input in valid range
+    if n < 0:
+        return None
+
+# test for n == 0
+    if n == 0:
+        return first
+
+# base case is n == 1
+    if n == second:
+        return 1
+    else:
+        return sum_series(n-1) + sum_series(n-2)
+
+
+
 # Testing Block
 if __name__ == "__main__":
+
+    # test fibonacci function for out of range, n == zero, base case, and 18th value in series
     assert fibonacci(-3) is None
     assert fibonacci(0) == 0
     assert fibonacci(1) == 1
     assert fibonacci(17) == 1597
+
+    # test lucas function for out of range, n == zero, base case, and 11th value in series
     assert lucas(-3) is None
     assert lucas(0) == 2
     assert lucas(1) == 1
     assert lucas(10) == 123
+
+    # tests sum_series function for
+    assert sum_series(-3) is None
+    assert sum_series(0) == 0
+    assert sum_series(1) == 1
+    assert sum_series(17) == 1597
+
+    assert sum_series(-3,2,1) is None
+    assert sum_series(0,2,1) == 2
+    assert sum_series(1,2,1) == 1
+    assert sum_series(10,2,1) == 123
