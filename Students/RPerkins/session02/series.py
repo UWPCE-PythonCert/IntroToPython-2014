@@ -39,7 +39,7 @@ def sum_series(n,first=0,second=1):
     """Return the 'n'th value of a variable series"""
 
     """The first two numbers are passed via "first" and "second"
-    and each subsequent element is the sum of the 'n-1'th and 'n-2th' element"""
+    and each subsequent element is the sum of the 'n-1'th and 'n-2'th element (yes, i said tooth)"""
 
 # test for input in valid range
     if n < 0:
@@ -72,18 +72,21 @@ if __name__ == "__main__":
     assert lucas(10) == 123
 
     # tests sum_series function for fibonacci behavior with no optional params
+    # for out of range, n == zero, base case, and 18th value in series
     assert sum_series(-3) is None
     assert sum_series(0) == 0
     assert sum_series(1) == 1
     assert sum_series(17) == 1597
 
 	# tests sum_series function for lucas behavior with lucas series params
+	# for out of range, n == zero, base case, and 11th value in series
     assert sum_series(-3,2,1) is None
     assert sum_series(0,2,1) == 2
     assert sum_series(1,2,1) == 1
     assert sum_series(10,2,1) == 123
 
 	# tests sum_series function for valid results with optional params
+	# for out of range, n == zero, base case, and 11th value in series
     assert sum_series(-3,4,2) is None
     assert sum_series(0,4,2) == 4
     assert sum_series(1,4,2) == 2
