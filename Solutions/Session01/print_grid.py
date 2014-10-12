@@ -3,10 +3,11 @@
 """
 Chris' solution to the week 1 homework problem.
 
-Note that we hadn't talked about loops yet, so this is a solution with no
-loops.
+Note that we only did the basics of loops, and you can
+do all this without any loops at all, so that's what I did.
 
-Note also that there is more than one way to skin a cat -- or code a function
+Note also that there is more than one way to skin a cat --
+   or code a function
 """
 
 
