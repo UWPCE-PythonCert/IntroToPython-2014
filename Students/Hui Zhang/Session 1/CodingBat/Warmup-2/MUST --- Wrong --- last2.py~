@@ -1,0 +1,4 @@
+def last2(str):
+    str1 = str[-2:]
+    n = str.count(str1) -1
+    return(n)
