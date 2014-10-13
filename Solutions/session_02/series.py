@@ -15,10 +15,12 @@ def fibonacci(n):
     """
     if n < 1:
         return None
-    elif n:
+    elif n == 1:
         return 0
+    elif n == 2:
+        return 1
     else:
-        v1 = 0
+        v1 = 1
         v2 = 1
         for r in range(n):
             v3 = v1 + v2
