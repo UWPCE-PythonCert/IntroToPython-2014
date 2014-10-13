@@ -19,11 +19,8 @@ n = raw_input("Please provide a value for n: ")
 m = int(m)
 n = int(n)
 
-print m 
-print n
-
-print type(m)
-print n
+print "m = " + str(m)
+print "n = " + str(n)
 
 def is_negative(x):
 
@@ -46,5 +43,21 @@ is_negative(m)
 
 def ackermann(x,y):
 
+    #x = n 
+    #y = m 
 
-#def ackermann(n,m):
+    if y == 0:
+    
+        return x+1
+
+    if y > 0 and x == 0:
+
+        return y - 1, 1
+
+    if y > 0 and x > 0:
+        
+        print '\nI am running!\n'
+
+        return y - 1 , ackermann(y, x - 1)
+        
+print ackermann(n,m)
