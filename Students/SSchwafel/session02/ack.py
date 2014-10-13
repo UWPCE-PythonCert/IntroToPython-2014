@@ -43,21 +43,20 @@ is_negative(m)
 
 def ackermann(x,y):
 
-    #x = n 
-    #y = m 
+    #x = m 
+    #y = n 
+    while y > -1:
 
-    if y == 0:
-    
-        return x+1
-
-    if y > 0 and x == 0:
-
-        return y - 1, 1
-
-    if y > 0 and x > 0:
+        if x == 0:
         
-        print '\nI am running!\n'
+            return y+1
 
-        return y - 1 , ackermann(y, x - 1)
+        elif x > 0 and y == 0:
+
+            return ackermann(x - 1, 1)
+
+        elif x > 0 and y > 0:
+            
+            return ackermann(x - 1 , ackermann(x, y - 1))
         
 print ackermann(n,m)
