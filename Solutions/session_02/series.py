@@ -1,3 +1,5 @@
+import numpy as np
+
 def fibonacci(n):
     """Return the nth value in the Fibonacci series
 
@@ -9,8 +11,11 @@ def fibonacci(n):
 
     The function calculates the specified value in the
     Fibonacci series given by the argument "n".  For example
-    an n-value of 5 will return 3, the 5th value in the Fibonacci
+    an n-value of 5 will return 5, the 5th value in the Fibonacci
     series.
+
+    Note that this function has opted to use the same indexing as python
+    series, which assigns a position of 0 to the first value.
     """
 
     if n < 0:
@@ -33,8 +38,6 @@ def fibonacci(n):
 # for m in range(20):
 #     print fibonacci(m),
 
-
-import numpy as np
 def lucas(n):
     """Return the nt value in the Lucas series
 
@@ -46,7 +49,10 @@ def lucas(n):
 
     The function calculates the specified value in the Lucas series 
     given an argument "n".  For example an n-value of 4 will return the 
-    4th value in the Lucas series: 4.
+    4th value in the Lucas series: 7.
+
+    Note that this function has opted to use the same indexing as python
+    series, which assigns a position of 0 to the first value.
     """
     if n < 0:
         return None
@@ -83,6 +89,9 @@ def sum_series(n, a = 0, b = 1):
     the new starting values for a and b are provided when the function is
     called. For example: providing the values a = 2 and b = 1 will return 
     the nth value in the Lucas series.
+
+    Note that this function has opted to use the same indexing as python
+    series, which assigns a position of 0 to the first value.
     """
     if (a or b) < 0:
         print 'Both a and b must be positive integers.'
@@ -107,3 +116,12 @@ def sum_series(n, a = 0, b = 1):
 # print "\nTest sum_series output:"
 # for m in range(20):
 #     print sum_series(m, 3, 5),
+
+if __name__ == "__main__":
+    #provide test values to fibo, lucas and sum_series
+    #to make sure function argument passing is working.
+    assert fibonacci(5) == 5 
+    assert lucas(4) == 7
+    assert sum_series(10) == 55
+
+    print "All functions have passed initialization tests."
