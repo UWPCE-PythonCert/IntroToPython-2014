@@ -29,6 +29,81 @@ def fibonacci(n):
             v2 = v3 - v1
         return v3
 
-for m in range(20):
-    print fibonacci(m),
+# print "Test Fibonacci output:"
+# for m in range(20):
+#     print fibonacci(m),
 
+
+import numpy as np
+def lucas(n):
+    """Return the nt value in the Lucas series
+
+    Syntax:
+    lucas(n)
+
+    Arguments:
+    n -- a positive integer
+
+    The function calculates the specified value in the Lucas series 
+    given an argument "n".  For example an n-value of 4 will return the 
+    4th value in the Lucas series: 4.
+    """
+    if n < 0:
+        return None
+    elif not n:
+        return 2
+    elif n == 1:
+        return 1
+    else:
+        v1 = 2
+        v2 = 1
+        v3 = v2 + v1
+        for r in np.arange(2,n):
+            v3 += v2
+            v1 = v2
+            v2 = v3 - v1
+        return v3
+
+# print "\nTest Lucas output:"
+# for m in range(20):
+#     print lucas(m),
+
+def sum_series(n, a = 0, b = 1):
+    """Return the nth value in an additive series with a and b as starting integers
+
+    Syntax:
+    sum_series(n, a, b)
+
+    Arguments:
+    n -- a positive integer
+    a (optional) -- a positive integer, default value is 0
+    b (optional) -- a positive integer, default value is 1
+
+    The function is set up to act as a Fibonacci additive series unless
+    the new starting values for a and b are provided when the function is
+    called. For example: providing the values a = 2 and b = 1 will return 
+    the nth value in the Lucas series.
+    """
+    if (a or b) < 0:
+        print 'Both a and b must be positive integers.'
+        return None
+
+    if n < 0:
+        return None
+    elif not n:
+        return a
+    elif n == 1:
+        return b
+    else:
+        v1 = a
+        v2 = b
+        v3 = v2 + v1
+        for r in np.arange(2,n):
+            v3 += v2
+            v1 = v2
+            v2 = v3 - v1
+        return v3
+
+# print "\nTest sum_series output:"
+# for m in range(20):
+#     print sum_series(m, 3, 5),
