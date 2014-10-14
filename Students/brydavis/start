@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+
+# # Set aliases
+# alias ux='chmod u+x';
+# alias ax='chmod a+x';
+
+
+# # Begin work session
+git checkout master;
+git fetch upstream master;
+git merge upstream/master;
+git status;
+
+
+
+# Print when ready to develop
+# echo 'Ready to develop!';
+# echo 'Please proceed...';
+
+
+
+# # End work session 
+
+end_work () {
+	echo 'Pusing git...';
+	# git push origin master;	
+	echo 'Push complete!';
+	echo 'Goodbye ~';
+}
+
+
+alias endwork=end_work;
+
+
+
+
