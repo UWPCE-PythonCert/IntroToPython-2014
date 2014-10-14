@@ -80,6 +80,12 @@ Ctrl-o "jump to last cursor position
 Ctrl-i "jump to next cursor position
 
 
+"""SCROLLING"""
+zz "move current line to the middle of the screen
+zt "move current line to the top of the screen
+zb "move current line to the bottom of the screen
+
+
 """DELETING TEXT"""
 dd "delete entire line
 dw "delete word

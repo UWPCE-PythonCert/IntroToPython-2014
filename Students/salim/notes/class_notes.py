@@ -325,8 +325,6 @@ for item in a_list:
 for item in range(6): # range allows you to loop as much as you want
     print '*',
 
-# Comments
-
 def print_multi(x):
 
     print locals()
@@ -347,3 +345,126 @@ import math
 def distance(cor1, cor2):
     print locals()
     return math.sqrt( (cor1[0]-cor2[0])**2 + (cor1[0]-cor2[1])**2 )
+
+
+#DOC STRINGS
+"""
+if a string literal is the first thing in the fuction block following the
+header, then it's a doc string
+"""
+# example:
+
+def complex_function(arg1, arg2, kwarg1=u'bannana'):
+    """Return a value resulting from a complex calculation."""
+    # code block here
+
+"""
+doc strings can be read in the interpreter as the "__doc__" attribute of the
+function object
+
+a doc string should be:
+    -a complete sentence in the form of a command describing the function
+        -e.g., "Return a list of values based on blah blah..."
+    -fit into a signle line
+        -if more lines are needed, make the first line a complete sentence,
+         then add more information later
+    -be enclosed with triple quotes
+"""
+
+
+#RECURSION
+"""
+recursion:  if a function calls itself
+    -like other functions, a call within a call establishes a call stack
+"""
+
+#BOOLEAN EXPRESSIONS
+"""
+"bool(something)" returns either true or false
+
+-and, or, and not
+    -"and": returns the first operand that evaluates to False, or the last operand
+     if non are True
+    -"or": returns the first operand that evaluates to True, or the last operand
+     if none are True
+    -"not" inverts the boolean value of its operand
+
+-boolean types are subclasses of integer
+"""
+
+# this is common in programming
+if something:
+    x = a_value
+else:
+    x = b_value
+
+# in python
+y = 5 if x > 2 else 3   # clased a "ternary" expression
+
+
+#CODE STRUCTURE, MODULES, AND NAMESPACES
+
+"""
+-you can put a one-liner after the colon; however this should only be done if
+ it makes your code more readable
+"""
+#example
+x = 12
+if x > 4: print x
+
+"""
+-namespaces: these are the dots
+    -e.g., "name.another_name"
+    -the "." indicates that you're looking for a name in the "namespace" of a
+     given object
+    -the namespace of an object could be
+        -name in the module
+        -module in a package
+        -attribute of an object
+        -method of an object
+-a "module" is simply a namespace
+    -it could be a single file or a collection of files
+    -you can think of files with ".py" as modules
+-a "package" is a module with other modules in it
+    -on a filesystem, this is a directory that contains one or more .py files,
+     one of which must be called "__init__.py"
+    -see the example below for how to import packages and modules inside
+"""
+#example of importing packages and modules in packages
+import modulename
+from modulename import this, that
+import modulename as a_new_name
+from modulename import this as that
+
+"""
+-importing modules complies the python code to "bytecode"
+    -this creates a module.pyc file
+-this process executes all code at the module scope
+    -this is why it's important to avoid module-scope statments because they have
+     global side-effects
+-code in a module is not rerun when you import again
+-you can also run modules
+"""
+
+#ways to run a python module
+python hello.py # must be in current working directory
+./hello.py  #!/usr/env/python at top of module (Unix).
+"""
+The "./" is an abbreviated way to inform the shell that the absolute path of that
+file is the current directory (i.e., the directory in which the user is currently
+working). This allows you to execute a script.
+"""
+
+"""
+-when you import a module, the value of the symbol "__name__" is the same as the
+filename.
+-when you run a module, the value of the symbol "__name__" is "__main__"
+-this allows you to create blocks of code that are executed only when you
+ run a module
+ """
+
+#this code will only execute if you run the module, not import it
+if __name__ == '__main__':
+    # Do something interesting here
+    # It will only happen when the module is run
+
