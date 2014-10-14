@@ -10,21 +10,25 @@
 git checkout master;
 git fetch upstream master;
 git merge upstream/master;
-git status;
-
+git push;
 
 
 # Print when ready to develop
-# echo 'Ready to develop!';
-# echo 'Please proceed...';
+git status;
+echo;
+echo 'Ready to develop!';
+echo 'Please proceed...';
 
 
+commit_work () {
+	git commit -m 'another update';
+	git push;
+}
 
 # # End work session 
-
 end_work () {
 	echo 'Pusing git...';
-	# git push origin master;	
+	git push origin master;	
 	echo 'Push complete!';
 	echo 'Goodbye ~';
 }
