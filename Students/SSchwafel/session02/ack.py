@@ -27,7 +27,7 @@ print "m = " + str(m)
 print "n = " + str(n)
 
 def is_negative(x):
-
+"""This function checks to make sure that values are positive"""
     if x < 0:
 
         x = raw_input("Ackermann's function is not defined for values less than 0. Please start over with a value that is greater than 0. \n\nExiting.\n")
@@ -39,7 +39,7 @@ is_negative(n)
 
 
 def ackermann(x,y):
-
+"""Performs Ackermann's function on values x = m, y = n"""
     #x = m 
     #y = n 
 
