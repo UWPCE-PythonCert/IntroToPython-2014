@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-print """This program performs Ackermann's Function, as defined by: 
+    
+
+print """
+
+This program performs Ackermann's Function, as defined by: 
 
 A(m,n) =
 
@@ -26,37 +30,49 @@ def is_negative(x):
 
     if x < 0:
 
-        x = raw_input("Ackermann's function is not defined for values less than 0. Please enter a value that is greater than 0: ")
+        x = raw_input("Ackermann's function is not defined for values less than 0. Please start over with a value that is greater than 0. \n\nExiting.\n")
 
-        x = int(x) 
-
-        if x < 0:
+        exit()
     
-            print "Please start over with a positive value for m"
-            exit()
-    
-
-    print x 
-
 is_negative(m)
+is_negative(n)
 
 
 def ackermann(x,y):
 
     #x = m 
     #y = n 
-    while y > -1:
 
-        if x == 0:
+    #while y > -1:
+
+    if x == 0:
+    
+        return y+1
+
+    elif x > 0 and y == 0:
+
+        return ackermann(x - 1, 1)
+
+    elif x > 0 and y > 0:
+        return ackermann(x - 1 , ackermann(x, y - 1))
         
-            return y+1
+print ackermann(m,n)
 
-        elif x > 0 and y == 0:
 
-            return ackermann(x - 1, 1)
+    #
+    # This is where I am going to put my tests and asserts
 
-        elif x > 0 and y > 0:
-            
-            return ackermann(x - 1 , ackermann(x, y - 1))
-        
-print ackermann(n,m)
+if __name__ == "__main__":
+
+    assert ackermann(0,0) == 1
+    assert ackermann(0,1) == 2
+    assert ackermann(0,2) == 3
+    assert ackermann(0,3) == 4
+    assert ackermann(1,0) == 2
+    assert ackermann(2,0) == 3
+    assert ackermann(2,4) == 11
+    assert ackermann(3,4) == 125
+    print "\nAll Tests Pass!\n"
+   # #
+   # #
+
