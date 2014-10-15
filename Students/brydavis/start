@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-
-# # Set aliases
-# alias ux='chmod u+x';
-# alias ax='chmod a+x';
-
+# alias start="source ./start"
 
 # Begin work session
 function start_session {
@@ -18,6 +14,8 @@ function start_session {
 	echo 'Please proceed...';
 }
 
+
+# Always save your work!
 function commit_work {
 	# git add $1;
 	# -m is for adding a message
@@ -35,8 +33,25 @@ function end_session {
 }
 
 
-function test_func {
-	echo 'working';
+function init {
+	echo "Welcome to UW-PCE's Intro to Python"
+	# cd /www/IntroToPython;
+	start_session;
 }
 
-start_session;
+
+# Initialize
+init;
+
+
+
+# # Set aliases
+# alias ux='chmod u+x';
+# alias ax='chmod a+x';
+
+# # Set in ~/.bash_profile
+# export GIT_EDITOR=nano
+
+
+
+

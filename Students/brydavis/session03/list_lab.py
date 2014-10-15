@@ -78,9 +78,11 @@ def series_three(fruit=fruit):
 	# Display the list.
 	print '\nCurrent list: ', fruit
 
+	fruit_copy = fruit[:]
+
 	# Ask the user for input displaying a line like 'Do you like apples?'
 	# for each fruit in the list (making the fruit all lowercase).
-	for f in fruit:
+	for f in fruit_copy:
 		def get_likes():
 			return raw_input('Do you like %s? ' % f.lower())
 		
@@ -111,8 +113,10 @@ def series_four(fruit=fruit):
 	# Make a copy of the list and reverse the letters in each fruit in the copy
 	scrambled_fruit = fruit[:]
 
-	# Display the original list.
-	print '\nCurrent list (sans the last value): ', fruit.pop()
+	# Display the original list sans the last element.
+	print '\nCurrent list (sans the last value): ', fruit
+	fruit.pop()
+	print '\nCurrent list (sans the last value): ', fruit
 
 
 	for i, f in enumerate(scrambled_fruit):
@@ -129,6 +133,10 @@ def series_four(fruit=fruit):
 if __name__ == '__main__':
 	# When the script is run, it should run four series of actions:
 	series_one()
+
+
+# Q: use original 'fruit' list for each new series?
+# Q: skipping entries in list?
 
 
 
