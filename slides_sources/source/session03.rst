@@ -1133,6 +1133,8 @@ Add the file to your clone of the repository and commit changes frequently
 while working on the following tasks. When you are done, push your changes to
 GitHub and issue a pull request.
 
+(if you are struggling with git -- just write the code for now)
+
 When the script is run, it should accomplish the following four series of
 actions:
 
@@ -1229,7 +1231,7 @@ Contrast this with other languages, where you must build and use an ``index``:
         var value = arr[i];
         alert(i + ") " + value);
 
-If you need an index, though you can use ``enumerate``:
+If you *do* need an index, you can use ``enumerate``:
 
 .. code-block:: ipython
 
@@ -1239,7 +1241,7 @@ If you need an index, though you can use ``enumerate``:
     0 P 1 y 2 t 3 h 4 o 5 n
 
 
-.. nextslide:: ``range`` and For Loops
+.. nextslide:: ``range`` and ``for`` Loops
 
 The ``range`` builtin is useful for looping a known number of times:
 
@@ -1346,9 +1348,7 @@ It continues to execute the body until condition is not ``True``::
 
 ``while``  is more general than ``for``
 
--- you can always express ``for`` as ``while``,
-
-but not always vice-versa.
+-- you can always express ``for`` as ``while``, but not always vice-versa.
 
 ``while``  is more error-prone -- requires some care to terminate
 
@@ -1425,9 +1425,33 @@ String Features
 
   Fun with Strings
 
+Strings
+---------
 
-Manipulations
--------------
+A string literal creates a string type
+
+(we've seen this already...)
+
+::
+
+    "this is a string"
+
+    'So is this'
+
+    """and this also"""
+
+You can also use ``str()``
+
+.. code-block:: ipython
+
+    In [256]: str(34)
+    Out[256]: '34'
+
+(demo)
+
+
+String Manipulations
+---------------------
 
 ``split`` and ``join``:
 
@@ -1471,13 +1495,65 @@ Manipulations
     In [186]: fancy.isalnum()
     Out[186]: False
 
+String Literals
+-----------------
+
+Common Escape Sequences::
+
+    \\  Backslash (\)
+    \a  ASCII Bell (BEL)
+    \b  ASCII Backspace (BS)
+    \n  ASCII Linefeed (LF)
+    \r  ASCII Carriage Return (CR)
+    \t  ASCII Horizontal Tab (TAB)
+    \ooo  Character with octal value ooo
+    \xhh  Character with hex value hh
+
+for example -- for tab-separted values:
+
+.. code-block:: ipython
+
+    In [25]: s = "these\tare\tseparated\tby\ttabs"
+
+    In [26]: print s
+    these   are separated    by  tabs
+
+
+http://docs.python.org/release/2.5.2/ref/strings.html
+
+Raw Strings
+-------------
+
+Add an ``r`` in front of the string literal:
+
+Escape Sequences Ignored
+
+.. code-block:: ipython
+
+    In [408]: print "this\nthat"
+    this
+    that
+    In [409]: print r"this\nthat"
+    this\nthat
+
+**Gotcha**
+
+.. code-block:: ipython
+
+    In [415]: r"\"
+    SyntaxError: EOL while scanning string literal
+
+(handy for regex, windows paths...)
+
 
 Ordinal values
 --------------
 
-"ASCII" values: 1-127
+Characters in strings are stored as numeric values:
 
-"ANSI" values: 1-255
+* "ASCII" values: 1-127
+
+* "ANSI" values: 1-255
 
 To get the value:
 
@@ -1490,9 +1566,11 @@ To get the value:
        .....:     print chr(i),
     C h r i s
 
+(these days, stick with ASCII, or use Unicode: more on that in a few weeks)
+
 
 Building Strings
-----------------
+-----------------
 
 You can, but please don't do this:
 
@@ -1561,6 +1639,21 @@ You can use values more than once, and skip values:
     In [193]: "Hi, %(name)s. Howzit, %(name)s?" % {'name': "Bob", 'age': 27}
     Out[193]: 'Hi, Bob. Howzit, Bob?'
 
+.. nextslide::
+
+The format operator works with string variables, too:
+
+.. code-block:: ipython
+
+    In [45]: s = "%i / %i = %i"
+
+    In [46]: a, b = 12, 3
+
+    In [47]: s%(a, b, a/b)
+    Out[47]: '12 / 3 = 4'
+
+So you can dynamically build a format string
+
 
 .. nextslide:: New Formatting
 
@@ -1587,32 +1680,48 @@ It's well worth your while to spend some time getting to know this
 .. _being phased out: https://docs.python.org/2/library/stdtypes.html#str.format
 
 
+
+
 One Last Trick
-==============
+---------------
 
 .. rst-class:: left
 
-For some of your homework, yo'll need to interact with a user at the
+For some of your homework, you'll need to interact with a user at the
 command line.
-
-.. rst-class:: left
 
 There's a nice builtin function to do this - ``raw_input``:
 
-.. rst-class:: left
-
-.. code-block:: python
+.. code-block:: ipython
 
     In [196]: fred = raw_input('type something-->')
     type something-->;alksdjf
     In [197]: fred
     Out[197]: ';alksdjf'
 
-.. rst-class:: left
-
 This will display a prompt to the user, allowing them to input text and
 allowing you to bind that input to a symbol.
 
+(There is also ``input()`` -- please dont use it!)
+
+String Formatting LAB
+=====================
+
+.. rst-class:: left
+
+ * Rewrite: ``the first 3 numbers are: %i, %i, %i"%(1,2,3)``
+
+   for an arbitrary number of numbers...
+
+ * Write a format string that will take:
+
+    ``( 2, 123.4567, 10000)``
+
+    and produce:
+
+    ``'file_002 :   123.46, 1e+04'``
+
+  * Then do these with the format() method...
 
 Homework
 ========
@@ -1620,72 +1729,14 @@ Homework
 Task 1
 ------
 
-List Lab (after http://www.upriss.org.uk/python/session5.html)
+Finish the List Lab from class
 
-In your student folder, create a new file called ``list_lab.py``.
-
-The file should be an executable python script. That is to say that one
-should be able to run the script directly like so:
-
-.. code-block:: bash
-
-    $ ./list_lab.py
-
-Add the file to your clone of the repository and commit changes frequently
-while working on the following tasks. When you are done, push your changes to
-GitHub and issue a pull request.
-
-When the script is run, it should accomplish the following four series of
-actions:
-
-.. nextslide:: Series 1
-
-- Create a list that contains "Apples", "Pears", "Oranges" and "Peaches".
-- Display the list.
-- Ask the user for another fruit and add it to the end of the list.
-- Display the list.
-- Ask the user for a number and display the number back to the user and the
-  fruit corresponding to that number (on a 1-is-first basis).
-- Add another fruit to the beginning of the list using "+" and display the
-  list.
-- Add another fruit to the beginning of the list using insert() and display the
-  list.
-- Display all the fruits that begin with "P", using a for loop.
-
-
-.. nextslide:: Series 2
-
-Using the list created in series 1 above:
-
-- Display the list.
-- Remove the last fruit from the list.
-- Display the list.
-- Ask the user for a fruit to delete and find it and delete it.
-- (Bonus: Multiply the list times two. Keep asking until a match is found. Once
-  found, delete all occurrences.)
-
-.. nextslide:: Series 3
-
-Again, using the list from series 1:
-
-- Ask the user for input displaying a line like "Do you like apples?"
-- for each fruit in the list (making the fruit all lowercase).
-- For each "no", delete that fruit from the list.
-- For any answer that is not "yes" or "no", prompt the user to answer with one
-  of those two values (a while loop is good here):
-- Display the list.
-
-.. nextslide:: Series 4
-
-Once more, using the list from series 1:
-
-- Make a copy of the list and reverse the letters in each fruit in the copy.
-- Delete the last item of the original list. Display the original list and the
-  copy.
-
+(and the string formatting lab)
 
 Task 2
 ------
+
+.. rst-class:: mlarge
 
 ROT13
 
@@ -1693,9 +1744,9 @@ The ROT13 encryption scheme is a simple substitution cypher where each letter
 in a text is replace by the letter 13 away from it (imagine the alphabet as a
 circle, so it wraps around).
 
-Add a python module named ``rot13.py`` to your student folder. This module
-should provide at least one function called ``rot13`` that takes any amount of
-text and returns that same text encrypted by ROT13.
+Add a python module named ``rot13.py`` to the session03 dir in your student dir.
+This module should provide at least one function called ``rot13`` that takes
+any amount of text and returns that same text encrypted by ROT13.
 
 This function should preserve whitespace, punctuation and capitalization.
 
@@ -1703,39 +1754,51 @@ Your module should include an ``if __name__ == '__main__':`` block with tests
 that demonstrate that your ``rot13`` function and any helper functions you add
 work properly.
 
+
 .. nextslide:: A bit more
 
 There is a "short-cut" available that will help you accomplish this task. Some
 spelunking in `the documentation for strings`_ should help you to find it. If
 you do find it, using it is completely fair game.
 
+As usual, add your new file to your local clone right away.  Make commits
+early and often and include commit messages that are descriptive and concise.
+
+When you are done, if you want me to review it, push your changes to github
+and issue a pull request.
+
+try decrypting this:
+
+"Zntargvp sebz bhgfvqr arne pbeare"
+
 .. _the documentation for strings: https://docs.python.org/2/library/stdtypes.html#string-methods
-
-As usual, add your new file to your local clone right away.  Make commits early and often and include commit messages that are descriptive and concise.
-
-When you are done, push your changes to github and issue a pull request.
 
 
 Task 3
 ------
 
-"Mail Room"
+.. rst-class:: mlarge
+
+Mail Room
 
 You work in the mail room at a local charity. Part of your job is to write
 incredibly boring, repetitive emails thanking your donors for their generous
-gifts. You are tired of doing this over an over again, so yo've decided to let Python help you out of a jam.
+gifts. You are tired of doing this over an over again, so yo've decided to
+let Python help you out of a jam.
 
-Write a small command-line script called ``mailroom.py``.  As with Task 1, This script should be executable. The script should accomplish the following goals:
+Write a small command-line script called ``mailroom.py``.  As with Task 1,
+This script should be executable. The script should accomplish the
+following goals:
 
 * It should have a data structure that holds a list of your donors and a
   history of the amounts they have donated. This structure should be populated
   at first with at least five donors, with between 1 and 3 donations each
 * The script should prompt the user (you) to choose from a menu of 2 actions:
-  'Send a Thank Yo' or 'Create a Report'.
+  'Send a Thank You' or 'Create a Report'.
 
 .. nextslide:: Sending a Thank You
 
-* If the user (you) selects 'Send a Thank Yo', prompt for a Full Name.
+* If the user (you) selects 'Send a Thank You', prompt for a Full Name.
 
   * If the user types 'list', show them a list of the donor names and re-prompt
   * If the user types a name not in the list, add that name to the data
@@ -1781,7 +1844,7 @@ Put the functions you write into the script at the top.
 
 Put your main interaction into an ``if __name__ == '__main__'`` block.
 
-Finally, use only functions and the basic Python data types yo've learned
+Finally, use only functions and the basic Python data types you've learned
 about so far. There is no need to go any farther than that for this assignment.
 
 .. nextslide:: Submission
@@ -1791,3 +1854,19 @@ directory, and add it to your clone early. Make frequent commits with
 good, clear messages about what you are doing and why.
 
 When you are done, push your changes and make a pull request.
+
+Next Week:
+===========
+
+.. rst-class:: mlarge
+
+    **Lightning talks next week:**
+
+Benjamin C Mier
+
+Robert W Perkins
+
+Vinay Gupta
+
+Wayne R Fukuhara
+
