@@ -1,7 +1,7 @@
 
 def fizzbuzz(rng):
     for r in rng:
-        if not (r % 3 and r % 5):
+        if not r % 3 and not r % 5:
             print "fizzbuzz"
         elif not r % 3:
             print "fizz"
