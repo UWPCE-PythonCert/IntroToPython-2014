@@ -15,7 +15,9 @@ def revstring(k):
 
 
 def midlasfir(k):
-    return
+    chunk = len(k) // 3
+    # this might work if the mod is added back to one of the chunks
+    return k[chunk:-chunk] + k[-chunk:] + k[:chunk-1]
 
 
 
@@ -25,3 +27,4 @@ if __name__ == "__main__":
     assert eo_out('This is a test') == "Ti sats"
     assert eo_middle('This is a test') == ' sa'
     assert revstring('This is a test') == 'tset a si sihT'
+    assert midlasfir('This is a test') == ' is testThis'
