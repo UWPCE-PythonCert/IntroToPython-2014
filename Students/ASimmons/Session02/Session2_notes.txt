@@ -1,0 +1,52 @@
+﻿Git Primer
+
+What is a graph?
+
+>>A 'graph' - in the world of computer science, 
+>>a state/place connected by paths.
+
+What is an example of recurssive function?
+
+>>
+
+- ex using factorials
+
+def factorial(x):
+	if x == 1:
+		return 1
+	else:
+		return x * factorial(x-1)
+
+>>factorial(5)
+>>120
+
+In math, the factorial of an integer is the
+result of multiplying that integer by every 
+integer smaller than it down to 1.
+
+5! == 5 * 4 * 3 * 2 * 1
+
+
+What is a module?
+
+>> basically anything that ends in
+>> .py counts as a module
+
+
+What is a package?
+
+>>IN ORDER For it to be a python package....needs
+>>an __init__.py
+
+What is the HMK?
+
+>> 1. Create a module called ack.py.
+>> put it in a session02 folder in your student
+>> folder. Write a function for the Ackerman
+>> function
+
+>> 2. Fibronaci & Lucas functions
+>> and one that can do either
+
+
+ 
