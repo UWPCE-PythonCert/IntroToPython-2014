@@ -38,9 +38,15 @@ print "\nBut I don't care for %s" %listo[-1]
 del listo[-1]
 print listo
 
+##copy list since we did bonus scripting and don't want something too long
+p3_list = listo 
+p4_list = listo
+
+
 usr_rm = raw_input("Is there anything you don't care for? ")
 print "I can remove %s" %(usr_rm)
 
+#bonus scripting
 spincycle = False
 while not spincycle:
     if usr_rm in listo:
@@ -57,4 +63,28 @@ while not spincycle:
         usr_rm = raw_input("\nPlease check the list and let me remove something else. ")
 
 #part 3
-#need to work on a couple more changes
+print "I think we got off on the wrong foot, let's go back to an earlier list."
+for fruit in p3_list:
+    usr_fruit = raw_input('Do you like %s? '%fruit.lower())
+    spincycle = False
+    while not spincycle:
+        if usr_fruit == 'no':
+            p3_list.remove(fruit)
+            spincycle = True
+        elif usr_fruit == 'yes':
+            spincycle = True
+        else:
+            print "A yes or no will do, thanks."
+            usr_fruit = raw_input('Do you like %s? ' %fruit.lower())
+
+print "Here's your modified final list: %s" %p3_list
+
+#part 4
+backward_fruit=[]
+for fruit in p4_list:
+    backward_fruit.append(fruit[::-1])
+
+del p4_list[-1]
+
+print "Original List: %s" %p4_list
+print "Backwards List: %s" %backward_fruit
