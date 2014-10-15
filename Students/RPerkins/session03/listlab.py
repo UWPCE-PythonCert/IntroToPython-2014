@@ -1,10 +1,13 @@
 basket = ["Apples", "Pears", "Oranges", "Paches"]
 print basket
-new_fruit = raw_input('Type in the name of another fruit')
-basket.append(new_fruit)
+new_fruit = raw_input('Type in the name of another fruit-->')
+fruit = str(new_fruit)
+basket.append(fruit)
 print basket
-fruit_index = raw_input("Type in the fruit index")
-print fruit_index +': ' + basket[fruit_index-1]
-new_fruit = raw_input("Type in the name of another fruit")
-basket = new_fruit + basket
+fruit_index = raw_input("Type in the fruit index-->")
+index = int(fruit_index)
+print fruit_index +': ' + basket[index-1]
+new_fruit = raw_input("Type in the name of another fruit-->")
+fruit = str(new_fruit)
+basket = fruit + basket
 print basket
