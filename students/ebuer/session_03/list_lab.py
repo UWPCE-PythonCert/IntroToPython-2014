@@ -55,3 +55,6 @@ while not spincycle:
         listo.sort()
         print '\n%s' %listo
         usr_rm = raw_input("\nPlease check the list and let me remove something else. ")
+
+#part 3
+
