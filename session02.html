@@ -71,27 +71,32 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Two: Functions, Booleans and Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-outline">Class Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-a-little-git-primer">First a little git Primer...</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#break-time">BREAK TIME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#in-class-lab">In-Class Lab:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#boolean-expressions">Boolean Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">BREAK TIME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">In-Class Lab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session03.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session03.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#lab">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session03.html#lists-tuples">Lists, Tuples...</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session03.html#mutability">Mutability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#id1">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#id3">Iteration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session03.html#string-features">String Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#string-formatting-lab">String Formatting LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session03.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session03.html#next-week">Next Week:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
@@ -209,43 +214,206 @@
 <p class="center large">Any questions that are nagging?</p>
 </div>
 </div>
-<div class="section" id="git-work">
-<h2>Git Work<a class="headerlink" href="#git-work" title="Permalink to this headline">¶</a></h2>
-<p class="center large">Let&#8217;s get to know your fellow students!</p>
-<div class="section" id="working-with-an-upstream">
-<h3>Working with an Upstream<a class="headerlink" href="#working-with-an-upstream" title="Permalink to this headline">¶</a></h3>
-<p>You&#8217;ve created a fork of the class repository from the <tt class="docutils literal"><span class="pre">codefellows</span></tt> account
-on GitHub.</p>
-<p>You&#8217;ve pushed your own changes to that fork, and then issued pull requests to
-have that worked merged back to the <tt class="docutils literal"><span class="pre">codefellows</span></tt> original.</p>
-<p>You want to keep your fork up-to-date with that original copy as the class goes
-forward.</p>
-<p>To do this, you use the git concept of an <strong>upstream</strong> repository.</p>
+<div class="section" id="class-outline">
+<h2>Class Outline<a class="headerlink" href="#class-outline" title="Permalink to this headline">¶</a></h2>
+<ul class="left simple">
+<li>git primer</li>
+<li>Some basic Python</li>
+<li>More on Functions</li>
+<li>Boolean Expressions</li>
+<li>Code Structure, Modules, and Namespaces</li>
+</ul>
+</div>
+<div class="section" id="first-a-little-git-primer">
+<h2>First a little git Primer...<a class="headerlink" href="#first-a-little-git-primer" title="Permalink to this headline">¶</a></h2>
+<p class="center large">Let&#8217;s get to know git a bit</p>
+<div class="section" id="what-is-git">
+<h3>What is git?<a class="headerlink" href="#what-is-git" title="Permalink to this headline">¶</a></h3>
+<div class="build container">
+<p>A &#8220;version control system&#8221;</p>
+<p>A history of everything you do to your code</p>
+<p>A graph of &#8220;states&#8221; in which your code has existed</p>
+<p>That last one is a bit tricky, so let&#8217;s talk it over for a minute</p>
+</div>
+</div>
+<div class="section" id="a-picture-of-git">
+<h3>A Picture of git<a class="headerlink" href="#a-picture-of-git" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_simple_timeline.png"><img alt="_images/git_simple_timeline.png" class="center" src="_images/git_simple_timeline.png" style="width: 80%;" /></a>
+</div>
+<div class="build container">
+<p>A git repository is a set of points in time, with history showing where
+you&#8217;ve been.</p>
+<p>Each point has a <em>name</em> (here <em>A</em>, <em>B</em>, <em>C</em>) that uniquely identifies it,
+called a <em>hash</em></p>
+<p>The path from one point to the previous is represented by the <em>difference</em>
+between the two points.</p>
+</div>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_head.png"><img alt="_images/git_head.png" class="center" src="_images/git_head.png" style="width: 75%;" /></a>
+</div>
+<div class="build container">
+<p>Each point in time can also have a label that points to it.</p>
+<p>One of these is <em>HEAD</em>, which always points to the place in the timeline
+that you are currently looking at.</p>
+</div>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_master_branch.png"><img alt="_images/git_master_branch.png" class="center" src="_images/git_master_branch.png" style="width: 75%;" /></a>
+</div>
+<div class="build container">
+<p>You may also be familiar with the label &#8220;master&#8221;.</p>
+<p>This is the name that git automatically gives to the first <em>branch</em> in a
+repository.</p>
+<p>A <em>branch</em> is actually just a label that points to a specific point in
+time.</p>
+</div>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_new_commit.png"><img alt="_images/git_new_commit.png" class="center" src="_images/git_new_commit.png" style="width: 75%;" /></a>
+</div>
+<div class="build container">
+<p>When you make a <em>commit</em> in git, you add a new point to the timeline.</p>
+<p>The HEAD label moves to this new point.</p>
+<p>So does the label for the <em>branch</em> you are on.</p>
+</div>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_new_branch.png"><img alt="_images/git_new_branch.png" class="center" src="_images/git_new_branch.png" style="width: 75%;" /></a>
+</div>
+<div class="build container">
+<p>You can make a new <em>branch</em> with the <tt class="docutils literal"><span class="pre">branch</span></tt> command.</p>
+<p>This adds a new label to the current commit.</p>
+<p>Notice that it <em>does not</em> check out that branch.</p>
+</div>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_checkout_branch.png"><img alt="_images/git_checkout_branch.png" class="center" src="_images/git_checkout_branch.png" style="width: 75%;" /></a>
+</div>
+<div class="build container">
+<p>You can use the <tt class="docutils literal"><span class="pre">checkout</span></tt> command to switch to the new branch.</p>
+<p>This associates the HEAD label with the <em>session01</em> label.</p>
+<p>Use <tt class="docutils literal"><span class="pre">git</span> <span class="pre">branch</span></tt> to see which branch is <em>active</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git branch
+  master
+* session01
+</pre></div>
+</div>
+</div>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_commit_on_branch.png"><img alt="_images/git_commit_on_branch.png" class="center" src="_images/git_commit_on_branch.png" style="width: 75%;" /></a>
+</div>
+<div class="build container">
+<p>While it is checked out, new commits move the <em>session01</em> label.</p>
+<p>Notice that HEAD is <em>always</em> the same as &#8220;where you are now&#8221;</p>
+</div>
+<p>You can use this to switch between branches and make changes in isolation.</p>
+<div class="build container">
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_checkout_master.png"><img alt="_images/git_checkout_master.png" class="center" src="_images/git_checkout_master.png" style="width: 75%;" /></a>
+</div>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_new_commit_on_master.png"><img alt="_images/git_new_commit_on_master.png" class="center" src="_images/git_new_commit_on_master.png" style="width: 75%;" /></a>
+</div>
+</div>
+<div class="build container">
+<p>Branching allows you to keep related sets of work separate from each-other.</p>
+<p>In class here, you can use it to do your homework for each session.</p>
+<p>Simply create a new branch for each session from your repository master
+branch.</p>
+<p>Do your work on that branch, and then you can issue a <strong>pull request</strong> in
+github to have your work evaluated.</p>
+<p>This is very much like how teams work in the &#8220;real world&#8221; so learning it
+here will help you.</p>
+<p>The final step in the process is merging your work.</p>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">merge</span></tt> command allows you to <em>combine</em> your work on one branch with the
+work on another.</p>
+<div class="build container">
+<p>It creates a new commit which reconciles the differences:</p>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/git_merge_commit.png"><img alt="_images/git_merge_commit.png" class="center" src="_images/git_merge_commit.png" style="width: 75%;" /></a>
+</div>
+<p>Notice that this commit has <strong>two</strong> parents.</p>
+</div>
+<div class="build container">
+<p>Sometimes when you <tt class="docutils literal"><span class="pre">merge</span></tt> two branches, you get <em>conflicts</em>.</p>
+<p>This happens when the same file was changed in about the same place in two
+different ways.</p>
+<p>Often, git can work these types of things out on its own, but if not,
+you&#8217;ll need to manually edit files to fix the problem.</p>
+<p>You&#8217;ll be helped by the fact that git will tell you which files are in
+conflict.</p>
+<p>Just open those files and look for conflict markers:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; <em>hash1</em> (stuff from the current branch)</li>
+<li>========= (the pivot point between two branches&#8217; content)</li>
+<li>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; <em>hash2</em> (stuff from the branch being merged)</li>
+</ul>
+</div></blockquote>
+</div>
+<p>Your job in fixing a conflict is to decide exactly what to keep.</p>
+<p>You can (and should) communicate with others on your team when doing this.</p>
+<p>Always remember to remove the conflict markers too.  They are not syntactic
+code in any language and will cause errors.</p>
+<p>Once a conflict is resolved, you can <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> the file back and then commit
+the merge.</p>
+</div>
+<div class="section" id="working-with-remotes">
+<h3>Working with Remotes<a class="headerlink" href="#working-with-remotes" title="Permalink to this headline">¶</a></h3>
 <p>Since <tt class="docutils literal"><span class="pre">git</span></tt> is a <em>distributed</em> versioning system, there is no <strong>central</strong>
 repository that serves as the one to rule them all.</p>
+<div class="build container">
 <p>Instead, you work with <em>local</em> repositories, and <em>remotes</em> that they are
 connected to.</p>
 <p>Cloned repositories get an <em>origin</em> remote for free:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote -v
-origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>push<span class="o">)</span>
+origin  https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>push<span class="o">)</span>
 </pre></div>
 </div>
-<p>This shows that the local repo on my machine <em>originated</em> from the one in my gitHub account (the one it was cloned from)</p>
+<p>This shows that the local repo on my machine <em>originated</em> from the one in
+my gitHub account (the one it was cloned from)</p>
+</div>
+<p>Our class materials reside in a repository on <em>Github</em> in the
+<em>UWPCE-PythonCert</em> organization:</p>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/remotes_start.png"><img alt="_images/remotes_start.png" class="center" src="_images/remotes_start.png" style="width: 50%;" /></a>
+</div>
+<p>You&#8217;ve created a fork of the class repository from the <tt class="docutils literal"><span class="pre">UWPCE-PythonCert</span></tt>
+account on GitHub into your personal account:</p>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/remotes_fork.png"><img alt="_images/remotes_fork.png" class="center" src="_images/remotes_fork.png" style="width: 50%;" /></a>
+</div>
+<p>You&#8217;ve made a <em>clone</em> of your fork to your own computer, which means that
+<strong>your fork</strong> in github is the <em>origin</em>:</p>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/remotes_clone.png"><img alt="_images/remotes_clone.png" class="center" src="_images/remotes_clone.png" style="width: 50%;" /></a>
+</div>
+<div class="build container">
+<p>You&#8217;ve pushed your own changes to that fork, and then issued pull requests
+to have that worked merged back to the <tt class="docutils literal"><span class="pre">UWPCE-PythonCert</span></tt> original.</p>
+<p>You want to keep your fork up-to-date with that original copy as the class
+goes forward.</p>
+<p>To do this, you add a new <em>remote</em> repository to your local clone.</p>
+</div>
 <p>You can add <em>remotes</em> at will, to connect your <em>local</em> repository to other
 copies of it in different remote locations.</p>
+<div class="build container">
 <p>This allows you to grab changes made to the repository in these other
 locations.</p>
 <p>For our class, we will add an <em>upstream</em> remote to our local copy that points
-to the original copy of the material in the <tt class="docutils literal"><span class="pre">codefellows</span></tt> account.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add upstream https://github.com/codefellows/sea-f2-python-sept14.git
+to the original copy of the material in the <tt class="docutils literal"><span class="pre">UWPCE-PythonCert</span></tt> account.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add upstream https://github.com/UWPCE-PythonCert/IntroToPython.git
 
 <span class="nv">$ </span>git remote -v
-origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  https://github.com/PythonCHB/sea-f2-python-sept14.git <span class="o">(</span>push<span class="o">)</span>
-upstream  https://github.com/codefellows/sea-f2-python-sept14.git <span class="o">(</span>fetch<span class="o">)</span>
-upstream  https://github.com/codefellows/sea-f2-python-sept14.git <span class="o">(</span>push<span class="o">)</span>
+origin  https://github.com/PythonCHB/IntroToPython.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/PythonCHB/IntroToPython.git <span class="o">(</span>push<span class="o">)</span>
+upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>fetch<span class="o">)</span>
+upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>push<span class="o">)</span>
 </pre></div>
+</div>
+</div>
+<p>This should leave you in a situation that looks like this:</p>
+<div class="figure">
+<a class="center reference internal image-reference" href="_images/remotes_upstream.png"><img alt="_images/remotes_upstream.png" class="center" src="_images/remotes_upstream.png" style="width: 50%;" /></a>
 </div>
 <p>To get the updates from your new remote, you&#8217;ll need first to fetch everything:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch --all
@@ -274,7 +442,7 @@ Fetching upstream
 think you are.</p>
 <p>Then, fetch the upstream master branch and merge it into your master:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch upstream master
-From https://github.com/codefellows/sea-f2-python-sept14
+From https://github.com/UWPCE-PythonCert/IntroToPython
  * branch            master     -&gt; FETCH_HEAD
 
 <span class="nv">$ </span>git merge upstream/master
@@ -408,6 +576,11 @@ conditionals and looping...</p>
 <p>We&#8217;ll get to those over the next couple of classes</p>
 </div>
 </div>
+<div class="section" id="break-time">
+<h2>BREAK TIME<a class="headerlink" href="#break-time" title="Permalink to this headline">¶</a></h2>
+<p>Take a few moments to take a breather, when we return we&#8217;ll do two lightning
+talks:</p>
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review">
@@ -471,14 +644,12 @@ in ALL_CAPS</p>
 <span class="ne">UnboundLocalError</span><span class="g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-23-0ec059b9bfe1&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">f</span><span class="p">()</span>
-
 <span class="nn">&lt;ipython-input-22-9225fa53a20a&gt;</span> in <span class="ni">f</span><span class="nt">()</span>
 <span class="g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 <span class="g-Whitespace">      </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="g-Whitespace">      </span><span class="mi">4</span>     <span class="k">print</span> <span class="n">x</span>
 <span class="g-Whitespace">      </span><span class="mi">5</span>     <span class="k">print</span> <span class="n">y</span>
-
 <span class="ne">UnboundLocalError</span>: local variable &#39;x&#39; referenced before assignment
 </pre></div>
 </div>
@@ -529,22 +700,6 @@ provide any <em>positional</em> arguments:</p>
 <span class="ne">SyntaxError</span>: non-keyword arg after keyword arg
 </pre></div>
 </div>
-<p>This brings us to a fun feature of Python function definitions.</p>
-<p>You can define a parameter list that requires an <strong>unspecified</strong> number of
-<em>positional</em> or <em>keyword</em> arguments.</p>
-<p>The key is the <tt class="docutils literal"><span class="pre">*</span></tt> (splat) or <tt class="docutils literal"><span class="pre">**</span></tt> (double-splat) operator:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
-<span class="gp">   ....:</span>
-<span class="gp">In [32]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">(1,) {}</span>
-<span class="gp">In [33]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">zombies</span><span class="o">=</span><span class="s">&quot;brains&quot;</span><span class="p">)</span>
-<span class="go">(1, 2) {&#39;zombies&#39;: &#39;brains&#39;}</span>
-<span class="gp">In [34]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">zombies</span><span class="o">=</span><span class="s">&quot;brains&quot;</span><span class="p">,</span> <span class="n">vampires</span><span class="o">=</span><span class="s">&quot;blood&quot;</span><span class="p">)</span>
-<span class="go">(1, 2, 3) {&#39;vampires&#39;: &#39;blood&#39;, &#39;zombies&#39;: &#39;brains&#39;}</span>
-</pre></div>
-</div>
-<p><strong>args</strong> and <strong>kwargs</strong> are <em>conventional</em> names for these.</p>
 </div>
 <div class="section" id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
@@ -633,23 +788,6 @@ integer by every integer smaller than it down to 1.</p>
 <p>We can use a recursive function nicely to model this mathematical function</p>
 </div>
 </div>
-<div class="section" id="in-class-lab">
-<h2>In-Class Lab:<a class="headerlink" href="#in-class-lab" title="Permalink to this headline">¶</a></h2>
-<p class="center large">Fun With Functions</p>
-<div class="section" id="exercises">
-<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
-<p>Try your hand at writing a function that computes the distance between two
-points:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
-</pre></div>
-</div>
-<p>Experiment with <tt class="docutils literal"><span class="pre">locals</span></tt> by adding this statement to the function you just
-wrote::</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="nb">locals</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="boolean-expressions">
 <h2>Boolean Expressions<a class="headerlink" href="#boolean-expressions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="truthiness">
@@ -726,12 +864,12 @@ x or y               return y,
                      else return x
 
                   if x is false,
-x and y               return  x
-                      else return y
+x and y              return  x
+                     else return y
 
                   if x is false,
-not x               return True,
-                    else return False
+not x                return True,
+                     else return False
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">d</span>
@@ -792,29 +930,44 @@ not x               return True,
 </div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>In-Class Lab:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p class="center large">Better With Booleans</p>
-<div class="section" id="id2">
-<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li>Look up the <tt class="docutils literal"><span class="pre">%</span></tt>  operator. What do these do?<ul>
+<div class="section" id="in-class-lab">
+<h2>In-Class Lab:<a class="headerlink" href="#in-class-lab" title="Permalink to this headline">¶</a></h2>
+<p class="center large">Funky Bools</p>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Try your hand at writing a function that computes the distance between two
+points:</p>
+<div class="highlight-python"><div class="highlight"><pre>  dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
+
+print locals()
+</pre></div>
+</div>
+</li>
+<li><p class="first">Look up the <tt class="docutils literal"><span class="pre">%</span></tt>  operator. What do these do?</p>
+<ul class="simple">
 <li><tt class="docutils literal"><span class="pre">10</span> <span class="pre">%</span> <span class="pre">7</span> <span class="pre">==</span> <span class="pre">3</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">14</span> <span class="pre">%</span> <span class="pre">7</span> <span class="pre">==</span> <span class="pre">0</span></tt></li>
 </ul>
 </li>
-<li>Write a program that prints the numbers from 1 to 100 inclusive. But for
-multiples of three print &#8220;Fizz&#8221; instead of the number and for the
-multiples of five print &#8220;Buzz&#8221;. For numbers which are multiples of both
-three and five print &#8220;FizzBuzz&#8221; instead.</li>
-<li>Re-write a couple of CodingBat exercises, using a conditional expression</li>
-<li>Re-write a couple of CodingBat exercises, returning the direct boolean results</li>
-</ul>
-</div></blockquote>
-<p>use whichever you like, or the ones in:
-<tt class="xref download docutils literal"><span class="pre">codingbat.rst</span></tt></p>
+<li><p class="first">Write a program that prints the numbers from 1 to 100 inclusive. But for
+multiples of three print &#8220;Fizz&#8221; instead of the number and for the multiples
+of five print &#8220;Buzz&#8221;. For numbers which are multiples of both three and five
+print &#8220;FizzBuzz&#8221; instead.</p>
+</li>
+<li><p class="first">Experiment with <tt class="docutils literal"><span class="pre">locals</span></tt> by adding this statement to the functions you just
+wrote::</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="nb">locals</span><span class="p">()</span>
+</pre></div>
 </div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>BREAK TIME<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Again, let&#8217;s take a few moments out to take a short break.  When we return
+we&#8217;ll have our second two lightning talks:</p>
 </div>
 <div class="section" id="code-structure-modules-and-namespaces">
 <h2>Code Structure, Modules, and Namespaces<a class="headerlink" href="#code-structure-modules-and-namespaces" title="Permalink to this headline">¶</a></h2>
@@ -931,7 +1084,7 @@ module</em></p>
 </pre></div>
 </div>
 <p>This is useful in a number of cases.</p>
-<p>You can put code here that lets your module be a utility script</p>
+<p>You can put code here that lets your module be a utility <em>script</em></p>
 <p>You can put code here that demonstrates the functions contained in your module</p>
 <p>You can put code here that proves that your module works.</p>
 <p>Writing <tt class="docutils literal"><span class="pre">tests</span></tt> that demonstrate that your program works is an important part
@@ -955,11 +1108,11 @@ your code.</p>
 </div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>In-Class Lab<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>In-Class Lab<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Import Interactions</p>
-<div class="section" id="id5">
-<h3>Exercises<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Exercises<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Experiment with importing different ways:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="kn">import</span> <span class="nn">math</span>
 

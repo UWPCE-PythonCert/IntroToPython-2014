@@ -71,27 +71,32 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: Functions, Booleans and Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#git-work">Git Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#class-outline">Class Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#first-a-little-git-primer">First a little git Primer...</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#break-time">BREAK TIME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#in-class-lab">In-Class Lab:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#boolean-expressions">Boolean Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#id1">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#in-class-lab">In-Class Lab:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#id1">BREAK TIME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#id4">In-Class Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session02.html#id3">In-Class Lab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session02.html#homework">Homework</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Three: Sequences, Iteration and String Formatting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lists-tuples">Lists, Tuples...</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mutability">Mutability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mutable-sequence-methods">Mutable Sequence Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Iteration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#string-features">String Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#one-last-trick">One Last Trick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-formatting-lab">String Formatting LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-week">Next Week:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
@@ -199,14 +204,37 @@
 <div class="section" id="review-of-previous-session">
 <h3>Review of Previous Session<a class="headerlink" href="#review-of-previous-session" title="Permalink to this headline">¶</a></h3>
 <ul class="build simple">
-<li>Functions</li>
-<li>Booleans</li>
+<li>Functions<ul>
+<li>recursion</li>
+<li>optional arguments</li>
+</ul>
+</li>
+<li>Booleans<ul>
+<li>if and conditional expressions</li>
+</ul>
+</li>
 <li>Modules</li>
 </ul>
 </div>
 <div class="section" id="homework-review">
 <h3>Homework Review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>FizzBuzz</li>
+<li>Ackerman</li>
+<li>Series</li>
+</ul>
 <p class="center large">Any questions that are nagging?</p>
+</div>
+<div class="section" id="git">
+<h3>git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
+<p class="center large">OK &#8211; I&#8217;ll answer git questions...</p>
+</div>
+<div class="section" id="lightning-talks-today">
+<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
+<p class="mlarge">James Brent Nunn</p>
+<p class="mlarge">Lauren Fries</p>
+<p class="mlarge">Lesley D Reece</p>
+<p class="mlarge">Michel Claessens</p>
 </div>
 </div>
 <div class="section" id="sequences">
@@ -214,7 +242,8 @@
 <p class="center large">Ordered collections of objects</p>
 <div class="section" id="what-is-a-sequence">
 <h3>What is a Sequence?<a class="headerlink" href="#what-is-a-sequence" title="Permalink to this headline">¶</a></h3>
-<p>Remember Duck Typing?  A <em>sequence</em> can be considered as anything that supports
+<p>Remember Duck Typing?</p>
+<p>A <em>sequence</em> can be considered as anything that supports
 <em>at least</em> these operations:</p>
 <ul class="build simple">
 <li>Indexing</li>
@@ -246,28 +275,35 @@
 <p>Items in a sequence may be looked up by <em>index</em> using the subscription
 operator: <tt class="docutils literal"><span class="pre">[]</span></tt></p>
 <p>Indexing in Python always starts at zero.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [98]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">u&quot;this is a string&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [98]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;this is a string&quot;</span>
 <span class="gp">In [99]: </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gh">Out[99]: </span><span class="go">u&#39;t&#39;</span>
+<span class="gh">Out[99]: </span><span class="go">&#39;t&#39;</span>
 <span class="gp">In [100]: </span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-<span class="gh">Out[100]: </span><span class="go">u&#39;i&#39;</span>
+<span class="gh">Out[100]: </span><span class="go">&#39;i&#39;</span>
 </pre></div>
 </div>
 <p>You can use negative indexes to count from the end:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [105]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">u&quot;this is a string&quot;</span>
-<span class="gp">In [106]: </span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="gh">Out[106]: </span><span class="go">u&#39;g&#39;</span>
-<span class="gp">In [107]: </span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span>
-<span class="gh">Out[107]: </span><span class="go">u&#39;s&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+
+<span class="gp">In [3]: </span><span class="n">a_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gh">Out[3]: </span><span class="go">55</span>
+
+<span class="gp">In [4]: </span><span class="n">a_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="gh">Out[4]: </span><span class="go">23</span>
+
+<span class="gp">In [5]: </span><span class="n">a_list</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="gh">Out[5]: </span><span class="go">56</span>
 </pre></div>
 </div>
 <p>Indexing beyond the end of a sequence causes an IndexError:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">In [5]: </span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">a_list</span>
+<span class="gh">Out[6]: </span><span class="go">[34, 56, 19, 23, 55]</span>
+
+<span class="gp">In [7]: </span><span class="n">a_list</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-5-42efaba84d8b&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="nn">&lt;ipython-input-7-c1f9ac3b6fee&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a_list</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 
 <span class="ne">IndexError</span>: list index out of range
 </pre></div>
@@ -279,38 +315,38 @@ operator: <tt class="docutils literal"><span class="pre">[]</span></tt></p>
 original sequence.</p>
 <p>It also uses the subscription operator (<tt class="docutils literal"><span class="pre">[]</span></tt>), but with a twist.</p>
 <p><tt class="docutils literal"><span class="pre">sequence[start:finish]</span></tt> returns all sequence[i] for which start &lt;= i &lt; finish:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [121]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">u&quot;a bunch of words&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [121]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;a bunch of words&quot;</span>
 <span class="gp">In [122]: </span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[122]: </span><span class="go">u&#39;b&#39;</span>
+<span class="gh">Out[122]: </span><span class="go">&#39;b&#39;</span>
 <span class="gp">In [123]: </span><span class="n">s</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
-<span class="gh">Out[123]: </span><span class="go">u&#39;h&#39;</span>
+<span class="gh">Out[123]: </span><span class="go">&#39;h&#39;</span>
 <span class="gp">In [124]: </span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-<span class="gh">Out[124]: </span><span class="go">u&#39;bunc&#39;</span>
+<span class="gh">Out[124]: </span><span class="go">&#39;bunc&#39;</span>
 <span class="gp">In [125]: </span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
-<span class="gh">Out[125]: </span><span class="go">u&#39;bunch&#39;</span>
+<span class="gh">Out[125]: </span><span class="go">&#39;bunch&#39;</span>
 </pre></div>
 </div>
 <p>Think of the indexes as pointing to the spaces between the items:</p>
-<div class="highlight-python"><div class="highlight"><pre>  a       b   u   n   c   h       o   f
-|   |   |   |   |   |   |   |   |   |
-0   1   2   3   4   5   6   7   8   9
+<div class="highlight-python"><div class="highlight"><pre>  a       b   u   n   c   h       o   f       w   o   r   d   s
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
 </pre></div>
 </div>
 <p>You do not have to provide both <tt class="docutils literal"><span class="pre">start</span></tt> and <tt class="docutils literal"><span class="pre">finish</span></tt>:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">u&quot;a bunch of words&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;a bunch of words&quot;</span>
 <span class="gp">In [7]: </span><span class="n">s</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-<span class="gh">Out[7]: </span><span class="go">u&#39;a bun&#39;</span>
+<span class="gh">Out[7]: </span><span class="go">&#39;a bun&#39;</span>
 <span class="gp">In [8]: </span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>
-<span class="gh">Out[8]: </span><span class="go">u&#39;ch of words&#39;</span>
+<span class="gh">Out[8]: </span><span class="go">&#39;ch of words&#39;</span>
 </pre></div>
 </div>
 <p>Either <tt class="docutils literal"><span class="pre">0</span></tt> or <tt class="docutils literal"><span class="pre">len(s)</span></tt> will be assumed, respectively.</p>
 <p>You can combine this with the negative index to get the end of a sequence:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">u&#39;this_could_be_a_filename.txt&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&#39;this_could_be_a_filename.txt&#39;</span>
 <span class="gp">In [5]: </span><span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-<span class="gh">Out[5]: </span><span class="go">u&#39;this_could_be_a_filename&#39;</span>
+<span class="gh">Out[5]: </span><span class="go">&#39;this_could_be_a_filename&#39;</span>
 <span class="gp">In [6]: </span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span>
-<span class="gh">Out[6]: </span><span class="go">u&#39;.txt&#39;</span>
+<span class="gh">Out[6]: </span><span class="go">&#39;.txt&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -332,15 +368,20 @@ original sequence.</p>
 <p>There are very many fewer &#8220;off by one&#8221; errors as a result.</p>
 <p>Slicing takes a third argument, <tt class="docutils literal"><span class="pre">step</span></tt> which controls which items are
 returned:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [289]: </span><span class="n">string</span> <span class="o">=</span> <span class="s">u&quot;a fairly long string&quot;</span>
-<span class="gp">In [290]: </span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
-<span class="gh">Out[290]: </span><span class="go">u&#39;a fairly long s&#39;</span>
-<span class="gp">In [291]: </span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[291]: </span><span class="go">u&#39;afil ogs&#39;</span>
-<span class="gp">In [292]: </span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="gh">Out[292]: </span><span class="go">u&#39;aallg&#39;</span>
-<span class="gp">In [293]: </span><span class="n">string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="gh">Out[293]: </span><span class="go">u&#39;gnirts gnol ylriaf a&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">a_tuple</span>
+<span class="gh">Out[18]: </span><span class="go">(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)</span>
+
+<span class="gp">In [19]: </span><span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
+<span class="gh">Out[19]: </span><span class="go">(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)</span>
+
+<span class="gp">In [20]: </span><span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gh">Out[20]: </span><span class="go">(0, 2, 4, 6, 8, 10, 12, 14)</span>
+
+<span class="gp">In [21]: </span><span class="n">a_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="gh">Out[21]: </span><span class="go">(0, 3, 6, 9, 12)</span>
+
+<span class="gp">In [22]: </span><span class="n">a_tuple</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gh">Out[22]: </span><span class="go">(19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)</span>
 </pre></div>
 </div>
 <p>Though they share an operator, slicing and indexing have a few important
@@ -374,8 +415,8 @@ objects.</p>
 </div>
 <p>For strings, the membership operations are like <tt class="docutils literal"><span class="pre">substring</span></tt> operations in
 other languages:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">u&quot;This is a long string&quot;</span>
-<span class="gp">In [21]: </span><span class="s">u&quot;long&quot;</span> <span class="ow">in</span> <span class="n">s</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;This is a long string&quot;</span>
+<span class="gp">In [21]: </span><span class="s">&quot;long&quot;</span> <span class="ow">in</span> <span class="n">s</span>
 <span class="gh">Out[21]: </span><span class="go">True</span>
 </pre></div>
 </div>
@@ -389,12 +430,12 @@ other languages:</p>
 <div class="section" id="concatenation">
 <h3>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">¶</a></h3>
 <p>Using <tt class="docutils literal"><span class="pre">+</span></tt> or <tt class="docutils literal"><span class="pre">*</span></tt> on sequences will <em>concatenate</em> them:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">s1</span> <span class="o">=</span> <span class="s">u&quot;left&quot;</span>
-<span class="gp">In [26]: </span><span class="n">s2</span> <span class="o">=</span> <span class="s">u&quot;right&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;left&quot;</span>
+<span class="gp">In [26]: </span><span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;right&quot;</span>
 <span class="gp">In [27]: </span><span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
-<span class="gh">Out[27]: </span><span class="go">u&#39;leftright&#39;</span>
+<span class="gh">Out[27]: </span><span class="go">&#39;leftright&#39;</span>
 <span class="gp">In [28]: </span><span class="p">(</span><span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="gh">Out[28]: </span><span class="go">u&#39;leftrightleftrightleftright&#39;</span>
+<span class="gh">Out[28]: </span><span class="go">&#39;leftrightleftrightleftright&#39;</span>
 </pre></div>
 </div>
 <p>You can apply this concatenation to slices as well, leading to some nicely
@@ -416,7 +457,7 @@ concise code:</p>
 <div class="section" id="length">
 <h3>Length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
 <p>All sequences have a length.  You can get it with the <tt class="docutils literal"><span class="pre">len</span></tt> builtin:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">u&quot;how long is this, anyway?&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;how long is this, anyway?&quot;</span>
 <span class="gp">In [37]: </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="gh">Out[37]: </span><span class="go">25</span>
 </pre></div>
@@ -438,40 +479,40 @@ concise code:</p>
 <h3>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h3>
 <p>There are a more operations supported by all sequences</p>
 <p>All sequences also support the <tt class="docutils literal"><span class="pre">min</span></tt> and <tt class="docutils literal"><span class="pre">max</span></tt> builtins:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [42]: </span><span class="n">all_letters</span> <span class="o">=</span> <span class="s">u&quot;thequickbrownfoxjumpedoverthelazydog&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [42]: </span><span class="n">all_letters</span> <span class="o">=</span> <span class="s">&quot;thequickbrownfoxjumpedoverthelazydog&quot;</span>
 <span class="gp">In [43]: </span><span class="nb">min</span><span class="p">(</span><span class="n">all_letters</span><span class="p">)</span>
-<span class="gh">Out[43]: </span><span class="go">u&#39;a&#39;</span>
+<span class="gh">Out[43]: </span><span class="go">&#39;a&#39;</span>
 <span class="gp">In [44]: </span><span class="nb">max</span><span class="p">(</span><span class="n">all_letters</span><span class="p">)</span>
-<span class="gh">Out[44]: </span><span class="go">u&#39;z&#39;</span>
+<span class="gh">Out[44]: </span><span class="go">&#39;z&#39;</span>
 </pre></div>
 </div>
-<p>Why are those the answers you get? (hint: <tt class="docutils literal"><span class="pre">ord(u'a')</span></tt>)</p>
+<p>Why are those the answers you get? (hint: <tt class="docutils literal"><span class="pre">ord('a')</span></tt>)</p>
 <p>All sequences also support the <tt class="docutils literal"><span class="pre">index</span></tt> method, which returns the index of the
 first occurence of an item in the sequence:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [46]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">u&#39;d&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [46]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
 <span class="gh">Out[46]: </span><span class="go">21</span>
 </pre></div>
 </div>
 <p>This causes a <tt class="docutils literal"><span class="pre">ValueError</span></tt> if the item is not in the sequence:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">u&#39;A&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-47-2db728a46f78&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">all_letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">u&#39;A&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">all_letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">)</span>
 
 <span class="ne">ValueError</span>: substring not found
 </pre></div>
 </div>
 <p>A sequence can also be queried for the number of times a particular item
 appears:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [52]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">u&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [52]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;o&#39;</span><span class="p">)</span>
 <span class="gh">Out[52]: </span><span class="go">4</span>
-<span class="gp">In [53]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">u&#39;the&#39;</span><span class="p">)</span>
+<span class="gp">In [53]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;the&#39;</span><span class="p">)</span>
 <span class="gh">Out[53]: </span><span class="go">2</span>
 </pre></div>
 </div>
 <p>This does not raise an error if the item you seek is not present:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [54]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">u&#39;A&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [54]: </span><span class="n">all_letters</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">)</span>
 <span class="gh">Out[54]: </span><span class="go">0</span>
 </pre></div>
 </div>
@@ -479,6 +520,33 @@ appears:</p>
 <div class="section" id="iteration">
 <h3>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h3>
 <p class="center large">More on this in a while.</p>
+</div>
+</div>
+<div class="section" id="lab">
+<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
+<p>Slicing Lab</p>
+<div class="section" id="slicing-lab">
+<h3>Slicing Lab<a class="headerlink" href="#slicing-lab" title="Permalink to this headline">¶</a></h3>
+<p>Write some functions that:</p>
+<ul class="simple">
+<li>return a string with the first and last characters exchanged.</li>
+<li>return a string with every other character removed</li>
+<li>return a string with the first and last 4 characters removed, and every other char in between</li>
+<li>return a string reversed (just with slicing)</li>
+<li>return a string with the middle, then last, then first third in the new order</li>
+</ul>
+<p>NOTE: these should work with ANY sequence &#8211; not just strings!</p>
+</div>
+<div class="section" id="lightning-talks">
+<h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">James Brent Nunn</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Lauren Fries</div>
+<div class="line"><br /></div>
+</div>
 </div>
 </div>
 <div class="section" id="lists-tuples">
@@ -508,13 +576,13 @@ appears:</p>
 <p>Lists are <em>heterogenous</em>, <em>ordered</em> collections.</p>
 <p>Each element in a list is a value, and can be in multiple lists and have
 multiple names (or no name)</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">name</span> <span class="o">=</span> <span class="s">u&#39;Brian&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Brian&#39;</span>
 <span class="gp">In [10]: </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="p">]</span>
 <span class="gp">In [11]: </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">name</span><span class="p">]</span>
 <span class="gp">In [12]: </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[12]: </span><span class="go">u&#39;Brian&#39;</span>
+<span class="gh">Out[12]: </span><span class="go">&#39;Brian&#39;</span>
 <span class="gp">In [13]: </span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[13]: </span><span class="go">u&#39;Brian&#39;</span>
+<span class="gh">Out[13]: </span><span class="go">&#39;Brian&#39;</span>
 <span class="gp">In [14]: </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">is</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="gh">Out[14]: </span><span class="go">True</span>
 </pre></div>
@@ -567,7 +635,7 @@ tuple:</p>
 <p>Tuples are <em>heterogenous</em>, <em>ordered</em> collections.</p>
 <p>Each element in a tuple is a value, and can be in multiple tuples and have
 multiple names (or no name)</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">name</span> <span class="o">=</span> <span class="s">u&#39;Brian&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Brian&#39;</span>
 <span class="gp">In [24]: </span><span class="n">other</span> <span class="o">=</span> <span class="n">name</span>
 <span class="gp">In [25]: </span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 <span class="gp">In [26]: </span><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
@@ -622,23 +690,23 @@ multiple names (or no name)</p>
 </tbody>
 </table>
 <p>Try this out:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">[</span><span class="s">u&#39;spam&#39;</span><span class="p">,</span> <span class="s">u&#39;eggs&#39;</span><span class="p">,</span> <span class="s">u&#39;ham&#39;</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">,</span> <span class="s">&#39;ham&#39;</span><span class="p">]</span>
 <span class="gp">In [29]: </span><span class="n">food</span>
-<span class="gh">Out[29]: </span><span class="go">[u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;]</span>
-<span class="gp">In [30]: </span><span class="n">food</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">u&#39;raspberries&#39;</span>
+<span class="gh">Out[29]: </span><span class="go">[&#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;]</span>
+<span class="gp">In [30]: </span><span class="n">food</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;raspberries&#39;</span>
 <span class="gp">In [31]: </span><span class="n">food</span>
-<span class="gh">Out[31]: </span><span class="go">[u&#39;spam&#39;, u&#39;raspberries&#39;, u&#39;ham&#39;]</span>
+<span class="gh">Out[31]: </span><span class="go">[&#39;spam&#39;, &#39;raspberries&#39;, &#39;ham&#39;]</span>
 </pre></div>
 </div>
 <p>And repeat the exercise with a Tuple:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [32]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">(</span><span class="s">u&#39;spam&#39;</span><span class="p">,</span> <span class="s">u&#39;eggs&#39;</span><span class="p">,</span> <span class="s">u&#39;ham&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [32]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">,</span> <span class="s">&#39;ham&#39;</span><span class="p">)</span>
 <span class="gp">In [33]: </span><span class="n">food</span>
-<span class="gh">Out[33]: </span><span class="go">(u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;)</span>
-<span class="gp">In [34]: </span><span class="n">food</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">u&#39;raspberries&#39;</span>
+<span class="gh">Out[33]: </span><span class="go">(&#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;)</span>
+<span class="gp">In [34]: </span><span class="n">food</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;raspberries&#39;</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-34-0c3401794933&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">food</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">u&#39;raspberries&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">food</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;raspberries&#39;</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
 </pre></div>
@@ -673,7 +741,7 @@ whatever condition caused it to be updated.</p>
 <span class="gp">In [14]: </span><span class="n">bins</span>
 <span class="gh">Out[14]: </span><span class="go">[[], [], [], [], []]</span>
 
-<span class="gp">In [15]: </span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s">u&#39;one&#39;</span><span class="p">,</span> <span class="s">u&#39;three&#39;</span><span class="p">,</span> <span class="s">u&#39;rough&#39;</span><span class="p">,</span> <span class="s">u&#39;sad&#39;</span><span class="p">,</span> <span class="s">u&#39;goof&#39;</span><span class="p">]</span>
+<span class="gp">In [15]: </span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="s">&#39;three&#39;</span><span class="p">,</span> <span class="s">&#39;rough&#39;</span><span class="p">,</span> <span class="s">&#39;sad&#39;</span><span class="p">,</span> <span class="s">&#39;goof&#39;</span><span class="p">]</span>
 
 <span class="gp">In [16]: </span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="n">bins</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
@@ -683,11 +751,11 @@ whatever condition caused it to be updated.</p>
 <p>So, what is going to be in <tt class="docutils literal"><span class="pre">bins</span></tt> now?</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [65]: </span><span class="n">bins</span>
 <span class="gh">Out[65]:</span>
-<span class="go">[[u&#39;one&#39;, u&#39;three&#39;, u&#39;rough&#39;, u&#39;sad&#39;, u&#39;goof&#39;],</span>
-<span class="go"> [u&#39;one&#39;, u&#39;three&#39;, u&#39;rough&#39;, u&#39;sad&#39;, u&#39;goof&#39;],</span>
-<span class="go"> [u&#39;one&#39;, u&#39;three&#39;, u&#39;rough&#39;, u&#39;sad&#39;, u&#39;goof&#39;],</span>
-<span class="go"> [u&#39;one&#39;, u&#39;three&#39;, u&#39;rough&#39;, u&#39;sad&#39;, u&#39;goof&#39;],</span>
-<span class="go"> [u&#39;one&#39;, u&#39;three&#39;, u&#39;rough&#39;, u&#39;sad&#39;, u&#39;goof&#39;]]</span>
+<span class="go">[[&#39;one&#39;, &#39;three&#39;, &#39;rough&#39;, &#39;sad&#39;, &#39;goof&#39;],</span>
+<span class="go"> [&#39;one&#39;, &#39;three&#39;, &#39;rough&#39;, &#39;sad&#39;, &#39;goof&#39;],</span>
+<span class="go"> [&#39;one&#39;, &#39;three&#39;, &#39;rough&#39;, &#39;sad&#39;, &#39;goof&#39;],</span>
+<span class="go"> [&#39;one&#39;, &#39;three&#39;, &#39;rough&#39;, &#39;sad&#39;, &#39;goof&#39;],</span>
+<span class="go"> [&#39;one&#39;, &#39;three&#39;, &#39;rough&#39;, &#39;sad&#39;, &#39;goof&#39;]]</span>
 </pre></div>
 </div>
 <p>We multiplied a sequence containing a single <em>mutable</em> object.</p>
@@ -714,7 +782,7 @@ used to change the list.</p>
 <p><a class="reference external" href="http://www.python.org/2/library/stdtypes.html#mutable-sequence-types">http://www.python.org/2/library/stdtypes.html#mutable-sequence-types</a></p>
 <div class="section" id="assignment">
 <h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
-<p>You&#8217;ve already seen changing a single element of a list by assignment.</p>
+<p>Yo&#8217;ve already seen changing a single element of a list by assignment.</p>
 <p>Pretty much the same as &#8220;arrays&#8221; in most languages:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [100]: </span><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">In [101]: </span><span class="nb">list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
@@ -726,26 +794,26 @@ used to change the list.</p>
 <div class="section" id="growing-the-list">
 <h3>Growing the List<a class="headerlink" href="#growing-the-list" title="Permalink to this headline">¶</a></h3>
 <p><tt class="docutils literal"><span class="pre">.append()</span></tt>, <tt class="docutils literal"><span class="pre">.insert()</span></tt>, <tt class="docutils literal"><span class="pre">.extend()</span></tt></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [74]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">[</span><span class="s">u&#39;spam&#39;</span><span class="p">,</span> <span class="s">u&#39;eggs&#39;</span><span class="p">,</span> <span class="s">u&#39;ham&#39;</span><span class="p">]</span>
-<span class="gp">In [75]: </span><span class="n">food</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">u&#39;sushi&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [74]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">,</span> <span class="s">&#39;ham&#39;</span><span class="p">]</span>
+<span class="gp">In [75]: </span><span class="n">food</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;sushi&#39;</span><span class="p">)</span>
 <span class="gp">In [76]: </span><span class="n">food</span>
-<span class="gh">Out[76]: </span><span class="go">[u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;, u&#39;sushi&#39;]</span>
-<span class="gp">In [77]: </span><span class="n">food</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">u&#39;beans&#39;</span><span class="p">)</span>
+<span class="gh">Out[76]: </span><span class="go">[&#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;, &#39;sushi&#39;]</span>
+<span class="gp">In [77]: </span><span class="n">food</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;beans&#39;</span><span class="p">)</span>
 <span class="gp">In [78]: </span><span class="n">food</span>
-<span class="gh">Out[78]: </span><span class="go">[u&#39;beans&#39;, u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;, u&#39;sushi&#39;]</span>
-<span class="gp">In [79]: </span><span class="n">food</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s">u&#39;bread&#39;</span><span class="p">,</span> <span class="s">u&#39;water&#39;</span><span class="p">])</span>
+<span class="gh">Out[78]: </span><span class="go">[&#39;beans&#39;, &#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;, &#39;sushi&#39;]</span>
+<span class="gp">In [79]: </span><span class="n">food</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s">&#39;bread&#39;</span><span class="p">,</span> <span class="s">&#39;water&#39;</span><span class="p">])</span>
 <span class="gp">In [80]: </span><span class="n">food</span>
-<span class="gh">Out[80]: </span><span class="go">[u&#39;beans&#39;, u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;, u&#39;sushi&#39;, u&#39;bread&#39;, u&#39;water&#39;]</span>
+<span class="gh">Out[80]: </span><span class="go">[&#39;beans&#39;, &#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;, &#39;sushi&#39;, &#39;bread&#39;, &#39;water&#39;]</span>
 </pre></div>
 </div>
 <p>You can pass any sequence to <tt class="docutils literal"><span class="pre">.extend()</span></tt>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [85]: </span><span class="n">food</span>
-<span class="gh">Out[85]: </span><span class="go">[u&#39;beans&#39;, u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;, u&#39;sushi&#39;, u&#39;bread&#39;, u&#39;water&#39;]</span>
-<span class="gp">In [86]: </span><span class="n">food</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="s">u&#39;spaghetti&#39;</span><span class="p">)</span>
+<span class="gh">Out[85]: </span><span class="go">[&#39;beans&#39;, &#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;, &#39;sushi&#39;, &#39;bread&#39;, &#39;water&#39;]</span>
+<span class="gp">In [86]: </span><span class="n">food</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="s">&#39;spaghetti&#39;</span><span class="p">)</span>
 <span class="gp">In [87]: </span><span class="n">food</span>
 <span class="gh">Out[87]:</span>
-<span class="go">[u&#39;beans&#39;, u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;, u&#39;sushi&#39;, u&#39;bread&#39;, u&#39;water&#39;,</span>
-<span class="go"> u&#39;s&#39;, u&#39;p&#39;, u&#39;a&#39;, u&#39;g&#39;, u&#39;h&#39;, u&#39;e&#39;, u&#39;t&#39;, u&#39;t&#39;, u&#39;i&#39;]</span>
+<span class="go">[&#39;beans&#39;, &#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;, &#39;sushi&#39;, &#39;bread&#39;, &#39;water&#39;,</span>
+<span class="go"> &#39;s&#39;, &#39;p&#39;, &#39;a&#39;, &#39;g&#39;, &#39;h&#39;, &#39;e&#39;, &#39;t&#39;, &#39;t&#39;, &#39;i&#39;]</span>
 </pre></div>
 </div>
 </div>
@@ -857,16 +925,16 @@ about Lists and Tuples.</p>
 <p>These methods change a list in place and are not available on immutable
 sequence types.</p>
 <p><tt class="docutils literal"><span class="pre">.reverse()</span></tt></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [129]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">[</span><span class="s">u&#39;spam&#39;</span><span class="p">,</span> <span class="s">u&#39;eggs&#39;</span><span class="p">,</span> <span class="s">u&#39;ham&#39;</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [129]: </span><span class="n">food</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">,</span> <span class="s">&#39;ham&#39;</span><span class="p">]</span>
 <span class="gp">In [130]: </span><span class="n">food</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="gp">In [131]: </span><span class="n">food</span>
-<span class="gh">Out[131]: </span><span class="go">[u&#39;ham&#39;, u&#39;eggs&#39;, u&#39;spam&#39;]</span>
+<span class="gh">Out[131]: </span><span class="go">[&#39;ham&#39;, &#39;eggs&#39;, &#39;spam&#39;]</span>
 </pre></div>
 </div>
 <p><tt class="docutils literal"><span class="pre">.sort()</span></tt></p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [132]: </span><span class="n">food</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 <span class="gp">In [133]: </span><span class="n">food</span>
-<span class="gh">Out[133]: </span><span class="go">[u&#39;eggs&#39;, u&#39;ham&#39;, u&#39;spam&#39;]</span>
+<span class="gh">Out[133]: </span><span class="go">[&#39;eggs&#39;, &#39;ham&#39;, &#39;spam&#39;]</span>
 </pre></div>
 </div>
 <p>Because these methods mutate the list in place, they have a return value of
@@ -879,7 +947,7 @@ returns something that can be used for sorting:</p>
 <span class="gp">   .....:</span>
 <span class="gp">In [138]: </span><span class="n">food</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">third_letter</span><span class="p">)</span>
 <span class="gp">In [139]: </span><span class="n">food</span>
-<span class="gh">Out[139]: </span><span class="go">[u&#39;spam&#39;, u&#39;eggs&#39;, u&#39;ham&#39;]</span>
+<span class="gh">Out[139]: </span><span class="go">[&#39;spam&#39;, &#39;eggs&#39;, &#39;ham&#39;]</span>
 </pre></div>
 </div>
 </div>
@@ -950,7 +1018,74 @@ returns something that can be used for sorting:</p>
 </div>
 </div>
 <div class="section" id="id1">
-<h2>Iteration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>LAB<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-lab">
+<h3>List Lab<a class="headerlink" href="#list-lab" title="Permalink to this headline">¶</a></h3>
+<p>List Lab (after <a class="reference external" href="http://www.upriss.org.uk/python/session5.html">http://www.upriss.org.uk/python/session5.html</a>)</p>
+<p>In your student folder, create a new file called <tt class="docutils literal"><span class="pre">list_lab.py</span></tt>.</p>
+<p>The file should be an executable python script. That is to say that one
+should be able to run the script directly like so:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./list_lab.py
+</pre></div>
+</div>
+<p>Add the file to your clone of the repository and commit changes frequently
+while working on the following tasks. When you are done, push your changes to
+GitHub and issue a pull request.</p>
+<p>(if you are struggling with git &#8211; just write the code for now)</p>
+<p>When the script is run, it should accomplish the following four series of
+actions:</p>
+<ul class="simple">
+<li>Create a list that contains &#8220;Apples&#8221;, &#8220;Pears&#8221;, &#8220;Oranges&#8221; and &#8220;Peaches&#8221;.</li>
+<li>Display the list.</li>
+<li>Ask the user for another fruit and add it to the end of the list.</li>
+<li>Display the list.</li>
+<li>Ask the user for a number and display the number back to the user and the
+fruit corresponding to that number (on a 1-is-first basis).</li>
+<li>Add another fruit to the beginning of the list using &#8220;+&#8221; and display the
+list.</li>
+<li>Add another fruit to the beginning of the list using insert() and display the
+list.</li>
+<li>Display all the fruits that begin with &#8220;P&#8221;, using a for loop.</li>
+</ul>
+<p>Using the list created in series 1 above:</p>
+<ul class="simple">
+<li>Display the list.</li>
+<li>Remove the last fruit from the list.</li>
+<li>Display the list.</li>
+<li>Ask the user for a fruit to delete and find it and delete it.</li>
+<li>(Bonus: Multiply the list times two. Keep asking until a match is found. Once
+found, delete all occurrences.)</li>
+</ul>
+<p>Again, using the list from series 1:</p>
+<ul class="simple">
+<li>Ask the user for input displaying a line like &#8220;Do you like apples?&#8221;</li>
+<li>for each fruit in the list (making the fruit all lowercase).</li>
+<li>For each &#8220;no&#8221;, delete that fruit from the list.</li>
+<li>For any answer that is not &#8220;yes&#8221; or &#8220;no&#8221;, prompt the user to answer with one
+of those two values (a while loop is good here):</li>
+<li>Display the list.</li>
+</ul>
+<p>Once more, using the list from series 1:</p>
+<ul class="simple">
+<li>Make a copy of the list and reverse the letters in each fruit in the copy.</li>
+<li>Delete the last item of the original list. Display the original list and the
+copy.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Lightning Talks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Lesley D Reece</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Michel Claessens</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Iteration<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p class="build">Repetition, Repetition, Repetition, Repe...</p>
 <div class="section" id="for-loops">
 <h3>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
@@ -973,8 +1108,8 @@ returns something that can be used for sorting:</p>
     <span class="nx">alert</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s2">&quot;) &quot;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>If you need an index, though you can use <tt class="docutils literal"><span class="pre">enumerate</span></tt>:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [140]: </span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s">u&#39;Python&#39;</span><span class="p">):</span>
+<p>If you <em>do</em> need an index, you can use <tt class="docutils literal"><span class="pre">enumerate</span></tt>:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [140]: </span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s">&#39;Python&#39;</span><span class="p">):</span>
 <span class="gp">   .....: </span>    <span class="k">print</span> <span class="n">idx</span><span class="p">,</span> <span class="n">letter</span><span class="p">,</span>
 <span class="gp">   .....:</span>
 <span class="go">0 P 1 y 2 t 3 h 4 o 5 n</span>
@@ -1053,8 +1188,7 @@ allow iteration to continue:</p>
 </pre></div>
 </div>
 <p><tt class="docutils literal"><span class="pre">while</span></tt>  is more general than <tt class="docutils literal"><span class="pre">for</span></tt></p>
-<p>&#8211; you can always express <tt class="docutils literal"><span class="pre">for</span></tt> as <tt class="docutils literal"><span class="pre">while</span></tt>,</p>
-<p>but not always vice-versa.</p>
+<p>&#8211; you can always express <tt class="docutils literal"><span class="pre">for</span></tt> as <tt class="docutils literal"><span class="pre">while</span></tt>, but not always vice-versa.</p>
 <p><tt class="docutils literal"><span class="pre">while</span></tt>  is more error-prone &#8211; requires some care to terminate</p>
 <p>loop body must make progress, so condition can become <tt class="docutils literal"><span class="pre">False</span></tt></p>
 <p>potential error &#8211; infinite loops:</p>
@@ -1106,8 +1240,26 @@ loop terminates normally (no <tt class="docutils literal"><span class="pre">brea
 <div class="section" id="string-features">
 <h2>String Features<a class="headerlink" href="#string-features" title="Permalink to this headline">¶</a></h2>
 <p class="center large">Fun with Strings</p>
-<div class="section" id="manipulations">
-<h3>Manipulations<a class="headerlink" href="#manipulations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<p>A string literal creates a string type</p>
+<p>(we&#8217;ve seen this already...)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&quot;this is a string&quot;</span>
+
+<span class="s">&#39;So is this&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;and this also&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>You can also use <tt class="docutils literal"><span class="pre">str()</span></tt></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [256]: </span><span class="nb">str</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+<span class="gh">Out[256]: </span><span class="go">&#39;34&#39;</span>
+</pre></div>
+</div>
+<p>(demo)</p>
+</div>
+<div class="section" id="string-manipulations">
+<h3>String Manipulations<a class="headerlink" href="#string-manipulations" title="Permalink to this headline">¶</a></h3>
 <p><tt class="docutils literal"><span class="pre">split</span></tt> and <tt class="docutils literal"><span class="pre">join</span></tt>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [167]: </span><span class="n">csv</span> <span class="o">=</span> <span class="s">&quot;comma, separated, values&quot;</span>
 <span class="gp">In [168]: </span><span class="n">csv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;, &#39;</span><span class="p">)</span>
@@ -1117,34 +1269,77 @@ loop terminates normally (no <tt class="docutils literal"><span class="pre">brea
 <span class="gh">Out[170]: </span><span class="go">&#39;comma|separated|values&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [171]: </span><span class="n">sample</span> <span class="o">=</span> <span class="s">u&#39;A long string of words&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [171]: </span><span class="n">sample</span> <span class="o">=</span> <span class="s">&#39;A long string of words&#39;</span>
 <span class="gp">In [172]: </span><span class="n">sample</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="gh">Out[172]: </span><span class="go">u&#39;A LONG STRING OF WORDS&#39;</span>
+<span class="gh">Out[172]: </span><span class="go">&#39;A LONG STRING OF WORDS&#39;</span>
 <span class="gp">In [173]: </span><span class="n">sample</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="gh">Out[173]: </span><span class="go">u&#39;a long string of words&#39;</span>
+<span class="gh">Out[173]: </span><span class="go">&#39;a long string of words&#39;</span>
 <span class="gp">In [174]: </span><span class="n">sample</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
-<span class="gh">Out[174]: </span><span class="go">u&#39;a LONG STRING OF WORDS&#39;</span>
+<span class="gh">Out[174]: </span><span class="go">&#39;a LONG STRING OF WORDS&#39;</span>
 <span class="gp">In [175]: </span><span class="n">sample</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
-<span class="gh">Out[175]: </span><span class="go">u&#39;A Long String Of Words&#39;</span>
+<span class="gh">Out[175]: </span><span class="go">&#39;A Long String Of Words&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [181]: </span><span class="n">number</span> <span class="o">=</span> <span class="s">u&quot;12345&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [181]: </span><span class="n">number</span> <span class="o">=</span> <span class="s">&quot;12345&quot;</span>
 <span class="gp">In [182]: </span><span class="n">number</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span>
 <span class="gh">Out[182]: </span><span class="go">True</span>
 <span class="gp">In [183]: </span><span class="n">number</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
 <span class="gh">Out[183]: </span><span class="go">True</span>
 <span class="gp">In [184]: </span><span class="n">number</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>
 <span class="gh">Out[184]: </span><span class="go">False</span>
-<span class="gp">In [185]: </span><span class="n">fancy</span> <span class="o">=</span> <span class="s">u&quot;Th!$ $tr!ng h@$ $ymb0l$&quot;</span>
+<span class="gp">In [185]: </span><span class="n">fancy</span> <span class="o">=</span> <span class="s">&quot;Th!$ $tr!ng h@$ $ymb0l$&quot;</span>
 <span class="gp">In [186]: </span><span class="n">fancy</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
 <span class="gh">Out[186]: </span><span class="go">False</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="string-literals">
+<h3>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this headline">¶</a></h3>
+<p>Common Escape Sequences:</p>
+<div class="highlight-python"><div class="highlight"><pre>\\  Backslash (\)
+\a  ASCII Bell (BEL)
+\b  ASCII Backspace (BS)
+\n  ASCII Linefeed (LF)
+\r  ASCII Carriage Return (CR)
+\t  ASCII Horizontal Tab (TAB)
+\ooo  Character with octal value ooo
+\xhh  Character with hex value hh
+</pre></div>
+</div>
+<p>for example &#8211; for tab-separted values:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;these</span><span class="se">\t</span><span class="s">are</span><span class="se">\t</span><span class="s">separated</span><span class="se">\t</span><span class="s">by</span><span class="se">\t</span><span class="s">tabs&quot;</span>
+
+<span class="gp">In [26]: </span><span class="k">print</span> <span class="n">s</span>
+<span class="go">these   are separated    by  tabs</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://docs.python.org/release/2.5.2/ref/strings.html">http://docs.python.org/release/2.5.2/ref/strings.html</a></p>
+</div>
+<div class="section" id="raw-strings">
+<h3>Raw Strings<a class="headerlink" href="#raw-strings" title="Permalink to this headline">¶</a></h3>
+<p>Add an <tt class="docutils literal"><span class="pre">r</span></tt> in front of the string literal:</p>
+<p>Escape Sequences Ignored</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [408]: </span><span class="k">print</span> <span class="s">&quot;this</span><span class="se">\n</span><span class="s">that&quot;</span>
+<span class="go">this</span>
+<span class="go">that</span>
+<span class="gp">In [409]: </span><span class="k">print</span> <span class="s">r&quot;this\nthat&quot;</span>
+<span class="go">this\nthat</span>
+</pre></div>
+</div>
+<p><strong>Gotcha</strong></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [415]: </span><span class="s">r&quot;</span><span class="se">\&quot;</span>
+<span class="go">SyntaxError: EOL while scanning string literal</span>
+</pre></div>
+</div>
+<p>(handy for regex, windows paths...)</p>
+</div>
 <div class="section" id="ordinal-values">
 <h3>Ordinal values<a class="headerlink" href="#ordinal-values" title="Permalink to this headline">¶</a></h3>
-<p>&#8220;ASCII&#8221; values: 1-127</p>
-<p>&#8220;ANSI&#8221; values: 1-255</p>
+<p>Characters in strings are stored as numeric values:</p>
+<ul class="simple">
+<li>&#8220;ASCII&#8221; values: 1-127</li>
+<li>&#8220;ANSI&#8221; values: 1-255</li>
+</ul>
 <p>To get the value:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [109]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s">&#39;Chris&#39;</span><span class="p">:</span>
 <span class="gp">   .....: </span>    <span class="k">print</span> <span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
@@ -1154,6 +1349,7 @@ loop terminates normally (no <tt class="docutils literal"><span class="pre">brea
 <span class="go">C h r i s</span>
 </pre></div>
 </div>
+<p>(these days, stick with ASCII, or use Unicode: more on that in a few weeks)</p>
 </div>
 <div class="section" id="building-strings">
 <h3>Building Strings<a class="headerlink" href="#building-strings" title="Permalink to this headline">¶</a></h3>
@@ -1168,43 +1364,53 @@ loop terminates normally (no <tt class="docutils literal"><span class="pre">brea
 <p>It&#8217;s much faster and safer, and easier to modify as code gets complicated.</p>
 <p><a class="reference external" href="http://docs.python.org/library/stdtypes.html#string-formatting-operations">http://docs.python.org/library/stdtypes.html#string-formatting-operations</a></p>
 <p>The string format operator: <tt class="docutils literal"><span class="pre">%</span></tt></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [261]: </span><span class="s">u&quot;an integer is: </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="mi">34</span>
-<span class="gh">Out[261]: </span><span class="go">u&#39;an integer is: 34&#39;</span>
-<span class="gp">In [262]: </span><span class="s">u&quot;a floating point is: </span><span class="si">%f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="mf">34.5</span>
-<span class="gh">Out[262]: </span><span class="go">u&#39;a floating point is: 34.500000&#39;</span>
-<span class="gp">In [263]: </span><span class="s">u&quot;a string is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="s">u&quot;anything&quot;</span>
-<span class="gh">Out[263]: </span><span class="go">u&#39;a string is: anything&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [261]: </span><span class="s">&quot;an integer is: </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="mi">34</span>
+<span class="gh">Out[261]: </span><span class="go">&#39;an integer is: 34&#39;</span>
+<span class="gp">In [262]: </span><span class="s">&quot;a floating point is: </span><span class="si">%f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="mf">34.5</span>
+<span class="gh">Out[262]: </span><span class="go">&#39;a floating point is: 34.500000&#39;</span>
+<span class="gp">In [263]: </span><span class="s">&quot;a string is: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="s">&quot;anything&quot;</span>
+<span class="gh">Out[263]: </span><span class="go">&#39;a string is: anything&#39;</span>
 </pre></div>
 </div>
 <p>Multiple placeholders:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [264]: </span><span class="s">u&quot;the number </span><span class="si">%s</span><span class="s"> is </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">u&#39;five&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gh">Out[264]: </span><span class="go">u&#39;the number five is 5&#39;</span>
-<span class="gp">In [266]: </span><span class="s">u&quot;the first 3 numbers are: </span><span class="si">%i</span><span class="s">, </span><span class="si">%i</span><span class="s">, </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="gh">Out[266]: </span><span class="go">u&#39;the first 3 numbers are: 1, 2, 3&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [264]: </span><span class="s">&quot;the number </span><span class="si">%s</span><span class="s"> is </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39;five&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gh">Out[264]: </span><span class="go">&#39;the number five is 5&#39;</span>
+<span class="gp">In [266]: </span><span class="s">&quot;the first 3 numbers are: </span><span class="si">%i</span><span class="s">, </span><span class="si">%i</span><span class="s">, </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[266]: </span><span class="go">&#39;the first 3 numbers are: 1, 2, 3&#39;</span>
 </pre></div>
 </div>
 <p>The counts must agree:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [187]: </span><span class="s">u&quot;string with </span><span class="si">%i</span><span class="s"> formatting </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [187]: </span><span class="s">&quot;string with </span><span class="si">%i</span><span class="s"> formatting </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">)</span>
 <span class="gt">---------------------------------------------------------------------------</span>
 <span class="o">...</span>
 <span class="ne">TypeError</span>: not enough arguments for format string
 </pre></div>
 </div>
 <p>Named placeholders:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [191]: </span><span class="s">u&quot;Hello, </span><span class="si">%(name)s</span><span class="s">, whaddaya know?&quot;</span> <span class="o">%</span> <span class="p">{</span><span class="s">u&#39;name&#39;</span><span class="p">:</span> <span class="s">&quot;Joe&quot;</span><span class="p">}</span>
-<span class="gh">Out[191]: </span><span class="go">u&#39;Hello, Joe, whaddaya know?&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [191]: </span><span class="s">&quot;Hello, </span><span class="si">%(name)s</span><span class="s">, whaddaya know?&quot;</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&quot;Joe&quot;</span><span class="p">}</span>
+<span class="gh">Out[191]: </span><span class="go">&#39;Hello, Joe, whaddaya know?&#39;</span>
 </pre></div>
 </div>
 <p>You can use values more than once, and skip values:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [193]: </span><span class="s">u&quot;Hi, </span><span class="si">%(name)s</span><span class="s">. Howzit, </span><span class="si">%(name)s</span><span class="s">?&quot;</span> <span class="o">%</span> <span class="p">{</span><span class="s">u&#39;name&#39;</span><span class="p">:</span> <span class="s">u&quot;Bob&quot;</span><span class="p">,</span> <span class="s">u&#39;age&#39;</span><span class="p">:</span> <span class="mi">27</span><span class="p">}</span>
-<span class="gh">Out[193]: </span><span class="go">u&#39;Hi, Bob. Howzit, Bob?&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [193]: </span><span class="s">&quot;Hi, </span><span class="si">%(name)s</span><span class="s">. Howzit, </span><span class="si">%(name)s</span><span class="s">?&quot;</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&#39;age&#39;</span><span class="p">:</span> <span class="mi">27</span><span class="p">}</span>
+<span class="gh">Out[193]: </span><span class="go">&#39;Hi, Bob. Howzit, Bob?&#39;</span>
 </pre></div>
 </div>
+<p>The format operator works with string variables, too:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [45]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%i</span><span class="s"> / </span><span class="si">%i</span><span class="s"> = </span><span class="si">%i</span><span class="s">&quot;</span>
+
+<span class="gp">In [46]: </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span>
+
+<span class="gp">In [47]: </span><span class="n">s</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+<span class="gh">Out[47]: </span><span class="go">&#39;12 / 3 = 4&#39;</span>
+</pre></div>
+</div>
+<p>So you can dynamically build a format string</p>
 <p>In more recent versions of Python (2.6+) this is <a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#str.format">being phased out</a> in favor of the <tt class="docutils literal"><span class="pre">.format()</span></tt> method on strings.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [194]: </span><span class="s">u&quot;Hello, {}, how&#39;s your {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">u&quot;Bob&quot;</span><span class="p">,</span> <span class="s">u&quot;wife&quot;</span><span class="p">)</span>
-<span class="gh">Out[194]: </span><span class="go">u&quot;Hello, Bob, how&#39;s your wife&quot;</span>
-<span class="gp">In [195]: </span><span class="s">u&quot;Hi, {name}. How&#39;s your {relation}?&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">u&#39;Bob&#39;</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s">u&#39;wife&#39;</span><span class="p">)</span>
-<span class="gh">Out[195]: </span><span class="go">u&quot;Hi, Bob. How&#39;s your wife?&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [194]: </span><span class="s">&quot;Hello, {}, how&#39;s your {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;wife&quot;</span><span class="p">)</span>
+<span class="gh">Out[194]: </span><span class="go">&quot;Hello, Bob, how&#39;s your wife&quot;</span>
+<span class="gp">In [195]: </span><span class="s">&quot;Hi, {name}. How&#39;s your {relation}?&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;Bob&#39;</span><span class="p">,</span> <span class="n">relation</span><span class="o">=</span><span class="s">&#39;wife&#39;</span><span class="p">)</span>
+<span class="gh">Out[195]: </span><span class="go">&quot;Hi, Bob. How&#39;s your wife?&quot;</span>
 </pre></div>
 </div>
 <p>For both of these forms of string formatting, there is a complete syntax for
@@ -1212,84 +1418,58 @@ specifying all sorts of options.</p>
 <p>It&#8217;s well worth your while to spend some time getting to know this
 <a class="reference external" href="https://docs.python.org/2/library/string.html#format-specification-mini-language">formatting language</a>. You can accomplish a great deal just with this.</p>
 </div>
-</div>
 <div class="section" id="one-last-trick">
-<h2>One Last Trick<a class="headerlink" href="#one-last-trick" title="Permalink to this headline">¶</a></h2>
+<h3>One Last Trick<a class="headerlink" href="#one-last-trick" title="Permalink to this headline">¶</a></h3>
 <p class="left">For some of your homework, you&#8217;ll need to interact with a user at the
 command line.</p>
-<p class="left">There&#8217;s a nice builtin function to do this - <tt class="docutils literal"><span class="pre">raw_input</span></tt>:</p>
-<div class="left highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">196</span><span class="p">]:</span> <span class="n">fred</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;type something--&gt;&#39;</span><span class="p">)</span>
-<span class="nb">type</span> <span class="n">something</span><span class="o">--&gt;</span><span class="p">;</span><span class="n">alksdjf</span>
-<span class="n">In</span> <span class="p">[</span><span class="mi">197</span><span class="p">]:</span> <span class="n">fred</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">197</span><span class="p">]:</span> <span class="s">&#39;;alksdjf&#39;</span>
+<p>There&#8217;s a nice builtin function to do this - <tt class="docutils literal"><span class="pre">raw_input</span></tt>:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [196]: </span><span class="n">fred</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;type something--&gt;&#39;</span><span class="p">)</span>
+<span class="go">type something--&gt;;alksdjf</span>
+<span class="gp">In [197]: </span><span class="n">fred</span>
+<span class="gh">Out[197]: </span><span class="go">&#39;;alksdjf&#39;</span>
 </pre></div>
 </div>
-<p class="left">This will display a prompt to the user, allowing them to input text and
+<p>This will display a prompt to the user, allowing them to input text and
 allowing you to bind that input to a symbol.</p>
+<p>(There is also <tt class="docutils literal"><span class="pre">input()</span></tt> &#8211; please dont use it!)</p>
+</div>
+</div>
+<div class="section" id="string-formatting-lab">
+<h2>String Formatting LAB<a class="headerlink" href="#string-formatting-lab" title="Permalink to this headline">¶</a></h2>
+<ul class="left">
+<li><p class="first">Rewrite: <tt class="docutils literal"><span class="pre">the</span> <span class="pre">first</span> <span class="pre">3</span> <span class="pre">numbers</span> <span class="pre">are:</span> <span class="pre">%i,</span> <span class="pre">%i,</span> <span class="pre">%i&quot;%(1,2,3)</span></tt></p>
+<p>for an arbitrary number of numbers...</p>
+</li>
+<li><p class="first">Write a format string that will take:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">(</span> <span class="pre">2,</span> <span class="pre">123.4567,</span> <span class="pre">10000)</span></tt></p>
+<p>and produce:</p>
+<p><tt class="docutils literal"><span class="pre">'file_002</span> <span class="pre">:</span>&nbsp;&nbsp; <span class="pre">123.46,</span> <span class="pre">1e+04'</span></tt></p>
+</div></blockquote>
+</li>
+</ul>
+<blockquote class="left">
+<div><ul class="simple">
+<li>Then do these with the format() method...</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="homework">
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="task-1">
 <h3>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h3>
-<p>List Lab (after <a class="reference external" href="http://www.upriss.org.uk/python/session5.html">http://www.upriss.org.uk/python/session5.html</a>)</p>
-<p>In your student folder, create a new file called <tt class="docutils literal"><span class="pre">list_lab.py</span></tt>.</p>
-<p>The file should be an executable python script. That is to say that one
-should be able to run the script directly like so:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./list_lab.py
-</pre></div>
-</div>
-<p>Add the file to your clone of the repository and commit changes frequently
-while working on the following tasks. When you are done, push your changes to
-GitHub and issue a pull request.</p>
-<p>When the script is run, it should accomplish the following four series of
-actions:</p>
-<ul class="simple">
-<li>Create a list that contains &#8220;Apples&#8221;, &#8220;Pears&#8221;, &#8220;Oranges&#8221; and &#8220;Peaches&#8221;.</li>
-<li>Display the list.</li>
-<li>Ask the user for another fruit and add it to the end of the list.</li>
-<li>Display the list.</li>
-<li>Ask the user for a number and display the number back to the user and the
-fruit corresponding to that number (on a 1-is-first basis).</li>
-<li>Add another fruit to the beginning of the list using &#8220;+&#8221; and display the
-list.</li>
-<li>Add another fruit to the beginning of the list using insert() and display the
-list.</li>
-<li>Display all the fruits that begin with &#8220;P&#8221;, using a for loop.</li>
-</ul>
-<p>Using the list created in series 1 above:</p>
-<ul class="simple">
-<li>Display the list.</li>
-<li>Remove the last fruit from the list.</li>
-<li>Display the list.</li>
-<li>Ask the user for a fruit to delete and find it and delete it.</li>
-<li>(Bonus: Multiply the list times two. Keep asking until a match is found. Once
-found, delete all occurrences.)</li>
-</ul>
-<p>Again, using the list from series 1:</p>
-<ul class="simple">
-<li>Ask the user for input displaying a line like &#8220;Do you like apples?&#8221;</li>
-<li>for each fruit in the list (making the fruit all lowercase).</li>
-<li>For each &#8220;no&#8221;, delete that fruit from the list.</li>
-<li>For any answer that is not &#8220;yes&#8221; or &#8220;no&#8221;, prompt the user to answer with one
-of those two values (a while loop is good here):</li>
-<li>Display the list.</li>
-</ul>
-<p>Once more, using the list from series 1:</p>
-<ul class="simple">
-<li>Make a copy of the list and reverse the letters in each fruit in the copy.</li>
-<li>Delete the last item of the original list. Display the original list and the
-copy.</li>
-</ul>
+<p>Finish the List Lab from class</p>
+<p>(and the string formatting lab)</p>
 </div>
 <div class="section" id="task-2">
 <h3>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h3>
-<p>ROT13</p>
+<p class="mlarge">ROT13</p>
 <p>The ROT13 encryption scheme is a simple substitution cypher where each letter
 in a text is replace by the letter 13 away from it (imagine the alphabet as a
 circle, so it wraps around).</p>
-<p>Add a python module named <tt class="docutils literal"><span class="pre">rot13.py</span></tt> to your student folder. This module
-should provide at least one function called <tt class="docutils literal"><span class="pre">rot13</span></tt> that takes any amount of
-text and returns that same text encrypted by ROT13.</p>
+<p>Add a python module named <tt class="docutils literal"><span class="pre">rot13.py</span></tt> to the session03 dir in your student dir.
+This module should provide at least one function called <tt class="docutils literal"><span class="pre">rot13</span></tt> that takes
+any amount of text and returns that same text encrypted by ROT13.</p>
 <p>This function should preserve whitespace, punctuation and capitalization.</p>
 <p>Your module should include an <tt class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></tt> block with tests
 that demonstrate that your <tt class="docutils literal"><span class="pre">rot13</span></tt> function and any helper functions you add
@@ -1297,16 +1477,23 @@ work properly.</p>
 <p>There is a &#8220;short-cut&#8221; available that will help you accomplish this task. Some
 spelunking in <a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#string-methods">the documentation for strings</a> should help you to find it. If
 you do find it, using it is completely fair game.</p>
-<p>As usual, add your new file to your local clone right away.  Make commits early and often and include commit messages that are descriptive and concise.</p>
-<p>When you are done, push your changes to github and issue a pull request.</p>
+<p>As usual, add your new file to your local clone right away.  Make commits
+early and often and include commit messages that are descriptive and concise.</p>
+<p>When you are done, if you want me to review it, push your changes to github
+and issue a pull request.</p>
+<p>try decrypting this:</p>
+<p>&#8220;Zntargvp sebz bhgfvqr arne pbeare&#8221;</p>
 </div>
 <div class="section" id="task-3">
 <h3>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h3>
-<p>&#8220;Mail Room&#8221;</p>
+<p class="mlarge">Mail Room</p>
 <p>You work in the mail room at a local charity. Part of your job is to write
 incredibly boring, repetitive emails thanking your donors for their generous
-gifts. You are tired of doing this over an over again, so you&#8217;ve decided to let Python help you out of a jam.</p>
-<p>Write a small command-line script called <tt class="docutils literal"><span class="pre">mailroom.py</span></tt>.  As with Task 1, This script should be executable. The script should accomplish the following goals:</p>
+gifts. You are tired of doing this over an over again, so yo&#8217;ve decided to
+let Python help you out of a jam.</p>
+<p>Write a small command-line script called <tt class="docutils literal"><span class="pre">mailroom.py</span></tt>.  As with Task 1,
+This script should be executable. The script should accomplish the
+following goals:</p>
 <ul class="simple">
 <li>It should have a data structure that holds a list of your donors and a
 history of the amounts they have donated. This structure should be populated
@@ -1360,6 +1547,14 @@ directory, and add it to your clone early. Make frequent commits with
 good, clear messages about what you are doing and why.</p>
 <p>When you are done, push your changes and make a pull request.</p>
 </div>
+</div>
+<div class="section" id="next-week">
+<h2>Next Week:<a class="headerlink" href="#next-week" title="Permalink to this headline">¶</a></h2>
+<p class="mlarge"><strong>Lightning talks next week:</strong></p>
+<p>Benjamin C Mier</p>
+<p>Robert W Perkins</p>
+<p>Vinay Gupta</p>
+<p>Wayne R Fukuhara</p>
 </div>
 </div>
 
