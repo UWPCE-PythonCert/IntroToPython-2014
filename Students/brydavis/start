@@ -7,13 +7,11 @@
 
 
 # Begin work session
-function start_work {
+function start_session {
 	git checkout master;
 	git fetch upstream master;
 	git merge upstream/master;
 	git push;
-
-	# Print when ready to develop
 	git status;
 	echo;
 	echo 'Ready to develop!';
@@ -21,26 +19,24 @@ function start_work {
 }
 
 function commit_work {
-	git commit -m 'another update';
+	# git add $1;
+	# -m is for adding a message
+	# to commit
+	git commit -a -m 'another update';
 	git push;
 }
 
 # End work session 
-function end_work {
+function end_session {
 	echo 'Pusing git...';
 	git push origin master;	
 	echo 'Push complete!';
 	echo 'Goodbye ~';
 }
 
-function just_another {
-	echo 'day in the neighborhood'; 
+
+function test_func {
+	echo 'working';
 }
 
-
-# export passed_func;
-
-
-# source ./start;
-
-
+start_session;
