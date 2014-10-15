@@ -1,4 +1,6 @@
 Session 03 notes from class
+---------------------------------
+String
 ord () is the ordinal of a string value.  This allows us to quickly alphabetize strings. Cap letters are indexed in front of lower case.
 
 string.index() locates the first instance of a specified string passed to the operator.
