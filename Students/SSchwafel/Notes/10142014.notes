@@ -204,3 +204,138 @@ You can iterate over any sequence with for
     But, reversing is fast. Also, collections.deque
 
     http://wiki.python.org/moin/TimeComplexity 
+
+
+If it needs to be mutable - list
+
+If it needs to be immutable - tuple
+    -safety when passing to a function
+
+Lists are usually the same kind of stuff
+
+Tuples are for grouping things that belong together but may not be the same type
+
+Dothe same operation to each element
+list
+
+Small collection of values which make a single logical item?
+tuple
+
+To document that these values won’t change?
+tuple
+
+Build it iteratively?
+list
+
+Transform, filter, etc?
+list
+
+Data Visualization in Python book - ask Michel
+
+
+Iteration:
+
+    Doing the same thing again and again
+
+    Python doesn't require you to create indices - if you DO need an index, you can use enumerate
+
+    For should be called "for each"
+
+   Range is useful for looping a certain number of times
+
+    Be advised that loops do not create a local namespace
+
+    Sometimes you want to interrupt or alter the flow of control
+
+        Break or continue
+
+    Break = stop here and forget about it
+
+    Continue = continue AFTER a break
+
+    For loops can take an ELSE clause (when the loop exits normally and doesn't break)
+
+    for x in range(10):
+        if x == 11:
+            break
+        else: 
+            print
+
+While for when you want to loop a certain amount of times, but you don't know how many
+
+While is more general than for
+
+    Loop must make "progress" so the condition can become False and the loop will stop
+
+    Can also use a break
+
+    In [156]: import random
+    In [157]: keep_going = True
+    In [158]: while keep_going:
+   .....:     num = random.choice(range(5))
+   .....:     print num
+   .....:     if num == 3:
+   .....:         keep_going = False
+
+While ALSO has an optional else block
+
+Strings:
+
+   split and join
+
+    csv = "comma, separated, values"
+
+    csv.split(',')
+    Gives you a list
+
+    csv.split() <---splits on white space instead of ,
+
+   split and join
+
+    csv = "comma, separated, values"
+
+    csv.split(',')
+    Gives you a list
+
+    csv.split() <---splits on white space instead of ,
+
+    .join() <---adds list into string with the parameter before the dot as a divider
+
+        "\n".join(list) <---joins with newline
+
+    sample.upper() <---make uppercase
+
+   .isnumeric() <---check if it's a number
+
+String Literals!
+
+    backckslash (\)
+    \a  ASCII Bell (BEL)
+    \b  ASCII Backspace (BS)
+    \n  ASCII Linefeed (LF)
+    \r  ASCII Carriage Return (CR)
+    \t  ASCII Horizontal Tab (TAB)
+    \ooo  Character with octal value ooo
+    \xhh  Character with hex value hh
+ 
+    r"this is a raw string\n" <---wouldn't use carriage return
+
+        raw strings are important for regular expressions
+        
+        
+    ord(i) is its corresponding numerical value
+    
+    char(x) turn numerical value into letter
+
+    Use string formatting to build strings (read link) %
+
+        http://docs.python.org/library/stdtypes.html#string-formatting-operations
+
+    Learn this so you can dynamically build a formatted string
+
+    This is being phased out in favor of .format()
+
+   Do string formatting lab 
+
+    For ro13 generator, use char/ord to make it easy 
+
