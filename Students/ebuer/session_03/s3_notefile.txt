@@ -1,6 +1,6 @@
 Session 03 notes from class
 ---------------------------------
-String
+Strings
 ord () is the ordinal of a string value.  This allows us to quickly alphabetize strings. Cap letters are indexed in front of lower case.
 
 string.index() locates the first instance of a specified string passed to the operator.
@@ -23,6 +23,8 @@ break -- terminates loop
 continue -- skips everything below the continue line and returns to the top of the loop
 
 else on a "FOR" loop -- else is executed if the loop does not break, e.g. it runs to completion.
+
+enumerate(argument) -- returns both the index and the value for an argument
 
 string.split(argument) -- splits string on argument passed
 string.join(argument) -- join list values into a string with argument separators
