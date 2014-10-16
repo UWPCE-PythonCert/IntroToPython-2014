@@ -11,16 +11,50 @@ Review of Previous Session
 .. rst-class:: build
 
 * Functions
+
+  - recursion
+
+  - optional arguments
+
 * Booleans
+
+  - if and conditional expressions
+
 * Modules
 
 
 Homework Review
 ---------------
 
+* FizzBuzz
+
+* Ackerman
+
+* Series
+
 .. rst-class:: center large
 
 Any questions that are nagging?
+
+git
+---
+
+.. rst-class:: center large
+
+  OK -- I'll answer git questions...
+
+Lightning Talks Today:
+----------------------
+
+.. rst-class:: mlarge
+
+    James Brent Nunn
+
+    Lauren Fries
+
+    Lesley D Reece
+
+    Michel Claessens
 
 
 Sequences
@@ -34,7 +68,9 @@ Ordered collections of objects
 What is a Sequence?
 -------------------
 
-Remember Duck Typing?  A *sequence* can be considered as anything that supports
+Remember Duck Typing?
+
+A *sequence* can be considered as anything that supports
 *at least* these operations:
 
 .. rst-class:: build
@@ -76,11 +112,11 @@ Indexing in Python always starts at zero.
 
 .. code-block:: ipython
 
-    In [98]: s = u"this is a string"
+    In [98]: s = "this is a string"
     In [99]: s[0]
-    Out[99]: u't'
+    Out[99]: 't'
     In [100]: s[5]
-    Out[100]: u'i'
+    Out[100]: 'i'
 
 
 .. nextslide::
@@ -89,11 +125,16 @@ You can use negative indexes to count from the end:
 
 .. code-block:: ipython
 
-    In [105]: s = u"this is a string"
-    In [106]: s[-1]
-    Out[106]: u'g'
-    In [107]: s[-6]
-    Out[107]: u's'
+    In [2]: a_list = [34, 56, 19, 23, 55]
+
+    In [3]: a_list[-1]
+    Out[3]: 55
+
+    In [4]: a_list[-2]
+    Out[4]: 23
+
+    In [5]: a_list[-4]
+    Out[5]: 56
 
 .. nextslide::
 
@@ -101,15 +142,16 @@ Indexing beyond the end of a sequence causes an IndexError:
 
 .. code-block:: ipython
 
-    In [4]: s = [0, 1, 2, 3]
-    In [5]: s[4]
+    In [6]: a_list
+    Out[6]: [34, 56, 19, 23, 55]
+
+    In [7]: a_list[5]
     ---------------------------------------------------------------------------
     IndexError                                Traceback (most recent call last)
-    <ipython-input-5-42efaba84d8b> in <module>()
-    ----> 1 s[4]
+    <ipython-input-7-c1f9ac3b6fee> in <module>()
+    ----> 1 a_list[5]
 
     IndexError: list index out of range
-
 
 Slicing
 -------
@@ -123,23 +165,23 @@ It also uses the subscription operator (``[]``), but with a twist.
 
 .. code-block:: ipython
 
-    In [121]: s = u"a bunch of words"
+    In [121]: s = "a bunch of words"
     In [122]: s[2]
-    Out[122]: u'b'
+    Out[122]: 'b'
     In [123]: s[6]
-    Out[123]: u'h'
+    Out[123]: 'h'
     In [124]: s[2:6]
-    Out[124]: u'bunc'
+    Out[124]: 'bunc'
     In [125]: s[2:7]
-    Out[125]: u'bunch'
+    Out[125]: 'bunch'
 
 .. nextslide:: Helpful Hint
 
 Think of the indexes as pointing to the spaces between the items::
 
-       a       b   u   n   c   h       o   f
-     |   |   |   |   |   |   |   |   |   |
-     0   1   2   3   4   5   6   7   8   9
+       a       b   u   n   c   h       o   f       w   o   r   d   s
+     |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
 
 
 
@@ -149,11 +191,11 @@ You do not have to provide both ``start`` and ``finish``:
 
 .. code-block:: ipython
 
-    In [6]: s = u"a bunch of words"
+    In [6]: s = "a bunch of words"
     In [7]: s[:5]
-    Out[7]: u'a bun'
+    Out[7]: 'a bun'
     In [8]: s[5:]
-    Out[8]: u'ch of words'
+    Out[8]: 'ch of words'
 
 Either ``0`` or ``len(s)`` will be assumed, respectively.
 
@@ -161,11 +203,11 @@ You can combine this with the negative index to get the end of a sequence:
 
 .. code-block:: ipython
 
-    In [4]: s = u'this_could_be_a_filename.txt'
+    In [4]: s = 'this_could_be_a_filename.txt'
     In [5]: s[:-4]
-    Out[5]: u'this_could_be_a_filename'
+    Out[5]: 'this_could_be_a_filename'
     In [6]: s[-4:]
-    Out[6]: u'.txt'
+    Out[6]: '.txt'
 
 
 Why start from zero?
@@ -197,16 +239,20 @@ returned:
 
 .. code-block:: ipython
 
-    In [289]: string = u"a fairly long string"
-    In [290]: string[0:15]
-    Out[290]: u'a fairly long s'
-    In [291]: string[0:15:2]
-    Out[291]: u'afil ogs'
-    In [292]: string[0:15:3]
-    Out[292]: u'aallg'
-    In [293]: string[::-1]
-    Out[293]: u'gnirts gnol ylriaf a'
+    In [18]: a_tuple
+    Out[18]: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)
 
+    In [19]: a_tuple[0:15]
+    Out[19]: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)
+
+    In [20]: a_tuple[0:15:2]
+    Out[20]: (0, 2, 4, 6, 8, 10, 12, 14)
+
+    In [21]: a_tuple[0:15:3]
+    Out[21]: (0, 3, 6, 9, 12)
+
+    In [22]: a_tuple[::-1]
+    Out[22]: (19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
 
 .. nextslide:: Slicing vs. Indexing
 
@@ -255,8 +301,8 @@ other languages:
 
 .. code-block:: ipython
 
-    In [20]: s = u"This is a long string"
-    In [21]: u"long" in s
+    In [20]: s = "This is a long string"
+    In [21]: "long" in s
     Out[21]: True
 
 This does not work for sub-sequences of other types (can you think of why?):
@@ -275,12 +321,12 @@ Using ``+`` or ``*`` on sequences will *concatenate* them:
 
 .. code-block:: ipython
 
-    In [25]: s1 = u"left"
-    In [26]: s2 = u"right"
+    In [25]: s1 = "left"
+    In [26]: s2 = "right"
     In [27]: s1 + s2
-    Out[27]: u'leftright'
+    Out[27]: 'leftright'
     In [28]: (s1 + s2) * 3
-    Out[28]: u'leftrightleftrightleftright'
+    Out[28]: 'leftrightleftrightleftright'
 
 
 .. nextslide:: Multiplying and Slicing
@@ -312,7 +358,7 @@ All sequences have a length.  You can get it with the ``len`` builtin:
 
 .. code-block:: ipython
 
-    In [36]: s = u"how long is this, anyway?"
+    In [36]: s = "how long is this, anyway?"
     In [37]: len(s)
     Out[37]: 25
 
@@ -343,13 +389,13 @@ All sequences also support the ``min`` and ``max`` builtins:
 
 .. code-block:: ipython
 
-    In [42]: all_letters = u"thequickbrownfoxjumpedoverthelazydog"
+    In [42]: all_letters = "thequickbrownfoxjumpedoverthelazydog"
     In [43]: min(all_letters)
-    Out[43]: u'a'
+    Out[43]: 'a'
     In [44]: max(all_letters)
-    Out[44]: u'z'
+    Out[44]: 'z'
 
-Why are those the answers you get? (hint: ``ord(u'a')``)
+Why are those the answers you get? (hint: ``ord('a')``)
 
 
 .. nextslide:: Index
@@ -359,18 +405,18 @@ first occurence of an item in the sequence:
 
 .. code-block:: ipython
 
-    In [46]: all_letters.index(u'd')
+    In [46]: all_letters.index('d')
     Out[46]: 21
 
 This causes a ``ValueError`` if the item is not in the sequence:
 
 .. code-block:: ipython
 
-    In [47]: all_letters.index(u'A')
+    In [47]: all_letters.index('A')
     ---------------------------------------------------------------------------
     ValueError                                Traceback (most recent call last)
     <ipython-input-47-2db728a46f78> in <module>()
-    ----> 1 all_letters.index(u'A')
+    ----> 1 all_letters.index('A')
 
     ValueError: substring not found
 
@@ -381,16 +427,16 @@ appears:
 
 .. code-block:: ipython
 
-    In [52]: all_letters.count(u'o')
+    In [52]: all_letters.count('o')
     Out[52]: 4
-    In [53]: all_letters.count(u'the')
+    In [53]: all_letters.count('the')
     Out[53]: 2
 
 This does not raise an error if the item you seek is not present:
 
 .. code-block:: ipython
 
-    In [54]: all_letters.count(u'A')
+    In [54]: all_letters.count('A')
     Out[54]: 0
 
 
@@ -400,6 +446,33 @@ Iteration
 .. rst-class:: center large
 
 More on this in a while.
+
+LAB
+====
+
+Slicing Lab
+
+Slicing Lab
+------------
+Write some functions that:
+
+* return a string with the first and last characters exchanged.
+* return a string with every other character removed
+* return a string with the first and last 4 characters removed, and every other char in between
+* return a string reversed (just with slicing)
+* return a string with the middle, then last, then first third in the new order
+
+NOTE: these should work with ANY sequence -- not just strings!
+
+Lightning Talks
+----------------
+
+|
+| James Brent Nunn
+|
+|
+| Lauren Fries
+|
 
 
 Lists, Tuples...
@@ -446,13 +519,13 @@ multiple names (or no name)
 
 .. code-block:: ipython
 
-    In [9]: name = u'Brian'
+    In [9]: name = 'Brian'
     In [10]: a = [1, 2, name]
     In [11]: b = [3, 4, name]
     In [12]: a[2]
-    Out[12]: u'Brian'
+    Out[12]: 'Brian'
     In [13]: b[2]
-    Out[13]: u'Brian'
+    Out[13]: 'Brian'
     In [14]: a[2] is b[2]
     Out[14]: True
 
@@ -527,7 +600,7 @@ multiple names (or no name)
 
 .. code-block:: ipython
 
-    In [23]: name = u'Brian'
+    In [23]: name = 'Brian'
     In [24]: other = name
     In [25]: a = (1, 2, name)
     In [26]: b = (3, 4, other)
@@ -589,12 +662,12 @@ Try this out:
 
 .. code-block:: ipython
 
-    In [28]: food = [u'spam', u'eggs', u'ham']
+    In [28]: food = ['spam', 'eggs', 'ham']
     In [29]: food
-    Out[29]: [u'spam', u'eggs', u'ham']
-    In [30]: food[1] = u'raspberries'
+    Out[29]: ['spam', 'eggs', 'ham']
+    In [30]: food[1] = 'raspberries'
     In [31]: food
-    Out[31]: [u'spam', u'raspberries', u'ham']
+    Out[31]: ['spam', 'raspberries', 'ham']
 
 
 .. nextslide:: Tuples Are Not
@@ -603,14 +676,14 @@ And repeat the exercise with a Tuple:
 
 .. code-block:: ipython
 
-    In [32]: food = (u'spam', u'eggs', u'ham')
+    In [32]: food = ('spam', 'eggs', 'ham')
     In [33]: food
-    Out[33]: (u'spam', u'eggs', u'ham')
-    In [34]: food[1] = u'raspberries'
+    Out[33]: ('spam', 'eggs', 'ham')
+    In [34]: food[1] = 'raspberries'
     ---------------------------------------------------------------------------
     TypeError                                 Traceback (most recent call last)
     <ipython-input-34-0c3401794933> in <module>()
-    ----> 1 food[1] = u'raspberries'
+    ----> 1 food[1] = 'raspberries'
 
     TypeError: 'tuple' object does not support item assignment
 
@@ -665,7 +738,7 @@ Easy container setup, or deadly trap?
     In [14]: bins
     Out[14]: [[], [], [], [], []]
 
-    In [15]: words = [u'one', u'three', u'rough', u'sad', u'goof']
+    In [15]: words = ['one', 'three', 'rough', 'sad', 'goof']
 
     In [16]: for word in words:
        ....:     bins[len(word)-1].append(word)
@@ -679,11 +752,11 @@ So, what is going to be in ``bins`` now?
 
     In [65]: bins
     Out[65]:
-    [[u'one', u'three', u'rough', u'sad', u'goof'],
-     [u'one', u'three', u'rough', u'sad', u'goof'],
-     [u'one', u'three', u'rough', u'sad', u'goof'],
-     [u'one', u'three', u'rough', u'sad', u'goof'],
-     [u'one', u'three', u'rough', u'sad', u'goof']]
+    [['one', 'three', 'rough', 'sad', 'goof'],
+     ['one', 'three', 'rough', 'sad', 'goof'],
+     ['one', 'three', 'rough', 'sad', 'goof'],
+     ['one', 'three', 'rough', 'sad', 'goof'],
+     ['one', 'three', 'rough', 'sad', 'goof']]
 
 We multiplied a sequence containing a single *mutable* object.
 
@@ -722,7 +795,7 @@ http://www.python.org/2/library/stdtypes.html#mutable-sequence-types
 Assignment
 -----------
 
-You've already seen changing a single element of a list by assignment.
+Yo've already seen changing a single element of a list by assignment.
 
 Pretty much the same as "arrays" in most languages:
 
@@ -741,16 +814,16 @@ Growing the List
 
 .. code-block:: ipython
 
-    In [74]: food = [u'spam', u'eggs', u'ham']
-    In [75]: food.append(u'sushi')
+    In [74]: food = ['spam', 'eggs', 'ham']
+    In [75]: food.append('sushi')
     In [76]: food
-    Out[76]: [u'spam', u'eggs', u'ham', u'sushi']
-    In [77]: food.insert(0, u'beans')
+    Out[76]: ['spam', 'eggs', 'ham', 'sushi']
+    In [77]: food.insert(0, 'beans')
     In [78]: food
-    Out[78]: [u'beans', u'spam', u'eggs', u'ham', u'sushi']
-    In [79]: food.extend([u'bread', u'water'])
+    Out[78]: ['beans', 'spam', 'eggs', 'ham', 'sushi']
+    In [79]: food.extend(['bread', 'water'])
     In [80]: food
-    Out[80]: [u'beans', u'spam', u'eggs', u'ham', u'sushi', u'bread', u'water']
+    Out[80]: ['beans', 'spam', 'eggs', 'ham', 'sushi', 'bread', 'water']
 
 
 .. nextslide:: More on Extend
@@ -760,12 +833,12 @@ You can pass any sequence to ``.extend()``:
 .. code-block:: ipython
 
     In [85]: food
-    Out[85]: [u'beans', u'spam', u'eggs', u'ham', u'sushi', u'bread', u'water']
-    In [86]: food.extend(u'spaghetti')
+    Out[85]: ['beans', 'spam', 'eggs', 'ham', 'sushi', 'bread', 'water']
+    In [86]: food.extend('spaghetti')
     In [87]: food
     Out[87]:
-    [u'beans', u'spam', u'eggs', u'ham', u'sushi', u'bread', u'water',
-     u's', u'p', u'a', u'g', u'h', u'e', u't', u't', u'i']
+    ['beans', 'spam', 'eggs', 'ham', 'sushi', 'bread', 'water',
+     's', 'p', 'a', 'g', 'h', 'e', 't', 't', 'i']
 
 
 Shrinking the List
@@ -925,10 +998,10 @@ sequence types.
 
 .. code-block:: ipython
 
-    In [129]: food = [u'spam', u'eggs', u'ham']
+    In [129]: food = ['spam', 'eggs', 'ham']
     In [130]: food.reverse()
     In [131]: food
-    Out[131]: [u'ham', u'eggs', u'spam']
+    Out[131]: ['ham', 'eggs', 'spam']
 
 ``.sort()``
 
@@ -936,7 +1009,7 @@ sequence types.
 
     In [132]: food.sort()
     In [133]: food
-    Out[133]: [u'eggs', u'ham', u'spam']
+    Out[133]: ['eggs', 'ham', 'spam']
 
 Because these methods mutate the list in place, they have a return value of
 ``None``
@@ -956,7 +1029,7 @@ returns something that can be used for sorting:
        .....:
     In [138]: food.sort(key=third_letter)
     In [139]: food
-    Out[139]: [u'spam', u'eggs', u'ham']
+    Out[139]: ['spam', 'eggs', 'ham']
 
 
 
@@ -1039,6 +1112,87 @@ http://docs.python.org/2/library/stdtypes.html#mutable-sequence-types
 
 (actually any mutable sequence....)
 
+LAB
+====
+
+List Lab
+---------
+
+List Lab (after http://www.upriss.org.uk/python/session5.html)
+
+In your student folder, create a new file called ``list_lab.py``.
+
+The file should be an executable python script. That is to say that one
+should be able to run the script directly like so:
+
+.. code-block:: bash
+
+    $ ./list_lab.py
+
+Add the file to your clone of the repository and commit changes frequently
+while working on the following tasks. When you are done, push your changes to
+GitHub and issue a pull request.
+
+(if you are struggling with git -- just write the code for now)
+
+When the script is run, it should accomplish the following four series of
+actions:
+
+.. nextslide:: Series 1
+
+- Create a list that contains "Apples", "Pears", "Oranges" and "Peaches".
+- Display the list.
+- Ask the user for another fruit and add it to the end of the list.
+- Display the list.
+- Ask the user for a number and display the number back to the user and the
+  fruit corresponding to that number (on a 1-is-first basis).
+- Add another fruit to the beginning of the list using "+" and display the
+  list.
+- Add another fruit to the beginning of the list using insert() and display the
+  list.
+- Display all the fruits that begin with "P", using a for loop.
+
+
+.. nextslide:: Series 2
+
+Using the list created in series 1 above:
+
+- Display the list.
+- Remove the last fruit from the list.
+- Display the list.
+- Ask the user for a fruit to delete and find it and delete it.
+- (Bonus: Multiply the list times two. Keep asking until a match is found. Once
+  found, delete all occurrences.)
+
+.. nextslide:: Series 3
+
+Again, using the list from series 1:
+
+- Ask the user for input displaying a line like "Do you like apples?"
+- for each fruit in the list (making the fruit all lowercase).
+- For each "no", delete that fruit from the list.
+- For any answer that is not "yes" or "no", prompt the user to answer with one
+  of those two values (a while loop is good here):
+- Display the list.
+
+.. nextslide:: Series 4
+
+Once more, using the list from series 1:
+
+- Make a copy of the list and reverse the letters in each fruit in the copy.
+- Delete the last item of the original list. Display the original list and the
+  copy.
+
+Lightning Talks
+----------------
+
+|
+| Lesley D Reece
+|
+|
+| Michel Claessens
+|
+
 
 Iteration
 =========
@@ -1077,17 +1231,17 @@ Contrast this with other languages, where you must build and use an ``index``:
         var value = arr[i];
         alert(i + ") " + value);
 
-If you need an index, though you can use ``enumerate``:
+If you *do* need an index, you can use ``enumerate``:
 
 .. code-block:: ipython
 
-    In [140]: for idx, letter in enumerate(u'Python'):
+    In [140]: for idx, letter in enumerate('Python'):
        .....:     print idx, letter,
        .....:
     0 P 1 y 2 t 3 h 4 o 5 n
 
 
-.. nextslide:: ``range`` and For Loops
+.. nextslide:: ``range`` and ``for`` Loops
 
 The ``range`` builtin is useful for looping a known number of times:
 
@@ -1194,9 +1348,7 @@ It continues to execute the body until condition is not ``True``::
 
 ``while``  is more general than ``for``
 
--- you can always express ``for`` as ``while``,
-
-but not always vice-versa.
+-- you can always express ``for`` as ``while``, but not always vice-versa.
 
 ``while``  is more error-prone -- requires some care to terminate
 
@@ -1273,9 +1425,33 @@ String Features
 
   Fun with Strings
 
+Strings
+---------
 
-Manipulations
--------------
+A string literal creates a string type
+
+(we've seen this already...)
+
+::
+
+    "this is a string"
+
+    'So is this'
+
+    """and this also"""
+
+You can also use ``str()``
+
+.. code-block:: ipython
+
+    In [256]: str(34)
+    Out[256]: '34'
+
+(demo)
+
+
+String Manipulations
+---------------------
 
 ``split`` and ``join``:
 
@@ -1293,39 +1469,91 @@ Manipulations
 
 .. code-block:: ipython
 
-    In [171]: sample = u'A long string of words'
+    In [171]: sample = 'A long string of words'
     In [172]: sample.upper()
-    Out[172]: u'A LONG STRING OF WORDS'
+    Out[172]: 'A LONG STRING OF WORDS'
     In [173]: sample.lower()
-    Out[173]: u'a long string of words'
+    Out[173]: 'a long string of words'
     In [174]: sample.swapcase()
-    Out[174]: u'a LONG STRING OF WORDS'
+    Out[174]: 'a LONG STRING OF WORDS'
     In [175]: sample.title()
-    Out[175]: u'A Long String Of Words'
+    Out[175]: 'A Long String Of Words'
 
 
 .. nextslide:: Testing
 
 .. code-block:: ipython
 
-    In [181]: number = u"12345"
+    In [181]: number = "12345"
     In [182]: number.isnumeric()
     Out[182]: True
     In [183]: number.isalnum()
     Out[183]: True
     In [184]: number.isalpha()
     Out[184]: False
-    In [185]: fancy = u"Th!$ $tr!ng h@$ $ymb0l$"
+    In [185]: fancy = "Th!$ $tr!ng h@$ $ymb0l$"
     In [186]: fancy.isalnum()
     Out[186]: False
+
+String Literals
+-----------------
+
+Common Escape Sequences::
+
+    \\  Backslash (\)
+    \a  ASCII Bell (BEL)
+    \b  ASCII Backspace (BS)
+    \n  ASCII Linefeed (LF)
+    \r  ASCII Carriage Return (CR)
+    \t  ASCII Horizontal Tab (TAB)
+    \ooo  Character with octal value ooo
+    \xhh  Character with hex value hh
+
+for example -- for tab-separted values:
+
+.. code-block:: ipython
+
+    In [25]: s = "these\tare\tseparated\tby\ttabs"
+
+    In [26]: print s
+    these   are separated    by  tabs
+
+
+http://docs.python.org/release/2.5.2/ref/strings.html
+
+Raw Strings
+-------------
+
+Add an ``r`` in front of the string literal:
+
+Escape Sequences Ignored
+
+.. code-block:: ipython
+
+    In [408]: print "this\nthat"
+    this
+    that
+    In [409]: print r"this\nthat"
+    this\nthat
+
+**Gotcha**
+
+.. code-block:: ipython
+
+    In [415]: r"\"
+    SyntaxError: EOL while scanning string literal
+
+(handy for regex, windows paths...)
 
 
 Ordinal values
 --------------
 
-"ASCII" values: 1-127
+Characters in strings are stored as numeric values:
 
-"ANSI" values: 1-255
+* "ASCII" values: 1-127
+
+* "ANSI" values: 1-255
 
 To get the value:
 
@@ -1338,9 +1566,11 @@ To get the value:
        .....:     print chr(i),
     C h r i s
 
+(these days, stick with ASCII, or use Unicode: more on that in a few weeks)
+
 
 Building Strings
-----------------
+-----------------
 
 You can, but please don't do this:
 
@@ -1365,12 +1595,12 @@ The string format operator: ``%``
 
 .. code-block:: ipython
 
-    In [261]: u"an integer is: %i" % 34
-    Out[261]: u'an integer is: 34'
-    In [262]: u"a floating point is: %f" % 34.5
-    Out[262]: u'a floating point is: 34.500000'
-    In [263]: u"a string is: %s" % u"anything"
-    Out[263]: u'a string is: anything'
+    In [261]: "an integer is: %i" % 34
+    Out[261]: 'an integer is: 34'
+    In [262]: "a floating point is: %f" % 34.5
+    Out[262]: 'a floating point is: 34.500000'
+    In [263]: "a string is: %s" % "anything"
+    Out[263]: 'a string is: anything'
 
 .. nextslide:: More Placeholders
 
@@ -1378,16 +1608,16 @@ Multiple placeholders:
 
 .. code-block:: ipython
 
-    In [264]: u"the number %s is %i" % (u'five', 5)
-    Out[264]: u'the number five is 5'
-    In [266]: u"the first 3 numbers are: %i, %i, %i" % (1,2,3)
-    Out[266]: u'the first 3 numbers are: 1, 2, 3'
+    In [264]: "the number %s is %i" % ('five', 5)
+    Out[264]: 'the number five is 5'
+    In [266]: "the first 3 numbers are: %i, %i, %i" % (1,2,3)
+    Out[266]: 'the first 3 numbers are: 1, 2, 3'
 
 The counts must agree:
 
 .. code-block:: ipython
 
-    In [187]: u"string with %i formatting %s" % (1, )
+    In [187]: "string with %i formatting %s" % (1, )
     ---------------------------------------------------------------------------
     ...
     TypeError: not enough arguments for format string
@@ -1399,15 +1629,30 @@ Named placeholders:
 
 .. code-block:: ipython
 
-    In [191]: u"Hello, %(name)s, whaddaya know?" % {u'name': "Joe"}
-    Out[191]: u'Hello, Joe, whaddaya know?'
+    In [191]: "Hello, %(name)s, whaddaya know?" % {'name': "Joe"}
+    Out[191]: 'Hello, Joe, whaddaya know?'
 
 You can use values more than once, and skip values:
 
 .. code-block:: ipython
 
-    In [193]: u"Hi, %(name)s. Howzit, %(name)s?" % {u'name': u"Bob", u'age': 27}
-    Out[193]: u'Hi, Bob. Howzit, Bob?'
+    In [193]: "Hi, %(name)s. Howzit, %(name)s?" % {'name': "Bob", 'age': 27}
+    Out[193]: 'Hi, Bob. Howzit, Bob?'
+
+.. nextslide::
+
+The format operator works with string variables, too:
+
+.. code-block:: ipython
+
+    In [45]: s = "%i / %i = %i"
+
+    In [46]: a, b = 12, 3
+
+    In [47]: s%(a, b, a/b)
+    Out[47]: '12 / 3 = 4'
+
+So you can dynamically build a format string
 
 
 .. nextslide:: New Formatting
@@ -1416,10 +1661,10 @@ In more recent versions of Python (2.6+) this is `being phased out`_ in favor of
 
 .. code-block:: ipython
 
-    In [194]: u"Hello, {}, how's your {}".format(u"Bob", u"wife")
-    Out[194]: u"Hello, Bob, how's your wife"
-    In [195]: u"Hi, {name}. How's your {relation}?".format(name=u'Bob', relation=u'wife')
-    Out[195]: u"Hi, Bob. How's your wife?"
+    In [194]: "Hello, {}, how's your {}".format("Bob", "wife")
+    Out[194]: "Hello, Bob, how's your wife"
+    In [195]: "Hi, {name}. How's your {relation}?".format(name='Bob', relation='wife')
+    Out[195]: "Hi, Bob. How's your wife?"
 
 
 .. nextslide:: Complex Formatting
@@ -1435,32 +1680,48 @@ It's well worth your while to spend some time getting to know this
 .. _being phased out: https://docs.python.org/2/library/stdtypes.html#str.format
 
 
+
+
 One Last Trick
-==============
+---------------
 
 .. rst-class:: left
 
 For some of your homework, you'll need to interact with a user at the
 command line.
 
-.. rst-class:: left
-
 There's a nice builtin function to do this - ``raw_input``:
 
-.. rst-class:: left
-
-.. code-block:: python
+.. code-block:: ipython
 
     In [196]: fred = raw_input('type something-->')
     type something-->;alksdjf
     In [197]: fred
     Out[197]: ';alksdjf'
 
-.. rst-class:: left
-
 This will display a prompt to the user, allowing them to input text and
 allowing you to bind that input to a symbol.
 
+(There is also ``input()`` -- please dont use it!)
+
+String Formatting LAB
+=====================
+
+.. rst-class:: left
+
+ * Rewrite: ``the first 3 numbers are: %i, %i, %i"%(1,2,3)``
+
+   for an arbitrary number of numbers...
+
+ * Write a format string that will take:
+
+    ``( 2, 123.4567, 10000)``
+
+    and produce:
+
+    ``'file_002 :   123.46, 1e+04'``
+
+  * Then do these with the format() method...
 
 Homework
 ========
@@ -1468,72 +1729,14 @@ Homework
 Task 1
 ------
 
-List Lab (after http://www.upriss.org.uk/python/session5.html)
+Finish the List Lab from class
 
-In your student folder, create a new file called ``list_lab.py``.
-
-The file should be an executable python script. That is to say that one
-should be able to run the script directly like so:
-
-.. code-block:: bash
-
-    $ ./list_lab.py
-
-Add the file to your clone of the repository and commit changes frequently
-while working on the following tasks. When you are done, push your changes to
-GitHub and issue a pull request.
-
-When the script is run, it should accomplish the following four series of
-actions:
-
-.. nextslide:: Series 1
-
-- Create a list that contains "Apples", "Pears", "Oranges" and "Peaches".
-- Display the list.
-- Ask the user for another fruit and add it to the end of the list.
-- Display the list.
-- Ask the user for a number and display the number back to the user and the
-  fruit corresponding to that number (on a 1-is-first basis).
-- Add another fruit to the beginning of the list using "+" and display the
-  list.
-- Add another fruit to the beginning of the list using insert() and display the
-  list.
-- Display all the fruits that begin with "P", using a for loop.
-
-
-.. nextslide:: Series 2
-
-Using the list created in series 1 above:
-
-- Display the list.
-- Remove the last fruit from the list.
-- Display the list.
-- Ask the user for a fruit to delete and find it and delete it.
-- (Bonus: Multiply the list times two. Keep asking until a match is found. Once
-  found, delete all occurrences.)
-
-.. nextslide:: Series 3
-
-Again, using the list from series 1:
-
-- Ask the user for input displaying a line like "Do you like apples?"
-- for each fruit in the list (making the fruit all lowercase).
-- For each "no", delete that fruit from the list.
-- For any answer that is not "yes" or "no", prompt the user to answer with one
-  of those two values (a while loop is good here):
-- Display the list.
-
-.. nextslide:: Series 4
-
-Once more, using the list from series 1:
-
-- Make a copy of the list and reverse the letters in each fruit in the copy.
-- Delete the last item of the original list. Display the original list and the
-  copy.
-
+(and the string formatting lab)
 
 Task 2
 ------
+
+.. rst-class:: mlarge
 
 ROT13
 
@@ -1541,9 +1744,9 @@ The ROT13 encryption scheme is a simple substitution cypher where each letter
 in a text is replace by the letter 13 away from it (imagine the alphabet as a
 circle, so it wraps around).
 
-Add a python module named ``rot13.py`` to your student folder. This module
-should provide at least one function called ``rot13`` that takes any amount of
-text and returns that same text encrypted by ROT13.
+Add a python module named ``rot13.py`` to the session03 dir in your student dir.
+This module should provide at least one function called ``rot13`` that takes
+any amount of text and returns that same text encrypted by ROT13.
 
 This function should preserve whitespace, punctuation and capitalization.
 
@@ -1551,29 +1754,41 @@ Your module should include an ``if __name__ == '__main__':`` block with tests
 that demonstrate that your ``rot13`` function and any helper functions you add
 work properly.
 
+
 .. nextslide:: A bit more
 
 There is a "short-cut" available that will help you accomplish this task. Some
 spelunking in `the documentation for strings`_ should help you to find it. If
 you do find it, using it is completely fair game.
 
+As usual, add your new file to your local clone right away.  Make commits
+early and often and include commit messages that are descriptive and concise.
+
+When you are done, if you want me to review it, push your changes to github
+and issue a pull request.
+
+try decrypting this:
+
+"Zntargvp sebz bhgfvqr arne pbeare"
+
 .. _the documentation for strings: https://docs.python.org/2/library/stdtypes.html#string-methods
-
-As usual, add your new file to your local clone right away.  Make commits early and often and include commit messages that are descriptive and concise.
-
-When you are done, push your changes to github and issue a pull request.
 
 
 Task 3
 ------
 
-"Mail Room"
+.. rst-class:: mlarge
+
+Mail Room
 
 You work in the mail room at a local charity. Part of your job is to write
 incredibly boring, repetitive emails thanking your donors for their generous
-gifts. You are tired of doing this over an over again, so you've decided to let Python help you out of a jam.
+gifts. You are tired of doing this over an over again, so yo've decided to
+let Python help you out of a jam.
 
-Write a small command-line script called ``mailroom.py``.  As with Task 1, This script should be executable. The script should accomplish the following goals:
+Write a small command-line script called ``mailroom.py``.  As with Task 1,
+This script should be executable. The script should accomplish the
+following goals:
 
 * It should have a data structure that holds a list of your donors and a
   history of the amounts they have donated. This structure should be populated
@@ -1639,3 +1854,19 @@ directory, and add it to your clone early. Make frequent commits with
 good, clear messages about what you are doing and why.
 
 When you are done, push your changes and make a pull request.
+
+Next Week:
+===========
+
+.. rst-class:: mlarge
+
+    **Lightning talks next week:**
+
+Benjamin C Mier
+
+Robert W Perkins
+
+Vinay Gupta
+
+Wayne R Fukuhara
+

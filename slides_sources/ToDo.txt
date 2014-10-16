@@ -1,0 +1,35 @@
+Things to do for the UWPCE INtro to Python class:
+
+For Session 2:
+
+Note: I decided to not confuse things with unicode off teh bat --
+so I'm stripping the 'u' from string literals wherever I find them.
+
+[x] Update presentaion for UWPCE instead of CodeFellows
+[x]  - mention of CodeFellows
+[x]  - urls for git
+
+[x] Add outline of class to beginning of slides
+
+[x] Add section breaks to slides for LAB time and lightning talks:
+    some lecture
+    some lab time
+    two lightning talks
+
+[ ] General slide proofread and clean up for layout, etc.
+
+I think we shouod remove the parameter unpacking: *args and **kwargs --
+too much when you don't really know what a tuple or dict is...
+
+[x] Remove parameter unpacking
+
+[ ] Add more to the function lab -- should be 20min or so of work.
+  - they have learned about returning multiple values.
+
+[ ] Put in solution to this weeks homework in Solutions
+  --Chris has soem kicking around to find...
+
+
+Future Sessions:
+
+Add discusion of parameter unpacking: *args and **kwargs
