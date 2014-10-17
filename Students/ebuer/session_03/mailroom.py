@@ -32,10 +32,10 @@ def name_split(nme):
 def client_check(nme, donors):
     fname, lname = nme.split(' ')
     if (lname, fname) in donors:
-        print '{f:s} {l} is a previous donor.'.format(f=fname, l=lname)
+        print '{f} {l} is a previous donor.'.format(f=fname, l=lname)
         return True
     else:
-        print '{f:s} {l} is a not a previous donor.'.format(f=fname, l=lname)
+        print '{f} {l} is a not a previous donor.'.format(f=fname, l=lname)
         return False
 
 
@@ -52,8 +52,8 @@ def donation_func():
     return usr_donation
 
 
-#mailroom control looping we will used bored for flow control since that
-#was the genesis of this brillian program
+#mailroom looping we will used bored for flow control since that
+#was the genesis of this brilliant program
 
 
 bored = True
