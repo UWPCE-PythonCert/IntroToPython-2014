@@ -3,31 +3,32 @@
 import random
 
 def rd():
-    return round(random.random() * 100,2)
+    return round(random.random() * 100, 2)
 
 #this may be a bad idea but we will see, a list of tuples for clients
 client_list = [
-        ('Askew', 'Anne'),\
-        ('Bocher', 'Joan'),\
-        ('Clarkson', 'Jeremy'),\
-        ('Hamont', 'Matthew'),\
-        ('May', 'James'),\
-        ('Parris', 'George van')
-                ]
+    (('Askew', 'Anne'), (rd(), rd(), rd())),
+    (('Bocher', 'Joan'), (rd(), rd())),
+    (('Clarkson', 'Jeremy'), (rd())),
+    (('Hamont', 'Matthew'), (rd(), rd(), rd())),
+    (('May', 'James'), (rd(), rd())),
+    (('Parris', 'George van')] (rd(), rd(), rd()))]
 
-donations = [
-        (client_list[0], rd(), rd(), rd()),
-        (client_list[1], rd(), rd()),
-        (client_list[2], rd(), rd(), rd()),
-        (client_list[3], rd(), rd(), rd(), rd()),
-        (client_list[4], rd(), rd(), rd()),
-        (client_list[5], rd(), rd(), rd())
-                ]
 
-for c in client_list:
-    for d in donations:
-        if d[0] == c:
-            temp_dontation = d[1:]
 
-    print "Hello {first} {last}, thanks for donating ${value}"\
-        .format(last = c[0], first= c[1], value=temp_dontation[0])
+
+
+
+
+
+#take a name and check the list
+def client_check(nme, client_list):
+    fname, lname = nme.split(' ')
+    if (lname, fname) in client_list:
+        print '{f} {l} is a previous donor.'.format(f=fname, l=lname)
+        return True
+    else:
+        print '{f} {l} is a not a previous donor.'.format(f=fname, l=lname)
+        return False
+
+res=client_check('Annie Askew', client_list)
