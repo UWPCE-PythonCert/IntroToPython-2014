@@ -1,0 +1,391 @@
+Notes for 10/7/2014
+==================
+
+
+  None is default return value if a function doesn't return something else
+
+print grid notes  
+
+    Uses NUMBER to make the number of boxes increase without a newline
+
+    top = ('+ ' + '- ' * box_size) * number + '+' + '\n'
+
+
+Git - version control system
+
+A history of everything you've ever done to your code
+
+A graph of "states in" which your code has existed
+
+Graph = places/states with paths between them
+
+A set of points of time with a history of where you've been 
+
+Each point has a name that uniquely identifies it called a HASH 
+
+HEAD = always there, and always points to the point in time you're currently looking at
+
+First branch that exists is called Master
+
+A "branch" is actually just a label that points to a specific point in time
+
+You can CREATE a branch by using the "branch" command
+
+    This adds a new label to the current commit
+    But it has not "checked it out"
+
+use 'git branch' to see which branch is active
+
+You can use this to switch between branches and make changes in isolation
+
+Git encourages making lots and lots of SMALL COMMITS
+
+Branching allows you to keep related sets of work separate from each other 
+
+Simply create a new branch for each session from your repository master branch
+
+Do your homework in a separate branch so you can submit a separate pull request each week
+
+    THIS IS HOW IT WORKS IN THE REAL WORLD
+
+(Dozens of branches on a weekly basis)
+
+The final step in the process is merging the work >> Combines work on one branch with your work on another
+
+    'git merge session01'
+
+Sometimes when you merge two branches, you get CONFLICTS
+
+This happens when the same file was changed in about the same place in two different ways
+
+Often, git can figure these things out on its own
+
+    You may need to manually edit files to fix the problem
+
+    Look for conflict markers
+
+<<<<<<<<<hash1 (stuff from the current branch)
+============ (pivot point between two branches)
+>>>>>>>>>>>>hash2 (stuff from the branch being merged)
+
+        REMOVE CONFLICT MARKERS BEFORE RE-ADDING AND COMMITTING
+
+git is a "distributed versioning system" ; there's no central repository that serves as the one main repo
+
+Instead, you work with local repos, and remotes they are connected to
+
+Clone repositories get an origin remote for free:
+
+git remote -v
+
+origin represents where you cloned the repository
+
+Shows that the local repo originated on the github account
+
+Class Repo:
+
+
+You want to keep the fork up-to-date with the original copy as the class goes forward
+
+You can add "remotes" at will, to connect your local repo to other copies of it in different remote locations
+
+This allows you to grab changes made to the repo in these other locations
+
+For our class we will add an upstream remote to our local copy that points to the original copy of the material in the UWPC-PythonCert account
+
+To get updates from new remote, you'll need first to fetch everything
+
+Finally, you can fetch and then merge changes from the upstream master
+
+    git checkout master
+
+You can do all in one step with 
+
+    git pull upstream master
+
+git pull fetches changes, brings them locally, and then merges them in 
+
+    Just doesn't show what the changes are going to be
+    git checkout upstream master to SEE what's about to happen
+
+
+You can incorporate this into your daily workflow
+
+    git checkout master
+    git pull upstream master
+    git push
+    [do work]
+    git commit -a 
+    [add a good commit message]
+    git push
+    [Make a pull request]
+
+
+There are graphical tools for Git (maybe check out?)
+
+
+============================================================================
+
+
+if and elif <---python's way of letting you make decisions
+
+else is optional, elif are optional
+
+Multiples ifs will cause ALL of the ifs to be distinct (all things will happen instead of just one)
+
+Many languages have a "switch", Python does not
+
+in Python use if, elif, elif, elif, else
+
+    Alternatively, use a dictionary or subclassing
+
+Lists -> a way to store a bunch of stuff in an ordered fashion. Just like an array or a vector
+
+a_list = [2,3,4,5]
+a_tuple = (2,3,4,) <---TUPLES USE () INSTEAD OF []
+
+Biggest difference is that you can change the contents of a list, but not a tuple
+
+
+Loops:
+
+Sometimes called a 'determinate' loop
+
+When you need to do something to everything in a sequence
+
+(you've been using i for item)
+
+    for item in a_list:
+        print item
+
+range() builds a list of numbers automatically
+
+range(6)
+    [0,1,2,3,4,5]
+
+================================
+Functions:
+
+    
+def fun(x,y):
+    z = x+y
+    return z
+
+xyz are LOCAL
+
+Symbols bound in Python have a SCOPE - determines where it is visible or what value it has in a given block
+
+If a value is rebound INSIDE the function, it does not change the value outside of the function
+
+In general, you should use global bindings mostly for constants (those that are made at the left margin = global)
+
+Convention: global constants are ALL_CAPS
+
+    Good convention to follow
+
+We have seen simple parameter lists: 
+
+def fun(x, y z):
+
+    print x, y, z
+
+These types of params are called "positional"
+
+When you call a function, you must provide arguments for all positional params in the order they are listed
+
+You CAN provide default values for paramters in a function definition (this makes them optional)
+
+def fun(x=1,y=2,z=3)
+
+Or you can use the param as a keyword to indicate what you mean
+
+fun(y=4, x=1)
+
+Once you've provided a keyword argument in this way, you can no longer provide any positional arguments
+
+e.g. fun(x=5, 6) 
+
+Documentation:
+
+Leave information in your code about what you were thinking when you wrote it
+
+There are two approaches to this: 
+
+    Comments (in line with code)
+    #like this one
+
+    Docstrings
+
+        in-line documentation in a number of different places
+        def complex_function()
+        """THIS IS A DOCSTRING FOR THIS FUNCTION"""
+        code code code
+
+    complex_function.__doc__
+
+        THIS IS A DOCSTRING FOR THIS FUNCTION
+
+    A docstring should be a complete sentence in the form of a command describing what the function does
+    Should fit on a single line
+    If more description is needed, make the first line a complete sentence and add more lines below for enhancement
+    enclose with """ (allows for easy expansion later on)
+    Always close on the same line if the doc string is only one line
+
+Recursion:
+
+    We've seen functions that call another function
+
+    If a function calls ITSELF, that's called recursion
+
+    Like with other Functions, a call within a call establishes a call stack
+
+    With recursion, if you are not careful, this stack can get VERY deep
+
+    Python has a limit for how much it can recurse
+
+    Recursion can be useful, especially for a particular set of problems
+
+        For example, take the case of the factorial function
+
+    5! == 5*4*3*2*1
+
+    def factorial(x):
+        if x ==1:
+            return 1
+        else:
+            return x * factorial(x - 1) 
+
+
+Boolean Expressions!:
+
+    What is true or false in Python?
+
+    Booleans: True and False (CAPITALIZED)
+    
+    Something or Nothing
+
+    Anything that is SOMETHING is True, anything that is Nothing is False
+
+    bool(something) = is something a True or a False value?
+
+    Nothing = empty string, tuple, dictionary, zero, or anything that returns 0
+
+
+    EVERYTHING ELSE is True
+
+    
+Pythonic Boolean:
+
+    Any object, passed to bool() will evaluate to True or False
+
+    if xx == True: 
+
+        do_something()
+
+    Bad ^^
+------------------------
+    if xx:
+
+        do_something()
+
+    Good ^^
+    (Does not test if it exists, just tests if it's True or False)
+
+    Boolean Keywords in Python: and, or, not
+
+    'and' will return the first operand that evaluates to False, or the last operand if none are True
+
+    'or' returns the first operand that evaluates to True or the last operand in line
+
+    'not' is an unary expression and inverts the boolean value of its operand:
+
+        not True -> False
+        
+        not False -> True
+
+Because of the return value of these keywords, you can write concise statements
+
+Ternary Expressions:
+
+    if something: 
+
+        x = a_value
+
+    else: 
+
+        x = another_value
+
+    y = 5 if x > 2 else 3
+
+    
+In Python, the boolean types are subclasses of integer:
+
+    True == 1
+    True
+
+    False == 0
+    True
+
+    
+
+Whitespace is great because it encourages good formatting
+
+All statements must be correspondingly indented
+
+
+Other than indenting, space doesn't matter!
+
+Read PEP 8 (Python Style guide) and install a linter in your editor <----
+
+python is all about namespaces -- the "dots"
+
+    name.another_name
+
+    The dot indicates that you're looking for a name in the namespace of the given object
+
+    Namespace is collection of symbols that are bound to values
+
+    You can think of the files that you write that end in .py is a module
+
+    A MODULE is simply a namespace
+
+    A package is a module with other modules inside it 
+
+        on a filesystem, this is represented as a directory that contains one or more .py files, one of which must be called __init__.py <---TURNS DIRECTORY FULL OF FILES INTO A PACKAGE
+
+        Then you can import from that directory into another program
+
+
+When you import a module, or a symbol from a module, the Python code is compiled to bytecode, the result is a .pyc file 
+
+    This executes ALL CODE AT THE MODULE SCOPE
+
+    For this reason, it is good to avoid module-scope statements that have global side-effect
+
+
+The code in a module is NOT re-run when imported again, it must be explicitly reloaded with 
+
+    import modulename
+    reload(modulename)
+
+    python - m <---if module is somewhere in Python Path (set of directories it looks in) it will be executed
+    
+   You can also use the "run" command from within Ipython  
+
+========================================
+
+
+Implement Ackermann function
+
+    create ack.py in session02
+
+    write a good docstring
+
+    Ackermann's function is not defined for input values less than 0, so check for that
+
+   Use an if __name__ == "__main__" to test your function
+
+
+    Create a Fibonacci script
+    
+   Check class site for homework :(

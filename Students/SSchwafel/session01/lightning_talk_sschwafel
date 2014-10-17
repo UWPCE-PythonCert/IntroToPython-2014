@@ -1,0 +1,52 @@
+RTFM
+
+
+help()  <----the first line of defense
+
+help(something goes here)
+
+
+help(math) <---for example
+
+DON'T FORGET TO IMPORT MATH FIRST, but this works for libraries that are already loaded as well
+
+help(len)
+help(iter)
+help(askldjalsjdlakjsdkljasd) 
+
+help() will tell you what parameters a built in function or module needs 
+
+For example, help(all) will return that it needs a boolean value, whereas help(raw_input) will return that it needs a string
+
+
+
+
+
+
+if you get a 'not defined' error, this means you probably need to import something first
+
+Or that you spelled something wrong
+
+q exits the help text, you can navigate with the arrow keys or hjkl (if you're super cool)
+
+
+
+====================================================
+
+If the built in help does not answer your question, check out the Python.org documentation HERE:
+
+https://docs.python.org/2 <----this covers the version we're using for the class, in the upper left hand corner, you'll see that you can toggle which version of Python you're using 
+
+(YOU CAN CHECK WHICH VERSION IS RUNNING BY USING "python --version" at the shell)
+
+This site has a handy tutorial that starts with the basics and works through the vast majority of built-in Python "stuff"
+
+
+
+And finally, if you aren't able to find the help you need 
+
+
+
+
+
+
