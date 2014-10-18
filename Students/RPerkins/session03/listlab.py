@@ -28,7 +28,7 @@ print basket
 del_fruit = raw_input("Pick a fruit from the list to delete-->")
 fruit = str(del_fruit)
 if fruit in basket:
-    for i in range(len(basket)):
+    for i in range(len(basket)-1):
         if basket[i] == fruit:
             basket.pop(i)
 else:
@@ -47,6 +47,10 @@ for i in range(len(basket)):
         deletes += 1
 print basket
 
-
-
-
+#action 4
+rlist = basket
+for i in range(len(basket)):
+    rlist[i] = rlist[i][::-1]
+basket.pop()
+print basket
+print rlist
