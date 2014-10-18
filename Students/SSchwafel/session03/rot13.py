@@ -1,5 +1,5 @@
 #!/usr/bin/python
-user_string = raw_input("Please enter the string you'd like to decrypt with Rot13")
+user_string = raw_input("Please enter the string you'd like to decrypt with Rot13 ")
 
 
 #Take a user string
@@ -8,9 +8,9 @@ def rot13(x):
     x = list(x)
     string_ascii_value = []
     for i in x:
-        x = ord(x)
-        string_ascii_value.append(x)
-        
+        i = ord(i)
+        string_ascii_value.append(i)
+        print i
     print x
         #do some rot13 decrypting here
 
