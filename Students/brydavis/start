@@ -9,7 +9,7 @@ function start_session {
 	git merge upstream/master;
 	git push;
 	git status;
-	echo;
+	clear;
 	echo 'Ready to develop!';
 	echo 'Please proceed...';
 }
@@ -34,7 +34,8 @@ function end_session {
 
 
 function init {
-	echo "Welcome to UW-PCE's Intro to Python"
+	clear;
+	echo "Welcome to UW-PCE's Intro to Python";
 	# cd /www/IntroToPython;
 	start_session;
 }
