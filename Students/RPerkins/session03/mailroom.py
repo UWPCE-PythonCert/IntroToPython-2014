@@ -16,14 +16,24 @@ def get_input():
     """Ask user whether to send thank you note or create report and return answer"""
     answer = None
     while not ((answer == '1') or (answer == '2') or (answer == "q")):
-        new_answer = raw_input("Enter '1' to Send a Thank-You Note, Enter '2' to Create a Report, Enter 'q' to quit")
+        new_answer = raw_input("Enter '1' to Send a Thank-You Note, Enter '2' to Create a Report, Enter 'q' to quit-->")
         answer = str(new_answer)
     return answer
 
 
-def thank_you():
+def thank_you(dbase):
     """ Find or create a donor, add new donation, and return a thank you note"""
-    print 'Thank You'
+    name = 'list'
+    while name == 'list':
+        new_name = raw_input("Enter full name of donor-->")
+        name = str(new_name)
+        if not (name == 'list'):
+            break
+        else:
+            for i in range(len(dbase)-1):
+                print dbase[i][0]
+
+
 
 def mk_report():
     """ Create a sorted list of donors"""
@@ -35,7 +45,7 @@ if __name__ == '__main__':
     while not (answer == "q"):
         answer = get_input()
         if answer == "1":
-            thank_you()
+            thank_you(donor)
         else:
             mk_report()
     print "Exiting"
