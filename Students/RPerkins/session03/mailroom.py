@@ -30,26 +30,32 @@ def get_donation():
     return str(d)
 
 
-def in_dbase(name, dbase):
+def in_dbase(i_name, tar_dbase):
     """ Check if name is in dbase and return boolean """
-    for i in range(len(dbase)-1):
-        if name in dbase[i]:
+    # print 'checking if %s is in dbase' % i_name
+    # print len(tar_dbase)-1
+    # print len(tar_dbase)
+    # for i in range(len(tar_dbase)-1):
+    for i in range(len(tar_dbase)):
+        # print i, i_name in tar_dbase[i]
+        if i_name in tar_dbase[i]:
             return True
     return False
 
 
-def app_record(name, dbase):
+def app_record(app_name, app_dbase):
     """ Append an existing record with new donations """
-    for i in range(len(dbase)-1):
-        if name in dbase[i]:
-            dbase[i].append(get_donation())
-    print dbase
+    for i in range(len(app_dbase)):
+        if app_name in app_dbase[i]:
+            app_dbase[i].append(get_donation())
+            break
+    # print app_dbase
 
-def add_record(name, dbase):
+def add_record(add_name, add_dbase):
     """ Call get_donation and add new donor to database with result """
-    new = [name, get_donation()]
-    dbase.append(new)
-    print dbase
+    new = [add_name, get_donation()]
+    add_dbase.append(new)
+    # print '--in add_record--', add_dbase
 
 def thank_you(dbase):
     """ Find or create a donor, add new donation, and return a thank you note"""
@@ -64,9 +70,12 @@ def thank_you(dbase):
                 print dbase[i][0]
 
     if in_dbase(name, dbase):
+        # print '%s is in the dbase' % name
         app_record(name, dbase)
     else:
+        # print '%s is not in the dbase' % name
         add_record(name, dbase)
+        # print 'in thank_you, returning from add_record--', dbase
 
 
 def mk_report():
@@ -80,6 +89,7 @@ if __name__ == '__main__':
         answer = get_input()
         if answer == "1":
             thank_you(donor)
+            # print '--in main--, after thank_you returns', donor
         else:
             mk_report()
     print "Exiting"
