@@ -18,3 +18,5 @@ print fruit
 fruit.insert(0, 'Lemons')
 print fruit
 print for i in fruit: 
+    
+# adding a comment for test purposes
