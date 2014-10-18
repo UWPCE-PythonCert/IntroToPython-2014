@@ -21,6 +21,30 @@ def get_input():
     return answer
 
 
+def get_donation():
+    """ Prompt for donation amount, validate input, return amount"""
+    d = u' '
+    while not d.isnumeric():
+        new_d = raw_input("Enter donation amount (must be numeric)-->")
+        d = unicode(new_d)
+    return str(d)
+
+
+def in_dbase(name, dbase):
+    """ Check if name is in dbase and return boolean """
+    for i in range(len(dbase)-1):
+        if name not in dbase[i]:
+
+def add_record(name, dbase):
+    """ Call get_donation and add new donor to database with result """
+    new = [name, get_donation()]
+    dbase.append(new)
+    print dbase
+
+def app_record(name, dbase):
+    """ Append an existing record with new donations """
+
+
 def thank_you(dbase):
     """ Find or create a donor, add new donation, and return a thank you note"""
     name = 'list'
@@ -32,6 +56,15 @@ def thank_you(dbase):
         else:
             for i in range(len(dbase)-1):
                 print dbase[i][0]
+
+    if in_dbase(name, dbase):
+        app_record(name, dbase)
+    else:
+        add_record(name, dbase)
+
+            
+
+
 
 
 
