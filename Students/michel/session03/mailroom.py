@@ -8,7 +8,7 @@ Created on Sat Oct 18 15:38:30 2014
 def initList(donorList):
     """
     Initiatilize list of donors with names and respective donation history
-    returns pre-populated list with 4 donors and their donation activity
+    returns pre-populated list with 5 donors and their donation activity
     donorList is a list of donors with donors names, list of amounts donated
     and the total amount given so far
     """
@@ -58,20 +58,40 @@ def checkName(donorList, name):
             return True
     return False
     
+
+def listDonors(donorList):
+    """
+    Prints list of all donors in datbase
+    returns None
+    """
+    for i in range(len(donorList)):
+        print donorList[i][0][0]
+    return None    
+
     
 def addDonation(donorList, name, amount):
     """
-    Add donation amount to list of donations from a given name 
+    Add donation amount to list of donations for a given name 
+    returns updated donorList
+    assumes name already exists in the list
+    name is a string and amount is an integer
     """
+    for i in range(len(donorList)):
+        print donorList[i][0][0]
+    return donorList
     return
     
     
-def addDonorName(donorList, name):
+def addDonor(donorList, name):
     """
     Add donor name to donorList
     returns updated donorList
+    assumes name does not exist already in the list
+    name is a string
     """
-    return
+    newDonor = [[name], [], [0]]
+    donorList = donorList.append(newDonor)
+    return donorList
     
 def sortDonorList(donorList):
     """
@@ -81,3 +101,22 @@ def sortDonorList(donorList):
     donorList = sorted(donorList, key=lambda donorList: donorList[2], reverse=True)
     return donorList
     
+
+def selectPath():
+    """
+    Offers user 3 choices: Write a thank you email, create a report, or quit
+    returns choice
+    choice is an integer between 1-3
+    """
+    choice = ''
+    print 'Please, select an option: '
+    print '1- Write a thank you email'
+    print '2- Create a donation report'
+    print '3- Quit the application'
+    while True:
+        choice = str(raw_input('Your Selection: '))
+        if choice not in ['1','2','3']:
+            print 'Please enter 1, 2, or 3'
+        else:
+            break
+    return int(choice)
