@@ -47,7 +47,7 @@ def print_email(p_name, p_donation):
     print 'Dear %s, Thanks so much for your generous donation of $%s.  It is greatly appreciated!' % (p_name, p_donation)
 
 def app_record(app_name, app_dbase):
-    """ Append an existing record with new donations """
+    """ Append an existing donor record """
     for i in range(len(app_dbase)):
         if app_name in app_dbase[i]:
             app_donation = get_donation()
@@ -57,7 +57,7 @@ def app_record(app_name, app_dbase):
     # print app_dbase
 
 def add_record(add_name, add_dbase):
-    """ Call get_donation and add new donor to database with result """
+    """ Add new donor to database """
     add_donation = get_donation()
     new = [add_name, add_donation]
     add_dbase.append(new)
@@ -85,20 +85,32 @@ def thank_you(dbase):
         add_record(name, dbase)
         # print 'in thank_you, returning from add_record--', dbase
 
-def mk_report():
+def mk_report(rep_dbase):
     """ Create a sorted list of donors"""
-    print 'Report'
+
+    print 'Donor Name\t\t\tTotal Donation\t# of Donations\t\tAverage Donation'
+    for j in range(len(rep_dbase)):
+        donor_sum = 0
+        donor_slice = rep_dbase[j][1:]
+        num_donations = (len(donor_slice))
+        for k in range(len(donor_slice)):
+            donor_sum += int(donor_slice[k])
+        avg_donation = donor_sum/num_donations
+        print '%s\t\t\t%s\t\t\t\t%s\t\t\t\t\t\t%s' % (rep_dbase[j][0], donor_sum, num_donations, avg_donation)
+
 
 if __name__ == '__main__':
     donor = mk_dbase()
     answer = None
     while not (answer == "q"):
         answer = get_input()
-        if answer == "1":
+        if answer == "q":
+            break
+        elif answer == "1":
             thank_you(donor)
             # print '--in main--, after thank_you returns', donor
         else:
-            mk_report()
+            mk_report(donor)
     print "Exiting"
 
 
