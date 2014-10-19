@@ -105,12 +105,12 @@ def thankYouPath(donorList, choice):
     """
     while choice == 1:
         print 'Enter "list" to get the list of donors'
-        print 'Enter "3" to exit this activity'
+        print 'Enter "9" to exit this activity'
         name = str(raw_input('Otherwise, please enter a name: '))
         if name == 'list':
             listDonors(donorList)
-        elif name == '3':
-            choice = 3
+        elif name == '9':
+            choice = 9
             break
         else:
             if not checkName(donorList, name):                
@@ -136,13 +136,13 @@ def sortDonorList(donorList):
     return donorList
     
 
-def computeStats(donorList):
+def createReport(donorList):
     """
     Computes the number of donations and average donation per donor
-    Displays the results of the computations
-    returns none
+    Displays the results of the computations in a report
+    returns list of donors
     """
-    sortDonorList(donorList)
+    donorList = sortDonorList(donorList)
     print 'Name', ' ' * 26, 
     print 'Total', ' ' * 5, 
     print 'Donations', ' ' * 7,
@@ -151,15 +151,15 @@ def computeStats(donorList):
     for i in range(len(donorList)):
         name = donorList[i][0][0]
         total = str(donorList[i][2][0])
-        nbDonation = str(len(donorList[i][0][0]))
-        average = str(round((float(total) / float(nbDonation))))
+        nbDonation = str(len(donorList[i][1]))
+        average = str(round((float(total) / float(nbDonation)),2))
         print name, ' ' * (20-len(donorList[i][0][0])),
         print total.rjust(15),
         print nbDonation.rjust(15),
         print average.rjust(15)
-    return None
-        
-    
+    return donorList
+
+
 def selectPath():
     """
     Offers user 3 choices: Write a thank you email, create a report, or quit
@@ -178,3 +178,20 @@ def selectPath():
         else:
             break
     return int(choice)
+    
+    
+if __name__ == '__main__':
+    currentList = []
+    choice = 0
+    currentList = initList(currentList)
+    while choice != 3:
+        choice = selectPath()
+        if choice == 1:
+            currentList, choice = thankYouPath(currentList, choice)  
+        elif choice == 2:
+            currentList = createReport(currentList)
+        elif choice == 3:
+            print 'Bye!'
+            break
+
+        
