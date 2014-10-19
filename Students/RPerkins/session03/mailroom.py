@@ -4,11 +4,11 @@ __author__ = 'Robert W. Perkins'
 def mk_dbase():
     """Create data structure for donor list"""
     ndbase = [[], [], [], [], []]
-    ndbase[0] = ['Jeff McCarthy', 2500, 1000, 500]
-    ndbase[1] = ['Tabitha Simmons', 450, 2000]
-    ndbase[2] = ['Angela Cartwright', 5500]
-    ndbase[3] = ['Billy Murray', 3450, 250]
-    ndbase[4] = ['Alexa Dalton', 240, 1200, 5500]
+    ndbase[0] = ['Jeff McCarthy', 4000, 2500, 1000, 500]
+    ndbase[1] = ['Tabitha Simmons', 2450, 450, 2000]
+    ndbase[2] = ['Angela Cartwright', 5500, 5500]
+    ndbase[3] = ['Billy Murray', 3700, 3450, 250]
+    ndbase[4] = ['Alexa Dalton', 6940, 240, 1200, 5500]
     return ndbase
 
 
@@ -52,6 +52,7 @@ def app_record(app_name, app_dbase):
         if app_name in app_dbase[i]:
             app_donation = get_donation()
             app_dbase[i].append(app_donation)
+            app_dbase[i][1] += int(app_donation)
             print_email(app_name, app_donation)
             break
     # print app_dbase
@@ -59,7 +60,7 @@ def app_record(app_name, app_dbase):
 def add_record(add_name, add_dbase):
     """ Add new donor to database """
     add_donation = get_donation()
-    new = [add_name, add_donation]
+    new = [add_name, int(add_donation), add_donation]
     add_dbase.append(new)
     print_email(add_name, add_donation)
     # print '--in add_record--', add_dbase
@@ -85,18 +86,20 @@ def thank_you(dbase):
         add_record(name, dbase)
         # print 'in thank_you, returning from add_record--', dbase
 
+def sum_element(key_dbase):
+    """set key for sorting on sum element of data structure"""
+    return key_dbase[1]
+
 def mk_report(rep_dbase):
     """ Create a sorted list of donors"""
 
-    print 'Donor Name\t\t\tTotal Donation\t# of Donations\t\tAverage Donation'
+    print 'Donor Name\t\t\tTotal Donations\t# of Donations\t\tAverage Donation'
+    rep_dbase.sort(key=sum_element)
     for j in range(len(rep_dbase)):
-        donor_sum = 0
-        donor_slice = rep_dbase[j][1:]
+        donor_slice = rep_dbase[j][2:]
         num_donations = (len(donor_slice))
-        for k in range(len(donor_slice)):
-            donor_sum += int(donor_slice[k])
-        avg_donation = donor_sum/num_donations
-        print '%s\t\t\t%s\t\t\t\t%s\t\t\t\t\t\t%s' % (rep_dbase[j][0], donor_sum, num_donations, avg_donation)
+        avg_donation = int(rep_dbase[j][1])/num_donations
+        print '%s\t\t\t%s\t\t\t\t%s\t\t\t\t\t\t%s' % (rep_dbase[j][0], rep_dbase[j][1], num_donations, avg_donation)
 
 
 if __name__ == '__main__':
