@@ -32,19 +32,16 @@ def get_donation():
 
 def in_dbase(i_name, tar_dbase):
     """ Check if name is in dbase and return boolean """
-    # print 'checking if %s is in dbase' % i_name
-    # print len(tar_dbase)-1
-    # print len(tar_dbase)
-    # for i in range(len(tar_dbase)-1):
     for i in range(len(tar_dbase)):
-        # print i, i_name in tar_dbase[i]
         if i_name in tar_dbase[i]:
             return True
     return False
 
+
 def print_email(p_name, p_donation):
     """ Print thank you not for donation from p_name """
     print 'Dear %s, Thanks so much for your generous donation of $%s.  It is greatly appreciated!' % (p_name, p_donation)
+
 
 def app_record(app_name, app_dbase):
     """ Append an existing donor record """
@@ -55,7 +52,7 @@ def app_record(app_name, app_dbase):
             app_dbase[i][1] += int(app_donation)
             print_email(app_name, app_donation)
             break
-    # print app_dbase
+
 
 def add_record(add_name, add_dbase):
     """ Add new donor to database """
@@ -63,7 +60,6 @@ def add_record(add_name, add_dbase):
     new = [add_name, int(add_donation), add_donation]
     add_dbase.append(new)
     print_email(add_name, add_donation)
-    # print '--in add_record--', add_dbase
 
 
 def thank_you(dbase):
@@ -77,22 +73,19 @@ def thank_you(dbase):
         else:
             for i in range(len(dbase)):
                 print dbase[i][0]
-
     if in_dbase(name, dbase):
-        # print '%s is in the dbase' % name
         app_record(name, dbase)
     else:
-        # print '%s is not in the dbase' % name
         add_record(name, dbase)
-        # print 'in thank_you, returning from add_record--', dbase
+
 
 def sum_element(key_dbase):
     """set key for sorting on sum element of data structure"""
     return key_dbase[1]
 
+
 def mk_report(rep_dbase):
     """ Create a sorted list of donors"""
-
     print 'Donor Name\t\t\tTotal Donations\t# of Donations\t\tAverage Donation'
     rep_dbase.sort(key=sum_element)
     for j in range(len(rep_dbase)):
@@ -111,9 +104,6 @@ if __name__ == '__main__':
             break
         elif answer == "1":
             thank_you(donor)
-            # print '--in main--, after thank_you returns', donor
         else:
             mk_report(donor)
     print "Exiting"
-
-
