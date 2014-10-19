@@ -4,6 +4,7 @@ __author__ = 'Robert W. Perkins'
 def mk_dbase():
     """Create data structure for donor list"""
     ndbase = [[], [], [], [], []]
+    # donor name, sum of donations, donation 1, donation 2, ...
     ndbase[0] = ['Jeff McCarthy', 4000, 2500, 1000, 500]
     ndbase[1] = ['Tabitha Simmons', 2450, 450, 2000]
     ndbase[2] = ['Angela Cartwright', 5500, 5500]
