@@ -42,20 +42,28 @@ def in_dbase(i_name, tar_dbase):
             return True
     return False
 
+def print_email(p_name, p_donation):
+    """ Print thank you not for donation from p_name """
+    print 'Dear %s, Thanks so much for your generous donation of $%s.  It is greatly appreciated!' % (p_name, p_donation)
 
 def app_record(app_name, app_dbase):
     """ Append an existing record with new donations """
     for i in range(len(app_dbase)):
         if app_name in app_dbase[i]:
-            app_dbase[i].append(get_donation())
+            app_donation = get_donation()
+            app_dbase[i].append(app_donation)
+            print_email(app_name, app_donation)
             break
     # print app_dbase
 
 def add_record(add_name, add_dbase):
     """ Call get_donation and add new donor to database with result """
-    new = [add_name, get_donation()]
+    add_donation = get_donation()
+    new = [add_name, add_donation]
     add_dbase.append(new)
+    print_email(add_name, add_donation)
     # print '--in add_record--', add_dbase
+
 
 def thank_you(dbase):
     """ Find or create a donor, add new donation, and return a thank you note"""
@@ -66,7 +74,7 @@ def thank_you(dbase):
         if not (name == 'list'):
             break
         else:
-            for i in range(len(dbase)-1):
+            for i in range(len(dbase)):
                 print dbase[i][0]
 
     if in_dbase(name, dbase):
@@ -76,7 +84,6 @@ def thank_you(dbase):
         # print '%s is not in the dbase' % name
         add_record(name, dbase)
         # print 'in thank_you, returning from add_record--', dbase
-
 
 def mk_report():
     """ Create a sorted list of donors"""
