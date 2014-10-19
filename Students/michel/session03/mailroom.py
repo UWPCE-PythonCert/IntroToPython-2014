@@ -31,8 +31,8 @@ def updateTotals(donorList):
     """
     for i in range(len(donorList)):
         total = 0
-        for j in range(len(donorList[i][1])):
-            total = total + donorList[i][1][j]
+        for j in (donorList[i][1]):
+            total += j
         donorList[i][2][0] = total
     return donorList
     
@@ -69,6 +69,18 @@ def listDonors(donorList):
     return None    
 
     
+def addDonor(donorList, name):
+    """
+    Add donor name to donorList
+    returns updated donorList
+    assumes name does not exist already in the list
+    name is a string
+    """
+    newDonor = [[name], [], [0]]
+    donorList = donorList.append(newDonor)
+    return donorList
+
+
 def addDonation(donorList, name, amount):
     """
     Add donation amount to list of donations for a given name 
@@ -84,26 +96,6 @@ def addDonation(donorList, name, amount):
     return donorList
     
     
-def addDonor(donorList, name):
-    """
-    Add donor name to donorList
-    returns updated donorList
-    assumes name does not exist already in the list
-    name is a string
-    """
-    newDonor = [[name], [], [0]]
-    donorList = donorList.append(newDonor)
-    return donorList
-    
-def sortDonorList(donorList):
-    """
-    Sorts  donor list by decreasing amount of donations
-    returns sorted list of donors
-    """
-    donorList = sorted(donorList, key=lambda donorList: donorList[2], reverse=True)
-    return donorList
-    
-
 def thankYouPath(donorList, choice):
     """
     Handles production of thank you emails to donors
@@ -131,18 +123,42 @@ def thankYouPath(donorList, choice):
                     print thankYouMail(name, amount)
                     break
                 except:
-                    print 'This is not an integer'
+                    print 'This is not a Dollar number'
     return donorList, choice
 
+
+def sortDonorList(donorList):
+    """
+    Sorts  donor list by decreasing amount of donations
+    returns sorted list of donors
+    """
+    donorList = sorted(donorList, key=lambda donorList: donorList[2], reverse=True)
+    return donorList
+    
 
 def computeStats(donorList):
     """
     Computes the number of donations and average donation per donor
+    Displays the results of the computations
     returns none
     """
-    
-    
-    
+    sortDonorList(donorList)
+    print 'Name', ' ' * 26, 
+    print 'Total', ' ' * 5, 
+    print 'Donations', ' ' * 7,
+    print 'Average'
+    print '-' * 69
+    for i in range(len(donorList)):
+        name = donorList[i][0][0]
+        total = str(donorList[i][2][0])
+        nbDonation = str(len(donorList[i][0][0]))
+        average = str(round((float(total) / float(nbDonation))))
+        print name, ' ' * (20-len(donorList[i][0][0])),
+        print total.rjust(15),
+        print nbDonation.rjust(15),
+        print average.rjust(15)
+    return None
+        
     
 def selectPath():
     """
