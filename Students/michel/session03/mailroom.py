@@ -77,9 +77,11 @@ def addDonation(donorList, name, amount):
     name is a string and amount is an integer
     """
     for i in range(len(donorList)):
-        print donorList[i][0][0]
+        if donorList[i][0][0] == name:
+            donorList[i][1].append(amount)
+            updateTotals(donorList)
+            break
     return donorList
-    return
     
     
 def addDonor(donorList, name):
@@ -102,6 +104,34 @@ def sortDonorList(donorList):
     return donorList
     
 
+def thankYouPath(donorList, choice):
+    """
+    Handles production of thank you emails to donors
+    returns choice of path and donorList
+    choice is an interger
+    if user wants to exit, returns choice = 3 for quit option
+    """
+    while choice == 1:
+        name = str(raw_input('Please enter a name: '))
+        if name == 'list':
+            listDonors(donorList)
+        elif name == '3':
+            choice = 3
+            break
+        else:
+            if not checkName(donorList, name):                
+                addDonor(donorList, name)
+            while True:
+                amount = str(raw_input('Please, enter donation amount as an integer: '))
+                try:
+                    amount = int(amount)
+                    addDonation(donorList, name, amount)
+                    break
+                except:
+                    print 'This is not an integer'
+    return donorList, choice
+
+
 def selectPath():
     """
     Offers user 3 choices: Write a thank you email, create a report, or quit
@@ -110,7 +140,7 @@ def selectPath():
     """
     choice = ''
     print 'Please, select an option: '
-    print '1- Write a thank you email'
+    print '1- Send a thank you email'
     print '2- Create a donation report'
     print '3- Quit the application'
     while True:
