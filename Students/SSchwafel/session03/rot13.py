@@ -4,15 +4,22 @@ user_string = raw_input("Please enter the string you'd like to decrypt with Rot1
 
 #Take a user string
 def rot13(x):
-    """Takes a string and moves each letter forward 13 characters"""
-    x = list(x)
-    string_ascii_value = []
-    for i in x:
-        i = ord(i)
-        string_ascii_value.append(i)
-        print i
+    """Takes a letter and moves forward 13 characters"""
+
+    x = int( ord(x ))
+    x = x+13
+
+    if x < 65:
+        return ''
+    if x >= 65 and x<=90:
+        x = chr((x - 90) + 65)
+
+    elif x > 122:
+        x = chr((x - 122) + 97)
     print x
         #do some rot13 decrypting here
+
+
 
 
 rot13(user_string)
