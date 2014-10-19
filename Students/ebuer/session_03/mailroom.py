@@ -82,7 +82,10 @@ while bored:
 
     ## sending a thank you
     if not report_opt:
-        usr_name = raw_input('Please enter a name: ')
+        usr_name = raw_input('Please enter a name or m for menu: ')
+
+        if usr_name == 'm':
+            continue
 
         #existing name, scan records and insert new donation
         if client_check(usr_name, donors):
