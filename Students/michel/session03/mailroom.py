@@ -44,7 +44,7 @@ def thankYouMail(name, amount):
     amount is integer with donation
     """
     emailBody = name + ", we wanted to thank you for your generous donation of "
-    emailBody = emailBody + "$" + str(amount) + "The Team"
+    emailBody = emailBody + "$" + str(amount) + "\rThank you \rThe Team"
     return emailBody
     
     
@@ -61,7 +61,7 @@ def checkName(donorList, name):
 
 def listDonors(donorList):
     """
-    Prints list of all donors in datbase
+    Prints list of all donors in database
     returns None
     """
     for i in range(len(donorList)):
@@ -112,7 +112,9 @@ def thankYouPath(donorList, choice):
     if user wants to exit, returns choice = 3 for quit option
     """
     while choice == 1:
-        name = str(raw_input('Please enter a name: '))
+        print 'Enter "list" to get the list of donors'
+        print 'Enter "3" to exit this activity'
+        name = str(raw_input('Otherwise, please enter a name: '))
         if name == 'list':
             listDonors(donorList)
         elif name == '3':
@@ -122,16 +124,26 @@ def thankYouPath(donorList, choice):
             if not checkName(donorList, name):                
                 addDonor(donorList, name)
             while True:
-                amount = str(raw_input('Please, enter donation amount as an integer: '))
+                amount = str(raw_input('Please, enter donation amount as a dollar number (no pennies): '))
                 try:
                     amount = int(amount)
                     addDonation(donorList, name, amount)
+                    print thankYouMail(name, amount)
                     break
                 except:
                     print 'This is not an integer'
     return donorList, choice
 
 
+def computeStats(donorList):
+    """
+    Computes the number of donations and average donation per donor
+    returns none
+    """
+    
+    
+    
+    
 def selectPath():
     """
     Offers user 3 choices: Write a thank you email, create a report, or quit
