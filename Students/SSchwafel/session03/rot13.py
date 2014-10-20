@@ -10,7 +10,8 @@ def rot13(x):
     x = int(ord(x))
 
     if x < 65:
-        return ''
+        return chr(x)
+        #return ''
 
     elif x >= 65 and x<=90:
 
@@ -30,13 +31,8 @@ def rot13(x):
         #x = (x - 122) + 97
 
 
+user_string = list( user_string )
 
+user_string = ''.join(rot13(x) for x in user_string)
 
-print rot13(user_string)
-
-#User_string = list(user_string)
-
-
-#For i in user_string:
-#    print i
-#
+print user_string
