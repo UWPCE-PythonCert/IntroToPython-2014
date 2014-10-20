@@ -48,7 +48,9 @@ def client_check(nme, donors):
         return False
 
 
-#function takes no arguments, prompts for value then validates and returns float
+#function takes no arguments, prompts for value then
+        #validates and returns float
+
 def donation_func():
     val_donation = False
     while not val_donation:
@@ -60,9 +62,15 @@ def donation_func():
             print "Sorry, that wasn't a valid donation.\n"
     return usr_donation
 
-# #function that takes a tuple and creates a formatted string
-# def tuple_printer(tup):
-#     for n in tup:
+## test block prior to starting mailroom
+if __name__ is '__main__':
+    assert person_len(('Archer', 'Sterling')) == 14
+
+    l, f = name_split('Sterling Archer')
+    assert l == 'Archer'
+    assert f == 'Sterling'
+
+    print 'Initial tests pass.\n'
 
 
 #mailroom looping we will used bored for flow control since that
@@ -82,9 +90,16 @@ while bored:
 
     ## sending a thank you
     if not report_opt:
-        usr_name = raw_input('Please enter a name or m for menu: ')
+        usr_name = raw_input('Please enter a name, m for menu, or "list" for a list of donors: ')
 
         if usr_name == 'm':
+            continue
+
+        if usr_name == 'list':
+            print '\n'
+            for person in donors:
+                print '{first} {last}'.format(last = person[0], first = person[1])
+            print '\n'
             continue
 
         #existing name, scan records and insert new donation
@@ -94,7 +109,8 @@ while bored:
             for person in client_list:
                 #need to get correct record
                 if name_split(usr_name) in person:
-                    new_record = (name_split(usr_name), (person[1] + (usr_donation,)))
+                    new_record = (name_split(usr_name),
+                                  (person[1] + (usr_donation,)))
                     client_list[client_list.index(person)] = new_record
 
         #new donor, just append the name and donation to the end of the list
@@ -115,7 +131,11 @@ while bored:
 
     elif report_opt == 1:
         #print a report of all donors and donations
-        #find max person name length
+
+        client_list.sort()
+        donors, donations = list_maker(client_list)
+
+        #find max name length
         name_length_value = 0
         for d in donors:
             if person_len(d) > name_length_value:
@@ -123,21 +143,18 @@ while bored:
 
         name_length_value += 5   # need to add some space after the name
 
-
-        print '{0: >{l}}'.format(' ',l=name_length_value),
+        print '{0: >{l}}'.format(' ', l=name_length_value),
         print '{a: >8}  {b: >8}  {c: >8}    {d: >8}'\
-                .format(a='Num', b='Total', c='Avg', d='Donations')
+              .format(a='Num', b='Total', c='Avg', d='Donations')
 
         for person in donors:
             i = donors.index(person)
-            #print '{f} {l}'.format(f=person[1], l=person[0]),
 
             l = len(donations[i])
             avg_d = 0
             tot_d = 0
             d_list = []     # d-listed, hilarious
             c_list = []
-
 
             for d in donations[i]:
                 avg_d += d / l
@@ -163,4 +180,7 @@ while bored:
         bored = False
 
     else:
-        print "\nSorry, that isn't an option, please choose from 0 to 2.\n"
+        print \
+            "\nSorry, that isn't an option, please choose from 0 to 2.\n"
+
+
