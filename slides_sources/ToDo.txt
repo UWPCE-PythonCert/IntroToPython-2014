@@ -8,11 +8,19 @@ Don't do for for i in range() when you want to loop though list.
 
     zip and enumerate
 
-You can put muatlbe object in immutable ones!
+go through my list_lab -- deleting from list, in particular.
+
+You can put mutable objects in immutable ones!
 
 use string formatting!
 
+the sum() function
+
+while not d.isnumeric()
+
 go through michel's pull request for ideas.
+
+slicing lab solution?
 
 Future Sessions:
 

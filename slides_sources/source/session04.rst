@@ -84,7 +84,7 @@ Building up a long string.
 
 The obvious thing to do is something like::
 
-  msg = u""
+  msg = ""
   for piece in list_of_stuff:
       msg += piece
 
@@ -93,7 +93,7 @@ But: strings are immutable -- python needs to create a new string each time you 
    msg = []
    for piece in list_of_stuff:
        msg.append(piece)
-   u" ".join(msg)
+   " ".join(msg)
 
 appending to lists is efficient -- and so is the join() method of strings.
 
@@ -369,8 +369,8 @@ But you can specify a default
 
 .. code-block:: ipython
 
-  In [11]: d.get(u'something', u'a default')
-  Out[11]: u'a default'
+  In [11]: d.get('something', 'a default')
+  Out[11]: 'a default'
 
 Never raises an Exception (default default is None)
 
@@ -382,17 +382,17 @@ iterating
 
   In [13]: for item in d.iteritems():
      ....:     print item
-     ....:     
+     ....:
   ('this', 5)
   ('that', 7)
   In [15]: for key in d.iterkeys():
       print key
-     ....:     
+     ....:
   this
   that
   In [16]: for val in d.itervalues():
       print val
-     ....:     
+     ....:
   5
   7
 
@@ -432,17 +432,17 @@ gets the value if it's there, sets it if it's not
 
 .. code-block:: ipython
 
-  In [27]: d.setdefault(u'something', u'a value')
-  Out[27]: u'a value'
+  In [27]: d.setdefault('something', 'a value')
+  Out[27]: 'a value'
 
   In [28]: d
-  Out[28]: {u'something': u'a value'}
+  Out[28]: {'something': 'a value'}
 
-  In [29]: d.setdefault(u'something', u'a value')
-  Out[29]: u'a value'
+  In [29]: d.setdefault('something', 'a value')
+  Out[29]: 'a value'
 
   In [30]: d
-  Out[30]: {u'something': u'a value'}
+  Out[30]: {'something': 'a value'}
 
 .. nextslide::
 
@@ -453,18 +453,18 @@ Like ``keys()``, ``values()``, ``items()``, but maintain a link to the original 
 .. code-block:: ipython
 
   In [47]: d
-  Out[47]: {u'something': u'a value'}
+  Out[47]: {'something': 'a value'}
 
   In [48]: item_view = d.viewitems()
 
-  In [49]: d['something else'] = u'another value'
+  In [49]: d['something else'] = 'another value'
 
   In [50]: item_view
-  Out[50]: dict_items([('something else', u'another value'), (u'something', u'a value')])
+  Out[50]: dict_items([('something else', 'another value'), ('something', 'a value')])
 
 
 
-Sets 
+Sets
 -----
 
 ``set``  is an unordered collection of distinct values
@@ -536,13 +536,13 @@ All the "set" operations from math class...
     s.isdisjoint(other)
 
     s.issubset(other)
-    
+
     s.union(other, ...)
-    
+
     s.intersection(other, ...)
-    
+
     s.difference(other, ...)
-    
+
     s.symmetric_difference( other, ...)
 
 Frozen Set
@@ -628,7 +628,7 @@ So you can do
     try:
         num_in = int(num_in)
     except ValueError:
-        print u"Input must be an integer, try again."
+        print "Input must be an integer, try again."
 
 Or let the Exception be raised....
 
@@ -948,7 +948,7 @@ StringIO
 
     In [417]: import StringIO
     In [420]: f = StringIO.StringIO()
-    In [421]: f.write(u"somestuff")
+    In [421]: f.write("somestuff")
     In [422]: f.seek(0)
     In [423]: f.read()
     Out[423]: 'somestuff'
@@ -969,14 +969,14 @@ Relative paths:
 
 .. code-block:: python
 
-    u'secret.txt'
-    u'./secret.txt'
+    'secret.txt'
+    './secret.txt'
 
 Absolute paths:
 
 .. code-block:: python
 
-    u'/home/chris/secret.txt'
+    '/home/chris/secret.txt'
 
 
 Either work with ``open()`` , etc.
