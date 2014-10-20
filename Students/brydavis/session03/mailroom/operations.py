@@ -44,7 +44,7 @@ def create_report():
 	
 	printout += 'Donor Report\n'
 	printout += 'Name: %s' % donor
-	printout += '\nList of Donations (d#):'
+	printout += '\nList of Donations (%d):' % len(donations)
 	
 	for i, d in enumerate(donations, start=1):
 		printout += '\n\td%d: $%d' % (i,d)  
@@ -75,7 +75,7 @@ def add_donation():
 			return ask_again(printout)
 
 	 	elif donation_verified ==  'cancel': 
-	 		printout = 'A donation in the amount of $%d was not confirmed.' % donation	
+	 		printout = 'A donation in the amount of $%d has been cancelled.' % donation	
 			return ask_again(printout)
 		else:
 			verify_donation()
@@ -83,32 +83,25 @@ def add_donation():
  	return verify_donation()
 
 
-
-
-
-
-
-
 def ask_again(msg=''):
 	print '\n'*30, msg
-	aa = raw_input(menu_options)
-	return exit_program() if int(aa) == 3 else user_action(int(aa))
+	return user_action(int(raw_input(menu_options)))
 
 def exit_program():
 	print '%s\n' % exit_msg 
 	return None
 
 def user_action(ai=0):
-
-	new_donation = add_donation() if ai == 1 else False
-	report_status = create_report() if ai == 2 else False
-	letter_status = send_letter() if ai == 3 else False
-	program_exit = exit_program() if ai == 4 else False
-
-	ask_again() if not report_status and not letter_status and not program_exit else None 
-	 
-	# return None if program_exit or exit else ask_again()
-	
+	if ai == 1:
+		add_donation() 	
+	elif ai == 2:
+		create_report() 
+	elif ai == 3:
+		send_letter()
+	elif ai == 4:
+		exit_program()
+	else:
+		ask_again()
 
 
 def init():
