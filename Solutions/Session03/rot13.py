@@ -142,15 +142,15 @@ if __name__ == "__main__":
     print "All assertions pass"
 
 
-# ## and some timings:
-# In [12]: timeit rot13a('This is a pretty short string, but maybe long enough to test')
-# 10000 loops, best of 3: 28.9 µs per loop
+# In [34]: timeit rot13a('This is a pretty short string, but maybe long enough to test')
+# 10000 loops, best of 3: 29.4 µs per loop
 
-# In [13]: timeit rot13b('This is a pretty short string, but maybe long enough to test')
-# 10000 loops, best of 3: 30.2 µs per loop
+# In [35]: timeit rot13b('This is a pretty short string, but maybe long enough to test')
+# 10000 loops, best of 3: 29 µs per loop
 
-# In [14]: timeit rot13c('This is a pretty short string, but maybe long enough to test')
-# 1000000 loops, best of 3: 426 ns per loop
+# In [36]: timeit rot13c('This is a pretty short string, but maybe long enough to test')
+# 1000000 loops, best of 3: 419 ns per loop
 
-# Note that that last one is nanoseconds!
+# In [37]: timeit rot13d('This is a pretty short string, but maybe long enough to test')
+# 100000 loops, best of 3: 2.78 µs per loop
 
