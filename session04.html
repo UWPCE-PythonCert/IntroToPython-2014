@@ -106,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-reading-and-writing">File Reading and Writing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#paths-and-directories">Paths and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
 </ul>
 </li>
@@ -224,6 +225,13 @@
 </ul>
 </div></blockquote>
 <p>Any questions?</p>
+</div>
+<div class="section" id="lightning-talks-today">
+<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
+<p class="mlarge">Benjamin C Mier</p>
+<p class="mlarge">Robert W Perkins</p>
+<p class="mlarge">Vinay Gupta</p>
+<p class="mlarge">Wayne R Fukuhara</p>
 <p>A couple other nifty utilties with for loops:</p>
 <p><strong>tuple unpacking:</strong></p>
 <p>remember this?</p>
@@ -262,7 +270,7 @@
 <h3>Homework comments<a class="headerlink" href="#homework-comments" title="Permalink to this headline">¶</a></h3>
 <p>Building up a long string.</p>
 <p>The obvious thing to do is something like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">msg</span> <span class="o">=</span> <span class="s">u&quot;&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 <span class="k">for</span> <span class="n">piece</span> <span class="ow">in</span> <span class="n">list_of_stuff</span><span class="p">:</span>
     <span class="n">msg</span> <span class="o">+=</span> <span class="n">piece</span>
 </pre></div>
@@ -271,7 +279,7 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="n">msg</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">piece</span> <span class="ow">in</span> <span class="n">list_of_stuff</span><span class="p">:</span>
     <span class="n">msg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">piece</span><span class="p">)</span>
-<span class="s">u&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>appending to lists is efficient &#8211; and so is the join() method of strings.</p>
@@ -298,15 +306,6 @@
 <blockquote>
 <div><ul class="simple">
 <li>for an arbitrary number of numbers...</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Write a format string that will take:</p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">(</span> <span class="pre">2,</span> <span class="pre">123.4567,</span> <span class="pre">10000)</span></tt></li>
-<li>and produce:</li>
-<li>`` &#8220;file_002 :   123.46, 1e+04&#8221; ``</li>
 </ul>
 </div></blockquote>
 </li>
@@ -499,8 +498,8 @@
 </pre></div>
 </div>
 <p>But you can specify a default</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">u&#39;something&#39;</span><span class="p">,</span> <span class="s">u&#39;a default&#39;</span><span class="p">)</span>
-<span class="gh">Out[11]: </span><span class="go">u&#39;a default&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;something&#39;</span><span class="p">,</span> <span class="s">&#39;a default&#39;</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go">&#39;a default&#39;</span>
 </pre></div>
 </div>
 <p>Never raises an Exception (default default is None)</p>
@@ -543,30 +542,30 @@
 <p>This one is handy:</p>
 <p><tt class="docutils literal"><span class="pre">setdefault(key[,</span> <span class="pre">default])</span></tt></p>
 <p>gets the value if it&#8217;s there, sets it if it&#8217;s not</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">u&#39;something&#39;</span><span class="p">,</span> <span class="s">u&#39;a value&#39;</span><span class="p">)</span>
-<span class="gh">Out[27]: </span><span class="go">u&#39;a value&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;something&#39;</span><span class="p">,</span> <span class="s">&#39;a value&#39;</span><span class="p">)</span>
+<span class="gh">Out[27]: </span><span class="go">&#39;a value&#39;</span>
 
 <span class="gp">In [28]: </span><span class="n">d</span>
-<span class="gh">Out[28]: </span><span class="go">{u&#39;something&#39;: u&#39;a value&#39;}</span>
+<span class="gh">Out[28]: </span><span class="go">{&#39;something&#39;: &#39;a value&#39;}</span>
 
-<span class="gp">In [29]: </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">u&#39;something&#39;</span><span class="p">,</span> <span class="s">u&#39;a value&#39;</span><span class="p">)</span>
-<span class="gh">Out[29]: </span><span class="go">u&#39;a value&#39;</span>
+<span class="gp">In [29]: </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;something&#39;</span><span class="p">,</span> <span class="s">&#39;a value&#39;</span><span class="p">)</span>
+<span class="gh">Out[29]: </span><span class="go">&#39;a value&#39;</span>
 
 <span class="gp">In [30]: </span><span class="n">d</span>
-<span class="gh">Out[30]: </span><span class="go">{u&#39;something&#39;: u&#39;a value&#39;}</span>
+<span class="gh">Out[30]: </span><span class="go">{&#39;something&#39;: &#39;a value&#39;}</span>
 </pre></div>
 </div>
 <p>dict View objects:</p>
 <p>Like <tt class="docutils literal"><span class="pre">keys()</span></tt>, <tt class="docutils literal"><span class="pre">values()</span></tt>, <tt class="docutils literal"><span class="pre">items()</span></tt>, but maintain a link to the original dict</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="n">d</span>
-<span class="gh">Out[47]: </span><span class="go">{u&#39;something&#39;: u&#39;a value&#39;}</span>
+<span class="gh">Out[47]: </span><span class="go">{&#39;something&#39;: &#39;a value&#39;}</span>
 
 <span class="gp">In [48]: </span><span class="n">item_view</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">viewitems</span><span class="p">()</span>
 
-<span class="gp">In [49]: </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;something else&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">u&#39;another value&#39;</span>
+<span class="gp">In [49]: </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;something else&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;another value&#39;</span>
 
 <span class="gp">In [50]: </span><span class="n">item_view</span>
-<span class="gh">Out[50]: </span><span class="go">dict_items([(&#39;something else&#39;, u&#39;another value&#39;), (u&#39;something&#39;, u&#39;a value&#39;)])</span>
+<span class="gh">Out[50]: </span><span class="go">dict_items([(&#39;something else&#39;, &#39;another value&#39;), (&#39;something&#39;, &#39;a value&#39;)])</span>
 </pre></div>
 </div>
 </div>
@@ -648,6 +647,72 @@
 <span class="gr">AttributeError</span>: <span class="n">&#39;frozenset&#39; object has no attribute &#39;add&#39;</span>
 </pre></div>
 </div>
+<div class="section" id="lab">
+<h4>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h4>
+<p>Dict / Set Lab</p>
+</div>
+</div>
+<div class="section" id="dictionaries-and-sets-lab">
+<h3>Dictionaries and Sets lab<a class="headerlink" href="#dictionaries-and-sets-lab" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<ul class="simple">
+<li>Create a dictionary containing &#8220;name&#8221;, &#8220;city&#8221;, and &#8220;cake&#8221; for &#8220;Chris&#8221; from &#8220;Seattle&#8221; who likes &#8220;Chocolate&#8221;.</li>
+<li>Display the dictionary.</li>
+<li>Delete the entry for &#8220;cake&#8221;.</li>
+<li>Display the dictionary.</li>
+<li>Add an entry for &#8220;fruit&#8221; with &#8220;Mango&#8221; and display the dictionary.<ul>
+<li>Display the dictionary keys.</li>
+<li>Display the dictionary values.</li>
+<li>Display whether or not &#8220;cake&#8221; is a key in the dictionary (i.e. False) (now).</li>
+<li>Display whether or not &#8220;Mango&#8221; is a value in the dictionary (i.e. True).</li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<ul class="simple">
+<li>Using the dict constructor and zip, build a dictionary of numbers from zero
+to fifteen and the hexadecimal equivalent (string is fine).</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li></li>
+</ol>
+<ul class="simple">
+<li>Using the dictionary from item 1: Make a dictionary using the same keys but
+with the number of &#8216;t&#8217;s in each value.</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li></li>
+</ol>
+<ul class="simple">
+<li>Create sets s2, s3 and s4 that contain numbers from zero through twenty,
+divisible 2, 3 and 4.</li>
+<li>Display the sets.</li>
+<li>Display if s3 is a subset of s2 (False)</li>
+<li>and if s4 is a subset of s2 (True).</li>
+</ul>
+<ol class="arabic simple" start="5">
+<li></li>
+</ol>
+<ul class="simple">
+<li>Create a set with the letters in &#8216;Python&#8217; and add &#8216;i&#8217; to the set.</li>
+<li>Create a frozenset with the letters in &#8216;marathon&#8217;</li>
+<li>display the union and intersection of the two sets.</li>
+</ul>
+</div>
+<div class="section" id="lightning-talks">
+<h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Benjamin C Mier</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Robert W Perkins</div>
+<div class="line"><br /></div>
+</div>
 </div>
 </div>
 <div class="section" id="exceptions">
@@ -697,7 +762,7 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
     <span class="n">num_in</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_in</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">u&quot;Input must be an integer, try again.&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Input must be an integer, try again.&quot;</span>
 </pre></div>
 </div>
 <p>Or let the Exception be raised....</p>
@@ -794,6 +859,33 @@
 </pre></div>
 </div>
 <p>but should you be checking type anyway? (EAFP)</p>
+<div class="section" id="id5">
+<h4>LAB<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Exceptions Lab</p>
+</div>
+</div>
+<div class="section" id="exceptions-lab">
+<h3>Exceptions Lab<a class="headerlink" href="#exceptions-lab" title="Permalink to this headline">¶</a></h3>
+<p>Improving <tt class="docutils literal"><span class="pre">raw_input</span></tt></p>
+<ul class="simple">
+<li>The <tt class="docutils literal"><span class="pre">raw_input()</span></tt>  function can generate two exceptions: <tt class="docutils literal"><span class="pre">EOFError</span></tt>
+or <tt class="docutils literal"><span class="pre">KeyboardInterrupt</span></tt>  on end-of-file(EOF) or canceled input.</li>
+<li>Create a wrapper function, perhaps <tt class="docutils literal"><span class="pre">safe_input()</span></tt>  that returns <tt class="docutils literal"><span class="pre">None</span></tt>
+rather rather than raising these exceptions, when the user enters <tt class="docutils literal"><span class="pre">^C</span></tt>  for Keyboard Interrupt, or <tt class="docutils literal"><span class="pre">^D</span></tt> (<tt class="docutils literal"><span class="pre">^Z</span></tt>  on Windows) for End Of File.</li>
+<li>Update your mailroom program to use exceptions (and IBAFP) to handle
+malformed numeric input</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>Lightning Talks<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Vinay Gupta</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Wayne R Fukuhara</div>
+<div class="line"><br /></div>
+</div>
 </div>
 </div>
 <div class="section" id="file-reading-and-writing">
@@ -801,26 +893,24 @@
 <div class="section" id="files">
 <h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
 <p>Text Files</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">,</span> <span class="n">codec</span><span class="o">=</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">)</span>
 <span class="n">secret_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">secret_data</span></tt> is a (unicode) string</p>
-<p><tt class="docutils literal"><span class="pre">codec</span></tt> defaults to <tt class="docutils literal"><span class="pre">sys.getdefaultencoding()</span></tt> &#8211; often NOT what you want.</p>
-<p>(There is also the regular <tt class="docutils literal"><span class="pre">open()</span></tt> built in, but it won&#8217;t handle Unicode for you...)</p>
+<p><tt class="docutils literal"><span class="pre">secret_data</span></tt> is a string</p>
+<p>NOTE: these days, you probably need to use Unicode for text &#8211; we&#8217;ll get to that next week</p>
 <p>Binary Files</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;secrets.bin&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.bin&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
 <span class="n">secret_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">secret_data</span></tt>  is a byte string</p>
+<p><tt class="docutils literal"><span class="pre">secret_data</span></tt> is a byte string</p>
 <p>(with arbitrary bytes in it &#8211; well, not arbitrary &#8211; whatever is in the file.)</p>
 <p>(See the <tt class="docutils literal"><span class="pre">struct</span></tt>  module to unpack binary data )</p>
 <p>File Opening Modes</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">mode</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">mode</span><span class="p">])</span>
 <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span>
 <span class="s">&#39;rb&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">,</span> <span class="s">&#39;ab&#39;</span>
 <span class="n">r</span><span class="o">+</span><span class="p">,</span> <span class="n">w</span><span class="o">+</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span>
@@ -829,7 +919,8 @@
 <span class="n">U</span><span class="o">+</span>
 </pre></div>
 </div>
-<p>These follow the Unix conventions, and aren&#8217;t all that well documented on the Python docs. But these BSD docs make it pretty clear:</p>
+<p>These follow the Unix conventions, and aren&#8217;t all that well documented
+in the Python docs. But these BSD docs make it pretty clear:</p>
 <p><a class="reference external" href="http://www.manpagez.com/man/3/fopen/">http://www.manpagez.com/man/3/fopen/</a></p>
 <p><strong>Gotcha</strong> &#8211; &#8216;w&#8217; modes always clear the file</p>
 <p>Text is default</p>
@@ -838,8 +929,7 @@
 <li>Newlines are translated: <tt class="docutils literal"><span class="pre">\r\n</span> <span class="pre">-&gt;</span> <span class="pre">\n</span></tt></li>
 <li>&#8211; reading and writing!</li>
 <li>Use *nix-style in your code: <tt class="docutils literal"><span class="pre">\n</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">io.open()</span></tt> returns various &#8220;stream&#8221; objects &#8211; but they act like file objects.</li>
-<li>In text mode, io.open() defaults to &#8220;Universal&#8221; newline mode.</li>
+<li>In text mode, you can use &#8216;U&#8217; for &#8220;Universal&#8221; newline mode.</li>
 </ul>
 </div></blockquote>
 <p>Gotcha:</p>
@@ -849,19 +939,6 @@
 <li>breaks on Windows</li>
 </ul>
 </div></blockquote>
-<p><tt class="docutils literal"><span class="pre">io.open(file,</span> <span class="pre">mode='r',</span> <span class="pre">buffering=-1,</span> <span class="pre">encoding=None,</span> <span class="pre">errors=None,</span> <span class="pre">newline=None,</span> <span class="pre">closefd=True)</span></tt></p>
-<blockquote>
-<div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">file</span></tt> is generally a file name or full path</li>
-<li><tt class="docutils literal"><span class="pre">mode</span></tt> is the mode for opening: &#8216;r&#8217;, &#8216;w&#8217;, etc.</li>
-<li><tt class="docutils literal"><span class="pre">buffering</span></tt> controls the buffering mode (0 for no buffering)</li>
-<li><tt class="docutils literal"><span class="pre">encoding</span></tt> sets the unicode encoding &#8211; only for text files &#8211; when set, you can ONLY write unicode object to the file.</li>
-<li><tt class="docutils literal"><span class="pre">errors</span></tt> sets the encoding error mode: &#8216;strict&#8217;, &#8216;ignore&#8217;, &#8216;replace&#8217;,...</li>
-<li><tt class="docutils literal"><span class="pre">newline</span></tt> controls Universal Newline mode: lets you write DOS-type files on *nix, for instance (text mode only).</li>
-<li><tt class="docutils literal"><span class="pre">closedfd</span></tt> controls close()  behavior if a file descriptor, rather than a name is passed in (advanced usage!)</li>
-</ul>
-</div></blockquote>
-<p>(<a class="reference external" href="https://docs.python.org/2/library/io.html?highlight=io.open#io.open">https://docs.python.org/2/library/io.html?highlight=io.open#io.open</a>)</p>
 </div>
 <div class="section" id="file-reading">
 <h3>File Reading<a class="headerlink" href="#file-reading" title="Permalink to this headline">¶</a></h3>
@@ -874,12 +951,12 @@
 </pre></div>
 </div>
 <p>Common Idioms</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">):</span>
     <span class="k">print</span> <span class="n">line</span>
 </pre></div>
 </div>
 <p>(the file object is an iterator!)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">)</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
@@ -890,7 +967,7 @@
 </div>
 <div class="section" id="file-writing">
 <h3>File Writing<a class="headerlink" href="#file-writing" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">outfile</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;this is line: </span><span class="si">%i</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
@@ -903,7 +980,7 @@
 
 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
 
-<span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>   <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>   <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="c"># for binary files, mostly</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
 
@@ -921,6 +998,7 @@
 <li><tt class="docutils literal"><span class="pre">urllib.open()</span></tt></li>
 <li>pipes, subprocesses</li>
 <li>StringIO</li>
+<li>variois objects in the <tt class="docutils literal"><span class="pre">io</span></tt> module</li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#file-objects">https://docs.python.org/2/library/stdtypes.html#file-objects</a></p>
@@ -929,13 +1007,17 @@
 <h3>StringIO<a class="headerlink" href="#stringio" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">417</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">StringIO</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">420</span><span class="p">]:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">StringIO</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-<span class="n">In</span> <span class="p">[</span><span class="mi">421</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">u&quot;somestuff&quot;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">421</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;somestuff&quot;</span><span class="p">)</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">422</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">423</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">423</span><span class="p">]:</span> <span class="s">&#39;somestuff&#39;</span>
 </pre></div>
 </div>
 <p>(handy for testing file handling code...)</p>
+<p>There is also cStringIO &#8211; a bit faster.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cStringIO</span> <span class="kn">import</span> <span class="n">StringIO</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="paths-and-directories">
@@ -944,12 +1026,12 @@
 <h3>Paths<a class="headerlink" href="#paths" title="Permalink to this headline">¶</a></h3>
 <p>Paths are generally handled with simple strings (or Unicode strings)</p>
 <p>Relative paths:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">u&#39;secret.txt&#39;</span>
-<span class="s">u&#39;./secret.txt&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;secret.txt&#39;</span>
+<span class="s">&#39;./secret.txt&#39;</span>
 </pre></div>
 </div>
 <p>Absolute paths:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">u&#39;/home/chris/secret.txt&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;/home/chris/secret.txt&#39;</span>
 </pre></div>
 </div>
 <p>Either work with <tt class="docutils literal"><span class="pre">open()</span></tt> , etc.</p>
@@ -1002,6 +1084,23 @@ os.path.relpath()￼
 </div>
 </div>
 </div>
+<div class="section" id="id7">
+<h2>LAB<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Files Lab: If there is time.</p>
+<div class="section" id="files-lab">
+<h3>Files Lab<a class="headerlink" href="#files-lab" title="Permalink to this headline">¶</a></h3>
+<p>In the class repo, in:</p>
+<p><tt class="docutils literal"><span class="pre">Examples\Session01\students.txt</span></tt></p>
+<p>You will find the list I genrated of all the students in teh class, and
+what programming langues they used in the past.</p>
+<p>Write a little script that reads that file, and generates a list of all
+the languages that have been used.</p>
+<p>Extra credit: keep track of how many sutdents specified each language.</p>
+<p>If you&#8217;ve got giot set up right, <tt class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></tt> should update
+your repo. Otherwise, you can get it from gitHub:</p>
+<p><tt class="docutils literal"><span class="pre">https://github.com/UWPCE-PythonCert/IntroToPython/blob/master/Examples/Session01/students.txt</span></tt></p>
+</div>
+</div>
 <div class="section" id="homework">
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="recommended-reading">
@@ -1017,73 +1116,33 @@ os.path.relpath()￼
 <h3>Assignments:<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li>dict/sets lab</li>
-<li>coding kata: trigrams</li>
-<li>Exceptions</li>
-<li>Update mailroom with dicts.</li>
+<li>Finish the dict/sets lab</li>
+<li>Finish the Exceptions lab</li>
+<li>Coding kata: trigrams</li>
+<li>Paths and files</li>
+<li>Update mailroom with dicts and exceptions</li>
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="id5">
-<h3>Dictionaries and Sets<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<ul class="simple">
-<li>Create a dictionary containing &#8220;name&#8221;, &#8220;city&#8221;, and &#8220;cake&#8221; for &#8220;Chris&#8221; from &#8220;Seattle&#8221; who likes &#8220;Chocolate&#8221;.</li>
-<li>Display the dictionary.</li>
-<li>Delete the entry for &#8220;cake&#8221;.</li>
-<li>Display the dictionary.</li>
-<li>Add an entry for &#8220;fruit&#8221; with &#8220;Mango&#8221; and display the dictionary.<ul>
-<li>Display the dictionary keys.</li>
-<li>Display the dictionary values.</li>
-<li>Display whether or not &#8220;cake&#8221; is a key in the dictionary (i.e. False) (now).</li>
-<li>Display whether or not &#8220;Mango&#8221; is a value in the dictionary.</li>
-</ul>
-</li>
-</ul>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<ul class="simple">
-<li>Using the dict constructor and zip, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent (string is fine).</li>
-</ul>
-<ol class="arabic simple" start="3">
-<li></li>
-</ol>
-<ul class="simple">
-<li>Using the dictionary from item 1: Make a dictionary using the same keys but with the number of &#8216;a&#8217;s in each value.</li>
-</ul>
-<ol class="arabic simple" start="4">
-<li></li>
-</ol>
-<ul class="simple">
-<li>Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.</li>
-<li>Display the sets.</li>
-<li>Display if s3 is a subset of s2 (False)</li>
-<li>and if s4 is a subset of s2 (True).</li>
-</ul>
-<ol class="arabic simple" start="5">
-<li></li>
-</ol>
-<ul class="simple">
-<li>Create a set with the letters in &#8216;Python&#8217; and add &#8216;i&#8217; to the set.</li>
-<li>Create a frozenset with the letters in &#8216;marathon&#8217;</li>
-<li>display the union and intersection of the two sets.</li>
-</ul>
-</div>
 <div class="section" id="text-and-files-and-dicts-and">
 <h3>Text and files and dicts, and...<a class="headerlink" href="#text-and-files-and-dicts-and" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first">Coding Kata 14 - Dave Thomas</p>
-<p><a class="reference external" href="http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/">http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/</a></p>
+<blockquote>
+<div><p><a class="reference external" href="http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/">http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/</a></p>
 <p>and in this doc:</p>
-<p><a class="reference external" href="http://codefellows.github.io/sea-c15-python/supplements/kata_fourteen.html">http://codefellows.github.io/sea-c15-python/supplements/kata_fourteen.html</a></p>
+<p><a class="reference internal" href="homework/kata_fourteen.html"><em>Kata Fourteen: Tom Swift Under Milk Wood</em></a></p>
+<p>and on github here</p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/homework/kata_fourteen.html">http://uwpce-pythoncert.github.io/IntroToPython/homework/kata_fourteen.html</a></p>
+</div></blockquote>
 </li>
+</ul>
+<ul>
 <li><p class="first">Use The Adventures of Sherlock Holmes as input:</p>
 <blockquote>
-<div><p><a class="reference external" href="http://codefellows.github.io/sea-c15-python/_downloads/sherlock.txt">http://codefellows.github.io/sea-c15-python/_downloads/sherlock.txt</a></p>
+<div><p><a class="reference download internal" href="_downloads/sherlock.txt"><tt class="xref download docutils literal"><span class="pre">./homework/sherlock.txt</span></tt></a></p>
+<p>and on github here:</p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt">http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt</a></p>
 </div></blockquote>
 </li>
 <li><p class="first">This is intentionally open-ended and underspecified. There are many interesting decisions to make.</p>
@@ -1091,32 +1150,23 @@ os.path.relpath()￼
 <li><p class="first">Experiment with different lengths for the lookup key. (3 words, 4 words, 3 letters, etc)</p>
 </li>
 </ul>
-</div></blockquote>
-</div>
-<div class="section" id="id6">
-<h3>Exceptions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p>Improving <tt class="docutils literal"><span class="pre">raw_input</span></tt></p>
-<ul class="simple">
-<li>The <tt class="docutils literal"><span class="pre">raw_input()</span></tt>  function can generate two exceptions: <tt class="docutils literal"><span class="pre">EOFError</span></tt>  or <tt class="docutils literal"><span class="pre">KeyboardInterrupt</span></tt>  on end-of-file(EOF) or canceled input.</li>
-<li>Create a wrapper function, perhaps <tt class="docutils literal"><span class="pre">safe_input()</span></tt>  that returns <tt class="docutils literal"><span class="pre">None</span></tt>  rather rather than raising these exceptions, when the user enters <tt class="docutils literal"><span class="pre">^C</span></tt>  for Keyboard Interrupt, or <tt class="docutils literal"><span class="pre">^D</span></tt> (<tt class="docutils literal"><span class="pre">^Z</span></tt>  on Windows) for End Of File.</li>
-<li>Update your mailroom program to use exceptions (and IBAFP) to handle malformed numeric input</li>
-</ul>
 </div>
 <div class="section" id="paths-and-file-processing">
 <h3>Paths and File Processing<a class="headerlink" href="#paths-and-file-processing" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li>write a program which prints the full path to all files in the current directory, one per line</li>
-<li>write a program which copies a file from a source, to a destination (without using shutil, or the OS copy command)</li>
+<ul class="simple">
+<li>write a program which prints the full path to all files in the current
+directory, one per line</li>
+<li>write a program which copies a file from a source, to a destination
+(without using shutil, or the OS copy command)</li>
 <li>update mailroom from last weeks homework to:<ul>
 <li>use dicts where appropriate</li>
 <li>write a full set of letters to everyone to individual files on disk</li>
 <li>see if you can use a dict to switch between the users selections</li>
-<li>Try to use a dict and the .format() method to do the letter as one big template &#8211; rather than building up a big string in parts.</li>
+<li>Try to use a dict and the .format() method to do the letter as one
+big template &#8211; rather than building up a big string in parts.</li>
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </div>
 </div>
 </div>
