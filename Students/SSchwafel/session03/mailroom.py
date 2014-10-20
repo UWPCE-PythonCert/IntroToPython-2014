@@ -19,11 +19,51 @@ def historical_amounts(x):
 
             index_number = int(x.index(full_name)) + 1
 
-            print x[index_number]
+            print 'It looks like in the past, ' + full_name + ' donated: ' +  str(x[index_number])
+
+            query_new_donation = raw_input('Would you like to add a new donation for this donor? \n\n(yes/no)\n\n')
+                
+            if query_new_donation.lower() == 'yes':
+
+               #here's where you're going to put stuff to add the new donations!!!! 
+                print donors
+
         elif full_name.lower() == 'list':
             #if name is list, print a list of donors with the amounts they've donated
             for i in donors:
                 print i
+
+        elif full_name not in donors:
+
+            add_donor = raw_input( "It looks like you entered a name that isn't in the donor list. Would you like to add this donor?\n\n(yes/no)\n\n")
+
+            new_donor = raw_input( "Please enter the donor's first and last name:\n")
+
+            if add_donor.lower() == 'yes':
+
+                new_donation_amount = '' 
+
+                while new_donation_amount.isdigit() == False:
+                    #keeps prompting while until use gives a digit amount
+
+                    
+                    new_donation_amount = str(add_donation())
+                    #new_donation_amount = raw_input('How much did this person donate? (Please use a whole number without commas) ')
+                    donors.append(new_donor)
+                    donors.append([new_donation_amount])
+        
+                print donors
+
+            else:
+                
+                #changes full_name to a digit value, killing the while loop
+                full_name = str(1)
+
+def add_donation():
+
+    new_donation = raw_input('What is the latest donation amount from this donor? ')
+    return new_donation
+    
 
 def show_donors():
     """Returns a list of the donors in organized format"""
