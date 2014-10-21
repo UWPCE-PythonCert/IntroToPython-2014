@@ -134,7 +134,7 @@ def add_donation(x, y):
 
     new_donation = raw_input("What is the latest donation amount from this donor? ")
 
-    if new_donation.isdigit() == True:
+    if new_donation.isdigit() == False:
         return 'Please try again with an int'        
 
     new_donation = int(new_donation)
@@ -142,7 +142,8 @@ def add_donation(x, y):
     for i in y:
         
         if x == i[0]:
-           
+            print x
+            print y 
             return i[1].append(new_donation)
     return 
 
