@@ -23,7 +23,6 @@ def send_a_thank_you(x):
             if query_new_donation.lower() == 'yes':
 
                 add_donation(full_name)
-                print donors
 
             elif query_new_donation.lower() == 'no':
 
@@ -72,22 +71,22 @@ def create_a_report():
             #donor_name = i[0]
             #sorting_key = i[1]
 
-            temp_list.append((i[0],len(i[1]),i[1]))
+            total_amount_of_donations = (sum(i[1])/len(i[1]))
 
-            # len(i[1]])
+            temp_list.append((i[0],len(i[1]),i[1]))
+            
             #temp_list.append(str())
 
 
     #sorted_donors = '\n'.join(map(str, sorted_donors))
-    temp_list = '\n'.join(map(str, temp_list))
+
+    #temp_list = '\n'.join(map(str, temp_list))
 
     for i in temp_list:
 
-        for x in i:
-    
-            print "{0}".format(i)
+        print '%s %s %s' % (i[0],i[1],i[2])
 
-    #print temp_list 
+    print temp_list 
 
     #sorted_donors =  str(sorted_donors)
 
@@ -129,21 +128,19 @@ def donation_amount(x,y):
         
 def add_donation(x):
     """Adds donation to nested list associated with donor"""
-    while x > 1:
 
-        new_donation = raw_input("What is the latest donation amount from this donor? (you will be re-promted if you don't use an integer value) ")
+    new_donation = raw_input("What is the latest donation amount from this donor? ")
 
-        if new_donation.isdigit() == True:
-            break
+    if new_donation.isdigit() == True:
+        return 'Please try again with an int'        
 
     new_donation = int(new_donation)
 
     for i in donors:
-
-        if x == i[0]:
+        
+        if i == i[0]:
             i[1].append(new_donation)
-
-    return i[1]
+    return 
 
 def send_email(x): 
     """Sends prints a message to standard out thanking the user for their donation and summing their donation history. """
