@@ -6,6 +6,14 @@ V "visual mode lines (allows you to select lines)
 <crtl + v> "block visual mode
 
 
+"""BUFFERS"""
+:bn "next buffer
+:bp "previous buffer
+:bd "delete buffer
+Crtl-^ "switch to last buffer
+:ls "show all buffers
+
+
 """WINDOWS"""
 :sp <filename> "new window horizontal split
 :vsp <filename> "new window virtical split
