@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-donors = [('bruce wayne',[100000]), ('clark kent',[50000]), ('barry allen',['100']), ('diana prince',['1300']), ('wally west',['10034']),('hal jordan',['10000'])] 
+donors = [('bruce wayne',[100000]), ('clark kent',[50000]), ('barry allen',[100]), ('diana prince',[1300]), ('wally west',[10034]),('hal jordan',[10000])] 
 def historical_amounts(x):
 
     """Displays a list of all the donations a user has contributed"""
@@ -14,32 +14,37 @@ def historical_amounts(x):
         
         if is_name_present(full_name, donors) == True:
 
-            print 'It looks like in the past, ' + full_name.title() + ' donated: ' + str(donation_amount(full_name,donors)).strip("['']")
+            print 'It looks like in the past, ' + full_name.title() + ' donated: $' + str(donation_amount(full_name,donors)).strip("[]")
 
             query_new_donation = raw_input('Would you like to add a new donation for this donor? \n\n(yes/no)\n\n')
 
             if query_new_donation.lower() == 'yes':
                 add_donation(full_name)
+                print donors
         else: 
 
-            print 'Keep hackin'
+            query_add_donor = raw_input("It doesn't look like that donor exists in the database yet, would you like to add this person? \n\n(yes/no)\n\n")
+
+            if query_add_donor.lower() == 'yes':
+                add_donor(full_name)
+            else:
+                full_name = 1
 
 
-#            query_new_donation = raw_input('Would you like to add a new donation for this donor? \n\n(yes/no)\n\n')
-#                
-#            if query_new_donation.lower() == 'yes':
-#here's where you're going to put stuff to add the new donations!!!! 
-#                print donors
 
-#        elif full_name.lower() == 'list':
-#            #if name is list, print a list of donors with the amounts they've donated
-#            for i in donors:
-#                print i
-#
-#        elif full_name not in donors:
-#
-#            add_donor = raw_input( "It looks like you entered a name that isn't in the donor list. Would you like to add this donor?\n\n(yes/no)\n\n")
-#
+
+def add_donor():
+
+    donor_name = raw_input("Please enter the donor's full name ")
+    donor_name = donor_name.lower()
+
+    new_donor_initial_donation = raw_input("What was this donor's initial contribution? ")
+    new_donor_initial_donation = int(new_donor_initial_donation)
+
+    return (donor_name,[new_donor_initial_donation])
+
+
+
 #            new_donor = raw_input( "Please enter the donor's first and last name:\n")
 #
 #            if add_donor.lower() == 'yes':
@@ -82,11 +87,17 @@ def donation_amount(x,y):
         if x == i[0]:
             return i[1]
         
-def add_donation():
+def add_donation(x):
 
     new_donation = raw_input('What is the latest donation amount from this donor? ')
-    return new_donation
-    
+    new_donation = int(new_donation)
+
+    for i in donors:
+
+        if x == i[0]:
+            i[1].append(new_donation)
+
+    return i[1]
 
 def show_donors():
     """Returns a list of the donors in organized format"""
@@ -113,10 +124,10 @@ or
 user_input = user_input.title()
 
 if user_input.upper() == 'A':
-    #do something
-    print historical_amounts(donors)
-    #print is_name_present('Hal Jordan', donors)
 
+    #print historical_amounts(donors)
+    donors.append(add_donor())
+    print donors
 #elif user_input == 'Create A Report':
 #
 #    #do something else
