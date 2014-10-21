@@ -46,9 +46,16 @@ Lightning Talks Today:
     Wayne R Fukuhara
 
 
-.. nextslide::
+==============================
+Handy hints for/from Homework
+==============================
 
-A couple other nifty utilties with for loops:
+.. rst-class:: mlarge
+
+  You almost never need to loop through the indexes of a sequence
+
+nifty for loop tricks
+---------------------
 
 **tuple unpacking:**
 
@@ -71,10 +78,15 @@ You can do that in a for loop, also:
   i:3, j:4
   i:5, j:6
 
+(Mailroom example)
+
+
 Looping through two loops at once:
 ----------------------------------
 
-**zip:**
+.. rst-class:: mlarge
+
+  ``zip``
 
 .. code-block:: ipython
 
@@ -89,9 +101,34 @@ Looping through two loops at once:
     i:2, j:4
     i:3, j:5
 
+Can be more than two:
+
+.. code-block:: python
+
+  for i, j, k, l in zip(l1, l2, l3, l4):
 
 
-Homework comments
+Need the index and the item?
+----------------------------
+
+.. rst-class:: mlarge
+
+  ``enumerate``
+
+.. code-block:: ipython
+
+    In [2]: l = ['this', 'that', 'the other']
+
+    In [3]: for i, item in enumerate(l):
+       ...:     print "the %ith item is: %s"%(i, item)
+       ...:
+    the 0th item is: this
+    the 1th item is: that
+    the 2th item is: the other
+
+
+
+Homework Comments
 -----------------
 
 Building up a long string.
@@ -111,6 +148,23 @@ But: strings are immutable -- python needs to create a new string each time you 
 
 appending to lists is efficient -- and so is the join() method of strings.
 
+.. nextslide::
+
+.. rst-class:: center mlarge
+
+You can put a mutable item in an immutable object!
+
+(demo)
+
+.. nextslide:: A couple small things:
+
+|
+| Use string formatting
+|
+| The ``sum()`` function
+|
+| Deleting from list (list_lab)
+|
 
 .. nextslide::
 

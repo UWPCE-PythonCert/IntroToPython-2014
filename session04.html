@@ -101,6 +101,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handy-hints-for-from-homework">Handy hints for/from Homework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#a-little-warm-up">A little warm up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dictionaries-and-sets">Dictionaries and Sets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
@@ -232,7 +233,13 @@
 <p class="mlarge">Robert W Perkins</p>
 <p class="mlarge">Vinay Gupta</p>
 <p class="mlarge">Wayne R Fukuhara</p>
-<p>A couple other nifty utilties with for loops:</p>
+</div>
+</div>
+<div class="section" id="handy-hints-for-from-homework">
+<h2>Handy hints for/from Homework<a class="headerlink" href="#handy-hints-for-from-homework" title="Permalink to this headline">¶</a></h2>
+<p class="mlarge">You almost never need to loop through the indexes of a sequence</p>
+<div class="section" id="nifty-for-loop-tricks">
+<h3>nifty for loop tricks<a class="headerlink" href="#nifty-for-loop-tricks" title="Permalink to this headline">¶</a></h3>
 <p><strong>tuple unpacking:</strong></p>
 <p>remember this?</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
@@ -249,10 +256,11 @@
 <span class="go">i:5, j:6</span>
 </pre></div>
 </div>
+<p>(Mailroom example)</p>
 </div>
 <div class="section" id="looping-through-two-loops-at-once">
 <h3>Looping through two loops at once:<a class="headerlink" href="#looping-through-two-loops-at-once" title="Permalink to this headline">¶</a></h3>
-<p><strong>zip:</strong></p>
+<p class="mlarge"><tt class="docutils literal"><span class="pre">zip</span></tt></p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="gp">In [11]: </span><span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -265,9 +273,27 @@
 <span class="go">i:3, j:5</span>
 </pre></div>
 </div>
+<p>Can be more than two:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">,</span> <span class="n">l4</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="need-the-index-and-the-item">
+<h3>Need the index and the item?<a class="headerlink" href="#need-the-index-and-the-item" title="Permalink to this headline">¶</a></h3>
+<p class="mlarge"><tt class="docutils literal"><span class="pre">enumerate</span></tt></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">,</span> <span class="s">&#39;the other&#39;</span><span class="p">]</span>
+
+<span class="gp">In [3]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">print</span> <span class="s">&quot;the </span><span class="si">%i</span><span class="s">th item is: </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">the 0th item is: this</span>
+<span class="go">the 1th item is: that</span>
+<span class="go">the 2th item is: the other</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="homework-comments">
-<h3>Homework comments<a class="headerlink" href="#homework-comments" title="Permalink to this headline">¶</a></h3>
+<h3>Homework Comments<a class="headerlink" href="#homework-comments" title="Permalink to this headline">¶</a></h3>
 <p>Building up a long string.</p>
 <p>The obvious thing to do is something like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
@@ -283,6 +309,17 @@
 </pre></div>
 </div>
 <p>appending to lists is efficient &#8211; and so is the join() method of strings.</p>
+<p class="center mlarge">You can put a mutable item in an immutable object!</p>
+<p>(demo)</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Use string formatting</div>
+<div class="line"><br /></div>
+<div class="line">The <tt class="docutils literal"><span class="pre">sum()</span></tt> function</div>
+<div class="line"><br /></div>
+<div class="line">Deleting from list (list_lab)</div>
+<div class="line"><br /></div>
+</div>
 <p>What is <tt class="docutils literal"><span class="pre">assert</span></tt> for?</p>
 <p>Testing &#8211; NOT for issues expected to happen operationally:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">assert</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">0</span>
