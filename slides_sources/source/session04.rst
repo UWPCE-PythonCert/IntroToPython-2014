@@ -32,9 +32,30 @@ Review of Previous Classes
 
 Any questions?
 
-.. nextslide::
+Lightning Talks Today:
+----------------------
 
-A couple other nifty utilties with for loops:
+.. rst-class:: mlarge
+
+    Benjamin C Mier
+
+    Robert W Perkins
+
+    Vinay Gupta
+
+    Wayne R Fukuhara
+
+
+==============================
+Handy hints for/from Homework
+==============================
+
+.. rst-class:: mlarge
+
+  You almost never need to loop through the indexes of a sequence
+
+nifty for loop tricks
+---------------------
 
 **tuple unpacking:**
 
@@ -57,10 +78,15 @@ You can do that in a for loop, also:
   i:3, j:4
   i:5, j:6
 
+(Mailroom example)
+
+
 Looping through two loops at once:
 ----------------------------------
 
-**zip:**
+.. rst-class:: mlarge
+
+  ``zip``
 
 .. code-block:: ipython
 
@@ -75,9 +101,34 @@ Looping through two loops at once:
     i:2, j:4
     i:3, j:5
 
+Can be more than two:
+
+.. code-block:: python
+
+  for i, j, k, l in zip(l1, l2, l3, l4):
 
 
-Homework comments
+Need the index and the item?
+----------------------------
+
+.. rst-class:: mlarge
+
+  ``enumerate``
+
+.. code-block:: ipython
+
+    In [2]: l = ['this', 'that', 'the other']
+
+    In [3]: for i, item in enumerate(l):
+       ...:     print "the %ith item is: %s"%(i, item)
+       ...:
+    the 0th item is: this
+    the 1th item is: that
+    the 2th item is: the other
+
+
+
+Homework Comments
 -----------------
 
 Building up a long string.
@@ -97,6 +148,23 @@ But: strings are immutable -- python needs to create a new string each time you 
 
 appending to lists is efficient -- and so is the join() method of strings.
 
+.. nextslide::
+
+.. rst-class:: center mlarge
+
+You can put a mutable item in an immutable object!
+
+(demo)
+
+.. nextslide:: A couple small things:
+
+|
+| Use string formatting
+|
+| The ``sum()`` function
+|
+| Deleting from list (list_lab)
+|
 
 .. nextslide::
 
@@ -127,13 +195,6 @@ Fun with strings
 
     - for an arbitrary number of numbers...
 
-* Write a format string that will take:
-
-    -  ``( 2, 123.4567, 10000)``
-
-    -       and produce:
-
-    - `` "file_002 :   123.46, 1e+04" ``
 
 =====================
 Dictionaries and Sets
@@ -561,6 +622,73 @@ immutable -- for use as a key in a dict
       File "<stdin>", line 1, in <module>
     AttributeError: 'frozenset' object has no attribute 'add'
 
+LAB
+====
+
+Dict / Set Lab
+
+Dictionaries and Sets lab
+--------------------------
+
+1.
+
+* Create a dictionary containing "name", "city", and "cake" for "Chris" from "Seattle" who likes "Chocolate".
+
+* Display the dictionary.
+
+* Delete the entry for "cake".
+
+* Display the dictionary.
+
+* Add an entry for "fruit" with "Mango" and display the dictionary.
+
+  - Display the dictionary keys.
+  - Display the dictionary values.
+  - Display whether or not "cake" is a key in the dictionary (i.e. False) (now).
+  - Display whether or not "Mango" is a value in the dictionary (i.e. True).
+
+.. nextslide::
+
+2.
+
+* Using the dict constructor and zip, build a dictionary of numbers from zero
+  to fifteen and the hexadecimal equivalent (string is fine).
+
+3.
+
+* Using the dictionary from item 1: Make a dictionary using the same keys but
+  with the number of 't's in each value.
+
+.. nextslide:: sets
+
+4.
+
+* Create sets s2, s3 and s4 that contain numbers from zero through twenty,
+  divisible 2, 3 and 4.
+
+* Display the sets.
+
+* Display if s3 is a subset of s2 (False)
+
+* and if s4 is a subset of s2 (True).
+
+5.
+
+* Create a set with the letters in 'Python' and add 'i' to the set.
+
+* Create a frozenset with the letters in 'marathon'
+
+* display the union and intersection of the two sets.
+
+Lightning Talks
+----------------
+
+|
+| Benjamin C Mier
+|
+|
+| Robert W Perkins
+|
 
 ==========
 Exceptions
@@ -765,6 +893,35 @@ Nope: the *type* is the problem::
 
 but should you be checking type anyway? (EAFP)
 
+LAB
+====
+
+Exceptions Lab
+
+Exceptions Lab
+---------------
+
+Improving ``raw_input``
+
+* The ``raw_input()``  function can generate two exceptions: ``EOFError``
+  or ``KeyboardInterrupt``  on end-of-file(EOF) or canceled input.
+
+* Create a wrapper function, perhaps ``safe_input()``  that returns ``None``
+  rather rather than raising these exceptions, when the user enters ``^C``  for Keyboard Interrupt, or ``^D`` (``^Z``  on Windows) for End Of File.
+
+* Update your mailroom program to use exceptions (and IBAFP) to handle
+  malformed numeric input
+
+Lightning Talks
+----------------
+
+|
+| Vinay Gupta
+|
+|
+| Wayne R Fukuhara
+|
+
 
 ========================
 File Reading and Writing
@@ -777,16 +934,13 @@ Text Files
 
 .. code-block:: python
 
-    import io
-    f = io.open('secrets.txt', codec='utf-8')
+    f = open('secrets.txt')
     secret_data = f.read()
     f.close()
 
-``secret_data`` is a (unicode) string
+``secret_data`` is a string
 
-``codec`` defaults to ``sys.getdefaultencoding()`` -- often NOT what you want.
-
-(There is also the regular ``open()`` built in, but it won't handle Unicode for you...)
+NOTE: these days, you probably need to use Unicode for text -- we'll get to that next week
 
 .. nextslide::
 
@@ -794,11 +948,11 @@ Binary Files
 
 .. code-block:: python
 
-    f = io.open('secrets.bin', 'rb')
+    f = open('secrets.bin', 'rb')
     secret_data = f.read()
     f.close()
 
-``secret_data``  is a byte string
+``secret_data`` is a byte string
 
 (with arbitrary bytes in it -- well, not arbitrary -- whatever is in the file.)
 
@@ -812,7 +966,7 @@ File Opening Modes
 
 .. code-block:: python
 
-    f = io.open('secrets.txt', [mode])
+    f = open('secrets.txt', [mode])
     'r', 'w', 'a'
     'rb', 'wb', 'ab'
     r+, w+, a+
@@ -820,7 +974,8 @@ File Opening Modes
     U
     U+
 
-These follow the Unix conventions, and aren't all that well documented on the Python docs. But these BSD docs make it pretty clear:
+These follow the Unix conventions, and aren't all that well documented
+in the Python docs. But these BSD docs make it pretty clear:
 
 http://www.manpagez.com/man/3/fopen/
 
@@ -833,35 +988,13 @@ Text is default
   * Newlines are translated: ``\r\n -> \n``
   *   -- reading and writing!
   * Use \*nix-style in your code: ``\n``
-  * ``io.open()`` returns various "stream" objects -- but they act like file objects.
-  * In text mode, io.open() defaults to "Universal" newline mode.
+  * In text mode, you can use 'U' for "Universal" newline mode.
 
 
 Gotcha:
 
   * no difference between text and binary on \*nix
   * breaks on Windows
-
-
-.. nextslide:: Other parameters to ``io.open()``:
-
-``io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)``
-
- * ``file`` is generally a file name or full path
-
- * ``mode`` is the mode for opening: 'r', 'w', etc.
-
- * ``buffering`` controls the buffering mode (0 for no buffering)
-
- * ``encoding`` sets the unicode encoding -- only for text files -- when set, you can ONLY write unicode object to the file.
-
- * ``errors`` sets the encoding error mode: 'strict', 'ignore', 'replace',...
-
- * ``newline`` controls Universal Newline mode: lets you write DOS-type files on \*nix, for instance (text mode only).
-
- * ``closedfd`` controls close()  behavior if a file descriptor, rather than a name is passed in (advanced usage!)
-
-(https://docs.python.org/2/library/io.html?highlight=io.open#io.open)
 
 
 File Reading
@@ -884,14 +1017,14 @@ Common Idioms
 
 .. code-block:: python
 
-    for line in io.open('secrets.txt'):
+    for line in open('secrets.txt'):
         print line
 
 (the file object is an iterator!)
 
 .. code-block:: python
 
-    f = io.open('secrets.txt')
+    f = open('secrets.txt')
     while True:
         line = f.readline()
         if not line:
@@ -904,7 +1037,7 @@ File Writing
 
 .. code-block:: python
 
-    outfile = io.open('output.txt', 'w')
+    outfile = open('output.txt', 'w')
     for i in range(10):
         outfile.write("this is line: %i\n"%i)
 
@@ -920,7 +1053,7 @@ Commonly Used Methods
 
     f.write(str) f.writelines(seq)
 
-    f.seek(offset)   f.tell()
+    f.seek(offset)   f.tell() # for binary files, mostly
 
     f.flush()
 
@@ -938,6 +1071,7 @@ Many classes implement the file interface:
   * ``urllib.open()``
   * pipes, subprocesses
   * StringIO
+  * variois objects in the ``io`` module
 
 https://docs.python.org/2/library/stdtypes.html#file-objects
 
@@ -955,6 +1089,11 @@ StringIO
 
 (handy for testing file handling code...)
 
+There is also cStringIO -- a bit faster.
+
+.. code-block:: python
+
+    from cStringIO import StringIO
 
 =====================
 Paths and Directories
@@ -1046,6 +1185,33 @@ All the stuff in os.path and more:
     junkfile.txt
     ...
 
+===
+LAB
+===
+
+Files Lab: If there is time.
+
+Files Lab
+---------
+
+In the class repo, in:
+
+``Examples\Session01\students.txt``
+
+You will find the list I genrated of all the students in teh class, and
+what programming langues they used in the past.
+
+Write a little script that reads that file, and generates a list of all
+the languages that have been used.
+
+Extra credit: keep track of how many sutdents specified each language.
+
+If you've got giot set up right, ``git pull upstream master`` should update
+your repo. Otherwise, you can get it from gitHub:
+
+``https://github.com/UWPCE-PythonCert/IntroToPython/blob/master/Examples/Session01/students.txt``
+
+
 =========
 Homework
 =========
@@ -1058,105 +1224,57 @@ Recommended Reading:
 Assignments:
 -------------
 
- * dict/sets lab
- * coding kata: trigrams
- * Exceptions
- * Update mailroom with dicts.
-
-
-Dictionaries and Sets
----------------------
-
-1.
-
-* Create a dictionary containing "name", "city", and "cake" for "Chris" from "Seattle" who likes "Chocolate".
-
-* Display the dictionary.
-
-* Delete the entry for "cake".
-
-* Display the dictionary.
-
-* Add an entry for "fruit" with "Mango" and display the dictionary.
-
-  - Display the dictionary keys.
-  - Display the dictionary values.
-  - Display whether or not "cake" is a key in the dictionary (i.e. False) (now).
-  - Display whether or not "Mango" is a value in the dictionary.
-
-.. nextslide::
-
-2.
-
-* Using the dict constructor and zip, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent (string is fine).
-
-3.
-
-* Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 'a's in each value.
-
-.. nextslide:: sets
-
-4.
-
-* Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
-
-* Display the sets.
-
-* Display if s3 is a subset of s2 (False)
-
-* and if s4 is a subset of s2 (True).
-
-5.
-
-* Create a set with the letters in 'Python' and add 'i' to the set.
-
-* Create a frozenset with the letters in 'marathon'
-
-* display the union and intersection of the two sets.
+ * Finish the dict/sets lab
+ * Finish the Exceptions lab
+ * Coding kata: trigrams
+ * Paths and files
+ * Update mailroom with dicts and exceptions
 
 
 Text and files and dicts, and...
 ---------------------------------
 
-  * Coding Kata 14 - Dave Thomas
+* Coding Kata 14 - Dave Thomas
 
     http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/
 
     and in this doc:
 
-    http://codefellows.github.io/sea-c15-python/supplements/kata_fourteen.html
+    :doc:`./homework/kata_fourteen`
 
-  * Use The Adventures of Sherlock Holmes as input:
+    and on github here
 
-        http://codefellows.github.io/sea-c15-python/_downloads/sherlock.txt
+    http://uwpce-pythoncert.github.io/IntroToPython/homework/kata_fourteen.html
 
-  *  This is intentionally open-ended and underspecified. There are many interesting decisions to make.
+.. nextslide::
 
-  * Experiment with different lengths for the lookup key. (3 words, 4 words, 3 letters, etc)
+* Use The Adventures of Sherlock Holmes as input:
 
-Exceptions
------------
+    :download:`./homework/sherlock.txt`
 
-Improving ``raw_input``
+    and on github here:
 
-* The ``raw_input()``  function can generate two exceptions: ``EOFError``  or ``KeyboardInterrupt``  on end-of-file(EOF) or canceled input.
+    http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt
 
-* Create a wrapper function, perhaps ``safe_input()``  that returns ``None``  rather rather than raising these exceptions, when the user enters ``^C``  for Keyboard Interrupt, or ``^D`` (``^Z``  on Windows) for End Of File.
+* This is intentionally open-ended and underspecified. There are many interesting decisions to make.
 
-* Update your mailroom program to use exceptions (and IBAFP) to handle malformed numeric input
+* Experiment with different lengths for the lookup key. (3 words, 4 words, 3 letters, etc)
 
 
 Paths and File Processing
 --------------------------
 
-  * write a program which prints the full path to all files in the current directory, one per line
+* write a program which prints the full path to all files in the current
+  directory, one per line
 
-  * write a program which copies a file from a source, to a destination (without using shutil, or the OS copy command)
+* write a program which copies a file from a source, to a destination
+  (without using shutil, or the OS copy command)
 
-  * update mailroom from last weeks homework to:
+* update mailroom from last weeks homework to:
 
-    - use dicts where appropriate
-    - write a full set of letters to everyone to individual files on disk
-    - see if you can use a dict to switch between the users selections
-    - Try to use a dict and the .format() method to do the letter as one big template -- rather than building up a big string in parts.
+  - use dicts where appropriate
+  - write a full set of letters to everyone to individual files on disk
+  - see if you can use a dict to switch between the users selections
+  - Try to use a dict and the .format() method to do the letter as one
+    big template -- rather than building up a big string in parts.
 
