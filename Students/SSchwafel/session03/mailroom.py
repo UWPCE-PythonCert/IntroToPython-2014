@@ -22,7 +22,9 @@ def send_a_thank_you(x):
 
             if query_new_donation.lower() == 'yes':
 
-                add_donation(full_name)
+                add_donation(full_name, donors)
+
+                print donors
 
             elif query_new_donation.lower() == 'no':
 
@@ -77,6 +79,7 @@ def create_a_report():
             
             #temp_list.append(str())
 
+    print temp_list
 
     #sorted_donors = '\n'.join(map(str, sorted_donors))
 
@@ -126,7 +129,7 @@ def donation_amount(x,y):
         if x == i[0]:
             return i[1]
         
-def add_donation(x):
+def add_donation(x, y):
     """Adds donation to nested list associated with donor"""
 
     new_donation = raw_input("What is the latest donation amount from this donor? ")
@@ -136,10 +139,11 @@ def add_donation(x):
 
     new_donation = int(new_donation)
 
-    for i in donors:
+    for i in y:
         
-        if i == i[0]:
-            i[1].append(new_donation)
+        if x == i[0]:
+           
+            return i[1].append(new_donation)
     return 
 
 def send_email(x): 
