@@ -10,14 +10,16 @@ String formatting lab:
 # solution 1
 # the goal was to demonstrate dynamic building of format strings:
 
-n = 6
 # create the numbers
-numbers = range(1,n+1) 
+numbers = [32, 56, 34, 12, 48, 18]
+
 # build the format string for the numbers:
-formatter = " %i," * n 
+formatter = " %i," * len(numbers)
+
 formatter = formatter[:-1] # take the extra comma off the end
+
 # put it together with the rest of the string
-formatter = "the first %i numbers are: %s"%(n, formatter)
+formatter = "the first %i numbers are: %s"%(len(numbers), formatter)
 
 # use it:
 # the format operator needs a tuple
@@ -28,11 +30,9 @@ print formatter%tuple(numbers)
 # in class, a couple people realized that str() would make a nice string from
 # a list or tuple
 
-n = 7
-numbers = range(1, n+1)
 numbers_str = str(numbers)[1:-1] # make a string, remove the brackets
 # put it together with the rest of the string
-print "the first %i numbers are: %s"%(n, numbers_str)
+print "the first %i numbers are: %s"%(len(numbers), numbers_str)
 
 #####
 # Write a format string that will take:

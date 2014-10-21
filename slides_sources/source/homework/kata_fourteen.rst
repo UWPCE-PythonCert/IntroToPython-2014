@@ -1,5 +1,6 @@
+=========================================
 Kata Fourteen: Tom Swift Under Milk Wood
-========================================= 
+=========================================
 
 Adapted from Dave Thomas's work:
 
@@ -7,9 +8,14 @@ http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/
 
 
 
+Trigrams
+=========
 
 Trigrams can be used to mutate text into new, surreal, forms. But what
 heuristics do we apply to get a reasonable result?
+
+The Problem
+------------
 
 As a boy, one of my treats was go to the shops on a Saturday and spend part
 of my allowance on books; for a nine-year old, I had quite a collection of
@@ -34,8 +40,9 @@ came up with:
     refused to accept any. As for Mr. Swift as if it goes too high I’ll
     warn you and you can and swallow frequently. That will make the airship was
     shooting upward again and just before the raid wouldn’t have been
-    instrumental in capturing the scoundrels right out of jail."</em>
+    instrumental in capturing the scoundrels right out of jail."
 
+.. nextslide::
 
 Stylistically, it’s Victor Appleton meets Dylan Thomas. Technically,
 it’s all done with trigrams.
@@ -54,6 +61,8 @@ You might generate::
     "wish I" => ["may", "might"]
     "may I"  => ["wish"]
     "I may"  => ["I"]
+
+.. nextslide::
 
 This says that the words "I wish" are twice followed by the word
 "I", the words "wish I" are followed once by
@@ -75,6 +84,8 @@ is constrained to another "I".::
 
    I may I wish I
 
+.. nextslide::
+
 Now we look up "wish I", and find we have a choice. Let’s
 choose "may"::
 
@@ -88,6 +99,9 @@ get::
 
 At this point we stop, as no sequence starts "I might."
 
+
+.. nextslide::
+
 Given a short input text, the algorithm isn’t too interesting. Feed
 it a book, however, and you give it more options, so the resulting output
 can be surprising.
@@ -99,6 +113,9 @@ books (Tom Swift and His Airship is `here <http://sailor.gutenberg.org/etext02/0
 
 Be warned that these files have DOS line endings (carriage return followed by
 newline).
+
+.. nextslide::
+
 
 There is a copy of sherlock holmes right here:
 
