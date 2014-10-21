@@ -1,0 +1,124 @@
+e""MODES"""
+ESC "Normal Mode
+i "insert mode (see more on insert mode below)
+ "visual mode (allows you to select text)
+V "visual mode lines (allows you to select lines)
+
+
+"""WINDOWS"""
+:sp <filename> "new window horizontal split
+:vsp <filename> "new window virtical split
+
+:30winc > "increase widow size 30
+:30winc < "decrease widow size 30
+Crtl-w = "makes the windows the same size
+Crtl-w<size> > "increase window size 1 column
+Crtl-w<size> < "decrease window size 1 column
+
+Crtl-w <arrow> "moves to window
+Crtl-w L "moves window to the far right
+Crtl-w H "moves window to the far left
+
+
+"""TABS"""
+:tabnew <filename> "creates a new tab
+:tab close "close tab
+gt "switch between tabs
+
+:tabn "next tab
+:tabp "previous tab
+
+:tabfirst "go to first tab
+:tablast "go to last tab
+
+
+"""SWITCH CASE"""
+gu<motion> "lowercase text operated on by motion
+gU<motion> "uppercase text operated on by motion
+g~<motion>m "switch case operated on by motion
+
+
+"""PLUG-INS"""
+<f7> "uses vim-flake8 to run syntax and style checker
+
+
+"""UNDO/REDO"""
+u "undo
+Crtl-r "redo
+
+
+"""SEARCHING"""
+/<search string> "allows you to search for text
+n "goes to next occurance of the word
+
+:nohl "removes the highlight after search
+
+
+"""MOVING AROUND"""
+gg "go to top of document
+G "go to end of document
+
+w "move forward one word
+b "move backwards one word
+e "move to end of word
+
+0 "go to end of line
+$ "go to the start of line
+
+( "go forward one setence
+) "go back one setence
+
+{ "go forward on paragraph
+} " go backward one paragraph
+
+Ctrl-d "move half-page down
+Ctrl-u "move half-page up
+Ctrl-b "page up
+Ctrl-f "page down
+
+Ctrl-o "jump to last cursor position
+Ctrl-i "jump to next cursor position
+
+
+"""SCROLLING"""
+zz "move current line to the middle of the screen
+zt "move current line to the top of the screen
+zb "move current line to the bottom of the screen
+
+
+"""DELETING TEXT"""
+dd "delete entire line
+dw "delete word
+x "delete character
+r "replace a character
+R "enter replace mode
+
+dis "delete inside sentence
+di{ "delete inside {
+di( "delete inside (
+di< "delete inside <
+di" "delete inside /"
+
+
+"""FONT SETTINGS"""
+
+:set guifont=* "change the font settings using GUI
+:set guifont=<tab> "change the font settings without the window
+:set guifont? "find out current font settings
+
+
+"""SHELL COMMANDS"""
+"start the shell
+:shell
+
+
+"""INSERTS"""
+"different types of inserts
+i "insert before cursor
+a "insert after cursor
+
+I "insert at the begining of the line
+A "insert at end of line
+
+o "insert a new line below cursor
+O "insert a new line above cursor

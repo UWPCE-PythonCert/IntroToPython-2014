@@ -280,8 +280,8 @@ repository that serves as the one to rule them all.
     .. code-block:: bash
 
         $ git remote -v
-        origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (fetch)
-        origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (push)
+        origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
+        origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
 
     This shows that the local repo on my machine *originated* from the one in
     my gitHub account (the one it was cloned from)
@@ -345,11 +345,10 @@ copies of it in different remote locations.
         $ git remote add upstream https://github.com/UWPCE-PythonCert/IntroToPython.git
 
         $ git remote -v
-        origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (fetch)
-        origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (push)
-        upstream  https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
-        upstream  https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
-
+        origin  https://github.com/PythonCHB/IntroToPython.git (fetch)
+        origin  https://github.com/PythonCHB/IntroToPython.git (push)
+        upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
+        upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
 
 .. nextslide::
 
@@ -1567,7 +1566,7 @@ your implementation. Include good commit messages that explain concisely both
 *what* you are doing and *why*.
 
 When you are finished, push your changes to your fork of the class repository
-in GitHub. Then make a pull request and submit your assignment in Canvas.
+in GitHub and make a pull request.
 
 ::
 
@@ -1632,4 +1631,4 @@ your implementation. Include good commit messages that explain concisely both
 *what* you are doing and *why*.
 
 When you are finished, push your changes to your fork of the class repository
-in GitHub. Then make a pull request and submit your assignment in Canvas.
+in GitHub and make a pull request.
