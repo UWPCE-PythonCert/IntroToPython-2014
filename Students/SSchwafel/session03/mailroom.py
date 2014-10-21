@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-donors = ['bruce wayne',[100000], 'clark kent',[50000], 'barry allen',['100'], 'diana prince',['1300'], 'wally west',['10034'],'hal jordan',['10000']]
+donors = [('bruce wayne',[100000]), ('clark kent',[50000]), ('barry allen',['100']), ('diana prince',['1300']), ('wally west',['10034']),('hal jordan',['10000'])]
 
 def historical_amounts(x):
 
