@@ -10,24 +10,21 @@ def historical_amounts(x):
     while full_name.isdigit() == False :
 
         full_name = raw_input('Please enter the full name of your donor:\n')
-        full_name = full_name.title()
+        full_name = full_name.lower()
         
-        print donors
-            
         if is_name_present(full_name, donors) == True:
-            print 'baller alert'
 
+            print 'It looks like in the past, ' + full_name.title() + ' donated: ' + str(donation_amount(full_name,donors)).strip("['']")
+
+            query_new_donation = raw_input('Would you like to add a new donation for this donor? \n\n(yes/no)\n\n')
+
+            if query_new_donation.lower() == 'yes':
+                add_donation(full_name)
         else: 
 
             print 'Keep hackin'
 
-            #print full_name == i[0]
 
-
-#            #index_number = int(x.index(full_name)) + 1
-#
-#            print 'It looks like in the past, ' + full_name + ' donated: '# +  str(x[index_number])
-#
 #            query_new_donation = raw_input('Would you like to add a new donation for this donor? \n\n(yes/no)\n\n')
 #                
 #            if query_new_donation.lower() == 'yes':
@@ -68,14 +65,23 @@ def historical_amounts(x):
 
 def is_name_present(x,y):
 
-        for i in y:
-            #figure out if donor is in the donors list
+    for i in y:
 
-            if x in i:
-                return True
-            else: 
-                return False    
+        if x == i[0]:
+            return True
+        
+    return False     
+            
+def donation_amount(x,y):
+    """Queries donation amount for donor x"""
+    #x = full_name
+    #y = donors
 
+    for i in y:
+
+        if x == i[0]:
+            return i[1]
+        
 def add_donation():
 
     new_donation = raw_input('What is the latest donation amount from this donor? ')
@@ -108,8 +114,8 @@ user_input = user_input.title()
 
 if user_input.upper() == 'A':
     #do something
-    #print historical_amounts(donors)
-    print is_name_present('Hal Jordan', donors)
+    print historical_amounts(donors)
+    #print is_name_present('Hal Jordan', donors)
 
 #elif user_input == 'Create A Report':
 #
