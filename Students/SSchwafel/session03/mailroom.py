@@ -1,7 +1,9 @@
 #!/usr/bin/python
 
+
 donors = [('bruce wayne',[100000]), ('clark kent',[50000]), ('barry allen',[100]), ('diana prince',[1300]), ('wally west',[10034]),('hal jordan',[10000])] 
-def historical_amounts(x):
+
+def send_a_thank_you(x):
 
     """Displays a list of all the donations a user has contributed"""
 
@@ -21,14 +23,25 @@ def historical_amounts(x):
             if query_new_donation.lower() == 'yes':
                 add_donation(full_name)
                 print donors
+
+        elif full_name == 'list': 
+            print donors
+
+        elif full_name == '': 
+            print 'It looks like you entered an empty value'
+        elif full_name == 'back': 
+            break            
         else: 
 
             query_add_donor = raw_input("It doesn't look like that donor exists in the database yet, would you like to add this person? \n\n(yes/no)\n\n")
 
             if query_add_donor.lower() == 'yes':
-                add_donor(full_name)
+                donors.append(add_donor())
+                break
+            elif query_add_donor.lower() == 'no':
+                break
             else:
-                full_name = 1
+                break
 
 
 
@@ -44,29 +57,6 @@ def add_donor():
     return (donor_name,[new_donor_initial_donation])
 
 
-
-#            new_donor = raw_input( "Please enter the donor's first and last name:\n")
-#
-#            if add_donor.lower() == 'yes':
-#
-#                new_donation_amount = '' 
-#
-#                while new_donation_amount.isdigit() == False:
-#                    #keeps prompting while until use gives a digit amount
-#
-#                    
-#                    new_donation_amount = str(add_donation())
-#                    #new_donation_amount = raw_input('How much did this person donate? (Please use a whole number without commas) ')
-#                    donors.append(new_donor)
-#                    donors.append([new_donation_amount])
-#        
-#                print donors
-#
-#            else:
-#                
-#                #changes full_name to a digit value, killing the while loop
-#                full_name = str(1)
-#
 
 def is_name_present(x,y):
 
@@ -89,7 +79,13 @@ def donation_amount(x,y):
         
 def add_donation(x):
 
-    new_donation = raw_input('What is the latest donation amount from this donor? ')
+    while x > 1:
+
+        new_donation = raw_input("What is the latest donation amount from this donor? (you will be re-promted if you don't use an integer value) ")
+
+        if new_donation.isdigit() == True:
+            break
+
     new_donation = int(new_donation)
 
     for i in donors:
@@ -105,11 +101,20 @@ def show_donors():
     for i in donors:
         print i
 
-user_input = raw_input(
+def send_email(x): 
+    #x = the list element of our donor
 
-"""
+    donation = donation_amount(x, donors)
 
-Welcome to the Schuyler Inc. Mail Room App
+    print "Hello %s,\n it looks like in the past you donated %i" %(x, int(sum(donation)))
+
+count = 1
+while count > 0:
+        
+    user_input = raw_input(
+
+
+"""Welcome to the Schuyler Inc. Mail Room App
 
 What would you like to do? 
 
@@ -119,29 +124,29 @@ or
 
 (B) Create a Report
 
+(C) Exit the Mail Room App
+
 """)
 
-user_input = user_input.title()
+    if user_input.upper() == 'A':
 
-if user_input.upper() == 'A':
+        print send_a_thank_you(donors)
+        #donors.append(add_donor())
+        print donors
 
-    #print historical_amounts(donors)
-    donors.append(add_donor())
-    print donors
-#elif user_input == 'Create A Report':
-#
-#    #do something else
-#    print 'I'm going to fix this later'
+    elif user_input == 'B':
 
-#else:
+        print ''
+
+    #    print 'I'm going to fix this later'
+
+    elif user_input == 'BB':
+
+       donor_name = raw_input('To which donor would you like to send an email? ') 
+       send_email(donor_name) 
 
 
-#print historical_amounts(donors)
+    elif user_input == 'C':
 
-    
-#<Unused text>
-#
-#Type 'list' if you'd like to see a list of the donors
-#
-#Type the donor's name if you'd like to add them to the list (if they are already present in the list, they will not be re-added)
-##
+        print 'Exiting...'
+
