@@ -44,7 +44,11 @@ def sum_series(n, optional1 = 0, optional2 = 1):
     elif optional1 == 2 and optional2 == 1:
         return lucas(n)
     else:
-        "It looks like you want a different series"
+        if optional1 > 0 and optional1 != 1 or 2:
+            return sum_series(n-1) + sum_series(n-2) 
+
+
+    #"It looks like you want a different series"
 
     
 #Return Lucas value of user_number
@@ -54,6 +58,10 @@ print
 print 'This is the Fibonacci number corresponding to the term you gave\n'
 print sum_series(user_number,0,1)
 print
+starting_value_1 = int(raw_input('What is the first starting value would you like in your series? '))
+starting_value_2 = int(raw_input('What is the second starting value would you like in your series? '))
+
+print sum_series(user_number,starting_value_1,starting_value_2)
 
 if __name__ == "__main__":
 
