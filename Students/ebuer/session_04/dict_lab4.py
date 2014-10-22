@@ -55,16 +55,55 @@ new_keys = practice_dict.keys()
 new_values = []
 
 for vname in practice_dict.itervalues():
-    n = 0
-    for l in vname:
-        if l == 't':
-            n += 1
+    n = vname.count('t')
     new_values.append(n)
 
 t_dict = dict(zip(new_keys, new_values))
 
 for k, v in t_dict.iteritems():
-    print 'Key: {k}, number of ts: {v}'.format(k=k, v=v)
+    print "Key: {k}, number of t's: {v}".format(k=k, v=v)
 
 # Part 4.4 working with sets
 
+seed_nums = range(21)
+
+s2 = []
+s3 = []
+s4 = []
+
+for s in seed_nums:
+    if s % 2 == 0:
+        s2.append(s)
+    if s % 3 == 0:
+        s3.append(s)
+    if s % 4 == 0:
+        s4.append(s)
+
+s2 = set(s2)
+s3 = set(s3)
+s4 = set(s4)
+
+print '\n'
+print s2.issubset(s3)
+print s4.issubset(s2)
+
+# part 4.5 python set
+s5 = set()
+temp = 'python'
+for l in temp:
+    s5.add(l)
+
+s5.add('i')
+
+temp = 'marathon'
+s6 = []
+for l in temp:
+    s6.append(l)
+
+s6 = frozenset(s6)
+
+print "Here's the union: {setvar:s}".format(setvar=s5.union(s6))
+print "Here's the intersection: {setvar:s}".format(setvar=s5.intersection(s6))
+
+
+print set([1, 3, 5, 7])
