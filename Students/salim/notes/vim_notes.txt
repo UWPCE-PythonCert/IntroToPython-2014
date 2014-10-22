@@ -1,8 +1,17 @@
 e""MODES"""
 ESC "Normal Mode
 i "insert mode (see more on insert mode below)
- "visual mode (allows you to select text)
+v "visual mode (allows you to select text)
 V "visual mode lines (allows you to select lines)
+<crtl + v> "block visual mode
+
+
+"""BUFFERS"""
+:bn "next buffer
+:bp "previous buffer
+:bd "delete buffer
+Crtl-^ "switch to last buffer
+:ls "show all buffers
 
 
 """WINDOWS"""
