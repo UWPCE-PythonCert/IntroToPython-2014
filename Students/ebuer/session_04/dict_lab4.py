@@ -4,9 +4,6 @@ Dictonary Lab 4.1 -- fun with dictionaries
 
 practice_dict = {'name': 'Chris', "city": 'Seattle', "cake": 'Chocolate'}
 
-# print practice_dict.keys()
-# print practice_dict.values()
-
 print 'Original dict:'
 for k, v in practice_dict.items():
     print '{key}: {item}'.format(key=k, item=v)
@@ -35,9 +32,7 @@ print '\nCake in dict: {cake}\nMango in dict: {mango}'\
     .format(cake=cake_var, mango=mango_var)
 
 
-"""
-Part 4.2 -- a hexadecimal dictionary from a range
-"""
+# Part 4.2 -- a hexadecimal dictionary from a range
 
 r = range(16)
 h = []
@@ -47,18 +42,13 @@ for n in r:
 
 hex_dict = dict(zip(r, h))
 
-"""
-Part 4.3 Recode first dictionary to show number of 't's in each value
-"""
+# Part 4.3 Recode first dictionary to show number of 't's in each value
 
-new_keys = practice_dict.keys()
-new_values = []
+t_dict = {}
 
-for vname in practice_dict.itervalues():
+for vname, n in practice_dict.iteritems():
     n = vname.count('t')
-    new_values.append(n)
-
-t_dict = dict(zip(new_keys, new_values))
+    t_dict.update(vname=n)
 
 for k, v in t_dict.iteritems():
     print "Key: {k}, number of t's: {v}".format(k=k, v=v)
@@ -102,8 +92,5 @@ for l in temp:
 
 s6 = frozenset(s6)
 
-print "Here's the union: {setvar:s}".format(setvar=s5.union(s6))
+print "Here's the union: {setvar}".format(setvar=s5.union(s6))
 print "Here's the intersection: {setvar:s}".format(setvar=s5.intersection(s6))
-
-
-print set([1, 3, 5, 7])
