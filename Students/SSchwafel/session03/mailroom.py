@@ -140,11 +140,9 @@ def add_donation(x, y):
     new_donation = int(new_donation)
 
     for i in y:
-        
-        if x == i[0]:
-            print x
-            print y 
-            return i[1].append(new_donation)
+        print i
+        #if x == i[0]:
+        #    return i[1].append(new_donation)
     return 
 
 def send_email(x): 
