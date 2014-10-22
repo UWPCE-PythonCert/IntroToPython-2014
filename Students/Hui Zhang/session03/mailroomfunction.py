@@ -6,15 +6,16 @@ def sendletter(Userlist, input1):
     username1 = raw_input("Please type a name from above existing Donator List or enter a new name: ")
     # Verify if input are all digis.
     amount1 = raw_input("Please input the amount of your donation: ")
+    # Determine if your input is digi.
     while not amount1.isdigit():
-        print("Error, your input is not a number!!! ")
-        amount1 = input("Please input the amount of your donation: ")
-    # Determine if just typed in donator name is actually in the list.
+        print "Error, your input is not a number!!!"
+        amount1 = raw_input("Please input the amount of your donation: ")
+    # Determine if the donator name just typed in is actually in the list.
     # If it is in the list, then do the below:
     if username1 in Userlist:
         locationuser1 = Userlist.index(username1)
         Userlist[locationuser1 + 1].append(int(amount1))
-    # If it is not in the list, then add it in the list.
+    # If it is not in the list, then append it in the list.
     else:
         Userlist.append(username1)
         Userlist.append([int(amount1)])
