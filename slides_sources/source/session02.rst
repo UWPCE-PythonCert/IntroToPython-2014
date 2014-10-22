@@ -29,67 +29,335 @@ Homework Review
 
 Any questions that are nagging?
 
+Class Outline
+=============
 
-Git Work
-========
+.. rst-class:: left
+
+ * git primer
+ * Some basic Python
+ * More on Functions
+ * Boolean Expressions
+ * Code Structure, Modules, and Namespaces
+
+
+First a little git Primer...
+==============================
 
 .. rst-class:: center large
 
-Let's get to know your fellow students!
+Let's get to know git a bit
 
 
-Working with an Upstream
-------------------------
+What is git?
+------------
 
-You've created a fork of the class repository from the ``codefellows`` account
-on GitHub.
+.. rst-class:: build
 
-You've pushed your own changes to that fork, and then issued pull requests to
-have that worked merged back to the ``codefellows`` original.
+.. container::
 
-You want to keep your fork up-to-date with that original copy as the class goes
-forward.
+    A "version control system"
 
-To do this, you use the git concept of an **upstream** repository.
+    A history of everything you do to your code
+
+    A graph of "states" in which your code has existed
+
+    That last one is a bit tricky, so let's talk it over for a minute
+
+A Picture of git
+----------------
+
+.. figure:: /_static/git_simple_timeline.png
+    :width: 80%
+    :class: center
+
+.. rst-class:: build
+.. container::
+
+    A git repository is a set of points in time, with history showing where
+    you've been.
+
+    Each point has a *name* (here *A*, *B*, *C*) that uniquely identifies it,
+    called a *hash*
+
+    The path from one point to the previous is represented by the *difference*
+    between the two points.
 
 .. nextslide::
+
+.. figure:: /_static/git_head.png
+    :width: 75%
+    :class: center
+
+.. rst-class:: build
+.. container::
+
+    Each point in time can also have a label that points to it.
+
+    One of these is *HEAD*, which always points to the place in the timeline
+    that you are currently looking at.
+
+.. nextslide::
+
+.. figure:: /_static/git_master_branch.png
+    :width: 75%
+    :class: center
+
+.. rst-class:: build
+.. container::
+
+    You may also be familiar with the label "master".
+
+    This is the name that git automatically gives to the first *branch* in a
+    repository.
+
+    A *branch* is actually just a label that points to a specific point in
+    time.
+
+.. nextslide::
+
+.. figure:: /_static/git_new_commit.png
+    :width: 75%
+    :class: center
+
+.. rst-class:: build
+.. container::
+
+    When you make a *commit* in git, you add a new point to the timeline.
+
+    The HEAD label moves to this new point.
+
+    So does the label for the *branch* you are on.
+
+.. nextslide:: Making a Branch
+
+.. figure:: /_static/git_new_branch.png
+    :width: 75%
+    :class: center
+
+.. rst-class:: build
+.. container::
+
+    You can make a new *branch* with the ``branch`` command.
+
+    This adds a new label to the current commit.
+
+    Notice that it *does not* check out that branch.
+
+.. nextslide:: Making a Branch
+
+.. figure:: /_static/git_checkout_branch.png
+    :width: 75%
+    :class: center
+
+.. rst-class:: build
+.. container::
+
+    You can use the ``checkout`` command to switch to the new branch.
+
+    This associates the HEAD label with the *session01* label.
+
+    Use ``git branch`` to see which branch is *active*::
+
+        $ git branch
+          master
+        * session01
+
+.. nextslide:: Making a Branch
+
+.. figure:: /_static/git_commit_on_branch.png
+    :width: 75%
+    :class: center
+
+.. rst-class:: build
+.. container::
+
+    While it is checked out, new commits move the *session01* label.
+
+    Notice that HEAD is *always* the same as "where you are now"
+
+.. nextslide:: Making a Branch
+
+You can use this to switch between branches and make changes in isolation.
+
+.. rst-class:: build
+.. container::
+
+    .. figure:: /_static/git_checkout_master.png
+        :width: 75%
+        :class: center
+
+    .. figure:: /_static/git_new_commit_on_master.png
+        :width: 75%
+        :class: center
+
+.. nextslide:: Merging Branches
+
+.. rst-class:: build
+.. container::
+
+    Branching allows you to keep related sets of work separate from each-other.
+
+    In class here, you can use it to do your homework for each session.
+
+    Simply create a new branch for each session from your repository master
+    branch.
+
+    Do your work on that branch, and then you can issue a **pull request** in
+    github to have your work evaluated.
+
+    This is very much like how teams work in the "real world" so learning it
+    here will help you.
+
+    The final step in the process is merging your work.
+
+.. nextslide:: Merging Branches
+
+The ``merge`` command allows you to *combine* your work on one branch with the
+work on another.
+
+.. rst-class:: build
+.. container::
+
+    It creates a new commit which reconciles the differences:
+
+    .. figure:: /_static/git_merge_commit.png
+        :width: 75%
+        :class: center
+
+    Notice that this commit has **two** parents.
+
+
+.. nextslide:: Conflicts
+
+.. rst-class:: build
+.. container::
+
+    Sometimes when you ``merge`` two branches, you get *conflicts*.
+
+    This happens when the same file was changed in about the same place in two
+    different ways.
+
+    Often, git can work these types of things out on its own, but if not,
+    you'll need to manually edit files to fix the problem.
+
+    You'll be helped by the fact that git will tell you which files are in
+    conflict.
+
+    Just open those files and look for conflict markers:
+
+        * <<<<<<<<< *hash1* (stuff from the current branch) 
+        * ========= (the pivot point between two branches' content)
+        * >>>>>>>>> *hash2* (stuff from the branch being merged)
+
+.. nextslide:: Conflicts
+
+Your job in fixing a conflict is to decide exactly what to keep.
+
+You can (and should) communicate with others on your team when doing this.
+
+Always remember to remove the conflict markers too.  They are not syntactic
+code in any language and will cause errors.
+
+Once a conflict is resolved, you can ``git add`` the file back and then commit
+the merge.
+
+
+Working with Remotes
+--------------------
 
 Since ``git`` is a *distributed* versioning system, there is no **central**
 repository that serves as the one to rule them all.
 
-Instead, you work with *local* repositories, and *remotes* that they are
-connected to.
+.. rst-class:: build
+.. container::
 
-Cloned repositories get an *origin* remote for free:
+    Instead, you work with *local* repositories, and *remotes* that they are
+    connected to.
 
-.. code-block:: bash
+    Cloned repositories get an *origin* remote for free:
 
-    $ git remote -v
-    origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (fetch)
-    origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (push)
+    .. code-block:: bash
 
-This shows that the local repo on my machine *originated* from the one in my gitHub account (the one it was cloned from)
+        $ git remote -v
+        origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
+        origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
+
+    This shows that the local repo on my machine *originated* from the one in
+    my gitHub account (the one it was cloned from)
+
+.. nextslide::
+
+Our class materials reside in a repository on *Github* in the
+*UWPCE-PythonCert* organization:
+
+.. figure:: /_static/remotes_start.png
+    :width: 50%
+    :class: center
+
+.. nextslide::
+
+You've created a fork of the class repository from the ``UWPCE-PythonCert``
+account on GitHub into your personal account:
+
+.. figure:: /_static/remotes_fork.png
+    :width: 50%
+    :class: center
+
+.. nextslide::
+
+You've made a *clone* of your fork to your own computer, which means that
+**your fork** in github is the *origin*:
+
+.. figure:: /_static/remotes_clone.png
+    :width: 50%
+    :class: center
+
+.. nextslide::
+
+.. rst-class:: build
+.. container::
+
+    You've pushed your own changes to that fork, and then issued pull requests
+    to have that worked merged back to the ``UWPCE-PythonCert`` original.
+
+    You want to keep your fork up-to-date with that original copy as the class
+    goes forward.
+
+    To do this, you add a new *remote* repository to your local clone.
 
 .. nextslide:: Adding a Remote
 
 You can add *remotes* at will, to connect your *local* repository to other
 copies of it in different remote locations.
 
-This allows you to grab changes made to the repository in these other
-locations.
+.. rst-class:: build
+.. container::
 
-For our class, we will add an *upstream* remote to our local copy that points
-to the original copy of the material in the ``codefellows`` account.
+    This allows you to grab changes made to the repository in these other
+    locations.
 
-.. code-block:: bash
+    For our class, we will add an *upstream* remote to our local copy that points
+    to the original copy of the material in the ``UWPCE-PythonCert`` account.
 
-  $ git remote add upstream https://github.com/codefellows/sea-f2-python-sept14.git
+    .. code-block:: bash
 
-  $ git remote -v
-  origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (fetch)
-  origin  https://github.com/PythonCHB/sea-f2-python-sept14.git (push)
-  upstream  https://github.com/codefellows/sea-f2-python-sept14.git (fetch)
-  upstream  https://github.com/codefellows/sea-f2-python-sept14.git (push)
+        $ git remote add upstream https://github.com/UWPCE-PythonCert/IntroToPython.git
+
+        $ git remote -v
+        origin  https://github.com/PythonCHB/IntroToPython.git (fetch)
+        origin  https://github.com/PythonCHB/IntroToPython.git (push)
+        upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
+        upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
+
+.. nextslide::
+
+This should leave you in a situation that looks like this:
+
+.. figure:: /_static/remotes_upstream.png
+    :width: 50%
+    :class: center
+
 
 .. nextslide:: Fetching Everything.
 
@@ -136,7 +404,7 @@ Then, fetch the upstream master branch and merge it into your master:
 .. code-block:: bash
 
   $ git fetch upstream master
-  From https://github.com/codefellows/sea-f2-python-sept14
+  From https://github.com/UWPCE-PythonCert/IntroToPython
    * branch            master     -> FETCH_HEAD
 
   $ git merge upstream/master
@@ -184,6 +452,7 @@ You can incorporate this into your daily workflow: ::
     [add a good commit message]
     $ git push
     [make a pull request]
+
 
 Quick Intro to Basics
 =====================
@@ -334,6 +603,18 @@ Each of these have intricacies special to python
 We'll get to those over the next couple of classes
 
 
+BREAK TIME
+==========
+
+Take a few moments to take a breather, when we return we'll do two lightning
+talks:
+
+.. ifslides::
+
+    * Chantal Huynh
+    * David Fugelso
+
+
 Functions
 =========
 
@@ -430,14 +711,12 @@ Try it and see:
     UnboundLocalError                         Traceback (most recent call last)
     <ipython-input-23-0ec059b9bfe1> in <module>()
     ----> 1 f()
-
     <ipython-input-22-9225fa53a20a> in f()
           1 def f():
     ----> 2     y = x
           3     x = 5
           4     print x
           5     print y
-
     UnboundLocalError: local variable 'x' referenced before assignment
 
 Because you are binding the symbol ``x`` locally, it becomes a local and masks
@@ -510,29 +789,6 @@ provide any *positional* arguments:
       File "<ipython-input-30-4529e5befb95>", line 1
         fun(x=5, 6)
     SyntaxError: non-keyword arg after keyword arg
-
-.. nextslide:: Parameters and Unpacking
-
-This brings us to a fun feature of Python function definitions.
-
-You can define a parameter list that requires an **unspecified** number of
-*positional* or *keyword* arguments.
-
-The key is the ``*`` (splat) or ``**`` (double-splat) operator:
-
-.. code-block:: ipython
-
-    In [31]: def fun(*args, **kwargs):
-       ....:     print args, kwargs
-       ....:
-    In [32]: fun(1)
-    (1,) {}
-    In [33]: fun(1, 2, zombies="brains")
-    (1, 2) {'zombies': 'brains'}
-    In [34]: fun(1, 2, 3, zombies="brains", vampires="blood")
-    (1, 2, 3) {'vampires': 'blood', 'zombies': 'brains'}
-
-**args** and **kwargs** are *conventional* names for these.
 
 
 Documentation
@@ -674,27 +930,6 @@ We can use a recursive function nicely to model this mathematical function
     [demo]
 
 
-In-Class Lab:
-=============
-
-.. rst-class:: center large
-
-Fun With Functions
-
-Exercises
----------
-
-Try your hand at writing a function that computes the distance between two
-points::
-
-    dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
-
-Experiment with ``locals`` by adding this statement to the function you just
-wrote:::
-
-    print locals()
-
-
 Boolean Expressions
 ===================
 
@@ -723,8 +958,8 @@ Determining Truthiness:
 
 .. rst-class:: build
 
-* ``None`` 
-* ``False`` 
+* ``None``
+* ``False``
 * **Nothing:**
 
 * zero of any numeric type: ``0, 0L, 0.0, 0j``.
@@ -816,12 +1051,12 @@ statements:
                          else return x
 
                       if x is false,
-    x and y               return  x
-                          else return y
+    x and y              return  x
+                         else return y
 
                       if x is false,
-    not x               return True,
-                        else return False
+    not x                return True,
+                         else return False
 
 
 .. nextslide:: Chaining
@@ -930,24 +1165,44 @@ In-Class Lab:
 
 .. rst-class:: center large
 
-Better With Booleans
+Funky Bools
 
 Exercises
 ---------
 
-  * Look up the ``%``  operator. What do these do?
+* Try your hand at writing a function that computes the distance between two
+  points::
 
-    * ``10 % 7 == 3``
-    * ``14 % 7 == 0``
-  *  Write a program that prints the numbers from 1 to 100 inclusive. But for
-     multiples of three print "Fizz" instead of the number and for the
-     multiples of five print "Buzz". For numbers which are multiples of both
-     three and five print "FizzBuzz" instead.
-  * Re-write a couple of CodingBat exercises, using a conditional expression
-  * Re-write a couple of CodingBat exercises, returning the direct boolean results
+      dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
 
-use whichever you like, or the ones in:
-:download:`codingbat.rst <../code/session02/codingbat.rst>`
+    print locals()
+
+* Look up the ``%``  operator. What do these do?
+
+  * ``10 % 7 == 3``
+  * ``14 % 7 == 0``
+
+*  Write a program that prints the numbers from 1 to 100 inclusive. But for
+   multiples of three print "Fizz" instead of the number and for the multiples
+   of five print "Buzz". For numbers which are multiples of both three and five
+   print "FizzBuzz" instead.
+
+* Experiment with ``locals`` by adding this statement to the functions you just
+  wrote:::
+
+    print locals()
+
+
+BREAK TIME
+==========
+
+Again, let's take a few moments out to take a short break.  When we return
+we'll have our second two lightning talks:
+
+.. ifslides::
+
+    * Ian M Davis
+    * Schuyler Alan Schwafel
 
 
 Code Structure, Modules, and Namespaces
@@ -1174,7 +1429,7 @@ module*
 
 This is useful in a number of cases.
 
-You can put code here that lets your module be a utility script
+You can put code here that lets your module be a utility *script*
 
 You can put code here that demonstrates the functions contained in your module
 

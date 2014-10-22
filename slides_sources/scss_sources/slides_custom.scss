@@ -112,6 +112,17 @@ article {
       font-size: inherit;
     }
   }
+  .figure {
+      text-align: center;
+    a.center {
+      margin: auto;
+      text-decoration: none;
+      border: none;
+      img.center {
+        margin: auto;
+      }
+    }
+  }
   dl {
     margin-bottom: 10em;
     dt {
