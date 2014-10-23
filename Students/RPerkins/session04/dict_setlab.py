@@ -28,16 +28,24 @@ for k, v in d.items():
     d_prime[k] = v.count('t')
 print d_prime
 
-s1 = set()
 s2 = set()
 s3 = set()
+s4 = set()
 for k in range(20):
     if k % 2 == 0:
-        s1.update([k])
-    if k % 3 == 0:
         s2.update([k])
-    if k % 4 == 0:
+    if k % 3 == 0:
         s3.update([k])
-print s1
+    if k % 4 == 0:
+        s4.update([k])
 print s2
 print s3
+print s4
+print s3.issubset(s2)
+print s4.issubset(s2)
+
+p_set = {'P', 'y', 't', 'h', 'o', 'n'}
+p_set.update(['i'])
+m_set = frozenset(('m', 'a', 'r', 'a', 't', 'h', 'o', 'n'))
+print p_set.union(m_set)
+print p_set.intersection(m_set)
