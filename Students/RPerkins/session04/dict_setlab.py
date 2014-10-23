@@ -27,3 +27,17 @@ d_prime = {}
 for k, v in d.items():
     d_prime[k] = v.count('t')
 print d_prime
+
+s1 = set()
+s2 = set()
+s3 = set()
+for k in range(20):
+    if k % 2 == 0:
+        s1.update([k])
+    if k % 3 == 0:
+        s2.update([k])
+    if k % 4 == 0:
+        s3.update([k])
+print s1
+print s2
+print s3
