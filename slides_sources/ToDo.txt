@@ -1,35 +1,30 @@
 Things to do for the UWPCE INtro to Python class:
 
-For Session 2:
+For Session 4:
 
-Note: I decided to not confuse things with unicode off teh bat --
-so I'm stripping the 'u' from string literals wherever I find them.
+notes on stuff from homework:
 
-[x] Update presentaion for UWPCE instead of CodeFellows
-[x]  - mention of CodeFellows
-[x]  - urls for git
+Don't do for for i in range() when you want to loop though list.
 
-[x] Add outline of class to beginning of slides
+    zip and enumerate
 
-[x] Add section breaks to slides for LAB time and lightning talks:
-    some lecture
-    some lab time
-    two lightning talks
+go through my list_lab -- deleting from list, in particular.
 
-[ ] General slide proofread and clean up for layout, etc.
+You can put mutable objects in immutable ones!
 
-I think we shouod remove the parameter unpacking: *args and **kwargs --
-too much when you don't really know what a tuple or dict is...
+use string formatting!
 
-[x] Remove parameter unpacking
+the sum() function
 
-[ ] Add more to the function lab -- should be 20min or so of work.
-  - they have learned about returning multiple values.
+while not d.isnumeric()
 
-[ ] Put in solution to this weeks homework in Solutions
-  --Chris has soem kicking around to find...
+go through michel's pull request for ideas.
 
+slicing lab solution?
 
 Future Sessions:
 
 Add discusion of parameter unpacking: *args and **kwargs
+
+Sorting!
+

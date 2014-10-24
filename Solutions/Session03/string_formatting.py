@@ -3,6 +3,8 @@
 """
 String formatting lab:
 
+This version using "old style" formatting
+
 """
 # Rewrite: "the first 3 numbers are: %i, %i, %i"%(1,2,3)
 #          for an arbitrary number of numbers...
@@ -37,11 +39,12 @@ print "the first %i numbers are: %s"%(len(numbers), numbers_str)
 #####
 # Write a format string that will take:
 #        ( 2, 123.4567, 10000)
-#        and produce: 
+#        and produce:
 #        'file_002 :   123.46, 1e+04'
 #####
 
 t = (2, 123.4567, 10000)
-print "file_%03i, %10.2f, %.3g"%t
+print "file_%03i : %10.2f, %.3g"%t
 
 # could use '%e' for the last one, too -- I like '%g' -- it does significant figures...
+

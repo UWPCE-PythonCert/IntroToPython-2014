@@ -1,0 +1,341 @@
+There are seven builtin types in Python that are Sequences:
+
+    strings
+    unicode strings
+    lists
+    tuples
+    bytearrays
+    buffers
+    array.arrays
+    xrange objects (almost)
+    
+We will be using mostly string types, lists, tuples -- the rest are special
+
+Everything we say today applies to all sequences -- with minor caveats
+
+Indexing: 
+
+    looking up by index using the subscription operator
+    
+    negative index = count from the end
+
+    Asking for an index out of the range == index error
+
+    slicing == getting a range of objects from the sequence 
+    
+        [start:finish]
+
+   The indices don't decribe the item itself, but rather the place BETWEEN the items
+
+    You do not need to provide start ad finish
+
+    Either 0 or len(string) will be assumed
+
+    s[:-4] start to four from the end
+
+    len(seq[a:]) == b-a
+
+Slicing takes a third argument = step -- which controls which items are returned
+
+    a_thing[0:15]
+
+    a_thing[0:15:2] = 0,2,4,6,8 <----WAT
+
+
+Slicing != indexing
+
+    indexing will always return a single object
+    slicing will always return a sequence, even if it's one object long
+
+
+    a_tuple[:] == copy of a_tuple
+
+    All sequences support the in and not in membership operators
+
+
+    You can include LISTS in LISTS (yo dog)
+
+    l = [1,3,4,5,[4,5]7,8]
+
+    Sequences support concatenation
+
+
+    Slicing will give you as much of a sequence as it can, even if the slice is way out of range (indexing will give an error)
+
+    All sequences have a len() you can use it on anything (though it doesn't start at 0)
+
+    min() = minimum value of a sequence
+
+    max() = maximum value of a sequence
+
+    ord(a) = value associated with a == 97 (from ASCII character set)
+
+    string.index('a') = answers "where is a in string"
+
+        Will give the first one if there are multiples
+
+    string.count('a') will give how many of a in string
+
+PyCon - Raymond Hedinger  - watch his stuff 
+
+
+lists = [] <---square brackets
+list type object as a constructor -> list() "Try and turn this into a list"
+
+the elements of a list need not be a single type
+
+each element in a list is a value and can be in multiple lists and have multiple names (or no name)
+
+Tuples LOOK like a list, but use () instead of []
+
+Tuples don't NEED parens. They are defined by commas, not parens. 
+
+If you want a tuple with a single item, put a comma after it
+
+tuple() to create a tuple out of something else
+
+each element in a tuple is a value and can be in multiple tuples and have multiple names (or no name)
+
+Why do we have both? 
+
+Objects are either mutable or immutable. 
+
+mutable = can be changed in place
+
+immutable CAN NOT CHANGE
+
+Tuples are immutable
+
+Lists are MUTABLE:
+
+    In [28]: food = ['spam', 'eggs', 'ham']
+    In [29]: food
+    Out[29]: ['spam', 'eggs', 'ham']
+    In [30]: food[1] = 'raspberries'
+    In [31]: food
+    Out[31]: ['spam', 'raspberries', 'ham']
+
+with a tuple:
+
+
+    In [32]: food = ('spam', 'eggs', 'ham')
+    In [33]: food
+    Out[33]: ('spam', 'eggs', 'ham')
+    In [34]: food[1] = 'raspberries'
+    ---------------------------------------------------------------------------
+    TypeError                                 Traceback (most recent call last)
+    <ipython-input-34-0c3401794933> in <module>()
+    ----> 1 food[1] = 'raspberries'
+
+    TypeError: 'tuple' object does not support item assignment
+
+You can use nested lists to create a pseudo 2D array
+
+Watch out for passing mutable objects as default values for function parameters
+    
+    list.append(add this to list)
+
+If you have something mutable as a default object (function param) set it =None in the paramters
+
+    def function(x, a_list=None)
+
+a_list[2:3] = [5,6,7,8,]
+a_list
+    ]34,56,5,6,7,8,23,56]
+
+Growing the list:
+
+    .append
+    .insert (add at this index)
+    .extend (a whole bunch of stuff on the end, add the items themselves (if it's a list, unpack the items))
+
+Making the list smaller:
+    
+    .pop (remove last item off the list and return)
+    .remove (remove the last item of the list, or whichever one you want to remove)
+
+        you can use del to delete slices of a list del nums[1:6:2]
+
+Slicing makes a copy
+
+    In [249]: food = ['spam', ['eggs', 'ham']]
+    In [251]: food_copy = food[:]
+    In [252]: food[1].pop()
+    Out[252]: 'ham'
+    In [253]: food
+    Out[253]: ['spam', ['eggs']]
+    In [256]: food.pop(0)
+    Out[256]: 'spam'
+    In [257]: food
+    Out[257]: [['eggs']]
+    In [258]: food_copy
+    Out[258]: ['spam', ['eggs']]
+    
+    WATCH OUT FOR REFERENCES - first line here, the second list is copied AND referenced, changing the original changes the copy 
+
+To iterate over and remove, make a copy of the list and mutate the original
+    list = range(10)
+    for x in list[:]
+    etc.
+
+You can iterate over any sequence with for
+    .reverse reverses the order of the list without returning
+    .sort will sort the list
+
+    A METHOD THAT CHANGES SOMETHING IN PLACE RETURNS NONE
+
+    .sort can take a key parameter
+
+    In [137]: def third_letter(string):
+   .....:     return string[2]
+   .....:
+
+    In [138]: food.sort(key=third_letter)
+    In [139]: food
+    Out[139]: ['spam', 'eggs', 'ham']
+
+    Indexing is fast and constant time: O(1)
+    x in s proportional to n: O(n)
+    visiting all is proportional to n: O(n)
+    operating on the end of list is fast and constant time: O(1)
+    append(), pop()
+    operating on the front (or middle) of the list depends on n: O(n)
+    pop(0), insert(0, v)
+    But, reversing is fast. Also, collections.deque
+
+    http://wiki.python.org/moin/TimeComplexity 
+
+
+If it needs to be mutable - list
+
+If it needs to be immutable - tuple
+    -safety when passing to a function
+
+Lists are usually the same kind of stuff
+
+Tuples are for grouping things that belong together but may not be the same type
+
+Dothe same operation to each element
+list
+
+Small collection of values which make a single logical item?
+tuple
+
+To document that these values won’t change?
+tuple
+
+Build it iteratively?
+list
+
+Transform, filter, etc?
+list
+
+Data Visualization in Python book - ask Michel
+
+
+Iteration:
+
+    Doing the same thing again and again
+
+    Python doesn't require you to create indices - if you DO need an index, you can use enumerate
+
+    For should be called "for each"
+
+   Range is useful for looping a certain number of times
+
+    Be advised that loops do not create a local namespace
+
+    Sometimes you want to interrupt or alter the flow of control
+
+        Break or continue
+
+    Break = stop here and forget about it
+
+    Continue = continue AFTER a break
+
+    For loops can take an ELSE clause (when the loop exits normally and doesn't break)
+
+    for x in range(10):
+        if x == 11:
+            break
+        else: 
+            print
+
+While for when you want to loop a certain amount of times, but you don't know how many
+
+While is more general than for
+
+    Loop must make "progress" so the condition can become False and the loop will stop
+
+    Can also use a break
+
+    In [156]: import random
+    In [157]: keep_going = True
+    In [158]: while keep_going:
+   .....:     num = random.choice(range(5))
+   .....:     print num
+   .....:     if num == 3:
+   .....:         keep_going = False
+
+While ALSO has an optional else block
+
+Strings:
+
+   split and join
+
+    csv = "comma, separated, values"
+
+    csv.split(',')
+    Gives you a list
+
+    csv.split() <---splits on white space instead of ,
+
+   split and join
+
+    csv = "comma, separated, values"
+
+    csv.split(',')
+    Gives you a list
+
+    csv.split() <---splits on white space instead of ,
+
+    .join() <---adds list into string with the parameter before the dot as a divider
+
+        "\n".join(list) <---joins with newline
+
+    sample.upper() <---make uppercase
+
+   .isnumeric() <---check if it's a number
+
+String Literals!
+
+    backckslash (\)
+    \a  ASCII Bell (BEL)
+    \b  ASCII Backspace (BS)
+    \n  ASCII Linefeed (LF)
+    \r  ASCII Carriage Return (CR)
+    \t  ASCII Horizontal Tab (TAB)
+    \ooo  Character with octal value ooo
+    \xhh  Character with hex value hh
+ 
+    r"this is a raw string\n" <---wouldn't use carriage return
+
+        raw strings are important for regular expressions
+        
+        
+    ord(i) is its corresponding numerical value
+    
+    char(x) turn numerical value into letter
+
+    Use string formatting to build strings (read link) %
+
+        http://docs.python.org/library/stdtypes.html#string-formatting-operations
+
+    Learn this so you can dynamically build a formatted string
+
+    This is being phased out in favor of .format()
+
+   Do string formatting lab 
+
+    For ro13 generator, use char/ord to make it easy 
+

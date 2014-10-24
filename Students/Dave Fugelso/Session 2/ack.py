@@ -48,7 +48,23 @@ def ack(m, n):
     if n == 0: return ack(m-1, 1)
     
     return ack (m-1, ack (m, n-1))
-    
+  
+class someClass (object):
+
+    def __init__(self):
+        self.setBody('there')
+
+    def afunc (self, a):
+        print a, self.getBody()
+
+    def getBody(self):
+        return self.__body
+   
+    def setBody(self, value):
+        self.__body = value
+   
+    body = property(getBody, setBody, None, "Body property.")       
+
     
 if __name__ == "__main__":
     '''
@@ -77,3 +93,9 @@ if __name__ == "__main__":
     print '\t-\t-\t-\t-'
     
     print 'All Tests Pass'
+    
+    s = someClass ()
+    s.afunc('hello')
+    s.body = 'fuck ya!'
+    s.afunc('hello')
+    s.body = 'why not?'
