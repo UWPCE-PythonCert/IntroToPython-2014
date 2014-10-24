@@ -41,7 +41,7 @@ Lightning Talks Today:
 
     Robert W Perkins
 
-    Vinay Gupta
+    Lesley D Reece
 
     Wayne R Fukuhara
 
@@ -916,7 +916,7 @@ Lightning Talks
 ----------------
 
 |
-| Vinay Gupta
+| Lesley D Reece
 |
 |
 | Wayne R Fukuhara
