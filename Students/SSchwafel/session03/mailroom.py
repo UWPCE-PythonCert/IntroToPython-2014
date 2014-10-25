@@ -140,11 +140,18 @@ def add_donation(x, y):
     new_donation = int(new_donation)
 
     for i in y:
+<<<<<<< HEAD
         
         for item in i:
             if x == item:
                 print '\n\n' + "Adding a donation of " + str(new_donation) + " to the record for" + str(full_name).title() + '\n\n'
                 i[1].append(new_donation)
+=======
+        print i
+        #if x == i[0]:
+        #    return i[1].append(new_donation)
+    return 
+>>>>>>> f2c4d5fc2c6017a3b10245584c7a8d37f48c0b74
 
 def send_email(x): 
     """Sends prints a message to standard out thanking the user for their donation and summing their donation history. """
