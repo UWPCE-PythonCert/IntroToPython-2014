@@ -1,5 +1,5 @@
 __author__ = 'Robert W. Perkins'
-
+import random
 
 def get_book(target):
     """ Open target file and read contents into book_data"""
@@ -15,12 +15,12 @@ def strip_newlines(in_text):
 
 
 def mk_wordlist(in_list):
-    """Split input string at ' ' and return word list"""
+    """Split input string at spaces and return word list"""
     return in_list.split(' ')
 
 
 def create_dict(orig_text):
-    """ Create trigram dictionary from orig_text"""
+    """ Create trigram dictionary"""
     trigram = {}
     word_list = mk_wordlist(strip_newlines(orig_text))
     for idx, word in enumerate(word_list):
@@ -28,17 +28,42 @@ def create_dict(orig_text):
             break
         else:
             trigram_key = '%s %s' % (word_list[idx], word_list[idx + 1])
-            print trigram_key
-            print idx
+            #print trigram_key
+            #print idx
             if trigram_key in trigram:
                 trigram[trigram_key].append(word_list[idx + 2])
             else:
                 trigram[trigram_key] = [word_list[idx + 2]]
+    #print trigram
+    return trigram
 
-    print trigram
+
+def get_newword(word_key, word_dict):
+    """Return a random word from the list at the provided key"""
+    new_wordlist = word_dict.get(word_key)
+    return random.choice(new_wordlist)
+
+
+def create_newbook(trigram_dict, word_limit, w_line):
+    """Create random output of num_words words, using trigram_dict keys to generate new words"""
+
+    start_key = random.choice(list(trigram_dict.keys()))
+    new_word = get_newword(start_key, trigram_dict)
+
+    print start_key
+    print type(start_key)
+    print new_word
+    print type(new_word)
+    return None
 
 
 if __name__ == '__main__':
+    # num_words gives the number of words to be generated
+    # words_line gives the number of words per line
+    num_words = 200
+    words_line = 20
     source_text = '/intropython/data/sherlock_small.txt'
-    d = get_book(source_text)
-    create_dict(d)
+
+    new_inbook = get_book(source_text)
+    new_dict = create_dict(new_inbook)
+    new_outbook = create_newbook(new_dict, num_words, words_line)
