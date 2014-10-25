@@ -141,11 +141,10 @@ def add_donation(x, y):
 
     for i in y:
         
-        if x == i[0]:
-            print x
-            print y 
-            return i[1].append(new_donation)
-    return 
+        for item in i:
+            if x == item:
+                print '\n\n' + "Adding a donation of " + str(new_donation) + " to the record for" + str(full_name).title() + '\n\n'
+                i[1].append(new_donation)
 
 def send_email(x): 
     """Sends prints a message to standard out thanking the user for their donation and summing their donation history. """
@@ -189,8 +188,8 @@ or
 
     elif user_input.upper() == 'BB':
 
-       donor_name = raw_input('To which donor would you like to send an email? ') 
-       send_email(donor_name) 
+        full_name = raw_input("Please enter the full name of your donor:\n\n")
+        add_donation(full_name, donors)
 
 
     elif user_input.upper() == 'C' or 'Q':
