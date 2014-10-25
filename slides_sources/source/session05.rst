@@ -25,7 +25,8 @@ Homework review
 
 Homework Questions?
 
-My Solutions to the dict/set lab, and some others in the class repo in: ``Solutions``
+My Solutions to the dict/set lab, and some others in the class repo in:
+``Solutions/Session04``
 
 A few tidbits:
 
