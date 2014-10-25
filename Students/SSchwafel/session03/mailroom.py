@@ -11,7 +11,7 @@ def send_a_thank_you(x):
 
     while full_name.isdigit() == False :
 
-        full_name = raw_input("Please enter the full name of your donor:\n\n")
+        full_name = raw_input("Please enter the full name of your donor (you can type 'back' to return to the previous prompt):\n\n")
         full_name = full_name.lower()
         
         if is_name_present(full_name, donors) == True:
@@ -24,7 +24,7 @@ def send_a_thank_you(x):
 
                 add_donation(full_name, donors)
 
-                print donors
+                #print donors
 
             elif query_new_donation.lower() == 'no':
 
@@ -32,10 +32,8 @@ def send_a_thank_you(x):
 
                 if a.lower() == 'yes':
 
-                    send_email(full_name)
-                    break
-                else:
-                    break
+                    print send_email(full_name)
+                    #break
 
         elif full_name == 'list': 
             print donors
@@ -66,36 +64,15 @@ def create_a_report():
 
     sorted_donors = sorted(donors, key=lambda tup: tup[1])
 
+    print '\n{:<12}{:^12}{:>12}'.format('Donor Name','Donations','Total Donations')
+
     for i in sorted_donors:
 
-        for x in i[1]:
+        total_amount_of_donations = (sum(i[1])/len(i[1]))
 
-            #donor_name = i[0]
-            #sorting_key = i[1]
-
-            total_amount_of_donations = (sum(i[1])/len(i[1]))
-
-            temp_list.append((i[0],len(i[1]),i[1]))
+        temp_list.append((i[0],len(i[1]),i[1]))
             
-            #temp_list.append(str())
-
-    print temp_list
-
-    #sorted_donors = '\n'.join(map(str, sorted_donors))
-
-    #temp_list = '\n'.join(map(str, temp_list))
-
-    for i in temp_list:
-
-        print '%s %s %s' % (i[0],i[1],i[2])
-
-    print temp_list 
-
-    #sorted_donors =  str(sorted_donors)
-
-    #return "  Donor        Donations\n\n%s\n\n" % (sorted_donors)
-
-
+        print '\n{:<12}{:^12}{:>12}'.format(i[0],len(i[1]),i[1])
 
 def add_donor(x):
     """Prompts for donor's name, the initial donation amount, then adds them as (x,[y])"""
@@ -107,8 +84,6 @@ def add_donor(x):
     new_donor_initial_donation = int(new_donor_initial_donation)
 
     return (donor_name,[new_donor_initial_donation])
-
-
 
 def is_name_present(x,y):
     """Checks to see if x is present in y. Must iterate to check nested tuples"""
@@ -140,18 +115,15 @@ def add_donation(x, y):
     new_donation = int(new_donation)
 
     for i in y:
-<<<<<<< HEAD
         
         for item in i:
             if x == item:
-                print '\n\n' + "Adding a donation of " + str(new_donation) + " to the record for" + str(full_name).title() + '\n\n'
+                print '\n\n' + "Adding a donation of " + str(new_donation) + " to the record for " + str(x).title() + '\n\n'
                 i[1].append(new_donation)
-=======
         print i
         #if x == i[0]:
         #    return i[1].append(new_donation)
     return 
->>>>>>> f2c4d5fc2c6017a3b10245584c7a8d37f48c0b74
 
 def send_email(x): 
     """Sends prints a message to standard out thanking the user for their donation and summing their donation history. """
@@ -159,7 +131,7 @@ def send_email(x):
 
     donation = donation_amount(x, donors)
 
-    print "\n\n\nHello %s,\n\nIt looks like in the past you donated $%i to our organization!\n\nThank you for your contribution, it's people like you who are making a difference.\n\nThank You,\n\nSchuyler INC. Staff\n\n\n" %(x.title(), int(sum(donation)))
+    return "\n\n\nHello %s,\n\nIt looks like in the past you donated $%i to our organization!\n\nThank you for your contribution, it's people like you who are making a difference.\n\nThank You,\n\nSchuyler INC. Staff\n\n\n" %(x.title(), int(sum(donation)))
 
 count = 1
 while count > 0:
@@ -195,7 +167,7 @@ or
 
     elif user_input.upper() == 'BB':
 
-        full_name = raw_input("Please enter the full name of your donor:\n\n")
+        full_name = raw_input("Please enter the full name of your donor (enter back to return to previous prompt):\n\n")
         add_donation(full_name, donors)
 
 
