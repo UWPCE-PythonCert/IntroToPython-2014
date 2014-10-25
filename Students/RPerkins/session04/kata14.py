@@ -9,7 +9,7 @@ def get_book(target):
     return book_data
 
 
-def strip_lines(in_text):
+def strip_newlines(in_text):
     """ Replace newlines with spaces"""
     return in_text.replace('\n', ' ')
 
@@ -22,12 +22,19 @@ def mk_wordlist(in_list):
 def create_dict(orig_text):
     """ Create trigram dictionary from orig_text"""
     trigram = {}
-    word_list = mk_wordlist(strip_lines(orig_text))
-    for word in word_list:
-        trigram_key = word_list[word] + " " + (word_list[word + 1])
-        trigram[trigram_key] = word_list[word + 2]
+    word_list = mk_wordlist(strip_newlines(orig_text))
+    for idx, word in enumerate(word_list):
+        if idx > (len(word_list) - 3):
+            break
+        else:
+            trigram_key = '%s %s' % (word_list[idx], word_list[idx + 1])
+            print trigram_key
+            print idx
+            if trigram_key in trigram:
+                trigram[trigram_key].append(word_list[idx + 2])
+            else:
+                trigram[trigram_key] = [word_list[idx + 2]]
 
-    print word_list
     print trigram
 
 
