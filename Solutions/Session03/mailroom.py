@@ -30,7 +30,7 @@ def find_donor(name):
     for donor in donor_db:
         # do an non-capitalized compare
         if name.strip().lower() == donor[0].lower():
-            donor
+            return donor
     return None
 
 
