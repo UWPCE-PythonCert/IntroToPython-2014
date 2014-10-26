@@ -33,13 +33,6 @@ def safe_input():
     return int(new_d)
 
 
-#def in_dbase(i_name, tar_dbase):
-    #""" Check if name is in dbase and return boolean """
-    #for i in range(len(tar_dbase)):
-        #if i_name in tar_dbase[i]:
-            #return True
-    #return False
-
 
 def print_email(p_name, p_donation):
     """ Print thank you not for donation from p_name """
@@ -80,9 +73,18 @@ def thank_you(donor_dict):
         add_record(name, donor_dict)
 
 
+def write_efile(name, donation_list):
+    """write a donor email to disk named "name".txt"""
+    to_file = './%s.txt' % name
+    outdata = 'Dear %s, Thanks so much for your recent generous donation of $%s.  ' \
+              'It is greatly appreciated!' % (name, donation_list[-1])
+    open(to_file, 'w').write(outdata)
+
+
 #def sum_element(key_dbase):
     #"""set key for sorting on sum element of data structure"""
     #return key_dbase[1]
+
 
 
 def mk_report(rep_dict):
@@ -95,6 +97,8 @@ def mk_report(rep_dict):
         #print len(k)
         avg_donation = k[0]/(len(k)-1)
         print '%s\t\t\t%s\t\t\t\t%s\t\t\t\t\t\t%s' % (j, k[0], num_donations, avg_donation)
+        write_efile(j,k)
+
 
 
 if __name__ == '__main__':
