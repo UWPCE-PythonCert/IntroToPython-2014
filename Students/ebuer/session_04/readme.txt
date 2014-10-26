@@ -76,7 +76,7 @@ stringIO module writes to memory
 os module
 os.getcwd()
 os.chdir(path)
-os.path.abspath()
+os.path.abspath()itp
 os.path.relpath()
 os.path.split()
 os.listdir()
