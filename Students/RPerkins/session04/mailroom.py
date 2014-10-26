@@ -3,13 +3,14 @@ __author__ = 'Robert W. Perkins'
 
 def mk_dbase():
     """Create data structure for donor list"""
-    ndbase = [[], [], [], [], []]
     # donor name, sum of donations, donation 1, donation 2, ...
-    ndbase[0] = ['Jeff McCarthy', 4000, 2500, 1000, 500]
-    ndbase[1] = ['Tabitha Simmons', 2450, 450, 2000]
-    ndbase[2] = ['Angela Cartwright', 5500, 5500]
-    ndbase[3] = ['Billy Murray', 3700, 3450, 250]
-    ndbase[4] = ['Alexa Dalton', 6940, 240, 1200, 5500]
+    ndbase = {
+        'Jeff McCarthy': [4000, 2500, 1000, 500],
+        'Tabitha Simmons': [2450, 450, 2000],
+        'Angela Cartwright': [5500, 5500],
+        'Billy Murray': [3700, 3450, 250],
+        'Alexa Dalton': [6940, 240, 1200, 5500]
+    }
     return ndbase
 
 
@@ -29,15 +30,15 @@ def safe_input():
         return None
     except KeyboardInterrupt:
         return None
-    return new_d
+    return int(new_d)
 
 
-def in_dbase(i_name, tar_dbase):
-    """ Check if name is in dbase and return boolean """
-    for i in range(len(tar_dbase)):
-        if i_name in tar_dbase[i]:
-            return True
-    return False
+#def in_dbase(i_name, tar_dbase):
+    #""" Check if name is in dbase and return boolean """
+    #for i in range(len(tar_dbase)):
+        #if i_name in tar_dbase[i]:
+            #return True
+    #return False
 
 
 def print_email(p_name, p_donation):
@@ -45,26 +46,23 @@ def print_email(p_name, p_donation):
     print 'Dear %s, Thanks so much for your generous donation of $%s.  It is greatly appreciated!' % (p_name, p_donation)
 
 
-def app_record(app_name, app_dbase):
+def app_record(app_name, app_dict):
     """ Append an existing donor record """
-    for i in range(len(app_dbase)):
-        if app_name in app_dbase[i]:
-            app_donation = safe_input()
-            app_dbase[i].append(app_donation)
-            app_dbase[i][1] += int(app_donation)
-            print_email(app_name, app_donation)
-            break
+    app_donation = safe_input()
+    app_dict[app_name].append(app_donation)
+    app_dict[app_name][0] += app_donation
+    #print app_dict
+    print_email(app_name, app_donation)
 
 
-def add_record(add_name, add_dbase):
+def add_record(add_name, add_dict):
     """ Add new donor to database """
     add_donation = safe_input()
-    new = [add_name, int(add_donation), add_donation]
-    add_dbase.append(new)
+    add_dict[add_name] = [add_donation, add_donation]
     print_email(add_name, add_donation)
 
 
-def thank_you(dbase):
+def thank_you(donor_dict):
     """ Find or create a donor, add new donation, and return a thank you note"""
     name = 'list'
     while name == 'list':
@@ -73,28 +71,30 @@ def thank_you(dbase):
         if not (name == 'list'):
             break
         else:
-            for i in range(len(dbase)):
-                print dbase[i][0]
-    if in_dbase(name, dbase):
-        app_record(name, dbase)
+            for item in donor_dict:
+                print item
+
+    if name in donor_dict:
+        app_record(name, donor_dict)
     else:
-        add_record(name, dbase)
+        add_record(name, donor_dict)
 
 
-def sum_element(key_dbase):
-    """set key for sorting on sum element of data structure"""
-    return key_dbase[1]
+#def sum_element(key_dbase):
+    #"""set key for sorting on sum element of data structure"""
+    #return key_dbase[1]
 
 
-def mk_report(rep_dbase):
+def mk_report(rep_dict):
     """ Create a sorted list of donors"""
     print 'Donor Name\t\t\tTotal Donations\t# of Donations\t\tAverage Donation'
-    rep_dbase.sort(key=sum_element)
-    for j in range(len(rep_dbase)):
-        donor_slice = rep_dbase[j][2:]
-        num_donations = (len(donor_slice))
-        avg_donation = int(rep_dbase[j][1])/num_donations
-        print '%s\t\t\t%s\t\t\t\t%s\t\t\t\t\t\t%s' % (rep_dbase[j][0], rep_dbase[j][1], num_donations, avg_donation)
+    #rep_dbase.sort(key=sum_element)
+    for j, k in rep_dict.items():
+        num_donations = len(k)-1
+        #print num_donations
+        #print len(k)
+        avg_donation = k[0]/(len(k)-1)
+        print '%s\t\t\t%s\t\t\t\t%s\t\t\t\t\t\t%s' % (j, k[0], num_donations, avg_donation)
 
 
 if __name__ == '__main__':
