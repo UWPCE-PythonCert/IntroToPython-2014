@@ -472,6 +472,12 @@ if __name__ == '__main__':
 ############################## SESSION03 ##############################
 
 """
+making a python file an executable:
+    - change the mode of the file to executable: chmod +x myscript.py
+    - add the path to python at the top with '#!' before
+"""
+
+"""
 git question:
     - create a pull request for the branch itself
 """
