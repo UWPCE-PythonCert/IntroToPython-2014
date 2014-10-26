@@ -3,7 +3,7 @@ __author__ = 'Robert W. Perkins'
 
 def mk_dbase():
     """Create data structure for donor list"""
-    # donor name, sum of donations, donation 1, donation 2, ...
+    # donor name = key: sum of donations, donation 1, donation 2, ...
     ndbase = {
         'Jeff McCarthy': [4000, 2500, 1000, 500],
         'Tabitha Simmons': [2450, 450, 2000],
@@ -16,11 +16,16 @@ def mk_dbase():
 
 def get_input():
     """Ask user whether to send thank you note or create report and return answer"""
-    answer = None
-    while not ((answer == '1') or (answer == '2') or (answer == "q")):
-        new_answer = raw_input("Enter '1' to Send a Thank-You Note, Enter '2' to Create a Report, Enter 'q' to quit-->")
-        answer = str(new_answer)
-    return answer
+
+    choices = {
+        '1': 'Enter "1" to Send a Thank-You Note',
+        '2': 'Enter "2" to Create a Report',
+        'q': 'Enter "q" to quit-->'
+    }
+    in_put = None
+    while not in_put in choices:
+        in_put = raw_input('%s, %s, %s' % (choices['1'], choices['2'], choices['q']))
+    return in_put
 
 
 def safe_input():
