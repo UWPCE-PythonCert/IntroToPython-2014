@@ -643,3 +643,93 @@ def func(c, list=[]):   #  this is wrong because it dones't create a function le
     return list.append(c)
 
 
+############################## SESSION03 ##############################
+"""
+you almost never have to loop through sequences using range()
+- zip() will zip lists together
+- unpack embedded squences using this construct
+"""
+
+a_list = [(1,2), (3,4), (5,6)]
+
+for i, j in a_list:
+    print i
+    print j
+
+"""
+enumerate allows you to get the indix while you are looping through a sequence
+"""
+
+for i, item in enumerate(a_list):
+    print i
+    print item
+
+"""
+buidling up a long string:
+    - one option is to continue to keep += to the string. however, this is
+      an inefficent process
+    - a better way is to build a list, then use " ".join(list)
+
+sorting data:
+    - when you
+
+"""
+
+fruits = ['Apples', 'Pears', 'Grapes']
+numbers = [1, 2, 3]
+combine = zip(fruits, numbers)
+
+def sort_key(item):
+    return item[1]
+
+combine.sort(key=sort_key)
+
+"""
+you can build up strings for formatting before you subistiute values in
+"""
+
+s = 'Hello ' + '%d' * 4
+print s % (1,2,3,4)
+
+"""
+dictionaries:
+    - create a dict with d = {}
+    - keys don't have to be the same type and values don't have to be the same
+      type
+    - keys can be any immutable object (technically "hash" objects):
+        - number
+        - string
+        - tuple
+    - dictionaries are unordered (due to the way they are built using hasing)
+    - dictionaries are very effecicent
+
+dictionary methods
+    - dict.setdefault() <-- will use this in the homework
+    - dict.iteritems() <-- will not return a list
+
+hashing:
+    - missed this so read the class notes
+"""
+
+"""
+Exceptions:
+    - you can use "finally" at the end of an exception, which will always get
+      run
+    - they also have an "else" which will run if there is no exception
+"""
+# never do this!  this doesn't give you information about the exception
+try:
+    do_something()
+except:
+    print "something went wrong."
+
+"""
+reading and writing files:
+
+text files:
+    - f 
+"""
+
+f = open('secrets.txt')
+secret_data = f.read()
+f.close()
