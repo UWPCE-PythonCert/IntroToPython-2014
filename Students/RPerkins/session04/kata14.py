@@ -29,13 +29,10 @@ def create_dict(orig_text):
             break
         else:
             trigram_key = '%s %s' % (word_list[idx], word_list[idx + 1])
-            #print trigram_key
-            #print idx
             if trigram_key in trigram:
                 trigram[trigram_key].append(word_list[idx + 2])
             else:
                 trigram[trigram_key] = [word_list[idx + 2]]
-    #print trigram
     return trigram
 
 
@@ -54,30 +51,23 @@ def create_newbook(trigram_dict, word_limit, w_line):
     """Create random output of num_words words, using trigram_dict keys to generate new words"""
     start_key = get_randomkey(trigram_dict)
     new_word = get_newword(start_key, trigram_dict)
-
-    #print start_key
     out_list = start_key.split(' ')
+    out_list.insert(0, '...')
     out_list.append(new_word)
-    #print out_list
     left_frame = 0
 
     for i in range(word_limit):
         for j in range(w_line):
             next_key = '%s %s' % (out_list[left_frame+1], out_list[left_frame + 2])
-                #print next_key in trigram_dict
             while not next_key in trigram_dict:
                 next_key = get_randomkey(trigram_dict)
             next_word = get_newword(next_key, trigram_dict)
             out_list.append(next_word)
             left_frame += 1
         out_list.append('\n')
-    out_list.append('.')
+    out_list.append('...')
     out_string = ' '.join(out_list)
     return out_string
-
-    #print new_word
-    #print type(new_word)
-    #print out_list
 
 
 if __name__ == '__main__':
@@ -90,6 +80,5 @@ if __name__ == '__main__':
 
     new_inbook = get_book(source_text)
     new_dict = create_dict(new_inbook)
-    #print new_dict
     new_outbook = create_newbook(new_dict, num_words, words_line)
     print new_outbook
