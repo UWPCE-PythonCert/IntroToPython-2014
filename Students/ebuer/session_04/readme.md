@@ -80,6 +80,7 @@ FLAGS
 be careful! 'w' flag will clear the file that is opened in prep for writing
 
 file object is an iterator
+
 stringIO module writes to memory
 
     * os module
