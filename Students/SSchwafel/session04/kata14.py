@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import random
 
 #Open the text file for Sherlock Homes
 
@@ -10,33 +11,54 @@ book_file.close()
 
 text_doc = text_doc.replace('--',' ')
 
+text_doc = text_doc.replace('.','')
+
 text_doc = list(text_doc.split())
 
-print text_doc
+#print text_doc
+
+new_text = []
 
 dict_words = {}
 
 
 #for i in text_doc:
-
 def take_first_three_values(x):
     """Takes first three values from text document, turns val.1 into key, second two into a list of items"""
     #grabs first value from text doc, removes it
-    key = x.pop(0)
-    #first value has now switched to second word, removes that one too
 
     word1 = x.pop(0)
-    #first value has now switched to third word, removes that one too
 
-    word2 = x.pop(0)
+    word2 = x[0]
+
+    word3 = x[1]
 
     #add a dictionary entry for the first three values
-    dict_words[key] = [word1,word2]
 
-take_first_three_values(text_doc)
+    dict_words.setdefault(' '.join((word1, word2)), []).append(word3)
 
+while len(text_doc) > 0:
+
+    try:
+        take_first_three_values(text_doc)
+
+    except IndexError:
+        break
+
+starting_point = random.choice(dict_words.keys())
 print '\n'
-print "Here's the dictionary entry list so far:\n"
-print dict_words
-print "Here's the original entry list with values removed:\n"    
-print text_doc
+print starting_point
+
+new_text.append(str(dict_words[starting_point]))
+new_text.append(str(starting_point.split()[1]))
+
+#print new_text
+print ' '.join(new_text)
+
+#print dict_words[starting_point]
+#
+#
+#for i in dict_words.keys():
+#    print '\n'
+#    print i
+#    print dict_words[i]
