@@ -1,8 +1,10 @@
-Starting Session 04 readme.
+Session 04 ReadMe
+===============================
 
 Review of homework indicates there is a good opportunity here to update mailroom and the associated data storage types.  This should greatly simplify subsequent code.
 
 MORE LOOPING RECOMMENDATIONS
+-----------
 
 remember: double looping can be accomplished by zipping two iterables together --
     for i, j in zip(list1, list2):
@@ -11,11 +13,11 @@ remember: double looping can be accomplished by zipping two iterables together -
 zipping can do any number of lists, creating a set of tuples with n values where n is the number of lists entered into zip
 
 SLICING
-
+-----------
 list[i1:i2] = []  will replace list values with empty list, an effective erase tool
 
 DICTIONARIES
-
+-----------
 dict.keys() -- key items
 dict.values() -- value items
 dict.items() -- returns tuples of key, value
@@ -37,6 +39,7 @@ sets are mutable, there is an immutable variety called 'frozenset' syntax is sam
 
 
 EXCEPTIONS
+-----------
 
 ALWAYS ALWAYS specify the errors that will be excepted -- blank exceptions
 are a very bad habit
@@ -61,26 +64,26 @@ IO HANDLING
 f = open( 'secrets.txt', [mode flags])
 
 FLAGS
-'r', 'w', 'a'
-'rb', 'wb', 'ab'
-r+, w+, a+
-r+b, w+b, a+b
-U
-U+
+    * 'r', 'w', 'a'
+    * 'rb', 'wb', 'ab'
+    * r+, w+, a+
+    * r+b, w+b, a+b
+    * U
+    * U+
 
 be careful! 'w' flag will clear the file that is opened in prep for writing
 
 file object is an iterator
 stringIO module writes to memory
 
-os module
-os.getcwd()
-os.chdir(path)
-os.path.abspath()itp
-os.path.relpath()
-os.path.split()
-os.listdir()
-os.mkdir()
+    * os module
+    * os.getcwd()
+    * os.chdir(path)
+    * os.path.abspath()itp
+    * os.path.relpath()
+    * os.path.split()
+    * os.listdir()
+    * os.mkdir()
 
 os.walk() -- very handy
 
