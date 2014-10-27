@@ -48,19 +48,20 @@ Don't set up your code to catch exceptions unless there is something that can be
 
 Check out PyCon when bored
 
-try:
-    (tries to run)
-    
-except (error):
-    (runs on failure)
-    
-finally:
-    (always runs)
-    
-else:
-    (runs only when there is no exception)
 
-raise (error)('print some message') -- manually trip an error and send note
+    try:
+        (tries to run)
+    
+    except (error):
+        (runs on failure)
+    
+    finally:
+        (always runs)
+    
+    else:
+        (runs only when there is no exception)
+
+    raise (error)('print some message') -- manually trip an error and send note
 
 
 IO HANDLING
