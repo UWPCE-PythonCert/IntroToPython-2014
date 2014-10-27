@@ -17,13 +17,14 @@ while True:
     if not line:
         break
 
-    temp = line.split(':')
-    temp = temp[1].split(',')
+    temp = line.split(':')[1]
+    temp = temp.split(',')
 
     for l in temp:
-        # print l
-        l = l.strip(' \n')
+        l = l.strip(' \n ')
+        l = l.upper()  # reduce keys by converting case
         lang_count = lang_dict.get(l, 'new')
+
         if lang_count is 'new':
             lang_dict.setdefault(l, 1)
         else:
@@ -40,7 +41,7 @@ def plist(ltup):
 
 print_list.sort(key=plist, reverse=True)
 
-print 'List of language sorted by popularity:'
+print 'List of languages sorted by popularity:'
 
 for lang, n in print_list:
-    print '{lang}: {n}'.format(lang=lang, n=n)
+    print '{lang}: {n}'.format(lang=lang.title(), n=n)
