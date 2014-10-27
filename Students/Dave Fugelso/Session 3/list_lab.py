@@ -53,10 +53,7 @@ if __name__ == "__main__":
     #Display the list.
     print fruits
  
-<<<<<<< HEAD
-=======
     '''
->>>>>>> cad8598381ee635bdb96d41a72e2c8fa36a2f3a0
     #Ask the user for another fruit and add it to the end of the list.
     newFruit = raw_input ('Enter a new fruit to add to the list: ')
     fruits.append(newFruit)
@@ -74,21 +71,6 @@ if __name__ == "__main__":
         except:
             print 'Invalid input. Enter number between zero and ', len (fruits)
     print index, fruits[index]
-<<<<<<< HEAD
-    
-    #Add another fruit to the beginning of the list using "+" and display the list.
-    fruits = 'Kiwi' + fruits
-    #Add another fruit to the beginning of the list using insert() and display the list.
-    fruits.insert (0, 'Pomegranates')
-    #Display all the fruits that begin with "P", using a for loop.
-    #Using the list created in series 1 above:
-    #
-    #Display the list.
-    #Remove the last fruit from the list.
-    #Display the list.
-    #Ask the user for a fruit to delete and find it and delete it.
-    #(Bonus: Multiply the list times two. Keep asking until a match is found. Once found, delete all occurrences.)
-=======
     '''    
     #Add another fruit to the beginning of the list using "+" and display the list.
     fruits = ['Kiwi'] + fruits
@@ -133,7 +115,6 @@ if __name__ == "__main__":
         
     
     
->>>>>>> cad8598381ee635bdb96d41a72e2c8fa36a2f3a0
     #Again, using the list from series 1:
     #
     #Ask the user for input displaying a line like "Do you like apples?"
@@ -141,8 +122,6 @@ if __name__ == "__main__":
     #For each "no", delete that fruit from the list.
     #For any answer that is not "yes" or "no", prompt the user to answer with one of those two values (a while loop is good here):
     #Display the list.
-<<<<<<< HEAD
-=======
     fruitListForIteration = fruits
     likeList = []
     for fruit in fruitListForIteration:
@@ -165,14 +144,10 @@ if __name__ == "__main__":
                 
     
     
->>>>>>> cad8598381ee635bdb96d41a72e2c8fa36a2f3a0
     #Once more, using the list from series 1:
     #
     #Make a copy of the list and reverse the letters in each fruit in the copy.
     #
-<<<<<<< HEAD
-    #Delete the last item of the original list. Display the original list and the copy. 
-=======
     fruits = ['Apples', 'Pears', 'Oranges', 'Peaches', 'Kiwi', 'Grapes']
     fruitsCopy = fruits
     for i in range (0,len(fruitsCopy)):
@@ -187,5 +162,3 @@ if __name__ == "__main__":
     fruits.pop()
     print fruits
     print fruitsCopy
-    
->>>>>>> cad8598381ee635bdb96d41a72e2c8fa36a2f3a0
