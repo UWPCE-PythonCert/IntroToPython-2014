@@ -8,8 +8,8 @@ import sys
 
 source, dest = sys.argv[1:3]
 
-infile = open(source, 'rb')
-outfile = open(dest, 'wb')
+infile = open(source, 'rb') # read binary mode
+outfile = open(dest, 'wb')  # write binary mode
 
 outfile.write(infile.read())
 infile.close()
