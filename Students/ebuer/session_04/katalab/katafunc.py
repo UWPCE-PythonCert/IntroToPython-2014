@@ -31,13 +31,20 @@ def stringbreak(word, sep):
     if word.find(sep) != -1:
         return word.split(sep)
     else:
-        return None
+        return word
 
 
 def sanitize(word):
-    """Returns string without leading/trailing punctuation
+    """Returns string without punctuation
     """
     word = word.strip('."?!')
-    word = word.strip("',")
-    return word
+    word = word.strip("',() :;")
 
+    for s in ['"', '?', '.', ':', ';', ',', "'"]:  # stuff to get rid of
+        if word.find(s):
+            word = word.replace(s, '')
+
+    for s in ['--']:  # stuff to substitute with a space
+        if word.find(s):
+            word = word.replace(s, ' ')
+    return word
