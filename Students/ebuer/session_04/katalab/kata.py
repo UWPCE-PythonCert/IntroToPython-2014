@@ -6,7 +6,7 @@ The value for each key is a list of words that follow the key.
 
 Initialize with a random set of two words and build
 
-HELP REQUESTS:
+HELP REQUESTS: 
 
 """
 
@@ -18,7 +18,7 @@ book.seek(1289)  # 1289 to skip header in large file
 
 katadict = dict()
 
-book_text = book.read(1000)  # 560491 to capture text of large file
+book_text = book.read(560492)  # 560491 to capture text of large file
 
 book.close()
 
@@ -64,10 +64,13 @@ while len(temp) > 3:
 #     print dline
 
 # write everything to a file to save memory later
-f = open('kata_dfile3.txt', 'w')
+f = open('kata_dfile.csv', 'w')
 
 for k, v in katadict.iteritems():
     #csvwriter = csv.DictWriter(f, delimiter= ',', fieldnames= k)
-    dline = "'{key}': {values},".format(key=k, values=v)
-    f.write(dline)
+    # dline = "{key}: {values},".format(key=k, values=v)
+    dline = (k, v)
+    #f.write(dline)
+    spamwriter = csv.writer(f, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    spamwriter.writerow(dline)
 f.close()
