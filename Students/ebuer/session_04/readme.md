@@ -50,14 +50,17 @@ Check out PyCon when bored
 
 try:
     (tries to run)
-except <error>:
+    
+except (error):
     (runs on failure)
+    
 finally:
     (always runs)
+    
 else:
     (runs only when there is no exception)
 
-raise <error>('print some message') -- manually trip an error and send note
+raise (error)('print some message') -- manually trip an error and send note
 
 
 IO HANDLING
