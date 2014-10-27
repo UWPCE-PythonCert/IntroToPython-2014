@@ -1566,7 +1566,7 @@ your implementation. Include good commit messages that explain concisely both
 *what* you are doing and *why*.
 
 When you are finished, push your changes to your fork of the class repository
-in GitHub. Then make a pull request and submit your assignment in Canvas.
+in GitHub and make a pull request.
 
 ::
 
@@ -1631,4 +1631,4 @@ your implementation. Include good commit messages that explain concisely both
 *what* you are doing and *why*.
 
 When you are finished, push your changes to your fork of the class repository
-in GitHub. Then make a pull request and submit your assignment in Canvas.
+in GitHub and make a pull request.
