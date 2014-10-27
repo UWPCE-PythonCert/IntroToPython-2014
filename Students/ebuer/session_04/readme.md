@@ -64,6 +64,7 @@ IO HANDLING
 f = open( 'secrets.txt', [mode flags])
 
 FLAGS
+
     * 'r', 'w', 'a'
     * 'rb', 'wb', 'ab'
     * r+, w+, a+
