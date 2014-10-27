@@ -40,8 +40,6 @@ def safe_input():
 
 def print_email(p_name, p_donation):
     """ Print thank you note for donation from p_name """
-    #print 'Dear %s, Thanks so much for your generous donation of $%s.  ' \
-          #'It is greatly appreciated!' % (p_name, p_donation)
     ltr_temp = {'Template1': 'Dear {name}, Thanks so much for your generous donation of ${donation}.  '
                              'It is greatly appreciated!'
                 }
