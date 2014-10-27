@@ -38,10 +38,15 @@ def safe_input():
     return int(new_d)
 
 
-
 def print_email(p_name, p_donation):
-    """ Print thank you not for donation from p_name """
-    print 'Dear %s, Thanks so much for your generous donation of $%s.  It is greatly appreciated!' % (p_name, p_donation)
+    """ Print thank you note for donation from p_name """
+    #print 'Dear %s, Thanks so much for your generous donation of $%s.  ' \
+          #'It is greatly appreciated!' % (p_name, p_donation)
+    ltr_temp = {'Template1': 'Dear {name}, Thanks so much for your generous donation of ${donation}.  '
+                             'It is greatly appreciated!'
+                }
+
+    print ltr_temp['Template1'].format(name=p_name, donation=p_donation)
 
 
 def app_record(app_name, app_dict):
@@ -49,7 +54,6 @@ def app_record(app_name, app_dict):
     app_donation = safe_input()
     app_dict[app_name].append(app_donation)
     app_dict[app_name][0] += app_donation
-    #print app_dict
     print_email(app_name, app_donation)
 
 
@@ -91,19 +95,15 @@ def write_efile(name, donation_list):
     #return key_dbase[1]
 
 
-
 def mk_report(rep_dict):
     """ Create a sorted list of donors"""
     print 'Donor Name\t\t\tTotal Donations\t# of Donations\t\tAverage Donation'
     #rep_dbase.sort(key=sum_element)
     for j, k in rep_dict.items():
         num_donations = len(k)-1
-        #print num_donations
-        #print len(k)
         avg_donation = k[0]/(len(k)-1)
         print '%s\t\t\t%s\t\t\t\t%s\t\t\t\t\t\t%s' % (j, k[0], num_donations, avg_donation)
         write_efile(j,k)
-
 
 
 if __name__ == '__main__':
