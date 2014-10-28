@@ -15,6 +15,7 @@ Haven't decided how to choose next work from list or what to do about dead ends.
 '''
 
 import io
+import re
 
 
 
@@ -34,29 +35,32 @@ def buildTrigraph (source):
     first = ''
     second = ''
     third = ''
-    trigraph = {}
+    trigraph = dict()
     while reading:
         line = text.readline()
         #TBD Check if line s end of paragraph.
         if line:
-            #words = line.split(' -')
-            words = line.split()
+            #Use a regular expression to parse the line with punctuation. Yes- getting ahead again but found this on Stack Overflow
+            words = re.split('(\W+)', line)
+            words = [word for word in words if word != ' ' and word != '--']
+            print words
+
             for i in range (0, len(words)):
                 first = second
                 second = third
                 third = words[i]
                 
-                #Check for punctuation
                 
                 
                 if first != '' and second != '':
                     t = first+' '+second
-                    print t, ' : ', third
-                    l = trigraph.get(t, [])
-                    print trigraph[t]
-                    if third not in l:
-                        l.append (third)
-                        print trigraph[t]
+                    ##print t, ' : ', third
+                    if trigraph.has_key(t):
+                        if third not in trigraph[t]:
+                            trigraph[t].append (third)
+                    else:
+                        trigraph[t] = [third]
+                    ##print trigraph[t]
                         
                 #Handle punctuation
      
@@ -70,7 +74,7 @@ def trigraphFacts(t):
     '''
     Display interesting facts on the trigraph.
     '''
-    print "There are {} entries".format (t.len())
+    print "There are {} entries".format (len(t))
     
     #Find largest trigraph and print any that have only one member
     largestName = ''
@@ -82,10 +86,10 @@ def trigraphFacts(t):
             largestName = key
         if len(t[key]) == 1:
             print key,
-            print ' : '
+            print ' : ',
             print t[key]
         
-    print "\n\n\the entries with the most entries is '{}' with {} entries".format (largestName, largestNum)
+    print "\n\nThe entries with the most entries is '{}' with {} entries".format (largestName, largestNum)
     
 def printTrigraph (t):
     print '\n\nTrigraphs'
@@ -96,9 +100,11 @@ def printTrigraph (t):
     print '\n\n'
 
 if __name__ == "__main__":
-    short_sherlock_source = "../../../../../sherlock_small.txt"
-    sherlock_source = "../../../../../sherlock.txt"
+    basePath = "../../../slides_sources/source/homework/"
+    short_sherlock_source = basePath + "sherlock_small.txt"
+    sherlock_source = basePath + "sherlock.txt"
     t = buildTrigraph (short_sherlock_source)
     #t =buildTrigraph (sherlock_source)
-    printTrigraph (t)
+    #printTrigraph (t)
+    #trigraphFacts(t)
 
