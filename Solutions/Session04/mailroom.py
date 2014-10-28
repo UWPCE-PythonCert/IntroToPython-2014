@@ -71,7 +71,8 @@ def main_menu_selection():
 
       1 - Send a Thank You
       2 - Create a Report
-      3 - Quit
+      3 - Send letters to everyone
+      4 - Quit
 
       > '''))
     return input.strip()
@@ -87,7 +88,7 @@ def gen_letter(donor):
     """
     return dedent('''Dear %s
 
-          Thank you for your very kind donation of %.2f.
+          Thank you for your very kind donation of $%.2f.
           It will be put to very good use.
 
                          Sincerely,
@@ -170,6 +171,17 @@ def generate_donor_report():
         report.append("%25s   %11.2f   %9i   %12.2f"%row)
     return "\n".join(report)
 
+
+def save_letters_to_disk():
+    """
+    make a letter for each donor, and save it to disk.
+    """
+    for donor in donor_db.values():
+        letter = gen_letter(donor)
+        filename = donor[0].replace(" ","_") + ".txt" # I don't like spaces in filenames...
+        open(filename, 'w').write(letter)
+
+
 if __name__ == "__main__":
     running = True
     while running:
@@ -179,6 +191,8 @@ if __name__ == "__main__":
         elif selection is "2":
             print generate_donor_report()
         elif selection is "3":
+            save_letters_to_disk()
+        elif selection is "4":
             running = False
         else:
             print "error: menu selection is invalid!"

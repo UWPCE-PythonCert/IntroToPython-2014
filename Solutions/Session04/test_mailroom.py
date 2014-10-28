@@ -3,6 +3,7 @@
 """
 unit tests for the mailroom program
 """
+import os
 
 import mailroom
 
@@ -44,7 +45,7 @@ def test_gen_letter():
     # what to test? tricky!
     assert letter.startswith("Dear Fred Flintstone")
     assert letter.endswith("-The Team\n")
-    assert "donation of 230.00" in letter
+    assert "donation of $230.00" in letter
 
 
 def test_add_donor():
@@ -65,4 +66,12 @@ def test_generate_donor_report():
     assert report.startswith("               Donor Name | Total Given | Num Gifts | Average Gift")
     assert "               Jeff Bezos        877.33           1         877.33" in report
 
+
+def test_save_letters_to_disk():
+    """This only tests that the files get created, but that's a start"""
+
+    mailroom.save_letters_to_disk()
+
+    assert os.path.isfile('Jeff_Bezos.txt')
+    assert os.path.isfile('William_Gates,_III.txt')
 
