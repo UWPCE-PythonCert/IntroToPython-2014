@@ -7,10 +7,12 @@ This version uses a dict for the main db, and exception handling to
 check input
 """
 
+import sys
+import math
+
 # handy utility to make pretty printing easier
 from textwrap import dedent
 
-import math
 
 # In memory representation of the donor database
 # using a tuple for each donor
@@ -86,14 +88,14 @@ def gen_letter(donor):
 
     :returns: string with letter
     """
-    return dedent('''Dear %s
+    return dedent('''Dear {0:s}
 
-          Thank you for your very kind donation of $%.2f.
+          Thank you for your very kind donation of ${1:.2f}.
           It will be put to very good use.
 
                          Sincerely,
                             -The Team
-          ''' % (donor[0], donor[1][-1]) )
+          '''.format(donor[0], donor[1][-1]) )
 
 
 def send_thank_you():
@@ -182,17 +184,27 @@ def save_letters_to_disk():
         open(filename, 'w').write(letter)
 
 
+def print_donor_report():
+    print generate_donor_report()
+
+
+def quit():
+    sys.exit(0)
+
 if __name__ == "__main__":
     running = True
-    while running:
+
+    selection_dict = {"1": send_thank_you,
+                      "2": print_donor_report,
+                      "3": save_letters_to_disk,
+                      "4": quit}
+
+    while True:
         selection = main_menu_selection()
-        if selection is "1":
-            send_thank_you()
-        elif selection is "2":
-            print generate_donor_report()
-        elif selection is "3":
-            save_letters_to_disk()
-        elif selection is "4":
-            running = False
-        else:
+        try:
+            selection_dict[selection]()
+        except KeyError:
             print "error: menu selection is invalid!"
+
+
+
