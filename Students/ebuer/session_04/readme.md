@@ -48,22 +48,28 @@ Don't set up your code to catch exceptions unless there is something that can be
 
 Check out PyCon when bored
 
-try:
-    (tries to run)
-except <error>:
-    (runs on failure)
-finally:
-    (always runs)
-else:
-    (runs only when there is no exception)
 
-raise <error>('print some message') -- manually trip an error and send note
+    try:
+        (tries to run)
+    
+    except (error):
+        (runs on failure)
+    
+    finally:
+        (always runs)
+    
+    else:
+        (runs only when there is no exception)
+
+    raise (error)('print some message') -- manually trip an error and send note
 
 
 IO HANDLING
+
 f = open( 'secrets.txt', [mode flags])
 
 FLAGS
+
     * 'r', 'w', 'a'
     * 'rb', 'wb', 'ab'
     * r+, w+, a+
@@ -74,6 +80,7 @@ FLAGS
 be careful! 'w' flag will clear the file that is opened in prep for writing
 
 file object is an iterator
+
 stringIO module writes to memory
 
     * os module

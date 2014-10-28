@@ -6,38 +6,48 @@ The value for each key is a list of words that follow the key.
 
 Initialize with a random set of two words and build
 
-HELP REQUESTS:
+HELP REQUESTS: 
 
 """
 
-from katafunc import linebreak, bookbreak, stringbreak, sanitize
+from katafunc import stringbreak, sanitize  # linebreak, bookbreak,
+import csv
 
 book = open('sherlock.txt')
-book.seek(1289)
+book.seek(1289)  # 1289 to skip header in large file
 
 katadict = dict()
 
-book_text = book.read(500000)
+book_text = book.read(560492)  # 560491 to capture text of large file
+
+book.close()
 
 temp = book_text.split(' ')
-# at this point you have a list of words w\n mixed in
+# at this point you have a list of words w\n and punctuation mixed in
 
-for word in temp:
+
+for i, word in enumerate(temp):
     if word.find('\n') != -1:
-        i = temp.index(word) # assume \n mashups are unique
-        temp.pop(i)
+        temp.pop(i)  # entry must be popped or loop hangs up
         temp.insert(i, stringbreak(word, '\n')[0])
-        temp.insert(i+1, stringbreak(word, '\n')[1])
+        temp.insert(i + 1, stringbreak(word, '\n')[1])
 
-# print temp
+
+for i, word in enumerate(temp):
+    temp[i] = sanitize(word)
+    if temp[i] is '':
+        temp.pop(i)
+
 
 while len(temp) > 3:
-    val = sanitize(temp[2].lower())
-    key = '{word1} {word2}'\
-        .format(word1=sanitize(temp[0].lower()),
-            word2=sanitize(temp[1].lower()))
+    n = 0
+    word1 = temp[n].lower()
+    word2 = temp[n + 1].lower()
+    val = temp[n + 2].lower()
 
-    if key not in katadict:
+    key = '{word1} {word2}'.format(word1=word1, word2=word2)
+
+    if key not in katadict:  # some single word keys are slipping through
         katadict.setdefault(key, [val])
 
     elif key in katadict:
@@ -49,5 +59,18 @@ while len(temp) > 3:
 
     temp.pop(0)
 
+# for k, v in katadict.iteritems():
+#     dline = '{key}: {values},\n'.format(key=k, values=v)
+#     print dline
+
+# write everything to a file to save memory later
+f = open('kata_dfile.csv', 'w')
+
 for k, v in katadict.iteritems():
-    print '{key}: {values}'.format(key=k, values=v)
+    #csvwriter = csv.DictWriter(f, delimiter= ',', fieldnames= k)
+    # dline = "{key}: {values},".format(key=k, values=v)
+    dline = (k, v)
+    #f.write(dline)
+    spamwriter = csv.writer(f, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    spamwriter.writerow(dline)
+f.close()
