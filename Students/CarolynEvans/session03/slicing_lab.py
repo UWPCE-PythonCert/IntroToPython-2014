@@ -30,7 +30,7 @@ def Slice(seq, task):
         seq = seq[onethird:onethird*2] + seq[0:onethird] + seq[(onethird + remainder) * -1:]
 
     elif task == 'removefirstlastfoureveryother':
-        seq = Slice(seq[4:-4], 'removeeveryother')
+        seq = seq[4:-4:2]
 
 
     return seq

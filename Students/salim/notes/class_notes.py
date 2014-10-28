@@ -468,3 +468,178 @@ if __name__ == '__main__':
     # Do something interesting here
     # It will only happen when the module is run
 
+
+############################## SESSION03 ##############################
+
+"""
+git question:
+    - create a pull request for the branch itself
+"""
+
+#SEQUENCE
+"""
+sequence types:
+    -srings
+    -unicode strings
+    -lists
+    -tuples
+    -bytearrays
+    -buffers
+    -array.arrays
+    -xrange objects (almost)
+
+indexing:
+    -items in a sequence my be looked up with an index using the subscription
+     operator "[]"
+
+slicing:
+    -returning multiple elements of a sequence
+
+indexing vs. slicing:
+    -a slice always returns a sequence
+    -slicing does not return an error when you're out of bounds in a sequence
+
+membership:
+    -you can use "in" or "not in"
+
+similar features with sequences:
+    -min()
+    -max()
+    -.index()
+    -.count()
+    -all support iteration
+
+lists:
+    -you can build lists with "list()" (e.g. list("salim"))
+    -lists can contain all different object types
+    -ways to make a list bigger
+        -append() <-- adds a single item to the end
+        -insert() <-- adds a single item
+        -extend() <-- add multiple items to the end
+    -shrinking the list
+        -pop()
+        -remove()
+        -use "del" with a slice
+    -misc methods:
+        -.reverse()
+        -.sort()
+        -generally, methods that change a mutable object return None.  As opposed
+         to methods on immuatble objects return a copy of the changed object.
+    -list performance:
+        -indexing is fast (i.e., Order 1)
+        -x in s is slow (i.e., Order n)
+        -looping is slow (i.e., Order n)
+        -operating on the end of the list if fast (i.e., Order 1)
+        -operating on the front or middle is slow (i.e., Order n)
+            -this is because you need to move all the elements to the front
+tuples:
+    -you don't actually need the "(" and ")"; tuples rely on the commas
+    -therefore a tuple with one element is (1,); i.e., you need the comma
+
+
+lists vs. tuples
+    -the difference between each is mutability
+        -mutable: it can be changed in place
+        -immutable: cannot be changed in place
+
+immutable objects (that we know so far):
+    -unicode
+    -string
+    -integer
+    -float
+    -tuple
+
+mutable objects (that we know so far):
+    -list
+
+loops in python:
+    -no indexing is required
+    -you can use "enumerate()" if you want both the index and the elements of
+     the object
+    -to stop a loop early:
+        -break: this stops and exits the loop
+        -continue:  this moves the loop back to the start
+    -loops can have an "else" statement
+        -else executes when you didn't break out of the loop early
+    -"while" loops
+        -these will execute until something is true
+
+more string features:
+    -split(): allows you to break a string into a list based on a delimiter
+    -join(): concatenates strings in a list
+    -upper(): uppercase
+    -lower(): lowercase
+    -isnumeric():
+    -isalnum():
+    -isalpha():
+
+ordinal values
+    -chr(): takes a number and converts to character
+    -ord(): takes a string and coverts to a number
+"""
+#example of indexing with strings
+s = "this is a string"
+s[0]
+
+#example of indexing with lists
+list = [1, 2, 3, 5, 6]
+list[-1] # will return 6
+
+#example of slicing
+s[:5]
+s[5:]
+s[:-4]
+
+"""
+slicing lab
+-return a string with the first and last characters exchanged.
+-return a string with every other character removed
+-return a string with the first and last 4 characters removed, and every other char in between
+-return a string reversed (just with slicing)
+-return a string with the middle, then last, then first third in the new order
+"""
+
+#slicing lab
+s = "this is a string"
+
+#return a string with the first and last characters exchanged.
+def first_last(s):
+    return s[-1] + s[1:-1] + s[0]
+
+#return a string with every other character removed
+def every_other(s):
+    return s[::2]
+
+#return a string with the first and last 4 characters removed, and every other char in between
+def random(s):
+    return s[1:-4:2]
+
+#return a string reversed (just with slicing)
+def reversed(s):
+    return s[::-1]
+
+#return a string with the middle, then last, then first third in the new order
+def thirds(s):
+    s_len = len(s) / 3
+    first = s[:s_len]
+    last = s[-s_len:]
+    middle = s[s_len:-s_len]
+    return middle + last + first
+
+#making a copy of a list
+original = [1, 2, 3]
+new = original[:]
+"""
+this creates a "shallow" copy.  therefore, if you have nested lists, the sub lists
+will not be copies.  to make a "deep" copy you can use a library or use loops.
+"""
+
+#this does not make a new list
+original = [1, 2, 3]
+new = original
+
+#do not us a mutable object as the default object in a function
+def func(c, list=[]):   #  this is wrong because it dones't create a function level list
+    return list.append(c)
+
+
