@@ -12,6 +12,8 @@ book_file.close()
 text_doc = text_doc.replace('--',' ')
 
 text_doc = text_doc.replace('.','')
+text_doc = text_doc.replace(',','')
+text_doc = text_doc.lower()
 
 text_doc = list(text_doc.split())
 
@@ -45,16 +47,30 @@ while len(text_doc) > 0:
     except IndexError:
         break
 
-starting_point = random.choice(dict_words.keys())
+key = random.choice(dict_words.keys())
 print '\n'
-print starting_point
+print key.capitalize(),
+new_text.extend(key.split())
 
-new_text.append(str(dict_words[starting_point]))
-new_text.append(str(starting_point.split()[1]))
 
-#print new_text
-print ' '.join(new_text)
+for i in range(200):
+    try:
 
+        next_word = random.choice(dict_words[key])
+        print next_word,
+        new_text.append(next_word)
+        key = ' '.join(new_text[-2:])
+
+    except KeyError:
+        continue
+
+#new_text.append(str(dict_words[starting_point]))
+#new_text.append(str(starting_point.split()[1]))
+#next_word = random.choice(dict_words[starting_point])
+#
+##print new_text
+#print ' '.join(map(str, new_text))
+#
 #print dict_words[starting_point]
 #
 #
