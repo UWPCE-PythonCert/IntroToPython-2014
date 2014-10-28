@@ -48,6 +48,20 @@ def find_donor(name):
     return donor_db.get(key)
 
 
+def add_donor(name):
+    """
+    add a new donor to the donr db
+
+    :param: the name of the donor
+
+    :returns: the new Donor data structure
+    """
+    name = name.strip()
+    donor = (name, [])
+    donor_db[name.lower()] = donor
+    return donor
+
+
 def main_menu_selection():
     """
     Print out the main application menu and then read the user input.
@@ -96,28 +110,32 @@ def send_thank_you():
         else:
             break
 
-    # Now prompt the user for a donation amount to apply. Since this is also an exit
-    # point to the main menu, we want to make sure this is done before mutating the db
-    # list object.
+    # Now prompt the user for a donation amount to apply. Since this is
+    # also an exit point to the main menu, we want to make sure this is
+    # done before mutating the db .
     while True:
         amount_str = raw_input("Enter a donation amount (or 'menu' to exit)> ").strip()
         if amount_str == "menu":
             return
         # Make sure amount is a valid amount before leaving the input loop
-        amount = float(amount_str)
-        # extra check here -- unliley that someone will type "NaN", but
-        # it IS possible, and it is a valid floating point number:
-        # http://en.wikipedia.org/wiki/NaN
-        if math.isnan(amount) or math.isinf(amount) or round(amount, 2) == 0.00:
+        try:
+            amount = float(amount_str)
+            # extra check here -- unlikely that someone will type "NaN", but
+            # it IS possible, and it is a valid floating point number:
+            # http://en.wikipedia.org/wiki/NaN
+            if math.isnan(amount) or math.isinf(amount) or round(amount, 2) == 0.00:
+                raise ValueError
+        # in this case, the ValueError could be raised by the float() call, or by the NaN-check
+        except ValueError:
             print "error: donation amount is invalid\n"
         else:
             break
 
-    # If this is a new user, ensure that the database has the necessary data structure.
+    # If this is a new user, ensure that the database has the necessary
+    # data structure.
     donor = find_donor(name)
     if donor is None:
-        donor = (name, [])
-        donor_db.append( donor )
+        donor = add_donor(name)
 
     # Record the donation
     donor[1].append(amount)
@@ -125,16 +143,19 @@ def send_thank_you():
 
 
 def sort_key(item):
+    ## used to sort on name in donor_db
     return item[1]
 
 
-def print_donor_report():
+def generate_donor_report():
     """
     Generate the report of the donors and amounts donated.
+
+    :returns: the donor report as a string.
     """
     # First, reduce the raw data into a summary list view
     report_rows = []
-    for (name, gifts) in donor_db:
+    for (name, gifts) in donor_db.values():
         total_gifts = sum(gifts)
         num_gifts = len(gifts)
         avg_gift = total_gifts / num_gifts
@@ -142,10 +163,12 @@ def print_donor_report():
 
     #sort the report data
     report_rows.sort(key=sort_key)
-    print "%25s | %11s | %9s | %12s"%("Donor Name","Total Given","Num Gifts","Average Gift")
-    print "-"*66
+    report = []
+    report.append("%25s | %11s | %9s | %12s"%("Donor Name","Total Given","Num Gifts","Average Gift") )
+    report.append("-"*66)
     for row in report_rows:
-        print "%25s   %11.2f   %9i   %12.2f"%row
+        report.append("%25s   %11.2f   %9i   %12.2f"%row)
+    return "\n".join(report)
 
 if __name__ == "__main__":
     running = True
@@ -154,7 +177,7 @@ if __name__ == "__main__":
         if selection is "1":
             send_thank_you()
         elif selection is "2":
-            print_donor_report()
+            print generate_donor_report()
         elif selection is "3":
             running = False
         else:
