@@ -40,11 +40,23 @@ def sanitize(word):
     word = word.strip('."?!')
     word = word.strip("',() :;")
 
-    for s in ['"', '?', '.', ':', ';', ',', "'"]:  # stuff to get rid of
-        if word.find(s):
-            word = word.replace(s, '')
+    # for s in ['"', '?', '.', ':', ';', ',', "'"]:  # stuff to get rid of
+    #     if word.find(s):
+    #         word = word.replace(s, '')
 
     for s in ['--']:  # stuff to substitute with a space
         if word.find(s):
             word = word.replace(s, ' ')
     return word
+
+
+def katapunc(i, word):
+    """Return capitalized words with index % 15,
+    add periods to words i +1 % 15
+    """
+    if not i % 15 or not i:
+        return word.title()
+    elif not (i + 1) % 15:
+        return '{w}.'.format(w=word)
+    else:
+        return word

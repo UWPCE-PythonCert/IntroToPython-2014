@@ -6,7 +6,8 @@ The value for each key is a list of words that follow the key.
 
 Initialize with a random set of two words and build
 
-HELP REQUESTS: 
+HELP REQUESTS: I ha a really hard time with writing the dict to a file,
+ended up using csv module to help me out.  Any advice would be great.
 
 """
 
@@ -41,9 +42,9 @@ for i, word in enumerate(temp):
 
 while len(temp) > 3:
     n = 0
-    word1 = temp[n].lower()
-    word2 = temp[n + 1].lower()
-    val = temp[n + 2].lower()
+    word1 = temp[n]  # .lower()
+    word2 = temp[n + 1]  # .lower()
+    val = temp[n + 2]  # .lower()
 
     key = '{word1} {word2}'.format(word1=word1, word2=word2)
 
@@ -59,18 +60,22 @@ while len(temp) > 3:
 
     temp.pop(0)
 
-# for k, v in katadict.iteritems():
-#     dline = '{key}: {values},\n'.format(key=k, values=v)
-#     print dline
 
 # write everything to a file to save memory later
 f = open('kata_dfile.csv', 'w')
 
 for k, v in katadict.iteritems():
-    #csvwriter = csv.DictWriter(f, delimiter= ',', fieldnames= k)
-    # dline = "{key}: {values},".format(key=k, values=v)
     dline = (k, v)
-    #f.write(dline)
     spamwriter = csv.writer(f, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     spamwriter.writerow(dline)
 f.close()
+
+# crap that didn't work
+# csvwriter = csv.DictWriter(f, delimiter= ',', fieldnames= k)
+# dline = "{key}: {values},".format(key=k, values=v)
+# f.write(dline)
+
+# print to terminal to check functionality
+# for k, v in katadict.iteritems():
+#     dline = '{key}: {values},\n'.format(key=k, values=v)
+#     print dline
