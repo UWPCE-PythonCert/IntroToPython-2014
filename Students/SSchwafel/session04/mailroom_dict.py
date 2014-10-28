@@ -55,8 +55,8 @@ def send_a_thank_you(x):
             query_add_donor = raw_input("It doesn't look like that donor exists in the database yet, would you like to add this person? \n\n(yes/no)\n\n")
 
             if query_add_donor.lower() == 'yes':
+
                 add_donor(full_name)
-                break
 
             elif query_add_donor.lower() == 'no':
                 break
@@ -64,7 +64,7 @@ def send_a_thank_you(x):
                 break
 
 def create_a_report():
-
+    """Creates a structured output of all donors and donations"""
     sorted_donors = []
     temp_list = []
 
@@ -87,13 +87,17 @@ def create_a_report():
 
 def add_donor(x):
     """Prompts for donor's name, the initial donation amount, then adds them as (x,[y])"""
-    #donor_name = raw_input("Please enter the donor's full name ")
     donor_name = x
     donor_name = donor_name.lower()
 
     new_donor_initial_donation = raw_input("What was this donor's initial contribution? ")
-    new_donor_initial_donation = int(new_donor_initial_donation)
-    donors[x] = [new_donor_initial_donation]
+
+    try:
+	new_donor_initial_donation = int(new_donor_initial_donation)
+	donors[x] = [new_donor_initial_donation]
+
+    except ValueError:
+	print "\nPlease try again with an int."
 
 def is_name_present(x):
     """Checks to see if x is present in y. Must iterate to check nested tuples"""
@@ -118,11 +122,11 @@ def add_donation(x):
 
         new_donation = int(new_donation)
 
-    except TypeError,ValueError:
-        print 'Please try again with an int'        
+        donors[x].append(new_donation)
+        print donors[x]
 
-    donors[x].append(new_donation)
-    print donors[x]
+    except ValueError:
+	print "\nPlease try again with an int."
 
 
 #    for i in y:
@@ -170,21 +174,11 @@ or
     if user_input.upper() == 'A':
 
         print send_a_thank_you(donors)
-        #donors.append(add_donor())
         print donors
 
     elif user_input.upper() == 'B':
 
         print create_a_report()
-
-    #    print 'I'm going to fix this later'
-
-    elif user_input.upper() == 'BB':
-
-        full_name = raw_input("Please enter the full name of your donor (enter back to return to previous prompt):\n\n")
-        print donation_amount(full_name)
-        #add_donation(full_name, donors)
-
 
     elif user_input.upper() == 'C':
 
@@ -196,12 +190,6 @@ or
 
             outfile.write(send_email(i))
     
-#        for i in donors:
-#            outfile = open('./letters/i.txt','w')
-#            i.letter
-#            print send_email(i) 
-
-
     elif user_input.upper() == 'D' or 'Q':
 
         print 'Exiting...'
