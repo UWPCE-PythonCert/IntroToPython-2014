@@ -30,7 +30,7 @@
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
         <link rel="next" title="Session Seven: Testing, More OO" href="session07.html"/>
-        <link rel="prev" title="Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming" href="session05.html"/> 
+        <link rel="prev" title="Session Five: Advanced Argument passing, List and Dict Comprehensions" href="session05.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -105,24 +105,29 @@
 <li class="toctree-l2"><a class="reference internal" href="session04.html#a-little-warm-up">A little warm up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session04.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session04.html#id5">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session04.html#file-reading-and-writing">File Reading and Writing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session04.html#paths-and-directories">Paths and Directories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session04.html#id7">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session04.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#anonymous-functions">Anonymous functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#id1">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functional-programming">Functional Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#object-oriented-programming">Object Oriented Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python-classes">Python Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#subclassing-inheritance">Subclassing/Inheritance</a></li>
@@ -241,10 +246,180 @@
 <div><a class="reference internal" href="supplements/unicode.html#unicode-supplement"><em>Unicode in Python 2</em></a></div></blockquote>
 </div>
 </div>
+<div class="section" id="anonymous-functions">
+<h2>Anonymous functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lambda">
+<h3>lambda<a class="headerlink" href="#lambda" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [171]: </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="gp">In [172]: </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gh">Out[172]: </span><span class="go">5</span>
+</pre></div>
+</div>
+<p>Content can only be an expression &#8211; not a statement</p>
+<p>Anyone remember what the difference is?</p>
+<p>Called &#8220;Anonymous&#8221;: it doesn&#8217;t need a name.</p>
+<p>It&#8217;s a python object, it can be stored in a list or other container</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">]</span>
+<span class="gp">In [8]: </span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gh">Out[8]: </span><span class="go">function</span>
+</pre></div>
+</div>
+<p>And you can call it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[9]: </span><span class="go">7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-as-first-class-objects">
+<h3>Functions as first class objects<a class="headerlink" href="#functions-as-first-class-objects" title="Permalink to this headline">¶</a></h3>
+<p>You can do that with &#8220;regular&#8221; functions too:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="gp">   ....:</span>
+<span class="gp">In [13]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">fun</span><span class="p">]</span>
+<span class="gp">In [14]: </span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gh">Out[14]: </span><span class="go">function</span>
+<span class="gp">In [15]: </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gh">Out[15]: </span><span class="go">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="functional-programming">
+<h2>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="map">
+<h3>map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">map</span></tt>  &#8220;maps&#8221; a function onto a sequence of objects &#8211; It applies the function to each item in the list, returning another list</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [24]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="go">             return x*2 + 10</span>
+<span class="gp">In [25]: </span><span class="nb">map</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[25]: </span><span class="go">[14, 20, 24, 34, 22, 18]</span>
+</pre></div>
+</div>
+<p>But if it&#8217;s a small function, and you only need it once:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[26]: </span><span class="go">[14, 20, 24, 34, 22, 18]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter">
+<h3>filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">filter</span></tt>  &#8220;filters&#8221; a sequence of objects with a boolean function &#8211;
+It keeps only those for which the function is True</p>
+<p>To get only the even numbers:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [28]: </span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[28]: </span><span class="go">[2, 12, 6, 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reduce">
+<h3>reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">reduce</span></tt>  &#8220;reduces&#8221; a sequence of objects to a single object with a function that combines two arguments</p>
+<p>To get the sum:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [30]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">In [31]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[31]: </span><span class="go">36</span>
+</pre></div>
+</div>
+<p>To get the product:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [32]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gh">Out[32]: </span><span class="go">20160</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comprehensions">
+<h3>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>Couldn&#8217;t you do all this with comprehensions?</p>
+<p>Yes:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [33]: </span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+<span class="gh">Out[33]: </span><span class="go">[14, 17, 19, 24, 18, 16]</span>
+<span class="gp">In [34]: </span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span><span class="p">]</span>
+<span class="gh">Out[34]: </span><span class="go">[2, 12, 6, 4]</span>
+</pre></div>
+</div>
+<p>(Except Reduce)</p>
+<p>But Guido thinks almost all uses of reduce are really <tt class="docutils literal"><span class="pre">sum()</span></tt></p>
+</div>
+<div class="section" id="id1">
+<h3>Functional Programming<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Comprehensions and map, filter, reduce are all &#8220;functional programming&#8221; approaches}</p>
+<p><tt class="docutils literal"><span class="pre">map,</span> <span class="pre">filter</span></tt>  and <tt class="docutils literal"><span class="pre">reduce</span></tt>  pre-date comprehensions in Python&#8217;s history</p>
+<p>Some people like that syntax better</p>
+<p>And &#8220;map-reduce&#8221; is a big concept these days for parallel processing of &#8220;Big Data&#8221; in NoSQL databases.</p>
+<p>(Hadoop, MongoDB, etc.)</p>
+</div>
+<div class="section" id="a-bit-more-about-lambda">
+<h3>A bit more about lambda<a class="headerlink" href="#a-bit-more-about-lambda" title="Permalink to this headline">¶</a></h3>
+<p>Can also use keyword arguments}</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [186]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">In [187]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="go">    l.append(lambda x, e=i: x**e)</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [189]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+<span class="go">    print f(3)</span>
+<span class="go">1</span>
+<span class="go">3</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p>Note when the keyword argument is evaluated: this turns out to be very handy!</p>
+</div>
+<div class="section" id="lambda-and-keyword-argument-magic">
+<h3>lambda and keyword argument magic<a class="headerlink" href="#lambda-and-keyword-argument-magic" title="Permalink to this headline">¶</a></h3>
+<p>Write a function that returns a list of n functions,
+such that each one, when called, will return the input value,
+incremented by an increasing number.</p>
+<p>Use a for loop, <tt class="docutils literal"><span class="pre">lambda</span></tt>, and a keyword argument</p>
+<p>( Extra credit ):</p>
+<p>Do it with a list comprehension, instead of a for loop</p>
+<p>Not clear? here&#8217;s what you should get</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [96]: </span><span class="n">the_list</span> <span class="o">=</span> <span class="n">function_builder</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">### so the_list should contain n functions (callables)</span>
+<span class="gp">In [97]: </span><span class="n">the_list</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[97]: </span><span class="go">2</span>
+<span class="go">## the zeroth element of the list is a function that add 0</span>
+<span class="go">## to the input, hence called with 2, returns 2</span>
+<span class="gp">In [98]: </span><span class="n">the_list</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[98]: </span><span class="go">3</span>
+<span class="go">## the 1st element of the list is a function that adds 1</span>
+<span class="go">## to the input value, thus called with 2, returns 3</span>
+<span class="gp">In [100]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">the_list</span><span class="p">:</span>
+<span class="go">    print f(5)</span>
+<span class="gp">   .....:</span>
+<span class="go">5</span>
+<span class="go">6</span>
+<span class="go">7</span>
+<span class="go">8</span>
+<span class="go">### If you loop through them all, and call them, each one adds one more</span>
+<span class="go">to the input, 5... i.e. the nth function in the list adds n to the input.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functional-files">
+<h3>Functional files<a class="headerlink" href="#functional-files" title="Permalink to this headline">¶</a></h3>
+<p>Write a program that takes a filename and &#8220;cleans&#8221; the file be removing all the leading and trailing whitespace from each line.</p>
+<p>Read in the original file and write out a new one, either creating a new file or overwriting the existing one.</p>
+<p>Give your user the option of which to perform.</p>
+<p>Use <tt class="docutils literal"><span class="pre">map()</span></tt> to do the work.</p>
+<p>Write a second version using a comprehension.</p>
+<p><tt class="docutils literal"><span class="pre">sys.argv</span></tt> hold the command line arguments the user typed in. If the user types:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python the_script a_file_name
+</pre></div>
+</div>
+<p>Then:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>will get <tt class="docutils literal"><span class="pre">filename</span> <span class="pre">==</span> <span class="pre">&quot;a_file_name&quot;</span></tt></p>
+</div>
+</div>
 <div class="section" id="object-oriented-programming">
 <h2>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Object Oriented Programming<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Object Oriented Programming<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>More about Python implementation than OO design/strengths/weaknesses</p>
 <p>One reason for this:</p>
 <p>Folks can&#8217;t even agree on what OO &#8220;really&#8221; means</p>
@@ -331,8 +506,8 @@ as a variable, or single object, as opposed to a ...</dd>
 </div>
 <div class="section" id="python-classes">
 <h2>Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>Python Classes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Python Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">class</span></tt>  statement</p>
 <p><tt class="docutils literal"><span class="pre">class</span></tt>  creates a new type object:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -693,7 +868,7 @@ automatically when you instantiate an instance.</p>
         <a href="session07.html" class="btn btn-neutral float-right" title="Session Seven: Testing, More OO"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="session05.html" class="btn btn-neutral" title="Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="session05.html" class="btn btn-neutral" title="Session Five: Advanced Argument passing, List and Dict Comprehensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

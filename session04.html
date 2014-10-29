@@ -29,7 +29,7 @@
 
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
-        <link rel="next" title="Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming" href="session05.html"/>
+        <link rel="next" title="Session Five: Advanced Argument passing, List and Dict Comprehensions" href="session05.html"/>
         <link rel="prev" title="Session Three: Sequences, Iteration and String Formatting" href="session03.html"/> 
 
   
@@ -105,24 +105,29 @@
 <li class="toctree-l2"><a class="reference internal" href="#a-little-warm-up">A little warm up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dictionaries-and-sets">Dictionaries and Sets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-reading-and-writing">File Reading and Writing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#paths-and-directories">Paths and Directories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#anonymous-functions">Anonymous functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#id1">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#functional-programming">Functional Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#object-oriented-programming">Object Oriented Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#python-classes">Python Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
@@ -896,11 +901,11 @@ divisible 2, 3 and 4.</li>
 </pre></div>
 </div>
 <p>but should you be checking type anyway? (EAFP)</p>
+</div>
+</div>
 <div class="section" id="id5">
-<h4>LAB<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<h2>LAB<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Exceptions Lab</p>
-</div>
-</div>
 <div class="section" id="exceptions-lab">
 <h3>Exceptions Lab<a class="headerlink" href="#exceptions-lab" title="Permalink to this headline">¶</a></h3>
 <p>Improving <tt class="docutils literal"><span class="pre">raw_input</span></tt></p>
@@ -1128,12 +1133,12 @@ os.path.relpath()￼
 <h3>Files Lab<a class="headerlink" href="#files-lab" title="Permalink to this headline">¶</a></h3>
 <p>In the class repo, in:</p>
 <p><tt class="docutils literal"><span class="pre">Examples\Session01\students.txt</span></tt></p>
-<p>You will find the list I genrated of all the students in teh class, and
-what programming langues they used in the past.</p>
+<p>You will find the list I generated of all the students in the class, and
+what programming languages they have used in the past.</p>
 <p>Write a little script that reads that file, and generates a list of all
 the languages that have been used.</p>
-<p>Extra credit: keep track of how many sutdents specified each language.</p>
-<p>If you&#8217;ve got giot set up right, <tt class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></tt> should update
+<p>Extra credit: keep track of how many students specified each language.</p>
+<p>If you&#8217;ve got git set up right, <tt class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></tt> should update
 your repo. Otherwise, you can get it from gitHub:</p>
 <p><tt class="docutils literal"><span class="pre">https://github.com/UWPCE-PythonCert/IntroToPython/blob/master/Examples/Session01/students.txt</span></tt></p>
 </div>
@@ -1214,7 +1219,7 @@ big template &#8211; rather than building up a big string in parts.</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="session05.html" class="btn btn-neutral float-right" title="Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="session05.html" class="btn btn-neutral float-right" title="Session Five: Advanced Argument passing, List and Dict Comprehensions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="session03.html" class="btn btn-neutral" title="Session Three: Sequences, Iteration and String Formatting"><span class="fa fa-arrow-circle-left"></span> Previous</a>

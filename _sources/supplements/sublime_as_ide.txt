@@ -223,7 +223,7 @@ tools it needs installed.
 Use `virtualenv`_ to accomplish this.
 
 (**Warning:** there is some indication that ``SublimeLinter`` doesn't support
-virtual environments. So iof you have trouble, it may be best to make sure
+virtual environments. So if you have trouble, it may be best to make sure
 that the python packages you need are installed in your main python install,
 rather than a virtualenv. To do this, simply skip the virtualenv instrcutions
 below, and go on the pip installing.)
