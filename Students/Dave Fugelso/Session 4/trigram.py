@@ -40,30 +40,28 @@ def buildTrigram (source):
     trigram = dict()
     while reading:
         line = text.readline()
-        #TBD Check if line s end of paragraph.
+
         if line:
             line = line[:len(line)-1]
             #Use a regular expression to parse the line with punctuation. Yes- getting ahead again but found this on Stack Overflow.
             words = re.split('(\W+)', line)
             words = [word for word in words if word != u' ' and word != u'--' and word != u'-' and word != u'']
-            print words
         
             for i in range (0, len(words)):
                 first = second
                 second = third
-                third = words[i]
+                third = words[i].strip()
                 if first != '' and second != '':
                     if second[0] in string.punctuation:
                         key = first+second
                     else:
                         key = first+' '+second
-                    ##print t, ' : ', third
+                    key = key.strip()
                     if trigram.has_key(key):
                         if third not in trigram[key]:
                             trigram[key].append (third)
                     else:
                         trigram[key] = [third]
-                    ##print trigram[t]
                         
                 first = second
                 second = first
@@ -126,8 +124,10 @@ def createParagraph(t, n):
         num += 2
         buildingSentence = True
         key = start
+
         while buildingSentence:
             num += 1
+            key = key.strip()
             if t.has_key(key):
                 if len(t[key]) == 1:
                     nextword = t[key][0]
@@ -140,25 +140,26 @@ def createParagraph(t, n):
                 else:
                     print nextword,
                     if nextword[0] == '.':
-                        print '. '
+                        #print '. '
                         buildingSentence = False
                     else:
                         # get next key
                         oldkey = key.split()
-                        if len(oldkey) == 1: #has punctuation
-                            key = key[len(key)-1] + ' ' + nextword
+                        if len(oldkey) == 1:
+                            key = key[len(key)-1]
                         else:
-                            key = oldkey[1] + ' ' + nextword
+                            key = oldkey[1]
+                        
+                        if nextword[0] in string.punctuation:
+                            key = key + nextword
+                        else:
+                            key = key + ' ' + nextword
             else:
                 #dead end, we could discard this sentence or back track, but I'm going put a period on it.
+                print 'deadend ['+key+']',
                 print '.'
-                    
-                    
-                
-           
-        
-    
-    
+                buildingSentence = False
+
 def printTrigram (t):
     '''
     Print out trigram dictionary for testing purposes.
@@ -166,7 +167,7 @@ def printTrigram (t):
     print '\n\nTrigraphs'
     for key in t:
         print key,
-        print ' : ',
+        print ':',
         print t[key]
     print '\n\n'
 
@@ -174,8 +175,8 @@ if __name__ == "__main__":
     basePath = "../../../slides_sources/source/homework/"
     short_sherlock_source = basePath + "sherlock_small.txt"
     sherlock_source = basePath + "sherlock.txt"
-    t = buildTrigram (short_sherlock_source)
-    #t =buildTrigram (sherlock_source)
+    #t = buildTrigram (short_sherlock_source)
+    t =buildTrigram (sherlock_source)
     printTrigram (t)
     #trigramFacts(t)
     createParagraph(t, 100)
