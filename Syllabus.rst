@@ -184,13 +184,13 @@ Files and Text Processing
 Week 5: Oct 28
 ........................
 
-Unicode.
+Unicode
 
 Advanced Argument passing
 
-List and Dict Comprehensions
-
 Testing
+
+List and Dict Comprehensions
 
 Week 6: November 4
 ....................

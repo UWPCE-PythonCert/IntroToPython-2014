@@ -55,6 +55,253 @@ You also might want to put::
 Additional notes on using Unicode in Python see:
 
  :ref:`unicode_supplement`
+===================
+Anonymous functions
+===================
+
+lambda
+------
+
+.. code-block:: ipython
+
+    In [171]: f = lambda x, y: x+y
+    In [172]: f(2,3)
+    Out[172]: 5
+
+Content can only be an expression -- not a statement
+
+Anyone remember what the difference is?
+
+Called "Anonymous": it doesn't need a name.
+
+.. nextslide::
+
+It's a python object, it can be stored in a list or other container
+
+.. code-block:: ipython
+
+    In [7]: l = [lambda x, y: x+y]
+    In [8]: type(l[0])
+    Out[8]: function
+
+
+And you can call it:
+
+.. code-block:: ipython
+
+    In [9]: l[0](3,4)
+    Out[9]: 7
+
+
+Functions as first class objects
+---------------------------------
+
+You can do that with "regular" functions too:
+
+.. code-block:: ipython    
+
+    In [12]: def fun(x,y):
+       ....:     return x+y
+       ....:
+    In [13]: l = [fun]
+    In [14]: type(l[0])
+    Out[14]: function
+    In [15]: l[0](3,4)
+    Out[15]: 7
+
+
+
+======================
+Functional Programming
+======================
+
+map
+---
+
+``map``  "maps" a function onto a sequence of objects -- It applies the function to each item in the list, returning another list
+
+
+.. code-block:: ipython    
+
+    In [23]: l = [2, 5, 7, 12, 6, 4]
+    In [24]: def fun(x):
+                 return x*2 + 10
+    In [25]: map(fun, l)
+    Out[25]: [14, 20, 24, 34, 22, 18]
+
+
+But if it's a small function, and you only need it once:
+
+.. code-block:: ipython
+
+    In [26]: map(lambda x: x*2 + 10, l)
+    Out[26]: [14, 20, 24, 34, 22, 18]
+
+
+filter
+------
+
+``filter``  "filters" a sequence of objects with a boolean function --
+It keeps only those for which the function is True
+
+To get only the even numbers:
+
+.. code-block:: ipython
+
+    In [27]: l = [2, 5, 7, 12, 6, 4]
+    In [28]: filter(lambda x: not x%2, l)
+    Out[28]: [2, 12, 6, 4]
+
+
+
+reduce
+------
+
+``reduce``  "reduces" a sequence of objects to a single object with a function that combines two arguments
+
+To get the sum:
+
+.. code-block:: ipython
+
+    In [30]: l = [2, 5, 7, 12, 6, 4]
+    In [31]: reduce(lambda x,y: x+y, l)
+    Out[31]: 36
+
+
+To get the product:
+
+.. code-block:: ipython
+
+    In [32]: reduce(lambda x,y: x*y, l)
+    Out[32]: 20160
+
+
+Comprehensions
+--------------
+
+Couldn't you do all this with comprehensions?
+
+Yes:
+
+.. code-block:: ipython
+
+    In [33]: [x+2 + 10 for x in l]
+    Out[33]: [14, 17, 19, 24, 18, 16]
+    In [34]: [x for x in l if not x%2]
+    Out[34]: [2, 12, 6, 4]
+
+
+(Except Reduce)
+
+But Guido thinks almost all uses of reduce are really ``sum()`` 
+
+Functional Programming
+----------------------
+
+Comprehensions and map, filter, reduce are all "functional programming" approaches}
+
+``map, filter``  and ``reduce``  pre-date comprehensions in Python's history
+
+Some people like that syntax better
+
+And "map-reduce" is a big concept these days for parallel processing of "Big Data" in NoSQL databases.
+
+(Hadoop, MongoDB, etc.)
+
+
+A bit more about lambda
+------------------------
+
+Can also use keyword arguments}
+
+.. code-block:: ipython
+
+    In [186]: l = []
+    In [187]: for i in range(3):
+        l.append(lambda x, e=i: x**e)
+       .....:
+    In [189]: for f in l:
+        print f(3)
+    1
+    3
+    9
+
+Note when the keyword argument is evaluated: this turns out to be very handy!
+
+lambda and keyword argument magic
+-----------------------------------
+
+Write a function that returns a list of n functions,
+such that each one, when called, will return the input value,
+incremented by an increasing number.
+
+Use a for loop, ``lambda``, and a keyword argument
+
+( Extra credit ):
+
+Do it with a list comprehension, instead of a for loop
+
+
+Not clear? here's what you should get
+
+.. nextslide:: Example calling code
+
+.. code-block:: ipython
+
+    In [96]: the_list = function_builder(4)
+    ### so the_list should contain n functions (callables)
+    In [97]: the_list[0](2)
+    Out[97]: 2
+    ## the zeroth element of the list is a function that add 0
+    ## to the input, hence called with 2, returns 2
+    In [98]: the_list[1](2)
+    Out[98]: 3
+    ## the 1st element of the list is a function that adds 1
+    ## to the input value, thus called with 2, returns 3
+    In [100]: for f in the_list:
+        print f(5)
+       .....:
+    5
+    6
+    7
+    8
+    ### If you loop through them all, and call them, each one adds one more
+    to the input, 5... i.e. the nth function in the list adds n to the input.
+
+
+
+
+Functional files
+-----------------
+
+Write a program that takes a filename and "cleans" the file be removing all the leading and trailing whitespace from each line.
+
+Read in the original file and write out a new one, either creating a new file or overwriting the existing one.
+
+Give your user the option of which to perform.
+
+Use ``map()`` to do the work.
+
+Write a second version using a comprehension.
+
+.. nextslide:: Hint
+
+``sys.argv`` hold the command line arguments the user typed in. If the user types:
+
+.. code-block:: bash
+
+  $ python the_script a_file_name
+
+Then:
+
+.. code-block:: python
+
+    import sys
+    filename = sys.argv[1]
+
+will get ``filename == "a_file_name"``
+
+
 
 
 ===========================
