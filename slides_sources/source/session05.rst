@@ -3,9 +3,23 @@
    hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
 
 
-********************************************************************************************************
-Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming
-********************************************************************************************************
+*********************************************************************
+Session Five: Advanced Argument passing, List and Dict Comprehensions
+*********************************************************************
+
+======================
+Lightning Talks Today:
+======================
+
+.. rst-class:: medium
+
+  Darcy Balcarce
+
+  Eric Buer
+
+  Henry B Fischer
+
+  Kyle R Hart
 
 
 ================
@@ -19,13 +33,41 @@ Review of Previous Class
   * Exceptions
   * Files, etc.
 
+.. nextslide::
+
+.. rst-class:: center large
+
+  How many of you finished ALL the homework?
+
+.. nextslide::
+
+.. rst-class:: center large
+
+  Sorry about that!
+
+.. nextslide::
+
+.. rst-class:: medium
+
+    * That was a lot.
+
+.. rst-class:: medium
+
+.. rst-class:: build
+
+    * But it's all good stuff.
+
+    * I want time to go over it in class.
+
+    * So I'm ditching Unicode -- we'll hit it in the last class
+
 
 Homework review
 ---------------
 
 Homework Questions?
 
-My Solutions to the dict/set lab, and some others in the class repo in:
+My Solutions to ALL the homework in the class repo in:
 ``Solutions/Session04``
 
 A few tidbits:
@@ -53,544 +95,12 @@ Other options:
 
 (demo)
 
-=======
-Unicode
-=======
+Code Review
+------------
 
-A quick run-down of Unicode, its use in Python 2, and some of the
-gotchas that arise.
+.. rst-class:: center medium
 
-
-History
-=======
-
-.. rst-class:: left
-
-    I hope you all read this:
-
-    The Absolute Minimum Every Software Developer Absolutely,
-    Positively Must Know About Unicode and Character Sets (No Excuses!)
-
-    http://www.joelonsoftware.com/articles/Unicode.html
-
-    If not -- go read it!
-
-Fact number 1:
---------------
-
-.. rst-class:: center large
-
-    Everything is made up of bytes
-
-If it's on disk or transmitted over a network, it's bytes
-
-Python provides some abstractions to make it easier to deal with bytes
-
-Unicode is a biggie
-
-Actually, dealing with numbers rather than bytes is big
-  -- but we take that for granted
-
-
-What the heck is Unicode anyway?
----------------------------------
-
-* First there was chaos...
-
-  * Different machines used different encodings
-
-* Then there was ASCII -- and all was good (7 bit), 127 characters
-
-  * (for English speakers, anyway)
-
-* But each vendor used the top half (127-255) for different things.
-
-  * macroman, Windows 1252, etc...
-
-  * There is now "latin-1", but still a lot of old files around
-
-* Non Western-European languages required totally incompatible 1-byte
-  encodings
-
-* No way to mix languages with different alphabets.
-
-
-Enter Unicode
---------------
-
-The Unicode idea is pretty simple:
-* one "code point" for all characters in all languages
-
-But how do you express that in bytes?
-  * Early days: we can fit all the code points in a two byte integer (65536 characters)
-
-  * Turns out that didn't work -- now need 32 bit integer to hold all of unicode "raw" (UTC-4)
-
-Enter "encodings":
-  * An encoding is a way to map specific bytes to a code point.
-
-  * Each code point can have one or more bytes.
-
-
-Unicode
---------
-
-A good start:
-
-The Absolute Minimum Every Software Developer Absolutely,
-Positively Must Know About Unicode and Character Sets (No Excuses!)
-
-http://www.joelonsoftware.com/articles/Unicode.html
-
-
-.. nextslide::
-
-**Everything is Bytes**
-
-* If it's on disk or on a network, it's bytes
-
-* Python provides some abstractions to make it easier to deal with bytes
-
-Unicode is a biggie
-
-(actually, dealing with numbers rather than bytes is big -- but we take that
-for granted)
-
-
-Mechanics
-=========
-
-What are strings?
------------------
-
-Py2 strings are sequences of bytes
-
-Unicode strings are sequences of platonic characters
-
-It's almost one code point per character -- but there are complications
-with combined characters: accents, etc.
-
-Platonic characters cannot be written to disk or network!
-
-(ANSI: one character == one byte -- so easy!)
-
-
-Strings vs unicode
--------------------
-
-Python 2 has two types that let you work with text:
-
-* ``str``
-
-* ``unicode``
-
-And two ways to work with binary data:
-
-* ``str``
-
-* ``bytes()``  (and ``bytearray``)
-
-**but:**
-
-.. code-block:: ipython
-
-   In [86]: str is bytes
-   Out[86]: True
-
-``bytes`` is there for py3 compatibility - -but it's good for making your
-intentions clear, too.
-
-
-Unicode
---------
-
-The ``unicode`` object lets you work with characters
-
-It has all the same methods as the string object.
-
-"encoding" is converting from a unicode object to bytes
-
-"decoding" is converting from bytes to a unicode object
-
-(sometimes this feels backwards...)
-
-Using unicode in Py2
----------------------
-
-Built in functions
-
-.. code-block:: python
-
-  ord()
-  chr()
-  unichr()
-  str()
-  unicode()
-
-The codecs module
-
-.. code-block:: python
-
-  import codecs
-  codecs.encode()
-  codecs.decode()
-  codecs.open() # better to use ``io.open``
-
-
-Encoding and Decoding
-----------------------
-
-Encoding
-
-.. code-block:: ipython
-
-  In [17]: u"this".encode('utf-8')
-  Out[17]: 'this'
-
-  In [18]: u"this".encode('utf-16')
-  Out[18]: '\xff\xfet\x00h\x00i\x00s\x00'
-
-Decoding
-
-.. code-block:: ipython
-
-    In [99]: print '\xff\xfe."+"x\x00\xb2\x00'.decode('utf-16')
-    ∮∫x²
-
-
-
-Unicode Literals
-------------------
-
-1) Use unicode in your source files:
-
-.. code-block:: python
-
-    # -*- coding: utf-8 -*-
-
-2) escape the unicode characters:
-
-.. code-block:: python
-
-  print u"The integral sign: \u222B"
-  print u"The integral sign: \N{integral}"
-
-Lots of tables of code points online:
-
-One example:
-  http://inamidst.com/stuff/unidata/
-
-:download:`hello_unicode.py  <./hello_unicode.py>`.
-
-
-Using Unicode
---------------
-
-Use ``unicode`` objects in all your code
-
-Decode on input
-
-Encode on output
-
-Many packages do this for you: *XML processing, databases, ...*
-
-**Gotcha:**
-
-Python has a default encoding (usually ascii)
-
-.. code-block:: ipython
-
-  In [2]: sys.getdefaultencoding()
-  Out[2]: 'ascii'
-
-The default encoding will get used in unexpected places!
-
-Using unicode everywhere
--------------------------
-
-Python 2.6 and above have a nice feature to make it easier to use unicode everywhere
-
-.. code-block:: python
-
-    from __future__ import unicode_literals
-
-After running that line, the ``u''`` is assumed
-    
-.. code-block:: ipython
-
-    In [1]: s = "this is a regular py2 string"
-    In [2]: print type(s)
-    <type 'str'>
-
-    In [3]: from __future__ import unicode_literals
-    In [4]: s = "this is now a unicode string"
-    In [5]: type(s)
-    Out[5]: unicode
-
-NOTE: You can still get py2 strings from other sources!
-
-
-Encodings
-----------
-
-What encoding should I use???
-
-There are a lot:
-
-http://en.wikipedia.org/wiki/Comparison_of_Unicode_encodings
-
-But only a couple you are likely to need:
-
-* utf-8  (``*nix``)
-* utf-16  (Windows)
-
-and of course, still the one-bytes ones.
-
-* ASCII
-* Latin-1
-
-UTF-8
--------
-
-Probably the one you'll use most -- most common in Internet protocols (xml, JSON, etc.)
-
-Nice properties:
-
-* ASCII compatible: first 127 characters are the same
-
-* Any ascii string is a utf-8 string
-
-* compact for mostly-english text.
-
-Gotchas:
-
-* "higher" code points may use more than one byte: up to 4 for one character
-
-* ASCII compatible means in may work with default encoding in tests -- but then blow up with real data...
-
-UTF-16
---------
-
-Kind of like UTF-8, except it uses at least 16bits (2 bytes) for each character: not ASCII compatible.
-
-But is still needs more than two bytes for some code points, so you still can't process
-
-In C/C++ held in a "wide char" or "wide string".
-
-MS Windows uses UTF-16, as does (I think) Java.
-
-UTF-16 criticism
------------------
-
-There is a lot of criticism on the net about UTF-16 -- it's kind of the worst of both worlds:
-
-* You can't assume every character is the same number of bytes
-* It takes up more memory than UTF-8
-
-`UTF Considered Harmful <http://programmers.stackexchange.com/questions/102205/should-utf-16-be-considered-harmful>`_
-
-But to be fair:
-
-Early versions of Unicode: everything fit into two bytes (65536 code points). MS and Java were fairly early adopters, and it seemed simple enough to just use 2 bytes per character.
-
-When it turned out that 4 bytes were really needed, they were kind of stuck in the middle.
-
-Latin-1
---------
-
-**NOT Unicode**:
-
-a 1-byte per char encoding.
-
-* Superset of ASCII suitable for Western European languages.
-
-* The most common one-byte per char encoding for European text.
-
-* Nice property -- every byte value from 0 to 255 is a valid character ( at least in Python )
-
-.. nextslide::
-
-* You will never get an UnicodeDecodeError if you try to decode arbitrary bytes with latin-1.
-
-* And it can "round-trip" through a unicode object.
-
-* Useful if you don't know the encoding -- at least it won't raise an Exception
-
-* Useful if you need to work with combined text+binary data.
-
-:download:`latin1_test.py  <./latin1_test.py>`.
-
-
-Unicode Docs
---------------
-
-Python Docs Unicode HowTo:
-
-http://docs.python.org/howto/unicode.html
-
-"Reading Unicode from a file is therefore simple"
-
-.. code-block:: python
-
-  import codecs
-  f = codecs.open('unicode.rst', encoding='utf-8')
-  for line in f:
-      print repr(line)
-
-
-Encodings Built-in to Python:
-  http://docs.python.org/2/library/codecs.html#standard-encodings
-
-
-Gotchas in Python 2
---------------------
-
-file names, etc:
-
-If you pass in unicode, you get unicode
-
-.. code-block:: ipython
-
-  In [9]: os.listdir('./')
-  Out[9]: ['hello_unicode.py', 'text.utf16', 'text.utf32']
-
-  In [10]: os.listdir(u'./')
-  Out[10]: [u'hello_unicode.py', u'text.utf16', u'text.utf32']
-
-Python deals with the file system encoding for you...
-
-But: some more obscure calls don't support unicode filenames:
-
-``os.statvfs()`` (http://bugs.python.org/issue18695)
-
-
-.. nextslide::
-
-Exception messages:
- 
- * Py2 Exceptions use str when they print messages.
- 
- * But what if you pass in a unicode object?
-
-   * It is encoded with the default encoding.
-
- * ``UnicodeDecodeError`` Inside an Exception????
-
- NOPE: it swallows it instead.
-
-:download:`exception_test.py  <./exception_test.py>`.
-
-Unicode in Python 3
-----------------------
-
-The "string" object is unicode.
-
-Py3 has two distinct concepts:
-
-* "text" -- uses the str object (which is always unicode!)
-* "binary data" -- uses bytes or bytearray
-
-Everything that's about text is unicode.
-
-Everything that requires binary data uses bytes.
-
-It's all much cleaner.
-
-(by the way, the recent implementations are very efficient...)
-
-
-Exercises
-=========
-
-Basic Unicode LAB
--------------------
-
-* Find some nifty non-ascii characters you might use.
-
-  - Create a unicode object with them in two different ways.
-  - :download:`here  <./hello_unicode.py>` is one example
-
-* Read the contents into unicode objects:
-
- - :download:`ICanEatGlass.utf8.txt <./ICanEatGlass.utf8.txt>`
- - :download:`ICanEatGlass.utf16.txt <./ICanEatGlass.utf16.txt>`
-
-and/ or
-
- - :download:`text.utf8 <./text.utf8>`
- - :download:`text.utf16 <./text.utf16>`
- - :download:`text.utf32 <./text.utf32>`
-
-* write some of the text from the first exercise to file -- read that file back in.
-
-.. nextslide:: Some Help
-
-reference: http://inamidst.com/stuff/unidata/
-
-NOTE: if your terminal does not support unicode -- you'll get an error trying
-to print. Try a different terminal or IDE, or google for a solution.
-
-Challenge Unicode LAB
-----------------------
-
-We saw this earlier
-
-.. code-block:: ipython
-
-  In [38]: u'to \N{INFINITY} and beyond!'.decode('utf-8')
-  ---------------------------------------------------------------------------
-  UnicodeEncodeError                        Traceback (most recent call last)
-  <ipython-input-38-7f87d44dfcfa> in <module>()
-  ----> 1 u'to \N{INFINITY} and beyond!'.decode('utf-8')
-
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.pyc in decode(input, errors)
-       14 
-       15 def decode(input, errors='strict'):
-  ---> 16     return codecs.utf_8_decode(input, errors, True)
-       17 
-       18 class IncrementalEncoder(codecs.IncrementalEncoder):
-
-  UnicodeEncodeError: 'ascii' codec can't encode character u'\u221e' in position 3: ordinal not in range(128)
-
-.. nextslide::
-
-But why would you **decode** a unicode object?
-
-And it should be a no-op -- why the exception?
-
-And why 'ascii'? I specified 'utf-8'!
-
-It's there for backward compatibility
-
-What's happening under the hood
-
-.. code-block:: python
-
-    u'to \N{INFINITY} and beyond!'.encode().decode('utf-8')
-
-It encodes with the default encoding (ascii), then decodes
-
-In this case, it barfs on attempting to encode to 'ascii'
-
-.. nextslide::
-
-So never call decode on a unicode object!
-
-But what if someone passes one into a function of yours that's expecting a py2 string?
-
-Type checking and converting -- yeach!
-
-Read:
-
-http://axialcorps.com/2014/03/20/unicode-str/
-
-See if you can figure out the decorators:
-
-:download:`unicodify.py  <./unicodify.py>`.
-
-
-(This is advanced Python JuJu: Aren't you glad I didn't ask you to write that yourself?)
-
+Anyone stuck or confused that's willing to volunteer for a live code review?
 
 
 =========================
@@ -648,7 +158,7 @@ Can set defaults to variables
 Defaults are evaluated when the function is defined
 
 .. code-block:: ipython
-    
+
     In [156]: y = 4
     In [157]: def fun(x=y):
         print "x is:", x
@@ -726,22 +236,33 @@ And pass to ``format()``with ``**``
 
 
 LAB
----
-
-Let's do this right now:
+====
 
 keyword arguments
 
 * Write a function that has four optional parameters (with defaults):
-  
-  - foreground_color
-  - background_color
+
+  - fore_color
+  - back_color
   - link_color
-  - visited_link_color
-  
+  - visited_color
+
 * Have it print the colors (use strings for the colors)
 * Call it with a couple different parameters set
-* Have it pull the parameters out with ``*args, **kwargs`` 
+* Have it pull the parameters out with ``*args, **kwargs``
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Darcy Balcarce
+|
+|
+| Eric Buer
+|
+
 
 =====================================
 A bit more on mutability (and copies)
@@ -822,7 +343,7 @@ If the elements are immutable, it doesn't really make a differnce -- but be very
 
 
 The copy module
---------------------
+----------------
 
 most objects have a way to make copies (``dict.copy()`` for instance).
 
@@ -882,7 +403,7 @@ Another "gotcha" is using mutables as default arguments:
     In [11]: def fun(x, a=[]):
        ....:     a.append(x)
        ....:     print a
-       ....: 
+       ....:
 
 This makes sense: maybe you'd pass in a list, but the default is an empty list.
 
@@ -933,7 +454,7 @@ A bit of functional programming
 
 consider this common for loop structure:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_list = []
     for variable in a_list:
@@ -960,7 +481,7 @@ What about nested for loops?
 
 Can also be expressed in one line:
 
-.. code-block:: python      
+.. code-block:: python
 
     new_list =  [exp for var in a_list for var2 in a_list2]
 
@@ -972,7 +493,7 @@ You get the "outer product", i.e. all combinations.
 
 But usually you at least have a conditional in the loop:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_list = []
     for variable in a_list:
@@ -1034,19 +555,18 @@ You can do it with sets, too:
 
 same as for loop:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_set = set()
     for key in a_list:
         new_set.add(value)
 
 
-
 .. nextslide::
 
 Example: finding all the vowels in a string...
 
-.. code-block:: ipython      
+.. code-block:: ipython
 
     In [19]: s = "a not very long string"
 
@@ -1092,183 +612,272 @@ Example
 (not as useful with the ``dict()``  constructor...)
 
 
-===================
-Anonymous functions
-===================
+LAB
+====
 
-lambda
-------
+See homework for list comps...
 
-.. code-block:: ipython
+Lightning Talks
+----------------
 
-    In [171]: f = lambda x, y: x+y
-    In [172]: f(2,3)
-    Out[172]: 5
+.. rst-class:: medium
 
-Content can only be an expression -- not a statement
+|
+| Henry B Fischer
+|
+|
+| Kyle R Hart
+|
 
-Anyone remember what the difference is?
 
-Called "Anonymous": it doesn't need a name.
+=======
+Testing
+=======
+
+.. rst-class:: build left
+.. container::
+
+    You've already seen some a very basic testing strategy.
+
+    You've written some tests using that strategy.
+
+    These tests were pretty basic, and a bit awkward in places (testing error
+    conditions in particular).
+
+    .. rst-class:: centered
+
+    **It gets better**
+
+Test Runners
+------------
+
+So far our tests have been limited to code in an ``if __name__ == "__main__":``
+block.
+
+.. rst-class:: build
+
+* They are run only when the file is executed
+* They are always run when the file is executed
+* You can't do anything else when the file is executed without running tests.
+
+.. rst-class:: build
+.. container::
+
+    This is not optimal.
+
+    Python provides testing systems to help.
+
+
+Standard Library: ``unittest``
+-------------------------------
+
+.. rst-class:: medium
+
+    The original testing system in Python.
+
+    ``import unittest``
+
+    More or less a port of Junit from Java
+
+    A bit verbose: you have to write classes & methods
+
+    (And we haven't covered that yet!)
+
+Using ``unittest``
+-------------------
+
+You write subclasses of the ``unittest.TestCase`` class:
+
+.. code-block:: python
+
+    # in test.py
+    import unittest
+
+    class MyTests(unittest.TestCase):
+        def test_tautology(self):
+            self.assertEquals(1, 1)
+
+Then you run the tests by using the ``main`` function from the ``unittest``
+module:
+
+.. code-block:: python
+
+    # in test.py
+    if __name__ == '__main__':
+        unittest.main()
+
+.. nextslide:: Testing Your Code
+
+This way, you can write your code in one file and test it from another:
+
+.. code-block:: python
+
+    # in my_mod.py
+    def my_func(val1, val2):
+        return val1 * val2
+
+    # in test_my_mod.py
+    import unittest
+    from my_mod import my_func
+
+    class MyFuncTestCase(unittest.TestCase):
+        def test_my_func(self):
+            test_vals = (2, 3)
+            expected = reduce(lambda x, y: x * y, test_vals)
+            actual = my_func(*test_vals)
+            self.assertEquals(expected, actual)
+
+    if __name__ == '__main__':
+        unittest.main()
+
+.. nextslide:: Advantages of ``unittest``
+
+.. rst-class:: build
+.. container::
+
+    The ``unittest`` module is pretty full featured
+
+    It comes with the standard Python distribution, no installation required.
+
+    It provides a wide variety of assertions for testing all sorts of situations.
+
+    It allows for a setup and tear down workflow both before and after all tests
+    and before and after each test.
+
+    It's well known and well understood.
+
+.. nextslide:: Disadvantages:
+
+.. rst-class:: build
+.. container::
+
+
+    It's Object Oriented, and quite heavy.
+
+      - modeled after Java's ``junit`` and it shows...
+
+    It uses the framework design pattern, so knowing how to use the features
+    means learning what to override.
+
+    Needing to override means you have to be cautious.
+
+    Test discovery is both inflexible and brittle.
+
+.. nextslide:: Other Options
+
+There are several other options for running tests in Python.
+
+
+* `Nose`_
+* `pytest`_
+* ... (many frameworks supply their own test runners)
+
+We are going to play today with pytest
+
+.. _Nose: https://nose.readthedocs.org/
+.. _pytest: http://pytest.org/latest/
+
+
+.. nextslide:: Installing ``pytest``
+
+The first step is to install the package:
+
+.. code-block:: bash
+
+    (cff2py)$ pip install pytest
+
+Once this is complete, you should have a ``py.test`` command you can run
+at the command line:
+
+.. code-block:: bash
+
+    (cff2py)$ py.test
+
+If you have any tests in your repository, that will find and run them.
+
+.. rst-class:: build
+.. container::
+
+    **Do you?**
+
+.. nextslide:: Pre-existing Tests
+
+Let's take a look at some examples.
+
+``\Examples\Session05``
+
+You can also run py.test on a particular test file:
+
+``py.test test_this.py``
+
+The results you should have seen when you ran ``py.test`` above come
+partly from these files.
+
+Let's take a few minutes to look these files over.
+
+[demo]
+
+.. nextslide:: What's Happening Here.
+
+When you run the ``py.test`` command, ``pytest`` starts in your current
+working directory and searches the filesystem for things that might be tests.
+
+It follows some simple rules:
+
+.. rst-class:: build
+
+* Any python file that starts with ``test_`` or ``_test`` is imported.
+* Any functions in them that start with ``test_`` are run as tests.
+* Any classes that start with ``Test`` are treated similarly, with methods that
+  begin with ``test_`` treated as tests.
+
 
 .. nextslide::
 
-It's a python object, it can be stored in a list or other container
+This test running framework is simple, flexible and configurable.
 
-.. code-block:: ipython
+`Read the documentation`_ for more information.
 
-    In [7]: l = [lambda x, y: x+y]
-    In [8]: type(l[0])
-    Out[8]: function
+.. _Read the documentation: http://pytest.org/latest/getting-started.html#getstarted
 
+.. nextslide:: Test Driven Development
 
-And you can call it:
+What we've just done here is the first step in what is called **Test Driven
+Development**.
 
-.. code-block:: ipython
+A bunch of tests exist, but the code to make them pass does not yet exist.
 
-    In [9]: l[0](3,4)
-    Out[9]: 7
+The red we see in the terminal when we run our tests is a goad to us to write
+the code that fixes these tests.
 
+Let's do that next!
 
-Functions as first class objects
----------------------------------
+LAB
+===
 
-You can do that with "regular" functions too:
+Pick an example from codingbat:
 
-.. code-block:: ipython    
+``http://codingbat.com``
 
-    In [12]: def fun(x,y):
-       ....:     return x+y
-       ....:
-    In [13]: l = [fun]
-    In [14]: type(l[0])
-    Out[14]: function
-    In [15]: l[0](3,4)
-    Out[15]: 7
+Do a bit of test-driven development on it:
 
+ * run somethign on the web site.
+ * write a few tests using the examples from the site.
+ * then write the function, and fix it 'till it passes the tests.
 
-
-======================
-Functional Programming
-======================
-
-map
----
-
-``map``  "maps" a function onto a sequence of objects -- It applies the function to each item in the list, returning another list
-
-
-.. code-block:: ipython    
-
-    In [23]: l = [2, 5, 7, 12, 6, 4]
-    In [24]: def fun(x):
-                 return x*2 + 10
-    In [25]: map(fun, l)
-    Out[25]: [14, 20, 24, 34, 22, 18]
-
-
-But if it's a small function, and you only need it once:
-
-.. code-block:: ipython
-
-    In [26]: map(lambda x: x*2 + 10, l)
-    Out[26]: [14, 20, 24, 34, 22, 18]
-
-
-filter
-------
-
-``filter``  "filters" a sequence of objects with a boolean function --
-It keeps only those for which the function is True
-
-To get only the even numbers:
-
-.. code-block:: ipython
-
-    In [27]: l = [2, 5, 7, 12, 6, 4]
-    In [28]: filter(lambda x: not x%2, l)
-    Out[28]: [2, 12, 6, 4]
-
-
-
-reduce
-------
-
-``reduce``  "reduces" a sequence of objects to a single object with a function that combines two arguments
-
-To get the sum:
-
-.. code-block:: ipython
-
-    In [30]: l = [2, 5, 7, 12, 6, 4]
-    In [31]: reduce(lambda x,y: x+y, l)
-    Out[31]: 36
-
-
-To get the product:
-
-.. code-block:: ipython
-
-    In [32]: reduce(lambda x,y: x*y, l)
-    Out[32]: 20160
-
-
-Comprehensions
---------------
-
-Couldn't you do all this with comprehensions?
-
-Yes:
-
-.. code-block:: ipython
-
-    In [33]: [x+2 + 10 for x in l]
-    Out[33]: [14, 17, 19, 24, 18, 16]
-    In [34]: [x for x in l if not x%2]
-    Out[34]: [2, 12, 6, 4]
-
-
-(Except Reduce)
-
-But Guido thinks almost all uses of reduce are really ``sum()`` 
-
-Functional Programming
-----------------------
-
-Comprehensions and map, filter, reduce are all "functional programming" approaches}
-
-``map, filter``  and ``reduce``  pre-date comprehensions in Python's history
-
-Some people like that syntax better
-
-And "map-reduce" is a big concept these days for parallel processing of "Big Data" in NoSQL databases.
-
-(Hadoop, MongoDB, etc.)
-
-
-A bit more about lambda
-------------------------
-
-Can also use keyword arguments}
-
-.. code-block:: ipython
-    
-    In [186]: l = []
-    In [187]: for i in range(3):
-        l.append(lambda x, e=i: x**e)
-       .....:
-    In [189]: for f in l:
-        print f(3)
-    1
-    3
-    9
-
-Note when the keyword argument is evaluated: this turns out to be very handy!
 
 =========
 Homework
 =========
 
+Catch up!
+---------
+
+|
+| First task -- catch up from last week.
+|
+| Then on to some exercises....
+|
 
 List comprehensions
 --------------------
@@ -1411,7 +1020,7 @@ https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comp
 .. nextslide:: 7. Count even numbers
 
 
-(submit this one to gitHub for credit on this assignment)
+Use test-driven development!
 
 This is from CodingBat "count_evens" (http://codingbat.com/prob/p189616)
 
@@ -1485,80 +1094,6 @@ divisible 2, 3 and 4.
        - loop through that sequence to build the sets up -- so no repeated code.
 
     c. Extra credit:  do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, that may be getting carried away!)
-
-
-lambda and keyword argument magic
------------------------------------
-
-Write a function that returns a list of n functions,
-such that each one, when called, will return the input value,
-incremented by an increasing number.
-
-Use a for loop, ``lambda``, and a keyword argument
-
-( Extra credit ):
-
-Do it with a list comprehension, instead of a for loop
-
-
-Not clear? here's what you should get
-
-.. nextslide:: Example calling code
-
-.. code-block:: ipython
-
-    In [96]: the_list = function_builder(4)
-    ### so the_list should contain n functions (callables)
-    In [97]: the_list[0](2)
-    Out[97]: 2
-    ## the zeroth element of the list is a function that add 0
-    ## to the input, hence called with 2, returns 2
-    In [98]: the_list[1](2)
-    Out[98]: 3
-    ## the 1st element of the list is a function that adds 1
-    ## to the input value, thus called with 2, returns 3
-    In [100]: for f in the_list:
-        print f(5)
-       .....:
-    5
-    6
-    7
-    8
-    ### If you loop through them all, and call them, each one adds one more
-    to the input, 5... i.e. the nth function in the list adds n to the input.
-
-
-
-
-Functional files
------------------
-
-Write a program that takes a filename and "cleans" the file be removing all the leading and trailing whitespace from each line.
-
-Read in the original file and write out a new one, either creating a new file or overwriting the existing one.
-
-Give your user the option of which to perform.
-
-Use ``map()`` to do the work.
-
-Write a second version using a comprehension.
-
-.. nextslide:: Hint
-
-``sys.argv`` hold the command line arguments the user typed in. If the user types:
-
-.. code-block:: bash
-
-  $ python the_script a_file_name
-
-Then:
-
-.. code-block:: python
-
-    import sys
-    filename = sys.argv[1]
-
-will get ``filename == "a_file_name"``
 
 
 Recommended Reading
