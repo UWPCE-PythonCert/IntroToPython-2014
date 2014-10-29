@@ -733,9 +733,25 @@ except:
 reading and writing files:
 
 text files:
-    - f 
+    - f
 """
 
 f = open('secrets.txt')
 secret_data = f.read()
 f.close()
+
+
+
+############################## SESSION04 ##############################
+
+""" dealing with "ordered" / "sorted" dicts """
+
+# option #1
+import collections   # package with tools for dealing with dicts
+o_dict = collections.OrderedDict()   # this will create an ordered dict
+
+# option #2
+sorted()   # built in function that sorts iterables
+
+
+
