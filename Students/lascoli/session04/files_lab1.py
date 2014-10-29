@@ -1,4 +1,3 @@
-#create dictionary
 #read file into variable line
 f = open('C:\Users\LA7383\Desktop\Python\UW_Python\IntroToPython\Examples\Session01\students.txt')
 the_set = set()
@@ -38,5 +37,6 @@ outfile = open("languages.txt","w")
 
 for x in the_set:
     outfile.write ("%s\n" %x)
-outfile.close
+
+outfile.close()
 
