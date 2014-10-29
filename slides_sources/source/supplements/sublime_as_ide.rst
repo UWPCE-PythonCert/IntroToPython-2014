@@ -109,9 +109,10 @@ Python!
 
 
 To install a plugin using Package Control, open the ``command palette`` with
-``shift-super-P`` (``ctrl-shift-P`` on Windows/Linux). The ``super`` key is ``command``
-or ``⌘`` on OS X. When the palette opens, typing ``install`` will bring up the
-``Package Control: Install Package`` command. Hit ``enter`` to select it.
+``shift-super-P`` (``ctrl-shift-P`` on Windows/Linux). The ``super`` key is
+``command`` or ``⌘`` on OS X. When the palette opens, typing ``install`` will
+bring up the ``Package Control: Install Package`` command. Hit ``enter`` to
+select it.
 
 .. image:: /_static/pc_menu.png
     :width: 600px
@@ -176,7 +177,7 @@ The ``python_interpreter_path`` allows me to indicate which Python executable
 should be introspected for symbol definitions.
 
 The ``python_package_paths`` setting allows designating additional paths that
-will be searched for Python packages containing symbols. 
+will be searched for Python packages containing symbols.
 
 .. image:: /_static/tab_completion.png
     :width: 600px
@@ -218,8 +219,16 @@ There is a nice plugin for the SublimeLinter that `utilizes flake8`_. For it to
 work, the plugin will need to have a Python executable that has the Python
 tools it needs installed.
 
-Use `virtualenv`_ to accomplish this. First, create a virtualenv and activate
-it:
+
+Use `virtualenv`_ to accomplish this.
+
+(**Warning:** there is some indication that ``SublimeLinter`` doesn't support
+virtual environments. So if you have trouble, it may be best to make sure
+that the python packages you need are installed in your main python install,
+rather than a virtualenv. To do this, simply skip the virtualenv instrcutions
+below, and go on the pip installing.)
+
+First, create a virtualenv and activate it:
 
 .. _utilizes flake8: https://sublime.wbond.net/packages/SublimeLinter-flake8
 .. _virtualenv: http://virtualenv.org

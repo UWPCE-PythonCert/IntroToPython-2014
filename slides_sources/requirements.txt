@@ -8,3 +8,4 @@ gnureadline==6.2.5
 # hieroglyph==0.7.dev
 -e git+https://github.com/nyergler/hieroglyph.git#egg=hieroglyph
 ipython==2.3.0
+libsass==0.5.1

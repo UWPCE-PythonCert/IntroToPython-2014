@@ -1,0 +1,312 @@
+Class Notes - Day 1
+====================
+
+
+Lightning Talk 
+
+	5 minutes - must relate to Python somehow, doesn't matter	
+	Somebody wrote a poem
+
+Python used for
+
+	CS education
+	Application scripting
+	Sysadmin
+	Web apps (Django/Flask)
+	Scientific Computing
+	Automated software testing/distributed version control
+	Research (natural language graph, theory, distributed computing
+	
+Used by: 
+
+	Beginners
+	Professional software developers
+	Professionals OTHER THAN computer scpialists
+	
+Gets lots of things right: 
+
+	Looks nices, makes sense
+	No ideology about best way to program
+	No platform preference
+	Easy to connect to other languages
+	Large standard library
+	Larger network of external packages
+	
+
+What is python?
+
+	Dynamic language
+	Byte compiled
+	Interpreted
+
+		Not like compiled langs. 
+		No type declarations (strings, ints)
+		Less code means fewer bugs!
+
+
+Dynamic typing
+
+	Type checking and dispatch happen at run-time
+
+	x = a + b
+
+	What is a?
+	What is b
+	What does it mean to ad them
+	a and b can change at any time before this process
+
+	(crunch number programs run slower in Python because it has to check this stuff_
+
+Strong typing!
+
+	A + 1 won't work because int(1) and str(A)
+
+
+	" If an object behaves as expected at run-time, it’s the right type.  "
+
+Python 2/3 are relatively similar
+
+	Python "Wall of Shame" (a few key packages still not supported)
+	Most code in the wild is still 2.x
+	There are ways to write compatibile code (Python Docs)
+
+Three elements to your environment when working with Python:
+
+	{
+		Command line
+	
+		Your interpreter
+	
+		Your editor
+	}
+
+
+help()
+
+	Exit with q
+
+dir() = return names in current scope
+
+Ipython <---use it
+
+Look these up in Vim Docs!
+
+{
+	Code linting? - A system that will examine your code and tell you things you've done wrong with it
+
+	Jump to function definition
+}
+
+pip
+
+	Python = batteries included - almost everything we need is in the standard library
+
+	Python Package Manager
+
+
+Ipython notes:
+
+	%paste - from the system clipboard
+
+	Tab complete
+
+	Ipython saves the variables from a script run with 'run script.py' from within Ipython
+
+A file with python code in it is a 'module' or 'script'
+	
+	(More on that distinction later on)
+	Both named *.py
+
+
+All programmin is about manipulating values
+
+dir(42) all value/stuff built into int(42)
+
+type() find out the type!
+
+Basic Value Types
+
+	Numbers (Floats/Ints/Complex numbers (e.g. 42j )
+
+	Text (" or ')
+
+	Boolean - spelled with capital (also: None object)
+
+An expression is something that evaluates and results in a value (output)
+
+A statement "does something" but doesn't result in an output
+
+This works 
+
+	print "the value is", x
+
+Python automatically adds a newline, you can suppress it with a comment (does add a space)
+
+Blocks of code are delimited by a colon and indentdation
+
+Python uses indentation to delineate structure
+
+	This means that in Python, whitespace is significant
+	Standard is to use five spaces to indent your code
+
+	Tab character and an spaces mean different things to Python
+	Tab = 8 spaces
+	NEVER INDENT WITH TABS
+	Set Vim to map <tab> = /s/s/s/s/s
+
+An expression is made up of values and operators
+
+	Produces a new value
+	Can be used as a calculator
+	Int and float arithmetic is different
+	If ONE of the two values is a float, you get a floating point answer
+	"Floor division" - I want the integer value of division, // 
+	Python3 does float division by default
+
+Type Conversion
+
+	Python will try to convert types
+	Type errors checked at runtime only
+	Will get type errors mixing Unicode/ASCII
+
+Symbols are how we give names to these various values
+
+	Symbols must contain __ or letter or letters
+	Can't start with a number
+	
+	Symbols don't have a type; values do
+		-This is why Python is dynamic
+
+	A symbol is bound by to a value with an = 
+	A value can have many names or none
+		a = 1
+		b = a
+		b == 1
+
+	Assignment is a statement, it returns no value
+	Evaluating the name will return the value to which it is bound 
+
+	In most languages, symbols are known as "variables"
+	But many of you defined a "variable" as something like: "a place in memory that can store values"
+	That is NOT what a name is
+
+	A name is bound to a value, but has nothing to do with location in memory
+
+	In-place assignment operator = x = 3, x += 1, x == 4
+		Works with all mathematical operators
+
+	Multiple assignment: i, j = 4, 5; i = 4, j = 5
+		Swap with i, j, = j, i; i = 5, j = 4
+
+	
+You can't actually delete anything in Python
+
+	the del command only unbinds an object
+
+	Python keeps track until something is no longer referred to
+
+	
+Identity:
+
+	Every value in Python is an object
+
+	id(x)
+	Unique number that identifies 
+	Every object is unique and can be tested with id()
+
+	"is" operator will tell us if two objects are the same
+
+		Most useful in debugging	
+
+
+== checks to see if two things have the same value
+
+=! checks to se if things were not equal
+
+Operator Precedence:
+
+	4 + 3 * 5 != (4 + 3) * 5
+
+	Follows PEMDAS
+
+	Use () to do stuff out of order
+	
+		This is what the Prof uses frequently
+
+Python Operator Precedence
+
+	Look up online
+
+Keywords: some have a special meaning and you can't use them for variable assignments
+Python also has a number of builtins: dir(__builtins__) -- these can be rebound?
+
+	Be careful that you didn't redefine something needed in the builtins
+	This is a bad idea. You might do it accidentally
+
+Exceptions are how Python tells you something is wrong
+
+	NameError - Python doesn't know about a name
+	TypeError - You're trying to do something to a type that doesn't work, e.g. int + str
+	SyntaxError - you probably mistyped something
+	AttributeError - indicates that you're trying to access a method like s.fred() instead of s.upper()
+
+
+What is a function? 
+
+	A self contained chunk of code
+
+	A way to repeat a piece of code
+
+	DRY - don't repeat yourself
+
+	Sometimes it's clean to just put everything by itself
+
+	Functions take and return information
+
+	You define a function with:
+
+ 'def function()'
+		pass #do nothing
+
+	def is a statement
+
+		Creates a function object
+
+		Creates a local name
+	
+	Run a function with function()
+
+	Arguments go in the ()
+
+	without parens just gives <function __main__.function> <--exception?
+
+	If you don't tell a function to return something, it returns the None object
+
+	Functions can call functions and other functions and other functions
+
+
+	If you want to return something, put 'return' and then what you want returned
+	Only one return statement will ever run
+	Functions can return more than one result
+
+	x,y,z = function() -> Will set all three
+
+	Sometimes you want to pass arguments (parameters) 
+
+		def function(x,y,z)
+
+			print x + y + z
+
+	Parameters are what a function takes, arguments are what you give it 
+
+
+	If you want to do anything interesting, you need an "if" statement
+
+========================
+
+Talk about Python for 5 minutes next week	
+Work on Python exercises at CodingBat
+	Get all the warmups done
+
+Get homework from website
+

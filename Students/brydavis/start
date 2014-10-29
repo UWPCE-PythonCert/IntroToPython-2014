@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# alias start="source ./start"
+
+# Begin work session
+function start_session {
+	git checkout master;
+	git fetch upstream master;
+	git merge upstream/master;
+	git push;
+	git status;
+	echo;
+	echo 'Ready to develop!';
+	echo 'Please proceed...';
+}
+
+
+# Always save your work!
+function commit_work {
+	# git add $1;
+	# -m is for adding a message
+	# to commit
+	git commit -a -m 'another update';
+	git push;
+}
+
+# End work session 
+function end_session {
+	echo 'Pusing git...';
+	git push origin master;	
+	echo 'Push complete!';
+	echo 'Goodbye ~';
+}
+
+
+function init {
+	echo "Welcome to UW-PCE's Intro to Python"
+	# cd /www/IntroToPython;
+	start_session;
+}
+
+
+# Initialize
+init;
+
+
+
+# # Set aliases
+# alias ux='chmod u+x';
+# alias ax='chmod a+x';
+
+# # Set in ~/.bash_profile
+# export GIT_EDITOR=nano
+
+
+
+

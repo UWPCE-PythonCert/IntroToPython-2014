@@ -1,0 +1,20 @@
+def array123(nums):
+    print nums
+    n = len(nums)
+    print n
+    count1 = 0
+    for i in range(0,3):
+        if (nums[i] == 1) and (nums[i+1] == 2) and (nums[i+2] == 3):
+            print i
+            print nums[i], nums[i+1], nums[i+2]
+            count1 = count1 + 1
+        if count1 >= 1:
+           print count1
+           return(True)
+        else:
+           print count1
+           return(True)
+
+array123([1, 1, 2, 3, 1])
+
+
