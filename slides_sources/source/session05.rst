@@ -68,9 +68,10 @@ Homework review
 Homework Questions?
 
 My Solutions to ALL the homework in the class repo in:
+
 ``Solutions/Session04``
 
-A few tidbits:
+A few tidbits ....
 
 .. nextslide:: Sorting stuff in dictionaries:
 
@@ -102,6 +103,14 @@ Code Review
 
 Anyone stuck or confused that's willing to volunteer for a live code review?
 
+My Solutions
+-------------
+
+Anyone look at my solutions?
+
+(yeah, not much time for that...)
+
+Anything in particular you'd like me to go over?
 
 =========================
 Advanced Argument Passing
@@ -207,10 +216,13 @@ You can also pull the parameters out in the function as a tuple and a dict:
     the positional arguments are: (2, 3)
     the keyword arguments are: {'this': 5, 'that': 7}
 
-Passing a dict to the ``string.format()`` method
-------------------------------------------------
+This can be very powerful...
 
-Now that you know that keyword args are really a dict, you can do this nifty trick:
+Passing a dict to str.format()
+-------------------------------
+
+Now that you know that keyword args are really a dict,
+you can do this nifty trick:
 
 The ``format`` method takes keyword arguments:
 
@@ -231,38 +243,6 @@ And pass to ``format()``with ``**``
 
     In [26]: u"My name is {first} {last}".format(**d)
     Out[26]: u'My name is Chris Barker'
-
-
-
-
-LAB
-====
-
-keyword arguments
-
-* Write a function that has four optional parameters (with defaults):
-
-  - fore_color
-  - back_color
-  - link_color
-  - visited_color
-
-* Have it print the colors (use strings for the colors)
-* Call it with a couple different parameters set
-* Have it pull the parameters out with ``*args, **kwargs``
-
-Lightning Talks
-----------------
-
-.. rst-class:: medium
-
-|
-| Darcy Balcarce
-|
-|
-| Eric Buer
-|
-
 
 =====================================
 A bit more on mutability (and copies)
@@ -443,6 +423,40 @@ The standard practice for such a mutable default argument:
 You get a new list every time the function is called
 
 
+
+LAB
+----
+
+.. rst-class:: medium
+
+  keyword arguments:
+
+* Write a function that has four optional parameters (with defaults):
+
+  - fore_color
+  - back_color
+  - link_color
+  - visited_color
+
+* Have it print the colors (use strings for the colors)
+* Call it with a couple different parameters set
+* Have it pull the parameters out with ``*args, **kwargs``
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Darcy Balcarce
+|
+|
+| Eric Buer
+|
+
+
+
+
 ============================
 List and Dict Comprehensions
 ============================
@@ -452,7 +466,7 @@ List comprehensions
 A bit of functional programming
 
 
-consider this common for loop structure:
+consider this common ``for`` loop structure:
 
 .. code-block:: python
 
@@ -514,14 +528,14 @@ You can add a conditional to the comprehension:
 
 Examples:
 
-.. code-block:: ipython  
+.. code-block:: ipython 
 
     In [341]: [x**2 for x in range(3)]
     Out[341]: [0, 1, 4]
 
     In [342]: [x+y for x in range(3) for y in range(5,7)]
     Out[342]: [5, 6, 6, 7, 7, 8]
-    
+
     In [343]: [x*2 for x in range(6) if not x%2]
     Out[343]: [0, 4, 8]
 
@@ -531,7 +545,7 @@ Examples:
 
 Remember this from last week?
 
-.. code-block:: python  
+.. code-block:: python
 
     [name for name in dir(__builtin__) if "Error" in name]
     ['ArithmeticError',
@@ -548,7 +562,7 @@ Set Comprehensions
 
 You can do it with sets, too:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_set = { value for variable in a_sequence }
 
@@ -611,9 +625,9 @@ Example
 
 (not as useful with the ``dict()``  constructor...)
 
-
+===
 LAB
-====
+===
 
 See homework for list comps...
 
@@ -671,17 +685,17 @@ block.
 Standard Library: ``unittest``
 -------------------------------
 
-.. rst-class:: medium
 
-    The original testing system in Python.
+The original testing system in Python.
 
-    ``import unittest``
+``import unittest``
 
-    More or less a port of Junit from Java
+More or less a port of Junit from Java
 
-    A bit verbose: you have to write classes & methods
+A bit verbose: you have to write classes & methods
 
-    (And we haven't covered that yet!)
+(And we haven't covered that yet!)
+
 
 Using ``unittest``
 -------------------
@@ -791,7 +805,7 @@ at the command line:
 
 .. code-block:: bash
 
-    (cff2py)$ py.test
+    $ py.test
 
 If you have any tests in your repository, that will find and run them.
 
@@ -805,6 +819,8 @@ If you have any tests in your repository, that will find and run them.
 Let's take a look at some examples.
 
 ``\Examples\Session05``
+
+`` $ py.test``
 
 You can also run py.test on a particular test file:
 
@@ -832,7 +848,7 @@ It follows some simple rules:
   begin with ``test_`` treated as tests.
 
 
-.. nextslide::
+.. nextslide:: pytest
 
 This test running framework is simple, flexible and configurable.
 
@@ -847,11 +863,12 @@ Development**.
 
 A bunch of tests exist, but the code to make them pass does not yet exist.
 
-The red we see in the terminal when we run our tests is a goad to us to write
+The red you see in the terminal when we run our tests is a goad to us to write
 the code that fixes these tests.
 
 Let's do that next!
 
+===
 LAB
 ===
 
@@ -873,11 +890,14 @@ Homework
 Catch up!
 ---------
 
-|
-| First task -- catch up from last week.
-|
-| Then on to some exercises....
-|
+
+* First task -- catch up from last week.
+
+  - and add some tests
+  - and list (and dict, and set) comprehensions...
+
+* Then on to some exercises....
+
 
 List comprehensions
 --------------------
@@ -1094,16 +1114,4 @@ divisible 2, 3 and 4.
        - loop through that sequence to build the sets up -- so no repeated code.
 
     c. Extra credit:  do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, that may be getting carried away!)
-
-
-Recommended Reading
----------------------
-
-* LPTHW: Ex 40 - 45
-
-http://learnpythonthehardway.org/book/
-
-* Dive Into Python: chapter 4, 5
-
-http://www.diveintopython.net/toc/index.html
 
