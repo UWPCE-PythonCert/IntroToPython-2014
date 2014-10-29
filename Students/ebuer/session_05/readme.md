@@ -35,14 +35,14 @@ Advanced Argument Passing
 
 When defining a function you can specify only what you need, the order is up to you.
 
-A common idiom: 
+A common idiom:
 ```python
 def fun(x, y=None):
     do your work here
 
 def(x, y, w=0, h=0):
     print "position: %s, %s, -- %s, %s" %(x, y, w, h)
-    
+
 pos = (5, 6)
 
 f( *pos, h = 7)
@@ -50,8 +50,8 @@ f( *pos, h = 7)
 
 f( *position, **size)
 
-positional arguments are a tuple
-keyword arguments are a dictionary
+**positional arguments** (args) are a tuple
+**keyword arguments** (kwargs) are a dictionary
 
 ```python
 def f(*args, **kwargs):
@@ -79,6 +79,55 @@ formatter.format(*person)  # passing tuple argument, position corresponds to num
 
 **Dont' forget** about the type() tool, which allows inspection of variable types
 
+*args and **kwargs are very important
 
+for the mailroom think about using a dictionary of information that just is passed directly into the letter
 
+###The Copy Module
+
+most objects have a copy method, but shallow copies remained linked to the original source
+
+list1 = ['a', 'b', 'c']
+list2 = copy.deepcopy(list1) # creates a copy of each element that is independent of the original
+
+if a function is created with a mutable as a default value
+
+    def run(x, a=[]):
+        a.append(x)
+        return a
+
+The list that is defined by the function remains in the environment.  Calling the function several times will continue to use the 'a' list in this case
+
+This is avoided by __never__ using a mutable as the default variable.
+
+```python
+    def run(x, a = None):
+        if a is None:
+            a = []
+        a.append(x)
+        return a
+```
+
+oceanpython.org
+
+##List Comprehension
+
+```python
+[i for i in range(5)] # basic loop
+
+new_list = [expression for var in a_list for var2 in a_list2] # nested loop, outer product
+
+l = ['this', 'that', 'the', 'other']
+
+l2 = [ s.upper() for s in l]
+
+[ (i, j) for i in range(3) for j in range(4, 6)] #same as nested for loop
+
+```
+
+Usually we want to apply a conditional as well:
+
+```python
+[s.upper() for s in l if s.startswith('t')]
+```
 

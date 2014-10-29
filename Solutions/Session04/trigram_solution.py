@@ -128,9 +128,11 @@ def build_text(word_pairs):
         for j in range(random.randint(2,10)):
             pair = tuple(sentence[-2:])
             sentence.append( random.choice(word_pairs[pair]) )
-        #capitalize the first word:
+        
+        # capitalize the first word:
         sentence[0] = sentence[0].capitalize()
-        #Add the period
+        
+        # add the period
         sentence[-1] += "."
         new_text.extend(sentence)
 
