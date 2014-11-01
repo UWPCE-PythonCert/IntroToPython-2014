@@ -1,5 +1,6 @@
 """
-For honesty purposes each answer should be recorded before testing the comprehension
+For honesty purposes each answer should be recorded before testing
+the comprehension
 
 feast: return each delicacy capitalized
 result: correct prediction

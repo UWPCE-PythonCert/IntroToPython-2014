@@ -154,12 +154,13 @@ vowels = set('aeiou')
 
 using unittest
 
-import unittest
-class MyTests(unittest.TestCase):
-    check slides
+    import unittest
+    class MyTests(unittest.TestCase):
+        check slides
 
 unittest comes with all versions of python
 
 Nose
+
 pytest -- chosen class module for unit testing
 
