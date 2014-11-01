@@ -146,6 +146,7 @@ vowels = set('aeiou')
 ```
 
 **Note** searching sets offers two advantages over lists.
+
     1. Sets enforce only unique values
     2. Sets are hashable and therefore can be searched much faster than lists
 
