@@ -893,10 +893,12 @@ Nope: the *type* is the problem::
 
 but should you be checking type anyway? (EAFP)
 
+===
 LAB
-====
+===
 
 Exceptions Lab
+
 
 Exceptions Lab
 ---------------
@@ -1198,15 +1200,15 @@ In the class repo, in:
 
 ``Examples\Session01\students.txt``
 
-You will find the list I genrated of all the students in teh class, and
-what programming langues they used in the past.
+You will find the list I generated of all the students in the class, and
+what programming languages they have used in the past.
 
 Write a little script that reads that file, and generates a list of all
 the languages that have been used.
 
-Extra credit: keep track of how many sutdents specified each language.
+Extra credit: keep track of how many students specified each language.
 
-If you've got giot set up right, ``git pull upstream master`` should update
+If you've got git set up right, ``git pull upstream master`` should update
 your repo. Otherwise, you can get it from gitHub:
 
 ``https://github.com/UWPCE-PythonCert/IntroToPython/blob/master/Examples/Session01/students.txt``

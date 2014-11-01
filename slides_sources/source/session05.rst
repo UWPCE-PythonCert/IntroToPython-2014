@@ -3,9 +3,23 @@
    hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
 
 
-********************************************************************************************************
-Session Five: Advanced Argument passing, List and Dict Comprehensions, Lambda and Functional programming
-********************************************************************************************************
+*********************************************************************
+Session Five: Advanced Argument passing, List and Dict Comprehensions
+*********************************************************************
+
+======================
+Lightning Talks Today:
+======================
+
+.. rst-class:: medium
+
+  Darcy Balcarce
+
+  Eric Buer
+
+  Henry B Fischer
+
+  Kyle R Hart
 
 
 ================
@@ -19,15 +33,45 @@ Review of Previous Class
   * Exceptions
   * Files, etc.
 
+.. nextslide::
+
+.. rst-class:: center large
+
+  How many of you finished ALL the homework?
+
+.. nextslide::
+
+.. rst-class:: center large
+
+  Sorry about that!
+
+.. nextslide::
+
+.. rst-class:: medium
+
+    * That was a lot.
+
+.. rst-class:: medium
+
+.. rst-class:: build
+
+    * But it's all good stuff.
+
+    * I want time to go over it in class.
+
+    * So I'm ditching Unicode -- we'll hit it in the last class
+
 
 Homework review
 ---------------
 
 Homework Questions?
 
-My Solutions to the dict/set lab, and some others in the class repo in: ``Solutions``
+My Solutions to ALL the homework in the class repo in:
 
-A few tidbits:
+``Solutions/Session04``
+
+A few tidbits ....
 
 .. nextslide:: Sorting stuff in dictionaries:
 
@@ -42,6 +86,8 @@ The "old" way:
   for key in keys:
       ...
 
+Other options:
+
 .. code-block:: python
 
     collections.OrderedDict
@@ -49,6 +95,22 @@ The "old" way:
     sorted()
 
 (demo)
+
+Code Review
+------------
+
+.. rst-class:: center medium
+
+Anyone stuck or confused that's willing to volunteer for a live code review?
+
+My Solutions
+-------------
+
+Anyone look at my solutions?
+
+(yeah, not much time for that...)
+
+Anything in particular you'd like me to go over?
 
 =========================
 Advanced Argument Passing
@@ -105,7 +167,7 @@ Can set defaults to variables
 Defaults are evaluated when the function is defined
 
 .. code-block:: ipython
-    
+
     In [156]: y = 4
     In [157]: def fun(x=y):
         print "x is:", x
@@ -154,10 +216,13 @@ You can also pull the parameters out in the function as a tuple and a dict:
     the positional arguments are: (2, 3)
     the keyword arguments are: {'this': 5, 'that': 7}
 
-Passing a dict to the ``string.format()`` method
-------------------------------------------------
+This can be very powerful...
 
-Now that you know that keyword args are really a dict, you can do this nifty trick:
+Passing a dict to str.format()
+-------------------------------
+
+Now that you know that keyword args are really a dict,
+you can do this nifty trick:
 
 The ``format`` method takes keyword arguments:
 
@@ -178,27 +243,6 @@ And pass to ``format()``with ``**``
 
     In [26]: u"My name is {first} {last}".format(**d)
     Out[26]: u'My name is Chris Barker'
-
-
-
-
-LAB
----
-
-Let's do this right now:
-
-keyword arguments
-
-* Write a function that has four optional parameters (with defaults):
-  
-  - foreground_color
-  - background_color
-  - link_color
-  - visited_link_color
-  
-* Have it print the colors (use strings for the colors)
-* Call it with a couple different parameters set
-* Have it pull the parameters out with ``*args, **kwargs`` 
 
 =====================================
 A bit more on mutability (and copies)
@@ -279,7 +323,7 @@ If the elements are immutable, it doesn't really make a differnce -- but be very
 
 
 The copy module
---------------------
+----------------
 
 most objects have a way to make copies (``dict.copy()`` for instance).
 
@@ -339,7 +383,7 @@ Another "gotcha" is using mutables as default arguments:
     In [11]: def fun(x, a=[]):
        ....:     a.append(x)
        ....:     print a
-       ....: 
+       ....:
 
 This makes sense: maybe you'd pass in a list, but the default is an empty list.
 
@@ -379,6 +423,40 @@ The standard practice for such a mutable default argument:
 You get a new list every time the function is called
 
 
+
+LAB
+----
+
+.. rst-class:: medium
+
+  keyword arguments:
+
+* Write a function that has four optional parameters (with defaults):
+
+  - fore_color
+  - back_color
+  - link_color
+  - visited_color
+
+* Have it print the colors (use strings for the colors)
+* Call it with a couple different parameters set
+* Have it pull the parameters out with ``*args, **kwargs``
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Darcy Balcarce
+|
+|
+| Eric Buer
+|
+
+
+
+
 ============================
 List and Dict Comprehensions
 ============================
@@ -388,9 +466,9 @@ List comprehensions
 A bit of functional programming
 
 
-consider this common for loop structure:
+consider this common ``for`` loop structure:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_list = []
     for variable in a_list:
@@ -417,7 +495,7 @@ What about nested for loops?
 
 Can also be expressed in one line:
 
-.. code-block:: python      
+.. code-block:: python
 
     new_list =  [exp for var in a_list for var2 in a_list2]
 
@@ -429,7 +507,7 @@ You get the "outer product", i.e. all combinations.
 
 But usually you at least have a conditional in the loop:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_list = []
     for variable in a_list:
@@ -450,14 +528,14 @@ You can add a conditional to the comprehension:
 
 Examples:
 
-.. code-block:: ipython  
+.. code-block:: ipython 
 
     In [341]: [x**2 for x in range(3)]
     Out[341]: [0, 1, 4]
 
     In [342]: [x+y for x in range(3) for y in range(5,7)]
     Out[342]: [5, 6, 6, 7, 7, 8]
-    
+
     In [343]: [x*2 for x in range(6) if not x%2]
     Out[343]: [0, 4, 8]
 
@@ -467,7 +545,7 @@ Examples:
 
 Remember this from last week?
 
-.. code-block:: python  
+.. code-block:: python
 
     [name for name in dir(__builtin__) if "Error" in name]
     ['ArithmeticError',
@@ -484,26 +562,25 @@ Set Comprehensions
 
 You can do it with sets, too:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_set = { value for variable in a_sequence }
 
 
 same as for loop:
 
-.. code-block:: python  
+.. code-block:: python
 
     new_set = set()
     for key in a_list:
         new_set.add(value)
 
 
-
 .. nextslide::
 
 Example: finding all the vowels in a string...
 
-.. code-block:: ipython      
+.. code-block:: ipython
 
     In [19]: s = "a not very long string"
 
@@ -548,183 +625,278 @@ Example
 
 (not as useful with the ``dict()``  constructor...)
 
+===
+LAB
+===
 
-===================
-Anonymous functions
-===================
+See homework for list comps...
 
-lambda
-------
+Lightning Talks
+----------------
 
-.. code-block:: ipython
+.. rst-class:: medium
 
-    In [171]: f = lambda x, y: x+y
-    In [172]: f(2,3)
-    Out[172]: 5
+|
+| Henry B Fischer
+|
+|
+| Kyle R Hart
+|
 
-Content can only be an expression -- not a statement
 
-Anyone remember what the difference is?
+=======
+Testing
+=======
 
-Called "Anonymous": it doesn't need a name.
+.. rst-class:: build left
+.. container::
 
-.. nextslide::
+    You've already seen some a very basic testing strategy.
 
-It's a python object, it can be stored in a list or other container
+    You've written some tests using that strategy.
 
-.. code-block:: ipython
+    These tests were pretty basic, and a bit awkward in places (testing error
+    conditions in particular).
 
-    In [7]: l = [lambda x, y: x+y]
-    In [8]: type(l[0])
-    Out[8]: function
+    .. rst-class:: centered
 
+    **It gets better**
 
-And you can call it:
+Test Runners
+------------
 
-.. code-block:: ipython
+So far our tests have been limited to code in an ``if __name__ == "__main__":``
+block.
 
-    In [9]: l[0](3,4)
-    Out[9]: 7
+.. rst-class:: build
 
+* They are run only when the file is executed
+* They are always run when the file is executed
+* You can't do anything else when the file is executed without running tests.
 
-Functions as first class objects
----------------------------------
+.. rst-class:: build
+.. container::
 
-You can do that with "regular" functions too:
+    This is not optimal.
 
-.. code-block:: ipython    
+    Python provides testing systems to help.
 
-    In [12]: def fun(x,y):
-       ....:     return x+y
-       ....:
-    In [13]: l = [fun]
-    In [14]: type(l[0])
-    Out[14]: function
-    In [15]: l[0](3,4)
-    Out[15]: 7
 
+Standard Library: ``unittest``
+-------------------------------
 
 
-======================
-Functional Programming
-======================
+The original testing system in Python.
 
-map
----
+``import unittest``
 
-``map``  "maps" a function onto a sequence of objects -- It applies the function to each item in the list, returning another list
+More or less a port of Junit from Java
 
+A bit verbose: you have to write classes & methods
 
-.. code-block:: ipython    
+(And we haven't covered that yet!)
 
-    In [23]: l = [2, 5, 7, 12, 6, 4]
-    In [24]: def fun(x):
-                 return x*2 + 10
-    In [25]: map(fun, l)
-    Out[25]: [14, 20, 24, 34, 22, 18]
 
+Using ``unittest``
+-------------------
 
-But if it's a small function, and you only need it once:
+You write subclasses of the ``unittest.TestCase`` class:
 
-.. code-block:: ipython
+.. code-block:: python
 
-    In [26]: map(lambda x: x*2 + 10, l)
-    Out[26]: [14, 20, 24, 34, 22, 18]
+    # in test.py
+    import unittest
 
+    class MyTests(unittest.TestCase):
+        def test_tautology(self):
+            self.assertEquals(1, 1)
 
-filter
-------
+Then you run the tests by using the ``main`` function from the ``unittest``
+module:
 
-``filter``  "filters" a sequence of objects with a boolean function --
-It keeps only those for which the function is True
+.. code-block:: python
 
-To get only the even numbers:
+    # in test.py
+    if __name__ == '__main__':
+        unittest.main()
 
-.. code-block:: ipython
+.. nextslide:: Testing Your Code
 
-    In [27]: l = [2, 5, 7, 12, 6, 4]
-    In [28]: filter(lambda x: not x%2, l)
-    Out[28]: [2, 12, 6, 4]
+This way, you can write your code in one file and test it from another:
 
+.. code-block:: python
 
+    # in my_mod.py
+    def my_func(val1, val2):
+        return val1 * val2
 
-reduce
-------
+    # in test_my_mod.py
+    import unittest
+    from my_mod import my_func
 
-``reduce``  "reduces" a sequence of objects to a single object with a function that combines two arguments
+    class MyFuncTestCase(unittest.TestCase):
+        def test_my_func(self):
+            test_vals = (2, 3)
+            expected = reduce(lambda x, y: x * y, test_vals)
+            actual = my_func(*test_vals)
+            self.assertEquals(expected, actual)
 
-To get the sum:
+    if __name__ == '__main__':
+        unittest.main()
 
-.. code-block:: ipython
+.. nextslide:: Advantages of ``unittest``
 
-    In [30]: l = [2, 5, 7, 12, 6, 4]
-    In [31]: reduce(lambda x,y: x+y, l)
-    Out[31]: 36
+.. rst-class:: build
+.. container::
 
+    The ``unittest`` module is pretty full featured
 
-To get the product:
+    It comes with the standard Python distribution, no installation required.
 
-.. code-block:: ipython
+    It provides a wide variety of assertions for testing all sorts of situations.
 
-    In [32]: reduce(lambda x,y: x*y, l)
-    Out[32]: 20160
+    It allows for a setup and tear down workflow both before and after all tests
+    and before and after each test.
 
+    It's well known and well understood.
 
-Comprehensions
---------------
+.. nextslide:: Disadvantages:
 
-Couldn't you do all this with comprehensions?
+.. rst-class:: build
+.. container::
 
-Yes:
 
-.. code-block:: ipython
+    It's Object Oriented, and quite heavy.
 
-    In [33]: [x+2 + 10 for x in l]
-    Out[33]: [14, 17, 19, 24, 18, 16]
-    In [34]: [x for x in l if not x%2]
-    Out[34]: [2, 12, 6, 4]
+      - modeled after Java's ``junit`` and it shows...
 
+    It uses the framework design pattern, so knowing how to use the features
+    means learning what to override.
 
-(Except Reduce)
+    Needing to override means you have to be cautious.
 
-But Guido thinks almost all uses of reduce are really ``sum()`` 
+    Test discovery is both inflexible and brittle.
 
-Functional Programming
-----------------------
+.. nextslide:: Other Options
 
-Comprehensions and map, filter, reduce are all "functional programming" approaches}
+There are several other options for running tests in Python.
 
-``map, filter``  and ``reduce``  pre-date comprehensions in Python's history
 
-Some people like that syntax better
+* `Nose`_
+* `pytest`_
+* ... (many frameworks supply their own test runners)
 
-And "map-reduce" is a big concept these days for parallel processing of "Big Data" in NoSQL databases.
+We are going to play today with pytest
 
-(Hadoop, MongoDB, etc.)
+.. _Nose: https://nose.readthedocs.org/
+.. _pytest: http://pytest.org/latest/
 
 
-A bit more about lambda
-------------------------
+.. nextslide:: Installing ``pytest``
 
-Can also use keyword arguments}
+The first step is to install the package:
 
-.. code-block:: ipython
-    
-    In [186]: l = []
-    In [187]: for i in range(3):
-        l.append(lambda x, e=i: x**e)
-       .....:
-    In [189]: for f in l:
-        print f(3)
-    1
-    3
-    9
+.. code-block:: bash
 
-Note when the keyword argument is evaluated: this turns out to be very handy!
+    (cff2py)$ pip install pytest
+
+Once this is complete, you should have a ``py.test`` command you can run
+at the command line:
+
+.. code-block:: bash
+
+    $ py.test
+
+If you have any tests in your repository, that will find and run them.
+
+.. rst-class:: build
+.. container::
+
+    **Do you?**
+
+.. nextslide:: Pre-existing Tests
+
+Let's take a look at some examples.
+
+``\Examples\Session05``
+
+`` $ py.test``
+
+You can also run py.test on a particular test file:
+
+``py.test test_this.py``
+
+The results you should have seen when you ran ``py.test`` above come
+partly from these files.
+
+Let's take a few minutes to look these files over.
+
+[demo]
+
+.. nextslide:: What's Happening Here.
+
+When you run the ``py.test`` command, ``pytest`` starts in your current
+working directory and searches the filesystem for things that might be tests.
+
+It follows some simple rules:
+
+.. rst-class:: build
+
+* Any python file that starts with ``test_`` or ``_test`` is imported.
+* Any functions in them that start with ``test_`` are run as tests.
+* Any classes that start with ``Test`` are treated similarly, with methods that
+  begin with ``test_`` treated as tests.
+
+
+.. nextslide:: pytest
+
+This test running framework is simple, flexible and configurable.
+
+`Read the documentation`_ for more information.
+
+.. _Read the documentation: http://pytest.org/latest/getting-started.html#getstarted
+
+.. nextslide:: Test Driven Development
+
+What we've just done here is the first step in what is called **Test Driven
+Development**.
+
+A bunch of tests exist, but the code to make them pass does not yet exist.
+
+The red you see in the terminal when we run our tests is a goad to us to write
+the code that fixes these tests.
+
+Let's do that next!
+
+===
+LAB
+===
+
+Pick an example from codingbat:
+
+``http://codingbat.com``
+
+Do a bit of test-driven development on it:
+
+ * run somethign on the web site.
+ * write a few tests using the examples from the site.
+ * then write the function, and fix it 'till it passes the tests.
+
 
 =========
 Homework
 =========
+
+Catch up!
+---------
+
+
+* First task -- catch up from last week.
+
+  - and add some tests
+  - and list (and dict, and set) comprehensions...
+
+* Then on to some exercises....
 
 
 List comprehensions
@@ -868,7 +1040,7 @@ https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comp
 .. nextslide:: 7. Count even numbers
 
 
-(submit this one to gitHub for credit on this assignment)
+Use test-driven development!
 
 This is from CodingBat "count_evens" (http://codingbat.com/prob/p189616)
 
@@ -942,90 +1114,4 @@ divisible 2, 3 and 4.
        - loop through that sequence to build the sets up -- so no repeated code.
 
     c. Extra credit:  do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, that may be getting carried away!)
-
-
-lambda and keyword argument magic
------------------------------------
-
-Write a function that returns a list of n functions,
-such that each one, when called, will return the input value,
-incremented by an increasing number.
-
-Use a for loop, ``lambda``, and a keyword argument
-
-( Extra credit ):
-
-Do it with a list comprehension, instead of a for loop
-
-
-Not clear? here's what you should get
-
-.. nextslide:: Example calling code
-
-.. code-block:: ipython
-
-    In [96]: the_list = function_builder(4)
-    ### so the_list should contain n functions (callables)
-    In [97]: the_list[0](2)
-    Out[97]: 2
-    ## the zeroth element of the list is a function that add 0
-    ## to the input, hence called with 2, returns 2
-    In [98]: the_list[1](2)
-    Out[98]: 3
-    ## the 1st element of the list is a function that adds 1
-    ## to the input value, thus called with 2, returns 3
-    In [100]: for f in the_list:
-        print f(5)
-       .....:
-    5
-    6
-    7
-    8
-    ### If you loop through them all, and call them, each one adds one more
-    to the input, 5... i.e. the nth function in the list adds n to the input.
-
-
-
-
-Functional files
------------------
-
-Write a program that takes a filename and "cleans" the file be removing all the leading and trailing whitespace from each line.
-
-Read in the original file and write out a new one, either creating a new file or overwriting the existing one.
-
-Give your user the option of which to perform.
-
-Use ``map()`` to do the work.
-
-Write a second version using a comprehension.
-
-.. nextslide:: Hint
-
-``sys.argv`` hold the command line arguments the user typed in. If the user types:
-
-.. code-block:: bash
-
-  $ python the_script a_file_name
-
-Then:
-
-.. code-block:: python
-
-    import sys
-    filename = sys.argv[1]
-
-will get ``filename == "a_file_name"``
-
-
-Recommended Reading
----------------------
-
-* LPTHW: Ex 40 - 45
-
-http://learnpythonthehardway.org/book/
-
-* Dive Into Python: chapter 4, 5
-
-http://www.diveintopython.net/toc/index.html
 
