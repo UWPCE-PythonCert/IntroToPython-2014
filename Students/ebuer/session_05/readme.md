@@ -25,8 +25,8 @@ random.randint(2,10)
 
 each sentence was constructed as a list for easy indexing of the words, use of several string tools to format the list:
 
-    +string.capitalize
-    +list.extend(new_sentence)
+    + string.capitalize
+    + list.extend(new_sentence)
 
 Look further at the solution for details. Basic construction matches what has already been solved: dictionary for values, printing uses a list.
 
@@ -45,10 +45,10 @@ def(x, y, w=0, h=0):
 
 pos = (5, 6)
 
-f( *pos, h = 7)
+f(*pos, h = 7)
 ```
 
-f( *position, **size)
+f(*position, **size)
 
 **positional arguments** (args) are a tuple
 **keyword arguments** (kwargs) are a dictionary
@@ -119,9 +119,9 @@ new_list = [expression for var in a_list for var2 in a_list2] # nested loop, out
 
 l = ['this', 'that', 'the', 'other']
 
-l2 = [ s.upper() for s in l]
+l2 = [s.upper() for s in l]
 
-[ (i, j) for i in range(3) for j in range(4, 6)] #same as nested for loop
+[(i, j) for i in range(3) for j in range(4, 6)] #same as nested for loop
 
 ```
 
@@ -138,14 +138,27 @@ Comprehensions can also be applied to sets {a, b, c}, and dicts.  The syntax app
     new_dict = {}
     for key in a_list:
         new_dict[key] = value
-        
+
 ```python
 s = 'a not very long string'
 vowels = set('aeiou')
 {let for let in s if let in vowels}
 ```
 
-**Note** searching sets offers two advantages.
-1. Sets enforce only unique values
-2. Sets are hashable and therefore can be searched much faster than lists
+**Note** searching sets offers two advantages over lists.
+    1. Sets enforce only unique values
+    2. Sets are hashable and therefore can be searched much faster than lists
+
+##Testing
+
+using unittest
+
+import unittest
+class MyTests(unittest.TestCase):
+    check slides
+
+unittest comes with all versions of python
+
+Nose
+pytest -- chosen class module for unit testing
 
