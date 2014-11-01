@@ -25,8 +25,8 @@ random.randint(2,10)
 
 each sentence was constructed as a list for easy indexing of the words, use of several string tools to format the list:
 
-    + string.capitalize
-    + list.extend(new_sentence)
++ string.capitalize
++ list.extend(new_sentence)
 
 Look further at the solution for details. Basic construction matches what has already been solved: dictionary for values, printing uses a list.
 
@@ -147,8 +147,8 @@ vowels = set('aeiou')
 
 **Note** searching sets offers two advantages over lists.
 
-    1. Sets enforce only unique values
-    2. Sets are hashable and therefore can be searched much faster than lists
+1. Sets enforce only unique values
+2. Sets are hashable and therefore can be searched much faster than lists
 
 ##Testing
 
