@@ -101,11 +101,11 @@ The list that is defined by the function remains in the environment.  Calling th
 This is avoided by __never__ using a mutable as the default variable.
 
 ```python
-    def run(x, a = None):
-        if a is None:
-            a = []
-        a.append(x)
-        return a
+def run(x, a = None):
+    if a is None:
+        a = []
+    a.append(x)
+    return a
 ```
 
 oceanpython.org
@@ -130,4 +130,22 @@ Usually we want to apply a conditional as well:
 ```python
 [s.upper() for s in l if s.startswith('t')]
 ```
+
+Comprehensions can also be applied to sets {a, b, c}, and dicts.  The syntax appears to be very similar
+
+    new_dict = { key:value for variable in a_sequence}
+
+    new_dict = {}
+    for key in a_list:
+        new_dict[key] = value
+        
+```python
+s = 'a not very long string'
+vowels = set('aeiou')
+{let for let in s if let in vowels}
+```
+
+**Note** searching sets offers two advantages.
+1. Sets enforce only unique values
+2. Sets are hashable and therefore can be searched much faster than lists
 
