@@ -1,4 +1,4 @@
-#!/Library/Frameworks/Python.framework/Versions/2.7/bin/python
+#!/usr/local/bin/python
 
 import pathlib
 
@@ -25,7 +25,7 @@ for f in parent_path.iterdir():
 
 # copy file
 source = ("/Users/salimhamed/Documents/Documents/School/Python (2014)/"
-         "IntroToPython/Students/salim/session04/dict_set_lab.py")
+          "IntroToPython/Students/salim/session04/dict_set_lab.py")
 destination = ("/Users/salimhamed/Documents/Documents/School/Python (2014)/"
                "IntroToPython/Students/salim/session04/cp_dict_set_lab.py")
 copy_file(source, destination)

@@ -114,7 +114,7 @@ if __name__ == '__main__':
     end_line = 0  # ending line of the file
 
     num_of_words_to_print = 200
-    start_words = 'I should'
+    start_words = 'I did'
 
     # read file to list
     f = open(path_book)

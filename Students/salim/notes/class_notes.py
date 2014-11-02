@@ -753,5 +753,44 @@ o_dict = collections.OrderedDict()   # this will create an ordered dict
 # option #2
 sorted()   # built in function that sorts iterables
 
+""" Advanced argument passing """
 
+# keyword arguments
+def fun(a, b = True, c = False):
+    return
+
+# functional arguments
+
+def func(x, y, w=0, h=0):  # positional arguments are tuples
+                           # keywork arguments are dictionaries
+    print "%s %s %s %s" % (x, y, x, h)
+
+a_tuple = (1, 2)
+a_dict = {'w':1, 'h': 2}
+func(*a_tuple, **a_dict)  # you can pass the tuple and dict in directly
+
+def func(*args, **kwargs):  # you can recieve an undefined number of args
+    print args
+    print kwargs
+
+"""mutablility"""
+
+import copy   # for making copies of objects
+
+copy.deepcopy()   # this is how you make a deep copy
+
+
+"""list comprehensions"""
+l = [1, 2, 3]
+[i * 2 for i in l]
+[i * 2 for i in l if i > 1]  # you can have an if statement here
+
+# searching 'in' a sequence is faster with sets because they are hash tables
+
+"""set comprehension"""
+
+"""dict comprehensions"""
+
+
+"""testing in python"""
 
