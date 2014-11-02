@@ -88,13 +88,16 @@ for the mailroom think about using a dictionary of information that just is pass
 most objects have a copy method, but shallow copies remained linked to the original source
 
 list1 = ['a', 'b', 'c']
+
 list2 = copy.deepcopy(list1) # creates a copy of each element that is independent of the original
 
 if a function is created with a mutable as a default value
 
-    def run(x, a=[]):
-        a.append(x)
-        return a
+```python
+def run(x, a=[]):
+    a.append(x)
+    return a
+```
 
 The list that is defined by the function remains in the environment.  Calling the function several times will continue to use the 'a' list in this case
 
@@ -132,14 +135,15 @@ Usually we want to apply a conditional as well:
 ```
 
 Comprehensions can also be applied to sets {a, b, c}, and dicts.  The syntax appears to be very similar
-
-    new_dict = { key:value for variable in a_sequence}
-
-    new_dict = {}
-    for key in a_list:
-        new_dict[key] = value
-
 ```python
+
+new_dict = { key:value for variable in a_sequence}
+
+new_dict = {}
+for key in a_list:
+    new_dict[key] = value
+
+
 s = 'a not very long string'
 vowels = set('aeiou')
 {let for let in s if let in vowels}
@@ -154,13 +158,15 @@ vowels = set('aeiou')
 
 using unittest
 
-    import unittest
-    class MyTests(unittest.TestCase):
-        check slides
+```python
+import unittest
+class MyTests(unittest.TestCase):
+    check slides
+```
 
-unittest comes with all versions of python
+####Testing Modules
 
-Nose
-
-pytest -- chosen class module for unit testing
+    + unittest  comes with all versions of python
+    + Nose
+    + pytest -- chosen class module for unit testing
 

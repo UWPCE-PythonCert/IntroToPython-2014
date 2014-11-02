@@ -19,6 +19,7 @@ colors(**darg)
 print 'I hate {visited_color}, but I love {fore_color}'.format(**darg)
 print 'I hate {1}, but I love {0}\n'.format(*targ)
 
-marg = {'my date':'your mom', 'my girlfriend': 'your sister', 'my best friend': 'your dad'}
+marg = {'my date': 'your mom', 'my girlfriend': 'your sister',
+        'my best friend': 'your dad'}
 
 print 'This is really tough but {my date} said that {my girlfriend} is sleeping with {my best friend}'.format(**marg)
