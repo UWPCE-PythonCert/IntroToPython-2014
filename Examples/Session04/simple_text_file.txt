@@ -1,2 +1,0 @@
-This is a text file with very little in it
-but it at least has more than one line
