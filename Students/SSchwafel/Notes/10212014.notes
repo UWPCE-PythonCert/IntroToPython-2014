@@ -1,0 +1,265 @@
+Session 04
+================
+
+
+    You almost never need to loop through the indices of a sequence (well, shit). 
+
+    zip() <---combines list elements of two lists into pairs
+
+    for x,y in list() 
+    
+        print x
+        print y
+
+    enumerate() <---returns the index and the item itself
+        returns a tuple with the item and the index inside of it
+
+        instead of looping through a sequence, you probably want to use zip/enumerate
+
+    When you add to a string, you are creating a new string <---inefficient
+
+    appending to lists is more efficient, .join()ing is a faster way than:
+
+    for piece in list_of_stuff:
+        msg += piece
+
+
+    You can put a mutable item inside of an immutable object!
+
+    if you're going to delete items from a list, make a copy of the list, then modify in place
+
+    pop() is for taking an item out of a list and then using it 
+
+    tuples automatically sort by first number with tuple.sort()
+
+    Sorting by second element in a tuple:
+
+        def sort_fun(item):
+            return item[1]
+
+        combined sort(key=sort_fun)
+
+    =====
+
+    assertions are for testing, not for value checking in code
+
+    in operational code should be:
+
+        if m < 0:
+            raise ValueError
+
+Dictionaries and Sets:
+======================================
+Dictionaries are: 
+
+    Associative array
+    map
+    hash table
+    key value pair
+
+Curly brackets {'key1': 3, 'key2':5}
+
+d = {}
+
+    d = {'name': 'Brian', 'score': 42}
+
+    >>> d['score']
+    42
+
+    >>> d = {1: 'one', 0: 'zero'}
+
+    >>> d[0]
+    'zero'
+
+    >>> d['non-existing key']
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    KeyError: 'non-existing key'
+
+Keys can be immutable: number, string, tuple
+
+Hash functions convert arbitrarily large data to a small proxy
+
+Always return the same proxy for the same input
+
+MDA, SHA
+
+Dictionaries hash the key to an integer proxy and use it to find the key and value
+
+Hashability requires immutability
+
+Dictionary lookups are VERY EFFICIENT
+
+Key to value -> Lookup is one way
+
+Dictionaries have no defined order - this is why index lookups don't work
+
+'for' iterates over the keys
+
+is x in dict -> IN checks for KEYS only
+
+d.keys() = keys
+d.value() = values
+d.items = tuples of both
+
+Dictionary Performance
+
+    indexing is fast and constant time: O(1)
+    x in s constant time: O(1)
+    visiting all is proportional to n: O(n)
+    inserting is constant time: O(1)
+    deleting is constant time: O(1)
+
+    http://wiki.python.org/moin/TimeComplexity
+
+d.get('this') <---is this key in the dictionary, if not return default value
+5
+
+for item in d.iteritems(): <---faster
+    print item
+
+d.pop('this') <--removes key from dictionary and gives value
+
+d.setdefault('something', <---key 'value') <------checks if something's in the dictionary, if not, adds it!
+
+set is an unordered collection of distinct values
+
+A dictionary with only keys
+
+Set members must be hashable (like a dictionary)
+
+no indexing, unordered
+
+Set used to count distinct values
+
+frozenset for using as a key in a dictionary
+
+============================
+
+Exceptions -> listen for a particular error and do something if it pops up
+
+try:
+    num_in = int(num_in)
+except ValueError:
+    print "Input must be an integer, try again."
+
+try:
+    do_something()
+    f = open('missing.txt')
+    process(f)   # never called if file missing
+except IOError:
+    print "couldn't open missing.txt"
+finally:                                <---runs after exception or not
+    do_some_clean-up
+
+Exceptions have an "else" clause that is called if there's no exception
+
+try:
+    do_something()
+    f = open('missing.txt')
+except IOError:                 <----catching the exception means the program still runs
+    print "couldn't open missing.txt"
+else:
+    process(f) # only called if there was no exception      <---only runs if the file is successfully opened
+
+raise = raises that exception AGAIN <---good place to add extra information 
+
+    except (IOError, BufferError, OSError) as the_error:
+        do_something_with (the_error)
+
+File Read and Writing:
+
+
+    f = open('secrets.txt')
+    secret_data = f.read()
+    f.close()
+
+    secret_data is a string! 
+    Most likely need to use Unicode for strings
+
+
+    pen('secrets.bin', 'rb')
+    secret_data = f.read()
+    f.close()
+
+    f = open('secrets.txt', [mode])
+    'r', 'w', 'a'
+    'rb', 'wb', 'ab'
+    r+, w+, a+
+    r+b, w+b, a+b
+    U
+    U+
+
+    These follow the Unix conventions, and aren’t all that well documented in the Python docs. But these BSD docs make it pretty clear:
+
+    http://www.manpagez.com/man/3/fopen/
+
+ ‘w’ modes always clear the file
+
+    U = makes it easy for different line endings!!!!
+
+Text is default. Line feeds are Unix-style line feeds.
+
+    Reading part of a file
+
+    header_size = 4096
+    f = open('secrets.txt')
+    secret_header = f.read(header_size)
+    secret_rest = f.read()
+    f.close()
+
+for line in open(''secrets.txt'):
+
+    print line
+
+(the file object is an iterator!)
+
+    f = open('secrets.txt')
+    while True:
+        line = f.readline()
+        if not line:
+            break
+        do_something_with_line()
+
+File Writing:
+
+    outfile = open('output.txt', 'w')
+    for i in range(10):
+        outfile.write("this is line: %i\n"%i)
+
+
+Paths and directories:
+
+    ./ <--current working directory
+
+    or full path
+
+    either work with open()
+
+os.module <----operating system services
+
+
+    os.getcwd() -- os.getcwdu() (u for Unicode)
+    os.chdir(path)
+    os.path.abspath()
+    os.path.relpath()￼
+    os.path.split()
+    os.path.splitext()
+    os.path.basename()
+    os.path.dirname()
+    os.path.join()
+    (all platform independent)
+
+
+    
+    os.listdir()
+    os.mkdir()
+    os.walk()
+
+    shutil module
+
+    look into pathlib
+
+Homework - 
+
+Do the reading!
