@@ -2,3 +2,4 @@ slides_sources/build
 
 #ignore python compile files
 *.pyc
+*.sublime*
