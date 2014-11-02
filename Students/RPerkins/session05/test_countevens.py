@@ -5,7 +5,7 @@ from count_evens import ct_evens
 
 
 def test_null():
-    assert ct_evens([]) is None
+    assert ct_evens([]) == 0
 
 
 def test_onenone():
@@ -26,3 +26,7 @@ def test_allevens():
 
 def test_manynone():
     assert ct_evens([1, 3, 5, 7, 9, 11, 13]) == 0
+
+
+def test_repeats():
+    assert ct_evens([1,2,3,2,3,3,4,2,6,6,3,9,7,4,12]) == 8
