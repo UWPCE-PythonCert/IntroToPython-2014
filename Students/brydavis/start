@@ -33,6 +33,7 @@ function end_session {
 	clear;	
 	echo 'Push complete!';
 	echo 'Goodbye ~';
+	cd;
 }
 
 

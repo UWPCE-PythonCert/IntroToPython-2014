@@ -1,6 +1,19 @@
 #!/usr/bin/env python
 
 
+
+
+def f(x=None, *hello, **world):
+	print "x is: ", x
+	print "the positional arguments are:", hello
+	print "the keyword arguments are:", world
+
+
+
+
+
+
+
 class Trigram(str):
 	""" Adding critically unimportant functionality to Python's str type """
 
