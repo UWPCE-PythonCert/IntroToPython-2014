@@ -3,3 +3,6 @@ slides_sources/build
 #ignore python compile files
 *.pyc
 *.sublime*
+
+#ignore changes in Examples directory
+/Examples/
