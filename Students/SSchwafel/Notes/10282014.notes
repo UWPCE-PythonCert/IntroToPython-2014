@@ -1,0 +1,151 @@
+Dictionaries are not ordered
+
+Standard way = grab keys, sort them, then loop through that
+
+collections module = additional collection objects that do special things
+
+    collections.OrderedDict <---like a dictionary that keeps track of order
+
+
+d = collectionsns.OrderedDict()
+
+.strip() removes stuff AT THE ENDS!!!!!
+
+.translate function is really fast
+
+Advanced Argument Passing
+
+==========================
+
+When you define a function, you can define keyword arguments as defaults
+
+    In [151]: def fun(x,y=0,z=0):
+            print x,y,z
+       .....:
+    In [152]: fun(1,2,3)
+    1 2 3
+    In [153]: fun(1, z=3)
+    1 0 3
+    In [154]: fun(1, z=3, y=2)
+    1 2 3
+
+check for unspecified value: 
+
+    def fun(x, y=None):
+    if y is None:
+        do_something_different
+    go_on_here
+
+Values don't have to be hardcoded, they can be variables:
+
+    In [156]: y = 4
+    In [157]: def fun(x=y):
+        print "x is:", x
+       .....:
+    In [158]: fun()
+    x is: 4
+    
+    Gets evaluated when the function is DEFINED not when it is CALLED!!!
+
+    Function arguments are really just:
+        a tuple ->>>positional arguments
+        a dictionary ->>>>>>keyword arguments
+
+    def f(x, y, w=0, h=0):
+        print "position: %s, %s -- shape: %s, %s"%(x, y, w, h)
+
+    position = (3,4)
+    size = {'h': 10, 'w': 20}
+
+    >>> f( *position, **size)
+    position: 3, 4 -- shape: 20, 10
+
+You can also pull the parameters out in the function as a tuple and a dict:
+
+    def f(*args, **kwargs):
+        print "the positional arguments are:", args
+        print "the keyword arguments are:", kwargs
+
+
+    In [389]: f(2, 3, this=5, that=7)
+    the positional arguments are: (2, 3)
+    the keyword arguments are: {'this': 5, 'that': 7}
+
+The format method takes keyword arguments
+
+Mutability and copies:
+
+
+    Mutable objects have contents that can be changed
+    Immutable objects cannot
+
+    You can have mutable objects inside of immutable objects
+
+Copying Lists:
+
+    In [29]: list2 = list1[:]
+
+    In [30]: list2 is list1
+    Out[30]: False
+
+Shallow copy = copies at the top level, puts stuff in it, but the stuff it puts in is the same - doesn't copy more than you explicitly tell it to
+
+a lot of objects have built-in ways to copy themselves
+
+copy module (import copy)
+
+copy.copy(listX)
+
+copy.deepcopy(listX) <----looks at each element and makes a copy, recurses!
+
+
+Dict and list comprehensions!:
+
+    Consider this common for loop structure:
+
+    new_list = []
+    for variable in a_list:
+        new_list.append(expression)
+    This can be expressed with a single line using a “list comprehension”
+
+    new_list = [expression for variable in a_list]
+
+    [i for i in range(5)] = [0,1,2,3,4,5]
+
+    
+    [i*4 for i in range(5)] = [0,4,8,12,16]
+
+
+    list = [s.upper() for s in list]
+
+    [(i,) for i in range(3) for j in range(4,6)]<----the same as a nested for loop
+
+    Often a conditional in the loop. Do something IF something is true
+
+        
+        list = [s.upper() for s in list if s.startswith('t')]
+
+
+    is something in a set() is faster than is something in a list()
+    list = [s.upper() for s in list]
+
+
+
+Testing:
+
+    import unittest <---original testing system
+    
+        You have to write classes and methods :(
+
+    Test file separate from main module
+
+    Alternatives = nose and pytest
+
+    we are going to play with pytest
+
+    Pytest looks for things in current dir that might be tests (test_*)
+        runs those functions as tests
+        
+    Test-driven Development ----> you write the tests before you write the code
+
+        Tests exists, write code until all the tests pass 
