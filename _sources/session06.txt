@@ -2,9 +2,23 @@
 .. Foundations 2: Python slides file, created by
    hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
 
-******************************************************************************************
-Session Six: Object oriented programming: Classes, instances, attributes, and subclassing
-******************************************************************************************
+****************************************************************************************************************************
+Session Six: Lambda and Functional programming. Object oriented programming: Classes, instances, attributes, and subclassing
+****************************************************************************************************************************
+
+======================
+Lightning Talks Today:
+======================
+
+.. rst-class:: medium
+
+    Aleksey Kramer
+
+    Alexander R Galvin
+
+    Gideon I Sylvan
+
+    Hui Zhang
 
 
 ================
@@ -18,43 +32,17 @@ Review of Previous Class
 
 * comprehensions
 
-* ``lambda``
+* testing (a bit more on that soon)
 
-
+===============
 Homework review
----------------
+===============
 
 Homework Questions?
 
-If it seems harder than it should be -- it is!
-
-My Solution to the trigram:
-
- * (``dict.setdefault()``  trick...)
-
-``global`` keyword?
-
-Unicode Notes
--------------
-
-To put unicode in your source file, put:
-
-.. code-block:: python
-
-  #!/usr/bin/env python
-  # -*- coding: utf-8 -*-
-
-at the top of your file ... and be sure to save it as utf-8!
-(file->save with encoding in Sublime)
-
-You also might want to put::
-
-    from __future__ import unicode_literals
+Notes from Homework:
 
 
-Additional notes on using Unicode in Python see:
-
- :ref:`unicode_supplement`
 ===================
 Anonymous functions
 ===================
@@ -98,7 +86,7 @@ Functions as first class objects
 
 You can do that with "regular" functions too:
 
-.. code-block:: ipython    
+.. code-block:: ipython
 
     In [12]: def fun(x,y):
        ....:     return x+y
@@ -121,7 +109,7 @@ map
 ``map``  "maps" a function onto a sequence of objects -- It applies the function to each item in the list, returning another list
 
 
-.. code-block:: ipython    
+.. code-block:: ipython
 
     In [23]: l = [2, 5, 7, 12, 6, 4]
     In [24]: def fun(x):
@@ -152,6 +140,15 @@ To get only the even numbers:
     In [28]: filter(lambda x: not x%2, l)
     Out[28]: [2, 12, 6, 4]
 
+If you pass ``None`` to ``filter()``, you get only items that evaluate to true:
+
+.. code-block:: ipython
+
+    In [1]: l = [1, 0, 2.3, 0.0, 'text', '', [1,2], [], False, True, None ]
+
+    In [2]: filter(None, l)
+    Out[2]: [1, 2.3, 'text', [1, 2], True]
+
 
 
 reduce
@@ -175,6 +172,14 @@ To get the product:
     In [32]: reduce(lambda x,y: x*y, l)
     Out[32]: 20160
 
+or
+
+.. code-block:: ipython
+
+    In [13]: import operator
+
+    In [14]: reduce(operator.mul, l)
+    Out[14]: 20160
 
 Comprehensions
 --------------
@@ -187,13 +192,18 @@ Yes:
 
     In [33]: [x+2 + 10 for x in l]
     Out[33]: [14, 17, 19, 24, 18, 16]
+
     In [34]: [x for x in l if not x%2]
     Out[34]: [2, 12, 6, 4]
 
+    In [6]: l
+    Out[6]: [1, 0, 2.3, 0.0, 'text', '', [1, 2], [], False, True, None]
+    In [7]: [i for i in l if i]
+    Out[7]: [1, 2.3, 'text', [1, 2], True]
 
 (Except Reduce)
 
-But Guido thinks almost all uses of reduce are really ``sum()`` 
+But Guido thinks almost all uses of reduce are really ``sum()``
 
 Functional Programming
 ----------------------
@@ -212,7 +222,7 @@ And "map-reduce" is a big concept these days for parallel processing of "Big Dat
 A bit more about lambda
 ------------------------
 
-Can also use keyword arguments}
+Can also use keyword arguments
 
 .. code-block:: ipython
 
@@ -302,6 +312,16 @@ Then:
 will get ``filename == "a_file_name"``
 
 
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Aleksey Kramer
+|
+| Alexander R Galvin
+|
 
 
 ===========================
@@ -464,7 +484,7 @@ A class is a type -- interesting!
 
 It is created when the statement is run -- much like ``def``
 
-You don't *have* to subclass from ``object``, but you *should* 
+You don't *have* to subclass from ``object``, but you *should*
 
 (note on "new style" classes)
 
@@ -528,7 +548,7 @@ You can use it to do any set-up you need
 
 It gets the arguments passed when you call the class object:
 
-.. code-block:: python  
+.. code-block:: python
 
     Point(x, y)
 
@@ -577,7 +597,7 @@ Note: the methods defined by ``def`` are class attributes as well.
 The class is one namespace, the instance is another.
 
 
-.. code-block:: python  
+.. code-block:: python
 
     class Point(object):
         size = 4
@@ -596,7 +616,7 @@ class attributes are accessed with ``self``  also.
 
 Typical methods:
 
-.. code-block:: python  
+.. code-block:: python
 
     class Circle(object):
         color = "red"
@@ -616,7 +636,7 @@ They may or may not return something useful.
 
 Gotcha!
 
-.. code-block:: python  
+.. code-block:: python
 
     ...
         def grow(self, factor=2):
@@ -633,24 +653,37 @@ Huh???? I only gave 2
 
 (demo of bound vs. unbound methods)
 
-LAB / homework
----------------
+LAB
+----
 
-Let's say you need to render some html..
+Let's say you need to render some html...
 
-The goal is to build a set of classes that render an html page.
+The goal is to build a set of classes that render an html
+page like this:
 
 ``Examples/Session06/sample_html.html``
 
-We'll start with a single class, then add some sub-classes to specialize the behavior
+We'll start with a single class, then add some sub-classes
+to specialize the behavior
 
 Details in:
 
 :ref:`homework_html_renderer`
 
 
-Let's see if we can do step 1. in class...
+Let's see if you can do step 1. in class...
 
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Gideon I Sylvan
+|
+| Hui Zhang
+|
 
 =======================
 Subclassing/Inheritance
@@ -659,10 +692,11 @@ Subclassing/Inheritance
 Inheritance
 -----------
 
-In object-oriented programming (OOP), inheritance is a way to reuse code of existing objects, or to establish a subtype from an existing object.
+In object-oriented programming (OOP), inheritance is a way to reuse code
+of existing objects, or to establish a subtype from an existing object.
 
-
-Objects are defined by classes, classes can inherit attributes and behavior from pre-existing classes called base classes or super classes.
+Objects are defined by classes, classes can inherit attributes and behavior
+from pre-existing classes called base classes or super classes.
 
 The resulting classes are known as derived classes or subclasses.
 

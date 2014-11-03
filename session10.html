@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Unicode &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Nine: Decorators, Context Managers, Packages and packaging &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -28,7 +28,9 @@
   
 
   
-    <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/> 
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
+        <link rel="next" title="Homework Materials" href="homework/index.html"/>
+        <link rel="prev" title="Session Nine: Decorators, Context Managers, Packages and packaging" href="session09.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -55,7 +57,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -122,8 +124,10 @@
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Lambda and Functional programming. Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session06.html#homework-review">Homework review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#anonymous-functions">Anonymous functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#functional-programming">Functional Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session06.html#object-oriented-programming">Object Oriented Programming</a></li>
@@ -148,6 +152,16 @@
 <li class="toctree-l2"><a class="reference internal" href="session08.html#iterators-and-generators">Iterators and Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session08.html#context-managers">Context Managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session08.html#homework">Homework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session09.html#review-questions">Review/Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#session-ten-unicode-persistence-serialization">Session Ten: Unicode, Persistence / Serialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#history">History</a></li>
 </ul>
 </li>
 </ul>
@@ -191,7 +205,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Unicode</li>
+    <li>Session Nine: Decorators, Context Managers, Packages and packaging</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/session10.txt" rel="nofollow"> View page source</a>
@@ -202,10 +216,11 @@
 </div>
           <div role="main">
             
-  <div class="section" id="unicode">
-<h1>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h1>
-<p>A quick run-down of Unicode, its use in Python 2, and some of the
-gotchas that arise.</p>
+  <div class="section" id="session-nine-decorators-context-managers-packages-and-packaging">
+<h1>Session Nine: Decorators, Context Managers, Packages and packaging<a class="headerlink" href="#session-nine-decorators-context-managers-packages-and-packaging" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="session-ten-unicode-persistence-serialization">
+<h1>Session Ten: Unicode, Persistence / Serialization<a class="headerlink" href="#session-ten-unicode-persistence-serialization" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <p class="left">I hope you all read this:</p>
@@ -216,7 +231,7 @@ Positively Must Know About Unicode and Character Sets (No Excuses!)</p>
 <div class="section" id="fact-number-1">
 <h3>Fact number 1:<a class="headerlink" href="#fact-number-1" title="Permalink to this headline">¶</a></h3>
 <p class="center large">Everything is made up of bytes</p>
-<p>If it&#8217;s on disk or transmitted oƒUniver a network, it&#8217;s bytes</p>
+<p>If it&#8217;s on disk or transmitted over a network, it&#8217;s bytes</p>
 <p>Python provides some abstractions to make it easier to deal with bytes</p>
 <p>Unicode is a biggie</p>
 <dl class="docutils">
@@ -264,8 +279,8 @@ encodings</li>
 </dd>
 </dl>
 </div>
-<div class="section" id="id1">
-<h3>Unicode<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="unicode">
+<h3>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h3>
 <p>A good start:</p>
 <p>The Absolute Minimum Every Software Developer Absolutely,
 Positively Must Know About Unicode and Character Sets (No Excuses!)</p>
@@ -278,10 +293,10 @@ Positively Must Know About Unicode and Character Sets (No Excuses!)</p>
 <p>Unicode is a biggie</p>
 <p>(actually, dealing with numbers rather than bytes is big &#8211; but we take that
 for granted)</p>
-</div>
-</div>
 <div class="section" id="mechanics">
-<h2>Mechanics<a class="headerlink" href="#mechanics" title="Permalink to this headline">¶</a></h2>
+<h4>Mechanics<a class="headerlink" href="#mechanics" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
 <div class="section" id="what-are-strings">
 <h3>What are strings?<a class="headerlink" href="#what-are-strings" title="Permalink to this headline">¶</a></h3>
 <p>Py2 strings are sequences of bytes</p>
@@ -311,8 +326,8 @@ with combined characters: accents, etc.</p>
 <p><tt class="docutils literal"><span class="pre">bytes</span></tt> is there for py3 compatibility - -but it&#8217;s good for making your
 intentions clear, too.</p>
 </div>
-<div class="section" id="id2">
-<h3>Unicode<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Unicode<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">unicode</span></tt> object lets you work with characters</p>
 <p>It has all the same methods as the string object.</p>
 <p>&#8220;encoding&#8221; is converting from a unicode object to bytes</p>
@@ -373,7 +388,7 @@ intentions clear, too.</p>
 <dt>One example:</dt>
 <dd><a class="reference external" href="http://inamidst.com/stuff/unidata/">http://inamidst.com/stuff/unidata/</a></dd>
 </dl>
-<p><tt class="xref download docutils literal"><span class="pre">hello_unicode.py</span></tt>.</p>
+<p><a class="reference download internal" href="_downloads/hello_unicode1.py"><tt class="xref download docutils literal"><span class="pre">hello_unicode.py</span></tt></a>.</p>
 </div>
 <div class="section" id="using-unicode">
 <h3>Using Unicode<a class="headerlink" href="#using-unicode" title="Permalink to this headline">¶</a></h3>
@@ -473,7 +488,7 @@ intentions clear, too.</p>
 <li>Useful if you don&#8217;t know the encoding &#8211; at least it won&#8217;t raise an Exception</li>
 <li>Useful if you need to work with combined text+binary data.</li>
 </ul>
-<p><tt class="xref download docutils literal"><span class="pre">latin1_test.py</span></tt>.</p>
+<p><a class="reference download internal" href="_downloads/latin1_test1.py"><tt class="xref download docutils literal"><span class="pre">latin1_test.py</span></tt></a>.</p>
 </div>
 <div class="section" id="unicode-docs">
 <h3>Unicode Docs<a class="headerlink" href="#unicode-docs" title="Permalink to this headline">¶</a></h3>
@@ -517,7 +532,7 @@ intentions clear, too.</p>
 </ul>
 <p>NOPE: it swallows it instead.</p>
 </div></blockquote>
-<p><tt class="xref download docutils literal"><span class="pre">exception_test.py</span></tt>.</p>
+<p><a class="reference download internal" href="_downloads/unicode_exception_test.py"><tt class="xref download docutils literal"><span class="pre">unicode_exception_test.py</span></tt></a>.</p>
 </div>
 <div class="section" id="unicode-in-python-3">
 <h3>Unicode in Python 3<a class="headerlink" href="#unicode-in-python-3" title="Permalink to this headline">¶</a></h3>
@@ -531,36 +546,37 @@ intentions clear, too.</p>
 <p>Everything that requires binary data uses bytes.</p>
 <p>It&#8217;s all much cleaner.</p>
 <p>(by the way, the recent implementations are very efficient...)</p>
-</div>
-</div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h4>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
 <div class="section" id="basic-unicode-lab">
 <h3>Basic Unicode LAB<a class="headerlink" href="#basic-unicode-lab" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Find some nifty non-ascii characters you might use.<ul>
 <li>Create a unicode object with them in two different ways.</li>
-<li><tt class="xref download docutils literal"><span class="pre">here</span></tt> is one example</li>
+<li><a class="reference download internal" href="_downloads/hello_unicode1.py"><tt class="xref download docutils literal"><span class="pre">here</span></tt></a> is one example</li>
 </ul>
 </li>
 <li>Read the contents into unicode objects:</li>
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="xref download docutils literal"><span class="pre">ICanEatGlass.utf8.txt</span></tt></li>
-<li><tt class="xref download docutils literal"><span class="pre">ICanEatGlass.utf16.txt</span></tt></li>
+<li><a class="reference download internal" href="_downloads/ICanEatGlass.utf81.txt"><tt class="xref download docutils literal"><span class="pre">ICanEatGlass.utf8.txt</span></tt></a></li>
+<li><a class="reference download internal" href="_downloads/ICanEatGlass.utf161.txt"><tt class="xref download docutils literal"><span class="pre">ICanEatGlass.utf16.txt</span></tt></a></li>
 </ul>
 </div></blockquote>
 <p>and/ or</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="xref download docutils literal"><span class="pre">text.utf8</span></tt></li>
-<li><tt class="xref download docutils literal"><span class="pre">text.utf16</span></tt></li>
-<li><tt class="xref download docutils literal"><span class="pre">text.utf32</span></tt></li>
+<li><a class="reference download internal" href="_downloads/text1.utf8"><tt class="xref download docutils literal"><span class="pre">text.utf8</span></tt></a></li>
+<li><a class="reference download internal" href="_downloads/text1.utf16"><tt class="xref download docutils literal"><span class="pre">text.utf16</span></tt></a></li>
+<li><a class="reference download internal" href="_downloads/text1.utf32"><tt class="xref download docutils literal"><span class="pre">text.utf32</span></tt></a></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li>write some of the text from the first exercise to file &#8211; read that file back in.</li>
+<li>write some of the text from the first exercise to file &#8211; read that
+file back in.</li>
 </ul>
 <p>reference: <a class="reference external" href="http://inamidst.com/stuff/unidata/">http://inamidst.com/stuff/unidata/</a></p>
 <p>NOTE: if your terminal does not support unicode &#8211; you&#8217;ll get an error trying
@@ -596,13 +612,15 @@ to print. Try a different terminal or IDE, or google for a solution.</p>
 <p>It encodes with the default encoding (ascii), then decodes</p>
 <p>In this case, it barfs on attempting to encode to &#8216;ascii&#8217;</p>
 <p>So never call decode on a unicode object!</p>
-<p>But what if someone passes one into a function of yours that&#8217;s expecting a py2 string?</p>
+<p>But what if someone passes one into a function of yours that&#8217;s expecting
+a py2 string?</p>
 <p>Type checking and converting &#8211; yeach!</p>
 <p>Read:</p>
 <p><a class="reference external" href="http://axialcorps.com/2014/03/20/unicode-str/">http://axialcorps.com/2014/03/20/unicode-str/</a></p>
 <p>See if you can figure out the decorators:</p>
-<p><tt class="xref download docutils literal"><span class="pre">unicodify.py</span></tt>.</p>
-<p>(This is advanced Python JuJu: Aren&#8217;t you glad I didn&#8217;t ask you to write that yourself?)</p>
+<p><a class="reference download internal" href="_downloads/unicodify1.py"><tt class="xref download docutils literal"><span class="pre">unicodify.py</span></tt></a>.</p>
+<p>(This is advanced Python JuJu: Aren&#8217;t you glad I didn&#8217;t ask you to write
+that yourself?)</p>
 </div>
 </div>
 </div>
@@ -610,6 +628,15 @@ to print. Try a different terminal or IDE, or google for a solution.</p>
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="homework/index.html" class="btn btn-neutral float-right" title="Homework Materials"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="session09.html" class="btn btn-neutral" title="Session Nine: Decorators, Context Managers, Packages and packaging"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
