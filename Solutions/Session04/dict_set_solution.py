@@ -77,10 +77,13 @@ print a_dict
 
 
 # replacing the values in the original dict:
-
-for key, val in d.items():
-    d[key] = val.count('t')
+d.update(a_dict)
 print d
+
+# could also do it this way. 
+#for key, val in d.items():
+#    d[key] = val.count('t')
+#print d
 
 # Create sets s2, s3 and s4 that contain numbers from zero through
 # twenty, divisible 2, 3 and 4.
