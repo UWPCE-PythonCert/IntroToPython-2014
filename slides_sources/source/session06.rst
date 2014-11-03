@@ -140,6 +140,15 @@ To get only the even numbers:
     In [28]: filter(lambda x: not x%2, l)
     Out[28]: [2, 12, 6, 4]
 
+If you pass ``None`` to ``filter()``, you get only items that evaluate to true:
+
+.. code-block:: ipython
+
+    In [1]: l = [1, 0, 2.3, 0.0, 'text', '', [1,2], [], False, True, None ]
+
+    In [2]: filter(None, l)
+    Out[2]: [1, 2.3, 'text', [1, 2], True]
+
 
 
 reduce
@@ -163,6 +172,14 @@ To get the product:
     In [32]: reduce(lambda x,y: x*y, l)
     Out[32]: 20160
 
+or
+
+.. code-block:: ipython
+
+    In [13]: import operator
+
+    In [14]: reduce(operator.mul, l)
+    Out[14]: 20160
 
 Comprehensions
 --------------
@@ -175,13 +192,18 @@ Yes:
 
     In [33]: [x+2 + 10 for x in l]
     Out[33]: [14, 17, 19, 24, 18, 16]
+
     In [34]: [x for x in l if not x%2]
     Out[34]: [2, 12, 6, 4]
 
+    In [6]: l
+    Out[6]: [1, 0, 2.3, 0.0, 'text', '', [1, 2], [], False, True, None]
+    In [7]: [i for i in l if i]
+    Out[7]: [1, 2.3, 'text', [1, 2], True]
 
 (Except Reduce)
 
-But Guido thinks almost all uses of reduce are really ``sum()`` 
+But Guido thinks almost all uses of reduce are really ``sum()``
 
 Functional Programming
 ----------------------
