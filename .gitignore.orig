@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+=======
+slides_sources/build
+>>>>>>> cad8598381ee635bdb96d41a72e2c8fa36a2f3a0

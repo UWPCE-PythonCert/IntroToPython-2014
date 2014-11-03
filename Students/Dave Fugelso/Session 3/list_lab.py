@@ -162,4 +162,3 @@ if __name__ == "__main__":
     fruits.pop()
     print fruits
     print fruitsCopy
-    
