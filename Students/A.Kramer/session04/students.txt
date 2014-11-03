@@ -1,30 +1,30 @@
-name: languages
-Albright, Ryan J : VBA, 
+name: languages
+Albright, Ryan J : VBA,
 Ascoli, Louis John : Basic, assm, shell
 Balcarce, Darcy : matlab, autocad, python
-Brand, Ralph P : C, C++, SQL, 
-Buer, Eric : matlab, VBA, SQL, 
+Brand, Ralph P : C, C++, SQL,
+Buer, Eric : matlab, VBA, SQL,
 Claessens, Michel : VBA, basic SQL, pascal, matlab
-Conde, Ousmane : 
-Davis, Bryan L : Javascript, PHP, SQL, Bash
+Conde, Ousmane :
+Davis, Bryan L :
 Davis, Ian M : C++
-Evans, Carolyn J : SQL, 
-Fischer, Henry B : C, VB, SQL, SAS, 
+Evans, Carolyn J : SQL,
+Fischer, Henry B : C, VB, SQL, SAS,
 Fries, Lauren : python
 Fugelso, David : C, C++, C#, Java
-Fukuhara, Wayne R : VB, 
+Fukuhara, Wayne R : VB,
 Galvin, Alexander R : shell, C++, python
 Gupta, Vinay : C, C++, shell
 Hamed, Salim Hassan : Java, R, SAS, VBA
-Hart, Kyle R : QBasic, HTML, 
+Hart, Kyle R : QBasic, HTML,
 Hashemloo, Alireza :Javascript, PHP, C++
 Huynh, Chantal : Basic, SQL, Stata
-Kazakova, Alexandra N : R, python, 
+Kazakova, Alexandra N : R, python,
 Klock, Andrew P : C++, R, perl
 Kramer, Aleksey :Java, R, shell
-Lottsfeldt, Erik Ivan : basic, fortran, 
+Lottsfeldt, Erik Ivan : basic, fortran,
 Marcos, Danielle G : python
-Mier, Benjamin C : C++, C#,  
+Mier, Benjamin C : C++, C#,
 Nunn, James Brent : shell, SQL, perl, pl1
 Perkins, Robert W : fortran, pascal, stata, javascript, sql
 Reece, Lesley D : html, SQL, PLSQL, perl, shell

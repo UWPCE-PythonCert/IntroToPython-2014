@@ -44,13 +44,12 @@ def return_middle_last_third(x):
 
     divisor = len(x)/3
 
-    return 
-
     first_third = x[0:divisor]
 
-    #middle_third = 
+    middle_third = x[divisor:divisor+divisor]
 
-    #final_third = 
+    final_third = x[-divisor:]
+    print middle_third + final_third + first_third
 
 
 print return_middle_last_third(user_string)
