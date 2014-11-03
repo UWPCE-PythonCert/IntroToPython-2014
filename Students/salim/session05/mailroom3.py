@@ -1,6 +1,7 @@
 #!/usr/local/bin/python
 
 from textwrap import dedent
+import pathlib
 
 
 def create_donation_list():
@@ -74,6 +75,13 @@ def thank_you(donor_list):
 
 def send_mail(name, amount):
     """Print thank you letter for donation."""
+    # create email pretext
+    pretext = dedent("""
+        The folowing email has been saved to the "email/" sub directory
+        =====================================================================
+    """)
+
+    # create email
     email = dedent("""
         Dear {:s},
 
@@ -84,7 +92,14 @@ def send_mail(name, amount):
         Kind Regards,
         Donation Team
     """)
-    return email.format(name, amount)
+
+    # write email to file
+    parent_path = pathlib.Path(__file__).parent
+    email_file = open(str(parent_path) + '/email/' + name + '.txt', 'w')
+    email_file.write(email.format(name, amount))
+    email_file.close()
+
+    return (pretext + email).format(name, amount)
 
 
 def list_doners(d_list):
