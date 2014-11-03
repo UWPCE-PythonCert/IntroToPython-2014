@@ -1,4 +1,4 @@
-#!/Library/Frameworks/Python.framework/Versions/2.7/bin/python
+#!/usr/local/bin/python
 
 
 def func(fore_color='White',
@@ -11,11 +11,11 @@ def func(fore_color='White',
     print s.format(fore_color, back_color, link_color, visited_color)
 
 
-def func_args():
+def func_args(**kwargs):
     """Print colors."""
-    s = ('{} ' * 4).strip()
+    s = '{fore_color}, {back_color}, {link_color}, {visited_color}'
 
-    print s.format(fore_color, back_color, link_color, visited_color)
+    print s.format(**kwargs)
 
 
 # call the function with various parameters
@@ -30,4 +30,4 @@ kwargs = {'fore_color':'hey',
           'back_color':'there',
           'link_color':'how',
           'visited_color':'you'}
-func(**kwargs)
+func_args(**kwargs)
