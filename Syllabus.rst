@@ -227,6 +227,8 @@ Packages and packaging
 Week 10: December 9
 ....................
 
+Unicode
+
 Persistence / Serialization
 
 

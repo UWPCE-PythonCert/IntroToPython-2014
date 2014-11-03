@@ -1,11 +1,13 @@
+******************************************************************
+Session Nine: Decorators, Context Managers, Packages and packaging
+******************************************************************
+
+
+*************************************************
+Session Ten: Unicode, Persistence / Serialization
+*************************************************
+
 =======
-Unicode
-=======
-
-A quick run-down of Unicode, its use in Python 2, and some of the
-gotchas that arise.
-
-
 History
 =======
 
@@ -27,7 +29,7 @@ Fact number 1:
 
     Everything is made up of bytes
 
-If it's on disk or transmitted oƒUniver a network, it's bytes
+If it's on disk or transmitted over a network, it's bytes
 
 Python provides some abstractions to make it easier to deal with bytes
 
@@ -225,7 +227,7 @@ Lots of tables of code points online:
 One example:
   http://inamidst.com/stuff/unidata/
 
-:download:`hello_unicode.py  <./hello_unicode.py>`.
+:download:`hello_unicode.py  <../../Examples/Session10/hello_unicode.py>`.
 
 
 Using Unicode
@@ -363,7 +365,7 @@ a 1-byte per char encoding.
 
 * Useful if you need to work with combined text+binary data.
 
-:download:`latin1_test.py  <./latin1_test.py>`.
+:download:`latin1_test.py  <../../Examples/Session10/latin1_test.py>`.
 
 
 Unicode Docs
@@ -423,7 +425,7 @@ Exception messages:
 
  NOPE: it swallows it instead.
 
-:download:`exception_test.py  <./exception_test.py>`.
+:download:`unicode_exception_test.py  <../../Examples/Session10/unicode_exception_test.py>`.
 
 Unicode in Python 3
 ----------------------
@@ -453,20 +455,21 @@ Basic Unicode LAB
 * Find some nifty non-ascii characters you might use.
 
   - Create a unicode object with them in two different ways.
-  - :download:`here  <./hello_unicode.py>` is one example
+  - :download:`here  <../../Examples/Session10/hello_unicode.py>` is one example
 
 * Read the contents into unicode objects:
 
- - :download:`ICanEatGlass.utf8.txt <./ICanEatGlass.utf8.txt>`
- - :download:`ICanEatGlass.utf16.txt <./ICanEatGlass.utf16.txt>`
+ - :download:`ICanEatGlass.utf8.txt <../../Examples/Session10/ICanEatGlass.utf8.txt>`
+ - :download:`ICanEatGlass.utf16.txt <../../Examples/Session10/ICanEatGlass.utf16.txt>`
 
 and/ or
 
- - :download:`text.utf8 <./text.utf8>`
- - :download:`text.utf16 <./text.utf16>`
- - :download:`text.utf32 <./text.utf32>`
+ - :download:`text.utf8 <../../Examples/Session10/text.utf8>`
+ - :download:`text.utf16 <../../Examples/Session10/text.utf16>`
+ - :download:`text.utf32 <../../Examples/Session10/text.utf32>`
 
-* write some of the text from the first exercise to file -- read that file back in.
+* write some of the text from the first exercise to file -- read that
+  file back in.
 
 .. nextslide:: Some Help
 
@@ -489,10 +492,10 @@ We saw this earlier
   ----> 1 u'to \N{INFINITY} and beyond!'.decode('utf-8')
 
   /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.pyc in decode(input, errors)
-       14 
+       14
        15 def decode(input, errors='strict'):
   ---> 16     return codecs.utf_8_decode(input, errors, True)
-       17 
+       17
        18 class IncrementalEncoder(codecs.IncrementalEncoder):
 
   UnicodeEncodeError: 'ascii' codec can't encode character u'\u221e' in position 3: ordinal not in range(128)
@@ -521,7 +524,8 @@ In this case, it barfs on attempting to encode to 'ascii'
 
 So never call decode on a unicode object!
 
-But what if someone passes one into a function of yours that's expecting a py2 string?
+But what if someone passes one into a function of yours that's expecting
+a py2 string?
 
 Type checking and converting -- yeach!
 
@@ -531,8 +535,9 @@ http://axialcorps.com/2014/03/20/unicode-str/
 
 See if you can figure out the decorators:
 
-:download:`unicodify.py  <./unicodify.py>`.
+:download:`unicodify.py  <../../Examples/Session10/unicodify.py>`.
 
 
-(This is advanced Python JuJu: Aren't you glad I didn't ask you to write that yourself?)
+(This is advanced Python JuJu: Aren't you glad I didn't ask you to write
+that yourself?)
 
