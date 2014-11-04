@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Six: Lambda and Functional programming. Object oriented programming: Classes, instances, attributes, and subclassing &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Six: Functional and Object Oriented Programming &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -124,16 +124,20 @@
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Six: Lambda and Functional programming. Object oriented programming: Classes, instances, attributes, and subclassing</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Six: Functional and Object Oriented Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#note">NOTE:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homework-review">Homework review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-driven-development-demo">Test Driven development demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anonymous-functions">Anonymous functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functional-programming">Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#object-oriented-programming">Object Oriented Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python-classes">Python Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#subclassing-inheritance">Subclassing/Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: Testing, More OO</a><ul>
@@ -205,7 +209,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Session Six: Lambda and Functional programming. Object oriented programming: Classes, instances, attributes, and subclassing</li>
+    <li>Session Six: Functional and Object Oriented Programming</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/session06.txt" rel="nofollow"> View page source</a>
@@ -216,8 +220,14 @@
 </div>
           <div role="main">
             
-  <div class="section" id="session-six-lambda-and-functional-programming-object-oriented-programming-classes-instances-attributes-and-subclassing">
-<h1>Session Six: Lambda and Functional programming. Object oriented programming: Classes, instances, attributes, and subclassing<a class="headerlink" href="#session-six-lambda-and-functional-programming-object-oriented-programming-classes-instances-attributes-and-subclassing" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="session-six-functional-and-object-oriented-programming">
+<h1>Session Six: Functional and Object Oriented Programming<a class="headerlink" href="#session-six-functional-and-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+<p class="left medium">Lambda and Functional programming.</p>
+<p class="left medium">Object oriented programming:</p>
+<p class="left medium">classes, instances, attributes, and subclassing</p>
+<div class="section" id="note">
+<h2>NOTE:<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="lightning-talks-today">
 <h2>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h2>
 <p class="medium">Aleksey Kramer</p>
@@ -239,7 +249,51 @@
 <div class="section" id="homework-review">
 <h2>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h2>
 <p>Homework Questions?</p>
-<p>Notes from Homework:</p>
+<div class="section" id="notes-from-homework">
+<h3>Notes from Homework:<a class="headerlink" href="#notes-from-homework" title="Permalink to this headline">¶</a></h3>
+<p>Comparing to &#8220;singletons&#8221;:</p>
+<p>Use:</p>
+<p><tt class="docutils literal"><span class="pre">if</span> <span class="pre">something</span> <span class="pre">is</span> <span class="pre">None</span></tt></p>
+<p>Not:</p>
+<p><tt class="docutils literal"><span class="pre">if</span> <span class="pre">something</span> <span class="pre">==</span> <span class="pre">None</span></tt></p>
+<p>(also <tt class="docutils literal"><span class="pre">True</span></tt> and <tt class="docutils literal"><span class="pre">False</span></tt>)</p>
+<p>rich comparisons: numpy</p>
+<p>(demo)</p>
+<p>Binary mode for files:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">infilename</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfilename</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>You don&#8217;t actually need to use the result of a list comp:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">st</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span> <span class="n">divisors</span><span class="p">,</span> <span class="n">sets</span><span class="p">):</span>
+    <span class="p">[</span> <span class="n">st</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">j</span><span class="o">%</span><span class="n">i</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defaultdict">
+<h3>defaultdict<a class="headerlink" href="#defaultdict" title="Permalink to this headline">¶</a></h3>
+<p>An alternative to <tt class="docutils literal"><span class="pre">dict.setdefault()</span></tt></p>
+<p>Makes sense when you are buildng a dict where every value will be the same thing</p>
+<p>Carolyn found this in the <tt class="docutils literal"><span class="pre">collections</span></tt> package. Useful for the trigrams
+assignment:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="n">trigrams</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="o">...</span>
+    <span class="n">trigrams</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">follower</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There&#8217;s a lot of other handy stuff in <tt class="docutils literal"><span class="pre">collections</span></tt></p>
+<p><a class="reference external" href="https://docs.python.org/2/library/collections.html">https://docs.python.org/2/library/collections.html</a></p>
+</div>
+</div>
+<div class="section" id="test-driven-development-demo">
+<h2>Test Driven development demo<a class="headerlink" href="#test-driven-development-demo" title="Permalink to this headline">¶</a></h2>
+<p>In <tt class="docutils literal"><span class="pre">Examples/Session06/</span></tt></p>
 </div>
 <div class="section" id="anonymous-functions">
 <h2>Anonymous functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
@@ -381,6 +435,9 @@ It keeps only those for which the function is True</p>
 </div>
 <p>Note when the keyword argument is evaluated: this turns out to be very handy!</p>
 </div>
+</div>
+<div class="section" id="lab">
+<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lambda-and-keyword-argument-magic">
 <h3>lambda and keyword argument magic<a class="headerlink" href="#lambda-and-keyword-argument-magic" title="Permalink to this headline">¶</a></h3>
 <p>Write a function that returns a list of n functions,
@@ -411,24 +468,6 @@ incremented by an increasing number.</p>
 <span class="go">to the input, 5... i.e. the nth function in the list adds n to the input.</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="functional-files">
-<h3>Functional files<a class="headerlink" href="#functional-files" title="Permalink to this headline">¶</a></h3>
-<p>Write a program that takes a filename and &#8220;cleans&#8221; the file be removing all the leading and trailing whitespace from each line.</p>
-<p>Read in the original file and write out a new one, either creating a new file or overwriting the existing one.</p>
-<p>Give your user the option of which to perform.</p>
-<p>Use <tt class="docutils literal"><span class="pre">map()</span></tt> to do the work.</p>
-<p>Write a second version using a comprehension.</p>
-<p><tt class="docutils literal"><span class="pre">sys.argv</span></tt> hold the command line arguments the user typed in. If the user types:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python the_script a_file_name
-</pre></div>
-</div>
-<p>Then:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>will get <tt class="docutils literal"><span class="pre">filename</span> <span class="pre">==</span> <span class="pre">&quot;a_file_name&quot;</span></tt></p>
 </div>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
@@ -476,11 +515,15 @@ refactorability, testability, etc...</p>
 <dd>&#8211; not any one paradigm of software design.</dd>
 </dl>
 <p>So what is &#8220;object oriented programming&#8221;?</p>
-<blockquote>
-<div>&#8220;Objects can be thought of as wrapping their data
+<div class="line-block">
+<div class="line">&#8220;Objects can be thought of as wrapping their data
 within a set of functions designed to ensure that
 the data are used appropriately, and to assist in
-that use&#8221;</div></blockquote>
+that use&#8221;</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><a class="reference external" href="http://en.wikipedia.org/wiki/Object-oriented_programming">http://en.wikipedia.org/wiki/Object-oriented_programming</a></p>
 <p>Even simpler:</p>
 <p>&#8220;Objects are data and the functions that act on them in one place.&#8221;</p>
@@ -531,21 +574,21 @@ as a variable, or single object, as opposed to a ...</dd>
 </div>
 <div class="section" id="python-classes">
 <h2>Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Python Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">class</span></tt>  statement</p>
-<p><tt class="docutils literal"><span class="pre">class</span></tt>  creates a new type object:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<p class="left">The <tt class="docutils literal"><span class="pre">class</span></tt>  statement</p>
+<p class="left"><tt class="docutils literal"><span class="pre">class</span></tt>  creates a new type object:</p>
+<div class="left highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="go">    pass</span>
 <span class="gp">   ...:</span>
 <span class="gp">In [5]: </span><span class="nb">type</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 <span class="gh">Out[5]: </span><span class="go">type</span>
 </pre></div>
 </div>
-<p>A class is a type &#8211; interesting!</p>
-<p>It is created when the statement is run &#8211; much like <tt class="docutils literal"><span class="pre">def</span></tt></p>
-<p>You don&#8217;t <em>have</em> to subclass from <tt class="docutils literal"><span class="pre">object</span></tt>, but you <em>should</em></p>
-<p>(note on &#8220;new style&#8221; classes)</p>
+<p class="left">A class is a type &#8211; interesting!</p>
+<p class="left">It is created when the statement is run &#8211; much like <tt class="docutils literal"><span class="pre">def</span></tt></p>
+<p class="left">You don&#8217;t <em>have</em> to subclass from <tt class="docutils literal"><span class="pre">object</span></tt>, but you <em>should</em></p>
+<p class="left">(note on &#8220;new style&#8221; classes)</p>
+<div class="section" id="id3">
+<h3>Python Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>About the simplest class you can write</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
@@ -577,7 +620,7 @@ as a variable, or single object, as opposed to a ...</dd>
 <span class="k">print</span> <span class="s">&quot;p.y is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>
 </pre></div>
 </div>
-<p>see: <tt class="docutils literal"><span class="pre">Examples/Session06/simple_class</span></tt></p>
+<p>see: <tt class="docutils literal"><span class="pre">Examples/Session06/simple_classes.py</span></tt></p>
 <p>The Initializer</p>
 <p>The <tt class="docutils literal"><span class="pre">__init__</span></tt>  special method is called when a new instance of a class is created.</p>
 <p>You can use it to do any set-up you need</p>
@@ -654,8 +697,8 @@ instance of the class shares the same one.</p>
 <p><tt class="docutils literal"><span class="pre">self</span></tt> is implicitly passed in for you by python.</p>
 <p>(demo of bound vs. unbound methods)</p>
 </div>
-<div class="section" id="lab">
-<h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>LAB<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s say you need to render some html...</p>
 <p>The goal is to build a set of classes that render an html
 page like this:</p>
@@ -666,11 +709,11 @@ to specialize the behavior</p>
 <p><a class="reference internal" href="homework/html_builder.html#homework-html-renderer"><em>HTML Renderer Homework Assignment</em></a></p>
 <p>Let&#8217;s see if you can do step 1. in class...</p>
 </div>
-<div class="section" id="id4">
-<h3>Lightning Talks<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Lightning Talks<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
 <div class="line"><br /></div>
-<div class="line">Gideon I Sylvan</div>
+<div class="line">Gideon Sylvan</div>
 <div class="line"><br /></div>
 <div class="line">Hui Zhang</div>
 <div class="line"><br /></div>
@@ -736,20 +779,23 @@ from pre-existing classes called base classes or super classes.</p>
 </pre></div>
 </div>
 <p>all the instances will have the new method</p>
-<dl class="docutils">
-<dt>Here&#8217;s a program design suggestion:</dt>
-<dd><p class="first">whenever you override a method, the
+<p>Here&#8217;s a program design suggestion:</p>
+<p>&#8220;&#8221;&#8220;</p>
+<p>Whenever you override a method, the
 interface of the new method should be the same as the old.  It should take
 the same parameters, return the same type, and obey the same preconditions
 and postconditions.</p>
-<p class="last">If you obey this rule, you will find that any function
+<p>If you obey this rule, you will find that any function
 designed to work with an instance of a superclass, like a Deck, will also work
 with instances of subclasses like a Hand or PokerHand.  If you violate this
 rule, your code will collapse like (sorry) a house of cards.</p>
-</dd>
-</dl>
-<p>[ThinkPython 18.10]</p>
-<p>( Demo of class vs. instance attributes )</p>
+<p>&#8220;&#8221;&#8220;</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">[ThinkPython 18.10]</div>
+<div class="line"><br /></div>
+<div class="line">( Demo of class vs. instance attributes )</div>
+</div>
 </div>
 </div>
 <div class="section" id="more-on-subclassing">
@@ -805,7 +851,7 @@ automatically when you instantiate an instance.</p>
 <div class="section" id="attribute-resolution-order">
 <h3>Attribute resolution order<a class="headerlink" href="#attribute-resolution-order" title="Permalink to this headline">¶</a></h3>
 <p>When you access an attribute:</p>
-<p><tt class="docutils literal"><span class="pre">An_Instance.something</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">an_instance.something</span></tt></p>
 <p>Python looks for it in this order:</p>
 <blockquote>
 <div><ul class="simple">
@@ -879,9 +925,37 @@ automatically when you instantiate an instance.</p>
 <p>&#8220;If your class has only two methods &#8211; and one of them is <tt class="docutils literal"><span class="pre">__init__</span></tt>
 &#8211; you don&#8217;t need a class&#8221;</p>
 </div>
+</div>
 <div class="section" id="homework">
-<h3>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h3>
-<p>Build an html rendering system:</p>
+<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<ul class="left medium simple">
+<li>finish the lambda:keyword magic lab</li>
+<li>functional files</li>
+<li>html renderer</li>
+</ul>
+<div class="section" id="functional-files">
+<h3>Functional files<a class="headerlink" href="#functional-files" title="Permalink to this headline">¶</a></h3>
+<p>Write a program that takes a filename and &#8220;cleans&#8221; the file be removing
+all the leading and trailing whitespace from each line.</p>
+<p>Read in the original file and write out a new one, either creating a new
+file or overwriting the existing one.</p>
+<p>Give your user the option of which to perform.</p>
+<p>Use <tt class="docutils literal"><span class="pre">map()</span></tt> to do the work.</p>
+<p>Write a second version using a comprehension.</p>
+<p><tt class="docutils literal"><span class="pre">sys.argv</span></tt> hold the command line arguments the user typed in. If the
+user types:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python the_script a_file_name
+</pre></div>
+</div>
+<p>Then:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>will get <tt class="docutils literal"><span class="pre">filename</span> <span class="pre">==</span> <span class="pre">&quot;a_file_name&quot;</span></tt></p>
+</div>
+<div class="section" id="html-rendering-system">
+<h3>Html rendering system:<a class="headerlink" href="#html-rendering-system" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="homework/html_builder.html#homework-html-renderer"><em>HTML Renderer Homework Assignment</em></a></p>
 <div class="line-block">
 <div class="line"><br /></div>
