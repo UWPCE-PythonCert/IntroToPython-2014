@@ -19,3 +19,4 @@ you don't actually need to use the result of a list comp:
 for i, st in zip( divisors, sets):
     [ st.add(j) for j in range(21) if not j%i ]
 
+lambda and sorting...
