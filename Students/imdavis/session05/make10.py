@@ -1,10 +1,10 @@
 #!/usr/bin/env python2.7
-"""
-Simple function which takes on two arguments and returns 'True' if
-either of them is 10, or their sum is 10.  Returns 'False' otherwise.
-"""
 
 def make10(a, b):
+    """
+    Simple function which takes on two arguments and returns 'True' if
+    either of them is 10, or their sum is 10.  Returns 'False' otherwise.
+    """
     if(a == 10 or b == 10):
         return True
     else:
