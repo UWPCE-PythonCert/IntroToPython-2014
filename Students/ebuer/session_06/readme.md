@@ -61,3 +61,7 @@ trigrams = defaultdict(list) # note list without parens is just the list object
 trigrams[pair].append(follower)
 ```
 
+Use a counter to ensure unique values as you tabulate
+
+def cigar_party(cigars, is_weekend):
+    
