@@ -67,7 +67,7 @@ __If your code is difficult to write tests for, then it probably isn't very good
 
 Test driven development often works particularly well with refactoring -- the code is currently working and you start moving things around and changing variables to be more efficient/cleaner/etc
 
-####lambda
+####lambda functions
 
 In python a function is an object, it can be called by name and passed around as needed
 
@@ -83,7 +83,7 @@ def fun(x,y):
 l = [fun]
 ```
 
-####Applications of lambda: map
+####Applications of lambda: map() and filter()
 Map applies a function to each element in a sequence then returns the resulting new list -- very useful!
 
 ```python
@@ -101,4 +101,16 @@ Expression: always evaluates to a value and returns one
 
 Statement: does not necessarily return a value e.g 'print' statement
 
+Note about functional programming: you're not supposed to change lists in place, each process or operation should return a new list
+
+####Applications of lambda: reduce()
+
+```python
+l = [2, 5, 7, 9, 11, 13]
+reduce(lambda x, y: x * y + 10, l)
+```
+
+**Note:** lambda and list comprehensions frequently can both be used to achieve the same results, **except** for reduce()
+
+map-reduce is a big concept in parallel processing of big data in NoSQL databases.  Therefore just a good concept to be aware of.
 
