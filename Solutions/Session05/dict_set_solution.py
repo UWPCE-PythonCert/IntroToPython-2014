@@ -4,7 +4,6 @@
 dict/set lab solutions: Chris' version.
 """
 
-
 food_prefs = {"name": "Chris",
               "city": "Seattle",
               "cake": "chocolate",
@@ -34,6 +33,7 @@ print { i: hex(i) for i in range(16) }
 # make a copy first!
 
 print { key:val.count('a') for key, val in food_prefs.items()}
+
 
 # 5. Create sets s2, s3 and s4 that contain numbers from zero through twenty,
 # divisible 2, 3 and 4.
