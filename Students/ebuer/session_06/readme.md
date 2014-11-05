@@ -63,5 +63,42 @@ trigrams[pair].append(follower)
 
 Use a counter to ensure unique values as you tabulate
 
-def cigar_party(cigars, is_weekend):
-    
+__If your code is difficult to write tests for, then it probably isn't very good code and you should rethink your life__
+
+Test driven development often works particularly well with refactoring -- the code is currently working and you start moving things around and changing variables to be more efficient/cleaner/etc
+
+####lambda
+
+In python a function is an object, it can be called by name and passed around as needed
+
+```python
+f = lambda x, y: x+y  #here the function has already been assigned a name: f
+
+l= [lambda x, y = x + y]
+type(l[0])
+
+# equivalent to the above:
+def fun(x,y):
+    return x + y
+l = [fun]
+```
+
+####Applications of lambda: map
+Map applies a function to each element in a sequence then returns the resulting new list -- very useful!
+
+```python
+l = [2, 5, 7, 9, 11, 13]
+map(lambda x: x * 2 + 10, l)
+
+filter(lambda x:not x % 2, l)
+
+filter(None)  # returns all the items that evaluate to True
+```
+
+Content can only be an expression, not a statement
+
+Expression: always evaluates to a value and returns one
+
+Statement: does not necessarily return a value e.g 'print' statement
+
+
