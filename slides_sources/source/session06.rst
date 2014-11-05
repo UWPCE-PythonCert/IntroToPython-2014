@@ -15,9 +15,11 @@ Session Six: Functional and Object Oriented Programming
 NOTE:
 =====
 
-.. rst-class center large
+.. rst-class:: center large
 
-    Veteran's Day: No class next week
+    Veteran's Day:
+
+    No class next week
 
 ======================
 Lightning Talks Today:
@@ -92,6 +94,19 @@ You don't actually need to use the result of a list comp:
         [ st.add(j) for j in range(21) if not j%i ]
 
 
+The collections module
+-----------------------
+
+The collections module has a numbe rof handy special purpose
+collections:
+
+ * defautltdict
+ * namedtuple
+ * deque
+ * Counter
+
+https://docs.python.org/2/library/collections.html
+
 defaultdict
 -----------
 
@@ -110,9 +125,15 @@ assignment:
     ...
         trigrams[pair].append(follower)
 
-There's a lot of other handy stuff in ``collections``
+Counter
+-------
 
-https://docs.python.org/2/library/collections.html
+``Counter``:
+
+Hui Zhang found this for counting how many students used which previous
+languages.
+
+See my example in ``/Solutions/Session05``
 
 
 ============================
