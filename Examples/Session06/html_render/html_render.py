@@ -14,4 +14,4 @@ class Element(object):
     def append(self, new_content):
         pass
     def render(self, file_out, ind=""):
-        pass
+        file_out.write("just something as a place holder...")
