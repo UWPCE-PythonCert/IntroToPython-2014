@@ -2,9 +2,9 @@
 
 import cigar_party
 
-cigar_party = cigar_party.cigar_party
+#cigar_party = cigar_party.cigar_party
 #cigar_party = cigar_party.cigar_party2
-#cigar_party = cigar_party.cigar_party3
+cigar_party = cigar_party.cigar_party3
 
 
 def test_1():
