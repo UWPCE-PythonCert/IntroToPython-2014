@@ -210,3 +210,18 @@ def __init__(self, radius):
 ```
 
 ####When to Subclass
+Classes are just another namespace that tack on 'self' when their methods are called  
+
+Use duck typing whenever you can
+
+```python
+if isinstance(other, A_Class):
+    do_something
+else:
+    do something else
+```
+
++ isinstance()
++ issubclass()
+
+Check out the talks -- more discussion of objects and classes
