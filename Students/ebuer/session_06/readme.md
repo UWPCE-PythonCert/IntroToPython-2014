@@ -132,12 +132,16 @@ l.sort(key= lambda t: t[1])
 l.sort(key= lambda t: t[1], reverse = True)
 ```
 
+#Packages of Interest  
 + numpy
 + scipy
 + matplotlib -- we know about this one
 + pandas -- python data analysis lab
 + scrapy -- open source web scraping framework
 + boto (?) -- direct interface with Amazon Web Services
++ selenium
++ beautiful soup
+
 
 ###Object Oriented Programming
 
@@ -154,6 +158,30 @@ OO ==> "object oriented" abbr.
 + polymorphism -- basically ensured by duck typing in python
 + inheritance
 
+####Definitions:  
++ class: a category of objects, circles
++ instance: a particular object of a class, a circles with r = 2
++ object: the general case of an instance
++ attribute: a property of the object or class
++ method: a function that belongs to a class
 
+```python
+class C(object): # note: always use 'object' when defining the 'class'
+    pass
 
+type(C)
 
+```
+
+A class is a type -- this is useful to know, it is created when the statement is run, sort of like def, you don't have to subclass from object, but you should as a matter of good practice.
+
+**What's going on with "self"?***
+
+The instance of the class is passed as the first parameter for every method.  
+It becomes an attribute of the class. Anything assigned to a self attribute is kept in the object (moar, too fast).
+
+"self" is a conventional name -- use it or be confused forever
+
+bound methods indicate that the method is bound to specific instance of method, hence the self object is always passed
+
+unbound methods do not have .self defined yet
