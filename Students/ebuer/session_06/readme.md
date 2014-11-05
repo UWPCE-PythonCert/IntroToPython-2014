@@ -145,12 +145,9 @@ l.sort(key= lambda t: t[1], reverse = True)
 
 ###Object Oriented Programming
 
-Python is not really object oriented, but so what?! It's a _dynamic language_
-
-Objects can be thought of as wrapping their data within a set of functions designed to ensure the data are used correctly.
-
-Objects are data and functions that act on them in one place.
-
+Python is not really object oriented, but so what?! It's a _dynamic language_  
+Objects can be thought of as wrapping their data within a set of functions designed to ensure the data are used correctly.  
+Objects are data and functions that act on them in one place.  
 This is essentially the core of encapsulation: as far as python is concerned this is simply creation of a new namespace.
 
 OO ==> "object oriented" abbr.
@@ -185,3 +182,31 @@ It becomes an attribute of the class. Anything assigned to a self attribute is k
 bound methods indicate that the method is bound to specific instance of method, hence the self object is always passed
 
 unbound methods do not have .self defined yet
+
+###Inheritance
+Reuse code from existing objects 
+Subclass inherits all the attributes of the parent
+
+```python
+#create a new class with all the same attributes of The_superclass
+class A_subclass(The_superclass):
+    pass
+
+class NewCircle(Circle):
+    # derived from circle
+    def grow(self, factor=2):
+    self.diameter - self.diameter * math.sqrt(factor)
+
+# keep the interface the same as The_superclass so that when someone goes to use it the class works the same way
+```
+
+Amazingly, one of the most common things to be overridden is the __init__
+
+```python
+class CircleR(Circle):
+def __init__(self, radius):
+    diameter = radius * 2
+    Circle.__init__(self, diameter)
+```
+
+####When to Subclass
