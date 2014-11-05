@@ -81,7 +81,16 @@ type(l[0])
 def fun(x,y):
     return x + y
 l = [fun]
+
+l = []
+for i in range(3):
+    l.append(lambda x, e=i: x ** e)
+
+for f in l:
+    print f
 ```
+
+lambda can also take keyword arguments, note that the keyword argument is evaluated when the function is created
 
 ####Applications of lambda: map() and filter()
 Map applies a function to each element in a sequence then returns the resulting new list -- very useful!
@@ -113,4 +122,13 @@ reduce(lambda x, y: x * y + 10, l)
 **Note:** lambda and list comprehensions frequently can both be used to achieve the same results, **except** for reduce()
 
 map-reduce is a big concept in parallel processing of big data in NoSQL databases.  Therefore just a good concept to be aware of.
+
+```python
+l = [(45,1), (4, 5), (2, 3), (1, 2)]
+# function takes list element and returns element[1]
+l.sort(key= lambda t: t[1])
+
+#reverse through use of keyword
+l.sort(key= lambda t: t[1], reverse = True)
+```
 
