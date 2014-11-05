@@ -52,8 +52,8 @@ print a_dict
 
 # create s2, s3, and s4 for range(21) using comprehensions DRY
 s2 = set(n for n in range(21) for s in [2] if n % s is 0)
-s3 = [n for n in range(21) if n % 3 is 0]
-s4 = [n for n in range(21) if n % 4 is 0]
+s3 = set(n for n in range(21) if n % 3 is 0)
+s4 = set(n for n in range(21) if n % 4 is 0)
 
 # using a single expression:
 setlist = [set(n for n in range(21) if n % v is 0) for v in [2, 3, 4]]
