@@ -42,8 +42,8 @@ This is really important when you're working with files that are not text since 
 ####List comprehensions can be used for compact looping
 
 ```python
-for i, st in zip(list1, list2):
-    # do stuff here
+for i, st in zip( divisors, sets):
+    [ st.add(j) for j in range(21) if not j%i ]
 ```
 
 **Collections Module**
@@ -131,4 +131,29 @@ l.sort(key= lambda t: t[1])
 #reverse through use of keyword
 l.sort(key= lambda t: t[1], reverse = True)
 ```
+
++ numpy
++ scipy
++ matplotlib -- we know about this one
++ pandas -- python data analysis lab
++ scrapy -- open source web scraping framework
++ boto (?) -- direct interface with Amazon Web Services
+
+###Object Oriented Programming
+
+Python is not really object oriented, but so what?! It's a _dynamic language_
+
+Objects can be thought of as wrapping their data within a set of functions designed to ensure the data are used correctly.
+
+Objects are data and functions that act on them in one place.
+
+This is essentially the core of encapsulation: as far as python is concerned this is simply creation of a new namespace.
+
+OO ==> "object oriented" abbr.
+
++ polymorphism -- basically ensured by duck typing in python
++ inheritance
+
+
+
 
