@@ -1,11 +1,12 @@
 .. _homework_html_renderer:
 
-==================================
+*********************************
 HTML Renderer Homework Assignment
-==================================
+*********************************
 
-HTML Render
-============
+==============
+HTML Renderer
+=============
 
 Goal:
 ------
@@ -19,7 +20,7 @@ The exercise is broken down into a number of steps -- each requiring a few more 
 General Instructions:
 ---------------------
 
-For each step, add the required functionality. There is example code to run your code for each step in: ``code\session06\run_html_render.py``
+For each step, add the required functionality. There is example code to run your code for each step in: ``Examples/session06/run_html_render.py``
 
 name your file: ``html_render.py`` -- so it can be imported by ``run_html_render.py``
 
@@ -41,7 +42,7 @@ Create an ``Element`` class for rendering an html element (xml element).
   
 It should have class attributes for the tag name ("html" first) and the indentation (spaces to indent for pretty printing)
   
-The constructor signature should look like
+The constructor signature should look like:
 
 .. code-block:: python 
 
@@ -89,11 +90,11 @@ Step 3:
 
 Create a ``<head>`` element -- simple subclass.
 
-Create a ``OneLineTag`` subclass of ``Element``:
+Create a ``OneLineTag`` subclass of ``Element``
 
-* It should override the render method, to render everything on one line -- for the simple tags, like::
+* It should override the render method, to render everything on one line -- for the simple tags, like:
     
-    <title> PythonClass - Session 6 example </title>
+``<title> PythonClass - Session 6 example </title>``
     
 Create a ``Title`` subclass of ``OneLineTag`` class for the title.
   
@@ -123,9 +124,9 @@ See ``test_html_output4.html``
 Step 5:
 --------
 
-Create a ``SelfClosingTag`` subclass of Element, to render tags like::
+Create a ``SelfClosingTag`` subclass of Element, to render tags like:
    
-   <hr /> and <br /> (horizontal rule and line break).
+``<hr /> and <br /> (horizontal rule and line break).``
    
 You will need to override the render method to render just the one tag and
 attributes, if any.

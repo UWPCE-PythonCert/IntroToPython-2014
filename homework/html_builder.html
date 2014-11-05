@@ -159,11 +159,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../session08.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session09.html#review-questions">Review/Questions</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session10.html#session-ten-unicode-persistence-serialization">Session Ten: Unicode, Persistence / Serialization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session10.html#history">History</a></li>
@@ -225,17 +220,15 @@
             
   <div class="section" id="html-renderer-homework-assignment">
 <span id="homework-html-renderer"></span><h1>HTML Renderer Homework Assignment<a class="headerlink" href="#html-renderer-homework-assignment" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="html-render">
-<h2>HTML Render<a class="headerlink" href="#html-render" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="goal">
-<h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
+<h2>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
 <p>The goal is to create a set of classes to render html pages &#8211; in a &#8220;pretty printed&#8221; way. i.e nicely indented and human readable. We&#8217;ll try to get to all the features required to render:</p>
 <p><a class="reference download internal" href="../_downloads/sample_html.html"><tt class="xref download docutils literal"><span class="pre">sample_html.html</span></tt></a></p>
 <p>The exercise is broken down into a number of steps &#8211; each requiring a few more OO concepts in Python.</p>
 </div>
 <div class="section" id="general-instructions">
-<h3>General Instructions:<a class="headerlink" href="#general-instructions" title="Permalink to this headline">¶</a></h3>
-<p>For each step, add the required functionality. There is example code to run your code for each step in: <tt class="docutils literal"><span class="pre">code\session06\run_html_render.py</span></tt></p>
+<h2>General Instructions:<a class="headerlink" href="#general-instructions" title="Permalink to this headline">¶</a></h2>
+<p>For each step, add the required functionality. There is example code to run your code for each step in: <tt class="docutils literal"><span class="pre">Examples/session06/run_html_render.py</span></tt></p>
 <p>name your file: <tt class="docutils literal"><span class="pre">html_render.py</span></tt> &#8211; so it can be imported by <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt></p>
 <p>You should be able to run that code at each step, uncommenting each new step in <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt> as you go.</p>
 <p>It builds up a html tree, and then calls the <tt class="docutils literal"><span class="pre">render()</span></tt> method of your element to render the page.</p>
@@ -244,10 +237,10 @@
 <p>At each step, your results should look similar that those (maybe not identical...)</p>
 </div>
 <div class="section" id="step-1">
-<h3>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
+<h2>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h2>
 <p>Create an <tt class="docutils literal"><span class="pre">Element</span></tt> class for rendering an html element (xml element).</p>
 <p>It should have class attributes for the tag name (&#8220;html&#8221; first) and the indentation (spaces to indent for pretty printing)</p>
-<p>The constructor signature should look like</p>
+<p>The constructor signature should look like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -266,7 +259,7 @@
 <p>See: step 1. in <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt></p>
 </div>
 <div class="section" id="step-2">
-<h3>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
+<h2>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h2>
 <p>Create a couple subclasses of <tt class="docutils literal"><span class="pre">Element</span></tt>, for a <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag and <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tag. All you should have to do is override the <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute (you may need to add a <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute to the Element class first...).</p>
 <p>Now you can render a few different types of element.</p>
 <p>Extend the <tt class="docutils literal"><span class="pre">Element.render()</span></tt> method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the <tt class="docutils literal"><span class="pre">render()</span></tt> method of the elements it contains. You&#8217;ll need to be smart about setting the <tt class="docutils literal"><span class="pre">ind</span></tt> optional parameter &#8211; so that the nested elements get indented correctly.</p>
@@ -277,23 +270,20 @@ with text inside that. And all indended nicely.</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output2.html</span></tt></p>
 </div>
 <div class="section" id="step-3">
-<h3>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h3>
+<h2>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h2>
 <p>Create a <tt class="docutils literal"><span class="pre">&lt;head&gt;</span></tt> element &#8211; simple subclass.</p>
-<p>Create a <tt class="docutils literal"><span class="pre">OneLineTag</span></tt> subclass of <tt class="docutils literal"><span class="pre">Element</span></tt>:</p>
-<ul>
-<li><p class="first">It should override the render method, to render everything on one line &#8211; for the simple tags, like:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;title&gt; PythonClass - Session 6 example &lt;/title&gt;
-</pre></div>
-</div>
-</li>
+<p>Create a <tt class="docutils literal"><span class="pre">OneLineTag</span></tt> subclass of <tt class="docutils literal"><span class="pre">Element</span></tt></p>
+<ul class="simple">
+<li>It should override the render method, to render everything on one line &#8211; for the simple tags, like:</li>
 </ul>
+<p><tt class="docutils literal"><span class="pre">&lt;title&gt;</span> <span class="pre">PythonClass</span> <span class="pre">-</span> <span class="pre">Session</span> <span class="pre">6</span> <span class="pre">example</span> <span class="pre">&lt;/title&gt;</span></tt></p>
 <p>Create a <tt class="docutils literal"><span class="pre">Title</span></tt> subclass of <tt class="docutils literal"><span class="pre">OneLineTag</span></tt> class for the title.</p>
 <p>You should now be able to render an html doc with a head element, with a
 title element in that, and a body element with some <tt class="docutils literal"><span class="pre">&lt;P&gt;</span></tt> elements and some text.</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output3.html</span></tt></p>
 </div>
 <div class="section" id="step-4">
-<h3>Step 4:<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h3>
+<h2>Step 4:<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h2>
 <p>Extend the <tt class="docutils literal"><span class="pre">Element</span></tt> class to accept a set of attributes as keywords to the
 constructor, ie. (<tt class="docutils literal"><span class="pre">run_html_render.py</span></tt>)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="s">&quot;some text content&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;TheList&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;line-height:200%&quot;</span><span class="p">)</span>
@@ -305,18 +295,16 @@ constructor, ie. (<tt class="docutils literal"><span class="pre">run_html_render
 <p>See <tt class="docutils literal"><span class="pre">test_html_output4.html</span></tt></p>
 </div>
 <div class="section" id="step-5">
-<h3>Step 5:<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h3>
+<h2>Step 5:<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h2>
 <p>Create a <tt class="docutils literal"><span class="pre">SelfClosingTag</span></tt> subclass of Element, to render tags like:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;hr /&gt; and &lt;br /&gt; (horizontal rule and line break).
-</pre></div>
-</div>
+<p><tt class="docutils literal"><span class="pre">&lt;hr</span> <span class="pre">/&gt;</span> <span class="pre">and</span> <span class="pre">&lt;br</span> <span class="pre">/&gt;</span> <span class="pre">(horizontal</span> <span class="pre">rule</span> <span class="pre">and</span> <span class="pre">line</span> <span class="pre">break).</span></tt></p>
 <p>You will need to override the render method to render just the one tag and
 attributes, if any.</p>
 <p>Create a couple subclasses of <tt class="docutils literal"><span class="pre">SelfClosingTag</span></tt> for and &lt;hr /&gt; and &lt;br /&gt;</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output5.html</span></tt></p>
 </div>
 <div class="section" id="step-6">
-<h3>Step 6:<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h3>
+<h2>Step 6:<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h2>
 <p>Create a <tt class="docutils literal"><span class="pre">A</span></tt> class for an anchor (link) element. Its constructor should look like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 </pre></div>
@@ -330,7 +318,7 @@ attributes, if any.</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output6.html</span></tt></p>
 </div>
 <div class="section" id="step-7">
-<h3>Step 7:<a class="headerlink" href="#step-7" title="Permalink to this headline">¶</a></h3>
+<h2>Step 7:<a class="headerlink" href="#step-7" title="Permalink to this headline">¶</a></h2>
 <p>Create <tt class="docutils literal"><span class="pre">Ul</span></tt> class for an unordered list (really simple subclass of <tt class="docutils literal"><span class="pre">Element</span></tt>)</p>
 <p>Create <tt class="docutils literal"><span class="pre">Li</span></tt> class for an element in a list (also really simple)</p>
 <p>Add a list to your web page.</p>
@@ -344,7 +332,7 @@ header level. i.e &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, called like</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output7.html</span></tt></p>
 </div>
 <div class="section" id="step-8">
-<h3>Step 8:<a class="headerlink" href="#step-8" title="Permalink to this headline">¶</a></h3>
+<h2>Step 8:<a class="headerlink" href="#step-8" title="Permalink to this headline">¶</a></h2>
 <p>Update the <tt class="docutils literal"><span class="pre">Html</span></tt> element class to render the &#8220;&lt;!DOCTYPE html&gt;&#8221; tag at the head of the page, before the html element.</p>
 <p>You can do this by subclassing <tt class="docutils literal"><span class="pre">Element</span></tt>, overriding <tt class="docutils literal"><span class="pre">render()</span></tt>, but then calling the <tt class="docutils literal"><span class="pre">Element</span></tt> render from the new render.</p>
 <p>Create a subclass of <tt class="docutils literal"><span class="pre">SelfClosingTag</span></tt> for <tt class="docutils literal"><span class="pre">&lt;meta</span> <span class="pre">charset=&quot;UTF-8&quot;</span> <span class="pre">/&gt;</span></tt> (like for <tt class="docutils literal"><span class="pre">&lt;hr</span> <span class="pre">/&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;br</span> <span class="pre">/&gt;</span></tt> and add the meta element to the beginning of the head element to give your document an encoding.</p>
@@ -352,7 +340,6 @@ header level. i.e &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, called like</p>
 <p>You now have a pretty full-featured html renderer &#8211; play with it, add some
 new tags, etc....</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output8.html</span></tt></p>
-</div>
 </div>
 </div>
 

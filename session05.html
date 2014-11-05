@@ -158,11 +158,6 @@
 <li class="toctree-l2"><a class="reference internal" href="session08.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#review-questions">Review/Questions</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="session10.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session10.html#session-ten-unicode-persistence-serialization">Session Ten: Unicode, Persistence / Serialization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#history">History</a></li>
@@ -350,13 +345,13 @@
 <div class="section" id="function-parameters-in-variables">
 <h3>Function parameters in variables<a class="headerlink" href="#function-parameters-in-variables" title="Permalink to this headline">¶</a></h3>
 <p>You can also pull the parameters out in the function as a tuple and a dict:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&quot;the positional arguments are:&quot;</span><span class="p">,</span> <span class="n">args</span>
-    <span class="k">print</span> <span class="s">&quot;the keyword arguments are:&quot;</span><span class="p">,</span> <span class="n">kwargs</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go">def f(*args, **kwargs):</span>
+<span class="go">    print &quot;the positional arguments are:&quot;, args</span>
+<span class="go">    print &quot;the keyword arguments are:&quot;, kwargs</span>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">389</span><span class="p">]:</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">this</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">that</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">the</span> <span class="n">positional</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">the</span> <span class="n">keyword</span> <span class="n">arguments</span> <span class="n">are</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;this&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+<span class="gp">In [389]: </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">this</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">that</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">the positional arguments are: (2, 3)</span>
+<span class="go">the keyword arguments are: {&#39;this&#39;: 5, &#39;that&#39;: 7}</span>
 </pre></div>
 </div>
 <p>This can be very powerful...</p>
