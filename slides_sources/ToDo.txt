@@ -6,9 +6,3 @@ Sorting!
 
 add pathlib examples
 
-For Session 6:
-
-Counter() demo -- in the get languages example.
-
-
-lambda and sorting...
