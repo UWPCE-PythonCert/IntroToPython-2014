@@ -354,6 +354,86 @@ new tags, etc....</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output8.html</span></tt></p>
 </div>
 </div>
+<div class="section" id="html-primer">
+<h2>HTML Primer<a class="headerlink" href="#html-primer" title="Permalink to this headline">¶</a></h2>
+<p class="medium">The very least you need to know about html to do this assigment.</p>
+<p>If you are familar with html, then this will all make sense to you. If you have
+never seen html before, this might be a bit intimidating, but you really don&#8217;t
+need to know much to do this assignment.</p>
+<p>First of all, sample output from each step is provided. So all you really need
+to do is look at that, and make your code do the same thing. But it does help to know a little bit about what you are doing.</p>
+<div class="section" id="html">
+<h3>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
+<p>HTML is &#8220;Hyper Text Markup Language&#8221;. Hypertext, because it can contain links
+to other pages, and markup language means that text is &#8220;marked up&#8221; with
+instructions about how to format the text, etc.</p>
+<p>Here is a good basic intro:</p>
+<p><a class="reference external" href="http://www.w3schools.com/html/html_basic.asp">http://www.w3schools.com/html/html_basic.asp</a></p>
+<p>And there are countless others online.</p>
+<p>But here is a tiny intro of just what you need to know for this project.</p>
+</div>
+<div class="section" id="elements">
+<h3>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h3>
+<p>Modern HTML is a particular dialect of XML (eXrensible Markup Language),
+which is itself a special case of SGML (Standard Generalized Markup Language)</p>
+<p>It inherits from SGML a basic structure: each piece of the document is an element. each element is described by a &#8220;tag&#8221;. each tag has a different meaning, but they all have the same structure:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;some_tag&gt; some content &lt;/some_tag&gt;
+</pre></div>
+</div>
+<p>that is, the tag name is surrounded by &lt; and &gt;, which marks the beginning of
+the element, and the end of the element is indicated by the same tag with a slash.</p>
+<p>The real power is that these elements can be nested arbitrarily deep. In order to keep that all readable, we often want to indent the content inside the tags, so it&#8217;s clear what belongs with what. That is one of the tricky bits of this assignment.</p>
+</div>
+<div class="section" id="basic-tags">
+<h3>Basic tags<a class="headerlink" href="#basic-tags" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;html&gt;</span> is the core tag indicating the entire document <span class="nt">&lt;/html&gt;</span>
+
+<span class="nt">&lt;p&gt;</span> is a single paragraph of text <span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;body&gt;</span> is the tag that indicated the text of the document <span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;head&gt;</span> defines the header of the document -- a place for metadata <span class="nt">&lt;/head&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes:<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the tag name and the content, extra attributes can be attached to a tag. These are added to the &#8220;opening tag&#8221;, with name=&#8221;something&#8221;, another_name=&#8221;somethign else&#8221; format:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">&quot;text-align: center; font-style: oblique;&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>There can be all sorts of stuff stored in attributes &#8211; some required for specific tags, some extra, like font sizes and colors. Note that since tags can essentially have any attributes, your code will need to support that &#8211; doesn&#8217;t it kind of look like a dict? And keyword arguments?</p>
+</div>
+<div class="section" id="special-elements">
+<h3>Special Elements<a class="headerlink" href="#special-elements" title="Permalink to this headline">¶</a></h3>
+<p>The general structure is everything is between and opening and closing tag. But some elements don&#8217;t really have content &#8211; just attributes. So the slash goes at the end of the tag, after the attributes. We can call these self-closing tags:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>To make a link, you use an &#8220;anchor&#8221; tag: <tt class="docutils literal"><span class="pre">&lt;a&gt;</span></tt>. It required attributes to indicate what the link is:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://google.com&quot;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p>the <tt class="docutils literal"><span class="pre">href</span></tt> attribute is the link (hyper reference).</p>
+<p>To make a bulleted list, you use a &lt;ul&gt; tag (unordered list), and inside that, you put individual list elements &lt;li&gt;:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">style=</span><span class="s">&quot;line-height:200%&quot;</span> <span class="na">id=</span><span class="s">&quot;TheList&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+        The first item in a list
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">style=</span><span class="s">&quot;color: red&quot;</span><span class="nt">&gt;</span>
+        This is the second item
+    <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<p>Note that the list itself, and the list items can both take various attributes (all tags can...)</p>
+<p>Section Headers are created with &#8220;h&#8221; tags: &lt;h1&gt; is the biggest (highest level), and there is &lt;h2&gt;, &lt;h3&gt;, etc. for sections, sub sections, subsub sections.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h2&gt;</span>PythonClass - Class 6 example<span class="nt">&lt;/h2&gt;</span>
+</pre></div>
+</div>
+<p>I think that&#8217;s all you need to know!</p>
+</div>
+</div>
 </div>
 
 
