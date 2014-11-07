@@ -11,7 +11,7 @@ Python class example.
 class Element(object):
 
     tag = '<html>'
-    endtag = tag[:1] + '/' + tag[1:]
+    endtag = '</html>'
     indent = '    '
 
     def __init__(self, content=None):
@@ -29,11 +29,37 @@ class Element(object):
     def render(self, file_out, ind=""):
         """Write content and tags to the file_out StringIO object"""
 
-        file_out.write('{tag_indent}{start_tag}\n'.format
-                            (tag_indent=self.indent, start_tag=self.tag,))
+        #file_out.write('{tag_indent}{start_tag}\n'.format
+                      #(tag_indent=self.indent, start_tag=self.tag,))
 
-        file_out.writelines('{element_indent}{content}\n'.format
-                            (element_indent=ind+self.indent, content=item) for item in self.content)
+        for item in self.content:
+            if type(item) is str:
+                file_out.write('{tag_indent}{start_tag}\n{element_indent}{content}\n{tag_indent}{end_tag}\n'.format
+                              (tag_indent=self.indent, start_tag=self.tag, element_indent=ind+self.indent,
+                               content=item, end_tag=self.endtag))
+            else:
+                file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
+                item.render(file_out, "    ")
+                file_out.write('{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, end_tag=self.endtag))
 
-        file_out.write('{tag_indent}{end_tag}'.format
-                            (tag_indent=self.indent, end_tag=self.endtag))
+        #file_out.write('{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, end_tag=self.endtag))
+
+
+class Html(Element):
+
+    tag = '<html>'
+    endtag = '</html>'
+
+
+class P(Element):
+
+    tag = '<p>'
+    endtag = '</p>'
+    indent = '            '
+
+
+class Body(Element):
+
+    tag = '<body>'
+    endtag = '</body>'
+    indent = '        '
