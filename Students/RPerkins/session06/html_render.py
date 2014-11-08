@@ -12,7 +12,7 @@ class Element(object):
 
     tag = '<html>'
     endtag = '</html>'
-    indent = '    '
+    indent = ''
 
     def __init__(self, content=None):
 
@@ -29,10 +29,10 @@ class Element(object):
     def render(self, file_out, ind=""):
         """Write tags, call render method on content objects, and write to the file_out StringIO object"""
 
+        file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
         for item in self.content:
-            file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
             item.render(file_out, "    ")
-            file_out.write('{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, end_tag=self.endtag))
+        file_out.write('{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, end_tag=self.endtag))
 
 
 class Html(Element):
@@ -45,7 +45,7 @@ class P(Element):
 
     tag = '<p>'
     endtag = '</p>'
-    indent = '            '
+    indent = '        '
 
     def render(self, file_out, ind=""):
         """Write paragraph content and tags to the file_out StringIO object"""
@@ -59,19 +59,28 @@ class Body(Element):
 
     tag = '<body>'
     endtag = '</body>'
-    indent = '        '
-
-    def render(self, file_out, ind=""):
-        """Write body tags and call render method on each P object"""
-
-        file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
-        for item in self.content:
-            item.render(file_out, "    ")
-        file_out.write('{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, end_tag=self.endtag))
+    indent = '    '
 
 
 class Head(Element):
 
     tag = '<head>'
     endtag = '</head>'
+    indent = '    '
+
+
+class OneLineTag(Element):
+
+    def render(self, file_out, ind=""):
+        """Write single line elements to the file_out StringIO object"""
+
+        file_out.write('{tag_indent}{start_tag}{content}{end_tag}\n'.format
+                      (tag_indent=self.indent, start_tag=self.tag,
+                       content=self.content[0], end_tag=self.endtag))
+
+
+class Title(OneLineTag):
+
+    tag = '<title>'
+    endtag = '</title>'
     indent = '        '
