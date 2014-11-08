@@ -14,9 +14,10 @@ class Element(object):
     endtag = '</html>'
     indent = ''
 
-    def __init__(self, content=None):
-
+    def __init__(self, content=None, **attrib):
+        self.attrib = attrib
         self.content = [content]
+
 
     def append(self, new_content):
         """Check for existing content and add new_content"""
@@ -27,13 +28,18 @@ class Element(object):
             self.content.append(new_content)
 
     def render(self, file_out, ind=""):
-        """Write tags, call render method on content objects, and write to the file_out StringIO object"""
+        """Write tags and call render method on content objects"""
 
-        file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
+        if self.attrib.get('style') is None:
+            file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
+        else:
+            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"{tag_back}\n'.format
+                          (tag_indent=self.indent, tag_front=self.tag[:-1], kval='style',
+                           ival=self.attrib.get('style'), tag_back='>'))
+
         for item in self.content:
             item.render(file_out, "    ")
         file_out.write('{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, end_tag=self.endtag))
-
 
 class Html(Element):
 
@@ -50,9 +56,14 @@ class P(Element):
     def render(self, file_out, ind=""):
         """Write paragraph content and tags to the file_out StringIO object"""
 
-        file_out.write('{tag_indent}{start_tag}\n{element_indent}{content}\n{tag_indent}{end_tag}\n'.format
-                      (tag_indent=self.indent, start_tag=self.tag, element_indent=ind+self.indent,
-                       content=self.content[0], end_tag=self.endtag))
+        if self.attrib.get('style') is None:
+            file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
+        else:
+            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"{tag_back}\n{element_indent}{content}\n'
+                           '{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, tag_front=self.tag[:-1],
+                                                            kval='style', ival=self.attrib.get('style'), tag_back='>',
+                                                            element_indent=ind+self.indent,content=self.content[0],
+                                                            end_tag=self.endtag))
 
 
 class Body(Element):
