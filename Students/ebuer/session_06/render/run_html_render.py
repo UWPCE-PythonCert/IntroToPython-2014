@@ -43,7 +43,7 @@ page.append(u"Here is a paragraph of text -- there could be more of them, but th
 
 page.append(u"And here is another piece of text -- you should be able to add any number")
 
-render(page, u"test_html_output1.html")
+render(page, u"test_html_outputXX.html")
 
 # ## Step 2
 # ##########
