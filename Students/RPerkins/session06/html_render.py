@@ -18,7 +18,6 @@ class Element(object):
         self.attrib = attrib
         self.content = [content]
 
-
     def append(self, new_content):
         """Check for existing content and add new_content"""
 
@@ -95,3 +94,27 @@ class Title(OneLineTag):
     tag = '<title>'
     endtag = '</title>'
     indent = '        '
+
+
+class SelfClosingTag(Element):
+
+    indent = '        '
+
+    def render(self, file_out, ind=""):
+        """Write tags and call render method on content objects"""
+        if self.attrib.get('style') is None:
+            file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
+        else:
+            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"{tag_back}\n'.format
+                          (tag_indent=self.indent, tag_front=self.tag[:-2], kval='style',
+                           ival=self.attrib.get('style'), tag_back='/>'))
+
+
+class Hr(SelfClosingTag):
+
+    tag = '<hr />'
+
+
+class Br(SelfClosingTag):
+
+    tag = '<br />'
