@@ -1,10 +1,39 @@
 
-.. Foundations 2: Python slides file, created by
-   hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
+********************************************************
+Session Six: Functional and Object Oriented Programming
+********************************************************
 
-******************************************************************************************
-Session Six: Object oriented programming: Classes, instances, attributes, and subclassing
-******************************************************************************************
+.. rst-class:: left medium
+
+    Lambda and Functional programming.
+
+    Object oriented programming:
+
+    classes, instances, attributes, and subclassing
+
+=====
+NOTE:
+=====
+
+.. rst-class:: center large
+
+    Veteran's Day:
+
+    No class next week
+
+======================
+Lightning Talks Today:
+======================
+
+.. rst-class:: medium
+
+    Aleksey Kramer
+
+    Alexander R Galvin
+
+    Gideon I Sylvan
+
+    Hui Zhang
 
 
 ================
@@ -18,43 +47,102 @@ Review of Previous Class
 
 * comprehensions
 
-* ``lambda``
+* testing (a bit more on that soon)
 
-
+===============
 Homework review
----------------
+===============
 
 Homework Questions?
 
-If it seems harder than it should be -- it is!
+Notes from Homework:
+--------------------
 
-My Solution to the trigram:
+Comparing to "singletons":
 
- * (``dict.setdefault()``  trick...)
+Use:
 
-``global`` keyword?
+``if something is None``
 
-Unicode Notes
--------------
+Not:
 
-To put unicode in your source file, put:
+``if something == None``
+
+(also ``True`` and ``False``)
+
+rich comparisons: numpy
+
+(demo)
+
+.. nextslide::
+
+Binary mode for files:
 
 .. code-block:: python
 
-  #!/usr/bin/env python
-  # -*- coding: utf-8 -*-
+    infile = open(infilename, 'rb')
+    outfile = open(outfilename, 'wb')
 
-at the top of your file ... and be sure to save it as utf-8!
-(file->save with encoding in Sublime)
+|
+|
 
-You also might want to put::
+You don't actually need to use the result of a list comp:
 
-    from __future__ import unicode_literals
+.. code-block:: python
+
+    for i, st in zip( divisors, sets):
+        [ st.add(j) for j in range(21) if not j%i ]
 
 
-Additional notes on using Unicode in Python see:
+The collections module
+-----------------------
 
- :ref:`unicode_supplement`
+The collections module has a numbe rof handy special purpose
+collections:
+
+ * defautltdict
+ * namedtuple
+ * deque
+ * Counter
+
+https://docs.python.org/2/library/collections.html
+
+defaultdict
+-----------
+
+An alternative to ``dict.setdefault()``
+
+Makes sense when you are buildng a dict where every value will be the same thing
+
+Carolyn found this in the ``collections`` package. Useful for the trigrams
+assignment:
+
+.. code-block:: python
+
+    from collections import defaultdict
+
+    trigrams = defaultdict(list)
+    ...
+        trigrams[pair].append(follower)
+
+Counter
+-------
+
+``Counter``:
+
+Hui Zhang found this for counting how many students used which previous
+languages.
+
+See my example in ``/Solutions/Session05``
+
+
+============================
+Test Driven development demo
+============================
+
+In ``Examples/Session06/``
+
+
 ===================
 Anonymous functions
 ===================
@@ -98,7 +186,7 @@ Functions as first class objects
 
 You can do that with "regular" functions too:
 
-.. code-block:: ipython    
+.. code-block:: ipython
 
     In [12]: def fun(x,y):
        ....:     return x+y
@@ -121,7 +209,7 @@ map
 ``map``  "maps" a function onto a sequence of objects -- It applies the function to each item in the list, returning another list
 
 
-.. code-block:: ipython    
+.. code-block:: ipython
 
     In [23]: l = [2, 5, 7, 12, 6, 4]
     In [24]: def fun(x):
@@ -152,6 +240,15 @@ To get only the even numbers:
     In [28]: filter(lambda x: not x%2, l)
     Out[28]: [2, 12, 6, 4]
 
+If you pass ``None`` to ``filter()``, you get only items that evaluate to true:
+
+.. code-block:: ipython
+
+    In [1]: l = [1, 0, 2.3, 0.0, 'text', '', [1,2], [], False, True, None ]
+
+    In [2]: filter(None, l)
+    Out[2]: [1, 2.3, 'text', [1, 2], True]
+
 
 
 reduce
@@ -175,6 +272,14 @@ To get the product:
     In [32]: reduce(lambda x,y: x*y, l)
     Out[32]: 20160
 
+or
+
+.. code-block:: ipython
+
+    In [13]: import operator
+
+    In [14]: reduce(operator.mul, l)
+    Out[14]: 20160
 
 Comprehensions
 --------------
@@ -187,13 +292,18 @@ Yes:
 
     In [33]: [x+2 + 10 for x in l]
     Out[33]: [14, 17, 19, 24, 18, 16]
+
     In [34]: [x for x in l if not x%2]
     Out[34]: [2, 12, 6, 4]
 
+    In [6]: l
+    Out[6]: [1, 0, 2.3, 0.0, 'text', '', [1, 2], [], False, True, None]
+    In [7]: [i for i in l if i]
+    Out[7]: [1, 2.3, 'text', [1, 2], True]
 
 (Except Reduce)
 
-But Guido thinks almost all uses of reduce are really ``sum()`` 
+But Guido thinks almost all uses of reduce are really ``sum()``
 
 Functional Programming
 ----------------------
@@ -212,7 +322,7 @@ And "map-reduce" is a big concept these days for parallel processing of "Big Dat
 A bit more about lambda
 ------------------------
 
-Can also use keyword arguments}
+Can also use keyword arguments
 
 .. code-block:: ipython
 
@@ -228,6 +338,10 @@ Can also use keyword arguments}
 
 Note when the keyword argument is evaluated: this turns out to be very handy!
 
+===
+LAB
+===
+
 lambda and keyword argument magic
 -----------------------------------
 
@@ -240,7 +354,6 @@ Use a for loop, ``lambda``, and a keyword argument
 ( Extra credit ):
 
 Do it with a list comprehension, instead of a for loop
-
 
 Not clear? here's what you should get
 
@@ -270,38 +383,16 @@ Not clear? here's what you should get
 
 
 
+Lightning Talks
+----------------
 
-Functional files
------------------
+.. rst-class:: medium
 
-Write a program that takes a filename and "cleans" the file be removing all the leading and trailing whitespace from each line.
-
-Read in the original file and write out a new one, either creating a new file or overwriting the existing one.
-
-Give your user the option of which to perform.
-
-Use ``map()`` to do the work.
-
-Write a second version using a comprehension.
-
-.. nextslide:: Hint
-
-``sys.argv`` hold the command line arguments the user typed in. If the user types:
-
-.. code-block:: bash
-
-  $ python the_script a_file_name
-
-Then:
-
-.. code-block:: python
-
-    import sys
-    filename = sys.argv[1]
-
-will get ``filename == "a_file_name"``
-
-
+|
+| Aleksey Kramer
+|
+| Alexander R Galvin
+|
 
 
 ===========================
@@ -359,11 +450,13 @@ Think in terms of what makes sense for your project
 
 So what is "object oriented programming"?
 
+|
     "Objects can be thought of as wrapping their data
     within a set of functions designed to ensure that
     the data are used appropriately, and to assist in
     that use"
 
+|
 
 http://en.wikipedia.org/wiki/Object-oriented_programming
 
@@ -445,30 +538,30 @@ method
 Python Classes
 ==============
 
+.. rst-class:: left
+
+    The ``class``  statement
+
+    ``class``  creates a new type object:
+
+    .. code-block:: ipython
+
+        In [4]: class C(object):
+            pass
+           ...:
+        In [5]: type(C)
+        Out[5]: type
+
+    A class is a type -- interesting!
+
+    It is created when the statement is run -- much like ``def``
+
+    You don't *have* to subclass from ``object``, but you *should*
+
+    (note on "new style" classes)
+
 Python Classes
 --------------
-
-The ``class``  statement
-
-``class``  creates a new type object:
-
-.. code-block:: ipython
-
-    In [4]: class C(object):
-        pass
-       ...:
-    In [5]: type(C)
-    Out[5]: type
-
-A class is a type -- interesting!
-
-It is created when the statement is run -- much like ``def``
-
-You don't *have* to subclass from ``object``, but you *should* 
-
-(note on "new style" classes)
-
-.. nextslide::
 
 About the simplest class you can write
 
@@ -508,7 +601,7 @@ Basic Structure of a real class:
     print "p.y is:", p.y
 
 
-see: ``Examples/Session06/simple_class``
+see: ``Examples/Session06/simple_classes.py``
 
 .. nextslide::
 
@@ -528,7 +621,7 @@ You can use it to do any set-up you need
 
 It gets the arguments passed when you call the class object:
 
-.. code-block:: python  
+.. code-block:: python
 
     Point(x, y)
 
@@ -577,7 +670,7 @@ Note: the methods defined by ``def`` are class attributes as well.
 The class is one namespace, the instance is another.
 
 
-.. code-block:: python  
+.. code-block:: python
 
     class Point(object):
         size = 4
@@ -596,7 +689,7 @@ class attributes are accessed with ``self``  also.
 
 Typical methods:
 
-.. code-block:: python  
+.. code-block:: python
 
     class Circle(object):
         color = "red"
@@ -616,7 +709,7 @@ They may or may not return something useful.
 
 Gotcha!
 
-.. code-block:: python  
+.. code-block:: python
 
     ...
         def grow(self, factor=2):
@@ -633,24 +726,37 @@ Huh???? I only gave 2
 
 (demo of bound vs. unbound methods)
 
-LAB / homework
----------------
+LAB
+----
 
-Let's say you need to render some html..
+Let's say you need to render some html...
 
-The goal is to build a set of classes that render an html page.
+The goal is to build a set of classes that render an html
+page like this:
 
 ``Examples/Session06/sample_html.html``
 
-We'll start with a single class, then add some sub-classes to specialize the behavior
+We'll start with a single class, then add some sub-classes
+to specialize the behavior
 
 Details in:
 
 :ref:`homework_html_renderer`
 
 
-Let's see if we can do step 1. in class...
+Let's see if you can do step 1. in class...
 
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Gideon Sylvan
+|
+| Hui Zhang
+|
 
 =======================
 Subclassing/Inheritance
@@ -659,10 +765,11 @@ Subclassing/Inheritance
 Inheritance
 -----------
 
-In object-oriented programming (OOP), inheritance is a way to reuse code of existing objects, or to establish a subtype from an existing object.
+In object-oriented programming (OOP), inheritance is a way to reuse code
+of existing objects, or to establish a subtype from an existing object.
 
-
-Objects are defined by classes, classes can inherit attributes and behavior from pre-existing classes called base classes or super classes.
+Objects are defined by classes, classes can inherit attributes and behavior
+from pre-existing classes called base classes or super classes.
 
 The resulting classes are known as derived classes or subclasses.
 
@@ -735,20 +842,26 @@ all the instances will have the new method
 .. nextslide::
 
 Here's a program design suggestion:
-  whenever you override a method, the
-  interface of the new method should be the same as the old.  It should take
-  the same parameters, return the same type, and obey the same preconditions
-  and postconditions.
 
-  If you obey this rule, you will find that any function
-  designed to work with an instance of a superclass, like a Deck, will also work
-  with instances of subclasses like a Hand or PokerHand.  If you violate this
-  rule, your code will collapse like (sorry) a house of cards.
+"""
 
-[ThinkPython 18.10]
+Whenever you override a method, the
+interface of the new method should be the same as the old.  It should take
+the same parameters, return the same type, and obey the same preconditions
+and postconditions.
 
+If you obey this rule, you will find that any function
+designed to work with an instance of a superclass, like a Deck, will also work
+with instances of subclasses like a Hand or PokerHand.  If you violate this
+rule, your code will collapse like (sorry) a house of cards.
 
-( Demo of class vs. instance attributes )
+"""
+
+|
+| [ThinkPython 18.10]
+|
+| ( Demo of class vs. instance attributes )
+
 
 ===================
 More on Subclassing
@@ -829,7 +942,7 @@ Attribute resolution order
 
 When you access an attribute:
 
-``An_Instance.something``
+``an_instance.something``
 
 Python looks for it in this order:
 
@@ -930,10 +1043,55 @@ http://pyvideo.org/video/880/stop-writing-classes
 -- you don't need a class"
 
 
+========
 Homework
---------
+========
 
-Build an html rendering system:
+.. rst-class:: left medium
+
+    * finish the lambda:keyword magic lab
+
+    * functional files
+
+    * html renderer
+
+
+Functional files
+-----------------
+
+Write a program that takes a filename and "cleans" the file be removing
+all the leading and trailing whitespace from each line.
+
+Read in the original file and write out a new one, either creating a new
+file or overwriting the existing one.
+
+Give your user the option of which to perform.
+
+Use ``map()`` to do the work.
+
+Write a second version using a comprehension.
+
+.. nextslide:: Hint
+
+``sys.argv`` hold the command line arguments the user typed in. If the
+user types:
+
+.. code-block:: bash
+
+  $ python the_script a_file_name
+
+Then:
+
+.. code-block:: python
+
+    import sys
+    filename = sys.argv[1]
+
+will get ``filename == "a_file_name"``
+
+
+Html rendering system:
+-----------------------
 
 :ref:`homework_html_renderer`
 

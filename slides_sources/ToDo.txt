@@ -1,30 +1,8 @@
-Things to do for the UWPCE INtro to Python class:
-
-For Session 4:
-
-notes on stuff from homework:
-
-Don't do for for i in range() when you want to loop though list.
-
-    zip and enumerate
-
-go through my list_lab -- deleting from list, in particular.
-
-You can put mutable objects in immutable ones!
-
-use string formatting!
-
-the sum() function
-
-while not d.isnumeric()
-
-go through michel's pull request for ideas.
-
-slicing lab solution?
+Things to do for the UWPCE Intro to Python class:
 
 Future Sessions:
 
-Add discusion of parameter unpacking: *args and **kwargs
-
 Sorting!
+
+add pathlib examples
 

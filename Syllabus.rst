@@ -200,13 +200,13 @@ Lambda and Functional programming.
 Object oriented programming. Classes, instances, and methods
 
 
-Week 7: November 11
+Week 7: November 18
 .......................
 
 More OO -- Inheritance and duck typing
 
 
-Week 8: November 18
+Week 8: November 24
 ....................
 
 More OO: Special methods
@@ -226,6 +226,8 @@ Packages and packaging
 
 Week 10: December 9
 ....................
+
+Unicode
 
 Persistence / Serialization
 
