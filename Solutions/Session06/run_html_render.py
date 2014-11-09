@@ -25,7 +25,7 @@ def render(page, filename):
     """
 
     f = StringIO()
-    page.render(f, "")
+    page.render(f, "") 
 
     f.seek(0)
 
