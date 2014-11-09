@@ -29,6 +29,8 @@ class Element(object):
     def render(self, file_out, ind=""):
         """Write tags and call render method on content objects"""
 
+        #if self is str:
+            #file_out.write('{out_string}\n').format(out_string=self)
         if self.attrib.get('style') is None:
             file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
         else:
@@ -37,7 +39,10 @@ class Element(object):
                            ival=self.attrib.get('style'), tag_back='>'))
 
         for item in self.content:
-            item.render(file_out, "    ")
+            if type(item) == str:
+                file_out.write('        {out_string}\n'.format(out_string=item))
+            else:
+                item.render(file_out, "    ")
         file_out.write('{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, end_tag=self.endtag))
 
 class Html(Element):
@@ -105,9 +110,9 @@ class SelfClosingTag(Element):
         if self.attrib.get('style') is None:
             file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
         else:
-            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"{tag_back}\n'.format
+            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"/>\n'.format
                           (tag_indent=self.indent, tag_front=self.tag[:-2], kval='style',
-                           ival=self.attrib.get('style'), tag_back='/>'))
+                           ival=self.attrib.get('style')))
 
 
 class Hr(SelfClosingTag):
@@ -118,3 +123,24 @@ class Hr(SelfClosingTag):
 class Br(SelfClosingTag):
 
     tag = '<br />'
+
+
+class A(Element):
+
+    tag = '<a>'
+    endtag = '</a>'
+    indent = '        '
+
+    def __init__(self, link, content):
+        self.link = link
+        self.content = content
+        attrib = {}
+        Element.__init__(self, content, **attrib)
+
+    def render(self, file_out, ind=""):
+        """Write element tags, link, and content to the file_out StringIO object"""
+
+        file_out.write('{tag_indent}{start_tag} {link}>{content}{end_tag}\n'.format
+                      (tag_indent=self.indent, start_tag=self.tag[:-1],
+                          link=self.link, content=self.content[0], end_tag=self.endtag))
+
