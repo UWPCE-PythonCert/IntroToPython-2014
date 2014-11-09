@@ -1,5 +1,8 @@
 """
 html_render.py
+
+Questions: how do I inspect class and object attributes to see if the correct value has been ascribed?
+
 """
 
 # starting render classes
@@ -21,7 +24,7 @@ class Element(object):
     # renders the tag and the strings in the content
     def render(self, file_out, ind=""):
         self.ind = ind
-        self.indent = 1  # subclass to override class indent
+        self.indent = 1  # subclass to override class indent (?)
 
         # content will need to be read in one line at a time and rendered
 
