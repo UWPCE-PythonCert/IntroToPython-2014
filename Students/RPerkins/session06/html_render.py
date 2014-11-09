@@ -29,15 +29,11 @@ class Element(object):
     def render(self, file_out, ind=""):
         """Write tags and call render method on content objects"""
 
-        #if self is str:
-            #file_out.write('{out_string}\n').format(out_string=self)
         if self.attrib.get('style') is None:
             file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
         else:
-            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"{tag_back}\n'.format
-                          (tag_indent=self.indent, tag_front=self.tag[:-1], kval='style',
-                           ival=self.attrib.get('style'), tag_back='>'))
-
+            file_out.write('{tag_indent}{tag_front} style="{ival}">\n'.format
+                          (tag_indent=self.indent, tag_front=self.tag[:-1], ival=self.attrib.get('style')))
         for item in self.content:
             if type(item) == str:
                 file_out.write('        {out_string}\n'.format(out_string=item))
@@ -63,10 +59,10 @@ class P(Element):
         if self.attrib.get('style') is None:
             file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
         else:
-            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"{tag_back}\n{element_indent}{content}\n'
+            file_out.write('{tag_indent}{tag_front} style="{ival}">\n{element_indent}{content}\n'
                            '{tag_indent}{end_tag}\n'.format(tag_indent=self.indent, tag_front=self.tag[:-1],
-                                                            kval='style', ival=self.attrib.get('style'), tag_back='>',
-                                                            element_indent=ind+self.indent,content=self.content[0],
+                                                            ival=self.attrib.get('style'),
+                                                            element_indent=ind+self.indent, content=self.content[0],
                                                             end_tag=self.endtag))
 
 
@@ -110,9 +106,8 @@ class SelfClosingTag(Element):
         if self.attrib.get('style') is None:
             file_out.write('{tag_indent}{start_tag}\n'.format(tag_indent=self.indent, start_tag=self.tag,))
         else:
-            file_out.write('{tag_indent}{tag_front} {kval}="{ival}"/>\n'.format
-                          (tag_indent=self.indent, tag_front=self.tag[:-2], kval='style',
-                           ival=self.attrib.get('style')))
+            file_out.write('{tag_indent}{tag_front} style="{ival}"/>\n'.format
+                          (tag_indent=self.indent, tag_front=self.tag[:-2], ival=self.attrib.get('style')))
 
 
 class Hr(SelfClosingTag):
