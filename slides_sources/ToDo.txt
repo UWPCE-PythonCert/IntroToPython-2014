@@ -4,18 +4,5 @@ Future Sessions:
 
 Sorting!
 
-
-For Session 6:
-
-if something is None, True, False
-(rich comparisons)
-
-reminder about opening file in binary mode.
-
-show defaultdict -- Carolyn
-
-you don't actually need to use the result of a list comp:
-
-for i, st in zip( divisors, sets):
-    [ st.add(j) for j in range(21) if not j%i ]
+add pathlib examples
 
