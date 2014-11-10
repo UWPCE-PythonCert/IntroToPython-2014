@@ -1,0 +1,10 @@
+slides_sources/build
+
+#ignore python compile files
+*.pyc
+
+#ignore sublime workspace files
+*.sublime*
+
+#ignore changes in Examples directory
+/Examples/
