@@ -6,5 +6,9 @@ slides_sources/build
 #ignore sublime workspace files
 *.sublime*
 
+#ignore compile files, sublime workspace and project files
+*.pyc
+*.sublime*
+
 #ignore changes in Examples directory
 /Examples/

@@ -48,7 +48,7 @@ for i, st in zip( divisors, sets):
 
 **Collections Module**
 
-+ defalutdict -- does dict.setdefault() for you
++ defaultdict -- does dict.setdefault() for you
 + namedtuple
 + deque -- double ended que
 + counter

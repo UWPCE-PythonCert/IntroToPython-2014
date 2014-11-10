@@ -37,28 +37,28 @@ def render(page, filename):
 ## Step 1
 ##########
 
-page = hr.Element()
+# page = hr.Element()
 
-page.append(u"Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text")
+# page.append(u"Here is a paragraph of text -- there could be more of them, but this is enough to show that we can do some text")
 
-page.append(u"And here is another piece of text -- you should be able to add any number")
+# page.append(u"And here is another piece of text -- you should be able to add any number")
 
-render(page, u"test_html_outputXX.html")
+# render(page, u"test_html_outputXX.html")
 
 # ## Step 2
 # ##########
 
-# page = hr.Html()
+page = hr.Html()
 
-# body = hr.Body()
+body = hr.Body()
 
-# body.append(hr.P(u"Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text"))
+body.append(hr.P(u"Here is a paragraph of text -- there could be more of them, but this is enough to show that we can do some text"))
 
-# body.append(hr.P(u"And here is another piece of text -- you should be able to add any number"))
+body.append(hr.P(u"And here is another piece of text -- you should be able to add any number"))
 
-# page.append(body)
+page.append(body)
 
-# render(page, u"test_html_output2.html")
+render(page, u"test_html_output2.html")
 
 # # Step 3
 # ##########
