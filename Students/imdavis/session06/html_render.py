@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
 """
-Class for building up an HTML document from strings 
+Class for building up an HTML document from strings
 """
 
 class Element(object):
     indent_spaces = "    "
     tag = "html"
-    def __init__(self, content=None):
+    attrib = ""
+    def __init__(self, content=None, **kwargs):
         """
         If no content is passed in at initialization of the object, 
         initialize an empty list otherwise put the content passed in 
@@ -17,6 +18,10 @@ class Element(object):
             self.content = []
         else:
             self.content = [content]
+        # Handle other arguments passed in at initialization
+        if (kwargs):
+            for k, v in kwargs.items():
+                self.attrib += " " + k + "=" + "\"" + v + "\""
     def append(self, new_content):
         # append the new content to the list
         if new_content:
@@ -26,7 +31,7 @@ class Element(object):
         Be able to handle a string or an 'Element' object as and element
         of the self.content list
         """
-        start_tag = "<"  + self.tag + ">" + "\n"
+        start_tag = "<"  + self.tag + self.attrib + ">" + "\n"
         end_tag   = "</" + self.tag + ">" + "\n"
         file_out.write(ind + start_tag)
         # This could be a string or an Element object
