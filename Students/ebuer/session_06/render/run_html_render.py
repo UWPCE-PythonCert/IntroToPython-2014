@@ -7,10 +7,10 @@ Uncomment the steps as you add to your rendering.
 
 """
 from io import open, StringIO
-
+import pdb
 
 # importing the html_rendering code with a short name for easy typing.
-import html_render as hr
+import html_render_eb as hr
 reload(hr)
 
 
@@ -58,7 +58,9 @@ body.append(hr.P(u"And here is another piece of text -- you should be able to ad
 
 page.append(body)
 
-render(page, u"test_html_output2.html")
+# pdb.set_trace()
+
+render(page, u"test_html_outputXX.html")
 
 # # Step 3
 # ##########
