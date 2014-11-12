@@ -93,3 +93,8 @@ class H(OneLineTag):
     def __init__(self, level, content=None, **attributes):
         self.tag = 'h{}'.format(level)
 
+class Ul(element):
+    tag = 'ul'
+
+class li(element):
+    tag = 'li'
