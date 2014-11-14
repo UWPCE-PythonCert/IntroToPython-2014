@@ -63,6 +63,8 @@ It should have a ``render(file_out, ind = "")`` method that renders the tag and 
 
 The amount of indentation should be set by the class attribute: ``indent``
 
+NOTE: don't worry too much about indentation at this stage -- the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you've got that working.
+
 You should now be able to render an html tag with text in it as contents.
 
 See: step 1. in ``run_html_render.py``
@@ -70,7 +72,7 @@ See: step 1. in ``run_html_render.py``
 Step 2:
 --------
 
-Create a couple subclasses of ``Element``, for a ``<body>`` tag and ``<p>`` tag. All you should have to do is override the ``tag`` class attribute (you may need to add a ``tag`` class attribute to the Element class first...).
+Create a couple subclasses of ``Element``, for a ``html``, ``<body>``, and ``<p>`` tag. All you should have to do is override the ``tag`` class attribute (you may need to add a ``tag`` class attribute to the Element class first...).
 
 Now you can render a few different types of element.
 
@@ -79,10 +81,11 @@ Extend the ``Element.render()`` method so that it can render other elements insi
 Figure out a way to deal with the fact that the contained elements could be either simple strings or ``Element`` s with render methods (there are a few ways to handle that...).
 
 You should now be able to render a basic web page with an html tag around
-the whole thing, a ``<body>`` tag inside, and multiple ``<p>`` tags inside that,
-with text inside that. And all indended nicely.
+the whole thing, a ``<body>`` tag inside, and multiple ``<p>`` tags inside that, with text inside that. And all indented nicely.
 
 See ``test_html_output2.html``
+
+NOTE: when you run step 2 in ``run_html_render.py``, you will want o comment out step 1 -- that way you'll only get one set of output.
 
 Step 3:
 --------
@@ -201,7 +204,8 @@ never seen html before, this might be a bit intimidating, but you really don't
 need to know much to do this assignment.
 
 First of all, sample output from each step is provided. So all you really need
-to do is look at that, and make your code do the same thing. But it does help to know a little bit about what you are doing.
+to do is look at that, and make your code do the same thing. But it does help to
+know a little bit about what you are doing.
 
 HTML
 ----

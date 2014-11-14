@@ -1,3 +1,10 @@
 slides_sources/build
-.idea
-.DS_Store
+#ignore python compile files
+
+#ignore compile files, sublime workspace and project files
+*.pyc
+*.sublime*
+
+#ignore changes in Examples directory
+
+/Examples/

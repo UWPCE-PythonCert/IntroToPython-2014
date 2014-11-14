@@ -1,19 +1,3 @@
-#!/usr/bin/env python
-
-"""
-Trigram.py
-
-A solution to the trigram coding Kata:
-
-http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/
-
-Chris Barker's Solution
-
-This one is pretty straight forward -- really a quickie script
-
-There is lots of room to make it fancier of you want
-"""
-
 # infilename = "sherlock_small.txt"
 infilename = "sherlock.txt"
 
@@ -120,7 +104,7 @@ def build_text(word_pairs):
     """
 
     new_text = []
-    for i in range(30): # do thirty sentences
+    for i in range(40): # do thirty sentences
         # pick a word pair to start the sentence
         sentence = list(random.choice( word_pairs.keys() ) )
 
@@ -128,10 +112,8 @@ def build_text(word_pairs):
         for j in range(random.randint(2,10)):
             pair = tuple(sentence[-2:])
             sentence.append( random.choice(word_pairs[pair]) )
-
         #capitalize the first word:
         sentence[0] = sentence[0].capitalize()
-
         #Add the period
         sentence[-1] += "."
         new_text.extend(sentence)
@@ -156,3 +138,4 @@ if __name__ == "__main__":
     new_text = build_text(word_pairs)
 
     print new_text
+	
