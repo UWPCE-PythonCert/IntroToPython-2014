@@ -1,0 +1,39 @@
+What are the conventions of collections?
+
+>> Lists are Collections (homogeneous)
+
+How to know what to use:
+
+>> Same operation to each element? 
+> Use a list
+
+>> Small collection of values which make a single logical input? 
+> tuple
+
+raw_input:
+
+>> With raw_input() you always get a string back
+>> if you want the input to come back as an integer use:
+>> inp = raw_input("something")
+>> int(inp)
+
+Loops Control:
+
+>> Break (just stop!)
+>> and Continue
+
+for i in range(101):
+	print i
+	if i > 50:
+
+		break
+
+	if i > 89
+
+	# continure keyword will skip later statements in the loop block
+	# but allow iteration to continue
+
+		continue
+
+>>Note: For loops can also take an optional else block
+>> Executed only when the loop exits normally (not via break)

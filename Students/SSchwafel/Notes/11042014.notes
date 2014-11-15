@@ -1,0 +1,157 @@
+Notes for November 4, 2014
+============================
+
+
+   *args = don't know how many arguments
+        take all the args and put them in a tuple
+
+    **kwargs = don't know what arguments
+
+        take all kwargs and put them in a dict. 
+
+    These are for when you DON'T KNOW HOW MANY ARGUMENTS ARE NEEDED
+
+
+    Singleton -> only one of these objects in existence (programming concept)
+
+    Use 'if something is None' not if something == None'
+
+    is = "is this the SAME OBJECT" (not, "does it have the same value")
+
+    Rich Comparisons = 
+
+        use IS instead of == for "is _something_ None"
+    
+    ========================================================
+
+    infile = open(infilename, 'rb') <----MAKE SURE YOU USE BINARY MODE!
+
+    ========================================================
+
+    You don't actually have to use the result of a list comprehension
+
+    
+    The standard library has a collections module that does some fancy shit
+
+    defaultdict = alternative to setdefault
+
+        Makes sense when the dict is comprised of items that are all the same thing (for example, all lists)
+
+
+    Anonymous Functions
+    ========================================================
+
+    content can only be an expression, not a statements
+
+    lambda creates a function that takes what arguments you pass, and returns the value of the expression
+
+        f = lambda x,y: x+y
+        f(2,3)
+        output -> 5
+
+    You use Lambda a lot during functional programming
+
+    map -> maps a function onto a sequence of objects
+
+        In [23]: l = [2, 5, 7, 12, 6, 4]
+
+    But if it’s a small function, and you only need it once:
+
+        In [26]: map(lambda x: x*2 + 10, l)
+        Out[26]: [14, 20, 24, 34, 22, 18]    In [24]: def fun(x):
+                         return x*2 + 10
+        In [25]: map(fun, l)
+        Out[25]: [14, 20, 24, 34, 22, 18]
+
+
+    Filter applies a function and removes entries that evaluate to false    
+
+
+        In [27]: l = [2, 5, 7, 12, 6, 4]
+        In [28]: filter(lambda x: not x%2, l)
+        Out[28]: [2, 12, 6, 4]
+
+    If you Pass NONE (filter(None, l) to filter, you only get items that evaluate to true
+
+    Reduce reduces a collection to a single object with a function that combines two arguments
+
+        In [30]: l = [2, 5, 7, 12, 6, 4]
+        In [31]: reduce(lambda x,y: x+y, l)
+        Out[31]: 36
+
+    READ DOCUMENTATION ON MAP()
+
+    
+Object-Oriented Programming!
+===================================
+
+    Python is a dynamic language (which clashes with some people's interpretation of OO)
+
+    Objects are data and the functions that act on them in one place
+
+        This is the core of encapsulation
+
+        In Python: just another namespace
+
+    Python is written in an OO fashion
+
+    Class: a category of of objects -> particular data and behavior
+
+    Instance: a particular object of a class (a specific circle)
+
+    Object: the general case of an instance --> any value in Python
+
+    Attribute: something that belongs to an object (variable, etc.)
+
+    Method: a function that belongs to a class
+
+
+    class something(object): <---creates a class
+
+    type(something) = type
+
+    Simplest Class:
+
+    class Point(object):
+
+        x = 1
+        y = 2
+
+    Point.x -> 1
+
+    p = Point()
+    p --> <__main__.Point instance at 0x2de918>
+    p.x --> 1
+
+    __init__ special method is called when a new instance of a class is created. You can use it to do any setup you need.
+
+    class Point(object):
+    def __init__(self, x, y): <------- The instance of the class is passed as the first parameter for every method.
+        self.x = x
+        self.y = y
+
+    Using a function within a class namespace (method)
+
+
+        class Point(object):
+            size = 4
+            color= "red"
+        
+            def get_color():
+                return self.color
+       p3.get_color()
+         'red'
+
+    
+    Inheritance is a way to reuse code of existing objects, or to establish a subtype
+
+    Subclass INHERITS everything from the parent class, but then you can override what it has inherited
+
+Simplest Subclass:
+    
+    class A_subclass(The_superclass):
+        pass
+
+    ^^^ Exactly the same as The_superclass
+
+    
