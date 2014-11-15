@@ -25,7 +25,8 @@ def gettext(infile):  # ='junkfile.txt'
 
 # Apply map lambda function to clean the text
 def spstrip(fid):
-    return map(lambda x: x.strip(' \n'), fid)
+    return map(lambda x: x.strip(' \n'), fid)  
+    # could be map(str.strip(), fid), much shorter
 
 # use a list comprehension instead of the map function
 def compstrip(fid):
