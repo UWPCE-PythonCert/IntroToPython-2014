@@ -54,7 +54,7 @@ body = hr.Body()
 
 body.append(hr.P(u"Here is a paragraph of text -- there could be more of them, but this is enough to show that we can do some text"))
 
-body.append(hr.P(u"And h6ere is another piece of text -- you should be able to add any number"))
+body.append(hr.P(u"And here is another piece of text -- you should be able to add any number"))
 
 page.append(body)
 
