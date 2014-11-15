@@ -13,11 +13,12 @@ class Element(object):
     tag = u"html"
 
     def __init__(self, content=None,
-                 style=None):  # update with content=None, **attributes/kwargs
+                 **attrsdict):  # update with content=None, **attributes/kwargs empty dictionary initialized, but not populated assuming dict isn't passed
+
         self.tag_dict = {'indent': self.indent, 'tag': self.tag,
-                    'style': style, 'ind': ""}  # , 'ind': ind
-        self.style = style
-        # self.attributes = attributes
+                    'ind': ""}  # , 'ind': ind
+
+        self.attrsdict = attrsdict
 
         if content is None:
             self.content = []
@@ -31,10 +32,16 @@ class Element(object):
     # render method, extended a couple times
     def render(self, file_out, ind=""):
 
-        if self.style is not None:
-            file_out.write(u'{ind}{indent}<{tag} style="{style}">\n'.format(**self.tag_dict))
-        else:
-            file_out.write(u'{ind}{indent}<{tag}>\n'.format(**self.tag_dict))
+        attrstring = u''
+        for k, v in self.attrsdict.items():
+            tempstring = u'{}={} '.format(k, v)
+            " ".join([attrstring, tempstring])
+
+        file_out.write(u'{ind}{indent}<{tag}>\n'.format(**self.tag_dict))
+
+        if attrstring is not u'':
+            file_out.write(attrstring),
+            # file_out.write(u'{ind}{indent}</{tag}>'.format(**self.tag_dict)),
 
         # expand here to create handling for either string or object
         for obj in self.content:
@@ -76,9 +83,7 @@ class OneLineTag(Element):
 
     # override render to put everything on 1 line where things are simple
     def render(self, file_out, ind=""):
-        # self.tag_dict.update({'ind': ind})
-
-        print self.tag_dict
+        # print self.tag_dict
 
         file_out.write(u'{indent}{ind}<{tag}>'.format(**self.tag_dict))
         for obj in self.content:
@@ -94,11 +99,14 @@ class Title(OneLineTag):
     indent = u'        '
 
 class SelfClosingTag(Element):
-    def render(self, file_out, ind=""):
-        tag_dict = {'indent': self.indent, 'tag': self.tag,
-                    'style': self.style, 'ind': ind}
 
-        file_out.write(u'{indent}{ind}<{tag} />\n'.format(**tag_dict))
+    def render(self, file_out, ind="        "):
+        self.tag_dict['ind'] = ind
+
+        # tag_dict = {'indent': self.indent, 'tag': self.tag,
+        #             'style': self.style, 'ind': ind}
+
+        file_out.write(u'{indent}{ind}<{tag} />\n'.format(**self.tag_dict))
 
 # step 5 elements, self closing horizontal rule and break tags
 
@@ -111,11 +119,19 @@ class Br(SelfClosingTag):
 # step 6, add hyperlink tag as subclass of Element
 
 class A(Element):
-    
-    def __init__(self, link, content=None, style=None):
+
+    """A(self, link, content)
+        where link is the link, and content is what you see
+        A(u"http://google.com", u"link to google")
+
+        subclass from Element, and only override the __init__ —
+        Calling the Element __init__ from the A __init__
+    """
+
+    def __init__(self, link, content=None):
         # pass in link url, text to hyperlink
-        self.link = "http://www.google.com"
-        Element.__init__(self, content, style)
+        self.link = link
+        Element.__init__(self, content, link)
 
 
 """
