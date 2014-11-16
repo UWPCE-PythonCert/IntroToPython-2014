@@ -1,10 +1,25 @@
 
-.. Foundations 2: Python slides file, created by
-   hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
+********************************************************
+Session Six: Functional and Object Oriented Programming
+********************************************************
 
-****************************************************************************************************************************
-Session Six: Lambda and Functional programming. Object oriented programming: Classes, instances, attributes, and subclassing
-****************************************************************************************************************************
+.. rst-class:: left medium
+
+    Lambda and Functional programming.
+
+    Object oriented programming:
+
+    classes, instances, attributes, and subclassing
+
+=====
+NOTE:
+=====
+
+.. rst-class:: center large
+
+    Veteran's Day:
+
+    No class next week
 
 ======================
 Lightning Talks Today:
@@ -41,6 +56,91 @@ Homework review
 Homework Questions?
 
 Notes from Homework:
+--------------------
+
+Comparing to "singletons":
+
+Use:
+
+``if something is None``
+
+Not:
+
+``if something == None``
+
+(also ``True`` and ``False``)
+
+rich comparisons: numpy
+
+(demo)
+
+.. nextslide::
+
+Binary mode for files:
+
+.. code-block:: python
+
+    infile = open(infilename, 'rb')
+    outfile = open(outfilename, 'wb')
+
+|
+|
+
+You don't actually need to use the result of a list comp:
+
+.. code-block:: python
+
+    for i, st in zip( divisors, sets):
+        [ st.add(j) for j in range(21) if not j%i ]
+
+
+The collections module
+-----------------------
+
+The collections module has a numbe rof handy special purpose
+collections:
+
+ * defautltdict
+ * namedtuple
+ * deque
+ * Counter
+
+https://docs.python.org/2/library/collections.html
+
+defaultdict
+-----------
+
+An alternative to ``dict.setdefault()``
+
+Makes sense when you are buildng a dict where every value will be the same thing
+
+Carolyn found this in the ``collections`` package. Useful for the trigrams
+assignment:
+
+.. code-block:: python
+
+    from collections import defaultdict
+
+    trigrams = defaultdict(list)
+    ...
+        trigrams[pair].append(follower)
+
+Counter
+-------
+
+``Counter``:
+
+Hui Zhang found this for counting how many students used which previous
+languages.
+
+See my example in ``/Solutions/Session05``
+
+
+============================
+Test Driven development demo
+============================
+
+In ``Examples/Session06/``
 
 
 ===================
@@ -238,6 +338,10 @@ Can also use keyword arguments
 
 Note when the keyword argument is evaluated: this turns out to be very handy!
 
+===
+LAB
+===
+
 lambda and keyword argument magic
 -----------------------------------
 
@@ -250,7 +354,6 @@ Use a for loop, ``lambda``, and a keyword argument
 ( Extra credit ):
 
 Do it with a list comprehension, instead of a for loop
-
 
 Not clear? here's what you should get
 
@@ -278,38 +381,6 @@ Not clear? here's what you should get
     ### If you loop through them all, and call them, each one adds one more
     to the input, 5... i.e. the nth function in the list adds n to the input.
 
-
-
-
-Functional files
------------------
-
-Write a program that takes a filename and "cleans" the file be removing all the leading and trailing whitespace from each line.
-
-Read in the original file and write out a new one, either creating a new file or overwriting the existing one.
-
-Give your user the option of which to perform.
-
-Use ``map()`` to do the work.
-
-Write a second version using a comprehension.
-
-.. nextslide:: Hint
-
-``sys.argv`` hold the command line arguments the user typed in. If the user types:
-
-.. code-block:: bash
-
-  $ python the_script a_file_name
-
-Then:
-
-.. code-block:: python
-
-    import sys
-    filename = sys.argv[1]
-
-will get ``filename == "a_file_name"``
 
 
 Lightning Talks
@@ -379,11 +450,13 @@ Think in terms of what makes sense for your project
 
 So what is "object oriented programming"?
 
+|
     "Objects can be thought of as wrapping their data
     within a set of functions designed to ensure that
     the data are used appropriately, and to assist in
     that use"
 
+|
 
 http://en.wikipedia.org/wiki/Object-oriented_programming
 
@@ -465,30 +538,30 @@ method
 Python Classes
 ==============
 
+.. rst-class:: left
+
+    The ``class``  statement
+
+    ``class``  creates a new type object:
+
+    .. code-block:: ipython
+
+        In [4]: class C(object):
+            pass
+           ...:
+        In [5]: type(C)
+        Out[5]: type
+
+    A class is a type -- interesting!
+
+    It is created when the statement is run -- much like ``def``
+
+    You don't *have* to subclass from ``object``, but you *should*
+
+    (note on "new style" classes)
+
 Python Classes
 --------------
-
-The ``class``  statement
-
-``class``  creates a new type object:
-
-.. code-block:: ipython
-
-    In [4]: class C(object):
-        pass
-       ...:
-    In [5]: type(C)
-    Out[5]: type
-
-A class is a type -- interesting!
-
-It is created when the statement is run -- much like ``def``
-
-You don't *have* to subclass from ``object``, but you *should*
-
-(note on "new style" classes)
-
-.. nextslide::
 
 About the simplest class you can write
 
@@ -528,7 +601,7 @@ Basic Structure of a real class:
     print "p.y is:", p.y
 
 
-see: ``Examples/Session06/simple_class``
+see: ``Examples/Session06/simple_classes.py``
 
 .. nextslide::
 
@@ -680,7 +753,7 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-| Gideon I Sylvan
+| Gideon Sylvan
 |
 | Hui Zhang
 |
@@ -769,20 +842,26 @@ all the instances will have the new method
 .. nextslide::
 
 Here's a program design suggestion:
-  whenever you override a method, the
-  interface of the new method should be the same as the old.  It should take
-  the same parameters, return the same type, and obey the same preconditions
-  and postconditions.
 
-  If you obey this rule, you will find that any function
-  designed to work with an instance of a superclass, like a Deck, will also work
-  with instances of subclasses like a Hand or PokerHand.  If you violate this
-  rule, your code will collapse like (sorry) a house of cards.
+"""
 
-[ThinkPython 18.10]
+Whenever you override a method, the
+interface of the new method should be the same as the old.  It should take
+the same parameters, return the same type, and obey the same preconditions
+and postconditions.
 
+If you obey this rule, you will find that any function
+designed to work with an instance of a superclass, like a Deck, will also work
+with instances of subclasses like a Hand or PokerHand.  If you violate this
+rule, your code will collapse like (sorry) a house of cards.
 
-( Demo of class vs. instance attributes )
+"""
+
+|
+| [ThinkPython 18.10]
+|
+| ( Demo of class vs. instance attributes )
+
 
 ===================
 More on Subclassing
@@ -863,7 +942,7 @@ Attribute resolution order
 
 When you access an attribute:
 
-``An_Instance.something``
+``an_instance.something``
 
 Python looks for it in this order:
 
@@ -964,10 +1043,55 @@ http://pyvideo.org/video/880/stop-writing-classes
 -- you don't need a class"
 
 
+========
 Homework
---------
+========
 
-Build an html rendering system:
+.. rst-class:: left medium
+
+    * finish the lambda:keyword magic lab
+
+    * functional files
+
+    * html renderer
+
+
+Functional files
+-----------------
+
+Write a program that takes a filename and "cleans" the file be removing
+all the leading and trailing whitespace from each line.
+
+Read in the original file and write out a new one, either creating a new
+file or overwriting the existing one.
+
+Give your user the option of which to perform.
+
+Use ``map()`` to do the work.
+
+Write a second version using a comprehension.
+
+.. nextslide:: Hint
+
+``sys.argv`` hold the command line arguments the user typed in. If the
+user types:
+
+.. code-block:: bash
+
+  $ python the_script a_file_name
+
+Then:
+
+.. code-block:: python
+
+    import sys
+    filename = sys.argv[1]
+
+will get ``filename == "a_file_name"``
+
+
+Html rendering system:
+-----------------------
 
 :ref:`homework_html_renderer`
 
