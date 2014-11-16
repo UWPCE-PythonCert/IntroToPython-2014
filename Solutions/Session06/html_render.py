@@ -89,7 +89,7 @@ class Html(Element):
     tag = 'html'
     def render(self, file_out, current_ind=""):
         file_out.write("<!DOCTYPE html>\n")
-        Element.render(self, file_out, current_ind=self.indent)
+        Element.render(self, file_out, current_ind=current_ind)
 
 
 class Body(Element):
