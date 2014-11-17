@@ -1,51 +1,107 @@
 '''
-start of html_render.py
+html_render.py
 
-Step 1.
+Python Certification Course
+Nov 8, 2014
 
-Create the element class.
+Pretty print an html string
+
 '''
 
-Create an Element class for rendering an html element (xml element).
 
-It should have class attributes for the tag name (“html” first) and the indentation (spaces to indent for pretty printing)
-
-The constructor signature should look like
-
-Element(content=None)
-where content is a string
-
-It should have an append method that can add another string to the content.
-
-It should have a render(file_out, ind = "") method that renders the tag and the strings in the content.
-
-file_out could be any file-like object ( i.e. have a write() method ).
-
-ind is a string with the indentation level in it: the amount that the tag should be indented for pretty printing.
-
-This is a little tricky: ind will be the amount that this element should be indented already. It will be from zero (an empty string) to a lot of spaces, depending on how deep it is in the tree.
-The amount of indentation should be set by the class attribute: indent
-
-You should now be able to render an html tag with text in it as contents.
 
 class Element(object):
+    '''
+    Step One, create the element class.
+    '''
     tag = 'html'
-    indent = ''   
+    indent = '   '   
     
-    def __init__self, content=None):
-        self.content = content
-
+    def __init__ (self, content=None):
+        if content:
+            self.contents = [content]
+        else:
+            self.contents = []
         
     def append(self, added_content):
         '''
         Add content to existing content, if any.
         '''
-        if self.content:
-            self.content = self.content+added_content
+        self.contents.append (added_content)
+
+
         
     def render (self, file_out, ind = ''):
         '''
         Render the line to file_out.write.
         '''
+        file_out.write (ind + '<'+self.tag+'>\n')
+        for content in self.contents:
+            file_out.write (ind+self.indent+content+'\n')
+        file_out.write (ind+'</'+self.tag+'>\n')
         
         
+'''        
+Step 2
+'''
+
+
+class bodyElement (Element):
+    '''
+    Sub class Element to replace tag 'html' with 'body'
+    '''
+    tag = 'body'
+    
+class pElement (Element):
+    '''
+    Sub class Element to replace tag 'html' with 'p' (paragraph)
+    '''
+    tag = 'p'
+
+class titleElement (Element):
+    '''
+    Sub class Element to replace tag 'html' with 'title' 
+    '''
+    tag = 'title'
+
+class headElement (Element):
+    '''
+    Sub class Element to replace tag 'html' with 'head' 
+    '''
+    tag = 'head'
+
+class  OneLineTag (Element):
+    '''
+    Re-defines render top print on one line.
+    '''
+    def render self, file_out, ind = ''):
+        '''
+        Render the line to file_out.write.
+        '''
+
+        for content in self.contents:
+            file_out.write (ind+'<'+self.tag+'>'+self.indent+content+'\n'+'>/'+self.tag+'>')
+    
+    
+#-------------------------------------------------------------------------------------------------------------------------------------------------
+# Test code
+
+
+def testStepOne ():
+    e = Element ('Some string')
+    e.append ('some other string')
+    file_out = open('base_element.txt', 'w')
+    e.render (file_out, '    ')
+    file_out.close()  
+    
+def testStepTwo():
+    b = bodyElement ('Some body text')
+    p = pElement ('some paragraph text')
+    file_out = open('body_and_paragraph_element.txt', 'w')
+    b.render (file_out, '    ')
+    p.render (file_out, '    ')
+    file_out.close()    
+
+if __name__ == '__main__':
+    testStepOne()
+    testStepTwo()
