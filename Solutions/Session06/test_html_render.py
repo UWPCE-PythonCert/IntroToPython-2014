@@ -81,19 +81,20 @@ def test_render_content_indent():
     assert lines[1].startswith("    ")
 
 
-def test_render_html():
-    """ the html element """
+## this one no longer currect with step 8 added
+# def test_render_html():
+#     """ the html element """
 
-    e = hr.Html("this is some content")
-    e.append("and this is some more")
+#     e = hr.Html("this is some content")
+#     e.append("and this is some more")
 
-    output = render_element(e)
+#     output = render_element(e)
 
-    print output
-    assert output.startswith('<html>')
-    assert output.endswith('</html>\n')
-    assert "this is some content" in output
-    assert "and this is some more" in output
+#     print output
+#     assert output.startswith('<html>')
+#     assert output.endswith('</html>\n')
+#     assert "this is some content" in output
+#     assert "and this is some more" in output
 
 
 def test_render_body():
@@ -196,7 +197,7 @@ def test_anchor():
     output = render_element(e, ind="    ")
 
     print output
-    assert output ==  '    <a href="http://google.com">link to google</a>\n'
+    assert output == '    <a href="http://google.com">link to google</a>\n'
 
 
 def test_header():
@@ -207,6 +208,7 @@ def test_header():
     print output
     assert output == '    <h2>The text of the header</h2>\n'
 
+
 def test_header3():
     e = hr.H(3, "The text of the header")
 
@@ -214,3 +216,19 @@ def test_header3():
 
     print output
     assert output == '    <h3>The text of the header</h3>\n'
+
+
+def test_doctype():
+    """
+    html element should render teh doctype header, too
+    """
+
+    e = hr.Html("Just a tiny bit of content")
+
+    output = render_element( e )
+
+    print output
+    assert output.startswith("<!DOCTYPE html>")
+    assert "<html>" in output
+    assert output.endswith("</html>\n")
+
