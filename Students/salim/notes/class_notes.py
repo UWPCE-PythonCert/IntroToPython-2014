@@ -649,7 +649,7 @@ def func(c, list=[]):   #  this is wrong because it dones't create a function le
     return list.append(c)
 
 
-############################## SESSION03 ##############################
+############################## SESSION04 ##############################
 """
 you almost never have to loop through sequences using range()
 - zip() will zip lists together
@@ -742,7 +742,7 @@ f.close()
 
 
 
-############################## SESSION04 ##############################
+############################## SESSION05 ##############################
 
 """ dealing with "ordered" / "sorted" dicts """
 
@@ -793,4 +793,22 @@ l = [1, 2, 3]
 
 
 """testing in python"""
+
+
+
+
+############################## SESSION06 ##############################
+
+"""Singletons should be tested using 'is'"""
+
+"""Anonymous functions"""
+
+lambda x, y: x + y
+
+"""Functional Programming"""
+
+"""
+'self' means the new instance of the class that you just created
+"""
+
 
