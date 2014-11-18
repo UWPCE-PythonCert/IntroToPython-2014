@@ -2,261 +2,117 @@
 .. Foundations 2: Python slides file, created by
    hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
 
-*******************************
-Session Seven: Testing, More OO
-*******************************
+*******************************************************
+Session Seven: More OO --  Properties, special methods.
+*******************************************************
 
 .. rst-class:: large centered
 
-| Testing,
 | Multiple Inheritance,
 | Properties,
-| Class and Static Methods,
+| classmethods and staticmethods,
 | Special (Magic) Methods
 
-
+================
 Review/Questions
 ================
 
 Review of Previous Class
 ------------------------
 
-* Unicode
+* Object Oriented Programming:
 
-* Object Oriented Programming
+  - classes
 
+  - instances
+
+  - attributes and methods
+
+  - subclassing
+
+  - overriding methods
 
 Homework review
 ---------------
 
 Homework Questions?
 
-How is progress going on the HTML Renderer?
+Have you all got an HTML Renderer working?
 
+Do you have a feel for classes, subclassing, overriding methods, ...?
 
-Testing
-=======
+Personal Project
+-----------------
 
-.. rst-class:: build left
-.. container::
+The bulk of the homework for the rest of the class will be a personal project:
 
-    You've already seen some a very basic testing strategy.
+* It can be for fun, or something you need for your job.
+* It should be large enought to take a few weeks homework time to do.
+* It should demostrate that you can do something useful with python.
+* It should follow PEP8 (https://www.python.org/dev/peps/pep-0008)
+* It should have unit tests!
+* Ideally, it will be in version control (gitHub)
+* I'm not going to require an specific python features (i.e. classes): use
+  what is appropriate for your project
 
-    You've written some tests using that strategy.
+* Due the Friday after the last class (December 12)
 
-    These tests were pretty basic, and a bit awkward in places (testing error
-    conditions in particular).
+|
+|  By next week, send me a project proposal: can be short and sweet.
+|
 
-    .. rst-class:: centered
 
-    **It gets better**
+Lightning Talks Today:
+-----------------------
 
-Test Runners
-------------
+.. rst-class:: medium
 
-So far our tests have been limited to code in an ``if __name__ == "__main__":``
-block.
+Andrew P Klock
 
-.. rst-class:: build
+Vinay Gupta
 
-* They are run only when the file is executed
-* They are always run when the file is executed
-* You can't do anything else when the file is executed without running tests.
+Ousmane Conde
 
-.. rst-class:: build
-.. container::
+Salim Hassan Hamed
 
-    This is not optimal.
 
-    Python provides testing systems to help.
+Lightning Talks
+----------------
 
+.. rst-class:: medium
 
-.. nextslide:: Standard Library: ``unittest``
+|
+| Ousmane Conde
+|
+| Salim Hassan Hamed
+|
 
-The original testing system in Python.
 
-You write subclasses of the ``unittest.TestCase`` class:
-
-.. code-block:: python
-
-    # in test.py
-    import unittest
-
-    class MyTests(unittest.TestCase):
-        def test_tautology(self):
-            self.assertEquals(1, 1)
-
-Then you run the tests by using the ``main`` function from the ``unittest``
-module:
-
-.. code-block:: python
-
-    # in test.py
-    if __name__ == '__main__':
-        unittest.main()
-
-.. nextslide:: Testing Your Code
-
-This way, you can write your code in one file and test it from another:
-
-.. code-block:: python
-
-    # in my_mod.py
-    def my_func(val1, val2):
-        return val1 * val2
-
-    # in test_my_mod.py
-    import unittest
-    from my_mod import my_func
-
-    class MyFuncTestCase(unittest.TestCase):
-        def test_my_func(self):
-            test_vals = (2, 3)
-            expected = reduce(lambda x, y: x * y, test_vals)
-            actual = my_func(*test_vals)
-            self.assertEquals(expected, actual)
-
-    if __name__ == '__main__':
-        unittest.main()
-
-.. nextslide:: Advantages of ``unittest``
-
-.. rst-class:: build
-.. container::
-
-    The ``unittest`` module is great.
-
-    It comes with the standard Python distribution, no installation required.
-
-    It provides a wide variety of assertions for testing all sorts of situations.
-
-    It allows for a setup and tear down workflow both before and after all tests
-    and before and after each test.
-
-    It's well known and well understood.
-
-.. nextslide:: Disadvantages:
-
-.. rst-class:: build
-.. container::
-
-
-    It's Object Oriented, and quite heavy.
-
-    It uses the framework design pattern, so knowing how to use the features
-    means learning what to override.
-
-    Needing to override means you have to be cautious.
-
-    Test discovery is both inflexible and brittle.
-
-.. nextslide:: Other Options
-
-There are several other options for running tests in Python.
-
-
-* `Nose`_
-* `pytest`_
-* ... (many frameworks supply their own test runners)
-
-We are going to play today with pytest
-
-.. _Nose: https://nose.readthedocs.org/
-.. _pytest: http://pytest.org/latest/
-
-
-.. nextslide:: Installing ``pytest``
-
-The first step is to install the package:
-
-.. code-block:: bash
-
-    $ workon cff2py
-    (cff2py)$ pip install pytest
-
-Once this is complete, you should have a ``py.test`` command you can run at the
-command line:
-
-.. code-block:: bash
-
-    (cff2py)$ py.test
-
-If you have any tests in your repository, that will find and run them.
-
-.. rst-class:: build
-.. container::
-
-    **Do you?**
-
-.. nextslide:: Pre-existing Tests
-
-I've added two files to the ``code/session07`` folder, along with a python
-source code file called ``circle.py``.
-
-The results you should have seen when you ran ``py.test`` above come partly
-from these files.
-
-Let's take a few minutes to look these files over.
-
-[demo]
-
-.. nextslide:: What's Happening Here.
-
-When you run the ``py.test`` command, ``pytest`` starts in your current working
-directory and searches the filesystem for things that might be tests.
-
-It follows some simple rules:
-
-.. rst-class:: build
-
-* Any python file that starts with ``test_`` or ``_test`` is imported.
-* Any functions in them that start with ``test_`` are run as tests.
-* Any classes that start with ``Test`` are treated similarly, with methods that
-  begin with ``test_`` treated as tests.
-
-
-.. nextslide::
-
-This test running framework is simple, flexible and configurable.
-
-`Read the documentation`_ for more information.
-
-.. _Read the documentation: http://pytest.org/latest/getting-started.html#getstarted
-
-.. nextslide:: Test Driven Development
-
-What we've just done here is the first step in what is called **Test Driven
-Development**.
-
-A bunch of tests exist, but the code to make them pass does not yet exist.
-
-The red we see in the terminal when we run our tests is a goad to us to write
-the code that fixes these tests.
-
-Let's do that next!
-
-
+===================
 More on Subclassing
 ===================
 
-Watch This Video:
-
-http://pyvideo.org/video/879/the-art-of-subclassing
-
 .. rst-class:: left
 
-Seriously, well worth the time.
+    I pointed you to this Video last class:
+
+    The Art of Subclassing: *Raymond Hettinger*
+
+    http://pyvideo.org/video/879/the-art-of-subclassing
+
+    If you haven't watched,  It's well worth your time
+
 
 What's a Subclass For?
 ----------------------
 
 The most salient points from that video are as follows:
 
-**Subclassing is not for Specialization**
+* **Subclassing is not for Specialization**
 
-**Subclassing is for Reusing Code**
+* **Subclassing is for Reusing Code**
 
-**Bear in mind that the subclass is in charge**
+* **Bear in mind that the subclass is in charge**
 
 
 Multiple Inheritance
@@ -276,7 +132,6 @@ Simply provide more than one parent.
             Super3.__init__(self, ......)
             # possibly more custom initialization
 
-
 (calls to the super class ``__init__``  are optional -- case dependent)
 
 .. nextslide:: Method Resolution Order
@@ -291,9 +146,9 @@ Attributes are located bottom-to-top, left-to-right
 * Is it a class attribute ?
 * Is it a superclass attribute ?
 
-  * is the it an attribute of the left-most superclass?
-  * is the it an attribute of the next superclass?
-  * and so on up the hierarchy...
+  - Is  it an attribute of the left-most superclass?
+  - Is  it an attribute of the next superclass?
+  - and so on up the hierarchy...
 
 * Is it a super-superclass attribute ?
 * ... also left to right ...
@@ -301,6 +156,8 @@ Attributes are located bottom-to-top, left-to-right
 http://python-history.blogspot.com/2010/06/method-resolution-order.html
 
 .. nextslide:: Mix-ins
+
+So why would you want to do this? One reason:  *mixins*
 
 Provides an subset of expected functionality in a re-usable package.
 
@@ -313,18 +170,16 @@ Hierarchies are not always simple:
   * Mammal
 
     * GiveBirth()
-    
+
   * Bird
-    
+
     * LayEggs()
-    
+
 Where do you put a Platypus?
 
 Real World Example: `FloatCanvas`_
 
 .. _FloatCanvas: https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L485
-
-**Careful About This Pattern**
 
 
 .. nextslide:: New-Style Classes
@@ -338,7 +193,9 @@ up a few things.
 
 There are differences in method resolution order and properties.
 
-**Always Make New-Style Classes.**
+**Always Make New-Style Classes**
+
+(that is, always subclass from object...)
 
 The differences are subtle, and may not appear until they jump up to bite you.
 
@@ -350,7 +207,7 @@ the unbound method on the superclass.
 
 instead of:
 
-.. code-block:: python  
+.. code-block:: python
 
     class A(B):
         def __init__(self, *args, **kwargs)
@@ -359,7 +216,7 @@ instead of:
 
 You can do:
 
-.. code-block:: python  
+.. code-block:: python
 
     class A(B):
         def __init__(self, *args, **kwargs)
@@ -387,7 +244,7 @@ http://rhettinger.wordpress.com/2011/05/26/super-considered-super/}
 
 (Both worth reading....)
 
-
+==========
 Properties
 ==========
 
@@ -538,7 +395,28 @@ syntactic feature called **decorators** (more about these next session):
     In [26]: e.x
     Out[26]: 6
 
+LAB
+----
 
+Let's use some of this to build a nice class to represent a Circle.
+
+For now, Lets do steps 1-4 of:
+
+:ref:`homework_circle_class`
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Andrew P Klock
+|
+| Vinay Gupta
+|
+
+
+========================
 Static and Class Methods
 ========================
 
@@ -606,7 +484,7 @@ Like ``properties``, static methods can be written *declaratively* using the
     An example from the Standard Library (tarfile.py):
 
     .. code-block:: python
-        
+
         class TarInfo(object):
             # ...
             @staticmethod
@@ -669,7 +547,7 @@ more declarative style of programming:
     Consider this:
 
     .. code-block:: ipython
-    
+
         In [44]: class SubClassy(Classy):
            ....:     x = 3
            ....:
@@ -777,7 +655,7 @@ When all your tests are passing, you've completed the job.
 
 (This clear finish line is another of the advantages of TDD)
 
-
+================
 Special Methods
 ===============
 
@@ -945,32 +823,13 @@ green'.
 
 When all your tests are passing, you've completed the job.
 
-
+========
 Homework
 ========
-
-.. rst-class:: centered large
-
-Testing, Testing, 1 2 3
 
 
 Assignment
 ----------
+Complete the Circle class
 
-If you are not yet done, complete the ``Circle`` class so that all tests in
-``test_circle2.py`` pass.
-
-Go back over some of your assignments from the last weeks.
-
-Convert tests that are currently in the ``if __name__ == '__main__':`` blocks
-into standalone pytest files.
-
-Name each test file so that it is clear with which source file it belongs::
-
-    test_rot13.py -> rot13.py
-
-Add unit tests for the HTML Renderer that you are currently constructing.
-
-Create at least 4 test files with tests that well exercise the features built
-in each source file.
-
+DEcide what you are going to do for your proejct,
