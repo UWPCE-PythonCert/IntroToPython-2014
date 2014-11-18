@@ -304,44 +304,62 @@ But what if you need to add behavior later?
 
 .. _Java: http://dirtsimple.org/2004/12/python-is-not-java.html
 
-.. nextslide:: properties
+properties
+-----------
 
-When (and if) you need them:
+.. code-block:: ipython
+
+    class C(object):
+        _x = None
+        @property
+        def x(self):
+            return self._x
+        @x.setter
+        def x(self, value):
+            self._x = value
+
+    In [28]: c = C()
+    In [30]: c.x = 5
+    In [31]: print c.x
+    5
+
+Now the interface is like simple attribute access!
+
+.. nextslide::
+
+What's up with the "@" symbols?
+
+Those are "decorations" it's a syntax for wrapping functions up with something special.
+
+We'll cover that in detail in a couple weeks, but for now -- just copy the syntax.
 
 .. code-block:: python
 
-    class C(object):
-        def __init__(self, x=5):
-            self._x = x
-        def _getx(self):
-            return self._x
-        def _setx(self, value):
-            self._x = value
-        def _delx(self):
-            del self._x
-        x = property(_getx, _setx, _delx, doc="docstring")
+    @property
+    def x(self):
 
-Now the interface is still like simple attribute access!
+means: make a property called x with this as the "getter".
 
-.. rst-class:: centered small
+.. code-block:: python
 
-[demo: :download:`properties_example.py <./supplements/properties_example.py>`]
+    @x.setter
+    def x(self, value):
 
+means: make the "setter" of the 'x' property this new function
 
 .. nextslide:: "Read Only" Attributes
 
-Not all the arguments to ``property`` are required.
-
-You can use this to create attributes that are "read only":
+You do not need to define a setter. If you don't, you get a "read only" attribute:
 
 .. code-block:: ipython
 
     In [11]: class D(object):
        ....:     def __init__(self, x=5):
        ....:         self._x = 5
+       ....:     @property
        ....:     def getx(self):
+       ....:     """I am read only"""
        ....:         return self._x
-       ....:     x = property(getx, doc="I am read only")
        ....:
     In [12]: d = D()
     In [13]: d.x
@@ -353,54 +371,38 @@ You can use this to create attributes that are "read only":
     ----> 1 d.x = 6
     AttributeError: can't set attribute
 
+deleters
+---------
 
-.. nextslide:: Syntactic Sugar
-
-This *imperative* style of adding a ``property`` to you class is clear, but
-it's still a little verbose.
-
-It also has the effect of leaving all those defined method objects laying
-around:
+If you want to do something special when a property is deleted, you can define
+a deleter is well:
 
 .. code-block:: ipython
 
-    In [19]: d.x
-    Out[19]: 5
-    In [20]: d.getx
-    Out[20]: <bound method D.getx of <__main__.D object at 0x1043a4a10>>
-    In [21]: d.getx()
-    Out[21]: 5
-
-.. nextslide::
-
-Python provides us with a way to solve both these issues at once, using a
-syntactic feature called **decorators** (more about these next session):
-
-.. code-block:: ipython
-
-    In [22]: class E(object):
+    In [11]: class D(object):
        ....:     def __init__(self, x=5):
-       ....:         self._x = x
+       ....:         self._x = 5
        ....:     @property
        ....:     def x(self):
        ....:         return self._x
-       ....:     @x.setter
-       ....:     def x(self, value):
-       ....:         self._x = value
-       ....:
-    In [23]: e = E()
-    In [24]: e.x
-    Out[24]: 5
-    In [25]: e.x = 6
-    In [26]: e.x
-    Out[26]: 6
+       ....:     @x.deleter
+       ....:     def x(self):
+       ....:         del self._x
+
+If you leave this out, the property can't be deleted, which is usually
+what you want.
+
+.. rst-class:: centered
+
+[demo: :download:`properties_example.py <../../Examples/Session07/properties_example.py>`]
+
 
 LAB
 ----
 
 Let's use some of this to build a nice class to represent a Circle.
 
-For now, Lets do steps 1-4 of:
+For now, Let's do steps 1-4 of:
 
 :ref:`homework_circle_class`
 
@@ -420,7 +422,7 @@ Lightning Talks
 Static and Class Methods
 ========================
 
-.. rst-class:: left build
+    .. rst-class:: left build
 .. container::
 
     You've seen how methods of a class are *bound* to an instance when it is
@@ -445,9 +447,10 @@ A *static method* is a method that doesn't get self:
 .. code-block:: ipython
 
     In [36]: class StaticAdder(object):
+
+       ....:     @staticmethod
        ....:     def add(a, b):
        ....:         return a + b
-       ....:     add = staticmethod(add)
        ....:
 
     In [37]: StaticAdder.add(3, 6)
@@ -455,20 +458,9 @@ A *static method* is a method that doesn't get self:
 
 .. rst-class:: centered
 
-[demo: :download:`static_method.py <./supplements/static_method.py>`]
+[demo: :download:`static_method.py <../../Examples/Session07/static_method.py>`]
 
 
-.. nextslide:: Syntactic Sugar
-
-Like ``properties``, static methods can be written *declaratively* using the
-``staticmethod`` built-in as a *decorator*:
-
-.. code-block:: python
-
-    class StaticAdder(object):
-        @staticmethod
-        def add(a, b):
-            return a + b
 
 .. nextslide:: Why?
 
@@ -508,10 +500,10 @@ argument
 
     In [41]: class Classy(object):
        ....:     x = 2
+       ....:     @classmethod
        ....:     def a_class_method(cls, y):
        ....:         print "in a class method: ", cls
        ....:         return y ** cls.x
-       ....:     a_class_method = classmethod(a_class_method)
        ....:
     In [42]: Classy.a_class_method(4)
     in a class method:  <class '__main__.Classy'>
@@ -519,21 +511,8 @@ argument
 
 .. rst-class:: centered
 
-[demo: :download:`class_method.py <./supplements/class_method.py>`]
+[demo: :download:`class_method.py <../../Examples/Session07/class_method.py>`]
 
-.. nextslide:: Syntactic Sugar
-
-Once again, the ``classmethod`` built-in can be used as a *decorator* for a
-more declarative style of programming:
-
-.. code-block:: python
-
-    class Classy(object):
-        x = 2
-        @classmethod
-        def a_class_method(cls, y):
-            print "in a class method: ", cls
-            return y ** cls.x
 
 .. nextslide:: Why?
 
@@ -586,7 +565,6 @@ implements an alternate constructor that *can*.
     def fromkeys(cls, iterable, value=None):
         '''OD.fromkeys(S[, v]) -> New ordered dictionary with keys from S.
         If not specified, the value defaults to None.
-
         '''
         self = cls()
         for key in iterable:
@@ -612,50 +590,10 @@ well.
 .. _Here is a low level look: https://docs.python.org/2/howto/descriptor.html
 
 
-Kicking the Tires
------------------
-
-Copy the file ``code/session07/circly.py`` to your student folder.
-
-In it, write a simple "Circle" class:
-
-.. code-block:: ipython
-
-    In [13]: c = Circle(3)
-    In [15]: c.diameter
-    Out[15]: 6.0
-    In [16]: c.diameter = 8
-    In [17]: c.radius
-    Out[17]: 4.0
-    In [18]: c.area
-    Out[18]: 50.26548245743669
-
-
-Use ``properties`` so you can keep the radius and diameter in sync, and the
-area computed on the fly.
-
 Extra Credit: use a class method to make an alternate constructor that takes
 the diameter instead.
 
-
-.. nextslide::
-
-Also copy the file ``test_circle1.py`` to your student folder.
-
-As you work, run the tests:
-
-.. code-block:: bash
-
-    (cff2py)$ py.test test_circle1.py
-
-As each of the requirements from above are fulfilled, you'll see tests 'turn
-green'.
-
-When all your tests are passing, you've completed the job.
-
-(This clear finish line is another of the advantages of TDD)
-
-================
+===============
 Special Methods
 ===============
 
@@ -681,7 +619,29 @@ Pronounced "dunder" (or "under-under")
 
 try: ``dir(2)``  or ``dir(list)``
 
-.. nextslide:: Protocols
+.. nextslide:: Generally Useful Special Methods
+
+Most classes should at lest have these special methods:
+
+``object.__str__``:
+  Called by the str() built-in function and by the print statement to compute
+  the *informal* string representation of an object.
+
+``object.__unicode__``:
+  Called by the unicode() built-in function.  This converts an object to an
+  *informal* unicode representation.
+
+  (more on Unicode later....)
+
+``object.__repr__``:
+  Called by the repr() built-in function and by string conversions (reverse
+  quotes) to compute the *official* string representation of an object.
+
+  (ideally: ``eval( repr(something) ) == something``)
+
+
+Protocols
+----------
 
 .. rst-class:: build
 .. container::
@@ -736,7 +696,8 @@ Want to make a container type? Here's what you need:
 
 Each of these methods supports a common Python operation.
 
-For example, to make '+' work with a sequence type in a vector-like fashion, implement ``__add__``:
+For example, to make '+' work with a sequence type in a vector-like fashion,
+implement ``__add__``:
 
 .. code-block:: python
 
@@ -751,26 +712,6 @@ For example, to make '+' work with a sequence type in a vector-like fashion, imp
 [a more complete example may be seen :download:`here <./supplements/vector.py>`]
 
 
-.. nextslide:: Generally Useful Special Methods
-
-You only *need* to define the special methods that will be used by your class.
-
-However, even in the absence of wanting to duck-type, you should almost always
-define these:
-
-``object.__str__``:
-  Called by the str() built-in function and by the print statement to compute
-  the *informal* string representation of an object.
-
-``object.__unicode__``:
-  Called by the unicode() built-in function.  This converts an object to an
-  *informal* unicode representation.
-
-``object.__repr__``:
-  Called by the repr() built-in function and by string conversions (reverse
-  quotes) to compute the *official* string representation of an object.
-
-  (ideally: ``eval( repr(something) ) == something``)
 
 .. nextslide:: Summary
 
@@ -788,48 +729,10 @@ Be a bit cautious about the code examples in that last one. It uses quite a bit
 of old-style class definitions, which should not be emulated.
 
 
-Kicking the Tires
------------------
-
-Extend your "Circle" class:
-
-* Add ``__str__``  and ``__repr__``  methods
-* Write an ``__add__``  method so you can add two circles
-* Make it so you can multiply a circle by a number....
-
-.. code-block:: ipython
-
-    In [22]: c1 = Circle(3)
-    In [23]: c2 = Circle(4)
-    In [24]: c3 = c1+c2
-    In [25]: c3.radius
-    Out[25]: 7
-    In [26]: c1*3
-    Out[26]: Circle(9)
-
-If you have time: compare them... (``c1 > c2`` , etc)
-
-
-.. nextslide::
-
-As you work, run the tests in ``test_circle2.py``:
-
-.. code-block:: bash
-
-    (cff2py)$ py.test test_circle2.py
-
-As each of the requirements from above are fulfilled, you'll see tests 'turn
-green'.
-
-When all your tests are passing, you've completed the job.
-
 ========
 Homework
 ========
 
-
-Assignment
-----------
 Complete the Circle class
 
-DEcide what you are going to do for your proejct,
+Decide what you are going to do for your proejct,
