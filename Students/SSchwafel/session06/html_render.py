@@ -1,18 +1,19 @@
 #!/usr/bin/python
 
-class element(object):
-    tag = 'html'
+class Element(object):
 
+    #tag = 'html'
     indent = '    '
-
     def __init__(self, content=None, **attributes):
-        
-        self.content = []
 
+        self.content = []
+        
         if content is not None:
+
             self.content.append(content)
             self.attributes = attributes
-    def append(self, content):
+
+    def append(self, content): 
     
         self.content.append(content)
 
@@ -20,7 +21,7 @@ class element(object):
 
         attrs = "".join([' {}={}'.format(key,val) for key, val in self.attributes.items()])
 
-        tag_str = "{}<{}{}>").format(current_ind,self.tag, attrs)
+        tag_str = "{}<{}{}>".format(current_ind,self.tag,attrs)
 
         return tag_str
 
@@ -29,72 +30,38 @@ class element(object):
         file_out.write(self.render_tag(current_ind))
         file_out.write('\n')
 
-        for c in self.content:
+        for con in self.content:
             try:
                 file_out.write(current_ind + self.indent + con + '\n')
+
             except TypeError:
                 con.render(file_out, current_ind + self.indent)
 
-        file_out.write("{}<{}> + \n".format(current_ind, self.tag))
+        file_out.write("{}</{}> \n".format(current_ind, self.tag))
 
-        
-class Html(element):
-
+class Html(Element):
     tag = 'html'
 
-class Body(element):
-
+class Body(Element):
     tag = 'body'
-
-class P(element):
-    
+        
+class P(Element):
     tag = 'p'
 
-class Head(element):
-    
+class Head(Element):
     tag = 'head'
-    
-class OneLineTag(element):
-    
+
+class OneLineTag(Element):
+
     def render(self, file_out, current_ind=""):
 
         file_out.write(self.render_tag(current_ind))
-        
-        for c in self.content:
-                file_out.write(con)
 
-        file_out.write("</{}>\n").format(self.tag))
+        for con in self.content:
+            file_out.write(con)
 
-class SelfClosingTag(OneLineTag):
-    
-    def render(self, file_out, current_ind=""):
-        file_out.write(self.render_tag(current_ind))
-        file_out.write(" />\n")
+        file_out.write("</{}> \n".format(self.tag))
 
-
-class Hr(SelfClosingTag):
-
-
-
-class title(OneLineTag):
+class Title(OneLineTag):
 
     tag = 'title'
-
-class A(OneLineTag):
-    tag = 'a'
-    def __init__(self, link, content):
-        OneLineTag.___init__(self, content=None, **attributes)
-        self.attributes["href"] = link
-        
-class H(OneLineTag):
-
-    tag = 'h'
-    
-    def __init__(self, level, content=None, **attributes):
-        self.tag = 'h{}'.format(level)
-
-class Ul(element):
-    tag = 'ul'
-
-class li(element):
-    tag = 'li'
