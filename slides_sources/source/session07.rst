@@ -2,16 +2,21 @@
 .. Foundations 2: Python slides file, created by
    hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
 
-*******************************************************
-Session Seven: More OO --  Properties, special methods.
-*******************************************************
+***********************
+Session Seven: More OO
+***********************
 
-.. rst-class:: large centered
+.. rst-class:: medium centered
 
-| Multiple Inheritance,
-| Properties,
-| classmethods and staticmethods,
-| Special (Magic) Methods
+.. container::
+
+  Multiple Inheritance
+
+  Properties
+
+  Class methods and  static methods
+
+  Special (Magic) Methods
 
 ================
 Review/Questions
@@ -67,25 +72,13 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-Andrew P Klock
+  Andrew P Klock
 
-Vinay Gupta
+  Vinay Gupta
 
-Ousmane Conde
+  Ousmane Conde
 
-Salim Hassan Hamed
-
-
-Lightning Talks
-----------------
-
-.. rst-class:: medium
-
-|
-| Ousmane Conde
-|
-| Salim Hassan Hamed
-|
+  Salim Hassan Hamed
 
 
 ===================
@@ -100,7 +93,7 @@ More on Subclassing
 
     http://pyvideo.org/video/879/the-art-of-subclassing
 
-    If you haven't watched,  It's well worth your time
+    If you haven't watched it,  It's well worth your time
 
 
 What's a Subclass For?
@@ -161,7 +154,7 @@ So why would you want to do this? One reason:  *mixins*
 
 Provides an subset of expected functionality in a re-usable package.
 
-Why would you want to do this?
+Huh? this is why --
 
 Hierarchies are not always simple:
 
@@ -229,8 +222,9 @@ Caution: There are some subtle differences with multiple inheritance.
 
 You can use explicit calling to ensure that the 'right' method is called.
 
+.. rst-class:: medium
 
-.. nextslide:: Background
+    **Background**
 
 Two seminal articles about ``super()``:
 
@@ -422,7 +416,7 @@ Lightning Talks
 Static and Class Methods
 ========================
 
-    .. rst-class:: left build
+.. rst-class:: left build
 .. container::
 
     You've seen how methods of a class are *bound* to an instance when it is
@@ -459,7 +453,6 @@ A *static method* is a method that doesn't get self:
 .. rst-class:: centered
 
 [demo: :download:`static_method.py <../../Examples/Session07/static_method.py>`]
-
 
 
 .. nextslide:: Why?
@@ -725,8 +718,26 @@ There's more to read about the details of implementing these methods:
 * https://docs.python.org/2/reference/datamodel.html#special-method-names
 * http://www.rafekettler.com/magicmethods.html
 
-Be a bit cautious about the code examples in that last one. It uses quite a bit
-of old-style class definitions, which should not be emulated.
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Ousmane Conde
+|
+| Salim Hassan Hamed
+|
+
+LAB
+----
+
+Let's complete our nifty Circle class:
+
+Steps 5-8 of:
+
+:ref:`homework_circle_class`
 
 
 ========
@@ -735,4 +746,6 @@ Homework
 
 Complete the Circle class
 
-Decide what you are going to do for your proejct,
+Decide what you are going to do for your proejct, and send me a simple proposal.
+
+
