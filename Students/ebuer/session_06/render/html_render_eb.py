@@ -12,13 +12,15 @@ class Element(object):
     indent = ''  # indent level for tag
     tag = u"html"
 
-    def __init__(self, content=None,
-                 **attrsdict):  # update with content=None, **attributes/kwargs empty dictionary initialized, but not populated assuming dict isn't passed
+    def __init__(self, content=None, **attrsdict):  
+        # update with content=None, **attributes/kwargs empty dictionary initialized, but not populated assuming dict isn't passed
 
         self.tag_dict = {'indent': self.indent, 'tag': self.tag,
                     'ind': ""}  # , 'ind': ind
 
         self.attrsdict = attrsdict
+
+        # print attrsdict
 
         if content is None:
             self.content = []
@@ -32,16 +34,21 @@ class Element(object):
     # render method, extended a couple times
     def render(self, file_out, ind=""):
 
-        attrstring = u''
+        attrstring = []
         for k, v in self.attrsdict.items():
-            tempstring = u'{}={} '.format(k, v)
-            " ".join([attrstring, tempstring])
+            tempstring = u'{}= "{}" '.format(k, v)
+            print tempstring
+            attrstring.append(tempstring)
 
-        file_out.write(u'{ind}{indent}<{tag}>\n'.format(**self.tag_dict))
+        # print attrstring
 
-        if attrstring is not u'':
-            file_out.write(attrstring),
-            # file_out.write(u'{ind}{indent}</{tag}>'.format(**self.tag_dict)),
+        tempattr = u''.join(attrstring)
+
+        # consider moving entire attrstring work into new method
+
+        file_out.write(u'{ind}{indent}<{tag} '.format(**self.tag_dict))
+        file_out.write(tempattr)
+        file_out.write(u'>\n')
 
         # expand here to create handling for either string or object
         for obj in self.content:
@@ -119,6 +126,7 @@ class Br(SelfClosingTag):
 # step 6, add hyperlink tag as subclass of Element
 
 class A(Element):
+    tag = u'a'
 
     """A(self, link, content)
         where link is the link, and content is what you see
@@ -130,8 +138,10 @@ class A(Element):
 
     def __init__(self, link, content=None):
         # pass in link url, text to hyperlink
-        self.link = link
-        Element.__init__(self, content, link)
+        # create a dictionary k, v pair from link that is passed in
+        # to lower element init
+        print link
+        Element.__init__(self, content, **{'href': link})
 
 
 """
