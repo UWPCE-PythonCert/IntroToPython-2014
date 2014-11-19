@@ -9,7 +9,8 @@ NOTE: if your getters and setters are this simple: don't do this!
 
 
 class C(object):
-    _x = None
+    def __init__(self):
+        self._x = None
     @property
     def x(self):
         return self._x

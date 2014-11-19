@@ -15,14 +15,14 @@ class C(object):
     def test(self):
         return self.a_static_method(2,3)
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    print C.a_static_method(3,4)
+#     print C.a_static_method(3,4)
 
-    c = C()
+#     c = C()
 
-    print c.a_static_method(4,5)
+#     print c.a_static_method(4,5)
 
-    print c.test()
+#     print c.test()
 
 
