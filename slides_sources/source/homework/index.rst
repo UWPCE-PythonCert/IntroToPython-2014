@@ -6,4 +6,5 @@ Homework Materials
 
     kata_fourteen
     html_builder
+    circle_class
 
