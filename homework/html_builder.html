@@ -30,7 +30,7 @@
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
         <link rel="up" title="Homework Materials" href="index.html"/>
-        <link rel="next" title="Supplemental Materials" href="../supplements/index.html"/>
+        <link rel="next" title="Circle Class Homework Assignment" href="circle_class.html"/>
         <link rel="prev" title="Kata Fourteen: Tom Swift Under Milk Wood" href="kata_fourteen.html"/> 
 
   
@@ -141,9 +141,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../session06.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: More OO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session07.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session07.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session07.html#more-on-subclassing">More on Subclassing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session07.html#properties">Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session07.html#static-and-class-methods">Static and Class Methods</a></li>
@@ -174,6 +173,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Homework Materials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">HTML Renderer Homework Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circle_class.html">Circle Class Homework Assignment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a><ul>
@@ -262,19 +262,20 @@
 </ul>
 </div></blockquote>
 <p>The amount of indentation should be set by the class attribute: <tt class="docutils literal"><span class="pre">indent</span></tt></p>
+<p>NOTE: don&#8217;t worry too much about indentation at this stage &#8211; the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you&#8217;ve got that working.</p>
 <p>You should now be able to render an html tag with text in it as contents.</p>
 <p>See: step 1. in <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt></p>
 </div>
 <div class="section" id="step-2">
 <h3>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
-<p>Create a couple subclasses of <tt class="docutils literal"><span class="pre">Element</span></tt>, for a <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag and <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tag. All you should have to do is override the <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute (you may need to add a <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute to the Element class first...).</p>
+<p>Create a couple subclasses of <tt class="docutils literal"><span class="pre">Element</span></tt>, for a <tt class="docutils literal"><span class="pre">html</span></tt>, <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt>, and <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tag. All you should have to do is override the <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute (you may need to add a <tt class="docutils literal"><span class="pre">tag</span></tt> class attribute to the Element class first...).</p>
 <p>Now you can render a few different types of element.</p>
 <p>Extend the <tt class="docutils literal"><span class="pre">Element.render()</span></tt> method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the <tt class="docutils literal"><span class="pre">render()</span></tt> method of the elements it contains. You&#8217;ll need to be smart about setting the <tt class="docutils literal"><span class="pre">ind</span></tt> optional parameter &#8211; so that the nested elements get indented correctly.</p>
 <p>Figure out a way to deal with the fact that the contained elements could be either simple strings or <tt class="docutils literal"><span class="pre">Element</span></tt> s with render methods (there are a few ways to handle that...).</p>
 <p>You should now be able to render a basic web page with an html tag around
-the whole thing, a <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag inside, and multiple <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tags inside that,
-with text inside that. And all indended nicely.</p>
+the whole thing, a <tt class="docutils literal"><span class="pre">&lt;body&gt;</span></tt> tag inside, and multiple <tt class="docutils literal"><span class="pre">&lt;p&gt;</span></tt> tags inside that, with text inside that. And all indented nicely.</p>
 <p>See <tt class="docutils literal"><span class="pre">test_html_output2.html</span></tt></p>
+<p>NOTE: when you run step 2 in <tt class="docutils literal"><span class="pre">run_html_render.py</span></tt>, you will want o comment out step 1 &#8211; that way you&#8217;ll only get one set of output.</p>
 </div>
 <div class="section" id="step-3">
 <h3>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h3>
@@ -361,7 +362,8 @@ new tags, etc....</p>
 never seen html before, this might be a bit intimidating, but you really don&#8217;t
 need to know much to do this assignment.</p>
 <p>First of all, sample output from each step is provided. So all you really need
-to do is look at that, and make your code do the same thing. But it does help to know a little bit about what you are doing.</p>
+to do is look at that, and make your code do the same thing. But it does help to
+know a little bit about what you are doing.</p>
 <div class="section" id="html">
 <h3>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
 <p>HTML is &#8220;Hyper Text Markup Language&#8221;. Hypertext, because it can contain links
@@ -442,7 +444,7 @@ the element, and the end of the element is indicated by the same tag with a slas
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../supplements/index.html" class="btn btn-neutral float-right" title="Supplemental Materials"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="circle_class.html" class="btn btn-neutral float-right" title="Circle Class Homework Assignment"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="kata_fourteen.html" class="btn btn-neutral" title="Kata Fourteen: Tom Swift Under Milk Wood"><span class="fa fa-arrow-circle-left"></span> Previous</a>

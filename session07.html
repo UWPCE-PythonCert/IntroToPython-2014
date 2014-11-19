@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Seven: Testing, More OO &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Seven: More OO &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -140,9 +140,8 @@
 <li class="toctree-l2"><a class="reference internal" href="session06.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Seven: Testing, More OO</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Seven: More OO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-on-subclassing">More on Subclassing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#static-and-class-methods">Static and Class Methods</a></li>
@@ -173,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="homework/index.html">Homework Materials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="homework/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
 <li class="toctree-l2"><a class="reference internal" href="homework/html_builder.html">HTML Renderer Homework Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework/circle_class.html">Circle Class Homework Assignment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a><ul>
@@ -209,7 +209,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Session Seven: Testing, More OO</li>
+    <li>Session Seven: More OO</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/session07.txt" rel="nofollow"> View page source</a>
@@ -220,160 +220,79 @@
 </div>
           <div role="main">
             
-  <div class="section" id="session-seven-testing-more-oo">
-<h1>Session Seven: Testing, More OO<a class="headerlink" href="#session-seven-testing-more-oo" title="Permalink to this headline">¶</a></h1>
-<div class="large centered line-block">
-<div class="line">Testing,</div>
-<div class="line">Multiple Inheritance,</div>
-<div class="line">Properties,</div>
-<div class="line">Class and Static Methods,</div>
-<div class="line">Special (Magic) Methods</div>
+  <div class="section" id="session-seven-more-oo">
+<h1>Session Seven: More OO<a class="headerlink" href="#session-seven-more-oo" title="Permalink to this headline">¶</a></h1>
+<div class="medium centered container">
+<p>Multiple Inheritance</p>
+<p>Properties</p>
+<p>Class methods and  static methods</p>
+<p>Special (Magic) Methods</p>
 </div>
 <div class="section" id="review-questions">
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-class">
 <h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Unicode</li>
-<li>Object Oriented Programming</li>
+<li>Object Oriented Programming:<ul>
+<li>classes</li>
+<li>instances</li>
+<li>attributes and methods</li>
+<li>subclassing</li>
+<li>overriding methods</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="homework-review">
 <h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
 <p>Homework Questions?</p>
-<p>How is progress going on the HTML Renderer?</p>
+<p>Have you all got an HTML Renderer working?</p>
+<p>Do you have a feel for classes, subclassing, overriding methods, ...?</p>
 </div>
-</div>
-<div class="section" id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<div class="build left container">
-<p>You&#8217;ve already seen some a very basic testing strategy.</p>
-<p>You&#8217;ve written some tests using that strategy.</p>
-<p>These tests were pretty basic, and a bit awkward in places (testing error
-conditions in particular).</p>
-<p class="centered"><strong>It gets better</strong></p>
-</div>
-<div class="section" id="test-runners">
-<h3>Test Runners<a class="headerlink" href="#test-runners" title="Permalink to this headline">¶</a></h3>
-<p>So far our tests have been limited to code in an <tt class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></tt>
-block.</p>
-<ul class="build simple">
-<li>They are run only when the file is executed</li>
-<li>They are always run when the file is executed</li>
-<li>You can&#8217;t do anything else when the file is executed without running tests.</li>
-</ul>
-<div class="build container">
-<p>This is not optimal.</p>
-<p>Python provides testing systems to help.</p>
-</div>
-<p>The original testing system in Python.</p>
-<p>You write subclasses of the <tt class="docutils literal"><span class="pre">unittest.TestCase</span></tt> class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># in test.py</span>
-<span class="kn">import</span> <span class="nn">unittest</span>
-
-<span class="k">class</span> <span class="nc">MyTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_tautology</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Then you run the tests by using the <tt class="docutils literal"><span class="pre">main</span></tt> function from the <tt class="docutils literal"><span class="pre">unittest</span></tt>
-module:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># in test.py</span>
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>This way, you can write your code in one file and test it from another:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># in my_mod.py</span>
-<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">val1</span> <span class="o">*</span> <span class="n">val2</span>
-
-<span class="c"># in test_my_mod.py</span>
-<span class="kn">import</span> <span class="nn">unittest</span>
-<span class="kn">from</span> <span class="nn">my_mod</span> <span class="kn">import</span> <span class="n">my_func</span>
-
-<span class="k">class</span> <span class="nc">MyFuncTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_my_func</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">test_vals</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-        <span class="n">expected</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_vals</span><span class="p">)</span>
-        <span class="n">actual</span> <span class="o">=</span> <span class="n">my_func</span><span class="p">(</span><span class="o">*</span><span class="n">test_vals</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="build container">
-<p>The <tt class="docutils literal"><span class="pre">unittest</span></tt> module is great.</p>
-<p>It comes with the standard Python distribution, no installation required.</p>
-<p>It provides a wide variety of assertions for testing all sorts of situations.</p>
-<p>It allows for a setup and tear down workflow both before and after all tests
-and before and after each test.</p>
-<p>It&#8217;s well known and well understood.</p>
-</div>
-<div class="build container">
-<p>It&#8217;s Object Oriented, and quite heavy.</p>
-<p>It uses the framework design pattern, so knowing how to use the features
-means learning what to override.</p>
-<p>Needing to override means you have to be cautious.</p>
-<p>Test discovery is both inflexible and brittle.</p>
-</div>
-<p>There are several other options for running tests in Python.</p>
+<div class="section" id="personal-project">
+<h3>Personal Project<a class="headerlink" href="#personal-project" title="Permalink to this headline">¶</a></h3>
+<p>The bulk of the homework for the rest of the class will be a personal project:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nose.readthedocs.org/">Nose</a></li>
-<li><a class="reference external" href="http://pytest.org/latest/">pytest</a></li>
-<li>... (many frameworks supply their own test runners)</li>
+<li>It can be for fun, or something you need for your job.</li>
+<li>It should be large enought to take a few weeks homework time to do.</li>
+<li>It should demostrate that you can do something useful with python.</li>
+<li>It should follow PEP8 (<a class="reference external" href="https://www.python.org/dev/peps/pep-0008">https://www.python.org/dev/peps/pep-0008</a>)</li>
+<li>It should have unit tests!</li>
+<li>Ideally, it will be in version control (gitHub)</li>
+<li>I&#8217;m not going to require an specific python features (i.e. classes): use
+what is appropriate for your project</li>
+<li>Due the Friday after the last class (December 12)</li>
 </ul>
-<p>We are going to play today with pytest</p>
-<p>The first step is to install the package:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>workon cff2py
-<span class="o">(</span>cff2py<span class="o">)</span><span class="nv">$ </span>pip install pytest
-</pre></div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">By next week, send me a project proposal: can be short and sweet.</div>
+<div class="line"><br /></div>
 </div>
-<p>Once this is complete, you should have a <tt class="docutils literal"><span class="pre">py.test</span></tt> command you can run at the
-command line:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>cff2py<span class="o">)</span><span class="nv">$ </span>py.test
-</pre></div>
 </div>
-<p>If you have any tests in your repository, that will find and run them.</p>
-<div class="build container">
-<strong>Do you?</strong></div>
-<p>I&#8217;ve added two files to the <tt class="docutils literal"><span class="pre">code/session07</span></tt> folder, along with a python
-source code file called <tt class="docutils literal"><span class="pre">circle.py</span></tt>.</p>
-<p>The results you should have seen when you ran <tt class="docutils literal"><span class="pre">py.test</span></tt> above come partly
-from these files.</p>
-<p>Let&#8217;s take a few minutes to look these files over.</p>
-<p>[demo]</p>
-<p>When you run the <tt class="docutils literal"><span class="pre">py.test</span></tt> command, <tt class="docutils literal"><span class="pre">pytest</span></tt> starts in your current working
-directory and searches the filesystem for things that might be tests.</p>
-<p>It follows some simple rules:</p>
-<ul class="build simple">
-<li>Any python file that starts with <tt class="docutils literal"><span class="pre">test_</span></tt> or <tt class="docutils literal"><span class="pre">_test</span></tt> is imported.</li>
-<li>Any functions in them that start with <tt class="docutils literal"><span class="pre">test_</span></tt> are run as tests.</li>
-<li>Any classes that start with <tt class="docutils literal"><span class="pre">Test</span></tt> are treated similarly, with methods that
-begin with <tt class="docutils literal"><span class="pre">test_</span></tt> treated as tests.</li>
-</ul>
-<p>This test running framework is simple, flexible and configurable.</p>
-<p><a class="reference external" href="http://pytest.org/latest/getting-started.html#getstarted">Read the documentation</a> for more information.</p>
-<p>What we&#8217;ve just done here is the first step in what is called <strong>Test Driven
-Development</strong>.</p>
-<p>A bunch of tests exist, but the code to make them pass does not yet exist.</p>
-<p>The red we see in the terminal when we run our tests is a goad to us to write
-the code that fixes these tests.</p>
-<p>Let&#8217;s do that next!</p>
+</div>
+<div class="section" id="lightning-talks-today">
+<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
+<p class="medium">Andrew P Klock</p>
+<p class="medium">Vinay Gupta</p>
+<p class="medium">Ousmane Conde</p>
+<p class="medium">Salim Hassan Hamed</p>
 </div>
 </div>
 <div class="section" id="more-on-subclassing">
 <h2>More on Subclassing<a class="headerlink" href="#more-on-subclassing" title="Permalink to this headline">¶</a></h2>
-<p>Watch This Video:</p>
-<p><a class="reference external" href="http://pyvideo.org/video/879/the-art-of-subclassing">http://pyvideo.org/video/879/the-art-of-subclassing</a></p>
-<p class="left">Seriously, well worth the time.</p>
+<p class="left">I pointed you to this Video last class:</p>
+<p class="left">The Art of Subclassing: <em>Raymond Hettinger</em></p>
+<p class="left"><a class="reference external" href="http://pyvideo.org/video/879/the-art-of-subclassing">http://pyvideo.org/video/879/the-art-of-subclassing</a></p>
+<p class="left">If you haven&#8217;t watched it,  It&#8217;s well worth your time</p>
 <div class="section" id="what-s-a-subclass-for">
 <h3>What&#8217;s a Subclass For?<a class="headerlink" href="#what-s-a-subclass-for" title="Permalink to this headline">¶</a></h3>
 <p>The most salient points from that video are as follows:</p>
-<p><strong>Subclassing is not for Specialization</strong></p>
-<p><strong>Subclassing is for Reusing Code</strong></p>
-<p><strong>Bear in mind that the subclass is in charge</strong></p>
+<ul class="simple">
+<li><strong>Subclassing is not for Specialization</strong></li>
+<li><strong>Subclassing is for Reusing Code</strong></li>
+<li><strong>Bear in mind that the subclass is in charge</strong></li>
+</ul>
 </div>
 <div class="section" id="multiple-inheritance">
 <h3>Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permalink to this headline">¶</a></h3>
@@ -397,8 +316,8 @@ the code that fixes these tests.</p>
 <li>Is it an instance attribute ?</li>
 <li>Is it a class attribute ?</li>
 <li>Is it a superclass attribute ?<ul>
-<li>is the it an attribute of the left-most superclass?</li>
-<li>is the it an attribute of the next superclass?</li>
+<li>Is  it an attribute of the left-most superclass?</li>
+<li>Is  it an attribute of the next superclass?</li>
 <li>and so on up the hierarchy...</li>
 </ul>
 </li>
@@ -406,8 +325,9 @@ the code that fixes these tests.</p>
 <li>... also left to right ...</li>
 </ul>
 <p><a class="reference external" href="http://python-history.blogspot.com/2010/06/method-resolution-order.html">http://python-history.blogspot.com/2010/06/method-resolution-order.html</a></p>
+<p>So why would you want to do this? One reason:  <em>mixins</em></p>
 <p>Provides an subset of expected functionality in a re-usable package.</p>
-<p>Why would you want to do this?</p>
+<p>Huh? this is why &#8211;</p>
 <p>Hierarchies are not always simple:</p>
 <ul class="simple">
 <li>Animal<ul>
@@ -424,13 +344,13 @@ the code that fixes these tests.</p>
 </ul>
 <p>Where do you put a Platypus?</p>
 <p>Real World Example: <a class="reference external" href="https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L485">FloatCanvas</a></p>
-<p><strong>Careful About This Pattern</strong></p>
 <p>All the class definitions we&#8217;ve been showing inherit from <tt class="docutils literal"><span class="pre">object</span></tt>.</p>
 <p>This is referred to as a &#8220;new style&#8221; class.</p>
 <p>They were introduced in python2.2 to better merge types and classes, and clean
 up a few things.</p>
 <p>There are differences in method resolution order and properties.</p>
-<p><strong>Always Make New-Style Classes.</strong></p>
+<p><strong>Always Make New-Style Classes</strong></p>
+<p>(that is, always subclass from object...)</p>
 <p>The differences are subtle, and may not appear until they jump up to bite you.</p>
 <p><tt class="docutils literal"><span class="pre">super()</span></tt>: use it to call a superclass method, rather than explicitly calling
 the unbound method on the superclass.</p>
@@ -450,6 +370,7 @@ the unbound method on the superclass.</p>
 </div>
 <p>Caution: There are some subtle differences with multiple inheritance.</p>
 <p>You can use explicit calling to ensure that the &#8216;right&#8217; method is called.</p>
+<p class="medium"><strong>Background</strong></p>
 <p>Two seminal articles about <tt class="docutils literal"><span class="pre">super()</span></tt>:</p>
 <p>&#8220;Super Considered Harmful&#8221; &#8211; James Knight</p>
 <p><a class="reference external" href="https://fuhm.net/super-harmful/">https://fuhm.net/super-harmful/</a></p>
@@ -500,29 +421,46 @@ the unbound method on the superclass.</p>
 </pre></div>
 </div>
 <p>&lt;shudder&gt; This is ugly and verbose &#8211; <a class="reference external" href="http://dirtsimple.org/2004/12/python-is-not-java.html">Java</a>?</p>
-<p>When (and if) you need them:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
-    <span class="k">def</span> <span class="nf">_getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</div>
+<div class="section" id="id1">
+<h3>properties<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-    <span class="k">def</span> <span class="nf">_setx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nd">@x.setter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">def</span> <span class="nf">_delx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_getx</span><span class="p">,</span> <span class="n">_setx</span><span class="p">,</span> <span class="n">_delx</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s">&quot;docstring&quot;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">30</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">31</span><span class="p">]:</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">x</span>
+<span class="mi">5</span>
 </pre></div>
 </div>
-<p>Now the interface is still like simple attribute access!</p>
-<p class="centered small">[demo: <a class="reference download internal" href="_downloads/properties_example.py"><tt class="xref download docutils literal"><span class="pre">properties_example.py</span></tt></a>]</p>
-<p>Not all the arguments to <tt class="docutils literal"><span class="pre">property</span></tt> are required.</p>
-<p>You can use this to create attributes that are &#8220;read only&#8221;:</p>
+<p>Now the interface is like simple attribute access!</p>
+<p>What&#8217;s up with the &#8220;&#64;&#8221; symbols?</p>
+<p>Those are &#8220;decorations&#8221; it&#8217;s a syntax for wrapping functions up with something special.</p>
+<p>We&#8217;ll cover that in detail in a couple weeks, but for now &#8211; just copy the syntax.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>means: make a property called x with this as the &#8220;getter&#8221;.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@x.setter</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>means: make the &#8220;setter&#8221; of the &#8216;x&#8217; property this new function</p>
+<p>You do not need to define a setter. If you don&#8217;t, you get a &#8220;read only&#8221; attribute:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">   ....: </span>    <span class="nd">@property</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="sd">&quot;&quot;&quot;I am read only&quot;&quot;&quot;</span>
 <span class="gp">   ....: </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getx</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s">&quot;I am read only&quot;</span><span class="p">)</span>
 <span class="gp">   ....:</span>
 <span class="gp">In [12]: </span><span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
 <span class="gp">In [13]: </span><span class="n">d</span><span class="o">.</span><span class="n">x</span>
@@ -535,37 +473,40 @@ the unbound method on the superclass.</p>
 <span class="ne">AttributeError</span>: can&#39;t set attribute
 </pre></div>
 </div>
-<p>This <em>imperative</em> style of adding a <tt class="docutils literal"><span class="pre">property</span></tt> to you class is clear, but
-it&#8217;s still a little verbose.</p>
-<p>It also has the effect of leaving all those defined method objects laying
-around:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">d</span><span class="o">.</span><span class="n">x</span>
-<span class="gh">Out[19]: </span><span class="go">5</span>
-<span class="gp">In [20]: </span><span class="n">d</span><span class="o">.</span><span class="n">getx</span>
-<span class="gh">Out[20]: </span><span class="go">&lt;bound method D.getx of &lt;__main__.D object at 0x1043a4a10&gt;&gt;</span>
-<span class="gp">In [21]: </span><span class="n">d</span><span class="o">.</span><span class="n">getx</span><span class="p">()</span>
-<span class="gh">Out[21]: </span><span class="go">5</span>
-</pre></div>
 </div>
-<p>Python provides us with a way to solve both these issues at once, using a
-syntactic feature called <strong>decorators</strong> (more about these next session):</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="k">class</span> <span class="nc">E</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="section" id="deleters">
+<h3>deleters<a class="headerlink" href="#deleters" title="Permalink to this headline">¶</a></h3>
+<p>If you want to do something special when a property is deleted, you can define
+a deleter is well:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-<span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">   ....: </span>    <span class="nd">@property</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-<span class="gp">   ....: </span>    <span class="nd">@x.setter</span>
-<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
-<span class="gp">   ....:</span>
-<span class="gp">In [23]: </span><span class="n">e</span> <span class="o">=</span> <span class="n">E</span><span class="p">()</span>
-<span class="gp">In [24]: </span><span class="n">e</span><span class="o">.</span><span class="n">x</span>
-<span class="gh">Out[24]: </span><span class="go">5</span>
-<span class="gp">In [25]: </span><span class="n">e</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="gp">In [26]: </span><span class="n">e</span><span class="o">.</span><span class="n">x</span>
-<span class="gh">Out[26]: </span><span class="go">6</span>
+<span class="gp">   ....: </span>    <span class="nd">@x.deleter</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
 </pre></div>
+</div>
+<p>If you leave this out, the property can&#8217;t be deleted, which is usually
+what you want.</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/properties_example.py"><tt class="xref download docutils literal"><span class="pre">properties_example.py</span></tt></a>]</p>
+</div>
+<div class="section" id="lab">
+<h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s use some of this to build a nice class to represent a Circle.</p>
+<p>For now, Let&#8217;s do steps 1-4 of:</p>
+<p><a class="reference internal" href="homework/circle_class.html#homework-circle-class"><em>Circle Class Homework Assignment</em></a></p>
+</div>
+<div class="section" id="lightning-talks">
+<h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
+<div class="medium line-block">
+<div class="line"><br /></div>
+<div class="line">Andrew P Klock</div>
+<div class="line"><br /></div>
+<div class="line">Vinay Gupta</div>
+<div class="line"><br /></div>
 </div>
 </div>
 </div>
@@ -584,9 +525,10 @@ long as you pass an instance of that class as the first argument.</p>
 <h3>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h3>
 <p>A <em>static method</em> is a method that doesn&#8217;t get self:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="k">class</span> <span class="nc">StaticAdder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<span class="gp">   ....: </span>    <span class="nd">@staticmethod</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="gp">   ....: </span>    <span class="n">add</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 <span class="gp">   ....:</span>
 
 <span class="gp">In [37]: </span><span class="n">StaticAdder</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -594,14 +536,6 @@ long as you pass an instance of that class as the first argument.</p>
 </pre></div>
 </div>
 <p class="centered">[demo: <a class="reference download internal" href="_downloads/static_method.py"><tt class="xref download docutils literal"><span class="pre">static_method.py</span></tt></a>]</p>
-<p>Like <tt class="docutils literal"><span class="pre">properties</span></tt>, static methods can be written <em>declaratively</em> using the
-<tt class="docutils literal"><span class="pre">staticmethod</span></tt> built-in as a <em>decorator</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">StaticAdder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</pre></div>
-</div>
 <div class="build container">
 <p>Where are static methods useful?</p>
 <p>Usually they aren&#8217;t</p>
@@ -628,10 +562,10 @@ long as you pass an instance of that class as the first argument.</p>
 argument</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="k">class</span> <span class="nc">Classy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">   ....: </span>    <span class="nd">@classmethod</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">a_class_method</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="k">print</span> <span class="s">&quot;in a class method: &quot;</span><span class="p">,</span> <span class="n">cls</span>
 <span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">y</span> <span class="o">**</span> <span class="n">cls</span><span class="o">.</span><span class="n">x</span>
-<span class="gp">   ....: </span>    <span class="n">a_class_method</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">a_class_method</span><span class="p">)</span>
 <span class="gp">   ....:</span>
 <span class="gp">In [42]: </span><span class="n">Classy</span><span class="o">.</span><span class="n">a_class_method</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">in a class method:  &lt;class &#39;__main__.Classy&#39;&gt;</span>
@@ -639,16 +573,6 @@ argument</p>
 </pre></div>
 </div>
 <p class="centered">[demo: <a class="reference download internal" href="_downloads/class_method.py"><tt class="xref download docutils literal"><span class="pre">class_method.py</span></tt></a>]</p>
-<p>Once again, the <tt class="docutils literal"><span class="pre">classmethod</span></tt> built-in can be used as a <em>decorator</em> for a
-more declarative style of programming:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Classy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">a_class_method</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&quot;in a class method: &quot;</span><span class="p">,</span> <span class="n">cls</span>
-        <span class="k">return</span> <span class="n">y</span> <span class="o">**</span> <span class="n">cls</span><span class="o">.</span><span class="n">x</span>
-</pre></div>
-</div>
 <div class="build container">
 <p>Unlike static methods, class methods are quite common.</p>
 <p>They have the advantage of being friendly to subclassing.</p>
@@ -682,7 +606,6 @@ implements an alternate constructor that <em>can</em>.</p>
 <span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;OD.fromkeys(S[, v]) -&gt; New ordered dictionary with keys from S.</span>
 <span class="sd">    If not specified, the value defaults to None.</span>
-
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="bp">self</span> <span class="o">=</span> <span class="n">cls</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
@@ -698,34 +621,8 @@ OO model.</p>
 <p><a class="reference external" href="https://docs.python.org/2/howto/descriptor.html">Here is a low level look</a> at how the descriptor protocol works.</p>
 <p>The cool part is that this mechanism is available to you, the programmer, as
 well.</p>
-</div>
-<div class="section" id="kicking-the-tires">
-<h3>Kicking the Tires<a class="headerlink" href="#kicking-the-tires" title="Permalink to this headline">¶</a></h3>
-<p>Copy the file <tt class="docutils literal"><span class="pre">code/session07/circly.py</span></tt> to your student folder.</p>
-<p>In it, write a simple &#8220;Circle&#8221; class:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">In [15]: </span><span class="n">c</span><span class="o">.</span><span class="n">diameter</span>
-<span class="gh">Out[15]: </span><span class="go">6.0</span>
-<span class="gp">In [16]: </span><span class="n">c</span><span class="o">.</span><span class="n">diameter</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="gp">In [17]: </span><span class="n">c</span><span class="o">.</span><span class="n">radius</span>
-<span class="gh">Out[17]: </span><span class="go">4.0</span>
-<span class="gp">In [18]: </span><span class="n">c</span><span class="o">.</span><span class="n">area</span>
-<span class="gh">Out[18]: </span><span class="go">50.26548245743669</span>
-</pre></div>
-</div>
-<p>Use <tt class="docutils literal"><span class="pre">properties</span></tt> so you can keep the radius and diameter in sync, and the
-area computed on the fly.</p>
 <p>Extra Credit: use a class method to make an alternate constructor that takes
 the diameter instead.</p>
-<p>Also copy the file <tt class="docutils literal"><span class="pre">test_circle1.py</span></tt> to your student folder.</p>
-<p>As you work, run the tests:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>cff2py<span class="o">)</span><span class="nv">$ </span>py.test test_circle1.py
-</pre></div>
-</div>
-<p>As each of the requirements from above are fulfilled, you&#8217;ll see tests &#8216;turn
-green&#8217;.</p>
-<p>When all your tests are passing, you&#8217;ve completed the job.</p>
-<p>(This clear finish line is another of the advantages of TDD)</p>
 </div>
 </div>
 <div class="section" id="special-methods">
@@ -745,6 +642,25 @@ class act like standard classes.</p>
 <p>It&#8217;s all in the double underscores...</p>
 <p>Pronounced &#8220;dunder&#8221; (or &#8220;under-under&#8221;)</p>
 <p>try: <tt class="docutils literal"><span class="pre">dir(2)</span></tt>  or <tt class="docutils literal"><span class="pre">dir(list)</span></tt></p>
+<p>Most classes should at lest have these special methods:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">object.__str__</span></tt>:</dt>
+<dd>Called by the str() built-in function and by the print statement to compute
+the <em>informal</em> string representation of an object.</dd>
+<dt><tt class="docutils literal"><span class="pre">object.__unicode__</span></tt>:</dt>
+<dd><p class="first">Called by the unicode() built-in function.  This converts an object to an
+<em>informal</em> unicode representation.</p>
+<p class="last">(more on Unicode later....)</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">object.__repr__</span></tt>:</dt>
+<dd><p class="first">Called by the repr() built-in function and by string conversions (reverse
+quotes) to compute the <em>official</em> string representation of an object.</p>
+<p class="last">(ideally: <tt class="docutils literal"><span class="pre">eval(</span> <span class="pre">repr(something)</span> <span class="pre">)</span> <span class="pre">==</span> <span class="pre">something</span></tt>)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="protocols">
+<h3>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h3>
 <div class="build container">
 <p>The set of special methods needed to emulate a particular type of Python object
 is called a <em>protocol</em>.</p>
@@ -781,7 +697,8 @@ methods in a given protocol.</p>
 </pre></div>
 </div>
 <p>Each of these methods supports a common Python operation.</p>
-<p>For example, to make &#8216;+&#8217; work with a sequence type in a vector-like fashion, implement <tt class="docutils literal"><span class="pre">__add__</span></tt>:</p>
+<p>For example, to make &#8216;+&#8217; work with a sequence type in a vector-like fashion,
+implement <tt class="docutils literal"><span class="pre">__add__</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;return the element-wise vector sum of self and v</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -790,22 +707,6 @@ methods in a given protocol.</p>
 </pre></div>
 </div>
 <p class="centered">[a more complete example may be seen <a class="reference download internal" href="_downloads/vector.py"><tt class="xref download docutils literal"><span class="pre">here</span></tt></a>]</p>
-<p>You only <em>need</em> to define the special methods that will be used by your class.</p>
-<p>However, even in the absence of wanting to duck-type, you should almost always
-define these:</p>
-<dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">object.__str__</span></tt>:</dt>
-<dd>Called by the str() built-in function and by the print statement to compute
-the <em>informal</em> string representation of an object.</dd>
-<dt><tt class="docutils literal"><span class="pre">object.__unicode__</span></tt>:</dt>
-<dd>Called by the unicode() built-in function.  This converts an object to an
-<em>informal</em> unicode representation.</dd>
-<dt><tt class="docutils literal"><span class="pre">object.__repr__</span></tt>:</dt>
-<dd><p class="first">Called by the repr() built-in function and by string conversions (reverse
-quotes) to compute the <em>official</em> string representation of an object.</p>
-<p class="last">(ideally: <tt class="docutils literal"><span class="pre">eval(</span> <span class="pre">repr(something)</span> <span class="pre">)</span> <span class="pre">==</span> <span class="pre">something</span></tt>)</p>
-</dd>
-</dl>
 <p>Use special methods when you want your class to act like a &#8220;standard&#8221; class in
 some way.</p>
 <p>Look up the special methods you need and define them.</p>
@@ -814,54 +715,28 @@ some way.</p>
 <li><a class="reference external" href="https://docs.python.org/2/reference/datamodel.html#special-method-names">https://docs.python.org/2/reference/datamodel.html#special-method-names</a></li>
 <li><a class="reference external" href="http://www.rafekettler.com/magicmethods.html">http://www.rafekettler.com/magicmethods.html</a></li>
 </ul>
-<p>Be a bit cautious about the code examples in that last one. It uses quite a bit
-of old-style class definitions, which should not be emulated.</p>
 </div>
-<div class="section" id="id1">
-<h3>Kicking the Tires<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Extend your &#8220;Circle&#8221; class:</p>
-<ul class="simple">
-<li>Add <tt class="docutils literal"><span class="pre">__str__</span></tt>  and <tt class="docutils literal"><span class="pre">__repr__</span></tt>  methods</li>
-<li>Write an <tt class="docutils literal"><span class="pre">__add__</span></tt>  method so you can add two circles</li>
-<li>Make it so you can multiply a circle by a number....</li>
-</ul>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">In [23]: </span><span class="n">c2</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">In [24]: </span><span class="n">c3</span> <span class="o">=</span> <span class="n">c1</span><span class="o">+</span><span class="n">c2</span>
-<span class="gp">In [25]: </span><span class="n">c3</span><span class="o">.</span><span class="n">radius</span>
-<span class="gh">Out[25]: </span><span class="go">7</span>
-<span class="gp">In [26]: </span><span class="n">c1</span><span class="o">*</span><span class="mi">3</span>
-<span class="gh">Out[26]: </span><span class="go">Circle(9)</span>
-</pre></div>
+<div class="section" id="id2">
+<h3>Lightning Talks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="medium line-block">
+<div class="line"><br /></div>
+<div class="line">Ousmane Conde</div>
+<div class="line"><br /></div>
+<div class="line">Salim Hassan Hamed</div>
+<div class="line"><br /></div>
 </div>
-<p>If you have time: compare them... (<tt class="docutils literal"><span class="pre">c1</span> <span class="pre">&gt;</span> <span class="pre">c2</span></tt> , etc)</p>
-<p>As you work, run the tests in <tt class="docutils literal"><span class="pre">test_circle2.py</span></tt>:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>cff2py<span class="o">)</span><span class="nv">$ </span>py.test test_circle2.py
-</pre></div>
 </div>
-<p>As each of the requirements from above are fulfilled, you&#8217;ll see tests &#8216;turn
-green&#8217;.</p>
-<p>When all your tests are passing, you&#8217;ve completed the job.</p>
+<div class="section" id="id3">
+<h3>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s complete our nifty Circle class:</p>
+<p>Steps 5-8 of:</p>
+<p><a class="reference internal" href="homework/circle_class.html#homework-circle-class"><em>Circle Class Homework Assignment</em></a></p>
 </div>
 </div>
 <div class="section" id="homework">
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<p class="centered large">Testing, Testing, 1 2 3</p>
-<div class="section" id="assignment">
-<h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
-<p>If you are not yet done, complete the <tt class="docutils literal"><span class="pre">Circle</span></tt> class so that all tests in
-<tt class="docutils literal"><span class="pre">test_circle2.py</span></tt> pass.</p>
-<p>Go back over some of your assignments from the last weeks.</p>
-<p>Convert tests that are currently in the <tt class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></tt> blocks
-into standalone pytest files.</p>
-<p>Name each test file so that it is clear with which source file it belongs:</p>
-<div class="highlight-python"><div class="highlight"><pre>test_rot13.py -&gt; rot13.py
-</pre></div>
-</div>
-<p>Add unit tests for the HTML Renderer that you are currently constructing.</p>
-<p>Create at least 4 test files with tests that well exercise the features built
-in each source file.</p>
-</div>
+<p>Complete the Circle class</p>
+<p>Decide what you are going to do for your proejct, and send me a simple proposal.</p>
 </div>
 </div>
 
