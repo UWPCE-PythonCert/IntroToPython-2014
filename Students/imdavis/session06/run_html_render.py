@@ -6,18 +6,17 @@ a simple script can run and test your html rendering classes.
 Uncomment the steps as you add to your rendering.
 
 """
-
 from cStringIO import StringIO
 
 
 # importing the html_rendering code with a short name for easy typing.
-import html_render_eb as hr
-reload(hr) # reloading in case you are running this in iPython
-           #  -- we want to make sure the latest version is used
+import html_render as hr
+reload(hr) #reloding in case you are ruuing this in iPython
+           # -- want to make sure the latest version is used
 
 
 ## writing the file out:
-def render_page(page, filename):
+def render(page, filename):
     """
     render the tree of elements
 
@@ -26,13 +25,13 @@ def render_page(page, filename):
     """
 
     f = StringIO()
-    page.render(f, "    ")
+    page.render(f, "")
 
-    f.reset()
+    f.seek(0)
 
     print f.read()
 
-    f.reset()
+    f.seek(0)
     open(filename, 'w').write( f.read() )
 
 
@@ -45,10 +44,10 @@ def render_page(page, filename):
 
 # page.append("And here is another piece of text -- you should be able to add any number")
 
-# render_page(page, "test_html_output1.html")
+# render(page, "test_html_output1.html")
 
-# ## Step 2
-# ##########
+# # ## Step 2
+# # ##########
 
 # page = hr.Html()
 
@@ -60,10 +59,10 @@ def render_page(page, filename):
 
 # page.append(body)
 
-# render_page(page, "test_html_output2.html")
+# render(page, "test_html_output2.html")
 
-# # Step 3
-# ##########
+# # # Step 3
+# # ##########
 
 # page = hr.Html()
 
@@ -79,10 +78,10 @@ def render_page(page, filename):
 
 # page.append(body)
 
-# render_page(page, "test_html_output3.html")
+# render(page, "test_html_output3.html")
 
-# # Step 4
-# ##########
+# # # Step 4
+# # ##########
 
 # page = hr.Html()
 
@@ -98,10 +97,10 @@ def render_page(page, filename):
 
 # page.append(body)
 
-# render_page(page, "test_html_output4.html")
+# render(page, "test_html_output4.html")
 
-# # Step 5
-# #########
+# # # Step 5
+# # #########
 
 # page = hr.Html()
 
@@ -119,7 +118,7 @@ def render_page(page, filename):
 
 # page.append(body)
 
-# render_page(page, "test_html_output5.html")
+# render(page, "test_html_output5.html")
 
 # # Step 6
 # #########
@@ -144,7 +143,7 @@ def render_page(page, filename):
 
 # page.append(body)
 
-# render_page(page, "test_html_output6.html")
+# render(page, "test_html_output6.html")
 
 # # Step 7
 # #########
@@ -181,7 +180,7 @@ def render_page(page, filename):
 
 # page.append(body)
 
-# render_page(page, "test_html_output7.html")
+# render(page, "test_html_output7.html")
 
 # # Step 8
 # ########
@@ -200,7 +199,7 @@ body = hr.Body()
 body.append( hr.H(2, "PythonClass - Class 6 example") )
 
 body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
-                 style="text-align: center; font-style: oblique;"))
+              style="text-align: center; font-style: oblique;"))
 
 body.append(hr.Hr())
 
@@ -220,7 +219,7 @@ body.append(list)
 
 page.append(body)
 
-render_page(page, "test_html_output8.html")
+render(page, "test_html_output8.html")
 
 
 

@@ -197,7 +197,8 @@ HTML Primer
 ============
 
 .. rst-class:: medium
-The very least you need to know about html to do this assigment.
+
+    The very least you need to know about html to do this assigment.
 
 If you are familar with html, then this will all make sense to you. If you have
 never seen html before, this might be a bit intimidating, but you really don't

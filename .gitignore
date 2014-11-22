@@ -1,0 +1,22 @@
+slides_sources/build
+
+#ignore python compile files
+*.pyc
+*junk*
+
+#ignore sublime workspace files
+*.sublime*
+
+#ignore compile files, sublime workspace and project files
+*.pyc
+*.sublime*
+
+#ignore changes in Examples directory
+/Examples/
+/Solutions/
+
+#add .gitignore to the list
+.gitignore
+
+#special to html render excercise
+*.html

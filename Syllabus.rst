@@ -184,8 +184,6 @@ Files and Text Processing
 Week 5: Oct 28
 ........................
 
-Unicode
-
 Advanced Argument passing
 
 Testing
@@ -197,19 +195,19 @@ Week 6: November 4
 
 Lambda and Functional programming.
 
-Object oriented programming. Classes, instances, and methods
+Object Oriented Programming: classes, instances, and methods
 
 
 Week 7: November 18
 .......................
 
-More OO -- Inheritance and duck typing
+More OO -- Multiple inheritance, Properties, special methods
 
 
 Week 8: November 24
 ....................
 
-More OO: Special methods
+More OO -- Emulating built-in types
 
 Iterators and Generators
 
