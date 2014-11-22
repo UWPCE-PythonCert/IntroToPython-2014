@@ -1,0 +1,15 @@
+    <html>
+       Some string
+       <title>Title Line Here</title>
+       <head>
+          Header line
+       </head>
+       <body>
+          Some body text
+          <p color="255"  style="text-align: center; font-style: oblique;">
+             some paragraph text
+          </p>
+          <hr />
+          <br />
+       </body>
+    </html>
