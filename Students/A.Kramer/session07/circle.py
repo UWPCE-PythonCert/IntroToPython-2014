@@ -5,6 +5,7 @@ Created on Nov 18, 2014
 '''
 
 from math import pi
+from numbers import Number
 
 class Circle(object):
     def __init__(self, the_radius):
@@ -61,7 +62,21 @@ class Circle(object):
         if isinstance(other, Circle):
             return(self.radius > other.radius)
 
-# did not do #9 - could not figure it out.
+    def __radd__(self, other):
+        if isinstance(other, Number):
+            self.radius = self.radius + other
+    
+    def __rmul__(self, other):
+        if isinstance(other, Number):
+            self.radius = self.radius * other
+                
+    def __iadd__(self, other):
+        if isinstance(other, Number):
+            self.radius += other
+        
+    def __imul__(self, other):
+        if isinstance(other, Number):
+            self.radius *= other
     
 if __name__ == "__main__":
     c = Circle(4)
