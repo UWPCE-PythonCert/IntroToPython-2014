@@ -82,3 +82,97 @@ def test_repr():
 
     assert repr(c) == 'Circle(6.0)'
 
+
+def test_str():
+    c = Circle(3)
+
+    assert str(c) == 'Circle with radius: 3.0000'
+
+
+def test_addition():
+    c1 = Circle(2)
+    c2 = Circle(3)
+    c3 = c1 + c2
+
+    assert c3.radius == 5
+
+
+def test_multiplication():
+    c1 = Circle(2)
+    c3 = c1 * 4
+
+    assert c3.radius == 8
+
+
+def test_equal():
+    c1 = Circle(3)
+    c2 = Circle(3.0)
+
+    assert c1 == c2
+    assert c1 <= c2
+    assert c1 >= c2
+
+
+def test_not_equal():
+    c1 = Circle(2.9)
+    c2 = Circle(3.0)
+
+    assert c1 != c2
+
+
+def test_greater():
+    c1 = Circle(2)
+    c2 = Circle(3)
+
+    assert c2 > c1
+    assert c2 >= c1
+
+
+def test_less():
+    c1 = Circle(2)
+    c2 = Circle(3)
+
+    assert c1 < c2
+    assert c1 <= c2
+
+
+def test_reverse_multiply():
+    c = Circle(3)
+
+    c2 = 3 * c
+
+    assert c2.radius == 9.0
+
+
+def test_plus_equal():
+    c = Circle(3)
+    c2 = c
+
+    c += Circle(2)
+
+    assert c.radius == 5
+    assert c is c2
+    assert c2.radius == 5
+
+
+def test_times_equal():
+    c = Circle(3)
+    c2 = c
+
+    c *= 2
+
+    assert c.radius == 6
+    assert c is c2
+    assert c2.radius == 6
+
+
+def test_sort():
+    a_list = [Circle(20), Circle(10), Circle(15), Circle(5)]
+
+    a_list.sort()
+
+    assert a_list[0] == Circle(5)
+    assert a_list[3] == Circle(20)
+    assert a_list[0] < a_list[1] < a_list[2] < a_list[3]
+
+
