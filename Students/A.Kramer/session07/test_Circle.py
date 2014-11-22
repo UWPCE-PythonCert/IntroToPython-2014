@@ -79,7 +79,14 @@ def test_greater_than():
     c = Circle(4)
     c1 = Circle(8)
     return c1 > c
+
+def test_radd():
+    c = Circle(4)
+    assert c.radius + 4 == 4 + c.radius
     
+def test_rmul():
+    c = Circle(4)
+    assert c.radius * 4 == 4 * c.radius  
 
 
 
