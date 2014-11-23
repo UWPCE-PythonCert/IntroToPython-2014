@@ -4,7 +4,10 @@ circle.py
 """
 
 from math import pi
+import functools  # imported to access @total_ordering
 
+
+@functools.total_ordering
 class Circle(object):
 
     def __init__(self, radius):
@@ -46,7 +49,18 @@ class Circle(object):
         """multiplies circle radius times n, returns new circle"""
         return Circle(self.radius * n)
 
+    """ define the rich comparison operators, then use
+        functools.total_ordering to autogen the rest"""
+    def __eq__(self, c):
+        """defines equal to property"""
+        return (self.radius == c.radius)
 
+    def  __lt__(self, c):
+        """defines less than property"""
+        return(self.radius < c.radius)
+
+
+# subclassing from Circle is easy!
 class SubCircle(Circle):  # subclass of circle
     pass
 

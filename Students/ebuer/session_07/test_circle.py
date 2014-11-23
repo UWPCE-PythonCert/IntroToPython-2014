@@ -108,3 +108,35 @@ def test_mul():
 
     assert c2.radius == c1.radius * n
 
+def test_eq():
+    c1 = Circle(2)
+    c2 = Circle(2)
+
+    assert c1 == c2
+
+def test_lt():
+    c1 = Circle(4)
+    c2 = Circle(2)
+
+    assert c2 < c1
+
+def test_gt():
+    """tests that functools created greater than from existing properties"""
+    c1 = Circle(4)
+    c2 = Circle(2)
+
+    assert c1 > c2
+
+def test_csort():
+    c1 = Circle(1)
+    c2 = Circle(2)
+    c3 = Circle(3)
+    c4 = Circle(4)
+    c5 = Circle(5)
+
+    clist = [c5, c2, c3, c1, c4]
+    clist.sort()
+    assert clist == [c1, c2, c3, c4, c5]
+
+# Step 8 testing: Optional Features
+
