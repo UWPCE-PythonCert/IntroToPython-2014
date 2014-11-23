@@ -26,7 +26,7 @@ A subset of expected functionality in a re-usalbe package.  Why?  Because hierar
 
 Always subclass from 'object'
 
-super()  
+**super()**  
 super() is a way to call a superclass method rather than explicity calling the unbound method on the superclass
 
 see syntax examples in class notes
@@ -40,8 +40,8 @@ PJE on programming: python is not java
 
 Uses a @ decorator, which adds functions for future special operations
 
-@property  
-def x(self):
+    @property  
+        def x(self):
 
 means make a property called x with this as the getter
 
@@ -78,14 +78,14 @@ Class method receives the class object rather than an instance as the first argu
 Class methods are used fairly frequently, and they are friendly to subclassing
 
 ####Special Methods  
-The core of __duck typing__
+The core of _duck typing_
 
 Special methods are tagged with dunders.
-
+```python
 object.__str___(self)
 object.__unicode__(self)
 object.__repr__(self)
-    
+```
     eval(repr(something)) == something
 
 add a special method to a custom object to allow any user to call and apply the method using the same call as is normally associated with the __special__
@@ -98,7 +98,7 @@ This is tricky.
 Special methods needed to emulate a particular type of python object
 
 ```python
-deff __add__(self, v):
+def __add__(self, v):
     """return element-wise vector sum of self and v"""
     assert len(self == len(v))
     return vector ([x1 + x2 for x1, x2 in zip(self, v)])
@@ -107,7 +107,7 @@ deff __add__(self, v):
 
 Use special methods when you want your class to act in a certain way
 
-Homework
-Circle class
-Project
-Render
+Homework:  
+Circle class  
+Project  
+Render  
