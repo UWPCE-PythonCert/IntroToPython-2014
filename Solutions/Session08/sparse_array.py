@@ -1,6 +1,6 @@
 
 """
-example of a callable class
+example of emulating a sequence
 """
 
 class SparseArray(object):
