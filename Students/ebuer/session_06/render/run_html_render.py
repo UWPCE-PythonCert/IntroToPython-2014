@@ -10,7 +10,7 @@ from io import open, StringIO
 import pdb
 
 # importing the html_rendering code with a short name for easy typing.
-import html_render_eb as hr
+import html_render_refactor as hr
 reload(hr)
 
 
@@ -37,13 +37,13 @@ def render(page, filename):
 ## Step 1
 ##########
 
-# page = hr.Element()
+page = hr.Element()
 
-# page.append(u"Here is a paragraph of text -- there could be more of them, but this is enough to show that we can do some text")
+page.append(u"Here is a paragraph of text -- there could be more of them, but this is enough to show that we can do some text")
 
-# page.append(u"And here is another piece of text -- you should be able to add any number")
+page.append(u"And here is another piece of text -- you should be able to add any number")
 
-# render(page, u"test_html_output1.html")
+render(page, u"test_html_output1.html")
 
 # # ## Step 2
 # # ##########
@@ -124,27 +124,27 @@ def render(page, filename):
 # # Step 6
 # #########
 
-page = hr.Html()
+# page = hr.Html()
 
-head = hr.Head()
-head.append(hr.Title(u"PythonClass = Revision 1087:"))
+# head = hr.Head()
+# head.append(hr.Title(u"PythonClass = Revision 1087:"))
 
-page.append(head)
+# page.append(head)
 
-body = hr.Body()
+# body = hr.Body()
 
-body.append(hr.P(u"Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
-              style=u"text-align: center; font-style: oblique;"))
+# body.append(hr.P(u"Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+#               style=u"text-align: center; font-style: oblique;"))
 
-body.append(hr.Hr())
+# body.append(hr.Hr())
 
-body.append(u"And this is a ")
-body.append( hr.A(u"http://google.com", "link") )
-body.append(u"to google")
+# body.append(u"And this is a ")
+# body.append( hr.A(u"http://google.com", "link") )
+# body.append(u"to google")
 
-page.append(body)
+# page.append(body)
 
-render(page, u"test_html_output6.html")
+# render(page, u"test_html_output6.html")
 
 # # Step 7
 # #########

@@ -20,8 +20,6 @@ class Element(object):
 
         self.attrsdict = attrsdict
 
-        # print attrsdict
-
         if content is None:
             self.content = []
         else:
@@ -39,8 +37,6 @@ class Element(object):
             tempstring = u'{}= "{}" '.format(k, v)
             print tempstring
             attrstring.append(tempstring)
-
-        # print attrstring
 
         tempattr = u''.join(attrstring)
 
