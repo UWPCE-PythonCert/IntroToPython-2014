@@ -812,3 +812,60 @@ lambda x, y: x + y
 """
 
 
+############################## SESSION07 ##############################
+"""
+Personal Project:
+    - Make sure to use Pep 8
+    - Make sure to have unit tests
+    - Make sure to user version control
+    - Due the Friday after the last class (Due on December 12th)
+    - Send proposal by next week
+"""
+
+"""
+What are subclasses for?
+    - Subclassing is not for specialization
+    - Subclassing is for reusing code
+    - Bear in mind that the subclass is in charge.  This means keep in mind
+      that the subclass can change
+"""
+
+"""
+Multiple Inheritance:
+    - You can create subclasses from multiple
+"""
+
+"""
+New-Style Classes:
+    - when you subclass a class from "object", this is a new style class
+    - you should always inherit from object
+"""
+
+"""
+super()
+    - allows you to call super classes when you are inheriting
+"""
+
+"""
+properties:
+    - property
+    - setters
+    - deleters
+"""
+
+"""
+Static Methods:
+    - a method that doesn't need self to be passed
+    - however, these are not very useful
+"""
+
+"""
+Class Methods:
+    - a method that gets the class object, rather than an instance object, as
+      the first argument
+"""
+
+"""
+Special Methods:
+    - all of the special methods are in the format __methodname__
+"""
