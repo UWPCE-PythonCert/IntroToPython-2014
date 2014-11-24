@@ -140,3 +140,21 @@ def test_csort():
 
 # Step 8 testing: Optional Features
 
+#reflected multiplication using __rmul__
+def test_rmul():
+    c1 = Circle(5)
+    n = 3
+
+    assert c1 * n == n * c1
+
+# division is order specific, so it doesn't make sense to reflect it
+
+#augmented assignment operator
+def test_iadd():
+    c1 = Circle(5)
+    c2 = Circle(4)
+
+    c1 += c2
+
+    assert c1.radius == 9
+

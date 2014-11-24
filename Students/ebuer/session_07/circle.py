@@ -44,7 +44,6 @@ class Circle(object):
         """adds two circle radii together, returns new circle"""
         return Circle(self.radius + c.radius)
 
-
     def __mul__(self, n):
         """multiplies circle radius times n, returns new circle"""
         return Circle(self.radius * n)
@@ -59,8 +58,20 @@ class Circle(object):
         """defines less than property"""
         return(self.radius < c.radius)
 
+    # reflected operation multiplication
+    def __rmul__(self, n):
+        """reflected multiplication"""
+        return self.__mul__(n)
+
+    """functools.total_ordering already created assignment operators
+        but let's create at least one"""
+
+    def __iadd__(self, c):
+        self.radius = self.radius + c.radius
+        return Circle(self.radius)
+
+    # similar operation for assignment multiplication: Circle(sr = sr * cr)
 
 # subclassing from Circle is easy!
 class SubCircle(Circle):  # subclass of circle
     pass
-
