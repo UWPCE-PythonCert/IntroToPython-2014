@@ -13,3 +13,13 @@ class Circle (object):
     def __init__(self, radius):
         self.radius = radius
     
+    @property
+    def diameter(self):
+        return self.radius * 2.
+        
+    @diameter.setter
+    def diameter (self, val):
+        self.radius = val//2.
+        
+    def area (self):
+        return self.radius*self.radius * pi 
