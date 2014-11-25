@@ -7,6 +7,7 @@ Session Eight: Callable classes, Iterators, Generators
 The tools of Pythonicity
 
 
+================
 Review/Questions
 ================
 
@@ -24,8 +25,30 @@ Homework review
 * Circle Class
 * Writing Tests using the ``pytest`` module
 
+Lightning Talks Today:
+-----------------------
+
+.. rst-class:: medium
+
+Alireza Hashemloo
+
+Arielle R Simmons
+
+Eric W Westman
+
+Ryan J Albright
+
+=========================
+Emulating Standard types
+=========================
+
+.. rst-class:: medium
+
+  Making your classes behave like the built-ins
+
+
 Callable classes
-================
+-----------------
 
 We've been using functions a lot:
 
@@ -42,13 +65,15 @@ And then we can call it:
 
     result = my_fun(some_arguments)
 
-..nextslide::
+.. nextslide::
 
 But what if we need to store some data to know how to evaluate that function?
 
-Example: a function that computes a quadratic function::
+Example: a function that computes a quadratic function:
 
-    y = a * x**2 + b * x + c
+.. math::
+
+    y = a x^2 + bx + c
 
 You could pass in a, b and c each time:
 
@@ -59,13 +84,13 @@ You could pass in a, b and c each time:
 
 But what if you are using the same a, b, and c numerous times?
 
-Or an even bigger deal: what if you need to pass this in to something
-(like map) that requires a function that takes a single arguemnt?
+Or what if you need to pass this in to something
+(like map) that requires a function that takes a single argument?
 
 "Callables"
 -----------
 
-Various places in python expect a "callable" -- somethign that you can
+Various places in python expect a "callable" -- something that you can
 call like a function:
 
 .. code-block:: python
@@ -78,16 +103,17 @@ that is "callable".
 What have we been introduced to recently that is "callable", but not a
 function object?
 
-..nextslide::
+Custom callable objects
+------------------------
 
-Turns out you can make your own callable object.
+The trick is one of Python's "magic methods"
 
-The trick is one of Python's "magic methods"::
+.. code-block:: python
 
     __call__(*args, **kwargs)
 
 If you define a ``__call__`` method in your class, it will be used when
-code "calls" an istance of your class
+code "calls" an instance of your class:
 
 .. code-block:: python
 
@@ -96,12 +122,140 @@ code "calls" an istance of your class
             some_initilization
         def __call__(self, some_parameters)
 
+Then you can do:
+
+.. code-block:: python
+
+    callable_instance = Callable(some_arguments)
+
+    result = callable_instance(some_arguments)
 
 
+Writing your own sequence type
+-------------------------------
+
+Python has a handful of nifty sequence types built in:
+
+ * lists
+ * tuples
+ * strings
+ * ...
+
+But what if you need a sequence that isn't built in?
+
+A Sparse array
+--------------
+
+Example: Sparse Array
+
+Sometimes we have data sets that are "sparse" -- i.e. most of the values are zero.
+
+So you may not want to store a huge bunch of zeros.
+
+But you do want the array to look like a regular old sequence.
+
+So how do you do that?
+
+The Sequence protocol
+----------------------
+
+You can make your class look like a regular python sequence by defining
+the set of special methods you need:
+
+https://docs.python.org/2/reference/datamodel.html#emulating-container-types
+
+and
+
+http://www.rafekettler.com/magicmethods.html#sequence
+
+The key ones are:
+
++-------------------+-----------------------+
+|  ``__len__``      | for ``len(sequence)`` |
++-------------------+-----------------------+
+|  ``__getitem__``  | for  ``x = seq[i]``   |
++-------------------+-----------------------+
+|  ``__setitem__``  | for ``seq[i] = x``    |
++-------------------+-----------------------+
+|  ``__delitem__``  | for ``del seq[i]``    |
++-------------------+-----------------------+
+|  ``__contains__`` | for ``x in seq``      |
++-------------------+-----------------------+
+
+====
+LAB
+====
+
+.. rst-class:: medium
+
+    Let's do the previous motivating examples.
+
+Callables:
+-----------
+
+Write a class for a quadratic equation.
+
+* The initializer for that class should take the parameters: ``a, b, c``
+
+* It should store those parameters as attributes.
+
+* The resulting instance should evaluate the function when called, and return the result:
 
 
+.. code-block:: python
+
+    my_quad = Quadratic(a=2, b=3, c=1)
+
+    my_quad(0)
+
+Sparse Array:
+-------------
+
+Write a class for a sparse array
+
+* Internally, it can store the values in a dict, with the index as the keys)
+
+* It should take a sequence of values as an initializer
+
+* you should be able to tell how long it is: ``len(my_array)``
+
+* It should support getting and setting particular elements via indexing.
+
+* It should support deleting an element by index.
+
+* It should raise an ``IndexError`` if you try to access an index beyond the end.
+
+* Can you make it support slicing?
+
+* How else can you  make it like a list?
+
+.. code-block:: ipython
+
+    In [10]: my_array = SparseArray( (1,0,0,0,2,0,0,0,5) )
+    In [11]: my_array[4]
+    Out[11]: 2
+    In [12]: my_array[2]
+    Out[12]: 0
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Alireza Hashemloo
+|
+| Arielle R Simmons
+|
+
+
+=========================
 Iterators and Generators
 =========================
+
+.. rst-class:: medium
+
+    What goes on in those for loops?
 
 Iterators
 ---------
@@ -183,12 +337,12 @@ A simple version of ``xrange()``
             else:
                 raise StopIteration
 
-(demo: ``code/iterator_1.py``)
+(demo: :download:`iterator_1.py <../../Examples/Session08/iterator_1.py>`)
 
 ``iter()``
 -----------
 
-How doyou get the iterator object (the thing with the next() method) from an "iterable"?
+How do you get the iterator object (the thing with the next() method) from an "iterable"?
 
 The ``iter()`` function:
 
@@ -203,7 +357,7 @@ The ``iter()`` function:
     In [22]: iter( ('a', 'tuple') )
     Out[22]: <tupleiterator at 0x101e01710>
 
-for an arbitrary object, ``iter()`` calls the ``__iter__`` method. But it knows about some object (``str``, for instance) that don't have a ``__iter__`` method.
+for an arbitrary object, ``iter()`` calls the ``__iter__`` method. But it knows about some objects (``str``, for instance) that don't have a ``__iter__`` method.
 
 
 What does ``for`` do?
@@ -211,7 +365,8 @@ What does ``for`` do?
 
 Now that we know the iterator protocol, we can write something like a for loop:
 
-(``code/session08/my_for.py``)
+
+:download:`my_for.py <../../Examples/Session08/my_for.py>`
 
 .. code-block:: python
 
@@ -243,16 +398,17 @@ NOTE:
 
 iterators are not *only* for ``for``
 
-They can be used with anything that expexts an iterator:
+They can be used with anything that expects an iterator:
 
 ``sum``, ``tuple``, ``sorted``, and ``list``
 
 For example.
 
-LAB / Homework
---------------
+LAB
+-----
 
-In the ``code/session08`` dir, you will find: ``iterator_1.py``
+In the ``Examples/session08`` dir, you will find:
+:download:`iterator_1.py <../../Examples/Session08/iterator_1.py>`
 
 * Extend (``iterator_1.py`` ) to be more like ``xrange()`` -- add three input parameters: ``iterator_2(start, stop, step=1)``
 
@@ -276,6 +432,30 @@ And then pick up again:
 
   - make yours match ``xrange()``
 
+LAB2
+-----
+
+Make the SparseArray class from the previous lab an iterator, so you can do:
+
+.. code-block:: python
+
+    for i in my_sparse_array:
+        do_something_with(i)
+
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Eric W Westman
+|
+| Ryan J Albright
+|
+
+
+
 Generators
 ----------
 
@@ -285,15 +465,15 @@ Generators give you the iterator immediately:
 
 
 Conceptually:
-  Iterators are about various ways to loop over data, generators generate the data on the fly
+  Iterators are about various ways to loop over data, generators generate the data on the fly.
 
 Practically:
-  You can use either either way (and a generator is one type of iterator
+  You can use either one either way (and a generator is one type of iterator)
 
-  Generators do some of the book-keeping for you.
+  Generators do some of the book-keeping for you -- simpler syntax.
 
 yield
------
+------
 
 ``yield``  is a way to make a quickie generator with a function:
 
@@ -308,7 +488,7 @@ Generator functions "yield" a value, rather than returning a value.
 State is preserved in between yields.
 
 
-.. nextslide::
+.. nextslide:: generator functions
 
 A function with ``yield``  in it is a "factory" for a generator
 
@@ -359,17 +539,14 @@ Note:
 
 So the generator **is** an iterator
 
-.. nextslide::
-
-A generator function can also be a method in a class
+Note: A generator function can also be a method in a class
 
 
-More about iterators and generators:
+.. More about iterators and generators:
 
-http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/
+.. http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/
 
-``code/session08/yield_example.py``
-
+:download:`yield_example.py <../../Examples/Session08/yield_example.py>`
 
 generator comprehension
 -----------------------
@@ -389,9 +566,8 @@ yet another way to make a generator:
 
 More interesting if [1, 2, 3] is also a generator
 
-Generator LAB / Homework
--------------------------
-
+LAB
+----
 
 Write a few generators:
 
@@ -400,7 +576,8 @@ Write a few generators:
 * Fibonacci sequence
 * Prime numbers
 
-(test code in ``code/session08/test_generator.py``)
+(test code in
+:download:`test_generator.py <../../Examples/Session08/test_generator.py>`)
 
 Descriptions:
 
@@ -436,15 +613,14 @@ Others to try:
   Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...
 
 
-
+========
 Homework
 ========
 
-Assignments
------------
+.. rst-class:: left medium
 
-Task 3: Generator Homework (documented above)
+    Finish up the Labs from class
 
-Task 4: Iterator Homework (documented above)
+    Get started on your project!
 
-
+    (Send me a proposal if you haven't already)
