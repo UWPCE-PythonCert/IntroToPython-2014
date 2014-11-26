@@ -1,0 +1,104 @@
+Python Session 7
+
+
+## Mixin's
+
+Mixins are a sort of class that is used to 
+"mix in" extra properties and methods into a class. 
+
+## New-Style Classes
+
+super(): use it to call a superclass method, rather than explicitly calling the unbound
+method on the superclass.
+
+Way to call a method on class
+
+ex:
+
+instead of:
+
+class A(B):
+	def __init__ (self, *args, **kwargs)
+		B.__init__(self, *args, **kwargs)
+
+you can:
+		
+class A(B):
+	def init
+		super (A, self).__init(*args, **kwargs)
+		
+Properties:
+
+
+- Something that looks to the outside user as an attribute,
+but internally it is something 
+
+"_x" : private attribute, external users not suppose to be using it
+
+class C(object)
+
+- What is up with the "@" symbols?
+- Special syntax for wrapping a function with a function
+- Those are decorators, it's a syntax for wrapping functions up with 
+- something special.
+
+ex:
+
+@property
+
+def x(self):
+# means make a property called x with a getter
+
+- NOTE: when you define a property you should define a getter
+- You DO NOT need to define a setter. If you don't you 
+- get a read-only attribute		
+
+
+EXAMPLE CODE FORE PROPERTY
+
+"""
+Example code for properties
+
+"""
+
+class C(object):
+	_x = None
+	@property
+	def x(self):
+		return self._x # returns c
+	@x.setter
+	def x(self, value):
+		self._x = value
+	@x.deleter
+	def x(self):
+		del self._x
+		
+if __name__ == "__main__":
+	c = C()
+	c.x = 5
+	print c.x
+	
+## Static Methods
+
+A static method is a method that doesn't get self:
+
+class StaticAdder(object):
+	@staticmethod
+	def add(a,b);
+		return a + b
+		
+>> StaticAdder.add(3,6)
+
+Note: when you run "type()" and get 'type'...it is basically saying it is a class
+
+Note: For circle assignment use **2 = ^2 
+
+## Protocols
+
+The set of special methods needed to emulate a particular type
+of Python object is called a protocol
+
+Your classes can "become" like a pre-existing python module
+
+ 
+	
