@@ -17,6 +17,8 @@ In This Course
     |     session06        |                       |
     |     session07        |                       |
     |     session08        |                       |
+    |     session09        |                       |
+    |     session10        |                       |
     +----------------------+-----------------------+
 
 .. ifnotslides::
@@ -35,6 +37,8 @@ In This Course
         session06
         session07
         session08
+        session09
+        session10
 
     Materials:
     ----------
