@@ -1,3 +1,4 @@
 slides_sources/build
 .idea
 .DS_Store
+*.pyc
