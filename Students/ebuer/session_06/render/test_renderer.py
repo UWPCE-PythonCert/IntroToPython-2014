@@ -34,7 +34,7 @@ def test_elappend():
 def test_render():
     e = Element('test content')
     output = render_element(e)
-    print output
+    
     assert '<html>' in output
     assert 'test content' in output
     assert '</html>' in output
