@@ -869,3 +869,34 @@ Class Methods:
 Special Methods:
     - all of the special methods are in the format __methodname__
 """
+
+
+############################## SESSION08 ##############################
+
+"""
+Callable classes:
+    - a "callable" is anything that you can call like a function (i.e., a class
+      is a "callable")
+    - __call__ is the special method that you use to make your call callable
+
+Writing your own sequence type:
+    - __len__
+    - __getitem__
+    - __setitem__
+    - __delitem__
+    - __contains__
+"""
+
+"""
+Iterators:
+    - every iterator has an __iter__ method (e.g., list.__iter__())
+    - in order to make your Class an interator (i.e., so you can use it in a
+      loop), you need the following methods
+        - __iter__()
+        - next()
+"""
+
+"""
+Generators:
+    - generators give you the iterator immediately
+"""
