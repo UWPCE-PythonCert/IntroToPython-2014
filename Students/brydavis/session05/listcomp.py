@@ -69,9 +69,11 @@ def listcomp():
 	print len(dict_comprehension) # 4
 	print
 
+	return True
+
 
 if __name__ == '__main__':
-	listcomp()
+	assert listcomp() # throws error unless return truthy
 
 
 

@@ -12,22 +12,21 @@ def print_sentence(arr, desc):
 	print desc.format(**arr)
 	return
 
-# 2. Using a list comprehension, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent (string is fine).
-
+# 2. Using a list comprehension, build a dictionary of numbers from zero 
+# to fifteen and the hexadecimal equivalent (string is fine).
 
 # def hex_list(high,low=0):
 # 	store = {} 
 # 	return [store[r] = hex(r) for r in range(low,high+1]
-
 # hex_list(15)
 # print
+
+# print {i:hex(i) for i in range(16)}
+
 
 # 3. Do the previous entirely with a dict comprehension - should be a one - liner
 def hex_dict(high,low=0):
 	return {r:hex(r) for r in range(low,high+1)}
-
-
-
 
 
 # 4. Using the dictionary from item 1: Make a dictionary using the same keys
@@ -45,7 +44,6 @@ def count_a(orig_dict):
 def divisible_set(denom,high,low=0):
 	return {n for n in range(low,high+1) if n%denom == 0}
 
-
 if __name__ == '__main__':
 	print_sentence(food_prefs,desc)
 	print
@@ -59,7 +57,7 @@ if __name__ == '__main__':
 	for i in [2,3,4]:
 		print divisible_set(i,20)
 	print
-	
+
 
 
 
