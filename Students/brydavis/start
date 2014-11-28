@@ -40,7 +40,7 @@ function end_session {
 function init {
 	clear;
 	echo "Welcome to UW-PCE's Intro to Python";
-	
+	source ./start;
 	# start_session;
 }
 
