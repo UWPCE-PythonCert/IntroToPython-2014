@@ -5,8 +5,10 @@ nifty Circle class
 """
 
 from math import pi
+import functools
 
 
+@functools.total_ordering
 class Circle(object):
 
     def __init__(self, radius):
@@ -56,8 +58,33 @@ class Circle(object):
     def __rmul__(self, factor):
         return Circle(self.radius * factor)
 
-    def __cmp__(self, other):
-        return cmp(self.radius, other.radius)
+    # def __cmp__(self, other):
+    #     """
+    #     This is the easy way to support comparing all in one shot
+    #     """
+    #     return cmp(self.radius, other.radius)
+
+    ## Or you can define them all
+    ##  So can support odd situations
+    # def __eq__(self, other):
+    #     return self.radius == other.radius
+    # def __ne__(self, other):
+    #     return self.radius != other.radius
+    # def __gt__(self, other):
+    #     return self.radius > other.radius
+    # def __ge__(self, other):
+    #     return self.radius >= other.radius
+    # def __lt__(self, other):
+    #     return self.radius < other.radius
+    # def __le__(self, other):
+    #     return self.radius <= other.radius
+
+    ## or you can put the @total_ordering decorator on the class definiton and do this:
+    def __eq__(self, other):
+        return self.radius == other.radius
+    def __gt__(self, other):
+        return self.radius > other.radius
+
 
 
 class SubCircle(Circle):
