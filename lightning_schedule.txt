@@ -8,7 +8,7 @@ week 3:  Lesley D Reece
 week 3:  Michel Claessens
 week 4:  Benjamin C Mier
 week 4:  Robert W Perkins
-week 4:  Vinay Gupta *** still needs to do it ***
+week 4:  Vinay Gupta
 week 4:  Wayne R Fukuhara
 week 5:  Darcy Balcarce
 week 5:  Eric Buer
@@ -33,3 +33,4 @@ week 9:  Ralph P Brand
 week 10:  Bryan L Davis
 week 10:  Carolyn J Evans
 week 10:  Changqing Zhu
+week 10:  Alexandra N Kazakova
