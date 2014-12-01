@@ -17,7 +17,8 @@ class Callable(object):
     def __call__(self, some parameters)
 ````
 
-*Key Sequence Protocols*  
+**Key Sequence Protocols**  
+
     def__len__():
         pass
 
@@ -45,7 +46,7 @@ An iterable is something that can be iterated over.
 An iterator is a class object that can be stepped through using next()  
 (i.e. somthing that iter() has been called on)
 
-*Some examples shown in class:*
+**Some examples shown in class:**
 ```python
 l = [2,4,5,7]
 
@@ -100,3 +101,7 @@ dir(object) to get all available methods including magic
 Comprehensions written with normal parens will return a generator object that allows access to generator methods so the list does not need to be copied.
 
 Once the generator has been created it allows iteration on each individual item as well, this allows for v. efficient looping.
+
+*Homework*  
+* Finish labs
+* Start project and send proposal
