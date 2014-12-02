@@ -19,7 +19,7 @@ Lightning Talks Today:
 
   Danielle Marcos
 
-  person 4
+  Carolyn  Evans
 
 ================
 Review/Questions
@@ -59,15 +59,15 @@ A Definition
 There are many things you can do with a simple pattern like this one.
 So many, that we give it a special name:
 
-.. rst-class:: centered
+.. rst-class:: centered medium
 
 **Decorator**
 
-.. rst-class:: build
+.. rst-class:: build centered
 .. container::
 
-    A decorator is a function that takes a function as an argument and
-    returns a function as a return value.
+    "A decorator is a function that takes a function as an argument and
+    returns a function as a return value.""
 
     That's nice and all, but why is that useful?
 
@@ -180,7 +180,7 @@ function is called **decoration**.
 Because this is so common, Python provides a special operator to perform it
 more *declaratively*: the ``@`` operator:
 
-( I told you I'd eventually explain what was going on under the hood
+(I told you I'd eventually explain what was going on under the hood
 with that wierd `@` symbol)
 
 .. code-block:: python
@@ -324,6 +324,7 @@ for you to be writing your own.
 
 We've seen a few already:
 
+.. nextslide::
 
 For example, ``@staticmethod`` and ``@classmethod`` can also be used as simple
 callables, without the nifty decorator expression:
@@ -331,13 +332,14 @@ callables, without the nifty decorator expression:
 .. code-block:: python
 
     # the way we saw last week:
-    # and the decorator form
     class C(object):
         @staticmethod
         def add(a, b):
             return a + b
 
 Is exactly the same as:
+
+.. code-block:: python
 
     class C(object):
         def add(a, b):
@@ -354,7 +356,7 @@ The ``classmethod()`` builtin can do the same thing:
 
 .. code-block:: python
 
-    # and in declarative style
+    # in declarative style
     class C(object):
         @classmethod
         def from_iterable(cls, seq):
@@ -367,7 +369,8 @@ The ``classmethod()`` builtin can do the same thing:
         from_iterable = classmethod(from_iterable)
 
 
-.. nextslide:: property()
+property()
+-----------
 
 Remember the property() built in?
 
@@ -408,9 +411,13 @@ But this could also be accomplished like so:
         x = property(getx, setx, delx,
                      "I'm the 'x' property.")
 
+.. nextslide::
+
 Note that in this case, the decorator object returned by the property decorator
 itself implements additional decorators as attributes on the returned method
-object. S oyou could actually do this:
+object. So you could actually do this:
+
+
 
 .. code-block:: python
 
@@ -432,7 +439,7 @@ But that's getting really ugly!
 LAB
 ----
 
-**``p-wrapper`` Decorator**
+**p_wrapper Decorator**
 
 Write a simple decorator you can apply to a function that returns a string.
 
@@ -452,6 +459,7 @@ HTML 'p' tag:
 simple test code in
 :download:`Examples/Session09/test_p_wrapper.py <../../Examples/Session09/test_p_wrapper.py>`
 
+
 Lightning Talks
 ----------------
 
@@ -464,9 +472,9 @@ Lightning Talks
 |
 
 
-================
+=================
 Context Managers
-================
+=================
 
 **A Short Digression**
 
@@ -550,8 +558,6 @@ when the code block ends.
 At this point in Python history, many functions you might expect to behave this
 way do:
 
-.. rst-class:: build
-
 * ``open`` and ``io.open`` both work as context managers.
   (``io.open`` is good for working with unicode)
 * networks connections via ``socket`` do as well.
@@ -559,7 +565,7 @@ way do:
   context managers.
 * ...
 
-But what if you are working with a library that doesn't support this
+* But what if you are working with a library that doesn't support this
 (``urllib``)?
 
 .. nextslide:: Close It Automatically
@@ -581,23 +587,21 @@ the ``closing`` context manager from ``contextlib`` to handle the issue:
 But what if the thing doesn't have a ``close()`` method, or you're creating
 the thing and it shouldn't have a close() method?
 
-.. nextslide:: Do It Yourself
+Do It Yourself
+----------------
 
 You can also define a context manager of your own.
 
-The interface is simple.  It must be a class that implements these two
-more of the nifty python *special methods*:
+The interface is simple.  It must be a class that implements two
+more of the nifty python *special methods*
 
-``__enter__(self)``:
-  Called when the ``with`` statement is run, it should return something to work
-  with in the created context.
+**__enter__(self)**  Called when the ``with`` statement is run, it should return something to work with in the created context.
 
-``__exit__(self, e_type, e_val, e_traceback)``:
-  Clean-up that needs to happen is implemented here.
+**__exit__(self, e_type, e_val, e_traceback)**  Clean-up that needs to happen is implemented here.
 
-  The arguments will be the exception raised in the context.
+The arguments will be the exception raised in the context.
 
-  If the exception will be handled here, return True. If not, return False.
+If the exception will be handled here, return True. If not, return False.
 
 Let's see this in action to get a sense of what happens.
 
@@ -621,6 +625,9 @@ Consider this code:
     def __exit__(self, exc_type, exc_val, exc_tb):
         print '__exit__(%r, %r, %r)' % (exc_type, exc_val, exc_tb)
         return self.handle_error
+
+:download:`Examples/Session09/context_managers.py <../../Examples/Session09/context_managers.py>`
+
 
 .. nextslide::
 
@@ -666,8 +673,7 @@ What if we try with ``False``?
 
 .. nextslide:: ``contextmanager`` decorator
 
-``contextlib.contextmanager`` turns generator functions into context managers
-
+``contextlib.contextmanager`` turns generator functions into context managers.
 Consider this code:
 
 .. code-block:: python
@@ -732,7 +738,7 @@ LAB
 ----
 **Timing Context Manager**
 
-Create a context manager that will print to stdout the elapsed time taken to
+Create a context manager that will print the elapsed time taken to
 run all the code inside the context:
 
 .. code-block:: ipython
@@ -756,7 +762,7 @@ Lightning Talks
 |
 |  Danielle Marcos
 |
-|  ???
+|  Carolyn Evans
 |
 
 
@@ -1135,6 +1141,19 @@ Once your setup.py is written, you can:
     bdist_wininst create an executable installer for MS Windows
     upload        upload binary package to PyPI
 
+wheels
+------
+
+"wheels" are the "new" packge format for python.
+
+A wheel is essentially a zip file of the entire package, ready to be
+unpacked in the right place on installation.
+
+``pip`` will look for wheels for OS-X and Windows on PyPi, and auto-intall
+them if they exist
+
+This is particularly nice for pacakges with non-python dependiencies.
+
 
 More complex packaging
 ----------------------
@@ -1223,13 +1242,27 @@ Write a setup.py for a script of yours
 
 (my example: ``Examples/Session09/capitalize``)
 
-========
+==========
+Next Week
+==========
+
+We'll be talking about Unicode. Read:
+
+rst-class:: medium centered
+
+  The Absolute Minimum Every Software Developer Absolutely, Positively
+  Must Know About Unicode and Character Sets (No Excuses!)
+
+http://www.joelonsoftware.com/articles/Unicode.html
+
+Also: Cris Ewing will come by to talk about the second quarter
+web development class
+
 Homework
-========
+---------
 
 Finish up the labs
 
 Work on your project
 
 And *do* let me know what you're doing if you haven't yet!
-
