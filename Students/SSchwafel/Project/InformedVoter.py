@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from pprint import pprint
 import urllib2
 import simplejson as json
 
@@ -15,8 +16,7 @@ url = 'https://www.govtrack.us/api/v2/bill'
 data = json.load(urllib2.urlopen(url))
 print type(data)
 
-# print the result
-#print data
+pprint(data)
 
-for key in data.iteritems():
-    print "{}  :  {}".format(key,data[key])
+#for key in data.keys():
+#    print "{}  :  {}\n".format(key,data[key])

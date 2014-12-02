@@ -24,10 +24,10 @@
 #
 #print sample
 
-class sparse_array(object):
+class SparseArray(object):
     
     def __init__(self,iterable):
-        self.values{}
+        self.values = {}
         self.length = len(iterable)
 
         for i, val in enumerate(iterable):
@@ -54,6 +54,15 @@ class sparse_array(object):
             raise IndexError("Sparse array index out of range")
         else:
             if value == 0:
-                self..values.pop(index, None) 
+                self.values.pop(index, None) 
             else:
-                self.values[index] = valu
+                self.values[index] = value
+    def __delitem__(self, index):
+
+        if index >= self.length:
+            raise IndexError("Sparse array index out of range")
+        else:
+            self.values.pop(index,None)
+            self.length -= 1
+
+    
