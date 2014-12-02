@@ -1,3 +1,5 @@
+.. _virtualenv_section:
+
 ***********************
 Working with Virtualenv
 ***********************
@@ -57,7 +59,7 @@ command available to you from your shell:
 
     $ virtualenv --help
     Usage: virtualenv [OPTIONS] DEST_DIR
-    
+
     Options:
       --version             show program's version number and exit
       -h, --help            ...

@@ -160,6 +160,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packages-and-packaging">Packages and Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distributing">Distributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-week">Next Week</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session10.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
@@ -224,17 +229,19 @@
 <h1>Session Nine: Decorators, Context Managers, Packages and packaging<a class="headerlink" href="#session-nine-decorators-context-managers-packages-and-packaging" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lightning-talks-today">
 <h2>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h2>
-<p class="medium">person 1</p>
-<p class="medium">person 2</p>
-<p class="medium">person 3</p>
-<p class="medium">person 4</p>
+<p class="medium">Lou Ascoli</p>
+<p class="medium">Ralph  Brand</p>
+<p class="medium">Danielle Marcos</p>
+<p class="medium">Carolyn  Evans</p>
 </div>
 <div class="section" id="review-questions">
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
+<p>Review of complete sparse array class</p>
+</div>
 <div class="section" id="decorators">
-<h3>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h3>
-<p><strong>A Short Digression</strong></p>
-<div class="left build container">
+<h2>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
+<p><strong>A Short Reminder</strong></p>
+<div class="left container">
 <p>Functions are things that generate values based on input (arguments).</p>
 <p>In Python, functions are first-class objects.</p>
 <p>This means that you can bind symbols to them, pass them around, just like
@@ -249,18 +256,18 @@ arguments and/or return functions as values:</p>
 </div>
 </div>
 <div class="section" id="a-definition">
-<h4>A Definition<a class="headerlink" href="#a-definition" title="Permalink to this headline">¶</a></h4>
-<p>There are many things you can do with a simple pattern like this one.  So many,
-that we give it a special name:</p>
-<p class="centered"><strong>Decorator</strong></p>
-<div class="build container">
-<p>A decorator is a function that takes a function as an argument and
-returns a function as a return value.</p>
+<h3>A Definition<a class="headerlink" href="#a-definition" title="Permalink to this headline">¶</a></h3>
+<p>There are many things you can do with a simple pattern like this one.
+So many, that we give it a special name:</p>
+<p class="centered medium"><strong>Decorator</strong></p>
+<div class="build centered container">
+<p>&#8220;A decorator is a function that takes a function as an argument and
+returns a function as a return value.&#8221;&#8220;</p>
 <p>That&#8217;s nice and all, but why is that useful?</p>
 </div>
 </div>
 <div class="section" id="an-example">
-<h4>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h4>
+<h3>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h3>
 <p>Imagine you are trying to debug a module with a number of functions like this
 one:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -268,18 +275,18 @@ one:</p>
 </pre></div>
 </div>
 <div class="build container">
-<p>You want to see when each function is called, with what arguments and with what
-result. So you rewrite each function as follows:</p>
+<p>You want to see when each function is called, with what arguments and
+with what result. So you rewrite each function as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&quot;Function &#39;add&#39; called with args: </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">locals</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s">&quot;Function &#39;add&#39; called with args: </span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
     <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">Result --&gt; </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
 </div>
-<p>That&#8217;s not particularly nice, especially if you have lots of functions in your
-module.</p>
+<p>That&#8217;s not particularly nice, especially if you have lots of functions
+in your module.</p>
 <p>Now imagine we defined the following, more generic <em>decorator</em>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">logged_func</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">logged</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -334,11 +341,13 @@ statements</em> leads you to this form:</p>
 </div>
 </div>
 <div class="section" id="syntax">
-<h4>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h4>
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
 <p>Rebinding the name of a function to the result of calling a decorator on that
 function is called <strong>decoration</strong>.</p>
 <p>Because this is so common, Python provides a special operator to perform it
 more <em>declaratively</em>: the <tt class="docutils literal"><span class="pre">&#64;</span></tt> operator:</p>
+<p>(I told you I&#8217;d eventually explain what was going on under the hood
+with that wierd <cite>&#64;</cite> symbol)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># this is the imperative version:</span>
 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -355,18 +364,18 @@ The declarative form (called a decorator expression) is far more common,
 but both have the identical result, and can be used interchangeably.</div>
 </div>
 <div class="section" id="callables">
-<h4>Callables<a class="headerlink" href="#callables" title="Permalink to this headline">¶</a></h4>
+<h3>Callables<a class="headerlink" href="#callables" title="Permalink to this headline">¶</a></h3>
 <p>Our original definition of a <em>decorator</em> was nice and simple, but a tiny bit
 incomplete.</p>
 <p>In reality, decorators can be used with anything that is <em>callable</em>.</p>
-<p>In python a <em>callable</em> is a function, a method on a class, or even a class that
-implements the <tt class="docutils literal"><span class="pre">__call__</span></tt> special method.</p>
+<p>Remember from last week, a <em>callable</em> is a function, a method on a class,
+or a class that implements the <tt class="docutils literal"><span class="pre">__call__</span></tt> special method.</p>
 <p>So in fact the definition should be updated as follows:</p>
 <p class="centered">A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.</p>
 </div>
 <div class="section" id="id1">
-<h4>An Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h3>An Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Consider a decorator that would save the results of calling an expensive
 function with given arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Memoize</span><span class="p">:</span>
@@ -403,7 +412,7 @@ function with given arguments:</p>
 difference it made?</p>
 </div>
 <div class="section" id="nested-decorators">
-<h4>Nested Decorators<a class="headerlink" href="#nested-decorators" title="Permalink to this headline">¶</a></h4>
+<h3>Nested Decorators<a class="headerlink" href="#nested-decorators" title="Permalink to this headline">¶</a></h3>
 <p>You can stack decorator expressions.  The result is like calling each decorator
 in order, from bottom to top:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="nd">@decorator_two</span>
@@ -445,55 +454,48 @@ decorator:</p>
 </div>
 </div>
 <div class="section" id="examples-from-the-standard-library">
-<h4>Examples from the Standard Library<a class="headerlink" href="#examples-from-the-standard-library" title="Permalink to this headline">¶</a></h4>
+<h3>Examples from the Standard Library<a class="headerlink" href="#examples-from-the-standard-library" title="Permalink to this headline">¶</a></h3>
 <p>It&#8217;s going to be a lot more common for you to use pre-defined decorators than
 for you to be writing your own.</p>
-<p>Let&#8217;s see a few that might help you with work you&#8217;ve been doing recently.</p>
-<p>For example, a <tt class="docutils literal"><span class="pre">staticmethod()</span></tt> can be implemented with a decorator
-expression:</p>
+<p>We&#8217;ve seen a few already:</p>
+<p>For example, <tt class="docutils literal"><span class="pre">&#64;staticmethod</span></tt> and <tt class="docutils literal"><span class="pre">&#64;classmethod</span></tt> can also be used as simple
+callables, without the nifty decorator expression:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># the way we saw last week:</span>
-<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-    <span class="n">add</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
-
-<span class="c"># and the decorator form</span>
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
+<p>Is exactly the same as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">add</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the &#8220;<tt class="docutils literal"><span class="pre">def</span></tt>&#8221; binds the name <tt class="docutils literal"><span class="pre">add</span></tt>, then the next line
+rebinds it.</p>
 <p>The <tt class="docutils literal"><span class="pre">classmethod()</span></tt> builtin can do the same thing:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># in imperative style:</span>
-<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">from_iterable</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span>
-        <span class="c"># method body</span>
-    <span class="n">from_iterable</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">from_iterable</span><span class="p">)</span>
-
-<span class="c"># and in declarative style</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># in declarative style</span>
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_iterable</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span>
         <span class="c"># method body</span>
+
+<span class="c"># in imperative style:</span>
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">from_iterable</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">seq</span><span class="p">):</span>
+        <span class="c"># method body</span>
+    <span class="n">from_iterable</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">from_iterable</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="property">
+<h3>property()<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
+<p>Remember the property() built in?</p>
 <p>Perhaps most commonly, you&#8217;ll see the <tt class="docutils literal"><span class="pre">property()</span></tt> builtin used this way.</p>
 <p>Last week we saw this code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-    <span class="k">def</span> <span class="nf">setx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">def</span> <span class="nf">delx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getx</span><span class="p">,</span> <span class="n">setx</span><span class="p">,</span> <span class="n">delx</span><span class="p">,</span>
-                 <span class="s">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Used in a decorator statement, it looks like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
@@ -508,17 +510,76 @@ expression:</p>
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
 </pre></div>
 </div>
+<p>But this could also be accomplished like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="k">def</span> <span class="nf">setx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">delx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getx</span><span class="p">,</span> <span class="n">setx</span><span class="p">,</span> <span class="n">delx</span><span class="p">,</span>
+                 <span class="s">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Note that in this case, the decorator object returned by the property decorator
 itself implements additional decorators as attributes on the returned method
-object.</p>
+object. So you could actually do this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_set_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">setter</span><span class="p">(</span><span class="n">_set_x</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_del_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">deleter</span><span class="p">(</span><span class="n">_del_x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But that&#8217;s getting really ugly!</p>
+</div>
+<div class="section" id="lab">
+<h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
+<p><strong>p_wrapper Decorator</strong></p>
+<p>Write a simple decorator you can apply to a function that returns a string.</p>
+<p>Decorating such a function should result in the original output, wrapped by an
+HTML &#8216;p&#8217; tag:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="nd">@p_wrapper</span>
+<span class="gp">   ...: </span><span class="k">def</span> <span class="nf">return_a_string</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">string</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [5]: </span><span class="n">return_a_string</span><span class="p">(</span><span class="s">&quot;this is a string&quot;</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">&#39;&lt;p&gt; this is a string &lt;/p&gt;&#39;</span>
+</pre></div>
+</div>
+<p>simple test code in
+<a class="reference download internal" href="_downloads/test_p_wrapper.py"><tt class="xref download docutils literal"><span class="pre">Examples/Session09/test_p_wrapper.py</span></tt></a></p>
+</div>
+<div class="section" id="lightning-talks">
+<h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
+<div class="medium line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">Lou Ascoli</div>
+<div class="line"><br /></div>
+<div class="line">Ralph  Brand</div>
+<div class="line"><br /></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="context-managers">
-<h3>Context Managers<a class="headerlink" href="#context-managers" title="Permalink to this headline">¶</a></h3>
+<h2>Context Managers<a class="headerlink" href="#context-managers" title="Permalink to this headline">¶</a></h2>
 <p><strong>A Short Digression</strong></p>
 <div class="left build container">
-<p>Repetition in code stinks.</p>
-<p>A large source of repetition in code deals with the handling of externals
+<p>Repetition in code stinks (DRY!)</p>
+<p>A large source of repetition in code deals with the handling of external
 resources.</p>
 <p>As an example, how many times do you think you might type the following
 code:</p>
@@ -532,7 +593,7 @@ code:</p>
 <p>What happens if reading the file raises an exception?</p>
 </div>
 <div class="section" id="resource-handling">
-<h4>Resource Handling<a class="headerlink" href="#resource-handling" title="Permalink to this headline">¶</a></h4>
+<h3>Resource Handling<a class="headerlink" href="#resource-handling" title="Permalink to this headline">¶</a></h3>
 <p>Leaving an open file handle laying around is bad enough. What if the resource
 is a network connection, or a database cursor?</p>
 <p>You can write more robust code for handling your resources:</p>
@@ -545,7 +606,7 @@ is a network connection, or a database cursor?</p>
 </pre></div>
 </div>
 <p>But what exceptions do you want to catch?  And do you really want to have to
-remember all that <strong>every</strong> time you open a resource?</p>
+remember to type all that <strong>every</strong> time you open a resource?</p>
 <p>Starting in version 2.5, Python provides a structure for reducing the
 repetition needed to handle resources like this.</p>
 <p class="centered"><strong>Context Managers</strong></p>
@@ -564,15 +625,16 @@ lines of defensive code have been replaced with this simple form:</p>
 when the code block ends.</p>
 <p>At this point in Python history, many functions you might expect to behave this
 way do:</p>
-<ul class="build simple">
-<li><tt class="docutils literal"><span class="pre">open</span></tt> and <tt class="docutils literal"><span class="pre">codecs.open</span></tt> both work as context managers</li>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">open</span></tt> and <tt class="docutils literal"><span class="pre">io.open</span></tt> both work as context managers.
+(<tt class="docutils literal"><span class="pre">io.open</span></tt> is good for working with unicode)</li>
 <li>networks connections via <tt class="docutils literal"><span class="pre">socket</span></tt> do as well.</li>
 <li>most implementations of database wrappers can open connections or cursors as
 context managers.</li>
 <li>...</li>
+<li>But what if you are working with a library that doesn&#8217;t support this</li>
 </ul>
-<p>But what if you are working with a library that doesn&#8217;t support this
-(<tt class="docutils literal"><span class="pre">urllib</span></tt>)?</p>
+<p>(<tt class="docutils literal"><span class="pre">urllib</span></tt>)?</p>
 <p>There are a couple of ways you can go.</p>
 <p>If the resource in questions has a <tt class="docutils literal"><span class="pre">.close()</span></tt> method, then you can simply use
 the <tt class="docutils literal"><span class="pre">closing</span></tt> context manager from <tt class="docutils literal"><span class="pre">contextlib</span></tt> to handle the issue:</p>
@@ -584,24 +646,22 @@ the <tt class="docutils literal"><span class="pre">closing</span></tt> context m
 <span class="c"># and here, it will be closed automatically</span>
 </pre></div>
 </div>
-<p>But what if the thing doesn&#8217;t have a <tt class="docutils literal"><span class="pre">close()</span></tt> method, or you&#8217;re creating the thing and it shouldn&#8217;t?</p>
+<p>But what if the thing doesn&#8217;t have a <tt class="docutils literal"><span class="pre">close()</span></tt> method, or you&#8217;re creating
+the thing and it shouldn&#8217;t have a close() method?</p>
+</div>
+<div class="section" id="do-it-yourself">
+<h3>Do It Yourself<a class="headerlink" href="#do-it-yourself" title="Permalink to this headline">¶</a></h3>
 <p>You can also define a context manager of your own.</p>
-<p>The interface is simple.  It must be a class that implements these two <em>special
-methods</em>:</p>
-<dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">__enter__(self)</span></tt>:</dt>
-<dd>Called when the <tt class="docutils literal"><span class="pre">with</span></tt> statement is run, it should return something to work
-with in the created context.</dd>
-<dt><tt class="docutils literal"><span class="pre">__exit__(self,</span> <span class="pre">e_type,</span> <span class="pre">e_val,</span> <span class="pre">e_traceback)</span></tt>:</dt>
-<dd><p class="first">Clean-up that needs to happen is implemented here.</p>
+<p>The interface is simple.  It must be a class that implements two
+more of the nifty python <em>special methods</em></p>
+<p><strong>__enter__(self)</strong>  Called when the <tt class="docutils literal"><span class="pre">with</span></tt> statement is run, it should return something to work with in the created context.</p>
+<p><strong>__exit__(self, e_type, e_val, e_traceback)</strong>  Clean-up that needs to happen is implemented here.</p>
 <p>The arguments will be the exception raised in the context.</p>
-<p class="last">If the exception will be handled here, return True. If not, return False.</p>
-</dd>
-</dl>
+<p>If the exception will be handled here, return True. If not, return False.</p>
 <p>Let&#8217;s see this in action to get a sense of what happens.</p>
 </div>
 <div class="section" id="id2">
-<h4>An Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<h3>An Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot;from Doug Hellmann, PyMOTW</span>
@@ -614,12 +674,13 @@ with in the created context.</dd>
     <span class="k">print</span> <span class="s">&#39;__enter__()&#39;</span>
     <span class="k">return</span> <span class="bp">self</span>
 <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&#39;__exit__(</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&#39;__exit__(</span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span>
 </pre></div>
 </div>
-<p>This class doesn&#8217;t do much of anything, but playing with it can help clarify
-the order in which things happen:</p>
+<p><a class="reference download internal" href="_downloads/context_managers.py"><tt class="xref download docutils literal"><span class="pre">Examples/Session09/context_managers.py</span></tt></a></p>
+<p>This class doesn&#8217;t do much of anything, but playing with it can help
+clarify the order in which things happen:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [46]: </span><span class="k">with</span> <span class="n">Context</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">foo</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="k">print</span> <span class="s">&#39;This is in the context&#39;</span>
 <span class="gp">   ....: </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;this is the error message&#39;</span><span class="p">)</span>
@@ -649,8 +710,8 @@ Because the exit method returns True, the raised error is &#8216;handled&#8217;.
 <span class="ne">RuntimeError</span>: this is the error message
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">contextlib.contextmanager</span></tt> turns generator functions into context managers</p>
-<p>Consider this code:</p>
+<p><tt class="docutils literal"><span class="pre">contextlib.contextmanager</span></tt> turns generator functions into context managers.
+Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 
 <span class="nd">@contextmanager</span>
@@ -699,14 +760,10 @@ Because the exit method returns True, the raised error is &#8216;handled&#8217;.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="homework">
-<h3>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h3>
-<p>Python Power</p>
-<div class="section" id="assignments">
-<h4>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h4>
-<p>Task 1: Timing Context Manager</p>
-<p>Create a context manager that will print to stdout the elapsed time taken to
+<div class="section" id="id3">
+<h3>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><strong>Timing Context Manager</strong></p>
+<p>Create a context manager that will print the elapsed time taken to
 run all the code inside the context:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="k">with</span> <span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
 <span class="gp">   ...: </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
@@ -718,22 +775,420 @@ run all the code inside the context:</p>
 <p><strong>Extra Credit</strong>: allow the <tt class="docutils literal"><span class="pre">Timer</span></tt> context manager to take a file-like
 object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.</p>
-<p>Task 2: <tt class="docutils literal"><span class="pre">p-wrapper</span></tt> Decorator</p>
-<p>Write a simple decorator you can apply to a function that returns a string.
-Decorating such a function should result in the original output, wrapped by an
-HTML &#8216;p&#8217; tag:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="nd">@p_wrapper</span>
-<span class="gp">   ...: </span><span class="k">def</span> <span class="nf">return_a_string</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-<span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">string</span>
-<span class="gp">   ...:</span>
-
-<span class="gp">In [5]: </span><span class="n">return_a_string</span><span class="p">(</span><span class="s">&quot;this is a string&quot;</span><span class="p">)</span>
-<span class="gh">Out[5]: </span><span class="go">&#39;&lt;p&gt; this is a string &lt;/p&gt;&#39;</span>
+</div>
+<div class="section" id="id4">
+<h3>Lightning Talks<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="medium line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">Danielle Marcos</div>
+<div class="line"><br /></div>
+<div class="line">Carolyn Evans</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="packages-and-packaging">
+<h2>Packages and Packaging<a class="headerlink" href="#packages-and-packaging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modules-and-packages">
+<h3>Modules and Packages<a class="headerlink" href="#modules-and-packages" title="Permalink to this headline">¶</a></h3>
+<p>A module is a file (<tt class="docutils literal"><span class="pre">something.py</span></tt>) with python code in it</p>
+<p>A package is a directory with an <tt class="docutils literal"><span class="pre">__init__.py</span></tt>  file in it</p>
+<p>And usually other modules, packages, etc...</p>
+<div class="highlight-python"><div class="highlight"><pre>my_package
+    __init__.py
+    module_a.py
+    module_b.py
 </pre></div>
 </div>
-<p>Task 3: Generator Homework (documented above)</p>
-<p>Task 4: Iterator Homework (documented above)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">my_package</span>
+</pre></div>
 </div>
+<p>runs the code <tt class="docutils literal"><span class="pre">my_package/__init__.py</span></tt> (if there is any)</p>
+</div>
+<div class="section" id="id5">
+<h3>Modules and Packages<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">p</span>
+</pre></div>
+</div>
+<p>(demo)</p>
+</div>
+<div class="section" id="installing-python">
+<h3>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h3>
+<p>Linux:</p>
+<p>Usually part of the system &#8211; just use it.</p>
+<p>Windows:</p>
+<p>Use the python.org version:</p>
+<ul class="simple">
+<li>System Wide</li>
+<li>Can install multiple versions if need be</li>
+<li>Third party binaries for it.</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>Installing Python<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>OS-X:</p>
+<p>Comes with the system, but:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Apple has never upgraded within a release</li>
+<li>There are non-open source components</li>
+<li>Third party packages may or may not support it</li>
+<li>Apple does use it &#8211; so don&#8217;t mess with it</li>
+<li>I usually recommend the <tt class="docutils literal"><span class="pre">python.org</span></tt> version</li>
+</ul>
+</div></blockquote>
+<p>(Also Macports, Fink, Home Brew...)</p>
+</div>
+<div class="section" id="distributions">
+<h3>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h3>
+<p>There are also a few &#8220;curated&#8221; distributions:</p>
+<p>These provide python and a package management system for hard-to-buid packages.</p>
+<p>Widely used by the scipy community
+(lots of hard to build stuff that needs to work together...)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Anaconda (<a class="reference external" href="https://store.continuum.io/cshop/anaconda/">https://store.continuum.io/cshop/anaconda/</a>)</li>
+<li>Canopy (<a class="reference external" href="https://www.enthought.com/products/canopy/">https://www.enthought.com/products/canopy/</a>)</li>
+<li>ActivePython (<a class="reference external" href="http://www.activestate.com/activepython">http://www.activestate.com/activepython</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="installing-packages">
+<h3>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h3>
+<p>Every Python installation has its own stdlib and <tt class="docutils literal"><span class="pre">site-packages</span></tt> folder</p>
+<p><tt class="docutils literal"><span class="pre">site-packages</span></tt>  is the default place for third-party packages</p>
+</div>
+<div class="section" id="finding-packages">
+<h3>Finding Packages<a class="headerlink" href="#finding-packages" title="Permalink to this headline">¶</a></h3>
+<p>The Python Package Index:</p>
+<p><strong>PyPi</strong></p>
+<p><a class="reference external" href="http://pypi.python.org/pypi">http://pypi.python.org/pypi</a></p>
+</div>
+<div class="section" id="id7">
+<h3>Installing Packages<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><strong>From source</strong></p>
+<p>(<tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></tt> )</p>
+<p>With the system installer (apt-get, yum, etc...)</p>
+<p><strong>From binaries:</strong></p>
+<p>Windows: MSI installers</p>
+<p>OS-X: dmg installers (make sure to get compatible packages)</p>
+<p>And now: binary wheels &#8211; (More and more of those available)</p>
+<p><tt class="docutils literal"><span class="pre">pip</span></tt> should find approporate binary wheels if they are there.</p>
+</div>
+<div class="section" id="id8">
+<h3>Installing Packages<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>In the beginning, there was the <tt class="docutils literal"><span class="pre">distutils</span></tt>:</p>
+<p>But <tt class="docutils literal"><span class="pre">distutils</span></tt>  is missing some key features:</p>
+<ul class="simple">
+<li>package versioning</li>
+<li>package discovery</li>
+<li>auto-install</li>
+</ul>
+<ul class="simple">
+<li>And then came <tt class="docutils literal"><span class="pre">PyPi</span></tt> }</li>
+<li>And then came <tt class="docutils literal"><span class="pre">setuptools</span></tt> }</li>
+<li>But that wasn&#8217;t well maintained...}</li>
+<li>Then there was <tt class="docutils literal"><span class="pre">distribute/pip</span></tt> }</li>
+<li>Which has now been merged back into <tt class="docutils literal"><span class="pre">setuptools</span></tt> }</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Installing Packages<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Actually, it&#8217;s still a bit of a mess</p>
+<p>But getting better, and the mess is <em>almost</em> cleaned up.</p>
+</div>
+<div class="section" id="packaging-time-line">
+<h3>Packaging Time line<a class="headerlink" href="#packaging-time-line" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/PackagingTimeline.png" class="align-center" src="_images/PackagingTimeline.png" />
+</div>
+<div class="section" id="packaging-tools">
+<h3>Packaging Tools<a class="headerlink" href="#packaging-tools" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="current-state-of-packaging">
+<h3>Current State of Packaging<a class="headerlink" href="#current-state-of-packaging" title="Permalink to this headline">¶</a></h3>
+<p>To build packages: distutils</p>
+<blockquote>
+<div><a class="reference external" href="http://docs.python.org/2/distutils/">http://docs.python.org/2/distutils/</a></div></blockquote>
+<p>For more features: setuptools</p>
+<blockquote>
+<div><a class="reference external" href="https://pythonhosted.org/setuptools/">https://pythonhosted.org/setuptools/</a></div></blockquote>
+<p>To install packages: pip</p>
+<blockquote>
+<div><a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a></div></blockquote>
+<p>For binary packages: wheels</p>
+<blockquote>
+<div><a class="reference external" href="http://www.python.org/dev/peps/pep-0427/">http://www.python.org/dev/peps/pep-0427/</a></div></blockquote>
+</div>
+<div class="section" id="compiled-packages">
+<h3>Compiled Packages<a class="headerlink" href="#compiled-packages" title="Permalink to this headline">¶</a></h3>
+<p>Biggest issue is with compiled extensions:</p>
+<blockquote>
+<div>(C/C++, etc)</div></blockquote>
+<p>&#8211; You need the right compiler set up</p>
+<p>Dependencies</p>
+<p>&#8211; Here&#8217;s were it gets really ugly</p>
+<p>&#8211; Particularly on Windows</p>
+</div>
+<div class="section" id="id10">
+<h3>Compiled Packages<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Linux</p>
+<p>Pretty straightforward:</p>
+<ol class="arabic simple">
+<li>Is there a system package?</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>use it (apt-get install the_package)</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Try <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt>: it may just work!</li>
+</ol>
+<p>3) Install the dependencies, build from source:
+<tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build</span> <span class="pre">;</span> <span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt></p>
+<p>(may need &#8220;something-devel&#8221; packages)</p>
+</div>
+<div class="section" id="id11">
+<h3>Compiled Packages<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p><strong>Windows</strong></p>
+<p>Sometimes simpler:}</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>A lot of packages have Windows binaries:</dt>
+<dd><ul class="first last simple">
+<li>Usually for python.org builds</li>
+<li>Excellent source: <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a></li>
+<li>Make sure you get 32 or 64 bit consistent</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>But if no binaries:</dt>
+<dd><ul class="first last simple">
+<li>Hope the dependencies are available!</li>
+<li>Set up the compiler</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>MS now has a compiler just for python!</p>
+<p><a class="reference external" href="http://www.microsoft.com/en-us/download/details.aspx?id=44266">http://www.microsoft.com/en-us/download/details.aspx?id=44266</a></p>
+</div>
+<div class="section" id="id12">
+<h3>Compiled Packages<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><strong>OS-X</strong></p>
+<dl class="docutils">
+<dt>Lots of Python versions:</dt>
+<dd><ul class="first last simple">
+<li>Apple&#8217;s built-in (different for each version of OS)</li>
+<li>python.org builds</li>
+<li>32+64 bit Intel</li>
+<li>Macports</li>
+<li>Homebrew</li>
+</ul>
+</dd>
+</dl>
+<p>Binary Installers (dmg or wheel) have to match python version</p>
+</div>
+<div class="section" id="id13">
+<h3>Compiled Packages<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>OS-X</p>
+<p>If you have to build it yourself:</p>
+<dl class="docutils">
+<dt>Xcode compiler (the right version)</dt>
+<dd><ul class="first last simple">
+<li>Version 3.* for 32 bit PPC+Intel</li>
+<li>Version 4.* for 32+64 bit Intel</li>
+</ul>
+</dd>
+<dt>If extra dependencies:</dt>
+<dd><ul class="first last simple">
+<li>macports or home brew often easiest way to build them</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="final-recommendation">
+<h3>Final Recommendation<a class="headerlink" href="#final-recommendation" title="Permalink to this headline">¶</a></h3>
+<p>First try: <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt></p>
+<p>If that doesn&#8217;t work:</p>
+<p>Read the docs of the package you want to install</p>
+<p>Do what they say</p>
+</div>
+<div class="section" id="virtualenv">
+<h3>virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">virtualenv</span></tt> is a tool to create isolated Python environments.</p>
+<p>Very useful for developing multiple apps</p>
+<p>Or deploying more than one app on one system</p>
+<p><a class="reference external" href="http://www.virtualenv.org/en/latest/index.html">http://www.virtualenv.org/en/latest/index.html</a>}</p>
+<p>Remeber the notes from the beginning of class? <a class="reference internal" href="supplements/virtualenv.html#virtualenv-section"><em>Working with Virtualenv</em></a></p>
+<p>(Cris will probably make you do this next class)</p>
+</div>
+</div>
+<div class="section" id="distributing">
+<h2>Distributing<a class="headerlink" href="#distributing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>Distributing<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>What if you need to distribute you own:</p>
+<p>Scripts</p>
+<p>Libraries</p>
+<p>Applications</p>
+</div>
+<div class="section" id="scripts">
+<h3>Scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
+<p>Often you can just copy, share, or check in the script to source
+control and call it good.</p>
+<p>But only if it&#8217;s a single file, and doesn&#8217;t need anything non-standard</p>
+<p>When the script needs more than just the stdlib</p>
+<p>(or your company standard environment)}</p>
+<p>You have an application, not a script</p>
+</div>
+<div class="section" id="libraries">
+<h3>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h3>
+<p>When you read the distutils docs, it&#8217;s usually libraries they&#8217;re talking about</p>
+<p>Scripts + library is the same...</p>
+<p>(<a class="reference external" href="http://docs.python.org/distutils/">http://docs.python.org/distutils/</a>)</p>
+</div>
+<div class="section" id="distutils">
+<h3>distutils<a class="headerlink" href="#distutils" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">distutils</span></tt>  makes it easy to do the easy stuff:</p>
+<p>Distribute and install to multiple platforms, etc.</p>
+<p>Even binaries, installers and compiled packages</p>
+<p>(Except dependencies)</p>
+<p>(<a class="reference external" href="http://docs.python.org/distutils/">http://docs.python.org/distutils/</a>)</p>
+</div>
+<div class="section" id="distutils-basics">
+<h3>distutils basics<a class="headerlink" href="#distutils-basics" title="Permalink to this headline">¶</a></h3>
+<p>It&#8217;s all in the <tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">file</span></tt>:</p>
+<p>(<a class="reference external" href="http://docs.python.org/distutils/">http://docs.python.org/distutils/</a>)</p>
+</div>
+<div class="section" id="id15">
+<h3>distutils basics<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>Once your setup.py is written, you can:</p>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py ...
+build         build everything needed to install
+install       install everything from build directory
+sdist         create a source distribution
+              (tarball, zip file, etc.)
+bdist         create a built (binary) distribution
+bdist_rpm     create an RPM distribution
+bdist_wininst create an executable installer for MS Windows
+upload        upload binary package to PyPI
+</pre></div>
+</div>
+</div>
+<div class="section" id="wheels">
+<h3>wheels<a class="headerlink" href="#wheels" title="Permalink to this headline">¶</a></h3>
+<p>&#8220;wheels&#8221; are the &#8220;new&#8221; packge format for python.</p>
+<p>A wheel is essentially a zip file of the entire package, ready to be
+unpacked in the right place on installation.</p>
+<p><tt class="docutils literal"><span class="pre">pip</span></tt> will look for wheels for OS-X and Windows on PyPi, and auto-intall
+them if they exist</p>
+<p>This is particularly nice for pacakges with non-python dependiencies.</p>
+</div>
+<div class="section" id="more-complex-packaging">
+<h3>More complex packaging<a class="headerlink" href="#more-complex-packaging" title="Permalink to this headline">¶</a></h3>
+<p>For a complex package:</p>
+<p>You want to use a well structured setup:</p>
+<p><a class="reference external" href="http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/">http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/</a></p>
+</div>
+<div class="section" id="develop-mode">
+<h3>develop mode<a class="headerlink" href="#develop-mode" title="Permalink to this headline">¶</a></h3>
+<p>While you are developing your package, Installing it is a pain.</p>
+<p>But you want your code to be able to import, etc. as though it were installed</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">develop</span></tt>  installs links to your code, rather than copies</dt>
+<dd>&#8211; so it looks like it&#8217;s installed, but it&#8217;s using the original source</dd>
+</dl>
+<p><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></tt></p>
+<p>You need <tt class="docutils literal"><span class="pre">setuptools</span></tt> and a setup.py  to use it.</p>
+</div>
+<div class="section" id="applications">
+<h3>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h3>
+<p>For a complete application:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Web apps</li>
+<li>GUI apps</li>
+</ul>
+</div></blockquote>
+<p>Multiple options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Virtualenv + VCS</li>
+<li>zc.buildout ( <a class="reference external" href="http://www.buildout.org/">http://www.buildout.org/</a>}</li>
+<li>System packages (rpm, deb, ...)</li>
+<li>Bundles...</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="bundles">
+<h3>Bundles<a class="headerlink" href="#bundles" title="Permalink to this headline">¶</a></h3>
+<p>Bundles are Python + all your code + plus all the dependencies &#8211;
+all in one single &#8220;bundle&#8221;</p>
+<p>Most popular on Windows and OS-X</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">py2exe</span>
+<span class="n">py2app</span>
+<span class="n">pyinstaller</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>User doesn&#8217;t even have to know it&#8217;s python</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><a class="reference external" href="http://www.bitpim.org/">http://www.bitpim.org/</a>}
+<a class="reference external" href="http://response.restoration.noaa.gov/nucos">http://response.restoration.noaa.gov/nucos</a>}</dd>
+</dl>
+</div>
+<div class="section" id="id16">
+<h3>LAB<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>Write a setup.py for a script of yours</p>
+<blockquote>
+<div><ul class="simple">
+<li>Ideally, your script relies on at least one other module</li>
+<li>At a minimum, you&#8217;ll need to specify <tt class="docutils literal"><span class="pre">scripts</span></tt></li>
+<li>and probably <tt class="docutils literal"><span class="pre">py_modules</span></tt></li>
+<li>try:<ul>
+<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></tt></li>
+</ul>
+</li>
+<li>EXTRA: install <tt class="docutils literal"><span class="pre">setuptools</span></tt><ul>
+<li>use: <tt class="docutils literal"><span class="pre">from</span> <span class="pre">setuptools</span> <span class="pre">import</span> <span class="pre">setup</span></tt></li>
+<li>try: `` python setup.py develop``</li>
+</ul>
+</li>
+<li>EXTRA2: install <tt class="docutils literal"><span class="pre">wheel</span></tt><ul>
+<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wheel</span></tt></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>(my example: <tt class="docutils literal"><span class="pre">Examples/Session09/capitalize</span></tt>)</p>
+</div>
+</div>
+<div class="section" id="next-week">
+<h2>Next Week<a class="headerlink" href="#next-week" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;ll be talking about Unicode. Read:</p>
+<p>rst-class:: medium centered</p>
+<blockquote>
+<div>The Absolute Minimum Every Software Developer Absolutely, Positively
+Must Know About Unicode and Character Sets (No Excuses!)</div></blockquote>
+<p><a class="reference external" href="http://www.joelonsoftware.com/articles/Unicode.html">http://www.joelonsoftware.com/articles/Unicode.html</a></p>
+<p>Also: Cris Ewing will come by to talk about the second quarter
+web development class</p>
+<div class="section" id="homework">
+<h3>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h3>
+<p>Finish up the labs</p>
+<p>Work on your project</p>
+<p>And <em>do</em> let me know what you&#8217;re doing if you haven&#8217;t yet!</p>
 </div>
 </div>
 </div>
