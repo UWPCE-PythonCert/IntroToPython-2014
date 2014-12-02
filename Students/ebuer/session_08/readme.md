@@ -102,6 +102,10 @@ Comprehensions written with normal parens will return a generator object that al
 
 Once the generator has been created it allows iteration on each individual item as well, this allows for v. efficient looping.
 
-*Homework*  
+**Homework**  
 * Finish labs
+    + Quadractic class and sparse array
+    + Extend iterator_1.py to act like xranange() with 3 x inputs
+    + Turn sparse array into an iterator
+    + Write generators for sum of integers, a doubler, fibonacci sequence, prime numbers  
 * Start project and send proposal
