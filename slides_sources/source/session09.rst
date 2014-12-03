@@ -566,7 +566,7 @@ way do:
 * ...
 
 * But what if you are working with a library that doesn't support this
-(``urllib``)?
+  (``urllib``)?
 
 .. nextslide:: Close It Automatically
 
@@ -868,25 +868,29 @@ http://pypi.python.org/pypi
 
 Installing Packages
 -------------------
-**From source**
+.. rst-class:: medium
 
-(``setup.py install`` )
+    **From source**
 
-With the system installer (apt-get, yum, etc...)
+* (``setup.py install`` )
 
-**From binaries:**
+* With the system installer (apt-get, yum, etc...)
 
-Windows: MSI installers
+.. rst-class:: medium
 
-OS-X: dmg installers (make sure to get compatible packages)
+    **From binaries:**
 
-And now: binary wheels -- (More and more of those available)
+* Windows: MSI installers
 
-``pip`` should find approporate binary wheels if they are there.
+* OS-X: dmg installers (make sure to get compatible packages)
+
+* And now: binary wheels -- (More and more of those available)
+
+* ``pip`` should find appropriate binary wheels if they are there.
 
 
-Installing Packages
--------------------
+.. nextslide::
+
 In the beginning, there was the ``distutils``:
 
 But ``distutils``  is missing some key features:
@@ -895,15 +899,17 @@ But ``distutils``  is missing some key features:
 * package discovery
 * auto-install
 
-- And then came ``PyPi`` }
+- And then came ``PyPi``
 
-- And then came ``setuptools`` }
+- And then came ``setuptools``
 
-- But that wasn't well maintained...}
+- But that wasn't well maintained...
 
-- Then there was ``distribute/pip`` }
+- Then there was ``distribute/pip``
 
-- Which has now been merged back into ``setuptools`` }
+- Which has now been merged back into ``setuptools``
+
+Now it's pretty stable: pip+setuptools: use them.
 
 Installing Packages
 -------------------
@@ -912,82 +918,72 @@ Actually, it's still a bit of a mess
 
 But getting better, and the mess is *almost* cleaned up.
 
-Packaging Time line
--------------------
-
-.. image:: PackagingTimeline.png
-   :align: center
-
-..   :height: 100px
-..   :width: 200 px
-..   :scale: 50 %
-
-Packaging Tools
----------------
-
 Current State of Packaging
 --------------------------
 
 To build packages: distutils
 
-  http://docs.python.org/2/distutils/
+  * http://docs.python.org/2/distutils/
 
 For more features: setuptools
 
-  https://pythonhosted.org/setuptools/
+  * https://pythonhosted.org/setuptools/
 
 To install packages: pip
 
-  https://pip.pypa.io/en/latest/installing.html
+  * https://pip.pypa.io/en/latest/installing.html
 
 For binary packages: wheels
 
-  http://www.python.org/dev/peps/pep-0427/
+  * http://www.python.org/dev/peps/pep-0427/
 
+(installable by pip)
 
 Compiled Packages
 -----------------
+
 Biggest issue is with compiled extensions:
 
-  (C/C++, etc)
+  * (C/C++, Fortran, etc.)
 
--- You need the right compiler set up
+  * You need the right compiler set up
 
-Dependencies
+Dependencies:
 
--- Here's were it gets really ugly
+  * Here's were it gets really ugly
 
--- Particularly on Windows
+  * Particularly on Windows
 
-Compiled Packages
------------------
-Linux
+.. nextslide::
+
+**Linux**
 
 Pretty straightforward:
 
-1) Is there a system package?
-
+1. Is there a system package?
   * use it (apt-get install the_package)
 
-2) Try ``pip install``: it may just work!
+2. Try ``pip install``: it may just work!
 
-3) Install the dependencies, build from source:
-``python setup.py build ; python setup.py install``
+3. Install the dependencies, build from source::
+
+    python setup.py build
+
+    python setup.py install
 
 (may need "something-devel" packages)
 
 
-Compiled Packages
------------------
+.. nextslide::
 
 **Windows**
 
-Sometimes simpler:}
+Sometimes simpler:
 
 1) A lot of packages have Windows binaries:
-    - Usually for python.org builds
-    - Excellent source: http://www.lfd.uci.edu/~gohlke/pythonlibs/
-    - Make sure you get 32 or 64 bit consistent
+  - Usually for python.org builds
+  - Excellent source: http://www.lfd.uci.edu/~gohlke/pythonlibs/
+  - Make sure you get 32 or 64 bit consistent
 
 2) But if no binaries:
     - Hope the dependencies are available!
@@ -997,37 +993,41 @@ MS now has a compiler just for python!
 
 http://www.microsoft.com/en-us/download/details.aspx?id=44266
 
-Compiled Packages
------------------
+.. nextslide::
 
 **OS-X**
 
 Lots of Python versions:
   - Apple's built-in (different for each version of OS)
   - python.org builds
-  - 32+64 bit Intel
+  - 32+64 bit Intel (and even PPC still kicking around)
   - Macports
   - Homebrew
 
 Binary Installers (dmg or wheel) have to match python version
 
-Compiled Packages
------------------
-OS-X
+.. nextslide::
 
-If you have to build it yourself:
+**OS-X**
+
+If you have to build it yourself
 
 Xcode compiler (the right version)
-  - Version 3.* for 32 bit PPC+Intel
-  - Version 4.* for 32+64 bit Intel
 
+  - Version 3.* for 32 bit PPC+Intel
+
+  - Version > 4.* for 32+64 bit Intel
+
+(make sure to get the SDKs for older versions)
 
 If extra dependencies:
-  - macports or home brew often easiest way to build them
+
+  - macports or homebrew often easiest way to build them
 
 
-Final Recommendation
---------------------
+Final Recommendations
+---------------------
+
 First try: ``pip install``
 
 If that doesn't work:
@@ -1035,6 +1035,8 @@ If that doesn't work:
 Read the docs of the package you want to install
 
 Do what they say
+
+(Or use Anaconda or Canopy)
 
 virtualenv
 ----------
@@ -1047,7 +1049,7 @@ Or deploying more than one app on one system
 
 http://www.virtualenv.org/en/latest/index.html}
 
-Remeber the notes from the beginning of class? :ref:`virtualenv_section`
+Remember the notes from the beginning of class? :ref:`virtualenv_section`
 
 (Cris will probably make you do this next class)
 
@@ -1074,11 +1076,9 @@ control and call it good.
 
 But only if it's a single file, and doesn't need anything non-standard
 
-.. nextslide::
-
 When the script needs more than just the stdlib
 
-(or your company standard environment)}
+(or your company standard environment)
 
 You have an application, not a script
 
@@ -1144,19 +1144,20 @@ Once your setup.py is written, you can:
 wheels
 ------
 
-"wheels" are the "new" packge format for python.
+"wheels" are the "new" package format for python.
 
 A wheel is essentially a zip file of the entire package, ready to be
 unpacked in the right place on installation.
 
-``pip`` will look for wheels for OS-X and Windows on PyPi, and auto-intall
+``pip`` will look for wheels for OS-X and Windows on PyPi, and auto-install
 them if they exist
 
-This is particularly nice for pacakges with non-python dependiencies.
+This is particularly nice for packages with non-python dependencies.
 
 
 More complex packaging
 ----------------------
+
 For a complex package:
 
 You want to use a well structured setup:
@@ -1171,7 +1172,7 @@ While you are developing your package, Installing it is a pain.
 But you want your code to be able to import, etc. as though it were installed
 
 ``setup.py develop``  installs links to your code, rather than copies
- -- so it looks like it's installed, but it's using the original source
+-- so it looks like it's installed, but it's using the original source
 
 ``python setup.py develop``
 
@@ -1213,8 +1214,10 @@ Most popular on Windows and OS-X
 User doesn't even have to know it's python
 
 Examples:
- http://www.bitpim.org/}
- http://response.restoration.noaa.gov/nucos}
+
+ http://www.bitpim.org/
+
+ http://response.restoration.noaa.gov/nucos
 
 LAB
 ---
