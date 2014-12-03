@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+
 class SparseArray(object):
     def __init__(self, iterable):
         self.values = {}

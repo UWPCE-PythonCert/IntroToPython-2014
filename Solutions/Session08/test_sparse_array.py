@@ -1,7 +1,6 @@
 import pytest
 from sparse_array import SparseArray
 
-
 def set_up():
     my_array = [2, 0, 0, 0, 3, 0, 0, 0, 4, 5, 6, 0, 2, 9]
     my_sparse = SparseArray(my_array)
