@@ -16,13 +16,17 @@ class Circle(object):
 
     @radius.setter
     def radius(self, radius):
-        assert radius > 0, "radius must be nonzero and non-negative"
-        self.__radius = radius
+        if radius <= 0:
+            raise ValueError("radius must be nonzero and non-negative")
+        else:
+            self.__radius = radius
 
     @classmethod
     def from_diameter(cls, diameter):
-        assert diameter > 0, "diameter must be nonzero and non-negative"
-        return cls(diameter / 2.0)
+        if diameter <= 0:
+            raise ValueError("diameter must be nonzero and non-negative")
+        else:
+            return cls(diameter / 2.0)
 
     @property
     def diameter(self):
@@ -30,8 +34,10 @@ class Circle(object):
 
     @diameter.setter
     def diameter(self, value):
-        assert value > 0, "diameter must be nonzero and non-negative"
-        self.radius = value / 2.0
+        if value <= 0:
+            raise ValueError("diameter must be nonzero and non-negative")
+        else:
+            self.radius = value / 2.0
 
     @property
     def area(self):
