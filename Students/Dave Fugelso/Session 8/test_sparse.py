@@ -1,5 +1,8 @@
 '''
 Sparse array unit tests.
+
+Note: I didn't see that there was a test_sparse_array in solutions...
+
 '''
 
 from Sparse import Sparse
@@ -33,17 +36,63 @@ class TestSparseClass (unittest.TestCase):
         self.populate_array(s)
         del (s[5])
         assert s[5] == 0
-        
-        
+             
         
     def test_range_set_get(self):
         s = Sparse (100)
         self.populate_array(s)
-        self.assertRaises(IndexError, s[-1])
-        self.assertRaises(IndexError, s[101])
-        self.assertRaises(IndexError, s[-1])
-        self.assertRaises(IndexError, s[-1])
+        with self.assertRaises(IndexError) as context:
+            i = s[-1]
+        self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+        with self.assertRaises(IndexError) as context:
+            i = s[100]
+        self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+        with self.assertRaises(IndexError) as context:
+            s[-1] = 5
+        self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+        with self.assertRaises(IndexError) as context:
+            s[100] = 5
+        self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+        with self.assertRaises(IndexError) as context:
+            del (s[100])
+        self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+        with self.assertRaises(IndexError) as context:
+            del(s[-1])
+        self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+        #with self.assertRaises(IndexError) as context:
+        #    s[0] = 5
+        #self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+    def test_resize (self):
+        s = Sparse (100)
+        self.populate_array(s)  
+
+        # test smaller
+        s.length = 50
+        with self.assertRaises(IndexError) as context:
+            a = s[55]
+        self.assertEqual(context.exception.message, 'Sparse Array out of range')
+
+        # test back to larger
+        s.length = 100
+        s[55] = 100
+        assert (s[55] == 100)
         
+    def test_iteration (self):
+        s = Sparse (100)
+        self.populate_array(s) 
+        index = 0
+        for val in s:
+            print index, val
+            assert val == s[index]
+            index += 1
+         
 
     
 if __name__ =='__main__':
