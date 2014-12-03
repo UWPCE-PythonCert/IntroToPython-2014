@@ -874,7 +874,9 @@ Installing Packages
 
 With the system installer (apt-get, yum, etc...)
 
-**From binaries:**
+.. rst-class:: medium::
+
+    **From binaries:**
 
 Windows: MSI installers
 
