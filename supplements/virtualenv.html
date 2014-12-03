@@ -230,11 +230,14 @@
             
   <div class="section" id="working-with-virtualenv">
 <span id="virtualenv-section"></span><h1>Working with Virtualenv<a class="headerlink" href="#working-with-virtualenv" title="Permalink to this headline">¶</a></h1>
-<p>&#8220;For every non-standard package installed in a system Python, the gods kill a
-kitten&#8221; - me</p>
+<p class="medium">&#8220;For every non-standard package installed in a system Python, the gods kill a
+kitten&#8221;</p>
+<ul class="medium simple">
+<li>me</li>
+</ul>
 <div class="section" id="reasons-why">
 <h2>Reasons Why<a class="headerlink" href="#reasons-why" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<ul class="left simple">
 <li>As a working developer you will need to install packages that aren&#8217;t in the
 Python standard Library</li>
 <li>As a working developer you often need to install <em>different</em> versions of the
@@ -244,9 +247,8 @@ cause long-term nightmares</li>
 <li>Use <a class="reference external" href="http://www.virtualenv.org/">virtualenv</a> ...</li>
 <li><strong>Always</strong></li>
 </ul>
-</div>
 <div class="section" id="installing-virtualenv">
-<h2>Installing Virtualenv<a class="headerlink" href="#installing-virtualenv" title="Permalink to this headline">¶</a></h2>
+<h3>Installing Virtualenv<a class="headerlink" href="#installing-virtualenv" title="Permalink to this headline">¶</a></h3>
 <p>The best way is to install directly in your system Python (one exception to the
 rule).</p>
 <p>To do so you will have to have <a class="reference external" href="http://www.pip-installer.org">pip</a> installed.</p>
@@ -279,15 +281,16 @@ Options:
 </pre></div>
 </div>
 </div>
-<div class="section" id="using-virtuelenv">
-<h2>Using Virtuelenv<a class="headerlink" href="#using-virtuelenv" title="Permalink to this headline">¶</a></h2>
-<p>Creating a new virtualenv is very very simple:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>virtualenv <span class="o">[</span>options<span class="o">]</span> &lt;ENV&gt;
+</div>
+<div class="section" id="using-virtualenv">
+<h2>Using Virtualenv<a class="headerlink" href="#using-virtualenv" title="Permalink to this headline">¶</a></h2>
+<p class="left">Creating a new virtualenv is very very simple:</p>
+<div class="left highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>virtualenv <span class="o">[</span>options<span class="o">]</span> &lt;ENV&gt;
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">&lt;ENV&gt;</span></tt> is just the name of the environment you want to create. It&#8217;s
+<p class="left"><tt class="docutils literal"><span class="pre">&lt;ENV&gt;</span></tt> is just the name of the environment you want to create. It&#8217;s
 arbitrary. Let&#8217;s make one for demonstration purposes:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>virtualenv demoenv
+<div class="left highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>virtualenv demoenv
 New python executable in demoenv/bin/python
 Installing setuptools, pip...done.
 </pre></div>
@@ -410,10 +413,8 @@ virtualenv created when you started out. Let&#8217;s do that with our <tt class=
 </div>
 <p>And that&#8217;s it.  The entire environment and all the packages you installed into
 it are now gone. There&#8217;s no traces left to pollute your world.</p>
-</div>
-</div>
 <div class="section" id="virtualenvwrapper">
-<h2>VirtualenvWrapper<a class="headerlink" href="#virtualenvwrapper" title="Permalink to this headline">¶</a></h2>
+<h4>VirtualenvWrapper<a class="headerlink" href="#virtualenvwrapper" title="Permalink to this headline">¶</a></h4>
 <p>So you have this great tool that allows you to build isolated environments in
 which you can install Python software. Several questions arise when considering
 this.</p>
@@ -432,6 +433,8 @@ wherever.</p>
 you. It would be better if you could manage your virtual environments easily
 and intuitively.</p>
 <p>With <a class="reference external" href="http://virtualenvwrapper.readthedocs.org">virtualenvwrapper</a> you can.</p>
+</div>
+</div>
 <div class="section" id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s start by installing the package in our system Python, alongside
@@ -552,16 +555,16 @@ directory.</li>
 </ul>
 <p>And now, you can begin working on your <tt class="docutils literal"><span class="pre">foo</span></tt> project, secure that you will be
 installing packages into the right environment.</p>
-</div>
-</div>
 <div class="section" id="a-few-last-words">
-<h2>A Few Last Words<a class="headerlink" href="#a-few-last-words" title="Permalink to this headline">¶</a></h2>
+<h4>A Few Last Words<a class="headerlink" href="#a-few-last-words" title="Permalink to this headline">¶</a></h4>
 <p>This quick introduction is <strong>by no means</strong> an exhaustive manual for either of
 the packages we&#8217;ve talked about. There is a great deal more that they can do.
 In particular, <tt class="docutils literal"><span class="pre">virtualenvwrapper</span></tt> is highly customizable, with support for
 custom scripts to be hooked into every stage of the <tt class="docutils literal"><span class="pre">virtualenv</span></tt> workflow.</p>
 <p>I urge you to read the documentation for <a class="reference external" href="http://www.virtualenv.org/">virtualenv</a> and <a class="reference external" href="http://virtualenvwrapper.readthedocs.org">virtualenvwrapper</a>
 yourself to find out more.</p>
+</div>
+</div>
 </div>
 </div>
 
