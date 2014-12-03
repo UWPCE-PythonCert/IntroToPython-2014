@@ -20,7 +20,7 @@ class SparseArray(object):
         return self.length
 
     def __getitem__(self, key):
-        try: 
+        try:
             return self.sparse_array[key]
         except KeyError:
             if key >= self.length:
@@ -33,17 +33,17 @@ class SparseArray(object):
         if value != 0:
             self.sparse_array[key] = value
         else:
-            # if the value is being set to zero, we probably need to 
+            # if the value is being set to zero, we probably need to
             # remove a key from our dictionary.
             self.sparse_array.pop(key, None)
 
     def __delitem__(self, key):
-        # we probably need to move the keys if we are not deleting the last 
+        # we probably need to move the keys if we are not deleting the last
         # number, use pop in case it was a zero
         if key == self.length - 1:
             self.sparse_array.pop(key, None)
         else:
-            # since we need to adjust all of the keys after the one we are 
+            # since we need to adjust all of the keys after the one we are
             # deleting, probably most efficient to create a new dictionary
             new_dict = {}
             for k, v in self.sparse_array.iteritems():

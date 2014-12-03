@@ -78,8 +78,7 @@ def test_delete_zero():
 def test_delete_last_number():
     my_array, my_sparse = set_up()
     del(my_sparse[13])
-    # should get an error?
-    print 'print some stuf damnit'
+    # should get an error
     with pytest.raises(IndexError):
         my_sparse[13]
     assert len(my_sparse) == 13

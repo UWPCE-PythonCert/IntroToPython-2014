@@ -20,8 +20,8 @@ class SparseArray(object):
         return self.length
 
     def __getitem__(self, index):
-        print('index', index)
-        print('length', self.length)
+        #print('index', index)
+        #print('length', self.length)
         # create a list of the slice they want returned
         mini_array = []
         if isinstance(index, int):
@@ -33,7 +33,7 @@ class SparseArray(object):
             key = start
             mini_array = []
             while key < stop + 1:
-                print('key', key)
+                #print('key', key)
                 mini_array.append(self.get_single_value(key))
                 key += step
         else:
@@ -55,7 +55,7 @@ class SparseArray(object):
                 step = 1
             key = start
             for each in value:
-                print('key', key)
+                #print('key', key)
                 self.set_single_value(key, each)
                 key += step
         else:
