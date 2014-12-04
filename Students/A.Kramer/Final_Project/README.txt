@@ -1,7 +1,7 @@
 1. Libraries used in the code:
 	os
-    time
-    datetime
+        time
+        datetime
 	urllib2
 	matplotlib
 	numpy
@@ -15,8 +15,8 @@
    the script is run, saves the data file with the name of the
    stock in the 'data' directory.
    
-   After the data is saved, the code is graphing the data
-   on the screen. 
+   After the data is saved, the code is plotting the data
+   to the screen. 
    
    After the code is done with plotting, it saves the image
    of the plot in the data directory with the name of the 
