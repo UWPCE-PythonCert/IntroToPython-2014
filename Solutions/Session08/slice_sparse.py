@@ -32,9 +32,9 @@ class SparseArray(object):
                 step = 1
             key = start
             mini_array = []
-            while key < stop + 1:
+            while key < stop:
                 #print('key', key)
-                mini_array.append(self.get_single_value(key))
+                mini_array.append(self[key])
                 key += step
         else:
             raise TypeError("index must be int or slice")
@@ -55,8 +55,9 @@ class SparseArray(object):
                 step = 1
             key = start
             for each in value:
-                #print('key', key)
-                self.set_single_value(key, each)
+                print('key', key)
+                print('each', each)
+                self[key] = each
                 key += step
         else:
             raise TypeError("index must be int or slice")
