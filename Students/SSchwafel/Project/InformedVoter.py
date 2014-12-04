@@ -4,19 +4,23 @@ from pprint import pprint
 import urllib2
 import simplejson as json
 
-##url = urlopen('https://www.govtrack.us/api/v2/vote?created__gt=2012-01-01T00:00:00')
-url = 'https://www.govtrack.us/api/v2/bill'
+#Bills
+#url = 'https://www.govtrack.us/api/v2/bill'
 
-# open the url and the screen name 
-# (The screen name is the screen name of the user for whom to return results for)
-#url = "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=python"
 
+#Current Members of Congress
+url = 'https://www.govtrack.us/api/v2/role?current=true'
+
+#One Particular Congressman
+#url = 'https://www.govtrack.us/api/v2/person/400054'
 # this takes a python object and dumps it to a string which is a JSON
 # representation of that object
 data = json.load(urllib2.urlopen(url))
-print type(data)
+#print data["lastname"]
+#print data
 
-pprint(data)
+objects = data['objects']
+for representative in objects:
+    print representative['person']['name'].encode('utf-8')
+#pprint(data)
 
-#for key in data.keys():
-#    print "{}  :  {}\n".format(key,data[key])
