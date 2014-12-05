@@ -2,261 +2,110 @@
 .. Foundations 2: Python slides file, created by
    hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
 
-*******************************
-Session Seven: Testing, More OO
-*******************************
+***********************
+Session Seven: More OO
+***********************
 
-.. rst-class:: large centered
+.. rst-class:: medium centered
 
-| Testing,
-| Multiple Inheritance,
-| Properties,
-| Class and Static Methods,
-| Special (Magic) Methods
+.. container::
 
+  Multiple Inheritance
 
+  Properties
+
+  Class methods and  static methods
+
+  Special (Magic) Methods
+
+================
 Review/Questions
 ================
 
 Review of Previous Class
 ------------------------
 
-* Unicode
+* Object Oriented Programming:
 
-* Object Oriented Programming
+  - classes
 
+  - instances
+
+  - attributes and methods
+
+  - subclassing
+
+  - overriding methods
 
 Homework review
 ---------------
 
 Homework Questions?
 
-How is progress going on the HTML Renderer?
+Have you all got an HTML Renderer working?
 
+Do you have a feel for classes, subclassing, overriding methods, ...?
 
-Testing
-=======
+Personal Project
+-----------------
 
-.. rst-class:: build left
-.. container::
+The bulk of the homework for the rest of the class will be a personal project:
 
-    You've already seen some a very basic testing strategy.
+* It can be for fun, or something you need for your job.
+* It should be large enought to take a few weeks homework time to do.
+* It should demostrate that you can do something useful with python.
+* It should follow PEP8 (https://www.python.org/dev/peps/pep-0008)
+* It should have unit tests!
+* Ideally, it will be in version control (gitHub)
+* I'm not going to require an specific python features (i.e. classes): use
+  what is appropriate for your project
 
-    You've written some tests using that strategy.
+* Due the Friday after the last class (December 12)
 
-    These tests were pretty basic, and a bit awkward in places (testing error
-    conditions in particular).
+|
+|  By next week, send me a project proposal: can be short and sweet.
+|
 
-    .. rst-class:: centered
 
-    **It gets better**
+Lightning Talks Today:
+-----------------------
 
-Test Runners
-------------
+.. rst-class:: medium
 
-So far our tests have been limited to code in an ``if __name__ == "__main__":``
-block.
+  Andrew P Klock
 
-.. rst-class:: build
+  Vinay Gupta
 
-* They are run only when the file is executed
-* They are always run when the file is executed
-* You can't do anything else when the file is executed without running tests.
+  Ousmane Conde
 
-.. rst-class:: build
-.. container::
+  Salim Hassan Hamed
 
-    This is not optimal.
 
-    Python provides testing systems to help.
-
-
-.. nextslide:: Standard Library: ``unittest``
-
-The original testing system in Python.
-
-You write subclasses of the ``unittest.TestCase`` class:
-
-.. code-block:: python
-
-    # in test.py
-    import unittest
-
-    class MyTests(unittest.TestCase):
-        def test_tautology(self):
-            self.assertEquals(1, 1)
-
-Then you run the tests by using the ``main`` function from the ``unittest``
-module:
-
-.. code-block:: python
-
-    # in test.py
-    if __name__ == '__main__':
-        unittest.main()
-
-.. nextslide:: Testing Your Code
-
-This way, you can write your code in one file and test it from another:
-
-.. code-block:: python
-
-    # in my_mod.py
-    def my_func(val1, val2):
-        return val1 * val2
-
-    # in test_my_mod.py
-    import unittest
-    from my_mod import my_func
-
-    class MyFuncTestCase(unittest.TestCase):
-        def test_my_func(self):
-            test_vals = (2, 3)
-            expected = reduce(lambda x, y: x * y, test_vals)
-            actual = my_func(*test_vals)
-            self.assertEquals(expected, actual)
-
-    if __name__ == '__main__':
-        unittest.main()
-
-.. nextslide:: Advantages of ``unittest``
-
-.. rst-class:: build
-.. container::
-
-    The ``unittest`` module is great.
-
-    It comes with the standard Python distribution, no installation required.
-
-    It provides a wide variety of assertions for testing all sorts of situations.
-
-    It allows for a setup and tear down workflow both before and after all tests
-    and before and after each test.
-
-    It's well known and well understood.
-
-.. nextslide:: Disadvantages:
-
-.. rst-class:: build
-.. container::
-
-
-    It's Object Oriented, and quite heavy.
-
-    It uses the framework design pattern, so knowing how to use the features
-    means learning what to override.
-
-    Needing to override means you have to be cautious.
-
-    Test discovery is both inflexible and brittle.
-
-.. nextslide:: Other Options
-
-There are several other options for running tests in Python.
-
-
-* `Nose`_
-* `pytest`_
-* ... (many frameworks supply their own test runners)
-
-We are going to play today with pytest
-
-.. _Nose: https://nose.readthedocs.org/
-.. _pytest: http://pytest.org/latest/
-
-
-.. nextslide:: Installing ``pytest``
-
-The first step is to install the package:
-
-.. code-block:: bash
-
-    $ workon cff2py
-    (cff2py)$ pip install pytest
-
-Once this is complete, you should have a ``py.test`` command you can run at the
-command line:
-
-.. code-block:: bash
-
-    (cff2py)$ py.test
-
-If you have any tests in your repository, that will find and run them.
-
-.. rst-class:: build
-.. container::
-
-    **Do you?**
-
-.. nextslide:: Pre-existing Tests
-
-I've added two files to the ``code/session07`` folder, along with a python
-source code file called ``circle.py``.
-
-The results you should have seen when you ran ``py.test`` above come partly
-from these files.
-
-Let's take a few minutes to look these files over.
-
-[demo]
-
-.. nextslide:: What's Happening Here.
-
-When you run the ``py.test`` command, ``pytest`` starts in your current working
-directory and searches the filesystem for things that might be tests.
-
-It follows some simple rules:
-
-.. rst-class:: build
-
-* Any python file that starts with ``test_`` or ``_test`` is imported.
-* Any functions in them that start with ``test_`` are run as tests.
-* Any classes that start with ``Test`` are treated similarly, with methods that
-  begin with ``test_`` treated as tests.
-
-
-.. nextslide::
-
-This test running framework is simple, flexible and configurable.
-
-`Read the documentation`_ for more information.
-
-.. _Read the documentation: http://pytest.org/latest/getting-started.html#getstarted
-
-.. nextslide:: Test Driven Development
-
-What we've just done here is the first step in what is called **Test Driven
-Development**.
-
-A bunch of tests exist, but the code to make them pass does not yet exist.
-
-The red we see in the terminal when we run our tests is a goad to us to write
-the code that fixes these tests.
-
-Let's do that next!
-
-
+===================
 More on Subclassing
 ===================
 
-Watch This Video:
-
-http://pyvideo.org/video/879/the-art-of-subclassing
-
 .. rst-class:: left
 
-Seriously, well worth the time.
+    I pointed you to this Video last class:
+
+    The Art of Subclassing: *Raymond Hettinger*
+
+    http://pyvideo.org/video/879/the-art-of-subclassing
+
+    If you haven't watched it,  It's well worth your time
+
 
 What's a Subclass For?
 ----------------------
 
 The most salient points from that video are as follows:
 
-**Subclassing is not for Specialization**
+* **Subclassing is not for Specialization**
 
-**Subclassing is for Reusing Code**
+* **Subclassing is for Reusing Code**
 
-**Bear in mind that the subclass is in charge**
+* **Bear in mind that the subclass is in charge**
 
 
 Multiple Inheritance
@@ -276,7 +125,6 @@ Simply provide more than one parent.
             Super3.__init__(self, ......)
             # possibly more custom initialization
 
-
 (calls to the super class ``__init__``  are optional -- case dependent)
 
 .. nextslide:: Method Resolution Order
@@ -291,9 +139,9 @@ Attributes are located bottom-to-top, left-to-right
 * Is it a class attribute ?
 * Is it a superclass attribute ?
 
-  * is the it an attribute of the left-most superclass?
-  * is the it an attribute of the next superclass?
-  * and so on up the hierarchy...
+  - Is  it an attribute of the left-most superclass?
+  - Is  it an attribute of the next superclass?
+  - and so on up the hierarchy...
 
 * Is it a super-superclass attribute ?
 * ... also left to right ...
@@ -302,9 +150,11 @@ http://python-history.blogspot.com/2010/06/method-resolution-order.html
 
 .. nextslide:: Mix-ins
 
+So why would you want to do this? One reason:  *mixins*
+
 Provides an subset of expected functionality in a re-usable package.
 
-Why would you want to do this?
+Huh? this is why --
 
 Hierarchies are not always simple:
 
@@ -313,18 +163,16 @@ Hierarchies are not always simple:
   * Mammal
 
     * GiveBirth()
-    
+
   * Bird
-    
+
     * LayEggs()
-    
+
 Where do you put a Platypus?
 
 Real World Example: `FloatCanvas`_
 
 .. _FloatCanvas: https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L485
-
-**Careful About This Pattern**
 
 
 .. nextslide:: New-Style Classes
@@ -338,7 +186,9 @@ up a few things.
 
 There are differences in method resolution order and properties.
 
-**Always Make New-Style Classes.**
+**Always Make New-Style Classes**
+
+(that is, always subclass from object...)
 
 The differences are subtle, and may not appear until they jump up to bite you.
 
@@ -350,7 +200,7 @@ the unbound method on the superclass.
 
 instead of:
 
-.. code-block:: python  
+.. code-block:: python
 
     class A(B):
         def __init__(self, *args, **kwargs)
@@ -359,7 +209,7 @@ instead of:
 
 You can do:
 
-.. code-block:: python  
+.. code-block:: python
 
     class A(B):
         def __init__(self, *args, **kwargs)
@@ -372,8 +222,9 @@ Caution: There are some subtle differences with multiple inheritance.
 
 You can use explicit calling to ensure that the 'right' method is called.
 
+.. rst-class:: medium
 
-.. nextslide:: Background
+    **Background**
 
 Two seminal articles about ``super()``:
 
@@ -387,7 +238,7 @@ http://rhettinger.wordpress.com/2011/05/26/super-considered-super/}
 
 (Both worth reading....)
 
-
+==========
 Properties
 ==========
 
@@ -447,44 +298,62 @@ But what if you need to add behavior later?
 
 .. _Java: http://dirtsimple.org/2004/12/python-is-not-java.html
 
-.. nextslide:: properties
+properties
+-----------
 
-When (and if) you need them:
+.. code-block:: ipython
+
+    class C(object):
+        _x = None
+        @property
+        def x(self):
+            return self._x
+        @x.setter
+        def x(self, value):
+            self._x = value
+
+    In [28]: c = C()
+    In [30]: c.x = 5
+    In [31]: print c.x
+    5
+
+Now the interface is like simple attribute access!
+
+.. nextslide::
+
+What's up with the "@" symbols?
+
+Those are "decorations" it's a syntax for wrapping functions up with something special.
+
+We'll cover that in detail in a couple weeks, but for now -- just copy the syntax.
 
 .. code-block:: python
 
-    class C(object):
-        def __init__(self, x=5):
-            self._x = x
-        def _getx(self):
-            return self._x
-        def _setx(self, value):
-            self._x = value
-        def _delx(self):
-            del self._x
-        x = property(_getx, _setx, _delx, doc="docstring")
+    @property
+    def x(self):
 
-Now the interface is still like simple attribute access!
+means: make a property called x with this as the "getter".
 
-.. rst-class:: centered small
+.. code-block:: python
 
-[demo: :download:`properties_example.py <./supplements/properties_example.py>`]
+    @x.setter
+    def x(self, value):
 
+means: make the "setter" of the 'x' property this new function
 
 .. nextslide:: "Read Only" Attributes
 
-Not all the arguments to ``property`` are required.
-
-You can use this to create attributes that are "read only":
+You do not need to define a setter. If you don't, you get a "read only" attribute:
 
 .. code-block:: ipython
 
     In [11]: class D(object):
        ....:     def __init__(self, x=5):
        ....:         self._x = 5
+       ....:     @property
        ....:     def getx(self):
+       ....:     """I am read only"""
        ....:         return self._x
-       ....:     x = property(getx, doc="I am read only")
        ....:
     In [12]: d = D()
     In [13]: d.x
@@ -496,49 +365,54 @@ You can use this to create attributes that are "read only":
     ----> 1 d.x = 6
     AttributeError: can't set attribute
 
+deleters
+---------
 
-.. nextslide:: Syntactic Sugar
-
-This *imperative* style of adding a ``property`` to you class is clear, but
-it's still a little verbose.
-
-It also has the effect of leaving all those defined method objects laying
-around:
+If you want to do something special when a property is deleted, you can define
+a deleter is well:
 
 .. code-block:: ipython
 
-    In [19]: d.x
-    Out[19]: 5
-    In [20]: d.getx
-    Out[20]: <bound method D.getx of <__main__.D object at 0x1043a4a10>>
-    In [21]: d.getx()
-    Out[21]: 5
-
-.. nextslide::
-
-Python provides us with a way to solve both these issues at once, using a
-syntactic feature called **decorators** (more about these next session):
-
-.. code-block:: ipython
-
-    In [22]: class E(object):
+    In [11]: class D(object):
        ....:     def __init__(self, x=5):
-       ....:         self._x = x
+       ....:         self._x = 5
        ....:     @property
        ....:     def x(self):
        ....:         return self._x
-       ....:     @x.setter
-       ....:     def x(self, value):
-       ....:         self._x = value
-       ....:
-    In [23]: e = E()
-    In [24]: e.x
-    Out[24]: 5
-    In [25]: e.x = 6
-    In [26]: e.x
-    Out[26]: 6
+       ....:     @x.deleter
+       ....:     def x(self):
+       ....:         del self._x
+
+If you leave this out, the property can't be deleted, which is usually
+what you want.
+
+.. rst-class:: centered
+
+[demo: :download:`properties_example.py <../../Examples/Session07/properties_example.py>`]
 
 
+LAB
+----
+
+Let's use some of this to build a nice class to represent a Circle.
+
+For now, Let's do steps 1-4 of:
+
+:ref:`homework_circle_class`
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Andrew P Klock
+|
+| Vinay Gupta
+|
+
+
+========================
 Static and Class Methods
 ========================
 
@@ -567,9 +441,10 @@ A *static method* is a method that doesn't get self:
 .. code-block:: ipython
 
     In [36]: class StaticAdder(object):
+
+       ....:     @staticmethod
        ....:     def add(a, b):
        ....:         return a + b
-       ....:     add = staticmethod(add)
        ....:
 
     In [37]: StaticAdder.add(3, 6)
@@ -577,20 +452,8 @@ A *static method* is a method that doesn't get self:
 
 .. rst-class:: centered
 
-[demo: :download:`static_method.py <./supplements/static_method.py>`]
+[demo: :download:`static_method.py <../../Examples/Session07/static_method.py>`]
 
-
-.. nextslide:: Syntactic Sugar
-
-Like ``properties``, static methods can be written *declaratively* using the
-``staticmethod`` built-in as a *decorator*:
-
-.. code-block:: python
-
-    class StaticAdder(object):
-        @staticmethod
-        def add(a, b):
-            return a + b
 
 .. nextslide:: Why?
 
@@ -606,7 +469,7 @@ Like ``properties``, static methods can be written *declaratively* using the
     An example from the Standard Library (tarfile.py):
 
     .. code-block:: python
-        
+
         class TarInfo(object):
             # ...
             @staticmethod
@@ -630,10 +493,10 @@ argument
 
     In [41]: class Classy(object):
        ....:     x = 2
+       ....:     @classmethod
        ....:     def a_class_method(cls, y):
        ....:         print "in a class method: ", cls
        ....:         return y ** cls.x
-       ....:     a_class_method = classmethod(a_class_method)
        ....:
     In [42]: Classy.a_class_method(4)
     in a class method:  <class '__main__.Classy'>
@@ -641,21 +504,8 @@ argument
 
 .. rst-class:: centered
 
-[demo: :download:`class_method.py <./supplements/class_method.py>`]
+[demo: :download:`class_method.py <../../Examples/Session07/class_method.py>`]
 
-.. nextslide:: Syntactic Sugar
-
-Once again, the ``classmethod`` built-in can be used as a *decorator* for a
-more declarative style of programming:
-
-.. code-block:: python
-
-    class Classy(object):
-        x = 2
-        @classmethod
-        def a_class_method(cls, y):
-            print "in a class method: ", cls
-            return y ** cls.x
 
 .. nextslide:: Why?
 
@@ -669,7 +519,7 @@ more declarative style of programming:
     Consider this:
 
     .. code-block:: ipython
-    
+
         In [44]: class SubClassy(Classy):
            ....:     x = 3
            ....:
@@ -708,7 +558,6 @@ implements an alternate constructor that *can*.
     def fromkeys(cls, iterable, value=None):
         '''OD.fromkeys(S[, v]) -> New ordered dictionary with keys from S.
         If not specified, the value defaults to None.
-
         '''
         self = cls()
         for key in iterable:
@@ -734,50 +583,10 @@ well.
 .. _Here is a low level look: https://docs.python.org/2/howto/descriptor.html
 
 
-Kicking the Tires
------------------
-
-Copy the file ``code/session07/circly.py`` to your student folder.
-
-In it, write a simple "Circle" class:
-
-.. code-block:: ipython
-
-    In [13]: c = Circle(3)
-    In [15]: c.diameter
-    Out[15]: 6.0
-    In [16]: c.diameter = 8
-    In [17]: c.radius
-    Out[17]: 4.0
-    In [18]: c.area
-    Out[18]: 50.26548245743669
-
-
-Use ``properties`` so you can keep the radius and diameter in sync, and the
-area computed on the fly.
-
 Extra Credit: use a class method to make an alternate constructor that takes
 the diameter instead.
 
-
-.. nextslide::
-
-Also copy the file ``test_circle1.py`` to your student folder.
-
-As you work, run the tests:
-
-.. code-block:: bash
-
-    (cff2py)$ py.test test_circle1.py
-
-As each of the requirements from above are fulfilled, you'll see tests 'turn
-green'.
-
-When all your tests are passing, you've completed the job.
-
-(This clear finish line is another of the advantages of TDD)
-
-
+===============
 Special Methods
 ===============
 
@@ -803,7 +612,29 @@ Pronounced "dunder" (or "under-under")
 
 try: ``dir(2)``  or ``dir(list)``
 
-.. nextslide:: Protocols
+.. nextslide:: Generally Useful Special Methods
+
+Most classes should at lest have these special methods:
+
+``object.__str__``:
+  Called by the str() built-in function and by the print statement to compute
+  the *informal* string representation of an object.
+
+``object.__unicode__``:
+  Called by the unicode() built-in function.  This converts an object to an
+  *informal* unicode representation.
+
+  (more on Unicode later....)
+
+``object.__repr__``:
+  Called by the repr() built-in function and by string conversions (reverse
+  quotes) to compute the *official* string representation of an object.
+
+  (ideally: ``eval( repr(something) ) == something``)
+
+
+Protocols
+----------
 
 .. rst-class:: build
 .. container::
@@ -858,7 +689,8 @@ Want to make a container type? Here's what you need:
 
 Each of these methods supports a common Python operation.
 
-For example, to make '+' work with a sequence type in a vector-like fashion, implement ``__add__``:
+For example, to make '+' work with a sequence type in a vector-like fashion,
+implement ``__add__``:
 
 .. code-block:: python
 
@@ -873,26 +705,6 @@ For example, to make '+' work with a sequence type in a vector-like fashion, imp
 [a more complete example may be seen :download:`here <./supplements/vector.py>`]
 
 
-.. nextslide:: Generally Useful Special Methods
-
-You only *need* to define the special methods that will be used by your class.
-
-However, even in the absence of wanting to duck-type, you should almost always
-define these:
-
-``object.__str__``:
-  Called by the str() built-in function and by the print statement to compute
-  the *informal* string representation of an object.
-
-``object.__unicode__``:
-  Called by the unicode() built-in function.  This converts an object to an
-  *informal* unicode representation.
-
-``object.__repr__``:
-  Called by the repr() built-in function and by string conversions (reverse
-  quotes) to compute the *official* string representation of an object.
-
-  (ideally: ``eval( repr(something) ) == something``)
 
 .. nextslide:: Summary
 
@@ -906,71 +718,34 @@ There's more to read about the details of implementing these methods:
 * https://docs.python.org/2/reference/datamodel.html#special-method-names
 * http://www.rafekettler.com/magicmethods.html
 
-Be a bit cautious about the code examples in that last one. It uses quite a bit
-of old-style class definitions, which should not be emulated.
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Ousmane Conde
+|
+| Salim Hassan Hamed
+|
+
+LAB
+----
+
+Let's complete our nifty Circle class:
+
+Steps 5-8 of:
+
+:ref:`homework_circle_class`
 
 
-Kicking the Tires
------------------
-
-Extend your "Circle" class:
-
-* Add ``__str__``  and ``__repr__``  methods
-* Write an ``__add__``  method so you can add two circles
-* Make it so you can multiply a circle by a number....
-
-.. code-block:: ipython
-
-    In [22]: c1 = Circle(3)
-    In [23]: c2 = Circle(4)
-    In [24]: c3 = c1+c2
-    In [25]: c3.radius
-    Out[25]: 7
-    In [26]: c1*3
-    Out[26]: Circle(9)
-
-If you have time: compare them... (``c1 > c2`` , etc)
-
-
-.. nextslide::
-
-As you work, run the tests in ``test_circle2.py``:
-
-.. code-block:: bash
-
-    (cff2py)$ py.test test_circle2.py
-
-As each of the requirements from above are fulfilled, you'll see tests 'turn
-green'.
-
-When all your tests are passing, you've completed the job.
-
-
+========
 Homework
 ========
 
-.. rst-class:: centered large
+Complete the Circle class
 
-Testing, Testing, 1 2 3
+Decide what you are going to do for your proejct, and send me a simple proposal.
 
-
-Assignment
-----------
-
-If you are not yet done, complete the ``Circle`` class so that all tests in
-``test_circle2.py`` pass.
-
-Go back over some of your assignments from the last weeks.
-
-Convert tests that are currently in the ``if __name__ == '__main__':`` blocks
-into standalone pytest files.
-
-Name each test file so that it is clear with which source file it belongs::
-
-    test_rot13.py -> rot13.py
-
-Add unit tests for the HTML Renderer that you are currently constructing.
-
-Create at least 4 test files with tests that well exercise the features built
-in each source file.
 

@@ -1,112 +1,177 @@
 #!/usr/bin/python
 
-donors = ['bruce wayne',[100000], 'clark kent',[50000], 'barry allen',['100'], 'diana prince',['1300'], 'wally west',['10034'],'hal jordan',['10000']]
 
-def historical_amounts(x):
+donors = [('bruce wayne',[100000]), ('clark kent',[50000]), ('barry allen',[100]), ('diana prince',[1300]), ('wally west',[10034]),('hal jordan',[10000])] 
+
+def send_a_thank_you(x):
 
     """Displays a list of all the donations a user has contributed"""
 
     full_name = ''
-    
 
     while full_name.isdigit() == False :
 
-        full_name = raw_input('Please enter the full name of your donor:\n')
+        full_name = raw_input("Please enter the full name of your donor (you can type 'back' to return to the previous prompt):\n\n")
+        full_name = full_name.lower()
+        
+        if is_name_present(full_name, donors) == True:
 
-        if full_name in x:
-            #figure out if donor is in the donors list
-            #if so, print the index AFTER their name (the list of their donations)
-
-            index_number = int(x.index(full_name)) + 1
-
-            print 'It looks like in the past, ' + full_name + ' donated: ' +  str(x[index_number])
+            print 'It looks like in the past, ' + full_name.title() + ' donated: $' + str(donation_amount(full_name,donors)).strip("[]")
 
             query_new_donation = raw_input('Would you like to add a new donation for this donor? \n\n(yes/no)\n\n')
-                
+
             if query_new_donation.lower() == 'yes':
 
-               #here's where you're going to put stuff to add the new donations!!!! 
-                print donors
+                add_donation(full_name, donors)
 
-        elif full_name.lower() == 'list':
-            #if name is list, print a list of donors with the amounts they've donated
-            for i in donors:
-                print i
+                #print donors
 
-        elif full_name not in donors:
+            elif query_new_donation.lower() == 'no':
 
-            add_donor = raw_input( "It looks like you entered a name that isn't in the donor list. Would you like to add this donor?\n\n(yes/no)\n\n")
+                a = raw_input('Would you like to send a Thank You note?\n\n(yes/no)\n\n')
 
-            new_donor = raw_input( "Please enter the donor's first and last name:\n")
+                if a.lower() == 'yes':
 
-            if add_donor.lower() == 'yes':
+                    print send_email(full_name)
+                    #break
 
-                new_donation_amount = '' 
-
-                while new_donation_amount.isdigit() == False:
-                    #keeps prompting while until use gives a digit amount
-
-                    
-                    new_donation_amount = str(add_donation())
-                    #new_donation_amount = raw_input('How much did this person donate? (Please use a whole number without commas) ')
-                    donors.append(new_donor)
-                    donors.append([new_donation_amount])
+        elif full_name == 'list': 
+            print donors
         
-                print donors
+        elif full_name == '': 
+            print 'It looks like you entered an empty value'
+        elif full_name == 'back': 
+            break            
+        else: 
 
+            print "\n(You can enter 'back' to return to the previous prompt)\n"
+
+            query_add_donor = raw_input("It doesn't look like that donor exists in the database yet, would you like to add this person? \n\n(yes/no)\n\n")
+
+            if query_add_donor.lower() == 'yes':
+                donors.append(add_donor(full_name))
+                break
+
+            elif query_add_donor.lower() == 'no':
+                break
             else:
-                
-                #changes full_name to a digit value, killing the while loop
-                full_name = str(1)
+                break
 
-def add_donation():
 
-    new_donation = raw_input('What is the latest donation amount from this donor? ')
-    return new_donation
-    
+def create_a_report():
 
-def show_donors():
-    """Returns a list of the donors in organized format"""
-    #print '\n'.join(donors)
-    for i in donors:
+    temp_list = []
+
+    sorted_donors = sorted(donors, key=lambda tup: tup[1])
+
+    print '\n{:<12}{:^12}{:>12}'.format('Donor Name','Donations','Total Donations')
+
+    for i in sorted_donors:
+
+        total_amount_of_donations = (sum(i[1])/len(i[1]))
+
+        temp_list.append((i[0],len(i[1]),i[1]))
+            
+        print '\n{:<12}{:^12}{:>12}'.format(i[0],len(i[1]),i[1])
+
+def add_donor(x):
+    """Prompts for donor's name, the initial donation amount, then adds them as (x,[y])"""
+    #donor_name = raw_input("Please enter the donor's full name ")
+    donor_name = x
+    donor_name = donor_name.lower()
+
+    new_donor_initial_donation = raw_input("What was this donor's initial contribution? ")
+    new_donor_initial_donation = int(new_donor_initial_donation)
+
+    return (donor_name,[new_donor_initial_donation])
+
+def is_name_present(x,y):
+    """Checks to see if x is present in y. Must iterate to check nested tuples"""
+    for i in y:
+
+        if x == i[0]:
+            return True
+        
+    return False     
+            
+def donation_amount(x,y):
+    """Queries donation amount for donor x"""
+    #x = full_name
+    #y = donors
+
+    for i in y:
+
+        if x == i[0]:
+            return i[1]
+        
+def add_donation(x, y):
+    """Adds donation to nested list associated with donor"""
+
+    new_donation = raw_input("What is the latest donation amount from this donor? ")
+
+    if new_donation.isdigit() == False:
+        return 'Please try again with an int'        
+
+    new_donation = int(new_donation)
+
+    for i in y:
+        
+        for item in i:
+            if x == item:
+                print '\n\n' + "Adding a donation of " + str(new_donation) + " to the record for " + str(x).title() + '\n\n'
+                i[1].append(new_donation)
         print i
+        #if x == i[0]:
+        #    return i[1].append(new_donation)
+    return 
 
-user_input = raw_input(
+def send_email(x): 
+    """Sends prints a message to standard out thanking the user for their donation and summing their donation history. """
+    #x = the list element of our donor
 
-"""
+    donation = donation_amount(x, donors)
 
-Welcome to the Schuyler Inc. Mail Room App
+    return "\n\n\nHello %s,\n\nIt looks like in the past you donated $%i to our organization!\n\nThank you for your contribution, it's people like you who are making a difference.\n\nThank You,\n\nSchuyler INC. Staff\n\n\n" %(x.title(), int(sum(donation)))
+
+count = 1
+while count > 0:
+    #count must be present so list will run until it breaks 
+    user_input = raw_input(
+
+
+"""Welcome to the Schuyler Inc. Mail Room App
 
 What would you like to do? 
 
-Send a Thank You
+(A) Send a Thank You
 
 or 
 
-Create a Report
+(B) Create a Report
+
+(C) Exit the Mail Room App
 
 """)
 
-user_input = user_input.title()
+    if user_input.upper() == 'A':
 
-if user_input == 'Send A Thank You':
-    #do something
-    print historical_amounts(donors)
+        print send_a_thank_you(donors)
+        #donors.append(add_donor())
+        print donors
 
-#elif user_input == 'Create A Report':
-#
-#    #do something else
-#    print 'I'm going to fix this later'
+    elif user_input.upper() == 'B':
 
-#else:
+        print create_a_report()
+
+    #    print 'I'm going to fix this later'
+
+    elif user_input.upper() == 'BB':
+
+        full_name = raw_input("Please enter the full name of your donor (enter back to return to previous prompt):\n\n")
+        add_donation(full_name, donors)
 
 
-#print historical_amounts(donors)
+    elif user_input.upper() == 'C' or 'Q':
 
-    
-#<Unused text>
-#
-#Type 'list' if you'd like to see a list of the donors
-#
-#Type the donor's name if you'd like to add them to the list (if they are already present in the list, they will not be re-added)
-##
+        print 'Exiting...'
+        break
