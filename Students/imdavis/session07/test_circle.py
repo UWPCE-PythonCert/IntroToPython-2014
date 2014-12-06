@@ -123,14 +123,14 @@ def test_nonsense_radius():
     Make sure we can't create a Circle object with a negative or zero 
     radius.
     """
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c = Circle(-1.234)
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c = Circle(0)
     c = Circle(1.234)
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c.radius = -1.234 
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c.radius = 0
 
 def test_nonsense_diameter():
@@ -138,12 +138,12 @@ def test_nonsense_diameter():
     Make sure we can't create a Circle object with a negative or zero 
     diameter.
     """
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c = Circle.from_diameter(-2.468)
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c = Circle.from_diameter(0)
     c = Circle.from_diameter(2.468)
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c.diameter = -2.468
-    with pytest.raises(AssertionError):
+    with pytest.raises(ValueError):
         c.diameter = 0

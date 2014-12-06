@@ -3,4 +3,4 @@ slides_sources/build
 #ignore compiled files, sublime workspace and project files
 *.pyc
 *.sublime*
-
+*.*~

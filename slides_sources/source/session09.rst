@@ -13,25 +13,27 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-  person 1
+  Lou Ascoli
 
-  person 2
+  Ralph  Brand
 
-  person 3
+  Danielle Marcos
 
-  person 4
+  Carolyn  Evans
 
 ================
 Review/Questions
 ================
 
+Review of complete sparse array class
 
+==========
 Decorators
 ==========
 
-**A Short Digression**
+**A Short Reminder**
 
-.. rst-class:: left build
+.. rst-class:: left
 .. container::
 
     Functions are things that generate values based on input (arguments).
@@ -54,18 +56,18 @@ Decorators
 A Definition
 ------------
 
-There are many things you can do with a simple pattern like this one.  So many,
-that we give it a special name:
+There are many things you can do with a simple pattern like this one.
+So many, that we give it a special name:
 
-.. rst-class:: centered
+.. rst-class:: centered medium
 
 **Decorator**
 
-.. rst-class:: build
+.. rst-class:: build centered
 .. container::
 
-    A decorator is a function that takes a function as an argument and
-    returns a function as a return value.
+    "A decorator is a function that takes a function as an argument and
+    returns a function as a return value.""
 
     That's nice and all, but why is that useful?
 
@@ -83,21 +85,21 @@ one:
 .. rst-class:: build
 .. container::
 
-    You want to see when each function is called, with what arguments and with what
-    result. So you rewrite each function as follows:
+    You want to see when each function is called, with what arguments and
+    with what result. So you rewrite each function as follows:
 
     .. code-block:: python
 
         def add(a, b):
-            print "Function 'add' called with args: %r" % locals()
+            print "Function 'add' called with args: %r, %r"%(a, b)
             result = a + b
             print "\tResult --> %r" % result
             return result
 
 .. nextslide::
 
-That's not particularly nice, especially if you have lots of functions in your
-module.
+That's not particularly nice, especially if you have lots of functions
+in your module.
 
 Now imagine we defined the following, more generic *decorator*:
 
@@ -178,6 +180,9 @@ function is called **decoration**.
 Because this is so common, Python provides a special operator to perform it
 more *declaratively*: the ``@`` operator:
 
+(I told you I'd eventually explain what was going on under the hood
+with that wierd `@` symbol)
+
 .. code-block:: python
 
     # this is the imperative version:
@@ -204,8 +209,8 @@ incomplete.
 
 In reality, decorators can be used with anything that is *callable*.
 
-In python a *callable* is a function, a method on a class, or even a class that
-implements the ``__call__`` special method.
+Remember from last week, a *callable* is a function, a method on a class,
+or a class that implements the ``__call__`` special method.
 
 So in fact the definition should be updated as follows:
 
@@ -310,30 +315,40 @@ decorator:
     time expired: 4.05311584473e-06
     Out[73]: 99999990000000
 
+
 Examples from the Standard Library
 ----------------------------------
 
 It's going to be a lot more common for you to use pre-defined decorators than
 for you to be writing your own.
 
-Let's see a few that might help you with work you've been doing recently.
+We've seen a few already:
 
-For example, a ``staticmethod()`` can be implemented with a decorator
-expression:
+.. nextslide::
+
+For example, ``@staticmethod`` and ``@classmethod`` can also be used as simple
+callables, without the nifty decorator expression:
 
 .. code-block:: python
 
     # the way we saw last week:
     class C(object):
+        @staticmethod
+        def add(a, b):
+            return a + b
+
+Is exactly the same as:
+
+.. code-block:: python
+
+    class C(object):
         def add(a, b):
             return a + b
         add = staticmethod(add)
 
-    # and the decorator form
-    class C(object):
-        @staticmethod
-        def add(a, b):
-            return a + b
+Note that the "``def``" binds the name ``add``, then the next line
+rebinds it.
+
 
 .. nextslide::
 
@@ -341,23 +356,46 @@ The ``classmethod()`` builtin can do the same thing:
 
 .. code-block:: python
 
+    # in declarative style
+    class C(object):
+        @classmethod
+        def from_iterable(cls, seq):
+            # method body
+
     # in imperative style:
     class C(object):
         def from_iterable(cls, seq):
             # method body
         from_iterable = classmethod(from_iterable)
 
-    # and in declarative style
-    class C(object):
-        @classmethod
-        def from_iterable(cls, seq):
-            # method body
 
-.. nextslide::
+property()
+-----------
+
+Remember the property() built in?
 
 Perhaps most commonly, you'll see the ``property()`` builtin used this way.
 
 Last week we saw this code:
+
+.. code-block:: python
+
+    class C(object):
+        def __init__(self):
+            self._x = None
+        @property
+        def x(self):
+            return self._x
+        @x.setter
+        def x(self, value):
+            self._x = value
+        @x.deleter
+        def x(self):
+            del self._x
+
+.. nextslide::
+
+But this could also be accomplished like so:
 
 .. code-block:: python
 
@@ -375,38 +413,77 @@ Last week we saw this code:
 
 .. nextslide::
 
-Used in a decorator statement, it looks like this:
+Note that in this case, the decorator object returned by the property decorator
+itself implements additional decorators as attributes on the returned method
+object. So you could actually do this:
+
+
 
 .. code-block:: python
 
     class C(object):
         def __init__(self):
             self._x = None
-        @property
         def x(self):
             return self._x
-        @x.setter
-        def x(self, value):
+        x = property(x)
+        def _set_x(self, value):
             self._x = value
-        @x.deleter
-        def x(self):
+        x = x.setter(_set_x)
+        def _del_x(self):
             del self._x
+        x = x.deleter(_del_x)
 
-Note that in this case, the decorator object returned by the property decorator
-itself implements additional decorators as attributes on the returned method
-object.
+But that's getting really ugly!
 
+LAB
+----
+
+**p_wrapper Decorator**
+
+Write a simple decorator you can apply to a function that returns a string.
+
+Decorating such a function should result in the original output, wrapped by an
+HTML 'p' tag:
+
+.. code-block:: ipython
+
+    In [4]: @p_wrapper
+       ...: def return_a_string(string):
+       ...:     return string
+       ...:
+
+    In [5]: return_a_string("this is a string")
+    Out[5]: '<p> this is a string </p>'
+
+simple test code in
+:download:`Examples/Session09/test_p_wrapper.py <../../Examples/Session09/test_p_wrapper.py>`
+
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+|  Lou Ascoli
+|
+|  Ralph  Brand
+|
+
+
+=================
 Context Managers
-================
+=================
 
 **A Short Digression**
 
 .. rst-class:: left build
 .. container::
 
-    Repetition in code stinks.
+    Repetition in code stinks (DRY!)
 
-    A large source of repetition in code deals with the handling of externals
+    A large source of repetition in code deals with the handling of external
     resources.
 
     As an example, how many times do you think you might type the following
@@ -422,6 +499,7 @@ Context Managers
     What happens if you forget to call ``.close()``?
 
     What happens if reading the file raises an exception?
+
 
 Resource Handling
 -----------------
@@ -441,7 +519,7 @@ You can write more robust code for handling your resources:
     # do something with file_content here
 
 But what exceptions do you want to catch?  And do you really want to have to
-remember all that **every** time you open a resource?
+remember to type all that **every** time you open a resource?
 
 .. nextslide:: It Gets Better
 
@@ -480,16 +558,15 @@ when the code block ends.
 At this point in Python history, many functions you might expect to behave this
 way do:
 
-.. rst-class:: build
-
-* ``open`` and ``codecs.open`` both work as context managers
+* ``open`` and ``io.open`` both work as context managers.
+  (``io.open`` is good for working with unicode)
 * networks connections via ``socket`` do as well.
 * most implementations of database wrappers can open connections or cursors as
   context managers.
 * ...
 
-But what if you are working with a library that doesn't support this
-(``urllib``)?
+* But what if you are working with a library that doesn't support this
+  (``urllib``)?
 
 .. nextslide:: Close It Automatically
 
@@ -507,25 +584,24 @@ the ``closing`` context manager from ``contextlib`` to handle the issue:
         # do something with the open resource
     # and here, it will be closed automatically
 
-But what if the thing doesn't have a ``close()`` method, or you're creating the thing and it shouldn't?
+But what if the thing doesn't have a ``close()`` method, or you're creating
+the thing and it shouldn't have a close() method?
 
-.. nextslide:: Do It Yourself
+Do It Yourself
+----------------
 
 You can also define a context manager of your own.
 
-The interface is simple.  It must be a class that implements these two *special
-methods*:
+The interface is simple.  It must be a class that implements two
+more of the nifty python *special methods*
 
-``__enter__(self)``:
-  Called when the ``with`` statement is run, it should return something to work
-  with in the created context.
+**__enter__(self)**  Called when the ``with`` statement is run, it should return something to work with in the created context.
 
-``__exit__(self, e_type, e_val, e_traceback)``:
-  Clean-up that needs to happen is implemented here.
+**__exit__(self, e_type, e_val, e_traceback)**  Clean-up that needs to happen is implemented here.
 
-  The arguments will be the exception raised in the context.
+The arguments will be the exception raised in the context.
 
-  If the exception will be handled here, return True. If not, return False.
+If the exception will be handled here, return True. If not, return False.
 
 Let's see this in action to get a sense of what happens.
 
@@ -547,13 +623,16 @@ Consider this code:
         print '__enter__()'
         return self
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print '__exit__(%s, %s, %s)' % (exc_type, exc_val, exc_tb)
+        print '__exit__(%r, %r, %r)' % (exc_type, exc_val, exc_tb)
         return self.handle_error
+
+:download:`Examples/Session09/context_managers.py <../../Examples/Session09/context_managers.py>`
+
 
 .. nextslide::
 
-This class doesn't do much of anything, but playing with it can help clarify
-the order in which things happen:
+This class doesn't do much of anything, but playing with it can help
+clarify the order in which things happen:
 
 .. code-block:: ipython
 
@@ -594,8 +673,7 @@ What if we try with ``False``?
 
 .. nextslide:: ``contextmanager`` decorator
 
-``contextlib.contextmanager`` turns generator functions into context managers
-
+``contextlib.contextmanager`` turns generator functions into context managers.
 Consider this code:
 
 .. code-block:: python
@@ -655,18 +733,12 @@ Or, we can allow them to propagate:
           4
     RuntimeError: error raised
 
-Homework
-========
 
-Python Power
+LAB
+----
+**Timing Context Manager**
 
-
-Assignments
------------
-
-Task 1: Timing Context Manager
-
-Create a context manager that will print to stdout the elapsed time taken to
+Create a context manager that will print the elapsed time taken to
 run all the code inside the context:
 
 .. code-block:: ipython
@@ -682,28 +754,518 @@ object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.
 
 
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+|  Danielle Marcos
+|
+|  Carolyn Evans
+|
+
+
+======================
+Packages and Packaging
+======================
+
+Modules and Packages
+--------------------
+
+A module is a file (``something.py``) with python code in it
+
+A package is a directory with an ``__init__.py``  file in it
+
+And usually other modules, packages, etc...
+
+::
+
+    my_package
+        __init__.py
+        module_a.py
+        module_b.py
+
+
+.. code-block:: python
+
+    import my_package
+
+
+runs the code ``my_package/__init__.py`` (if there is any)
+
+Modules and Packages
+--------------------
+
+.. code-block:: python
+
+    import sys
+    for p in sys.path:
+        print p
+
+(demo)
+
+Installing Python
+-----------------
+
+Linux:
+
+Usually part of the system -- just use it.
+
+Windows:
+
+Use the python.org version:
+
+* System Wide
+
+* Can install multiple versions if need be
+
+* Third party binaries for it.
+
+Installing Python
+-----------------
+OS-X:
+
+Comes with the system, but:
+
+    * Apple has never upgraded within a release
+    * There are non-open source components
+    * Third party packages may or may not support it
+    * Apple does use it -- so don't mess with it
+    * I usually recommend the ``python.org`` version
+
+(Also Macports, Fink, Home Brew...)
+
+
+Distributions
+-------------
+
+There are also a few "curated" distributions:
+
+These provide python and a package management system for hard-to-buid packages.
+
+Widely used by the scipy community
+(lots of hard to build stuff that needs to work together...)
+
+  * Anaconda (https://store.continuum.io/cshop/anaconda/)
+  * Canopy (https://www.enthought.com/products/canopy/)
+  * ActivePython (http://www.activestate.com/activepython)
+
+
+Installing Packages
+-------------------
+Every Python installation has its own stdlib and ``site-packages`` folder
+
+``site-packages``  is the default place for third-party packages
+
+Finding Packages
+----------------
+The Python Package Index:
+
+**PyPi**
+
+http://pypi.python.org/pypi
+
+Installing Packages
+-------------------
+.. rst-class:: medium
+
+    **From source**
+
+* (``setup.py install`` )
+
+* With the system installer (apt-get, yum, etc...)
+
+.. rst-class:: medium
+
+    **From binaries:**
+
+* Windows: MSI installers
+
+* OS-X: dmg installers (make sure to get compatible packages)
+
+* And now: binary wheels -- (More and more of those available)
+
+* ``pip`` should find appropriate binary wheels if they are there.
+
+
 .. nextslide::
 
-Task 2: ``p-wrapper`` Decorator
+In the beginning, there was the ``distutils``:
 
-Write a simple decorator you can apply to a function that returns a string.
-Decorating such a function should result in the original output, wrapped by an
-HTML 'p' tag:
+But ``distutils``  is missing some key features:
 
-.. code-block:: ipython
+* package versioning
+* package discovery
+* auto-install
 
-    In [4]: @p_wrapper
-       ...: def return_a_string(string):
-       ...:     return string
-       ...:
+- And then came ``PyPi``
 
-    In [5]: return_a_string("this is a string")
-    Out[5]: '<p> this is a string </p>'
+- And then came ``setuptools``
+
+- But that wasn't well maintained...
+
+- Then there was ``distribute/pip``
+
+- Which has now been merged back into ``setuptools``
+
+Now it's pretty stable: pip+setuptools: use them.
+
+Installing Packages
+-------------------
+
+Actually, it's still a bit of a mess
+
+But getting better, and the mess is *almost* cleaned up.
+
+Current State of Packaging
+--------------------------
+
+To build packages: distutils
+
+  * http://docs.python.org/2/distutils/
+
+For more features: setuptools
+
+  * https://pythonhosted.org/setuptools/
+
+To install packages: pip
+
+  * https://pip.pypa.io/en/latest/installing.html
+
+For binary packages: wheels
+
+  * http://www.python.org/dev/peps/pep-0427/
+
+(installable by pip)
+
+Compiled Packages
+-----------------
+
+Biggest issue is with compiled extensions:
+
+  * (C/C++, Fortran, etc.)
+
+  * You need the right compiler set up
+
+Dependencies:
+
+  * Here's were it gets really ugly
+
+  * Particularly on Windows
 
 .. nextslide::
 
-Task 3: Generator Homework (documented above)
+**Linux**
 
-Task 4: Iterator Homework (documented above)
+Pretty straightforward:
+
+1. Is there a system package?
+  * use it (apt-get install the_package)
+
+2. Try ``pip install``: it may just work!
+
+3. Install the dependencies, build from source::
+
+    python setup.py build
+
+    python setup.py install
+
+(may need "something-devel" packages)
 
 
+.. nextslide::
+
+**Windows**
+
+Sometimes simpler:
+
+1) A lot of packages have Windows binaries:
+  - Usually for python.org builds
+  - Excellent source: http://www.lfd.uci.edu/~gohlke/pythonlibs/
+  - Make sure you get 32 or 64 bit consistent
+
+2) But if no binaries:
+    - Hope the dependencies are available!
+    - Set up the compiler
+
+MS now has a compiler just for python!
+
+http://www.microsoft.com/en-us/download/details.aspx?id=44266
+
+.. nextslide::
+
+**OS-X**
+
+Lots of Python versions:
+  - Apple's built-in (different for each version of OS)
+  - python.org builds
+  - 32+64 bit Intel (and even PPC still kicking around)
+  - Macports
+  - Homebrew
+
+Binary Installers (dmg or wheel) have to match python version
+
+.. nextslide::
+
+**OS-X**
+
+If you have to build it yourself
+
+Xcode compiler (the right version)
+
+  - Version 3.* for 32 bit PPC+Intel
+
+  - Version > 4.* for 32+64 bit Intel
+
+(make sure to get the SDKs for older versions)
+
+If extra dependencies:
+
+  - macports or homebrew often easiest way to build them
+
+
+Final Recommendations
+---------------------
+
+First try: ``pip install``
+
+If that doesn't work:
+
+Read the docs of the package you want to install
+
+Do what they say
+
+(Or use Anaconda or Canopy)
+
+virtualenv
+----------
+
+``virtualenv`` is a tool to create isolated Python environments.
+
+Very useful for developing multiple apps
+
+Or deploying more than one app on one system
+
+http://www.virtualenv.org/en/latest/index.html}
+
+Remember the notes from the beginning of class? :ref:`virtualenv_section`
+
+(Cris will probably make you do this next class)
+
+============
+Distributing
+============
+
+Distributing
+------------
+What if you need to distribute you own:
+
+Scripts
+
+Libraries
+
+Applications
+
+
+Scripts
+-------
+
+Often you can just copy, share, or check in the script to source
+control and call it good.
+
+But only if it's a single file, and doesn't need anything non-standard
+
+When the script needs more than just the stdlib
+
+(or your company standard environment)
+
+You have an application, not a script
+
+
+Libraries
+---------
+
+When you read the distutils docs, it's usually libraries they're talking about
+
+Scripts + library is the same...
+
+(http://docs.python.org/distutils/)
+
+distutils
+---------
+
+``distutils``  makes it easy to do the easy stuff:
+
+Distribute and install to multiple platforms, etc.
+
+Even binaries, installers and compiled packages
+
+(Except dependencies)
+
+(http://docs.python.org/distutils/)
+
+distutils basics
+----------------
+
+It's all in the ``setup.py file``:
+
+.. code-block::python
+
+    from distutils.core import setup
+    setup(name='Distutils',
+          version='1.0',
+          description='Python Distribution Utilities',
+          author='Greg Ward',
+          author_email='gward@python.net',
+          url='http://www.python.org/sigs/distutils-sig/',
+          packages=['distutils', 'distutils.command'],
+         )
+
+(http://docs.python.org/distutils/)
+
+distutils basics
+----------------
+
+Once your setup.py is written, you can:
+
+::
+
+    python setup.py ...
+    build         build everything needed to install
+    install       install everything from build directory
+    sdist         create a source distribution
+                  (tarball, zip file, etc.)
+    bdist         create a built (binary) distribution
+    bdist_rpm     create an RPM distribution
+    bdist_wininst create an executable installer for MS Windows
+    upload        upload binary package to PyPI
+
+wheels
+------
+
+"wheels" are the "new" package format for python.
+
+A wheel is essentially a zip file of the entire package, ready to be
+unpacked in the right place on installation.
+
+``pip`` will look for wheels for OS-X and Windows on PyPi, and auto-install
+them if they exist
+
+This is particularly nice for packages with non-python dependencies.
+
+
+More complex packaging
+----------------------
+
+For a complex package:
+
+You want to use a well structured setup:
+
+http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/
+
+develop mode
+------------
+
+While you are developing your package, Installing it is a pain.
+
+But you want your code to be able to import, etc. as though it were installed
+
+``setup.py develop``  installs links to your code, rather than copies
+-- so it looks like it's installed, but it's using the original source
+
+``python setup.py develop``
+
+You need ``setuptools`` and a setup.py  to use it.
+
+
+Applications
+------------
+
+For a complete application:
+
+  * Web apps
+  * GUI apps
+
+Multiple options:
+
+  * Virtualenv + VCS
+  * zc.buildout ( http://www.buildout.org/}
+  * System packages (rpm, deb, ...)
+  * Bundles...
+
+
+Bundles
+-------
+
+Bundles are Python + all your code + plus all the dependencies --
+all in one single "bundle"
+
+Most popular on Windows and OS-X
+
+::
+
+     py2exe
+     py2app
+     pyinstaller
+     ...
+
+
+User doesn't even have to know it's python
+
+Examples:
+
+ http://www.bitpim.org/
+
+ http://response.restoration.noaa.gov/nucos
+
+LAB
+---
+
+Write a setup.py for a script of yours
+
+  * Ideally, your script relies on at least one other module
+  * At a minimum, you'll need to specify ``scripts``
+  * and probably ``py_modules``
+  * try:
+
+    * ``python setup.py build``
+    * ``python setup.py install``
+    * ``python setup.py sdist``
+
+  * EXTRA: install ``setuptools``
+
+    * use: ``from setuptools import setup``
+    * try: `` python setup.py develop``
+
+  * EXTRA2: install ``wheel``
+
+    * ``python setup.py bdist_wheel``
+
+
+(my example: ``Examples/Session09/capitalize``)
+
+==========
+Next Week
+==========
+
+We'll be talking about Unicode. Read:
+
+rst-class:: medium centered
+
+  The Absolute Minimum Every Software Developer Absolutely, Positively
+  Must Know About Unicode and Character Sets (No Excuses!)
+
+http://www.joelonsoftware.com/articles/Unicode.html
+
+Also: Cris Ewing will come by to talk about the second quarter
+web development class
+
+Homework
+---------
+
+Finish up the labs
+
+Work on your project
+
+And *do* let me know what you're doing if you haven't yet!
