@@ -48,7 +48,11 @@ lat_long_url = 'https://congress.api.sunlightfoundation.com/districts/locate?lat
 congressional_district = json.load(urllib2.urlopen(lat_long_url))
 
 
-senators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators/locate?latitude={}&longitude={}&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
+legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators/locate?latitude={}&longitude={}&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
 
-print senators
-print type(senators)
+#pprint(senators['results'])
+print 'Based on the latitude and longitude provided, your United States Congresspeople are: \n'
+for i in legislators['results']:
+    first = i['first_name']
+    last = i['last_name']
+    print '{} {}\n'.format(first,last)
