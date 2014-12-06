@@ -46,16 +46,29 @@ legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation
 
 #Prints Congressman/Congresswoman + First, Last
 
-#for i in legislators['results']:
-#    pprint(i)
-for i in legislators['results']:
-    if i['chamber'] == 'house' and i['gender'] == 'M':
-        print 'Congressman ' + i['first_name'] + ' ' + i ['last_name'] + '\n'
-    elif i['chamber'] == 'senate':
-        print 'Senator ' + i['first_name'] + ' ' + i ['last_name'] + '\n'
+def find_legislators():
 
+    for i in legislators['results']:
+        print i['last_name'] + ' ' + i['bioguide_id']
+        #legislator_ids.append(i)
 
-#for i in legislators['results']:
-#    first = i['first_name']
-#    last = i['last_name']
-#    print '{} {}\n'.format(first,last)
+#find_legislators()
+
+#votes_url = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/votes?voter_ids.{}__exists=true&apikey=15f4679bdc124cd6a2c6be8666253000')).format( __ THIS IS WHERE THE UNIQUE ID OF THE LEGISLATOR NEEDS TO BE __ )
+
+pprint(votes_url)
+
+#def recent_votes():
+
+   ##THIS IS WHERE YOU ARE GOING TO RETURN THE LAST 10 VOTES BY var = LEGISLATOR 
+
+def print_legislators():
+
+    #FIX THE FORMATTING BELOW!!!
+
+    for i in legislators['results']:
+        if i['chamber'] == 'house' and i['gender'] == 'M':
+            print 'Congressman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
+        elif i['chamber'] == 'senate':
+            print 'Senator ' + i['first_name'] + ' ' + i ['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
+
