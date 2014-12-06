@@ -10,6 +10,7 @@ class SparseArray(object):
     def __init__(self, sequence):
         self.data = {k: v for k, v in enumerate(sequence) if v != 0}
         self.mylen = len(sequence)
+        self.current = -1
 
     def get_value(self, idx):
         try:
@@ -27,10 +28,6 @@ class SparseArray(object):
         if isinstance(idx, slice):
             l = []
             start, stop, stride = idx.indices(len(self))
-            print len(self.data)
-            print start
-            print stop
-            print stride
             for i in xrange(start, stop):
                 l.append(self.get_value(i))
             return l
@@ -66,3 +63,14 @@ class SparseArray(object):
                 self.data = d
         else:
             raise IndexError
+
+    def __iter__(self):
+        self.current = -1
+        return self
+
+    def next(self):
+        if self.current + 1 < self.mylen:
+            self.current += 1
+            return self.get_value(self.current)
+        else:
+            raise StopIteration
