@@ -1,11 +1,12 @@
 import pytest
-from sparse_array import SparseArray
+from sparse_array import SparseArray 
 
 
 def set_up():
     my_array = [2, 0, 0, 0, 3, 0, 0, 0, 4, 5, 6, 0, 2, 9]
     my_sparse = SparseArray(my_array)
     return (my_array, my_sparse)
+
 
 def test_object_exists():
     my_array, my_sparse = set_up()
@@ -59,6 +60,7 @@ def test_delete_number():
     # should have smaller length
     assert len(my_sparse) == 13
 
+
 def test_delete_zero():
     my_array, my_sparse = set_up()
     del(my_sparse[5])
@@ -70,16 +72,11 @@ def test_delete_last_number():
     my_array, my_sparse = set_up()
     del(my_sparse[13])
     # should get an error?
+    print 'print some stuff damnit'
     with pytest.raises(IndexError):
         my_sparse[13]
     assert len(my_sparse) == 13
 
-def test_indices_change():
-    my_array, my_sparse = set_up()
-    del(my_sparse[3])
-    # next index should have changed
-    # my_sparse[4] was 3 now
-    # my_sparse[3] should be 3
-    assert (my_sparse[3] == 3)
+
 
 
