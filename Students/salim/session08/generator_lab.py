@@ -18,10 +18,25 @@ def doubler():
 
 
 def fib():
-    l = [0, 1]
-    for i in range(1, 100):
-        if i == 0:
+    l = [0, 0]
+    while True:
+        if sum(l) == 0:
             yield 1
+            l.append(1)
         else:
-            l.append(l[-1] + l[-2])
-            yield l[-1]
+            yield sum(l)
+            l.append(sum(l))
+        del l[0]
+
+
+def prime():
+    num = 1
+    while True:
+        num += 1
+        prime = True
+        for i in xrange(2, num + 1):
+            if num % i == 0 and i != num:
+                prime = False
+                break
+        if prime:
+            yield num
