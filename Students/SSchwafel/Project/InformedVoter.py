@@ -38,7 +38,7 @@ legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation
 #legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?chamber=house&per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
 
 #All Legislators
-#legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
+legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
 
 #pprint(senators['results'])
 #print 'Based on the latitude and longitude provided, your United States Congresspeople are: \n'
@@ -56,7 +56,7 @@ def find_legislators():
 
 #votes_url = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/votes?voter_ids.{}__exists=true&apikey=15f4679bdc124cd6a2c6be8666253000')).format( __ THIS IS WHERE THE UNIQUE ID OF THE LEGISLATOR NEEDS TO BE __ )
 
-pprint(votes_url)
+#pprint(votes_url)
 
 #def recent_votes():
 
@@ -65,10 +65,14 @@ pprint(votes_url)
 def print_legislators():
 
     #FIX THE FORMATTING BELOW!!!
+    #Also, be sure to add  .encode('utf-8')
 
     for i in legislators['results']:
         if i['chamber'] == 'house' and i['gender'] == 'M':
             print 'Congressman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
+        if i['chamber'] == 'house' and i['gender'] == 'F':
+            print 'Congresswoman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
         elif i['chamber'] == 'senate':
             print 'Senator ' + i['first_name'] + ' ' + i ['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
 
+print_legislators()
