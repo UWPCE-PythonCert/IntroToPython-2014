@@ -20,3 +20,6 @@ slides_sources/build
 
 #special to html render excercise
 *.html
+
+*.*~
+
