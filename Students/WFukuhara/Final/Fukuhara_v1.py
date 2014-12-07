@@ -8,10 +8,6 @@ Present user with option to quit program.
 Prevent user from entering menu option other than what is presented.
 '"""
 
-# keep the reading of the file separate. Open and put in memory. Then the access that funtion so you don't need to open/read within each function
-# use class structure. Then access the attributes and methods of the class.
-
-
 import csv
 
 
@@ -41,7 +37,7 @@ def opencloseresults( ):
     fin1 = open('disneystock.csv', 'U')
     finrow1 = csv.reader(fin1)
     print "Here are the monthly open and close prices for the last 20 years:"
-    finrow1.next( )    # skip over the iniitial header row
+    finrow1.next( )
     for row1 in finrow1:
         print '%10s %s %.2f %s %.2f' % ((row1[0]), '     ', float(row1[1]), '     ', float(row1[4]))    #  format with 2 decimal places
 
@@ -56,7 +52,7 @@ def lowavg( ):
     highlowresults('Low', 3)
 
 
-if __name__ == "__main__":    # If the module is being run, use the following. If the module is imported than don't.
+if __name__ == "__main__":    # This is used if the module is run but not if it's imported.
     running = True
     while running:
         uentry = menu_selection( )
