@@ -19,10 +19,14 @@ def p_wrapper (func):
 class tag_wrapper (object):
 
     def __init__(self, tag):
+        #print "Inside __init__()"
         self.tag = tag
     
-    @p_wrapper
     def __call__(self, string):
-        def string_return (string):
-            string = '<'+self.tag+'> '+string+' </'+self.tag+'p>'
-        return string_return
+        #print "Inside __call__()"
+        def tagged_line (string):
+           # print 'decorator'
+           # print '<'+self.tag+'> '+string+' </'+self.tag+'>'
+            return '<'+self.tag+'> '+string+' </'+self.tag+'>'
+        return tagged_line
+        

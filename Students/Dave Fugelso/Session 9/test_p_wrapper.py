@@ -30,6 +30,3 @@ def test_tag_wrapper2():
 
     assert return_a_string("this is a string") == "<div> this is a string </div>"
 
-test_p_wrapper()
-test_tag_wrapper()
-test_tag_wrapper2()
