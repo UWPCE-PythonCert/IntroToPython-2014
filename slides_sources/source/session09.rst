@@ -1251,7 +1251,7 @@ Next Week
 
 We'll be talking about Unicode. Read:
 
-rst-class:: medium centered
+.. rst-class:: medium centered
 
   The Absolute Minimum Every Software Developer Absolutely, Positively
   Must Know About Unicode and Character Sets (No Excuses!)
