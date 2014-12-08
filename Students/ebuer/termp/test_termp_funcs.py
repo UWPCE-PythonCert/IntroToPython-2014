@@ -1,29 +1,27 @@
 """termp_funcs"""
+import sys
+sys.path.append(r"D:\GitHub\IntroToPython\Students\ebuer\termp")
 
-import pandas as pd
-from pandas import DataFrame as df
-
-import termp_funcs as tf
+from termp_funcs_rf import plotprep as pp
 
 def test_select_columns():
-    dframe = tf.get_data('datafiles/test_chemistry.xlsx')
-    column_args = ['sample_name',
-                   'sample_date_time',
-                   'lab_sample_id',
-                   'sample_type_code',
-                   'cas_rn',
-                   'chemical_name',
-                   'result_value',
-                   'result_unit',
-                   'lab_flag',
-                   'dilution_factor',
-                   'sample_matrix_code',
-                   'method_detection_limit',
-                   'Validation Qualifiers',
-                   'Validation Reason',
-                   'Interpreted Qualifier']
+    dfile = 'datafiles/test_chemistry.xlsx'
+    p_test = pp(dfile)
 
-    selected_frame = dframe[column_args]
-    assert len(selected_frame.columns) == 15
+    assert len(p_test.selected_data.columns) == 15
 
+
+def test_getsamples():
+    dfile = 'datafiles/test_chemistry.xlsx'
+    p_test = pp(dfile)
+
+    samples = [s for s in p_test.samples]
+
+    assert 'MS' not in samples
+    assert 'LRS' not in samples
+    assert '14051306' in samples
+
+    # assert 'MS' in p_test.qc_samples
+    # assert 'LRS' in p_test.qc_samples
+    # assert '14051306' not in p_test.qc_samples
 
