@@ -58,10 +58,15 @@ class plotprep(object):
             print '{i: >2}. {sid: >10}'.format(**kwargs)
 
     def plotSample(self, sample_id='14051306'):
-        sample_mask = self.samples.isin(sample_id)
+        """Return rows of data for selected sample"""
+        sample_mask = self.samples.isin([sample_id])
         sample_rows = self.samples[sample_mask]
 
-        if not sample_rows.all(sample_id):
+        data_index = sample_rows.index
+
+        if not sample_rows.isin([sample_id]).any(0):
             raise ValueError('A bad sample ID was passed')
 
-        return self.pS
+        self.plotData = self.selected_data.loc[data_index]
+        self.plotData = self.plotData.dropna()
+        return self.plotData
