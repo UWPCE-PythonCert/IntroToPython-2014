@@ -21,7 +21,13 @@ def test_getsamples():
     assert 'LRS' not in samples
     assert '14051306' in samples
 
-    # assert 'MS' in p_test.qc_samples
-    # assert 'LRS' in p_test.qc_samples
-    # assert '14051306' not in p_test.qc_samples
+    assert len(p_test.samples) + len(p_test.qc_samples) == len(p_test.selected_data['sample_name'])
 
+
+def test_plotSample():
+    dfile = 'datafiles/test_chemistry.xlsx'
+    p_test = pp(dfile)
+
+    p_plot = p_test.plotSample('14051306')
+
+    assert p_plot is not None
