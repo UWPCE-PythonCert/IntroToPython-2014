@@ -1,6 +1,11 @@
 slides_sources/build
 
+
 #ignore python compile files
+=======
+.DS_Store
+
+#ignore compiled files, sublime workspace and project files
 *.pyc
 *junk*
 
@@ -20,3 +25,6 @@ slides_sources/build
 
 #special to html render excercise
 *.html
+
+*.*~
+

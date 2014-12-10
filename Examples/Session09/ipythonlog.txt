@@ -1,0 +1,180 @@
+# IPython log file
+
+
+get_ipython().magic(u'run decorators.py')
+add
+add(2,3)
+get_ipython().magic(u'run decorators.py')
+add(2,3)
+new_add = substitute(add)
+new_add(2,3)
+@substitute
+def fun(1,2,3)
+@substitute
+def fun(1,2,3):
+    print "in fun"
+    
+@substitute
+def fun(a,b):
+    print "in fun"
+    
+fun()
+@logged_func
+def fun(a,b):
+    print "in fun"
+    
+fun(2,3)
+fun(2,3,fred=4)
+get_ipython().magic(u'run decorators.py')
+get_ipython().magic(u'timeit sum2x(10)')
+get_ipython().magic(u'run decorators.py')
+get_ipython().magic(u'timeit sum2x(10)')
+sum2x(100000000)
+sum2x(100000000)
+sum2x(10000000)
+sum2x(10000000)
+type(sum2x)
+sum2x.function
+sum2x.function(10)
+sum2x.memoized
+@Memoize
+def other_fun():
+def other_fun(x):
+    
+@Memoize
+def fun2(x):
+    return x**100
+
+fun2(4)
+fun2(4)
+fun2.memoized
+@Memoize
+def fun2asdf(x):
+    return x**100
+
+get_ipython().magic(u'run decorators.py')
+sum2x(1e6)
+sum2x(1000000)
+get_ipython().magic(u'run decorators.py')
+sum2x(1000000)
+sum2x(1000000)
+sum2x(10000000)
+sum2x(10000000)
+get_ipython().magic(u'paste')
+@Memoize
+@timed_func
+def sum2x(n):
+    return sum(2 * i for i in xrange(n))
+sum2x(1000000)
+sum2x(1000000)
+get_ipython().magic(u'run context_managers.py')
+with Context(False):
+    print something
+    
+with Context(False):
+    print "something"
+    
+get_ipython().magic(u'paste')
+with Context(True) as foo:
+    print 'This is in the context'
+    raise RuntimeError('this is the error message')
+with Context(False):
+    raise RuntimeError('this is the error message')
+
+with context(False):
+    raise RuntimeError('this is the error message')
+
+with context(True):
+    raise RuntimeError('this is the error message')
+
+get_ipython().magic(u'run timer_context.py')
+with Timer as t:
+    [x^2 for x in range(100000000)]
+    
+get_ipython().magic(u'run timer_context.py')
+with Timer as t:
+    [x^2 for x in range(100000000)]
+    
+with Timer as t:
+    [x^2 for x in range(100000000)]
+    
+get_ipython().magic(u'run timer_context.py')
+with Timer as t:
+    [x^2 for x in range(100000000)]
+    
+with Timer() as t:
+    [x^2 for x in range(100000000)]
+    
+with Timer() as t:
+    [x^2 for x in range(1000000)]
+    
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(1000000)]
+    
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(1000000)]
+    
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(1000000)]
+    
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    
+t
+t.elapsed
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+get_ipython().magic(u'pinfo isinstance')
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+get_ipython().magic(u'run timer_context.py')
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+print "after Exception"
+
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise RuntimeError("this is an error")
+    print "after Exception"
+
+with Timer() as t:
+    [x^2 for x in range(10000000)]
+    raise ValueError("this is an error")
+    print "after Exception"
+

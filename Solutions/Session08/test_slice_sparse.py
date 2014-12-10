@@ -1,5 +1,5 @@
 import pytest
-from sparse_array import SparseArray
+from slice_sparse import SparseArray
 
 
 def set_up():
@@ -24,7 +24,17 @@ def test_get_element_not_in_array():
     with pytest.raises(IndexError):
         my_sparse[14]
 
-def test_get_lenght():
+def test_get_slice():
+    my_array, my_sparse = set_up()
+    assert my_sparse[2:4] == [0, 0]
+
+def test_set_slice():
+    my_array, my_sparse = set_up()
+    my_sparse[2:4] = [2, 3, 4]
+    #print my_sparse[:]
+    assert my_sparse[:] == [2, 0, 2, 3, 4, 3, 0, 0, 0, 4, 5, 6, 0, 2, 9]
+
+def test_get_length():
     my_array, my_sparse = set_up()
     assert len(my_sparse) == 14
 
@@ -51,6 +61,11 @@ def test_change_number_in_array_from_zero():
     # make sure still same length
     assert len(my_sparse) == 14
 
+def test_change_slice():
+    my_array, my_sparse = set_up()
+    my_sparse[1:3] = [2, 3]
+    assert my_sparse[1:3] == [2, 3]
+
 def test_delete_number():
     my_array, my_sparse = set_up()
     del(my_sparse[4])
@@ -69,7 +84,7 @@ def test_delete_zero():
 def test_delete_last_number():
     my_array, my_sparse = set_up()
     del(my_sparse[13])
-    # should get an error?
+    # should get an error
     with pytest.raises(IndexError):
         my_sparse[13]
     assert len(my_sparse) == 13
@@ -81,5 +96,9 @@ def test_indices_change():
     # my_sparse[4] was 3 now
     # my_sparse[3] should be 3
     assert (my_sparse[3] == 3)
+
+
+
+
 
 
