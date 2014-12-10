@@ -27,7 +27,7 @@ test_data = [((3, 5), False),
              ((10, 5), True),
              ((20, 1), True)]
 
-# borrowing Chris's use of the parametrize attribute
+# borrowing Chris's use of the parametrize decorator
 @pytest.mark.parametrize(("input", "result"), test_data)
 def test_bigger(input, result):
     assert a_bigger(*input) is result

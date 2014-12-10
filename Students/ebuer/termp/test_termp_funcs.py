@@ -27,7 +27,7 @@ def test_getsamples():
 def test_plotSample():
     dfile = 'datafiles/test_chemistry.xlsx'
     p_test = pp(dfile)
-
     p_plot = p_test.plotSample('14051306')
 
     assert p_plot is not None
+    
