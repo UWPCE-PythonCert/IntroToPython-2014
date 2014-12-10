@@ -66,19 +66,13 @@ def find_legislators():
 
 def print_legislators():
 
-    #FIX THE FORMATTING BELOW!!!
-    #Also, be sure to add  .encode('utf-8')
-
     for i in legislators['results']:
-        #Troubleshooting output
-        #print i['first_name'] + i['last_name']
 
         if i['chamber'] == 'house' and i['gender'] == 'M':
-            print i['first_name'] + i['last_name']
-        #    print 'Congressman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
-        #if i['chamber'] == 'house' and i['gender'] == 'F':
-        #    print 'Congresswoman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
-        #elif i['chamber'] == 'senate':
-        #    print 'Senator ' + i['first_name'] + ' ' + i ['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
+            print 'Congressman {} {} - {} \nPhone: {}\nWebsite: {}\n'.format(i['first_name'],i['last_name'],i['party'],i['phone'],i['website'] )
+        if i['chamber'] == 'house' and i['gender'] == 'F':
+            print 'Congresswoman {} {} - {} \nPhone: {}\nWebsite: {}\n'.format(i['first_name'],i['last_name'],i['party'],i['phone'],i['website'] )
+        elif i['chamber'] == 'senate':
+            print 'Senator {} {} - {} \nPhone: {}\nWebsite: {}\n'.format(i['first_name'],i['last_name'],i['party'],i['phone'],i['website'] )
 
 print_legislators()
