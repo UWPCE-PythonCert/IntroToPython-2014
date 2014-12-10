@@ -961,6 +961,7 @@ Dependencies:
 Pretty straightforward:
 
 1. Is there a system package?
+
   * use it (apt-get install the_package)
 
 2. Try ``pip install``: it may just work!
@@ -981,13 +982,15 @@ Pretty straightforward:
 Sometimes simpler:
 
 1) A lot of packages have Windows binaries:
+
   - Usually for python.org builds
   - Excellent source: http://www.lfd.uci.edu/~gohlke/pythonlibs/
   - Make sure you get 32 or 64 bit consistent
 
 2) But if no binaries:
-    - Hope the dependencies are available!
-    - Set up the compiler
+
+  - Hope the dependencies are available!
+  - Set up the compiler
 
 MS now has a compiler just for python!
 
@@ -1251,7 +1254,7 @@ Next Week
 
 We'll be talking about Unicode. Read:
 
-rst-class:: medium centered
+.. rst-class:: medium centered
 
   The Absolute Minimum Every Software Developer Absolutely, Positively
   Must Know About Unicode and Character Sets (No Excuses!)
