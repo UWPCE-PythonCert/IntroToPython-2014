@@ -5,7 +5,8 @@ from pprint import pprint
 import urllib2
 import simplejson as json
 
-user_local_data = json.load(urllib2.urlopen('http://freegeoip.net/json/'))
+#user_local_data = json.load(urllib2.urlopen('http://freegeoip.net/json/'))
+user_local_data = json.load(urllib2.urlopen('http://api.ipinfodb.com/v3/ip-city/?key=a648bf3844359d401197bcaa214dd01e0f8c0c6d623ec57f3716fbcafc8262bd&format=json'))
 
 user_lat = user_local_data['latitude']
 user_long = user_local_data['longitude']
@@ -41,7 +42,7 @@ legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation
 #All Legislators
 legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
 
-#pprint(senators['results'])
+#pprint(legislators['results'])
 #print 'Based on the latitude and longitude provided, your United States Congresspeople are: \n'
 
 
@@ -69,11 +70,15 @@ def print_legislators():
     #Also, be sure to add  .encode('utf-8')
 
     for i in legislators['results']:
+        #Troubleshooting output
+        #print i['first_name'] + i['last_name']
+
         if i['chamber'] == 'house' and i['gender'] == 'M':
-            print 'Congressman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
-        if i['chamber'] == 'house' and i['gender'] == 'F':
-            print 'Congresswoman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
-        elif i['chamber'] == 'senate':
-            print 'Senator ' + i['first_name'] + ' ' + i ['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
+            print i['first_name'] + i['last_name']
+        #    print 'Congressman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
+        #if i['chamber'] == 'house' and i['gender'] == 'F':
+        #    print 'Congresswoman ' + i['first_name'] + ' ' + i['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
+        #elif i['chamber'] == 'senate':
+        #    print 'Senator ' + i['first_name'] + ' ' + i ['last_name'] + ' - ' + i['party']+ '\n' + 'Phone: ' + i['phone'] + '\n' + 'Website: ' + i['website'] + '\n'
 
 print_legislators()
