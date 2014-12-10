@@ -1,10 +1,20 @@
-"""termp_funcs"""
+"""termp_funcs
+Contains class plotprep which is initialized using a validated data file.
+
+Class  methods include:
+  showOptions: method called by class methods to print out list of available values
+  selectSample: selects a sample from the data that has been read
+  selectMethod: subsets data returned by selectSample using the method value passed
+  makePlotobj: creates plotting object from output of selectMethod to be passed to plotting class
+
+"""
 
 import pandas as pd
 import pdb
 
 
 class plotprep(object):
+    """Class is initialized with validated data file and used to create plotting object"""
 
     def __init__(self, dfile):
         self.raw_data = pd.read_excel(dfile, 'tbl_EXPORT')
@@ -51,12 +61,14 @@ class plotprep(object):
         # create a unique list of sample names
         # self.sample_ids = self.samples.unique()
 
-        # self.showOptions(({'name':'samples', 'plist':self.samples.unique()})
+        self.showOptions({'name':'samples', 'plist':self.samples.unique()})
 
-    def showOptions(self, name='samples', olist=[]):
-        print 'List of available {name}: '.format(name)
+    def showOptions(self, **arg_dict):
+        """Method is called to print out available options"""
+        print 'List of available {name}: '.format(**arg_dict)
+        o_list = arg_dict.get('o_list')
 
-        for i, sid in enumerate(olist):
+        for i, sid in enumerate(o_list):
             kwargs = {'i': i, 'sid': sid}
             print '{i: >2}. {sid: >10}'.format(**kwargs)
 
@@ -76,22 +88,21 @@ class plotprep(object):
 
         # self.plotData = self.plotData.reset_index('index')
 
+        temp = self.sampleData.columns('std_anl_method_name')
+        self.showOptions({'name': 'methods', 'o_list': temp.unique()})
+
         return self.sampleData
 
-    def selectMethod(self, sampleData):
-        """Present methods for sample, subset sampleData based on method selection"""
-        temp = self.sampleData.columns('std_anl_method_name')
-        # self.showOptions(('methods', temp.unique()))
+    def selectForPlot(self, methodval='SW7470A'):
+        """Present methods for sampleData, subset based on method selection"""
 
-        # prompt for input
-
-        # filter self.sampleData by method
-
-        # return filtered data
+        # filter self.sampleData by method and return to class
+        self.plotData = self.sampleData.isin([methodval])
+        return self.plotData
 
 
     def makePlotobj(self):
-        """take method-subsetted data and make a plotting object to hand over to matplotlib"""
+        """take method-subsetted data and make a plotting object (dict?)"""
 
         # take self.selectMethod data as argument
 
