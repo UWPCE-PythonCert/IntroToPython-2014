@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from __future__ import unicode_literals 
 from pprint import pprint
 import urllib2
 import simplejson as json
