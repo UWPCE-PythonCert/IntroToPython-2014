@@ -13,8 +13,8 @@ class plotprep(object):
         column_args = ['sample_name',
                        'sample_date_time',
                        'lab_sample_id',
-                       'sample_type_code',
                        'cas_rn',
+                       'std_anl_method_name',
                        'chemical_name',
                        'result_value',
                        'result_unit',
@@ -57,16 +57,23 @@ class plotprep(object):
             kwargs = {'i': i, 'sid': sid}
             print '{i: >2}. {sid: >10}'.format(**kwargs)
 
-    def plotSample(self, sample_id='14051306'):
+    def plotSample(self, sample_id='14051202'):
         """Return rows of data for selected sample"""
         sample_mask = self.samples.isin([sample_id])
         sample_rows = self.samples[sample_mask]
 
         data_index = sample_rows.index
 
+        # test data to makes sure every row has passed sample_id
         if not sample_rows.isin([sample_id]).any(0):
             raise ValueError('A bad sample ID was passed')
 
         self.plotData = self.selected_data.loc[data_index]
         self.plotData = self.plotData.dropna()
+        
+        # self.plotData = self.plotData.reset_index('index')
+
         return self.plotData
+
+
+
