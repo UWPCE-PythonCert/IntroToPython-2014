@@ -7,7 +7,7 @@ encode -> from utf to string (bytes)
 decode -> string (bytes) to utf
 
 Declaring you car coding in unicode:  
-    # -*- coding: utf-i -*-
+    # -*- coding: utf-8 -*-
 
 Escaping unicode characters:
 

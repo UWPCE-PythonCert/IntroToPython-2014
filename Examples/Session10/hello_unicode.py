@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#coding: utf-8
 # -*- coding: utf-8 -*-
 
 hello = 'Hello '
 world = u'世界'
 
-print hello + world
+# print hello + world
 
 print u"It was nice weather today: it reached 80\u00B0"
 
