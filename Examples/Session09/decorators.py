@@ -9,9 +9,9 @@ def substitute(a_function):
 
 
 def add(a, b):
-    print "Function 'add' called with args: %r" % locals()
+#    print "Function 'add' called with args: %r" % locals()
     result = a + b
-    print "\tResult --> %r" % result
+#    print "\tResult --> %r" % result
     return result
 
 
@@ -32,7 +32,7 @@ def simple_add(a, b):
     return a + b
 
 
-class Memoize:
+class Memoize(object):
     """
     memoize decorator from avinash.vora
     http://avinashv.net/2008/04/python-decorators-syntactic-sugar/
@@ -49,9 +49,13 @@ class Memoize:
             return self.memoized[args]
 
 
-@Memoize
+#@Memoize
 def sum2x(n):
     return sum(2 * i for i in xrange(n))
+sum2x = Memoize(sum2x)
+
+
+
 
 import time
 
@@ -69,3 +73,5 @@ def timed_func(func):
 @Memoize
 def sum2x(n):
     return sum(2 * i for i in xrange(n))
+
+

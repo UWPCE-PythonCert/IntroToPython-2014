@@ -31,6 +31,7 @@ def test_get_slice():
 def test_set_slice():
     my_array, my_sparse = set_up()
     my_sparse[2:4] = [2, 3, 4]
+    #print my_sparse[:]
     assert my_sparse[:] == [2, 0, 2, 3, 4, 3, 0, 0, 0, 4, 5, 6, 0, 2, 9]
 
 def test_get_length():
@@ -95,5 +96,9 @@ def test_indices_change():
     # my_sparse[4] was 3 now
     # my_sparse[3] should be 3
     assert (my_sparse[3] == 3)
+
+
+
+
 
 
