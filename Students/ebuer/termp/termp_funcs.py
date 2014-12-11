@@ -60,8 +60,8 @@ class plotprep(object):
 
         # create a unique list of sample names
         # self.sample_ids = self.samples.unique()
-
-        self.showOptions({'name':'samples', 'plist':self.samples.unique()})
+        s_dict = {'name': 'samples', 'o_list': self.samples.unique()}
+        self.showOptions(**s_dict)
 
     def showOptions(self, **arg_dict):
         """Method is called to print out available options"""
@@ -76,7 +76,6 @@ class plotprep(object):
         """Return rows of data for selected sample"""
         sample_mask = self.samples.isin([sample_id])
         sample_rows = self.samples[sample_mask]
-
         data_index = sample_rows.index
 
         # test data to makes sure every row has passed sample_id
@@ -84,12 +83,13 @@ class plotprep(object):
             raise ValueError('A bad sample ID was passed')
 
         self.sampleData = self.selected_data.loc[data_index]
-        self.sampleData = self.plotData.dropna()
+        self.sampleData = self.sampleData.dropna()
 
         # self.plotData = self.plotData.reset_index('index')
 
-        temp = self.sampleData.columns('std_anl_method_name')
-        self.showOptions({'name': 'methods', 'o_list': temp.unique()})
+        temp = self.sampleData['std_anl_method_name']
+        m_dict = {'name': 'methods', 'o_list': temp.unique()}
+        self.showOptions(**m_dict)
 
         return self.sampleData
 
@@ -97,7 +97,12 @@ class plotprep(object):
         """Present methods for sampleData, subset based on method selection"""
 
         # filter self.sampleData by method and return to class
-        self.plotData = self.sampleData.isin([methodval])
+        mask = self.sampleData['std_anl_method_name'].isin([methodval])
+        # pdb.set_trace()
+        self.plotData = self.sampleData[mask]
+        # pdb.set_trace()
+        # self.plotData = self.plotData.reset_index()
+
         return self.plotData
 
 
@@ -105,6 +110,13 @@ class plotprep(object):
         """take method-subsetted data and make a plotting object (dict?)"""
 
         # take self.selectMethod data as argument
+        x_label = [x for x in self.plotData['chemical_name']]
+        y_value = [y for y in self.plotData['result_value']]
+        flag =    [f for f in self.plotData['lab_flag']]
+
+        self.plot_dict = {'x_label': x_label, 'y_value': y_value, 'flag': flag}
+
+        return (self.plot_dict)
 
         # make dictionary for plotting that can be read by matplotlib
 
