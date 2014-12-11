@@ -74,18 +74,15 @@ class plotprep(object):
 
     def selectSample(self, sample_id='14051202'):
         """Return rows of data for selected sample"""
-        sample_mask = self.samples.isin([sample_id])
-        sample_rows = self.samples[sample_mask]
-        data_index = sample_rows.index
+        sample_mask = self.selected_data['sample_name'].isin([sample_id])
+        self.sampleData = self.selected_data[sample_mask]
 
         # test data to makes sure every row has passed sample_id
-        if not sample_rows.isin([sample_id]).any(0):
+        if not self.sampleData['sample_name'].isin([sample_id]).any(0):
             raise ValueError('A bad sample ID was passed')
 
-        self.sampleData = self.selected_data.loc[data_index]
-        self.sampleData = self.sampleData.dropna()
-
-        # self.plotData = self.plotData.reset_index('index')
+        result_mask = self.sampleData['result_value'].dropna()
+        self.sampleData = self.sampleData.loc[result_mask.index]
 
         temp = self.sampleData['std_anl_method_name']
         m_dict = {'name': 'methods', 'o_list': temp.unique()}
@@ -114,9 +111,9 @@ class plotprep(object):
         y_value = [float(y) for y in self.plotData['result_value']]
         flag =    [f for f in self.plotData['lab_flag']]
 
-        self.plot_dict = {'kind': 'bar', 'x_label': x_label, 'y_value': y_value, 'flag': flag}
+        self.plot_dict = {'kind': 'bar', 'x_label': x_label, 'y_value': y_value, 'flag': flag, 'x_ticks': [n+1 for n in range(len(y_value))]}
 
-        return (self.plot_dict)
+        return self.plot_dict
 
         # make dictionary for plotting that can be read by matplotlib
 
