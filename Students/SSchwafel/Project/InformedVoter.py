@@ -33,6 +33,8 @@ congressional_district = json.load(urllib2.urlopen(lat_long_url))
 
 legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators/locate?latitude={}&longitude={}&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
 
+for i in legislators['results']:
+    print i['last_name'] + ' ' + i['bioguide_id']
 
 #All Legislators, irrespective of location
 
@@ -40,9 +42,8 @@ legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation
 #legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?chamber=house&per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
 
 #All Legislators
-legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
+#legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
 
-#pprint(legislators['results'])
 #print 'Based on the latitude and longitude provided, your United States Congresspeople are: \n'
 
 
@@ -75,4 +76,4 @@ def print_legislators():
         elif i['chamber'] == 'senate':
             print 'Senator {} {} - {} \nPhone: {}\nWebsite: {}\n'.format(i['first_name'],i['last_name'],i['party'],i['phone'],i['website'] )
 
-print_legislators()
+#print_legislators()
