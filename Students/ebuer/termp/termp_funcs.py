@@ -36,7 +36,7 @@ class plotprep(object):
                        'Validation Reason',
                        'Interpreted Qualifier']
 
-        # reduced data set for plotting
+        # reduced data set for plotting, drop several columns from raw
         self.selected_data = self.raw_data[column_args]
 
         """Return an array of field samples and a second array of qc_samples"""
@@ -58,22 +58,27 @@ class plotprep(object):
         self.samples = temp_array[mask]
         self.qc_samples = temp_array[i_mask]
 
-        # create a unique list of sample names
-        # self.sample_ids = self.samples.unique()
+        # create a unique list of sample names and print list of samples
         s_dict = {'name': 'samples', 'o_list': self.samples.unique()}
         self.showOptions(**s_dict)
 
+
     def showOptions(self, **arg_dict):
         """Method is called to print out available options"""
+
         print 'List of available {name}: '.format(**arg_dict)
         o_list = arg_dict.get('o_list')
 
         for i, sid in enumerate(o_list):
             kwargs = {'i': i, 'sid': sid}
-            print '{i: >2}. {sid: >10}'.format(**kwargs)
+            print '{i: >2}. {sid: >20}'.format(**kwargs)
+        print '\n'
+
 
     def selectSample(self, sample_id='14051202'):
         """Return rows of data for selected sample"""
+
+        # create mask with sample_name and reduce data down to one sample
         sample_mask = self.selected_data['sample_name'].isin([sample_id])
         self.sampleData = self.selected_data[sample_mask]
 
@@ -81,41 +86,49 @@ class plotprep(object):
         if not self.sampleData['sample_name'].isin([sample_id]).any(0):
             raise ValueError('A bad sample ID was passed')
 
+        # drop rows with NaN in result_value column, gets rid of spiked samples
         result_mask = self.sampleData['result_value'].dropna()
         self.sampleData = self.sampleData.loc[result_mask.index]
 
+        # show options for methods that can be entered
         temp = self.sampleData['std_anl_method_name']
         m_dict = {'name': 'methods', 'o_list': temp.unique()}
         self.showOptions(**m_dict)
 
         return self.sampleData
 
+
     def selectForPlot(self, methodval='SW7470A'):
         """Present methods for sampleData, subset based on method selection"""
 
-        # filter self.sampleData by method and return to class
+        # filter self.sampleData by method and return to class attributes
         mask = self.sampleData['std_anl_method_name'].isin([methodval])
-        # pdb.set_trace()
         self.plotData = self.sampleData[mask]
-        # pdb.set_trace()
-        # self.plotData = self.plotData.reset_index()
 
         return self.plotData
 
 
     def makePlotobj(self):
-        """take method-subsetted data and make a plotting object (dict?)"""
+        """Use method-subsetted data and make a plotting object (dict?)"""
 
         # get values set up for plotting
         x_label = [x for x in self.plotData['chemical_name']]
         y_value = [float(y) for y in self.plotData['result_value']]
         flag =    [f for f in self.plotData['lab_flag']]
+        x_ticks = [n+1 for n in range(len(y_value))]
 
-        self.plot_dict = {'kind': 'bar', 'x_label': x_label, 'y_value': y_value, 'flag': flag, 'x_ticks': [n+1 for n in range(len(y_value))]}
+        # create plotting dictionary that is returned to class
+        self.plot_dict = {'kind': 'bar',
+                          'x_label': x_label,
+                          'x_ticks': x_ticks,
+                          'x_lims': (0, x_ticks[-1]+1),
+                          'y_value': y_value,
+                          'flag': flag
+                          # add dict entry for results units, call in labeling
+                          }
 
         return self.plot_dict
 
-        # make dictionary for plotting that can be read by matplotlib
 
 
 
