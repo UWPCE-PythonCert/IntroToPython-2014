@@ -48,7 +48,7 @@ def test_selectSample():
     p_sampled = p_test.selectSample('14051306')
 
     assert p_sampled is not None
-    assert p_sampled['sample_name'].isin(['butt']).all() == True
+    assert p_sampled['sample_name'].isin(['14051306']).all() == True
 
 
 def test_selectForPlot():
@@ -68,10 +68,6 @@ def test_makePlotobj():
     # d = p_test.plot_dict
 
     assert type(sample_dict) is dict
-    print sample_dict
-    # pdb.set_trace()
-    # assert False
-
-    # assert d['x_label'][0] == '14051306'
-    # assert d['y_value'][0] is not None
+    assert sample_dict['x_label'][0] == '14051306'
+    assert sample_dict['y_value'][0] is not None
 

@@ -109,12 +109,12 @@ class plotprep(object):
     def makePlotobj(self):
         """take method-subsetted data and make a plotting object (dict?)"""
 
-        # take self.selectMethod data as argument
+        # get values set up for plotting
         x_label = [x for x in self.plotData['chemical_name']]
-        y_value = [y for y in self.plotData['result_value']]
+        y_value = [float(y) for y in self.plotData['result_value']]
         flag =    [f for f in self.plotData['lab_flag']]
 
-        self.plot_dict = {'x_label': x_label, 'y_value': y_value, 'flag': flag}
+        self.plot_dict = {'kind': 'bar', 'x_label': x_label, 'y_value': y_value, 'flag': flag}
 
         return (self.plot_dict)
 

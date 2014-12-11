@@ -14,3 +14,13 @@ two_dict = {'name': 'methods',
 
 
 showOptions(**two_dict)
+
+%matplotlib
+p_test.plot_dict
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax1=fig.add_subplot(1,1,1)
+data=p_test.plot_dict['y_value']
+ax1.bar((1,2), data_n, 0.35)
+fig.canvas.draw()
+%hist
