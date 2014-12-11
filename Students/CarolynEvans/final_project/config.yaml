@@ -1,0 +1,20 @@
+data_warehouse_config:
+  dw_dbname: "rightsidedw"
+  dw_user: "rouser"
+  dw_password: "RedshiftRO1"
+  dw_host: "rightside-dw.cwisduywvaeb.us-east-1.redshift.amazonaws.com"
+  dw_port: "5439"
+#
+#data_warehouse_config:
+#  dw_dbname: rightsidedw
+#  dw_user: carolyn.evans
+#  dw_password: PassW0rd
+#  dw_host: localhost
+#  dw_port: 5439
+
+hummingbird_config:
+  hummingbird_url: http://hummingbird.dizzyninja.co/
+
+email_config:
+  email_server: mail.notify-customer.com
+
