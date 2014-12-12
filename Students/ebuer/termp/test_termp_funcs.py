@@ -72,3 +72,17 @@ def test_makePlotobj():
     assert sample_dict['y_value'][0] is not None
     assert type(sample_dict['y_value'][0]) is float
     assert sample_dict['u_units'] == 'ug/kg'
+    
+
+def test_annoStr():
+    # created to get at flag data types for logic in termp_funcs
+    p_test = callclass()
+    p_test.selectSample('14051305')
+    p_test.selectForPlot('SW8082A')
+    # pdb.set_trace()
+    sample_dict = p_test.makePlotobj()
+
+    f = sample_dict['flag']
+    for fl in f:
+        print type(fl)
+    assert True

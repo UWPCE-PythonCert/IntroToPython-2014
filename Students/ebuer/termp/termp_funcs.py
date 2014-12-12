@@ -56,7 +56,7 @@ class plotprep(object):
 
         # samples and qc samples each in their own class attribute
         self.samples = temp_array[mask]
-        self.qc_samples = temp_array[i_mask]
+        self.qc_samples = temp_array[i_mask] # might be useful later
 
         # create a unique list of sample names and print list of samples
         s_dict = {'name': 'samples', 'o_list': self.samples.unique()}
@@ -113,7 +113,7 @@ class plotprep(object):
 
         # get values set up for plotting
         x_label = [x for x in self.plotData['chemical_name']]
-        y_value = [float(y.replace(',', '')) 
+        y_value = [float(y.replace(',', ''))
                    for y in self.plotData['result_value']
                    ]
         flag =    [f for f in self.plotData['lab_flag']]
@@ -128,16 +128,11 @@ class plotprep(object):
                           'y_lims': (0, max(y_value)+5),
                           'flag': flag,
                           'u_sample': self.plotData['sample_name'].unique()[0],
-                          'u_method': self.plotData['std_anl_method_name'].unique()[0],
+                          'u_method':
+                           self.plotData['std_anl_method_name'].unique()[0],
+
                           'u_units': self.plotData['result_unit'].unique()[0]
                           # add dict entry for results units, call in labeling
                           }
 
         return self.plot_dict
-
-
-
-
-
-
-
