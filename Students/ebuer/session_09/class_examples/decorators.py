@@ -9,9 +9,9 @@ def substitute(a_function):
 
 
 def add(a, b):
-#    print "Function 'add' called with args: %r" % locals()
+    print "Function 'add' called with args: %r" % locals()
     result = a + b
-#    print "\tResult --> %r" % result
+    print "\tResult --> %r" % result
     return result
 
 
@@ -32,7 +32,7 @@ def simple_add(a, b):
     return a + b
 
 
-class Memoize(object):
+class Memoize(object):  # decorator here is a class
     """
     memoize decorator from avinash.vora
     http://avinashv.net/2008/04/python-decorators-syntactic-sugar/
@@ -43,24 +43,25 @@ class Memoize(object):
 
     def __call__(self, *args):  # runs when memoize instance is called
         try:
-            return self.memoized[args]
+            return self.memoized[args]  # here we try to pull from memoized dict
         except KeyError:
             self.memoized[args] = self.function(*args)
             return self.memoized[args]
 
 
-#@Memoize
+""" apply memoize to a potentially expensive function 
+
+"""
+
+@Memoize
 def sum2x(n):
     return sum(2 * i for i in xrange(n))
-sum2x = Memoize(sum2x)
-
-
 
 
 import time
 
 
-def timed_func(func):
+def timed_func(func):  # decorator function that will be applied to 'func'
     def timed(*args, **kwargs):
         start = time.time()
         result = func(*args, **kwargs)
@@ -69,9 +70,9 @@ def timed_func(func):
         return result
     return timed
 
+# note the order here is important, we don't want to memoize the timed_func(func)
+
 @timed_func
 @Memoize
 def sum2x(n):
     return sum(2 * i for i in xrange(n))
-
-

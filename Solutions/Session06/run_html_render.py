@@ -11,7 +11,7 @@ from cStringIO import StringIO
 
 
 # importing the html_rendering code with a short name for easy typing.
-import html_render as hr
+import html_render_eb as hr
 reload(hr) # reloading in case you are running this in iPython
            #  -- we want to make sure the latest version is used
 
