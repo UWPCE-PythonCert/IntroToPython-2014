@@ -7,10 +7,10 @@ Uncomment the steps as you add to your rendering.
 
 """
 from io import open, StringIO
-
+import pdb
 
 # importing the html_rendering code with a short name for easy typing.
-import html_render as hr
+import html_render_refactor as hr
 reload(hr)
 
 
@@ -43,25 +43,27 @@ page.append(u"Here is a paragraph of text -- there could be more of them, but th
 
 page.append(u"And here is another piece of text -- you should be able to add any number")
 
-render(page, u"test_html_outputXX.html")
+render(page, u"test_html_output1.html")
 
-# ## Step 2
-# ##########
+# # ## Step 2
+# # ##########
 
 # page = hr.Html()
 
 # body = hr.Body()
 
-# body.append(hr.P(u"Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text"))
+# body.append(hr.P(u"Here is a paragraph of text -- there could be more of them, but this is enough to show that we can do some text"))
 
 # body.append(hr.P(u"And here is another piece of text -- you should be able to add any number"))
 
 # page.append(body)
 
+# # pdb.set_trace()
+
 # render(page, u"test_html_output2.html")
 
-# # Step 3
-# ##########
+# # # Step 3
+# # ##########
 
 # page = hr.Html()
 
@@ -98,8 +100,8 @@ render(page, u"test_html_outputXX.html")
 
 # render(page, u"test_html_output4.html")
 
-# # Step 5
-# #########
+# # # Step 5
+# # #########
 
 # page = hr.Html()
 

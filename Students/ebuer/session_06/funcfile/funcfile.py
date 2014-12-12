@@ -26,6 +26,7 @@ def gettext(infile):  # ='junkfile.txt'
 # Apply map lambda function to clean the text
 def spstrip(fid):
     return map(lambda x: x.strip(' \n'), fid)
+    # could be map(str.strip(), fid), much shorter
 
 # use a list comprehension instead of the map function
 def compstrip(fid):
@@ -45,9 +46,9 @@ cleantext = spstrip(filetext)
 
 handle = raw_input('Overwrite existing? Enter Y/N ')
 
-if handle is "Y" or handle is 'y':
+if handle is ("Y" or 'y'):
     pttext(fid, cleantext)
-elif handle is "N" or handle is 'n':
+elif handle is ("N" or 'n'):
     fname = fid.split('.')
     pttext("_".join([fname[0], 'clean.txt']), cleantext)
 else:
