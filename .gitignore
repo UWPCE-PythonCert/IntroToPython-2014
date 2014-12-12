@@ -5,3 +5,6 @@ slides_sources/build
 *.pyc
 *.sublime*
 *.*~
+
+# ignore .gitignore, so we can each have our own.
+.gitignore
