@@ -62,18 +62,22 @@ def plotSampdict(**kwargs):
 
     # decorate y-axis with ticks, label
     ax1.set_ylim(plot_dict['y_lims'])
-    ax1.set_ylabel('Concentration in ug/kg', rotation='vertical')
+    ax1.set_ylabel('Concentration in {u_units}'.format(**kwargs), rotation='vertical')
+
+    # create annotation
+    anno_text = 'Results for Sample: {u_sample}  Analytical Method: {u_method}'.format(**kwargs)
+    # ax1.annotate(anno_text, xy=(kwargs['x_ticks'][0]-0.5, kwargs['y_lims'][1]))
+    ax1.set_title(anno_text)
+
 
     # in principle visualization is expensive, so we save it for the end
-    d = {'pad': 1, 'w_pad': 1}  # keyword dict for padding
+    d = {'pad': 2, 'w_pad': 1, 'h_pad': 1}  # keyword dict for padding
     fig.set_tight_layout(d)
+
     fig.canvas.draw()
-    plt.savefig('test_figure.pdf')
-    #fig.show() # after many trial runs and tests screen vis not needed
+    # plt.savefig('test_figure.pdf')
+    fig.show() # after many trial runs and tests screen vis not needed
     return (fig, ax1)
 
 # call function with dict
 fig1, ax1 = plotSampdict(**plot_dict)
-
-"""some test ideas, check output of fig1 and ax1 types,
-   additional inspection of figure"""
