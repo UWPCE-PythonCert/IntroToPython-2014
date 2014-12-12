@@ -125,6 +125,7 @@ class plotprep(object):
                           'x_ticks': x_ticks,
                           'x_lims': (0, x_ticks[-1]+1),
                           'y_value': y_value,
+                          'y_lims': (0, max(y_value)+5),
                           'flag': flag,
                           'u_sample': self.plotData['sample_name'].unique()[0],
                           'u_method': self.plotData['std_anl_method_name'].unique()[0],

@@ -61,12 +61,15 @@ def plotSampdict(**kwargs):
     ax1.set_xlabel('Sample Parameter')
 
     # decorate y-axis with ticks, label
-    ax1.set_ylim(0, max(plot_dict['y_value'])+5)
+    ax1.set_ylim(plot_dict['y_lims'])
     ax1.set_ylabel('Concentration in ug/kg', rotation='vertical')
 
     # in principle visualization is expensive, so we save it for the end
+    d = {'pad': 1, 'w_pad': 1}  # keyword dict for padding
+    fig.set_tight_layout(d)
     fig.canvas.draw()
-    fig.show()
+    plt.savefig('test_figure.pdf')
+    #fig.show() # after many trial runs and tests screen vis not needed
     return (fig, ax1)
 
 # call function with dict
