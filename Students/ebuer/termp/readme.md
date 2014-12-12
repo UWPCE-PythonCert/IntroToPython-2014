@@ -1,6 +1,8 @@
 ##Term Project Readme  
 Basic project construct: use newfound python knowledge combined with pandas and matplotlib modules to create a simple data visualization tool for environmental chemistry data.
 
+Custom _plotprep_ object is initialized with xlsx file from data validation, using contained methods a plotting dictionary is created for a selected sample and anlytical method.  _Createplot.py_ then uses the plotprep class to prepare data for plotting then creates a labeled and annotated figure using the plotprep plot_dict attribute.
+
 ###plotprep Class Attributes  
 All attributes at this time are mutable to allow for tinkering.
 
