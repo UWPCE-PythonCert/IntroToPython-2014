@@ -496,6 +496,7 @@ It's all much cleaner.
 Basic Unicode LAB
 =================
 
+.. rst-class left
 
 * Find some nifty non-ascii characters you might use.
 
@@ -518,7 +519,9 @@ and/ or
 
 .. nextslide:: Some Help
 
-reference: http://inamidst.com/stuff/unidata/
+.. rst-class:: left
+
+Reference: http://inamidst.com/stuff/unidata/
 
 NOTE: if your terminal does not support unicode -- you'll get an error trying
 to print. Try a different terminal or IDE, or google for a solution.
@@ -555,7 +558,7 @@ And why 'ascii'? I specified 'utf-8'!
 
 It's there for backward compatibility
 
-What's happening under the hood
+What's happening under the hood:
 
 .. code-block:: python
 
