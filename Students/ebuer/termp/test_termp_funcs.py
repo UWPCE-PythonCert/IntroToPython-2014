@@ -31,7 +31,7 @@ def test_getsamples():
 
 def test_showOptions():
     # this is a sort of lame test but the function only prints to screen
-    # so simply failing to function correctly is all that is tested
+    # so simply failing to run to completion is all that is tested
     p_test = callclass()
 
     junk_dict = {'name': 'samples', 'o_list': p_test.samples.unique()}
@@ -45,29 +45,30 @@ def test_showOptions():
 
 def test_selectSample():
     p_test = callclass()
-    p_sampled = p_test.selectSample('14051306')
+    p_sampled = p_test.selectSample('14051305')
 
     assert p_sampled is not None
-    assert p_sampled['sample_name'].isin(['14051306']).all() == True
+    assert p_sampled['sample_name'].isin(['14051305']).all() == True
 
 
 def test_selectForPlot():
     p_test = callclass()
-    sample_full = p_test.selectSample('14051306')
-    sample_plot = p_test.selectForPlot('SW8270D-SIM')
+    sample_full = p_test.selectSample('14051305')
+    sample_plot = p_test.selectForPlot('SW8082A')
 
     assert len(sample_plot.columns) > 1
-    assert sample_plot['std_anl_method_name'].isin(['SW8270D-SIM']).all() == True
+    assert sample_plot['std_anl_method_name'].isin(['SW8082A']).all() == True
+
 
 def test_makePlotobj():
     p_test = callclass()
-    sample_full = p_test.selectSample('14051306')
-    sample_plot = p_test.selectForPlot('SW8270D-SIM')
-
+    p_test.selectSample('14051305')
+    p_test.selectForPlot('SW8082A')
+    # pdb.set_trace()
     sample_dict = p_test.makePlotobj()
-    # d = p_test.plot_dict
 
     assert type(sample_dict) is dict
-    assert sample_dict['x_label'][0] == '14051306'
+    assert sample_dict['x_label'][0] == 'Aroclor 1016'
     assert sample_dict['y_value'][0] is not None
-
+    assert type(sample_dict['y_value'][0]) is float
+    assert sample_dict['u_units'] == 'ug/kg'

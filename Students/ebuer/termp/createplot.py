@@ -21,10 +21,19 @@ def callclass():
     return plotprep(dfile)
 
 # use the class object and methods to select and prepare data for plotting
-chem = callclass()
-chem.selectSample('14051202')
-chem.selectForPlot('SW8082A')
-plot_dict = chem.makePlotobj()
+# this could easily be turned into an fx w/dict arg for efficient looping
+# with either sys.argv or an additional script to feed values
+
+
+def makeSampdict(**kwargs):
+    chem = callclass()
+    chem.selectSample(kwargs['sample'])
+    chem.selectForPlot(kwargs['method'])
+    plot_dict = chem.makePlotobj()
+    return plot_dict
+
+test_samp = {'sample': '14051305', 'method': 'SW8082A'}
+plot_dict = makeSampdict(**test_samp)
 
 
 # create a function to make use of the plot_dict
@@ -52,6 +61,7 @@ def plotSampdict(**kwargs):
     ax1.set_xlabel('Sample Parameter')
 
     # decorate y-axis with ticks, label
+    ax1.set_ylim(0, max(plot_dict['y_value'])+5)
     ax1.set_ylabel('Concentration in ug/kg', rotation='vertical')
 
     # in principle visualization is expensive, so we save it for the end

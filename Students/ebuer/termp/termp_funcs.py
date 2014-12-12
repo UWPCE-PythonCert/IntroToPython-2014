@@ -113,9 +113,11 @@ class plotprep(object):
 
         # get values set up for plotting
         x_label = [x for x in self.plotData['chemical_name']]
-        y_value = [float(y) for y in self.plotData['result_value']]
+        y_value = [float(y.replace(',', '')) 
+                   for y in self.plotData['result_value']
+                   ]
         flag =    [f for f in self.plotData['lab_flag']]
-        x_ticks = [n+1 for n in range(len(y_value))]
+        x_ticks = [n+1 for n in range(len(x_label))]
 
         # create plotting dictionary that is returned to class
         self.plot_dict = {'kind': 'bar',
@@ -123,7 +125,10 @@ class plotprep(object):
                           'x_ticks': x_ticks,
                           'x_lims': (0, x_ticks[-1]+1),
                           'y_value': y_value,
-                          'flag': flag
+                          'flag': flag,
+                          'u_sample': self.plotData['sample_name'].unique()[0],
+                          'u_method': self.plotData['std_anl_method_name'].unique()[0],
+                          'u_units': self.plotData['result_unit'].unique()[0]
                           # add dict entry for results units, call in labeling
                           }
 

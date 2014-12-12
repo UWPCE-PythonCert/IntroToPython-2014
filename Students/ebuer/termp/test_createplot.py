@@ -7,6 +7,7 @@ from termp_funcs import plotprep
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import pytest
 
 from createplot import callclass, plotSampdict
 
@@ -22,6 +23,8 @@ def test_pSd():
     chem, plot_dict = tsetup()
     fig1, ax1 = plotSampdict(**plot_dict)
 
+    with pytest.raises(TypeError):
+        plotSampdict('blah') 
     assert type(fig1) is plt.Figure
     assert type(ax1) is mpl.axes.Subplot
 
