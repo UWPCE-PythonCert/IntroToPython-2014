@@ -19,25 +19,37 @@ Using the following Python packages:
 	1) Fiona (1.4+) [1] 
 	2) Shapely (1.3+) [2]
 
-I propose to follow the steps outlined in M. Bostock's "How To Infer Topology" [3] to design 
-a 'PreserveTopology' module that will identify topological elements in a LineString or 
-MultiLineString shapefile (and possibly Polygon/Multipolygons...time allowing).
+Final Project (12/12/14) Update: I followed the steps outlined in M. Bostock's "How To Infer Topology" [3] 
+to design a 'PreserveTopology' module that will identify topological elements in a LineString and/or 
+MultiLineString shapefile. Combined with two other classes (written by me awhile ago) called GeomSimplify()
+and TriangleCalculator(), a user can call my simplify_topology.py library from command line and
+create a simplified version of any LineString or MultiLineString shapefile.  
 
-As described in the article, the primary work that I will undertake will include:
+The primary work that I completed includes:
 
 	1) identify junctions (intersection points) in LineString/MultiLineString shapefiles
-	2) split (and rotate) geometric 'arcs' at their junction points.
-	3) delete duplicate geometric 'arcs' that have no junction points but lie directly
-	   on top of an identical geometric feature.
+	2) split geometric 'arcs' at their junction points (note: I decided for MultilineStrings and Linestrings
+       the need to de-duplicate geometric 'arcs' was unnecessary. However, it will have to be done 
+	   in order to complete the code for Polygon and MultiPolygon shape types). 
+	3) complete 10 unittests which tested the functionality of the PreserveTopology() class.
 
 
 Key points to note:
 
-	- Other work that M. Bostock notes as being necessarary
-	 (...namely: "extract - decompose shapes into lines and rings"...) has already been 
-	  undertaken in a previous code I wrote here: [4].
-	- All functions will include test code.   
-	- to run from command line: python simplify_topology.py <input file> 
+	- All the code within the GeomSimplify() and TriangleCalculator() classes was undertaken 
+	  in a previous code I wrote here: [4] and should NOT be counted as part of my class project.
+	- All functions that were drafted as part of this class project have test functions. Test
+      functions for code that WASN'T part of the project (i.e. the GeomSimplify() and TriangleCalculator()
+      class is included at this repo [4].	  
+	- to run from command line: python simplify_topology.py <input file path> <output file path> <threshold> Topology=<True> or <False>
+	- the 'sample_lines.shp' included is a test file. When ran through this code with the Topology 
+	  flag set to 'True' it created 'sample_lines_TopoTrue':
+	  
+	  python .\simplify_topology.py .\sample_lines.shp .\sample_lines_TopoTRUE 10000000 True
+	  
+	  When ran with this code with the flag set to 'False' it created 'sample_lines_TopoFALSE':
+	  
+	  Python .\simplify_topology.py .\sample_lines.shp .\sample_lines_TopoTRUE 10000000 False
 
 References:
 
@@ -46,7 +58,7 @@ References:
 	3: http://bost.ocks.org/mike/topology/
 	4: https://github.com/ARSimmons/Shapely_Fiona_Visvalingam_Simplify
 	
-*NOTE: THIS PROJECT IS STILL in progress as of 11/23/2014*
+*NOTE: THIS PROJECT IS turned in for code review on 12/12/2014*
  
 </body>
 </html>
