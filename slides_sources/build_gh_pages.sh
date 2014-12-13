@@ -11,5 +11,5 @@ cp -R build/html/ ../../IntroToPython.gh-pages
 
 cd ../../IntroToPython.gh-pages
 git add * # in case there are new files added
-git commit -a
+git commit -a -m "updating presentation materials"
 git push

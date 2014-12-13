@@ -1,3 +1,15 @@
 slides_sources/build
-.idea
+
 .DS_Store
+#ignore compiled files, sublime workspace and project files
+*.pyc
+*junk*
+
+#ignore sublime workspace files
+*.sublime*
+
+# ignore .gitignore, so we can each have our own.
+.gitignore
+
+# editor back-up files
+*.*~

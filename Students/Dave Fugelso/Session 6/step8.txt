@@ -1,0 +1,31 @@
+    <!DOCTYPE html>
+    <html>
+       Some string
+       <head>
+          <meta charset="UTF-8"/>
+          <title>Title Line Here</title>
+       </head>
+       <body>
+          Some body text
+          <h2>Now Hear This!</h2>
+          <p color="255"  style="text-align: center; font-style: oblique;">
+             some paragraph text
+          </p>
+          <hr />
+          <br />
+          <a href="http://http://stackoverflow.com/questions">Get help here!/>
+          <ul style="line-height:200%"  id="TheList">
+             <li>
+                The first item in a list
+             </li>
+             <li style="color: red">
+                This is the second item
+             </li>
+             <li>
+                And this is a
+                <a href="http://http://stackoverflow.com/questions">Get help here!/>
+                to StackOverflow
+             </li>
+          </ul>
+       </body>
+    </html>

@@ -1,26 +1,33 @@
+.. _virtualenv_section:
+
 ***********************
 Working with Virtualenv
 ***********************
 
-"For every non-standard package installed in a system Python, the gods kill a
-kitten" - me
+.. rst-class:: medium
 
+    "For every non-standard package installed in a system Python, the gods kill a
+    kitten"
 
+    - me
+
+============
 Reasons Why
-===========
+============
+.. rst-class:: left
 
-* As a working developer you will need to install packages that aren't in the
-  Python standard Library
-* As a working developer you often need to install *different* versions of the
-  *same* library for different projects
-* Conflicts arising from having the wrong version of a dependency installed can
-  cause long-term nightmares
-* Use `virtualenv`_ ...
-* **Always**
+    * As a working developer you will need to install packages that aren't in the
+      Python standard Library
+    * As a working developer you often need to install *different* versions of the
+      *same* library for different projects
+    * Conflicts arising from having the wrong version of a dependency installed can
+      cause long-term nightmares
+    * Use `virtualenv`_ ...
+    * **Always**
 
 
 Installing Virtualenv
-=====================
+---------------------
 
 The best way is to install directly in your system Python (one exception to the
 rule).
@@ -57,7 +64,7 @@ command available to you from your shell:
 
     $ virtualenv --help
     Usage: virtualenv [OPTIONS] DEST_DIR
-    
+
     Options:
       --version             show program's version number and exit
       -h, --help            ...
@@ -66,24 +73,27 @@ command available to you from your shell:
 .. _pip: http://www.pip-installer.org
 .. _the instructions here: http://www.pip-installer.org/en/latest/installing.html
 
-Using Virtuelenv
+================
+Using Virtualenv
 ================
 
-Creating a new virtualenv is very very simple:
+.. rst-class:: left
 
-.. code-block:: bash
+    Creating a new virtualenv is very very simple:
 
-    $ virtualenv [options] <ENV>
+    .. code-block:: bash
+
+        $ virtualenv [options] <ENV>
 
 
-``<ENV>`` is just the name of the environment you want to create. It's
-arbitrary. Let's make one for demonstration purposes:
+    ``<ENV>`` is just the name of the environment you want to create. It's
+    arbitrary. Let's make one for demonstration purposes:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ virtualenv demoenv
-    New python executable in demoenv/bin/python
-    Installing setuptools, pip...done.
+        $ virtualenv demoenv
+        New python executable in demoenv/bin/python
+        Installing setuptools, pip...done.
 
 What Happened?
 --------------

@@ -29,43 +29,44 @@ for fruit in listo:
     if 'P' in fruit[0]:
         print fruit
 
-#part 2 of list lab
+# part 2 of list lab
 print "\nI'm still excited about our fruit list:"
 for fruit in listo:
     print fruit
 
-print "\nBut I don't care for %s" %listo[-1]
-del listo[-1]
+print "\nBut I don't care for %s" % listo[-1]
+# del listo[-1]
+listo.pop()
 print listo
 
-##copy list since we did bonus scripting and don't want something too long
+# copy list since we did bonus scripting and don't want something too long
 p3_list = listo 
 p4_list = listo
 
 
 usr_rm = raw_input("Is there anything you don't care for? ")
-print "I can remove %s" %(usr_rm)
+print "I can remove %s" % (usr_rm)
 
-#bonus scripting
+# bonus scripting
 spincycle = False
 while not spincycle:
     if usr_rm in listo:
         n = listo.count(usr_rm)
-        for m in range(n):  #need this since .remove only does 1 instance
+        for m in range(n):  # need this since .remove only does 1 instance
             listo.remove(usr_rm)
-        print '\nGreat, consider it gone.\n%s\n' %listo
+        print '\nGreat, consider it gone.\n%s\n' % listo
         spincycle = True
     else:
-        print "\nSorry, I checked but %s isn't in our list.  I checked twice." %usr_rm
+        print "\nSorry, I checked but %s isn't in our list.  I checked twice." % usr_rm
         listo = listo * 2
         listo.sort()
-        print '\n%s' %listo
+        print '\n%s' % listo
         usr_rm = raw_input("\nPlease check the list and let me remove something else. ")
 
-#part 3
+# part 3
 print "I think we got off on the wrong foot, let's go back to an earlier list."
 for fruit in p3_list:
-    usr_fruit = raw_input('Do you like %s? '%fruit.lower())
+    usr_fruit = raw_input('Do you like %s? '% fruit.lower())
     spincycle = False
     while not spincycle:
         if usr_fruit == 'no':
@@ -75,9 +76,9 @@ for fruit in p3_list:
             spincycle = True
         else:
             print "A yes or no will do, thanks."
-            usr_fruit = raw_input('Do you like %s? ' %fruit.lower())
+            usr_fruit = raw_input('Do you like %s? ' % fruit.lower())
 
-print "Here's your modified final list: %s" %p3_list
+print "Here's your modified final list: %s" % p3_list
 
 #part 4
 backward_fruit=[]

@@ -38,8 +38,7 @@ def lucas(n):
 def sum_series(n,first=0,second=1):
     """Return the 'n'th value of a variable series"""
 
-    """The first two numbers are passed via "first" and "second"
-    and each subsequent element is the sum of the 'n-1'th and 'n-2'th element (yes, i said tooth)"""
+    """The first two numbers are passed via 'first' and 'second'and each subsequent element is the sum of the 'n-1'th and 'n-2'th element (yes, i said tooth)"""
 
 # test for input in valid range
     if n < 0:
@@ -53,7 +52,7 @@ def sum_series(n,first=0,second=1):
     if n == 1:
         return second
     else:
-        return sum_series(n-1,first,second) + sum_series(n-2,first,second)
+        return sum_series(n-1, first, second) + sum_series(n-2,first,second)
 
 
 # Testing Block
