@@ -1,3 +1,10 @@
+"""
+Final project for UW's Intro to Python, Autumn 2014.  
+The project's name is "json2sql", because this script 
+will take a json object and create an sqlite3 database 
+and matching schemas.  
+"""
+
 import json, re, time, os, sqlite3
 
 sample_dict = json.loads(open("test.json", "r").read())
