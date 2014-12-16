@@ -9,7 +9,8 @@ function start_session {
 	git merge upstream/master;
 	git push;
 	git status;
-	echo;
+	
+	clear;
 	echo 'Ready to develop!';
 	echo 'Please proceed...';
 }
@@ -27,16 +28,20 @@ function commit_work {
 # End work session 
 function end_session {
 	echo 'Pusing git...';
-	git push origin master;	
+	git push origin master;
+
+	clear;	
 	echo 'Push complete!';
 	echo 'Goodbye ~';
+	cd;
 }
 
 
 function init {
-	echo "Welcome to UW-PCE's Intro to Python"
-	# cd /www/IntroToPython;
-	start_session;
+	clear;
+	echo "Welcome to UW-PCE's Intro to Python";
+	# source ./start;
+	# start_session;
 }
 
 
