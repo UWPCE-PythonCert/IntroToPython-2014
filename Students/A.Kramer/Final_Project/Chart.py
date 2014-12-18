@@ -8,7 +8,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import matplotlib.dates as mdates
-from matplotlib.finance import candlestick 
+from matplotlib.finance import candlestick
 import pylab
 
 # adjusted font size for the plots
@@ -20,7 +20,7 @@ def rsiFunc(prices, n=14):
     deltas = np.diff(prices)
     seed = deltas[:n+1]
     up = seed[seed >= 0].sum() / n
-    down = -seed[seed<0].sum() / n
+    down = -seed[seed < 0].sum() / n
     rs = up/down
     rsi = np.zeros_like(prices)
     rsi[:n] = 100. - 100./(1. + rs)
@@ -32,12 +32,12 @@ def rsiFunc(prices, n=14):
         else:
             upval = 0.
             downval = -delta
-        up = (up * (n-1) +upval) / n
+        up = (up * (n-1) + upval) / n
         down = (down*(n-1) + downval) / n
         rs = up/down
         rsi[i] = 100. - 100. / (1. + rs)
     return rsi
-        
+
 # define moving average function
 def movingaverage(values, window):
     weights = np.repeat(1.0, window) / window
@@ -48,11 +48,11 @@ def graphData(stock, MA1=12, MA2=26):
     try:
         # define the data file
         stockFile = "./data/" + stock + ".txt"
-        
+
         # Load data into numpy arrays
-        date, closep, highp, lowp, openp, volume = np.loadtxt(stockFile, delimiter=",", 
+        date, closep, highp, lowp, openp, volume = np.loadtxt(stockFile, delimiter=",",
                                             unpack=True, converters = {0: mdates.strpdate2num("%Y%m%d")})
-        
+
         #-----------------------------------------------------------------------------------------------
         # building data for drawing plotting candlestick chart.  Basically, a an array of comma separated
         # values.  The order of elements is very specific, so check the documentation for candlestick
@@ -64,20 +64,20 @@ def graphData(stock, MA1=12, MA2=26):
             appendLine = date[x], openp[x], closep[x], highp[x], lowp[x], volume[x]
             candleArray.append(appendLine)
             x += 1
-        
+
         # moving averages for 12 and 26 days
         Av1 = movingaverage(closep, MA1)
         Av2 = movingaverage(closep, MA2)
         # Starting point for graphs
         SP = len(date[MA2-1:])
         # Creating Moving Average labels
-        label1=str(MA1) + " SMA"
-        label2=str(MA2) + " SMA"
-        
-        
-        # changing the face color of the graphics       
+        label1 = str(MA1) + " SMA"
+        label2 = str(MA2) + " SMA"
+
+
+        # changing the face color of the graphics
         fig = plt.figure(facecolor="#07000D")
-        
+
         # create room and plot candlestick chart
         ax1 = plt.subplot2grid((5,4), (1,0), rowspan=4, colspan=4, axisbg="#07000D")
         candlestick(ax1, candleArray[-SP:], width=0.75, colorup="#9EFF15", colordown="#FF1717")
@@ -109,9 +109,9 @@ def graphData(stock, MA1=12, MA2=26):
         pylab.setp(textEd[0:5], color = "white")
         # Tilt the labels to 45 degrees
         for label in ax1.xaxis.get_ticklabels():
-            label.set_rotation(45) 
-        
-        
+            label.set_rotation(45)
+
+
         # set up RSI area
         ax0 = plt.subplot2grid((5,4), (0,0), sharex=ax1, rowspan=1, colspan=4, axisbg="#07000d")
         #plot RSI
@@ -134,10 +134,10 @@ def graphData(stock, MA1=12, MA2=26):
         ax0.set_yticks([30,70])
         ax0.yaxis.label.set_color("white")
         plt.ylabel("RSI")
-        
-        
+
+
         # Plot volume on the same range as ax1
-        volumeMin = 0 
+        volumeMin = 0
         ax1v = ax1.twinx()
         # subtract moving average calculations
         ax1v.fill_between(date[-SP:], volumeMin, volume[-SP:], facecolor="#00FFE8", alpha=.5)
@@ -154,23 +154,23 @@ def graphData(stock, MA1=12, MA2=26):
         # Change axis color
         ax1v.tick_params(axis="x", colors="white")
         ax1v.tick_params(axis="y", colors="white")
-        
-        
+
+
         # Setting up the overall appearance of the plot
         plt.subplots_adjust(left=.08, bottom=.14, right=.95, top=.95, wspace=.20, hspace=0)
         plt.suptitle(stock, color="white")
         plt.setp(ax0.get_xticklabels(), visible=False)
         plt.show()
         fig.savefig("./data/" + stock + ".png", facecolor=fig.get_facecolor())
-        
+
     except Exception, e:
         print "main loop", str(e)
-        
+
 if __name__ == "__main__":
     # testing the calls
     # a list of stocks to process (for testing)
     stocksToPull = 'AAPL', 'GOOG', 'AMZN', 'EBAY', 'CMG', 'MSFT', 'C', 'BA', 'TSLA'
-    
+
     graphData(stocksToPull[3])
-    
+
 

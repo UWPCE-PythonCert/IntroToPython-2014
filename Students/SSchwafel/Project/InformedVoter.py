@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from __future__ import unicode_literals 
+from __future__ import unicode_literals
 from pprint import pprint
 import simplejson as json
 import sys
@@ -37,7 +37,7 @@ def find_legislators():
 
 def print_all_legislators():
     """This function prints all the legislators, then formats according to gender and title"""
-    
+
     legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=15f4679bdc124cd6a2c6be8666253000'))
     for i in legislators['results']:
 
@@ -50,18 +50,18 @@ def print_all_legislators():
 
 def print_manual_legislators():
     """This function prints the legislators of the given lat/long, then formats according to gender and title"""
-    
+
     print """
-    
+
     You can get your latitude and longitude from http://www.latlong.net/
-    
+
     """
 
-    user_lat = raw_input('Please enter your Latitude: \n') 
+    user_lat = raw_input('Please enter your Latitude: \n')
     user_long = raw_input('Please enter your Longitude: \n')
 
     legislators = json.load(urllib2.urlopen('https://congress.api.sunlightfoundation.com/legislators/locate?latitude={}&longitude={}&apikey=15f4679bdc124cd6a2c6be8666253000'.format(user_lat, user_long)))
-    
+
     for i in legislators['results']:
 
         if i['chamber'] == 'house' and i['gender'] == 'M':
