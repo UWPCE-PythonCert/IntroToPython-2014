@@ -1,0 +1,35 @@
+week 2:  Chantal Huynh -- Health data QA/QC
+week 2:  David Fugelso : QT template driver?
+week 2:  Ian M Davis : tetrahedran mesh/monti-carlo radiation transport model.
+week 2:  Schuyler Alan Schwafel
+week 3:  James Brent Nunn : Stock Portfolio class
+week 3:  Lauren Fries
+week 3:  Lesley D Reece : data clean-up and munger
+week 3:  Michel Claessens
+week 4:  Benjamin C Mier
+week 4:  Robert W Perkins -- business market simulator
+week 4:  Vinay Gupta
+week 4:  Wayne R Fukuhara -- stock analysis
+week 5:  Darcy Balcarce -- CTD plotting.
+week 5:  Eric Buer -- Environmental Data Visualization.
+week 5:  Henry B Fischer
+week 5:  Kyle R Hart
+week 6:  Aleksey Kramer -- stock charting
+week 6:  Alexander R Galvin -- Amazon Web Service audit.
+week 6:  Gideon I Sylvan
+week 6:  Hui Zhang
+week 7:  Andrew P Klock ---- protein sequence tool
+week 7:  Danielle G Marcos ** still needs to do it **
+week 7:  Ousmane Conde
+week 7:  Salim Hassan Hamed -- Data warehouse scripts
+week 8:  Alireza Hashemloo --- 3D modeling interface of Rhinoceros.
+week 8:  Arielle R Simmons
+week 8:  Eric W Westman
+week 8:  Ryan J Albright -- file checking, Twitter API, Excel
+week 9:  Alexandra N Kazakova -- tree blob QA/QC
+week 9:  Erik Ivan Lottsfeldt ** Dropped class **
+week 9:  Louis John Ascoli: funcky file re-formatter
+week 9:  Ralph P Brand : API parsing --> html
+week 10:  Bryan L Davis
+week 10:  Carolyn J Evans : DB extractor
+week 10:  Changqing Zhu
