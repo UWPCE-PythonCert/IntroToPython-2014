@@ -101,6 +101,13 @@ References for getting started
   and gradual. This course offers a great foundation for folks who have never
   programmed in any language before.
 
+* **Core Python Programming**
+  (http://corepython.com/): Only available as a dead
+  trees version, but if you like to have book to hold in your hands anyway, this
+  is the best textbook style introduction out there. It starts from the
+  beginning, but gets into the full language. Published in 2009, but still in
+  print, with updated appendixes available for new language features.
+
 * **Dive Into Python 3**
   (http://www.diveinto.org/python3/): The updated version
   of a classic. This book offers an introduction to Python aimed at the student
@@ -118,23 +125,27 @@ References for getting started
   though, so while helpful for the absolute newcomer, it isn't quite as
   "pythonic" as it might be.
 
-* **Core Python Programming**
-  (http://corepython.com/): Only available as a dead
-  trees version, but if you like to have book to hold in your hands anyway, this
-  is the best textbook style introduction out there. It starts from the
-  beginning, but gets into the full language. Published in 2009, but still in
-  print, with updated appendixes available for new language features.
-
 * **Python 101**
   (http://www.blog.pythonlibrary.org/2014/06/03/python-101-book-published-today/)
   Available as a reasonably priced ebook. This is a new one from a popular Blogger
   about Python. Lots of practical examples. Also avaiable as a Kindle book:
   http://www.amazon.com/Python-101-Michael-Driscoll-ebook/dp/B00KQTFHNK
 
+References for getting better, once you know the basics
+--------------------------------------------------------
+
 * **Python Essential Reference**
   (http://www.dabeaz.com/per.html)
   The definitive reference for both Python and much of the standard library.
 
+* **Hitchhikers Guide to Python**
+  (http://docs.python-guide.org/en/latest)
+  Under active development, and still somewhat incomplete, but what is there is good stuff.
+
+* **Writing Idiomatic Python**
+  (https://www.jeffknupp.com/writing-idiomatic-python-ebook)
+  Focused on not just getting the code to work, but how to write it in a really "Pythonic" way.
+  
 
 ... and many others
 
