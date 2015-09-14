@@ -60,9 +60,11 @@ There are two main supported versions of Python: the 2.* series and the 3.* seri
 
 Note that python3 and Python2 have some slightly different syntax and symantics. Much (or most), of the examples you find on the web are in Python2 syntax. We will cover the differences early in class so you will know how to translate.
 
+Assignments And Assessment
+===========================
 
 Homework:
-=========
+---------
 There will generally be weekly homework assignments. They will include both reading and video watching and programming excercises. You are not required to turn on the assignments to pass the course, however, we learn by doing, so I do encourage you to put some time in to the homework. I will review your work if you ask me to, and do mini code-reviews of selected assignments during class.
 
 `Teach Yourself Programming in Ten Years <http://norvig.com/21-days.html>`_
@@ -73,6 +75,31 @@ Lightning Talks:
 -----------------
 
 Each student is expected to give one "lightning talk" during the class -- this is a simple 5-minute talk on something related to Python -- totally up to you. We will randomly assign the talks schedule (using Python, of course) during the first class.
+
+Grading And Attendance
+----------------------
+
+This course is graded pass/fail, based on attendance and completion of projects. Students are required to attend at least 8 of the 10 classes.
+
+Policies And Values
+-------------------
+
+Active learning requires students to participate in the class, as opposed to sitting and listening quietly. In class students will follow the instructor in creating demonstrative examples. Outside of class, students are expected to read the assignments, perform the homework, and post questions (about recent session topics) that they have on the class mailing list before the next class session. Other students are strongly encouraged to answer these questions if possible. Answers to common and unanswered questions will be reviewed in the next class session.
+
+Your feedback on the course and instruction
+-------------------------------------------
+
+After the 3rd class session, we solicit anonymous feedback from all students regarding the pacing and instruction of the course. Students will also be invited to provide comments at the end of the course.
+
+Accomodations
+-------------
+
+The University of Washington is committed to providing access and reasonable accommodation in its services, programs, activities, education and employment for individuals with disabilities. For information or to request disability accommodation contact: Disability Services Office: 206.543.6450/V, 206.543.6452/TTY, 206.685.7264 (FAX), or e-mail at dso@u.washington.edu.
+
+Student Handbook
+-----------------
+
+The student handbook can be found online http://www.pce.uw.edu/resources/certificates/
 
 Class format:
 ==============
