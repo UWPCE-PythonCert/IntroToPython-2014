@@ -5,14 +5,48 @@ Syllabus: Introduction to Python
 UW Adult and Continuing Education Program
 ============================================
 
-Certification in Python Programming
----------------------------------------------------
+Certification in Python Programming: Program Description
+---------------------------------------------------------
+
+Program ID #5149
+
+The Python Certificate program is a 9-month curriculum divided into three courses. By the end of the program students will have gained a fundamental understanding of programming in Python by creating a variety of scripts and applications for the Web and for systems development. Python is a versatile programming language, suitable for projects ranging from small scripts to large systems. The certificate program emphasizes best practices such as version control, unit testing and recommended styles and idioms. Students will explore the large standard library of Python 3.0, which supports many common programming tasks.
+
+First Course: Introduction to Python
+=====================================
 
 Tuesdays 6-9 pm: Oct 6 - Dec 8, 2015 (10 Sessions)
 .....................................................
 
 
 NOTE: in the spirit of the dynamic nature of Python, this Syllabus (and the class) will be a dynamic document -- evolving as the class progresses. The general structure is fixed, but the details will change to meet the evolving needs of the class.
+
+
+Learning Goals
+===============
+
+By the end of this course, students will be able to “do something useful with Python”.
+ * Identify/characterize/define a problem
+ * Design a program to solve the problem
+ * Create executable code
+ * Read most Python code
+ * Write basic unit tests
+
+Approach:
+=========
+This class assumes a basic knowledge of programming. Thus I will try to emphasize what is unique about Python, with less focus on general programing concepts.
+
+One learns programming by doing -- I'll be demonstrating as I talk about concepts, and I will pause frequently to give you a chance to try things out, so plan on having a laptop up and running with python and your text editor of choice during each class.
+
+We will be using a combination of traditional lectore format at "reverse classroom" approach -- We will generally have reading (or video) assignements that cover a topic, and then in class, we will work through excercises as a group to cement your understanding. We will also be doing frequent "pair programming" -- teaming the students up in pairs to work through excercises together.
+
+Logistics
+=========
+Location: Puget Sound Plaza, 4th and Union, Seattle
+Dates, times: Tuesday nights, 6 - 9pm; Oct 6 - Dec 8, 2015
+Instructor: Chris Barker, PhD [PythonCHB@gmail.com]
+Course assistant: Maria McKinley [parody@uw.edu]
+Course website: https://github.com/UWPCE-PythonCert/IntroToPython
 
 Instructor:
 ===========
@@ -26,21 +60,14 @@ There are two main supported versions of Python: the 2.* series and the 3.* seri
 
 Note that python3 and Python2 have some slightly different syntax and symantics. Much (or most), of the examples you find on the web are in Python2 syntax. We will cover the differences early in class so you will know how to translate.
 
-Approach:
-=========
-This class assumes a basic knowledge of programming. Thus I will try to emphasize what is unique about Python, with less focus on general programing concepts.
-
-One learns programming by doing -- I'll be demonstrating as I talk about concepts, and I will pause frequently to give you a chance to try things out, so plan on having a laptop up and running with python and your text editor of choice during each class.
-
-We will be using a combination of traditional lectore format at "reverse classroom" approach -- We will generally have reading (or video) assignements that cover a topic, and then in class, we will work through excercises as a group to cement your understanding. WE will also be doing frequent "pair programming" -- teaming the students up in pairs to work through excercises together.
 
 Homework:
 =========
-There will generally be weekly homework assignments. They will usually be flexible to allow for students' varying time constraints. However, you learn by doing, so I do encourage you to put some time in to the homework. I will review your work if you ask me to, and do a mini code-review of selected assignments during class.
+There will generally be weekly homework assignments. They will include both reading and video watching and programming excercises. You are not required to turn on the assignments to pass the course, however, we learn by doing, so I do encourage you to put some time in to the homework. I will review your work if you ask me to, and do mini code-reviews of selected assignments during class.
 
 `Teach Yourself Programming in Ten Years <http://norvig.com/21-days.html>`_
 
-In addition, I will ask each student to identify a small project, ideally related to your work, that you can develop as a class project -- that project will be the primary homework for the last few classes.
+In addition, each student will identify a small project, ideally related to your work, that you can be developed as a class project -- that project will be the primary homework for the last few classes.
 
 Lightning Talks:
 -----------------
@@ -174,18 +201,17 @@ Week 1: Oct 6
 
 General Introduction to Python and the class. Using the command interpreter and development environment.
 
-Introduction to git and gitHub
+Kick-off tutorial
 
 Finding and using the documentation. Getting help.
 
 Python 2/3 differences.
 
-Kick-off tutorial
-
-
 
 Week 2: Oct 13
 ................
+
+Introduction to git and gitHub
 
 Basic data types.
 
