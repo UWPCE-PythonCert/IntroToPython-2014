@@ -8,28 +8,31 @@ UW Adult and Continuing Education Program
 Certification in Python Programming
 ---------------------------------------------------
 
-Tuesdays 6-9 pm: Sept 30 - Dec 9, 2014 (10 Sessions)
+Tuesdays 6-9 pm: Oct 6 - Dec 8, 2015 (10 Sessions)
 .....................................................
 
 
-NOTE: in the spirit of the dynamic nature of Python, the Syllabus (and the class) will be a dynamic document -- evolving as the class progresses. The general structure is fixed, but the details will change.
-
+NOTE: in the spirit of the dynamic nature of Python, this Syllabus (and the class) will be a dynamic document -- evolving as the class progresses. The general structure is fixed, but the details will change to meet the evolving needs of the class.
 
 Instructor:
-===============
-Christopher Barker, PhD. (``PythonCHB@gmail.com``) is an oceanographer and software developer currently working for NOAA in Seattle. He first began programming over 30 years ago, and has been using programming to solve problems in science and engineering ever since. He has been using Python as his primary language since 1998. Chris gives numerous presentations on his work at professional conferences, and teaches oceanography and oil spill modeling at regular workshops. He has been involved with the Seattle Python Interest Group (www.seapig.org) for many years, and has given a number of talks and tutorials at SEAPIG meetings, as well as the PyCon and Scipy conferences. He is an active participant in a number Python-related open source communities, and has served as a Google Summer of Code mentor for the wxPython project.
+===========
+Christopher Barker, PhD. (``PythonCHB@gmail.com``) is an oceanographer and software developer currently working for NOAA in Seattle. He first began programming over 30 years ago, and has been using programming to solve problems in science and engineering ever since. He has been using Python as his primary language since 1998. Chris gives numerous presentations on his work at professional conferences, and teaches oceanography and oil spill modeling at regular workshops. He has been involved with the Seattle Python Interest Group (www.seapig.org) for many years, and has given a number of talks and tutorials at SEAPIG meetings, as well as the PyCon and SciPy conferences. He is an active participant in a number Python-related open source communities, and has served as a Google Summer of Code mentor for the wxPython project.
 
 
 Python Version:
 ===============
 
-There are two main supported versions of Python: the 2.* series and the 3.* series (py3k). In this class we will be using "cPython" version 2.7, the version distributed by `<python.org>`_. Each student is expected to have access to a computer with python 2.7 and a decent programmers text editor installed, both during class and for homework assignments. Any modern Operating sytem is fine: OS-X, Linux, or Windows.
+There are two main supported versions of Python: the 2.* series and the 3.* series (py3k). In this class we will be using "cPython" version 3.5, the version distributed by `<python.org>`_. Each student is expected to have access to a computer with python 3.5 and a decent programmers text editor installed, both during class and for homework assignments. Any modern Operating sytem is fine: OS-X, Linux, or Windows.
+
+Note that python3 and Python2 have some slightly different syntax and symantics. Much (or most), of the examples you find on the web are in Python2 syntax. We will cover the differences early in class so you will know how to translate.
 
 Approach:
 =========
 This class assumes a basic knowledge of programming. Thus I will try to emphasize what is unique about Python, with less focus on general programing concepts.
 
 One learns programming by doing -- I'll be demonstrating as I talk about concepts, and I will pause frequently to give you a chance to try things out, so plan on having a laptop up and running with python and your text editor of choice during each class.
+
+We will be using a combination of traditional lectore format at "reverse classroom" approach -- We will generally have reading (or video) assignements that cover a topic, and then in class, we will work through excercises as a group to cement your understanding. WE will also be doing frequent "pair programming" -- teaming the students up in pairs to work through excercises together.
 
 Homework:
 =========
@@ -49,13 +52,13 @@ Class format:
 
 Each class will be broken down something like this:
 
-- 30 minutes talk
-- 25 minutes lab time
+- 20 minutes talk
+- 35 minutes lab time
 
 - 5 minute lightning talk
 - 5 minute lightning talk
 - 20 minutes talk
-- 30 minutes lab time
+- 35 minutes lab time
 
 - 5 minute lightning talk
 - 5 minute lightning talk
@@ -68,38 +71,45 @@ Each class will be broken down something like this:
 gitHub:
 =======
 
-All class materials will be up on gitHub (where you probably found this). This allows me to update things at the last minute, and the students can all have easy access to the latest versions. It also familiarizes you with a very useful tool for software development. We'll spend a bit of time during the first class getting everyone up and running with git....
+All class materials will be up on gitHub (where you probably found this). This allows me to update things at the last minute, and the students can all have easy access to the latest versions. It also familiarizes you with a very useful tool for software development.
+
+We will also be using gitHub to communicate during the class -- turn in assignments, post questions, etc.
+
+We'll spend a bit of time during the first couple classes getting everyone up and running with git and gitHub.
 
 https://github.com/UWPCE-PythonCert/IntroToPython
 
-for rendered and ready to read version:
+for rendered and ready to read version of the class lecture notes:
 
 http://UWPCE-PythonCert.github.io/IntroToPython
 
 Reading:
 ========
 
-There is no assigned text book. However, you may find it beneficial to read other discussions of topics in addition to what I present in class: either to explore a topic more deeply, or to simple get another viewpoint. There are many good books on Python, and many more excellent discussions of individual topics on the web. A few you may want to consider:
+There is no assigned text book. However, you may find it beneficial to read other discussions of topics in addition to what I present in class or assign as reading: either to explore a topic more deeply, or to simple get another viewpoint. There are many good books on Python, and many more excellent discussions of individual topics on the web.
 
+Note that mamny books still cover primarily (or only) Python 2. THey can still be very, very useful, the syntax is only a little different, and the concepts the same.
+
+A few you may want to consider:
 
 
 References for getting started
 -------------------------------
 
 * **The Python Tutorial**
-  (https://docs.python.org/2/tutorial/): This is the
+  (https://docs.python.org/3/tutorial/): This is the
   official tutorial from the Python website. No more authoritative source is
   available.
 
 * **Code Academy Python Track**
   (http://www.codecademy.com/tracks/python): Often
   cited as a great resource, this site offers an entertaining and engaging
-  approach and in-browser work.
+  approach and in-browser work. Python2, as far as I can tell, but most of the lessons will work fine with python3 syntax.
 
 * **Learn Python the Hard Way**
   (http://learnpythonthehardway.org/book/): Solid
   and gradual. This course offers a great foundation for folks who have never
-  programmed in any language before.
+  programmed in any language before. [Python 2]
 
 * **Core Python Programming**
   (http://corepython.com/): Only available as a dead
@@ -145,7 +155,7 @@ References for getting better, once you know the basics
 * **Writing Idiomatic Python**
   (https://www.jeffknupp.com/writing-idiomatic-python-ebook)
   Focused on not just getting the code to work, but how to write it in a really "Pythonic" way.
-  
+
 
 ... and many others
 
