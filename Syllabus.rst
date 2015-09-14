@@ -113,32 +113,29 @@ References for getting started
 
 * **Core Python Programming**
   (http://corepython.com/): Only available as a dead
-  trees version, but if you like to have book to hold in your hands anyway, this
-  is the best textbook style introduction out there. It starts from the
+  trees version, but if you like to have book to hold in your hands anyway, this is the best textbook style introduction out there. It starts from the
   beginning, but gets into the full language. Published in 2009, but still in
-  print, with updated appendixes available for new language features.
+  print, with updated appendixes available for new language features. IN teh thord edtion, "the contents have been cleaned up and retrofitted w/Python 3 examples paired w/their 2.x friends.""
 
 * **Dive Into Python 3**
   (http://www.diveinto.org/python3/): The updated version
-  of a classic. This book offers an introduction to Python aimed at the student
-  who has experience programming in another language.
+  of a classic. This book offers an introduction to Python aimed at the student who has experience programming in another language. Updated for Python 3.
 
 * **Python for You and Me**
   (http://pymbook.readthedocs.org/en/latest/): Simple
-  and clear. This is a great book for absolute newcomers, or to keep as a quick
-  reference as you get used to the language.
+  and clear. This is a great book for absolute newcomers, or to keep as a quick reference as you get used to the language. The latest version is Python 3
 
 * **Think Python**
-  (http://greenteapress.com/thinkpython/): Methodical and
-  complete.  This book offers a very "computer science"-style introduction to
-  Python. It is really an intro to Python *in the service of* Computer Science,
-  though, so while helpful for the absolute newcomer, it isn't quite as
-  "pythonic" as it might be.
+  (http://greenteapress.com/thinkpython/): Methodical and complete.
+  This book offers a very "computer science"-style introduction to
+  Python. It is really an intro to Python *in the service of* Computer
+  Science, though, so while helpful for the absolute newcomer, it isn't
+  quite as "pythonic" as it might be.
 
 * **Python 101**
   (http://www.blog.pythonlibrary.org/2014/06/03/python-101-book-published-today/)
-  Available as a reasonably priced ebook. This is a new one from a popular Blogger
-  about Python. Lots of practical examples. Also avaiable as a Kindle book:
+  Available as a reasonably priced ebook. This is a new one from a popular
+  Blogger about Python. Lots of practical examples. Python3, with some references to differences to Python 2. Also avaiable as a Kindle book:
   http://www.amazon.com/Python-101-Michael-Driscoll-ebook/dp/B00KQTFHNK
 
 References for getting better, once you know the basics
@@ -156,6 +153,13 @@ References for getting better, once you know the basics
   (https://www.jeffknupp.com/writing-idiomatic-python-ebook)
   Focused on not just getting the code to work, but how to write it in a really "Pythonic" way.
 
+* **Fluent Python**
+  (http://shop.oreilly.com/product/0636920032519.do)
+  All python3, and focused on getting the advanced details right. Good place to go once you've got the basics down.
+
+* **Python 3 Object Oriented Programming** *
+  https://www.packtpub.com/application-development/python-3-object-oriented-programming
+  Nice book specifically about Object Oriented programming stucture, and how to do it in Python. From local Author and founder of the Puget Sound Programming Python (PuPPy) meetup group, Dusty Phillips.
 
 ... and many others
 
@@ -165,34 +169,44 @@ Class Schedule:
 Topics of each week
 --------------------
 
-Week 1: Sept 30
+Week 1: Oct 6
 ................
 
 General Introduction to Python and the class. Using the command interpreter and development environment.
-Finding and using the documentation. Getting help. Class github project. Basic data types, functions.
+
+Introduction to git and gitHub
+
+Finding and using the documentation. Getting help.
+
+Python 2/3 differences.
+
+Kick-off tutorial
 
 
-Week 2: Oct 7
+
+Week 2: Oct 13
 ................
 
-More on functions: definition and use, arguments, block structure, scope, recursion
+Basic data types.
+
+Functions: definition and use, arguments, block structure, scope, recursion
 
 Modules and import
 
 Conditionals and Boolean expressions
 
 
-Week 3: Oct 14
+Week 3: Oct 20
 .................
 
 Sequences: Strings, Tuples, Lists
 
-Iteration, Looping and control flow.
+Iteration, looping and control flow.
 
 String methods and formatting
 
 
-Week 4: Oct 21
+Week 4: Oct 27
 ................
 
 Dictionaries, Sets and Mutability.
@@ -202,7 +216,7 @@ Exceptions.
 Files and Text Processing
 
 
-Week 5: Oct 28
+Week 5: November 3
 ........................
 
 Advanced Argument passing
@@ -211,7 +225,7 @@ Testing
 
 List and Dict Comprehensions
 
-Week 6: November 4
+Week 6: November 10
 ....................
 
 Lambda and Functional programming.
@@ -219,7 +233,7 @@ Lambda and Functional programming.
 Object Oriented Programming: classes, instances, and methods
 
 
-Week 7: November 18
+Week 7: November 17
 .......................
 
 More OO -- Multiple inheritance, Properties, special methods
@@ -233,7 +247,7 @@ More OO -- Emulating built-in types
 Iterators and Generators
 
 
-Week 9: December 2
+Week 9: December 1
 ...................
 
 Decorators
@@ -243,7 +257,7 @@ Context Managers
 Packages and packaging
 
 
-Week 10: December 9
+Week 10: December 8
 ....................
 
 Unicode
