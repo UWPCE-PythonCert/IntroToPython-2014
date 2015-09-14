@@ -1,6 +1,0 @@
-Dear {person},
-
-Thank you for your generous donation of {amount]. Your dollars go to help the needy. Without people like you, this would not be possible.lambda
-
-Sincerely,
-The Charity

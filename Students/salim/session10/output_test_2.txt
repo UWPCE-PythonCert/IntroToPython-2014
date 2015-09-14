@@ -1,7 +1,0 @@
-
-This is a unicode object.  You can tell because I have a bunch of unicode
-characters.  Here are some examples:
-	ڴ
-	ࢩ
-	ੴ
-Isn't that cool!

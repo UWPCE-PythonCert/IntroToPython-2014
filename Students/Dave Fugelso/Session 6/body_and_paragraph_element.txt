@@ -1,6 +1,0 @@
-    <body>
-       Some body text
-    </body>
-    <p>
-       some paragraph text
-    </p>
