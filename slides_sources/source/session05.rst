@@ -1119,6 +1119,12 @@ divisible 2, 3 and 4.
 Material to review for Homework:
 =================================
 
-Raymond Hetinger
+Raymond Hettinger:
+
+https://youtu.be/HTLu2DFOdTg
+
+https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger
+
+
 
 
