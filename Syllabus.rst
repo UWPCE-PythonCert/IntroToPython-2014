@@ -65,11 +65,11 @@ Assignments And Assessment
 
 Homework:
 ---------
-There will generally be weekly homework assignments. They will include both reading and video watching and programming excercises. You are not required to turn on the assignments to pass the course, however, we learn by doing, so I do encourage you to put some time in to the homework. I will review your work if you ask me to, and do mini code-reviews of selected assignments during class.
+There will generally be weekly homework assignments. They will include both reading and video watching and programming excercises. You are not required to turn in the assignments to pass the course, however, we learn by doing, so I do encourage you to put some time in to the homework. I will review your work if you ask me to, and do mini code-reviews of selected assignments during class.
 
 `Teach Yourself Programming in Ten Years <http://norvig.com/21-days.html>`_
 
-In addition, each student will identify a small project, ideally related to your work, that you can be developed as a class project -- that project will be the primary homework for the last few classes.
+In addition, each student will identify a small project, ideally related to your work, that can be developed as a class project -- that project will be the primary homework for the last few classes.
 
 Lightning Talks:
 -----------------
@@ -281,7 +281,7 @@ List and Dict Comprehensions
 Week 6: November 10
 ....................
 
-Lambda and Functional programming.
+Lambda and Functions as Objects
 
 Object Oriented Programming: classes, instances, and methods
 
@@ -315,6 +315,6 @@ Week 10: December 8
 
 Unicode
 
-Persistence / Serialization
+Wrap Up / Students Code review
 
 
