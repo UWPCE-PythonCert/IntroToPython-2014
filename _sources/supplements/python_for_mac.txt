@@ -90,11 +90,11 @@ After either of these is installed, the ``git`` command should work:
 pip
 ---
 
-``pip`` is the Python package installer. It is updated faster than python itself, so once you have pythonl you want to get the lateast version of pip working::
+``pip`` is the Python package installer. It is updated faster than python itself, so once you have python, you want to get the latest version of pip working::
 
   $ python -m ensurepip --upgrade
 
-[first make sure that ``python`` gives you teh one you want. You may need to call ``python3`` instead]
+[first make sure that ``python`` gives you the one you want. You may need to call ``python3`` instead]
 
 It should download and install the latest ``pip``.
 

@@ -247,14 +247,14 @@
 <h2>Getting The Tools<a class="headerlink" href="#getting-the-tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="python">
 <h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
-<p>You probably already have python. Try:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python
-Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun <span class="m">29</span> 2014, 21:07:35<span class="o">)</span>
-<span class="o">[</span>GCC 4.2.1 <span class="o">(</span>Apple Inc. build 5666<span class="o">)</span> <span class="o">(</span>dot 3<span class="o">)]</span> on linux
+<p>You probably already have python. But most distributions as of this date use python2 as the default. So you need to type <code class="docutils literal"><span class="pre">python3</span></code> to get version 3. Try:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python3
+Python 3.5.0 <span class="o">(</span>v3.5.0:374f501f4567, Sep <span class="m">12</span> 2015, 11:00:19<span class="o">)</span>
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
 </pre></div>
 </div>
-<p>You can see what version you&#8217;ve got. If you don&#8217;t have 2.7.*, then you&#8217;ll need to go try to find a newer version &#8211; your distribution may have a package named something like:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>apt-get install python2.7
+<p>You can see what version you&#8217;ve got. If you don&#8217;t have 3.4 or above, then you&#8217;ll need to go try to find a newer version &#8211; your distribution may have a package named something like:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>apt-get install python3.4
 </pre></div>
 </div>
 <p>Or <code class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span></code> or ???</p>
@@ -269,40 +269,34 @@ Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun <span class="m">29
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$apt</span>-get install git
 </pre></div>
 </div>
+<p>or the equivalent for your system.</p>
 </div>
 <div class="section" id="pip">
 <h3>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">pip</span></code> is the Python package installer.</p>
-<p>Many python packages are also available directly from your distro &#8211; but you&#8217;ll get the latest and greatest if you use <code class="docutils literal"><span class="pre">pip</span></code> to install it instead.</p>
-<p>To get pip, the first option is to use your system package manager, something like:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$apt</span>-get install python-pip
+<p><code class="docutils literal"><span class="pre">pip</span></code> is the Python package installer. It is updated faster than python itself, so once you have python, you want to get the latest version of pip working:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python3 -m ensurepip --upgrade
 </pre></div>
 </div>
-<p>If that doesn&#8217;t work, you can get it from:</p>
-<p><a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a></p>
-<p>download <code class="docutils literal"><span class="pre">get-pip.py</span></code> from that site, and run it with python:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python get-pip.py
-</pre></div>
-</div>
-<p>It should download and install <code class="docutils literal"><span class="pre">pip</span></code> (and <code class="docutils literal"><span class="pre">setuptools</span></code>)</p>
+<p>[first make sure that <code class="docutils literal"><span class="pre">python</span></code> gives you the one you want. You may need to call <code class="docutils literal"><span class="pre">python3</span></code> instead]</p>
+<p>It should download and install the latest <code class="docutils literal"><span class="pre">pip</span></code>.</p>
 <p>You can now use pip to install other packages.</p>
 </div>
 <div class="section" id="ipython">
 <h3>iPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
 <p>One we are going to use in class is <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ pip install ipython
+<div class="highlight-python"><div class="highlight"><pre>$ python3 -m pip install ipython
 </pre></div>
 </div>
 <p>You should now be able to run <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ipython
-    Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35)
-    Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
+Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 
-    IPython 2.0.0 -- An enhanced Interactive Python.
-    ?         -&gt; Introduction and overview of IPython&#39;s features.
-    %quickref -&gt; Quick reference.
-    help      -&gt; Python&#39;s own help system.
-    object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
+IPython 4.0.0 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython&#39;s features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python&#39;s own help system.
+object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
 </pre></div>
 </div>
 </div>

@@ -67,7 +67,7 @@ This is actually your best bet for runing Python also -- If you use the Git Bash
 pip
 ---
 
-``pip`` is the Python package installer. It is updated faser than python itself, so once you have pythonl you want to get the lateast version of pip working::
+``pip`` is the Python package installer. It is updated faster than python itself, so once you have python you want to get the latest version of pip working::
 
   $ python -m ensurepip --upgrade
 
