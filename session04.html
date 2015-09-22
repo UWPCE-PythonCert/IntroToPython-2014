@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -25,6 +25,8 @@
   
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
   
 
   
@@ -44,9 +46,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+        
+          <a href="index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -56,8 +61,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul class="current">
+          
+          
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -122,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -167,17 +174,13 @@
 <li class="toctree-l2"><a class="reference internal" href="session09.html#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Persistence/Serialization</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#web-development-class">Web Development Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#unicode">Unicode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#mechanics">Mechanics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#code-review">Code Review?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#python-specific-formats">Python Specific Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#interchange-formats">Interchange Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#databases">DataBases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#other-options">Other Options</a></li>
 </ul>
 </li>
 </ul>
@@ -201,6 +204,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -231,7 +235,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="session-four-dictionaries-sets-exceptions-and-files">
 <h1>Session Four: Dictionaries, Sets, Exceptions, and Files<a class="headerlink" href="#session-four-dictionaries-sets-exceptions-and-files" title="Permalink to this headline">¶</a></h1>
@@ -294,7 +298,7 @@
 </div>
 <div class="section" id="looping-through-two-loops-at-once">
 <h3>Looping through two loops at once:<a class="headerlink" href="#looping-through-two-loops-at-once" title="Permalink to this headline">¶</a></h3>
-<p class="mlarge"><tt class="docutils literal"><span class="pre">zip</span></tt></p>
+<p class="mlarge"><code class="docutils literal"><span class="pre">zip</span></code></p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="gp">In [11]: </span><span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -314,7 +318,7 @@
 </div>
 <div class="section" id="need-the-index-and-the-item">
 <h3>Need the index and the item?<a class="headerlink" href="#need-the-index-and-the-item" title="Permalink to this headline">¶</a></h3>
-<p class="mlarge"><tt class="docutils literal"><span class="pre">enumerate</span></tt></p>
+<p class="mlarge"><code class="docutils literal"><span class="pre">enumerate</span></code></p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">,</span> <span class="s">&#39;the other&#39;</span><span class="p">]</span>
 
 <span class="gp">In [3]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
@@ -349,12 +353,12 @@
 <div class="line"><br /></div>
 <div class="line">Use string formatting</div>
 <div class="line"><br /></div>
-<div class="line">The <tt class="docutils literal"><span class="pre">sum()</span></tt> function</div>
+<div class="line">The <code class="docutils literal"><span class="pre">sum()</span></code> function</div>
 <div class="line"><br /></div>
 <div class="line">Deleting from list (list_lab)</div>
 <div class="line"><br /></div>
 </div>
-<p>What is <tt class="docutils literal"><span class="pre">assert</span></tt> for?</p>
+<p>What is <code class="docutils literal"><span class="pre">assert</span></code> for?</p>
 <p>Testing &#8211; NOT for issues expected to happen operationally:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">assert</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 </pre></div>
@@ -373,7 +377,7 @@
 <div class="section" id="fun-with-strings">
 <h3>Fun with strings<a class="headerlink" href="#fun-with-strings" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p class="first">Rewrite: <tt class="docutils literal"><span class="pre">the</span> <span class="pre">first</span> <span class="pre">3</span> <span class="pre">numbers</span> <span class="pre">are:</span> <span class="pre">%i,</span> <span class="pre">%i,</span> <span class="pre">%i&quot;%(1,2,3)</span></tt></p>
+<li><p class="first">Rewrite: <code class="docutils literal"><span class="pre">the</span> <span class="pre">first</span> <span class="pre">3</span> <span class="pre">numbers</span> <span class="pre">are:</span> <span class="pre">%i,</span> <span class="pre">%i,</span> <span class="pre">%i&quot;%(1,2,3)</span></code></p>
 <blockquote>
 <div><ul class="simple">
 <li>for an arbitrary number of numbers...</li>
@@ -387,7 +391,7 @@
 <h2>Dictionaries and Sets<a class="headerlink" href="#dictionaries-and-sets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dictionary">
 <h3>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">¶</a></h3>
-<p>Python calls it a <tt class="docutils literal"><span class="pre">dict</span></tt></p>
+<p>Python calls it a <code class="docutils literal"><span class="pre">dict</span></code></p>
 <p>Other languages call it:</p>
 <blockquote>
 <div><ul class="simple">
@@ -492,7 +496,7 @@
 </div>
 <div class="section" id="dictionary-iterating">
 <h3>Dictionary Iterating<a class="headerlink" href="#dictionary-iterating" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">for</span></tt>  iterates over the keys</p>
+<p><code class="docutils literal"><span class="pre">for</span></code>  iterates over the keys</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Brian&#39;</span><span class="p">,</span> <span class="s">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
 
 <span class="gp">In [16]: </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
@@ -538,7 +542,7 @@
 <div><blockquote>
 <div><ul class="simple">
 <li>indexing is fast and constant time: O(1)</li>
-<li><tt class="docutils literal"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">s</span></tt> constant time: O(1)</li>
+<li><code class="docutils literal"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">s</span></code> constant time: O(1)</li>
 <li>visiting all is proportional to n: O(n)</li>
 <li>inserting is constant time: O(1)</li>
 <li>deleting is constant time: O(1)</li>
@@ -592,7 +596,7 @@
 <span class="go">7</span>
 </pre></div>
 </div>
-<p>the <tt class="docutils literal"><span class="pre">iter*</span></tt> methods don&#8217;t actually create the lists.</p>
+<p>the <code class="docutils literal"><span class="pre">iter*</span></code> methods don&#8217;t actually create the lists.</p>
 <p>&#8220;Popping&#8221;: getting the value while removing it</p>
 <p>pop out a particular key</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;this&#39;</span><span class="p">)</span>
@@ -611,7 +615,7 @@
 </pre></div>
 </div>
 <p>This one is handy:</p>
-<p><tt class="docutils literal"><span class="pre">setdefault(key[,</span> <span class="pre">default])</span></tt></p>
+<p><code class="docutils literal"><span class="pre">setdefault(key[,</span> <span class="pre">default])</span></code></p>
 <p>gets the value if it&#8217;s there, sets it if it&#8217;s not</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;something&#39;</span><span class="p">,</span> <span class="s">&#39;a value&#39;</span><span class="p">)</span>
 <span class="gh">Out[27]: </span><span class="go">&#39;a value&#39;</span>
@@ -627,7 +631,7 @@
 </pre></div>
 </div>
 <p>dict View objects:</p>
-<p>Like <tt class="docutils literal"><span class="pre">keys()</span></tt>, <tt class="docutils literal"><span class="pre">values()</span></tt>, <tt class="docutils literal"><span class="pre">items()</span></tt>, but maintain a link to the original dict</p>
+<p>Like <code class="docutils literal"><span class="pre">keys()</span></code>, <code class="docutils literal"><span class="pre">values()</span></code>, <code class="docutils literal"><span class="pre">items()</span></code>, but maintain a link to the original dict</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="n">d</span>
 <span class="gh">Out[47]: </span><span class="go">{&#39;something&#39;: &#39;a value&#39;}</span>
 
@@ -642,7 +646,7 @@
 </div>
 <div class="section" id="sets">
 <h3>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">set</span></tt>  is an unordered collection of distinct values</p>
+<p><code class="docutils literal"><span class="pre">set</span></code>  is an unordered collection of distinct values</p>
 <p>Essentially a dict with only keys</p>
 <p>Set Constructors</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">()</span>
@@ -664,7 +668,7 @@
 </div>
 <div class="section" id="set-properties">
 <h3>Set Properties<a class="headerlink" href="#set-properties" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">Set</span></tt>  members must be hashable</p>
+<p><code class="docutils literal"><span class="pre">Set</span></code>  members must be hashable</p>
 <p>Like dictionary keys &#8211; and for same reason (efficient lookup)</p>
 <p>No indexing (unordered)</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -708,7 +712,7 @@
 </div>
 <div class="section" id="frozen-set">
 <h3>Frozen Set<a class="headerlink" href="#frozen-set" title="Permalink to this headline">¶</a></h3>
-<p>Another kind of set: <tt class="docutils literal"><span class="pre">frozenset</span></tt></p>
+<p>Another kind of set: <code class="docutils literal"><span class="pre">frozenset</span></code></p>
 <p>immutable &#8211; for use as a key in a dict
 (or another set...)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -828,7 +832,7 @@ divisible 2, 3 and 4.</li>
     <span class="n">num_in</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_in</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>but &#8211; <tt class="docutils literal"><span class="pre">int(num_in)</span></tt> will only work if the string can be converted to an integer.</p>
+<p>but &#8211; <code class="docutils literal"><span class="pre">int(num_in)</span></code> will only work if the string can be converted to an integer.</p>
 <p>So you can do</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
     <span class="n">num_in</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_in</span><span class="p">)</span>
@@ -858,7 +862,7 @@ divisible 2, 3 and 4.</li>
     <span class="n">do_some_clean</span><span class="o">-</span><span class="n">up</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">finally:</span></tt>  clause will always run</p>
+<p>The <code class="docutils literal"><span class="pre">finally:</span></code>  clause will always run</p>
 </div>
 <div class="section" id="exceptions-else">
 <h3>Exceptions &#8211; else<a class="headerlink" href="#exceptions-else" title="Permalink to this headline">¶</a></h3>
@@ -937,12 +941,12 @@ divisible 2, 3 and 4.</li>
 <p>Exceptions Lab</p>
 <div class="section" id="exceptions-lab">
 <h3>Exceptions Lab<a class="headerlink" href="#exceptions-lab" title="Permalink to this headline">¶</a></h3>
-<p>Improving <tt class="docutils literal"><span class="pre">raw_input</span></tt></p>
+<p>Improving <code class="docutils literal"><span class="pre">raw_input</span></code></p>
 <ul class="simple">
-<li>The <tt class="docutils literal"><span class="pre">raw_input()</span></tt>  function can generate two exceptions: <tt class="docutils literal"><span class="pre">EOFError</span></tt>
-or <tt class="docutils literal"><span class="pre">KeyboardInterrupt</span></tt>  on end-of-file(EOF) or canceled input.</li>
-<li>Create a wrapper function, perhaps <tt class="docutils literal"><span class="pre">safe_input()</span></tt>  that returns <tt class="docutils literal"><span class="pre">None</span></tt>
-rather rather than raising these exceptions, when the user enters <tt class="docutils literal"><span class="pre">^C</span></tt>  for Keyboard Interrupt, or <tt class="docutils literal"><span class="pre">^D</span></tt> (<tt class="docutils literal"><span class="pre">^Z</span></tt>  on Windows) for End Of File.</li>
+<li>The <code class="docutils literal"><span class="pre">raw_input()</span></code>  function can generate two exceptions: <code class="docutils literal"><span class="pre">EOFError</span></code>
+or <code class="docutils literal"><span class="pre">KeyboardInterrupt</span></code>  on end-of-file(EOF) or canceled input.</li>
+<li>Create a wrapper function, perhaps <code class="docutils literal"><span class="pre">safe_input()</span></code>  that returns <code class="docutils literal"><span class="pre">None</span></code>
+rather rather than raising these exceptions, when the user enters <code class="docutils literal"><span class="pre">^C</span></code>  for Keyboard Interrupt, or <code class="docutils literal"><span class="pre">^D</span></code> (<code class="docutils literal"><span class="pre">^Z</span></code>  on Windows) for End Of File.</li>
 <li>Update your mailroom program to use exceptions (and IBAFP) to handle
 malformed numeric input</li>
 </ul>
@@ -969,7 +973,7 @@ malformed numeric input</li>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">secret_data</span></tt> is a string</p>
+<p><code class="docutils literal"><span class="pre">secret_data</span></code> is a string</p>
 <p>NOTE: these days, you probably need to use Unicode for text &#8211; we&#8217;ll get to that next week</p>
 <p>Binary Files</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.bin&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
@@ -977,9 +981,9 @@ malformed numeric input</li>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">secret_data</span></tt> is a byte string</p>
+<p><code class="docutils literal"><span class="pre">secret_data</span></code> is a byte string</p>
 <p>(with arbitrary bytes in it &#8211; well, not arbitrary &#8211; whatever is in the file.)</p>
-<p>(See the <tt class="docutils literal"><span class="pre">struct</span></tt>  module to unpack binary data )</p>
+<p>(See the <code class="docutils literal"><span class="pre">struct</span></code>  module to unpack binary data )</p>
 <p>File Opening Modes</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">mode</span><span class="p">])</span>
 <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span>
@@ -997,9 +1001,9 @@ in the Python docs. But these BSD docs make it pretty clear:</p>
 <p>Text is default</p>
 <blockquote>
 <div><ul class="simple">
-<li>Newlines are translated: <tt class="docutils literal"><span class="pre">\r\n</span> <span class="pre">-&gt;</span> <span class="pre">\n</span></tt></li>
+<li>Newlines are translated: <code class="docutils literal"><span class="pre">\r\n</span> <span class="pre">-&gt;</span> <span class="pre">\n</span></code></li>
 <li>&#8211; reading and writing!</li>
-<li>Use *nix-style in your code: <tt class="docutils literal"><span class="pre">\n</span></tt></li>
+<li>Use *nix-style in your code: <code class="docutils literal"><span class="pre">\n</span></code></li>
 <li>In text mode, you can use &#8216;U&#8217; for &#8220;Universal&#8221; newline mode.</li>
 </ul>
 </div></blockquote>
@@ -1065,11 +1069,11 @@ in the Python docs. But these BSD docs make it pretty clear:</p>
 <blockquote>
 <div><ul class="simple">
 <li>loggers</li>
-<li><tt class="docutils literal"><span class="pre">sys.stdout</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">urllib.open()</span></tt></li>
+<li><code class="docutils literal"><span class="pre">sys.stdout</span></code></li>
+<li><code class="docutils literal"><span class="pre">urllib.open()</span></code></li>
 <li>pipes, subprocesses</li>
 <li>StringIO</li>
-<li>variois objects in the <tt class="docutils literal"><span class="pre">io</span></tt> module</li>
+<li>variois objects in the <code class="docutils literal"><span class="pre">io</span></code> module</li>
 </ul>
 </div></blockquote>
 <p><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#file-objects">https://docs.python.org/2/library/stdtypes.html#file-objects</a></p>
@@ -1105,7 +1109,7 @@ in the Python docs. But these BSD docs make it pretty clear:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;/home/chris/secret.txt&#39;</span>
 </pre></div>
 </div>
-<p>Either work with <tt class="docutils literal"><span class="pre">open()</span></tt> , etc.</p>
+<p>Either work with <code class="docutils literal"><span class="pre">open()</span></code> , etc.</p>
 <p>(working directory only makes sense with command-line programs...)</p>
 </div>
 <div class="section" id="os-module">
@@ -1129,11 +1133,11 @@ os.path.relpath()￼
 <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(higher level stuff in <tt class="docutils literal"><span class="pre">shutil</span></tt>  module)</p>
+<p>(higher level stuff in <code class="docutils literal"><span class="pre">shutil</span></code>  module)</p>
 </div>
 <div class="section" id="pathlib">
 <h3>pathlib<a class="headerlink" href="#pathlib" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">pathlib</span></tt> is a new package for handling paths in an OO way:</p>
+<p><code class="docutils literal"><span class="pre">pathlib</span></code> is a new package for handling paths in an OO way:</p>
 <p><a class="reference external" href="http://pathlib.readthedocs.org/en/pep428/">http://pathlib.readthedocs.org/en/pep428/</a></p>
 <p>It is now part of the Python3 standard library, and has been back-ported for use with Python2:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install pathlib
@@ -1161,15 +1165,15 @@ os.path.relpath()￼
 <div class="section" id="files-lab">
 <h3>Files Lab<a class="headerlink" href="#files-lab" title="Permalink to this headline">¶</a></h3>
 <p>In the class repo, in:</p>
-<p><tt class="docutils literal"><span class="pre">Examples\Session01\students.txt</span></tt></p>
+<p><code class="docutils literal"><span class="pre">Examples\Session01\students.txt</span></code></p>
 <p>You will find the list I generated of all the students in the class, and
 what programming languages they have used in the past.</p>
 <p>Write a little script that reads that file, and generates a list of all
 the languages that have been used.</p>
 <p>Extra credit: keep track of how many students specified each language.</p>
-<p>If you&#8217;ve got git set up right, <tt class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></tt> should update
+<p>If you&#8217;ve got git set up right, <code class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></code> should update
 your repo. Otherwise, you can get it from gitHub:</p>
-<p><tt class="docutils literal"><span class="pre">https://github.com/UWPCE-PythonCert/IntroToPython/blob/master/Examples/Session01/students.txt</span></tt></p>
+<p><code class="docutils literal"><span class="pre">https://github.com/UWPCE-PythonCert/IntroToPython/blob/master/Examples/Session01/students.txt</span></code></p>
 </div>
 </div>
 <div class="section" id="homework">
@@ -1211,7 +1215,7 @@ your repo. Otherwise, you can get it from gitHub:</p>
 <ul>
 <li><p class="first">Use The Adventures of Sherlock Holmes as input:</p>
 <blockquote>
-<div><p><a class="reference download internal" href="_downloads/sherlock.txt"><tt class="xref download docutils literal"><span class="pre">./homework/sherlock.txt</span></tt></a></p>
+<div><p><a class="reference download internal" href="_downloads/sherlock.txt"><code class="xref download docutils literal"><span class="pre">./homework/sherlock.txt</span></code></a></p>
 <p>and on github here:</p>
 <p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt">http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt</a></p>
 </div></blockquote>
@@ -1248,7 +1252,7 @@ big template &#8211; rather than building up a big string in parts.</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="session05.html" class="btn btn-neutral float-right" title="Session Five: Advanced Argument passing, List and Dict Comprehensions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="session05.html" class="btn btn-neutral float-right" title="Session Five: Advanced Argument passing, List and Dict Comprehensions">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="session03.html" class="btn btn-neutral" title="Session Three: Sequences, Iteration and String Formatting"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1264,7 +1268,8 @@ big template &#8211; rather than building up a big string in parts.</li>
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -1289,7 +1294,7 @@ big template &#8211; rather than building up a big string in parts.</li>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

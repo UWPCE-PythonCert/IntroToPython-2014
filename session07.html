@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -25,6 +25,8 @@
   
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
   
 
   
@@ -44,9 +46,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+        
+          <a href="index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -56,8 +61,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul class="current">
+          
+          
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -122,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -167,17 +174,13 @@
 <li class="toctree-l2"><a class="reference internal" href="session09.html#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Persistence/Serialization</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#web-development-class">Web Development Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#unicode">Unicode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#mechanics">Mechanics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#code-review">Code Review?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#python-specific-formats">Python Specific Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#interchange-formats">Interchange Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#databases">DataBases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#other-options">Other Options</a></li>
 </ul>
 </li>
 </ul>
@@ -201,6 +204,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -231,7 +235,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="session-seven-more-oo">
 <h1>Session Seven: More OO<a class="headerlink" href="#session-seven-more-oo" title="Permalink to this headline">¶</a></h1>
@@ -320,7 +324,7 @@ what is appropriate for your project</li>
         <span class="c"># possibly more custom initialization</span>
 </pre></div>
 </div>
-<p>(calls to the super class <tt class="docutils literal"><span class="pre">__init__</span></tt>  are optional &#8211; case dependent)</p>
+<p>(calls to the super class <code class="docutils literal"><span class="pre">__init__</span></code>  are optional &#8211; case dependent)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Combined</span><span class="p">(</span><span class="n">Super1</span><span class="p">,</span> <span class="n">Super2</span><span class="p">,</span> <span class="n">Super3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -357,7 +361,7 @@ what is appropriate for your project</li>
 </ul>
 <p>Where do you put a Platypus?</p>
 <p>Real World Example: <a class="reference external" href="https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L485">FloatCanvas</a></p>
-<p>All the class definitions we&#8217;ve been showing inherit from <tt class="docutils literal"><span class="pre">object</span></tt>.</p>
+<p>All the class definitions we&#8217;ve been showing inherit from <code class="docutils literal"><span class="pre">object</span></code>.</p>
 <p>This is referred to as a &#8220;new style&#8221; class.</p>
 <p>They were introduced in python2.2 to better merge types and classes, and clean
 up a few things.</p>
@@ -365,7 +369,7 @@ up a few things.</p>
 <p><strong>Always Make New-Style Classes</strong></p>
 <p>(that is, always subclass from object...)</p>
 <p>The differences are subtle, and may not appear until they jump up to bite you.</p>
-<p><tt class="docutils literal"><span class="pre">super()</span></tt>: use it to call a superclass method, rather than explicitly calling
+<p><code class="docutils literal"><span class="pre">super()</span></code>: use it to call a superclass method, rather than explicitly calling
 the unbound method on the superclass.</p>
 <p>instead of:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
@@ -384,7 +388,7 @@ the unbound method on the superclass.</p>
 <p>Caution: There are some subtle differences with multiple inheritance.</p>
 <p>You can use explicit calling to ensure that the &#8216;right&#8217; method is called.</p>
 <p class="medium"><strong>Background</strong></p>
-<p>Two seminal articles about <tt class="docutils literal"><span class="pre">super()</span></tt>:</p>
+<p>Two seminal articles about <code class="docutils literal"><span class="pre">super()</span></code>:</p>
 <p>&#8220;Super Considered Harmful&#8221; &#8211; James Knight</p>
 <p><a class="reference external" href="https://fuhm.net/super-harmful/">https://fuhm.net/super-harmful/</a></p>
 <p>&#8220;super() considered super!&#8221;  &#8211;  Raymond Hettinger</p>
@@ -437,19 +441,19 @@ the unbound method on the superclass.</p>
 </div>
 <div class="section" id="id1">
 <h3>properties<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-    <span class="nd">@x.setter</span>
-    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go">class C(object):</span>
+<span class="go">    _x = None</span>
+<span class="go">    @property</span>
+<span class="go">    def x(self):</span>
+<span class="go">        return self._x</span>
+<span class="go">    @x.setter</span>
+<span class="go">    def x(self, value):</span>
+<span class="go">        self._x = value</span>
 
-<span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
-<span class="n">In</span> <span class="p">[</span><span class="mi">30</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">In</span> <span class="p">[</span><span class="mi">31</span><span class="p">]:</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">x</span>
-<span class="mi">5</span>
+<span class="gp">In [28]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">In [30]: </span><span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">In [31]: </span><span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">x</span>
+<span class="go">5</span>
 </pre></div>
 </div>
 <p>Now the interface is like simple attribute access!</p>
@@ -504,13 +508,13 @@ a deleter is well:</p>
 </div>
 <p>If you leave this out, the property can&#8217;t be deleted, which is usually
 what you want.</p>
-<p class="centered">[demo: <a class="reference download internal" href="_downloads/properties_example.py"><tt class="xref download docutils literal"><span class="pre">properties_example.py</span></tt></a>]</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/properties_example.py"><code class="xref download docutils literal"><span class="pre">properties_example.py</span></code></a>]</p>
 </div>
 <div class="section" id="lab">
 <h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s use some of this to build a nice class to represent a Circle.</p>
 <p>For now, Let&#8217;s do steps 1-4 of:</p>
-<p><a class="reference internal" href="homework/circle_class.html#homework-circle-class"><em>Circle Class Homework Assignment</em></a></p>
+<p><a class="reference internal" href="homework/circle_class.html#homework-circle-class"><span>Circle Class Homework Assignment</span></a></p>
 </div>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
@@ -528,7 +532,7 @@ what you want.</p>
 <div class="left build container">
 <p>You&#8217;ve seen how methods of a class are <em>bound</em> to an instance when it is
 created.</p>
-<p>And you&#8217;ve seen how the argument <tt class="docutils literal"><span class="pre">self</span></tt> is then automatically passed to
+<p>And you&#8217;ve seen how the argument <code class="docutils literal"><span class="pre">self</span></code> is then automatically passed to
 the method when it is called.</p>
 <p>And you&#8217;ve seen how you can call <em>unbound</em> methods on a class object so
 long as you pass an instance of that class as the first argument.</p>
@@ -548,7 +552,7 @@ long as you pass an instance of that class as the first argument.</p>
 <span class="gh">Out[37]: </span><span class="go">9</span>
 </pre></div>
 </div>
-<p class="centered">[demo: <a class="reference download internal" href="_downloads/static_method.py"><tt class="xref download docutils literal"><span class="pre">static_method.py</span></tt></a>]</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/static_method.py"><code class="xref download docutils literal"><span class="pre">static_method.py</span></code></a>]</p>
 <div class="build container">
 <p>Where are static methods useful?</p>
 <p>Usually they aren&#8217;t</p>
@@ -585,7 +589,7 @@ argument</p>
 <span class="gh">Out[42]: </span><span class="go">16</span>
 </pre></div>
 </div>
-<p class="centered">[demo: <a class="reference download internal" href="_downloads/class_method.py"><tt class="xref download docutils literal"><span class="pre">class_method.py</span></tt></a>]</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/class_method.py"><code class="xref download docutils literal"><span class="pre">class_method.py</span></code></a>]</p>
 <div class="build container">
 <p>Unlike static methods, class methods are quite common.</p>
 <p>They have the advantage of being friendly to subclassing.</p>
@@ -626,7 +630,7 @@ implements an alternate constructor that <em>can</em>.</p>
     <span class="k">return</span> <span class="bp">self</span>
 </pre></div>
 </div>
-<p>(this is actually from the OrderedDict implementation in <tt class="docutils literal"><span class="pre">collections.py</span></tt>)</p>
+<p>(this is actually from the OrderedDict implementation in <code class="docutils literal"><span class="pre">collections.py</span></code>)</p>
 <p>See also datetime.datetime.now(), etc....</p>
 <p>Properties, Static Methods and Class Methods are powerful features of Pythons
 OO model.</p>
@@ -654,21 +658,21 @@ class act like standard classes.</p>
 </div>
 <p>It&#8217;s all in the double underscores...</p>
 <p>Pronounced &#8220;dunder&#8221; (or &#8220;under-under&#8221;)</p>
-<p>try: <tt class="docutils literal"><span class="pre">dir(2)</span></tt>  or <tt class="docutils literal"><span class="pre">dir(list)</span></tt></p>
+<p>try: <code class="docutils literal"><span class="pre">dir(2)</span></code>  or <code class="docutils literal"><span class="pre">dir(list)</span></code></p>
 <p>Most classes should at lest have these special methods:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">object.__str__</span></tt>:</dt>
+<dt><code class="docutils literal"><span class="pre">object.__str__</span></code>:</dt>
 <dd>Called by the str() built-in function and by the print statement to compute
 the <em>informal</em> string representation of an object.</dd>
-<dt><tt class="docutils literal"><span class="pre">object.__unicode__</span></tt>:</dt>
+<dt><code class="docutils literal"><span class="pre">object.__unicode__</span></code>:</dt>
 <dd><p class="first">Called by the unicode() built-in function.  This converts an object to an
 <em>informal</em> unicode representation.</p>
 <p class="last">(more on Unicode later....)</p>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">object.__repr__</span></tt>:</dt>
+<dt><code class="docutils literal"><span class="pre">object.__repr__</span></code>:</dt>
 <dd><p class="first">Called by the repr() built-in function and by string conversions (reverse
 quotes) to compute the <em>official</em> string representation of an object.</p>
-<p class="last">(ideally: <tt class="docutils literal"><span class="pre">eval(</span> <span class="pre">repr(something)</span> <span class="pre">)</span> <span class="pre">==</span> <span class="pre">something</span></tt>)</p>
+<p class="last">(ideally: <code class="docutils literal"><span class="pre">eval(</span> <span class="pre">repr(something)</span> <span class="pre">)</span> <span class="pre">==</span> <span class="pre">something</span></code>)</p>
 </dd>
 </dl>
 </div>
@@ -711,7 +715,7 @@ methods in a given protocol.</p>
 </div>
 <p>Each of these methods supports a common Python operation.</p>
 <p>For example, to make &#8216;+&#8217; work with a sequence type in a vector-like fashion,
-implement <tt class="docutils literal"><span class="pre">__add__</span></tt>:</p>
+implement <code class="docutils literal"><span class="pre">__add__</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;return the element-wise vector sum of self and v</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -719,7 +723,7 @@ implement <tt class="docutils literal"><span class="pre">__add__</span></tt>:</p
     <span class="k">return</span> <span class="n">vector</span><span class="p">([</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="k">for</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">)])</span>
 </pre></div>
 </div>
-<p class="centered">[a more complete example may be seen <a class="reference download internal" href="_downloads/vector.py"><tt class="xref download docutils literal"><span class="pre">here</span></tt></a>]</p>
+<p class="centered">[a more complete example may be seen <a class="reference download internal" href="_downloads/vector.py"><code class="xref download docutils literal"><span class="pre">here</span></code></a>]</p>
 <p>Use special methods when you want your class to act like a &#8220;standard&#8221; class in
 some way.</p>
 <p>Look up the special methods you need and define them.</p>
@@ -743,7 +747,7 @@ some way.</p>
 <h3>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s complete our nifty Circle class:</p>
 <p>Steps 5-8 of:</p>
-<p><a class="reference internal" href="homework/circle_class.html#homework-circle-class"><em>Circle Class Homework Assignment</em></a></p>
+<p><a class="reference internal" href="homework/circle_class.html#homework-circle-class"><span>Circle Class Homework Assignment</span></a></p>
 </div>
 </div>
 <div class="section" id="homework">
@@ -759,7 +763,7 @@ some way.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="session08.html" class="btn btn-neutral float-right" title="Session Eight: Callable classes, Iterators, Generators"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="session08.html" class="btn btn-neutral float-right" title="Session Eight: Callable classes, Iterators, Generators">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="session06.html" class="btn btn-neutral" title="Session Six: Functional and Object Oriented Programming"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -775,7 +779,8 @@ some way.</p>
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -800,7 +805,7 @@ some way.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

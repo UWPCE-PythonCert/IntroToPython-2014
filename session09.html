@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -28,8 +28,10 @@
   
 
   
+
+  
     <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
-        <link rel="next" title="Session Ten: Unicode, Persistence/Serialization" href="session10.html"/>
+        <link rel="next" title="Session Ten: Unicode, Wrap Up" href="session10.html"/>
         <link rel="prev" title="Session Eight: Callable classes, Iterators, Generators" href="session08.html"/> 
 
   
@@ -44,9 +46,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+        
+          <a href="index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -56,8 +61,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul class="current">
+          
+          
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -122,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -167,17 +174,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Persistence/Serialization</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#web-development-class">Web Development Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#unicode">Unicode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#mechanics">Mechanics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#code-review">Code Review?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#python-specific-formats">Python Specific Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#interchange-formats">Interchange Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#databases">DataBases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#other-options">Other Options</a></li>
 </ul>
 </li>
 </ul>
@@ -201,6 +204,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -231,7 +235,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="session-nine-decorators-context-managers-packages-and-packaging">
 <h1>Session Nine: Decorators, Context Managers, Packages and packaging<a class="headerlink" href="#session-nine-decorators-context-managers-packages-and-packaging" title="Permalink to this headline">¶</a></h1>
@@ -338,7 +342,7 @@ statements</em> leads you to this form:</p>
 </div>
 <div class="build container">
 <p>And now you can simply use the code you&#8217;ve already written and calls to
-<tt class="docutils literal"><span class="pre">add</span></tt> will be logged:</p>
+<code class="docutils literal"><span class="pre">add</span></code> will be logged:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="go">Function &#39;add&#39; called</span>
 <span class="go">    with args: (3, 4)</span>
@@ -353,7 +357,7 @@ statements</em> leads you to this form:</p>
 <p>Rebinding the name of a function to the result of calling a decorator on that
 function is called <strong>decoration</strong>.</p>
 <p>Because this is so common, Python provides a special operator to perform it
-more <em>declaratively</em>: the <tt class="docutils literal"><span class="pre">&#64;</span></tt> operator:</p>
+more <em>declaratively</em>: the <code class="docutils literal"><span class="pre">&#64;</span></code> operator:</p>
 <p>(I told you I&#8217;d eventually explain what was going on under the hood
 with that wierd <cite>&#64;</cite> symbol)</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># this is the imperative version:</span>
@@ -377,7 +381,7 @@ but both have the identical result, and can be used interchangeably.</div>
 incomplete.</p>
 <p>In reality, decorators can be used with anything that is <em>callable</em>.</p>
 <p>Remember from last week, a <em>callable</em> is a function, a method on a class,
-or a class that implements the <tt class="docutils literal"><span class="pre">__call__</span></tt> special method.</p>
+or a class that implements the <code class="docutils literal"><span class="pre">__call__</span></code> special method.</p>
 <p>So in fact the definition should be updated as follows:</p>
 <p class="centered">A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.</p>
@@ -466,7 +470,7 @@ decorator:</p>
 <p>It&#8217;s going to be a lot more common for you to use pre-defined decorators than
 for you to be writing your own.</p>
 <p>We&#8217;ve seen a few already:</p>
-<p>For example, <tt class="docutils literal"><span class="pre">&#64;staticmethod</span></tt> and <tt class="docutils literal"><span class="pre">&#64;classmethod</span></tt> can also be used as simple
+<p>For example, <code class="docutils literal"><span class="pre">&#64;staticmethod</span></code> and <code class="docutils literal"><span class="pre">&#64;classmethod</span></code> can also be used as simple
 callables, without the nifty decorator expression:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># the way we saw last week:</span>
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -482,9 +486,9 @@ callables, without the nifty decorator expression:</p>
     <span class="n">add</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that the &#8220;<tt class="docutils literal"><span class="pre">def</span></tt>&#8221; binds the name <tt class="docutils literal"><span class="pre">add</span></tt>, then the next line
+<p>Note that the &#8220;<code class="docutils literal"><span class="pre">def</span></code>&#8221; binds the name <code class="docutils literal"><span class="pre">add</span></code>, then the next line
 rebinds it.</p>
-<p>The <tt class="docutils literal"><span class="pre">classmethod()</span></tt> builtin can do the same thing:</p>
+<p>The <code class="docutils literal"><span class="pre">classmethod()</span></code> builtin can do the same thing:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># in declarative style</span>
 <span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="nd">@classmethod</span>
@@ -502,7 +506,7 @@ rebinds it.</p>
 <div class="section" id="property">
 <h3>property()<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
 <p>Remember the property() built in?</p>
-<p>Perhaps most commonly, you&#8217;ll see the <tt class="docutils literal"><span class="pre">property()</span></tt> builtin used this way.</p>
+<p>Perhaps most commonly, you&#8217;ll see the <code class="docutils literal"><span class="pre">property()</span></code> builtin used this way.</p>
 <p>Last week we saw this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -567,7 +571,7 @@ HTML &#8216;p&#8217; tag:</p>
 </pre></div>
 </div>
 <p>simple test code in
-<a class="reference download internal" href="_downloads/test_p_wrapper.py"><tt class="xref download docutils literal"><span class="pre">Examples/Session09/test_p_wrapper.py</span></tt></a></p>
+<a class="reference download internal" href="_downloads/test_p_wrapper.py"><code class="xref download docutils literal"><span class="pre">Examples/Session09/test_p_wrapper.py</span></code></a></p>
 </div>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
@@ -597,7 +601,7 @@ code:</p>
 <span class="c"># do some stuff with the contents</span>
 </pre></div>
 </div>
-<p>What happens if you forget to call <tt class="docutils literal"><span class="pre">.close()</span></tt>?</p>
+<p>What happens if you forget to call <code class="docutils literal"><span class="pre">.close()</span></code>?</p>
 <p>What happens if reading the file raises an exception?</p>
 </div>
 <div class="section" id="resource-handling">
@@ -620,32 +624,32 @@ repetition needed to handle resources like this.</p>
 <p class="centered"><strong>Context Managers</strong></p>
 <p>You can encapsulate the setup, error handling and teardown of resources in a
 few simple steps.</p>
-<p>The key is to use the <tt class="docutils literal"><span class="pre">with</span></tt> statement.</p>
-<p>Since the introduction of the <tt class="docutils literal"><span class="pre">with</span></tt> statement in <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0343/">pep343</a>, the above six
+<p>The key is to use the <code class="docutils literal"><span class="pre">with</span></code> statement.</p>
+<p>Since the introduction of the <code class="docutils literal"><span class="pre">with</span></code> statement in <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0343/">pep343</a>, the above six
 lines of defensive code have been replaced with this simple form:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
     <span class="n">file_content</span> <span class="o">=</span> <span class="n">file_handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="c"># do something with file_content</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">open</span></tt> builtin is defined as a <em>context manager</em>.</p>
-<p>The resource it returnes (<tt class="docutils literal"><span class="pre">file_handle</span></tt>) is automatically and reliably closed
+<p><code class="docutils literal"><span class="pre">open</span></code> builtin is defined as a <em>context manager</em>.</p>
+<p>The resource it returnes (<code class="docutils literal"><span class="pre">file_handle</span></code>) is automatically and reliably closed
 when the code block ends.</p>
 <p>At this point in Python history, many functions you might expect to behave this
 way do:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">open</span></tt> and <tt class="docutils literal"><span class="pre">io.open</span></tt> both work as context managers.
-(<tt class="docutils literal"><span class="pre">io.open</span></tt> is good for working with unicode)</li>
-<li>networks connections via <tt class="docutils literal"><span class="pre">socket</span></tt> do as well.</li>
+<li><code class="docutils literal"><span class="pre">open</span></code> and <code class="docutils literal"><span class="pre">io.open</span></code> both work as context managers.
+(<code class="docutils literal"><span class="pre">io.open</span></code> is good for working with unicode)</li>
+<li>networks connections via <code class="docutils literal"><span class="pre">socket</span></code> do as well.</li>
 <li>most implementations of database wrappers can open connections or cursors as
 context managers.</li>
 <li>...</li>
 <li>But what if you are working with a library that doesn&#8217;t support this
-(<tt class="docutils literal"><span class="pre">urllib</span></tt>)?</li>
+(<code class="docutils literal"><span class="pre">urllib</span></code>)?</li>
 </ul>
 <p>There are a couple of ways you can go.</p>
-<p>If the resource in questions has a <tt class="docutils literal"><span class="pre">.close()</span></tt> method, then you can simply use
-the <tt class="docutils literal"><span class="pre">closing</span></tt> context manager from <tt class="docutils literal"><span class="pre">contextlib</span></tt> to handle the issue:</p>
+<p>If the resource in questions has a <code class="docutils literal"><span class="pre">.close()</span></code> method, then you can simply use
+the <code class="docutils literal"><span class="pre">closing</span></code> context manager from <code class="docutils literal"><span class="pre">contextlib</span></code> to handle the issue:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib</span>
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">closing</span>
 
@@ -654,7 +658,7 @@ the <tt class="docutils literal"><span class="pre">closing</span></tt> context m
 <span class="c"># and here, it will be closed automatically</span>
 </pre></div>
 </div>
-<p>But what if the thing doesn&#8217;t have a <tt class="docutils literal"><span class="pre">close()</span></tt> method, or you&#8217;re creating
+<p>But what if the thing doesn&#8217;t have a <code class="docutils literal"><span class="pre">close()</span></code> method, or you&#8217;re creating
 the thing and it shouldn&#8217;t have a close() method?</p>
 </div>
 <div class="section" id="do-it-yourself">
@@ -662,7 +666,7 @@ the thing and it shouldn&#8217;t have a close() method?</p>
 <p>You can also define a context manager of your own.</p>
 <p>The interface is simple.  It must be a class that implements two
 more of the nifty python <em>special methods</em></p>
-<p><strong>__enter__(self)</strong>  Called when the <tt class="docutils literal"><span class="pre">with</span></tt> statement is run, it should return something to work with in the created context.</p>
+<p><strong>__enter__(self)</strong>  Called when the <code class="docutils literal"><span class="pre">with</span></code> statement is run, it should return something to work with in the created context.</p>
 <p><strong>__exit__(self, e_type, e_val, e_traceback)</strong>  Clean-up that needs to happen is implemented here.</p>
 <p>The arguments will be the exception raised in the context.</p>
 <p>If the exception will be handled here, return True. If not, return False.</p>
@@ -686,7 +690,7 @@ more of the nifty python <em>special methods</em></p>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span>
 </pre></div>
 </div>
-<p><a class="reference download internal" href="_downloads/context_managers.py"><tt class="xref download docutils literal"><span class="pre">Examples/Session09/context_managers.py</span></tt></a></p>
+<p><a class="reference download internal" href="_downloads/context_managers.py"><code class="xref download docutils literal"><span class="pre">Examples/Session09/context_managers.py</span></code></a></p>
 <p>This class doesn&#8217;t do much of anything, but playing with it can help
 clarify the order in which things happen:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [46]: </span><span class="k">with</span> <span class="n">Context</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">foo</span><span class="p">:</span>
@@ -700,7 +704,7 @@ clarify the order in which things happen:</p>
 </div>
 <div class="build container">
 Because the exit method returns True, the raised error is &#8216;handled&#8217;.</div>
-<p>What if we try with <tt class="docutils literal"><span class="pre">False</span></tt>?</p>
+<p>What if we try with <code class="docutils literal"><span class="pre">False</span></code>?</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="k">with</span> <span class="n">Context</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">foo</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="k">print</span> <span class="s">&#39;This is in the context&#39;</span>
 <span class="gp">   ....: </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;this is the error message&#39;</span><span class="p">)</span>
@@ -718,7 +722,7 @@ Because the exit method returns True, the raised error is &#8216;handled&#8217;.
 <span class="ne">RuntimeError</span>: this is the error message
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">contextlib.contextmanager</span></tt> turns generator functions into context managers.
+<p><code class="docutils literal"><span class="pre">contextlib.contextmanager</span></code> turns generator functions into context managers.
 Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 
@@ -780,7 +784,7 @@ run all the code inside the context:</p>
 <span class="go">this code took 0.206805 seconds</span>
 </pre></div>
 </div>
-<p><strong>Extra Credit</strong>: allow the <tt class="docutils literal"><span class="pre">Timer</span></tt> context manager to take a file-like
+<p><strong>Extra Credit</strong>: allow the <code class="docutils literal"><span class="pre">Timer</span></code> context manager to take a file-like
 object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.</p>
 </div>
@@ -801,8 +805,8 @@ timing should be printed to the file-like object.</p>
 <h2>Packages and Packaging<a class="headerlink" href="#packages-and-packaging" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="modules-and-packages">
 <h3>Modules and Packages<a class="headerlink" href="#modules-and-packages" title="Permalink to this headline">¶</a></h3>
-<p>A module is a file (<tt class="docutils literal"><span class="pre">something.py</span></tt>) with python code in it</p>
-<p>A package is a directory with an <tt class="docutils literal"><span class="pre">__init__.py</span></tt>  file in it</p>
+<p>A module is a file (<code class="docutils literal"><span class="pre">something.py</span></code>) with python code in it</p>
+<p>A package is a directory with an <code class="docutils literal"><span class="pre">__init__.py</span></code>  file in it</p>
 <p>And usually other modules, packages, etc...</p>
 <div class="highlight-python"><div class="highlight"><pre>my_package
     __init__.py
@@ -813,7 +817,7 @@ timing should be printed to the file-like object.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">my_package</span>
 </pre></div>
 </div>
-<p>runs the code <tt class="docutils literal"><span class="pre">my_package/__init__.py</span></tt> (if there is any)</p>
+<p>runs the code <code class="docutils literal"><span class="pre">my_package/__init__.py</span></code> (if there is any)</p>
 </div>
 <div class="section" id="id5">
 <h3>Modules and Packages<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
@@ -846,7 +850,7 @@ timing should be printed to the file-like object.</p>
 <li>There are non-open source components</li>
 <li>Third party packages may or may not support it</li>
 <li>Apple does use it &#8211; so don&#8217;t mess with it</li>
-<li>I usually recommend the <tt class="docutils literal"><span class="pre">python.org</span></tt> version</li>
+<li>I usually recommend the <code class="docutils literal"><span class="pre">python.org</span></code> version</li>
 </ul>
 </div></blockquote>
 <p>(Also Macports, Fink, Home Brew...)</p>
@@ -867,8 +871,8 @@ timing should be printed to the file-like object.</p>
 </div>
 <div class="section" id="installing-packages">
 <h3>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h3>
-<p>Every Python installation has its own stdlib and <tt class="docutils literal"><span class="pre">site-packages</span></tt> folder</p>
-<p><tt class="docutils literal"><span class="pre">site-packages</span></tt>  is the default place for third-party packages</p>
+<p>Every Python installation has its own stdlib and <code class="docutils literal"><span class="pre">site-packages</span></code> folder</p>
+<p><code class="docutils literal"><span class="pre">site-packages</span></code>  is the default place for third-party packages</p>
 </div>
 <div class="section" id="finding-packages">
 <h3>Finding Packages<a class="headerlink" href="#finding-packages" title="Permalink to this headline">¶</a></h3>
@@ -880,7 +884,7 @@ timing should be printed to the file-like object.</p>
 <h3>Installing Packages<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p class="medium"><strong>From source</strong></p>
 <ul class="simple">
-<li>(<tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></tt> )</li>
+<li>(<code class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></code> )</li>
 <li>With the system installer (apt-get, yum, etc...)</li>
 </ul>
 <p class="medium"><strong>From binaries:</strong></p>
@@ -888,21 +892,21 @@ timing should be printed to the file-like object.</p>
 <li>Windows: MSI installers</li>
 <li>OS-X: dmg installers (make sure to get compatible packages)</li>
 <li>And now: binary wheels &#8211; (More and more of those available)</li>
-<li><tt class="docutils literal"><span class="pre">pip</span></tt> should find appropriate binary wheels if they are there.</li>
+<li><code class="docutils literal"><span class="pre">pip</span></code> should find appropriate binary wheels if they are there.</li>
 </ul>
-<p>In the beginning, there was the <tt class="docutils literal"><span class="pre">distutils</span></tt>:</p>
-<p>But <tt class="docutils literal"><span class="pre">distutils</span></tt>  is missing some key features:</p>
+<p>In the beginning, there was the <code class="docutils literal"><span class="pre">distutils</span></code>:</p>
+<p>But <code class="docutils literal"><span class="pre">distutils</span></code>  is missing some key features:</p>
 <ul class="simple">
 <li>package versioning</li>
 <li>package discovery</li>
 <li>auto-install</li>
 </ul>
 <ul class="simple">
-<li>And then came <tt class="docutils literal"><span class="pre">PyPi</span></tt></li>
-<li>And then came <tt class="docutils literal"><span class="pre">setuptools</span></tt></li>
+<li>And then came <code class="docutils literal"><span class="pre">PyPi</span></code></li>
+<li>And then came <code class="docutils literal"><span class="pre">setuptools</span></code></li>
 <li>But that wasn&#8217;t well maintained...</li>
-<li>Then there was <tt class="docutils literal"><span class="pre">distribute/pip</span></tt></li>
-<li>Which has now been merged back into <tt class="docutils literal"><span class="pre">setuptools</span></tt></li>
+<li>Then there was <code class="docutils literal"><span class="pre">distribute/pip</span></code></li>
+<li>Which has now been merged back into <code class="docutils literal"><span class="pre">setuptools</span></code></li>
 </ul>
 <p>Now it&#8217;s pretty stable: pip+setuptools: use them.</p>
 </div>
@@ -966,7 +970,7 @@ timing should be printed to the file-like object.</p>
 </ul>
 </div></blockquote>
 <ol class="arabic" start="2">
-<li><p class="first">Try <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt>: it may just work!</p>
+<li><p class="first">Try <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code>: it may just work!</p>
 </li>
 <li><p class="first">Install the dependencies, build from source:</p>
 <div class="highlight-python"><div class="highlight"><pre>python setup.py build
@@ -1032,7 +1036,7 @@ python setup.py install
 </div>
 <div class="section" id="final-recommendations">
 <h3>Final Recommendations<a class="headerlink" href="#final-recommendations" title="Permalink to this headline">¶</a></h3>
-<p>First try: <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt></p>
+<p>First try: <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code></p>
 <p>If that doesn&#8217;t work:</p>
 <p>Read the docs of the package you want to install</p>
 <p>Do what they say</p>
@@ -1040,11 +1044,11 @@ python setup.py install
 </div>
 <div class="section" id="virtualenv">
 <h3>virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">virtualenv</span></tt> is a tool to create isolated Python environments.</p>
+<p><code class="docutils literal"><span class="pre">virtualenv</span></code> is a tool to create isolated Python environments.</p>
 <p>Very useful for developing multiple apps</p>
 <p>Or deploying more than one app on one system</p>
 <p><a class="reference external" href="http://www.virtualenv.org/en/latest/index.html">http://www.virtualenv.org/en/latest/index.html</a>}</p>
-<p>Remember the notes from the beginning of class? <a class="reference internal" href="supplements/virtualenv.html#virtualenv-section"><em>Working with Virtualenv</em></a></p>
+<p>Remember the notes from the beginning of class? <a class="reference internal" href="supplements/virtualenv.html#virtualenv-section"><span>Working with Virtualenv</span></a></p>
 <p>(Cris will probably make you do this next class)</p>
 </div>
 </div>
@@ -1074,7 +1078,7 @@ control and call it good.</p>
 </div>
 <div class="section" id="distutils">
 <h3>distutils<a class="headerlink" href="#distutils" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">distutils</span></tt>  makes it easy to do the easy stuff:</p>
+<p><code class="docutils literal"><span class="pre">distutils</span></code>  makes it easy to do the easy stuff:</p>
 <p>Distribute and install to multiple platforms, etc.</p>
 <p>Even binaries, installers and compiled packages</p>
 <p>(Except dependencies)</p>
@@ -1082,7 +1086,7 @@ control and call it good.</p>
 </div>
 <div class="section" id="distutils-basics">
 <h3>distutils basics<a class="headerlink" href="#distutils-basics" title="Permalink to this headline">¶</a></h3>
-<p>It&#8217;s all in the <tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">file</span></tt>:</p>
+<p>It&#8217;s all in the <code class="docutils literal"><span class="pre">setup.py</span> <span class="pre">file</span></code>:</p>
 <p>(<a class="reference external" href="http://docs.python.org/distutils/">http://docs.python.org/distutils/</a>)</p>
 </div>
 <div class="section" id="id10">
@@ -1105,7 +1109,7 @@ upload        upload binary package to PyPI
 <p>&#8220;wheels&#8221; are the &#8220;new&#8221; package format for python.</p>
 <p>A wheel is essentially a zip file of the entire package, ready to be
 unpacked in the right place on installation.</p>
-<p><tt class="docutils literal"><span class="pre">pip</span></tt> will look for wheels for OS-X and Windows on PyPi, and auto-install
+<p><code class="docutils literal"><span class="pre">pip</span></code> will look for wheels for OS-X and Windows on PyPi, and auto-install
 them if they exist</p>
 <p>This is particularly nice for packages with non-python dependencies.</p>
 </div>
@@ -1119,10 +1123,10 @@ them if they exist</p>
 <h3>develop mode<a class="headerlink" href="#develop-mode" title="Permalink to this headline">¶</a></h3>
 <p>While you are developing your package, Installing it is a pain.</p>
 <p>But you want your code to be able to import, etc. as though it were installed</p>
-<p><tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">develop</span></tt>  installs links to your code, rather than copies
+<p><code class="docutils literal"><span class="pre">setup.py</span> <span class="pre">develop</span></code>  installs links to your code, rather than copies
 &#8211; so it looks like it&#8217;s installed, but it&#8217;s using the original source</p>
-<p><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></tt></p>
-<p>You need <tt class="docutils literal"><span class="pre">setuptools</span></tt> and a setup.py  to use it.</p>
+<p><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code></p>
+<p>You need <code class="docutils literal"><span class="pre">setuptools</span></code> and a setup.py  to use it.</p>
 </div>
 <div class="section" id="applications">
 <h3>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h3>
@@ -1167,26 +1171,26 @@ all in one single &#8220;bundle&#8221;</p>
 <blockquote>
 <div><ul class="simple">
 <li>Ideally, your script relies on at least one other module</li>
-<li>At a minimum, you&#8217;ll need to specify <tt class="docutils literal"><span class="pre">scripts</span></tt></li>
-<li>and probably <tt class="docutils literal"><span class="pre">py_modules</span></tt></li>
+<li>At a minimum, you&#8217;ll need to specify <code class="docutils literal"><span class="pre">scripts</span></code></li>
+<li>and probably <code class="docutils literal"><span class="pre">py_modules</span></code></li>
 <li>try:<ul>
-<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></tt></li>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build</span></code></li>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></li>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code></li>
 </ul>
 </li>
-<li>EXTRA: install <tt class="docutils literal"><span class="pre">setuptools</span></tt><ul>
-<li>use: <tt class="docutils literal"><span class="pre">from</span> <span class="pre">setuptools</span> <span class="pre">import</span> <span class="pre">setup</span></tt></li>
+<li>EXTRA: install <code class="docutils literal"><span class="pre">setuptools</span></code><ul>
+<li>use: <code class="docutils literal"><span class="pre">from</span> <span class="pre">setuptools</span> <span class="pre">import</span> <span class="pre">setup</span></code></li>
 <li>try: `` python setup.py develop``</li>
 </ul>
 </li>
-<li>EXTRA2: install <tt class="docutils literal"><span class="pre">wheel</span></tt><ul>
-<li><tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wheel</span></tt></li>
+<li>EXTRA2: install <code class="docutils literal"><span class="pre">wheel</span></code><ul>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wheel</span></code></li>
 </ul>
 </li>
 </ul>
 </div></blockquote>
-<p>(my example: <tt class="docutils literal"><span class="pre">Examples/Session09/capitalize</span></tt>)</p>
+<p>(my example: <code class="docutils literal"><span class="pre">Examples/Session09/capitalize</span></code>)</p>
 </div>
 </div>
 <div class="section" id="next-week">
@@ -1212,7 +1216,7 @@ web development class</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="session10.html" class="btn btn-neutral float-right" title="Session Ten: Unicode, Persistence/Serialization"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="session10.html" class="btn btn-neutral float-right" title="Session Ten: Unicode, Wrap Up">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="session08.html" class="btn btn-neutral" title="Session Eight: Callable classes, Iterators, Generators"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1228,7 +1232,8 @@ web development class</p>
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -1253,7 +1258,7 @@ web development class</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

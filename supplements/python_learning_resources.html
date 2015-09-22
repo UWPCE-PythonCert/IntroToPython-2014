@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -25,6 +25,8 @@
   
   
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
   
 
   
@@ -45,9 +47,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+          <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -57,8 +62,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -123,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -161,11 +168,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session09.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#packages-and-packaging">Packages and Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#distributing">Distributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html#session-ten-unicode-persistence-serialization">Session Ten: Unicode, Persistence / Serialization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../session10.html#history">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#web-development-class">Web Development Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#unicode">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#mechanics">Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#code-review">Code Review?</a></li>
 </ul>
 </li>
 </ul>
@@ -189,6 +205,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -221,7 +238,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="useful-python-learning-resources">
 <h1>Useful Python Learning Resources<a class="headerlink" href="#useful-python-learning-resources" title="Permalink to this headline">¶</a></h1>
@@ -343,7 +360,7 @@ Use this to learn more about iPython&#8217;s amazing capabilities.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="python_for_mac.html" class="btn btn-neutral float-right" title="Setting up your Mac for Python and this class"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="python_for_mac.html" class="btn btn-neutral float-right" title="Setting up your Mac for Python and this class">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Supplemental Materials"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -359,7 +376,8 @@ Use this to learn more about iPython&#8217;s amazing capabilities.</p>
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -384,7 +402,7 @@ Use this to learn more about iPython&#8217;s amazing capabilities.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

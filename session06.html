@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -25,6 +25,8 @@
   
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
   
 
   
@@ -44,9 +46,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+        
+          <a href="index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -56,8 +61,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul class="current">
+          
+          
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -122,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -167,17 +174,13 @@
 <li class="toctree-l2"><a class="reference internal" href="session09.html#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Persistence/Serialization</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#web-development-class">Web Development Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#unicode">Unicode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#mechanics">Mechanics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session10.html#code-review">Code Review?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#python-specific-formats">Python Specific Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#interchange-formats">Interchange Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#databases">DataBases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#other-options">Other Options</a></li>
 </ul>
 </li>
 </ul>
@@ -201,6 +204,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -231,7 +235,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="session-six-functional-and-object-oriented-programming">
 <h1>Session Six: Functional and Object Oriented Programming<a class="headerlink" href="#session-six-functional-and-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
@@ -255,7 +259,7 @@
 <div class="section" id="review-of-previous-class">
 <h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Argument Passing: <tt class="docutils literal"><span class="pre">*args</span></tt>, <tt class="docutils literal"><span class="pre">**kwargs</span></tt></li>
+<li>Argument Passing: <code class="docutils literal"><span class="pre">*args</span></code>, <code class="docutils literal"><span class="pre">**kwargs</span></code></li>
 <li>comprehensions</li>
 <li>testing (a bit more on that soon)</li>
 </ul>
@@ -268,10 +272,10 @@
 <h3>Notes from Homework:<a class="headerlink" href="#notes-from-homework" title="Permalink to this headline">¶</a></h3>
 <p>Comparing to &#8220;singletons&#8221;:</p>
 <p>Use:</p>
-<p><tt class="docutils literal"><span class="pre">if</span> <span class="pre">something</span> <span class="pre">is</span> <span class="pre">None</span></tt></p>
+<p><code class="docutils literal"><span class="pre">if</span> <span class="pre">something</span> <span class="pre">is</span> <span class="pre">None</span></code></p>
 <p>Not:</p>
-<p><tt class="docutils literal"><span class="pre">if</span> <span class="pre">something</span> <span class="pre">==</span> <span class="pre">None</span></tt></p>
-<p>(also <tt class="docutils literal"><span class="pre">True</span></tt> and <tt class="docutils literal"><span class="pre">False</span></tt>)</p>
+<p><code class="docutils literal"><span class="pre">if</span> <span class="pre">something</span> <span class="pre">==</span> <span class="pre">None</span></code></p>
+<p>(also <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>)</p>
 <p>rich comparisons: numpy</p>
 <p>(demo)</p>
 <p>Binary mode for files:</p>
@@ -305,9 +309,9 @@ collections:</p>
 </div>
 <div class="section" id="defaultdict">
 <h3>defaultdict<a class="headerlink" href="#defaultdict" title="Permalink to this headline">¶</a></h3>
-<p>An alternative to <tt class="docutils literal"><span class="pre">dict.setdefault()</span></tt></p>
+<p>An alternative to <code class="docutils literal"><span class="pre">dict.setdefault()</span></code></p>
 <p>Makes sense when you are buildng a dict where every value will be the same thing</p>
-<p>Carolyn found this in the <tt class="docutils literal"><span class="pre">collections</span></tt> package. Useful for the trigrams
+<p>Carolyn found this in the <code class="docutils literal"><span class="pre">collections</span></code> package. Useful for the trigrams
 assignment:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
@@ -319,15 +323,15 @@ assignment:</p>
 </div>
 <div class="section" id="counter">
 <h3>Counter<a class="headerlink" href="#counter" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">Counter</span></tt>:</p>
+<p><code class="docutils literal"><span class="pre">Counter</span></code>:</p>
 <p>Hui Zhang found this for counting how many students used which previous
 languages.</p>
-<p>See my example in <tt class="docutils literal"><span class="pre">/Solutions/Session05</span></tt></p>
+<p>See my example in <code class="docutils literal"><span class="pre">/Solutions/Session05</span></code></p>
 </div>
 </div>
 <div class="section" id="test-driven-development-demo">
 <h2>Test Driven development demo<a class="headerlink" href="#test-driven-development-demo" title="Permalink to this headline">¶</a></h2>
-<p>In <tt class="docutils literal"><span class="pre">Examples/Session06/</span></tt></p>
+<p>In <code class="docutils literal"><span class="pre">Examples/Session06/</span></code></p>
 </div>
 <div class="section" id="anonymous-functions">
 <h2>Anonymous functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
@@ -372,7 +376,7 @@ languages.</p>
 <h2>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="map">
 <h3>map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">map</span></tt>  &#8220;maps&#8221; a function onto a sequence of objects &#8211; It applies the function to each item in the list, returning another list</p>
+<p><code class="docutils literal"><span class="pre">map</span></code>  &#8220;maps&#8221; a function onto a sequence of objects &#8211; It applies the function to each item in the list, returning another list</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="gp">In [24]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="go">             return x*2 + 10</span>
@@ -388,15 +392,15 @@ languages.</p>
 </div>
 <div class="section" id="filter">
 <h3>filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">filter</span></tt>  &#8220;filters&#8221; a sequence of objects with a boolean function &#8211;
+<p><code class="docutils literal"><span class="pre">filter</span></code>  &#8220;filters&#8221; a sequence of objects with a boolean function &#8211;
 It keeps only those for which the function is True</p>
 <p>To get only the even numbers:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="gp">In [28]: </span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="gp">In [28]: </span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>, l)
 <span class="gh">Out[28]: </span><span class="go">[2, 12, 6, 4]</span>
 </pre></div>
 </div>
-<p>If you pass <tt class="docutils literal"><span class="pre">None</span></tt> to <tt class="docutils literal"><span class="pre">filter()</span></tt>, you get only items that evaluate to true:</p>
+<p>If you pass <code class="docutils literal"><span class="pre">None</span></code> to <code class="docutils literal"><span class="pre">filter()</span></code>, you get only items that evaluate to true:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s">&#39;text&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[],</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">None</span> <span class="p">]</span>
 
 <span class="gp">In [2]: </span><span class="nb">filter</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
@@ -406,7 +410,7 @@ It keeps only those for which the function is True</p>
 </div>
 <div class="section" id="reduce">
 <h3>reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">reduce</span></tt>  &#8220;reduces&#8221; a sequence of objects to a single object with a function that combines two arguments</p>
+<p><code class="docutils literal"><span class="pre">reduce</span></code>  &#8220;reduces&#8221; a sequence of objects to a single object with a function that combines two arguments</p>
 <p>To get the sum:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [30]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="gp">In [31]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
@@ -433,7 +437,7 @@ It keeps only those for which the function is True</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [33]: </span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
 <span class="gh">Out[33]: </span><span class="go">[14, 17, 19, 24, 18, 16]</span>
 
-<span class="gp">In [34]: </span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span><span class="p">]</span>
+<span class="gp">In [34]: </span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>]
 <span class="gh">Out[34]: </span><span class="go">[2, 12, 6, 4]</span>
 
 <span class="gp">In [6]: </span><span class="n">l</span>
@@ -443,12 +447,12 @@ It keeps only those for which the function is True</p>
 </pre></div>
 </div>
 <p>(Except Reduce)</p>
-<p>But Guido thinks almost all uses of reduce are really <tt class="docutils literal"><span class="pre">sum()</span></tt></p>
+<p>But Guido thinks almost all uses of reduce are really <code class="docutils literal"><span class="pre">sum()</span></code></p>
 </div>
 <div class="section" id="id1">
 <h3>Functional Programming<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Comprehensions and map, filter, reduce are all &#8220;functional programming&#8221; approaches}</p>
-<p><tt class="docutils literal"><span class="pre">map,</span> <span class="pre">filter</span></tt>  and <tt class="docutils literal"><span class="pre">reduce</span></tt>  pre-date comprehensions in Python&#8217;s history</p>
+<p><code class="docutils literal"><span class="pre">map,</span> <span class="pre">filter</span></code>  and <code class="docutils literal"><span class="pre">reduce</span></code>  pre-date comprehensions in Python&#8217;s history</p>
 <p>Some people like that syntax better</p>
 <p>And &#8220;map-reduce&#8221; is a big concept these days for parallel processing of &#8220;Big Data&#8221; in NoSQL databases.</p>
 <p>(Hadoop, MongoDB, etc.)</p>
@@ -477,7 +481,7 @@ It keeps only those for which the function is True</p>
 <p>Write a function that returns a list of n functions,
 such that each one, when called, will return the input value,
 incremented by an increasing number.</p>
-<p>Use a for loop, <tt class="docutils literal"><span class="pre">lambda</span></tt>, and a keyword argument</p>
+<p>Use a for loop, <code class="docutils literal"><span class="pre">lambda</span></code>, and a keyword argument</p>
 <p>( Extra credit ):</p>
 <p>Do it with a list comprehension, instead of a for loop</p>
 <p>Not clear? here&#8217;s what you should get</p>
@@ -608,8 +612,8 @@ as a variable, or single object, as opposed to a ...</dd>
 </div>
 <div class="section" id="python-classes">
 <h2>Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h2>
-<p class="left">The <tt class="docutils literal"><span class="pre">class</span></tt>  statement</p>
-<p class="left"><tt class="docutils literal"><span class="pre">class</span></tt>  creates a new type object:</p>
+<p class="left">The <code class="docutils literal"><span class="pre">class</span></code>  statement</p>
+<p class="left"><code class="docutils literal"><span class="pre">class</span></code>  creates a new type object:</p>
 <div class="left highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="go">    pass</span>
 <span class="gp">   ...:</span>
@@ -618,8 +622,8 @@ as a variable, or single object, as opposed to a ...</dd>
 </pre></div>
 </div>
 <p class="left">A class is a type &#8211; interesting!</p>
-<p class="left">It is created when the statement is run &#8211; much like <tt class="docutils literal"><span class="pre">def</span></tt></p>
-<p class="left">You don&#8217;t <em>have</em> to subclass from <tt class="docutils literal"><span class="pre">object</span></tt>, but you <em>should</em></p>
+<p class="left">It is created when the statement is run &#8211; much like <code class="docutils literal"><span class="pre">def</span></code></p>
+<p class="left">You don&#8217;t <em>have</em> to subclass from <code class="docutils literal"><span class="pre">object</span></code>, but you <em>should</em></p>
 <p class="left">(note on &#8220;new style&#8221; classes)</p>
 <div class="section" id="id3">
 <h3>Python Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
@@ -654,9 +658,9 @@ as a variable, or single object, as opposed to a ...</dd>
 <span class="k">print</span> <span class="s">&quot;p.y is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>
 </pre></div>
 </div>
-<p>see: <tt class="docutils literal"><span class="pre">Examples/Session06/simple_classes.py</span></tt></p>
+<p>see: <code class="docutils literal"><span class="pre">Examples/Session06/simple_classes.py</span></code></p>
 <p>The Initializer</p>
-<p>The <tt class="docutils literal"><span class="pre">__init__</span></tt>  special method is called when a new instance of a class is created.</p>
+<p>The <code class="docutils literal"><span class="pre">__init__</span></code>  special method is called when a new instance of a class is created.</p>
 <p>You can use it to do any set-up you need</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -668,17 +672,17 @@ as a variable, or single object, as opposed to a ...</dd>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>What is this <tt class="docutils literal"><span class="pre">self</span></tt> thing?</p>
+<p>What is this <code class="docutils literal"><span class="pre">self</span></code> thing?</p>
 <p>The instance of the class is passed as the first parameter for every method.</p>
-<p>&#8220;<tt class="docutils literal"><span class="pre">self</span></tt>&#8221; is only a convention &#8211; but you DO want to use it.</p>
+<p>&#8220;<code class="docutils literal"><span class="pre">self</span></code>&#8221; is only a convention &#8211; but you DO want to use it.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">a_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="o">...</span>
 </pre></div>
 </div>
 <p>Does this look familiar from C-style procedural programming?</p>
-<p>Anything assigned to a <tt class="docutils literal"><span class="pre">self.</span></tt>  attribute is kept in the instance
-name space &#8211; <tt class="docutils literal"><span class="pre">self</span></tt> <em>is</em> the instance.</p>
+<p>Anything assigned to a <code class="docutils literal"><span class="pre">self.</span></code>  attribute is kept in the instance
+name space &#8211; <code class="docutils literal"><span class="pre">self</span></code> <em>is</em> the instance.</p>
 <p>That&#8217;s where all the instance-specific data is.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
@@ -690,7 +694,7 @@ name space &#8211; <tt class="docutils literal"><span class="pre">self</span></t
 </div>
 <p>Anything assigned in the class scope is a class attribute &#8211; every
 instance of the class shares the same one.</p>
-<p>Note: the methods defined by <tt class="docutils literal"><span class="pre">def</span></tt> are class attributes as well.</p>
+<p>Note: the methods defined by <code class="docutils literal"><span class="pre">def</span></code> are class attributes as well.</p>
 <p>The class is one namespace, the instance is another.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
@@ -702,7 +706,7 @@ instance of the class shares the same one.</p>
  <span class="s">&#39;red&#39;</span>
 </pre></div>
 </div>
-<p>class attributes are accessed with <tt class="docutils literal"><span class="pre">self</span></tt>  also.</p>
+<p>class attributes are accessed with <code class="docutils literal"><span class="pre">self</span></code>  also.</p>
 <p>Typical methods:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
@@ -714,7 +718,7 @@ instance of the class shares the same one.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">diameter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">diameter</span> <span class="o">*</span> <span class="n">factor</span>
 </pre></div>
 </div>
-<p>Methods take some parameters, manipulate the attributes in <tt class="docutils literal"><span class="pre">self</span></tt>.</p>
+<p>Methods take some parameters, manipulate the attributes in <code class="docutils literal"><span class="pre">self</span></code>.</p>
 <p>They may or may not return something useful.</p>
 <p>Gotcha!</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
@@ -728,7 +732,7 @@ instance of the class shares the same one.</p>
 </pre></div>
 </div>
 <p>Huh???? I only gave 2</p>
-<p><tt class="docutils literal"><span class="pre">self</span></tt> is implicitly passed in for you by python.</p>
+<p><code class="docutils literal"><span class="pre">self</span></code> is implicitly passed in for you by python.</p>
 <p>(demo of bound vs. unbound methods)</p>
 </div>
 <div class="section" id="id4">
@@ -736,11 +740,11 @@ instance of the class shares the same one.</p>
 <p>Let&#8217;s say you need to render some html...</p>
 <p>The goal is to build a set of classes that render an html
 page like this:</p>
-<p><tt class="docutils literal"><span class="pre">Examples/Session06/sample_html.html</span></tt></p>
+<p><code class="docutils literal"><span class="pre">Examples/Session06/sample_html.html</span></code></p>
 <p>We&#8217;ll start with a single class, then add some sub-classes
 to specialize the behavior</p>
 <p>Details in:</p>
-<p><a class="reference internal" href="homework/html_builder.html#homework-html-renderer"><em>HTML Renderer Homework Assignment</em></a></p>
+<p><a class="reference internal" href="homework/html_builder.html#homework-html-renderer"><span>HTML Renderer Homework Assignment</span></a></p>
 <p>Let&#8217;s see if you can do step 1. in class...</p>
 </div>
 <div class="section" id="id5">
@@ -775,8 +779,8 @@ from pre-existing classes called base classes or super classes.</p>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">A_subclass</span></tt>  now has exactly the same behavior as <tt class="docutils literal"><span class="pre">The_superclass</span></tt></p>
-<p>NOTE: when we put <tt class="docutils literal"><span class="pre">object</span></tt> in there, it means we are deriving from object &#8211; getting core functionality of all objects.</p>
+<p><code class="docutils literal"><span class="pre">A_subclass</span></code>  now has exactly the same behavior as <code class="docutils literal"><span class="pre">The_superclass</span></code></p>
+<p>NOTE: when we put <code class="docutils literal"><span class="pre">object</span></code> in there, it means we are deriving from object &#8211; getting core functionality of all objects.</p>
 </div>
 <div class="section" id="overriding-attributes">
 <h3>Overriding attributes<a class="headerlink" href="#overriding-attributes" title="Permalink to this headline">¶</a></h3>
@@ -793,7 +797,7 @@ from pre-existing classes called base classes or super classes.</p>
 <span class="n">blue</span>
 </pre></div>
 </div>
-<p>all the <tt class="docutils literal"><span class="pre">self</span></tt>  instances will have the new attribute.</p>
+<p>all the <code class="docutils literal"><span class="pre">self</span></code>  instances will have the new attribute.</p>
 </div>
 <div class="section" id="overriding-methods">
 <h3>Overriding methods<a class="headerlink" href="#overriding-methods" title="Permalink to this headline">¶</a></h3>
@@ -836,8 +840,8 @@ rule, your code will collapse like (sorry) a house of cards.</p>
 <h2>More on Subclassing<a class="headerlink" href="#more-on-subclassing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="overriding-init">
 <h3>Overriding __init__<a class="headerlink" href="#overriding-init" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">__init__</span></tt> common method to override}</p>
-<p>You often need to call the super class <tt class="docutils literal"><span class="pre">__init__</span></tt>  as well</p>
+<p><code class="docutils literal"><span class="pre">__init__</span></code> common method to override}</p>
+<p>You often need to call the super class <code class="docutils literal"><span class="pre">__init__</span></code>  as well</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diameter</span><span class="p">):</span>
@@ -866,7 +870,7 @@ rule, your code will collapse like (sorry) a house of cards.</p>
         <span class="k">return</span> <span class="n">Circle</span><span class="o">.</span><span class="n">get_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>There is nothing special about <tt class="docutils literal"><span class="pre">__init__</span></tt>  except that it gets called
+<p>There is nothing special about <code class="docutils literal"><span class="pre">__init__</span></code>  except that it gets called
 automatically when you instantiate an instance.</p>
 </div>
 <div class="section" id="when-to-subclass">
@@ -885,7 +889,7 @@ automatically when you instantiate an instance.</p>
 <div class="section" id="attribute-resolution-order">
 <h3>Attribute resolution order<a class="headerlink" href="#attribute-resolution-order" title="Permalink to this headline">¶</a></h3>
 <p>When you access an attribute:</p>
-<p><tt class="docutils literal"><span class="pre">an_instance.something</span></tt></p>
+<p><code class="docutils literal"><span class="pre">an_instance.something</span></code></p>
 <p>Python looks for it in this order:</p>
 <blockquote>
 <div><ul class="simple">
@@ -912,7 +916,7 @@ automatically when you instantiate an instance.</p>
 </ul>
 </li>
 <li>Attribute resolution order</li>
-<li>Auto tacking-on of <tt class="docutils literal"><span class="pre">self</span></tt> when methods are called</li>
+<li>Auto tacking-on of <code class="docutils literal"><span class="pre">self</span></code> when methods are called</li>
 </ul>
 </div></blockquote>
 <p>That&#8217;s about it &#8211; really!</p>
@@ -930,8 +934,8 @@ automatically when you instantiate an instance.</p>
 <p>But when it&#8217;s called for:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">isinstance()</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">issubclass()</span></tt></li>
+<li><code class="docutils literal"><span class="pre">isinstance()</span></code></li>
+<li><code class="docutils literal"><span class="pre">issubclass()</span></code></li>
 </ul>
 </div></blockquote>
 <p>GvR: &#8220;Five Minute Multi- methods in Python&#8221;:</p>
@@ -956,7 +960,7 @@ automatically when you instantiate an instance.</p>
 <p>&#8220;classes are for code re-use &#8211; not creating taxonomies&#8221;</p>
 <p>Stop Writing Classes: <em>Jack Diederich</em></p>
 <p><a class="reference external" href="http://pyvideo.org/video/880/stop-writing-classes">http://pyvideo.org/video/880/stop-writing-classes</a></p>
-<p>&#8220;If your class has only two methods &#8211; and one of them is <tt class="docutils literal"><span class="pre">__init__</span></tt>
+<p>&#8220;If your class has only two methods &#8211; and one of them is <code class="docutils literal"><span class="pre">__init__</span></code>
 &#8211; you don&#8217;t need a class&#8221;</p>
 </div>
 </div>
@@ -974,9 +978,9 @@ all the leading and trailing whitespace from each line.</p>
 <p>Read in the original file and write out a new one, either creating a new
 file or overwriting the existing one.</p>
 <p>Give your user the option of which to perform.</p>
-<p>Use <tt class="docutils literal"><span class="pre">map()</span></tt> to do the work.</p>
+<p>Use <code class="docutils literal"><span class="pre">map()</span></code> to do the work.</p>
 <p>Write a second version using a comprehension.</p>
-<p><tt class="docutils literal"><span class="pre">sys.argv</span></tt> hold the command line arguments the user typed in. If the
+<p><code class="docutils literal"><span class="pre">sys.argv</span></code> hold the command line arguments the user typed in. If the
 user types:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python the_script a_file_name
 </pre></div>
@@ -986,11 +990,11 @@ user types:</p>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>will get <tt class="docutils literal"><span class="pre">filename</span> <span class="pre">==</span> <span class="pre">&quot;a_file_name&quot;</span></tt></p>
+<p>will get <code class="docutils literal"><span class="pre">filename</span> <span class="pre">==</span> <span class="pre">&quot;a_file_name&quot;</span></code></p>
 </div>
 <div class="section" id="html-rendering-system">
 <h3>Html rendering system:<a class="headerlink" href="#html-rendering-system" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="homework/html_builder.html#homework-html-renderer"><em>HTML Renderer Homework Assignment</em></a></p>
+<p><a class="reference internal" href="homework/html_builder.html#homework-html-renderer"><span>HTML Renderer Homework Assignment</span></a></p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -999,7 +1003,7 @@ user types:</p>
 <li>A Base Class with a couple methods</li>
 <li>Subclasses overriding class attributes</li>
 <li>Subclasses overriding a method</li>
-<li>Subclasses overriding the <tt class="docutils literal"><span class="pre">__init__</span></tt></li>
+<li>Subclasses overriding the <code class="docutils literal"><span class="pre">__init__</span></code></li>
 </ul>
 <p>These are the core OO approaches</p>
 </div>
@@ -1012,7 +1016,7 @@ user types:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="session07.html" class="btn btn-neutral float-right" title="Session Seven: More OO"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="session07.html" class="btn btn-neutral float-right" title="Session Seven: More OO">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="session05.html" class="btn btn-neutral" title="Session Five: Advanced Argument passing, List and Dict Comprehensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1028,7 +1032,8 @@ user types:</p>
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -1053,7 +1058,7 @@ user types:</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

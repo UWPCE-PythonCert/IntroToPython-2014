@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -25,6 +25,8 @@
   
   
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
   
 
   
@@ -45,9 +47,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+          <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -57,8 +62,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -123,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -161,11 +168,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session09.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#packages-and-packaging">Packages and Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#distributing">Distributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html#session-ten-unicode-persistence-serialization">Session Ten: Unicode, Persistence / Serialization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../session10.html#history">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#web-development-class">Web Development Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#unicode">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#mechanics">Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#code-review">Code Review?</a></li>
 </ul>
 </li>
 </ul>
@@ -189,6 +205,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -221,7 +238,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="turning-sublime-text-into-a-lightweight-python-ide">
 <h1>Turning Sublime Text Into a Lightweight Python IDE<a class="headerlink" href="#turning-sublime-text-into-a-lightweight-python-ide" title="Permalink to this headline">¶</a></h1>
@@ -256,10 +273,10 @@ Some of the plugins I recommend are not available for version 2.</p>
 and read that link then return here.</p>
 <p>There are a number of <a class="reference external" href="http://www.sublimetext.com/docs/3/settings.html">different levels of configuration</a> in Sublime Text. You
 will most often work on settings at the user level.</p>
-<p>Open <tt class="docutils literal"><span class="pre">Preferences</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">Default</span></tt> to see all the default settings
+<p>Open <code class="docutils literal"><span class="pre">Preferences</span></code> -&gt; <code class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">Default</span></code> to see all the default settings
 and choose which to override.</p>
-<p>Create your own set of preferences by opening <tt class="docutils literal"><span class="pre">Preferences</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span>
-<span class="pre">User</span></tt>. This will create an empty file, you can then copy the settings you want
+<p>Create your own set of preferences by opening <code class="docutils literal"><span class="pre">Preferences</span></code> -&gt; <code class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span>
+<span class="pre">User</span></code>. This will create an empty file, you can then copy the settings you want
 to override from the default set into your personal settings.</p>
 <p>Here&#8217;s a reasonable set of preliminary settings (theme, color scheme and font
 are quite personal, find ones that suit you.):</p>
@@ -294,9 +311,9 @@ are quite personal, find ones that suit you.):</p>
 }
 </pre></div>
 </div>
-<p>Especially important is the setting <tt class="docutils literal"><span class="pre">translate_tabs_to_spaces</span></tt>, which ensures
-that any time you hit a tab key, the single <tt class="docutils literal"><span class="pre">\t</span></tt> character is replaced by four
-<tt class="docutils literal"><span class="pre">\s</span></tt> characters.  In Python this is <strong>vital</strong>!</p>
+<p>Especially important is the setting <code class="docutils literal"><span class="pre">translate_tabs_to_spaces</span></code>, which ensures
+that any time you hit a tab key, the single <code class="docutils literal"><span class="pre">\t</span></code> character is replaced by four
+<code class="docutils literal"><span class="pre">\s</span></code> characters.  In Python this is <strong>vital</strong>!</p>
 </div>
 <div class="section" id="extending-the-editor">
 <h2>Extending the Editor<a class="headerlink" href="#extending-the-editor" title="Permalink to this headline">¶</a></h2>
@@ -306,17 +323,17 @@ installing and uninstalling plugins, and even updates installed plugins for
 you. You can also manually install plugins that haven&#8217;t made it to the big-time
 yet, including <a class="reference external" href="http://docs.sublimetext.info/en/latest/extensibility/plugins.html">ones you write yourself</a>. Happily, the plugin system is
 Python!</p>
-<p>To install a plugin using Package Control, open the <tt class="docutils literal"><span class="pre">command</span> <span class="pre">palette</span></tt> with
-<tt class="docutils literal"><span class="pre">shift-super-P</span></tt> (<tt class="docutils literal"><span class="pre">ctrl-shift-P</span></tt> on Windows/Linux). The <tt class="docutils literal"><span class="pre">super</span></tt> key is
-<tt class="docutils literal"><span class="pre">command</span></tt> or <tt class="docutils literal"><span class="pre">⌘</span></tt> on OS X. When the palette opens, typing <tt class="docutils literal"><span class="pre">install</span></tt> will
-bring up the <tt class="docutils literal"><span class="pre">Package</span> <span class="pre">Control:</span> <span class="pre">Install</span> <span class="pre">Package</span></tt> command. Hit <tt class="docutils literal"><span class="pre">enter</span></tt> to
+<p>To install a plugin using Package Control, open the <code class="docutils literal"><span class="pre">command</span> <span class="pre">palette</span></code> with
+<code class="docutils literal"><span class="pre">shift-super-P</span></code> (<code class="docutils literal"><span class="pre">ctrl-shift-P</span></code> on Windows/Linux). The <code class="docutils literal"><span class="pre">super</span></code> key is
+<code class="docutils literal"><span class="pre">command</span></code> or <code class="docutils literal"><span class="pre">⌘</span></code> on OS X. When the palette opens, typing <code class="docutils literal"><span class="pre">install</span></code> will
+bring up the <code class="docutils literal"><span class="pre">Package</span> <span class="pre">Control:</span> <span class="pre">Install</span> <span class="pre">Package</span></code> command. Hit <code class="docutils literal"><span class="pre">enter</span></code> to
 select it.</p>
 <a class="reference internal image-reference" href="../_images/pc_menu.png"><img alt="The package control command in the command palette." class="align-center" src="../_images/pc_menu.png" style="width: 600px;" /></a>
 <p>After you select the command, Sublime Text fetches an updated list of packages
 from the network. It might take a second or two for the list to appear. When it
 does, start to type the name of the package you want. Sublime Text filters the
 list and shows you what you want to see. To install a plugin, select it with
-the mouse, or use arrow keys to navigate the list and hit <tt class="docutils literal"><span class="pre">enter</span></tt> when your
+the mouse, or use arrow keys to navigate the list and hit <code class="docutils literal"><span class="pre">enter</span></code> when your
 plugin is highlighted.</p>
 <a class="reference internal image-reference" href="../_images/plugin_list.png"><img alt="../_images/plugin_list.png" class="align-center" src="../_images/plugin_list.png" style="width: 600px;" /></a>
 </div>
@@ -335,7 +352,7 @@ it&#8217;s own plugin system.  It is a bit heavy and requires building an index.
 <li><a class="reference external" href="https://sublime.wbond.net/packages/Jedi%20-%20Python%20autocompletion">SublimeJedi</a> only supports Python, but is faster and keeps an index on its
 own.</li>
 </ol>
-<p>I&#8217;ve installed <tt class="docutils literal"><span class="pre">SublimeJedi</span></tt>, and used the following settings <em>per project</em> to
+<p>I&#8217;ve installed <code class="docutils literal"><span class="pre">SublimeJedi</span></code>, and used the following settings <em>per project</em> to
 ensure that all relevant code is found:</p>
 <div class="highlight-json"><div class="highlight"><pre>{
     &quot;folders&quot;:
@@ -354,14 +371,14 @@ ensure that all relevant code is found:</p>
 }
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">python_interpreter_path</span></tt> allows me to indicate which Python executable
+<p>The <code class="docutils literal"><span class="pre">python_interpreter_path</span></code> allows me to indicate which Python executable
 should be introspected for symbol definitions.</p>
-<p>The <tt class="docutils literal"><span class="pre">python_package_paths</span></tt> setting allows designating additional paths that
+<p>The <code class="docutils literal"><span class="pre">python_package_paths</span></code> setting allows designating additional paths that
 will be searched for Python packages containing symbols.</p>
 <a class="reference internal image-reference" href="../_images/tab_completion.png"><img alt="Tab completion provided by SublimeJedi" class="align-center" src="../_images/tab_completion.png" style="width: 600px;" /></a>
-<p>Once configured, you should be able to use the <tt class="docutils literal"><span class="pre">ctrl-shift-G</span></tt> keyboard
+<p>Once configured, you should be able to use the <code class="docutils literal"><span class="pre">ctrl-shift-G</span></code> keyboard
 shortcut to jump directly to the definition of a symbol. You can also use
-<tt class="docutils literal"><span class="pre">alt-shift-F</span></tt> to find other usages of the same symbol elsewhere in your code.</p>
+<code class="docutils literal"><span class="pre">alt-shift-F</span></code> to find other usages of the same symbol elsewhere in your code.</p>
 </div>
 <div class="section" id="code-linting">
 <h3>Code Linting<a class="headerlink" href="#code-linting" title="Permalink to this headline">¶</a></h3>
@@ -369,8 +386,8 @@ shortcut to jump directly to the definition of a symbol. You can also use
 to run the code. This saves time. Sublime Text has an available plugin for code
 linters called <a class="reference external" href="http://sublimelinter.readthedocs.org/en/latest/">SublimeLinter</a>.</p>
 <p>Python has a couple of great tools available for linting, the <a class="reference external" href="https://pypi.python.org/pypi/pep8">pep8</a> and
-<a class="reference external" href="https://pypi.python.org/pypi/pyflakes">pyflakes</a> packages. <tt class="docutils literal"><span class="pre">Pep8</span></tt> checks for style violations, lines too long,
-extra spaces and so on. <tt class="docutils literal"><span class="pre">Pyflakes</span></tt> checks for syntactic violations, like
+<a class="reference external" href="https://pypi.python.org/pypi/pyflakes">pyflakes</a> packages. <code class="docutils literal"><span class="pre">Pep8</span></code> checks for style violations, lines too long,
+extra spaces and so on. <code class="docutils literal"><span class="pre">Pyflakes</span></code> checks for syntactic violations, like
 using a symbol that isn&#8217;t defined or importing a symbol you don&#8217;t use.</p>
 <p>Another Python linting package, <a class="reference external" href="https://pypi.python.org/pypi/flake8">flake8</a> combines these two, and adds in
 <a class="reference external" href="https://pypi.python.org/pypi/mccabe">mccabe</a>, a tool to check the <a class="reference external" href="http://en.wikipedia.org/wiki/Cyclomatic_complexity">cyclomatic complexity</a> of code you write. This
@@ -380,7 +397,7 @@ simplified and thus made easier to understand and more testable.</p>
 work, the plugin will need to have a Python executable that has the Python
 tools it needs installed.</p>
 <p>Use <a class="reference external" href="http://virtualenv.org">virtualenv</a> to accomplish this.</p>
-<p>(<strong>Warning:</strong> there is some indication that <tt class="docutils literal"><span class="pre">SublimeLinter</span></tt> doesn&#8217;t support
+<p>(<strong>Warning:</strong> there is some indication that <code class="docutils literal"><span class="pre">SublimeLinter</span></code> doesn&#8217;t support
 virtual environments. So if you have trouble, it may be best to make sure
 that the python packages you need are installed in your main python install,
 rather than a virtualenv. To do this, simply skip the virtualenv instrcutions
@@ -411,8 +428,8 @@ Cleaning up...
 (sublenv)$
 </pre></div>
 </div>
-<p>The Python executable for this <tt class="docutils literal"><span class="pre">virtualenv</span></tt> now has the required packages
-installed. You can look in <tt class="docutils literal"><span class="pre">/path/to/sublenv/bin</span></tt> to see the executable
+<p>The Python executable for this <code class="docutils literal"><span class="pre">virtualenv</span></code> now has the required packages
+installed. You can look in <code class="docutils literal"><span class="pre">/path/to/sublenv/bin</span></code> to see the executable
 commands for each:</p>
 <blockquote>
 <div>(sublenv)$ ls sublenv/bin
@@ -422,8 +439,8 @@ activate.fish       pep8                python
 activate_this.py    pip                 python2
 easy_install        pip2                python2.7</div></blockquote>
 <p>Now install SublimeLinter and then SublimeLinter-flake8 using Package Control.</p>
-<p>Here are the settings you can add to <tt class="docutils literal"><span class="pre">Preferences</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Package</span> <span class="pre">Settings</span></tt> -&gt;
-<tt class="docutils literal"><span class="pre">SublimeLinter</span></tt> -&gt; <tt class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">User</span></tt>:</p>
+<p>Here are the settings you can add to <code class="docutils literal"><span class="pre">Preferences</span></code> -&gt; <code class="docutils literal"><span class="pre">Package</span> <span class="pre">Settings</span></code> -&gt;
+<code class="docutils literal"><span class="pre">SublimeLinter</span></code> -&gt; <code class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">User</span></code>:</p>
 <div class="highlight-json"><div class="highlight"><pre>{
     //...
     &quot;linters&quot;: {
@@ -457,17 +474,17 @@ easy_install        pip2                python2.7</div></blockquote>
 }
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">paths</span></tt> key points to the path that contains the <tt class="docutils literal"><span class="pre">flake8</span></tt> executable
+<p>The <code class="docutils literal"><span class="pre">paths</span></code> key points to the path that contains the <code class="docutils literal"><span class="pre">flake8</span></code> executable
 command.</p>
-<p>The <tt class="docutils literal"><span class="pre">python_paths</span></tt> key points to the location of the python executable to be
+<p>The <code class="docutils literal"><span class="pre">python_paths</span></code> key points to the location of the python executable to be
 used.</p>
-<p>The settings inside the <tt class="docutils literal"><span class="pre">flake8</span></tt> object control the performance of the
+<p>The settings inside the <code class="docutils literal"><span class="pre">flake8</span></code> object control the performance of the
 linter. <a class="reference external" href="https://github.com/SublimeLinter/SublimeLinter-flake8#settings">Read more about them here</a>.</p>
 <a class="reference internal image-reference" href="../_images/flake8_output.png"><img alt="Flake8 shows unused import and trailing whitespace issues." class="align-center" src="../_images/flake8_output.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="white-space-management">
 <h3>White Space Management<a class="headerlink" href="#white-space-management" title="Permalink to this headline">¶</a></h3>
-<p>One of the issues highlighted by <tt class="docutils literal"><span class="pre">flake8</span></tt> is trailing spaces.  Sublime text
+<p>One of the issues highlighted by <code class="docutils literal"><span class="pre">flake8</span></code> is trailing spaces.  Sublime text
 provides a setting that allows you to remove them every time you save a file:</p>
 <div class="highlight-json"><div class="highlight"><pre>source
 
@@ -501,7 +518,7 @@ debugging session in the file where the code exists.</p>
 <p>There is no plugin for SublimeText that supports this. But there is a Python
 package you can install into the virtualenv for each of your projects that does
 it.</p>
-<p>The package is called <a class="reference external" href="https://pypi.python.org/pypi/PdbSublimeTextSupport">PDBSublimeTextSupport</a> and its simple to install with <tt class="docutils literal"><span class="pre">pip</span></tt>:</p>
+<p>The package is called <a class="reference external" href="https://pypi.python.org/pypi/PdbSublimeTextSupport">PDBSublimeTextSupport</a> and its simple to install with <code class="docutils literal"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>projectenv<span class="o">)</span><span class="nv">$ </span>pip install PDBSublimeTextSupport
 </pre></div>
 </div>
@@ -519,7 +536,7 @@ Text file move along with you.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="shell.html" class="btn btn-neutral float-right" title="Shell Customizations for Python Development"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="shell.html" class="btn btn-neutral float-right" title="Shell Customizations for Python Development">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="virtualenv.html" class="btn btn-neutral" title="Working with Virtualenv"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -535,7 +552,8 @@ Text file move along with you.</p>
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -560,7 +578,7 @@ Text file move along with you.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

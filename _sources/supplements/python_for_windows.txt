@@ -21,7 +21,7 @@ But for core use, the installer from python.org is the way to go:
 
 https://www.python.org/downloads/
 
-You want the installer for Python 2.7.8 -- probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.
+You want the installer for Python 3.4.3 -- probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.
 
 Double click and install.
 
@@ -59,21 +59,19 @@ which integrates git with the filemanager. But for the purposes of learning, it 
 
 http://git-scm.com/download/win
 
-I think that gives you a "Git bash shell" -- a command window that gives you a \*nix - like command line shell.
+That gives you a "Git bash shell" -- a command window that gives you a \*nix - like command line shell.
+
+This is actually your best bet for runing Python also -- If you use the Git Bash, shell, you can use the same commands as Linux ans OS-X users.
 
 
 pip
 ---
 
-``pip`` is the Python package installer. Unfortunately, it doesn't come out of the box with Python2.7, so you need to install it:
+``pip`` is the Python package installer. It is updated faser than python itself, so once you have pythonl you want to get the lateast version of pip working::
 
-https://pip.pypa.io/en/latest/installing.html
+  $ python -m ensurepip --upgrade
 
-download ``get-pip.py`` from that site, and run it with python::
-
-  $ python get-pip.py
-
-It should download and install ``pip`` (and ``setuptools``)
+It should download and install the latest ``pip``.
 
 You can now use pip to install other packages.
 
@@ -84,10 +82,10 @@ One we are going to use in class is ``iPython``::
 
   $ pip install ipython
 
-You should now be able to run ``iPython``::
+You should now be able to run ``iPython`` from the git bash shell::
 
     $ ipython
-	Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35) 
+	Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35)
 	Type "copyright", "credits" or "license" for more information.
 
 	IPython 2.0.0 -- An enhanced Interactive Python.
@@ -96,9 +94,6 @@ You should now be able to run ``iPython``::
 	help      -> Python's own help system.
 	object?   -> Details about 'object', use 'object??' for extra details.
 
-
-
-
-
+We will use this as our default python interpreter.
 
 

@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -25,6 +25,8 @@
   
   
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
   
 
   
@@ -45,9 +47,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+          <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -57,8 +62,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -123,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -161,11 +168,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session09.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#decorators">Decorators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#context-managers">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#packages-and-packaging">Packages and Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#distributing">Distributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session09.html#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html#session-ten-unicode-persistence-serialization">Session Ten: Unicode, Persistence / Serialization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../session10.html#history">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#web-development-class">Web Development Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#unicode">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#mechanics">Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session10.html#code-review">Code Review?</a></li>
 </ul>
 </li>
 </ul>
@@ -189,6 +205,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -221,7 +238,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="setting-up-linux-for-python-and-this-class">
 <h1>Setting up Linux for Python and this class<a class="headerlink" href="#setting-up-linux-for-python-and-this-class" title="Permalink to this headline">¶</a></h1>
@@ -232,7 +249,7 @@
 <h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
 <p>You probably already have python. Try:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python
-Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35<span class="o">)</span>
+Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun <span class="m">29</span> 2014, 21:07:35<span class="o">)</span>
 <span class="o">[</span>GCC 4.2.1 <span class="o">(</span>Apple Inc. build 5666<span class="o">)</span> <span class="o">(</span>dot 3<span class="o">)]</span> on linux
 </pre></div>
 </div>
@@ -240,7 +257,7 @@ Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35<
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>apt-get install python2.7
 </pre></div>
 </div>
-<p>Or <tt class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span></tt> or ???</p>
+<p>Or <code class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span></code> or ???</p>
 </div>
 <div class="section" id="terminal">
 <h3>Terminal<a class="headerlink" href="#terminal" title="Permalink to this headline">¶</a></h3>
@@ -255,28 +272,28 @@ Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35<
 </div>
 <div class="section" id="pip">
 <h3>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
-<p><tt class="docutils literal"><span class="pre">pip</span></tt> is the Python package installer.</p>
-<p>Many python packages are also available directly from your distro &#8211; but you&#8217;ll get the latest and greatest if you use <tt class="docutils literal"><span class="pre">pip</span></tt> to install it instead.</p>
+<p><code class="docutils literal"><span class="pre">pip</span></code> is the Python package installer.</p>
+<p>Many python packages are also available directly from your distro &#8211; but you&#8217;ll get the latest and greatest if you use <code class="docutils literal"><span class="pre">pip</span></code> to install it instead.</p>
 <p>To get pip, the first option is to use your system package manager, something like:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$apt</span>-get install python-pip
 </pre></div>
 </div>
 <p>If that doesn&#8217;t work, you can get it from:</p>
 <p><a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a></p>
-<p>download <tt class="docutils literal"><span class="pre">get-pip.py</span></tt> from that site, and run it with python:</p>
+<p>download <code class="docutils literal"><span class="pre">get-pip.py</span></code> from that site, and run it with python:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ python get-pip.py
 </pre></div>
 </div>
-<p>It should download and install <tt class="docutils literal"><span class="pre">pip</span></tt> (and <tt class="docutils literal"><span class="pre">setuptools</span></tt>)</p>
+<p>It should download and install <code class="docutils literal"><span class="pre">pip</span></code> (and <code class="docutils literal"><span class="pre">setuptools</span></code>)</p>
 <p>You can now use pip to install other packages.</p>
 </div>
 <div class="section" id="ipython">
 <h3>iPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
-<p>One we are going to use in class is <tt class="docutils literal"><span class="pre">iPython</span></tt>:</p>
+<p>One we are going to use in class is <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ pip install ipython
 </pre></div>
 </div>
-<p>You should now be able to run <tt class="docutils literal"><span class="pre">iPython</span></tt>:</p>
+<p>You should now be able to run <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ ipython
     Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35)
     Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
@@ -298,7 +315,7 @@ Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35<
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="virtualenv.html" class="btn btn-neutral float-right" title="Working with Virtualenv"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="virtualenv.html" class="btn btn-neutral float-right" title="Working with Virtualenv">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="python_for_windows.html" class="btn btn-neutral" title="Setting up Windows for Python and this class"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -314,7 +331,8 @@ Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35<
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -339,7 +357,7 @@ Python 2.7.8 <span class="o">(</span>v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35<
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

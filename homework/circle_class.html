@@ -14,7 +14,7 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -25,6 +25,8 @@
   
   
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
   
 
   
@@ -45,9 +47,12 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+          <a href="../index.html" class="fa fa-home"> Introduction To Python</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -57,8 +62,9 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
@@ -123,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -168,17 +175,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../session09.html#next-week">Next Week</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Persistence/Serialization</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session10.html#web-development-class">Web Development Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session10.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session10.html#unicode">Unicode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session10.html#mechanics">Mechanics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session10.html#code-review">Code Review?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session10.html#python-specific-formats">Python Specific Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session10.html#interchange-formats">Interchange Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session10.html#databases">DataBases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session10.html#other-options">Other Options</a></li>
 </ul>
 </li>
 </ul>
@@ -202,6 +205,7 @@
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -234,7 +238,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="circle-class-homework-assignment">
 <span id="homework-circle-class"></span><h1>Circle Class Homework Assignment<a class="headerlink" href="#circle-class-homework-assignment" title="Permalink to this headline">¶</a></h1>
@@ -256,7 +260,7 @@ and the user can query the circle for either its radius or diameter.</p>
 <li>(follows from above) be able to put them in a list and sort them</li>
 </ul>
 </div></blockquote>
-<p>This exercise should use &#8220;new style classes&#8221; i.e. inherit from <tt class="docutils literal"><span class="pre">object</span></tt></p>
+<p>This exercise should use &#8220;new style classes&#8221; i.e. inherit from <code class="docutils literal"><span class="pre">object</span></code></p>
 <p>You will also use:</p>
 <blockquote>
 <div><ul class="simple">
@@ -276,7 +280,7 @@ and the user can query the circle for either its radius or diameter.</p>
 </div>
 <div class="section" id="step-1">
 <h3>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
-<p>create class called <tt class="docutils literal"><span class="pre">Circle</span></tt> &#8211; it&#8217;s signature should look like:</p>
+<p>create class called <code class="docutils literal"><span class="pre">Circle</span></code> &#8211; it&#8217;s signature should look like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">the_radius</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -317,13 +321,13 @@ and the user can query the circle for either its radius or diameter.</p>
 </div>
 <div class="section" id="step-4">
 <h3>Step 4:<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h3>
-<p>Add an <tt class="docutils literal"><span class="pre">area</span></tt> property so the user can get the area of the circle:</p>
+<p>Add an <code class="docutils literal"><span class="pre">area</span></code> property so the user can get the area of the circle:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span>
 <span class="mf">12.566370</span>
 </pre></div>
 </div>
-<p>(<tt class="docutils literal"><span class="pre">pi</span></tt> can be found in the math module)</p>
+<p>(<code class="docutils literal"><span class="pre">pi</span></code> can be found in the math module)</p>
 <p>The user should not be able to set the area:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="mi">42</span>
@@ -379,7 +383,7 @@ with the diameter:</p>
 <span class="gh">Out[16]: </span><span class="go">Circle(12)</span>
 </pre></div>
 </div>
-<p>(what happens with <tt class="docutils literal"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">c2</span></tt> ? &#8211; can you fix that?)</p>
+<p>(what happens with <code class="docutils literal"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">c2</span></code> ? &#8211; can you fix that?)</p>
 </div>
 <div class="section" id="step-8">
 <h3>Step 8:<a class="headerlink" href="#step-8" title="Permalink to this headline">¶</a></h3>
@@ -444,7 +448,7 @@ with the diameter:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../supplements/index.html" class="btn btn-neutral float-right" title="Supplemental Materials"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../supplements/index.html" class="btn btn-neutral float-right" title="Supplemental Materials">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="html_builder.html" class="btn btn-neutral" title="HTML Renderer Homework Assignment"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -460,7 +464,8 @@ with the diameter:</p>
     </p>
   </div>
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
 </footer>
         </div>
       </div>
@@ -485,7 +490,7 @@ with the diameter:</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
