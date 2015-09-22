@@ -1117,7 +1117,7 @@ divisible 2, 3 and 4.
 
 ================================
 Material to review for Homework:
-=================================
+================================
 
 Raymond Hettinger:
 

@@ -192,6 +192,16 @@ References for getting started
   Blogger about Python. Lots of practical examples. Python3, with some references to differences to Python 2. Also avaiable as a Kindle book:
   http://www.amazon.com/Python-101-Michael-Driscoll-ebook/dp/B00KQTFHNK
 
+* **Problem Solving with Algorithms and Data Stuctures**
+
+http://interactivepython.org/runestone/static/pythonds/index.html
+
+* **Python Course**
+
+http://www.python-course.eu/python3_course.php
+
+
+
 References for getting better, once you know the basics
 --------------------------------------------------------
 
