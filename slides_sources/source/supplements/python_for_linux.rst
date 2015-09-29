@@ -10,7 +10,7 @@ Debian and Related Distros( Ubuntu, Mint )
 Python
 -------
 
-Debian distros probably already have python2.7 and python3.4 both installed. Try the following commands:
+Ubuntu probably already has python2.7 and python3.4 both installed. Try the following commands:
 
 .. code-block:: bash
 
@@ -47,7 +47,6 @@ If you want to make ``python3.4`` the default version then add the line ``alias 
   
   $ echo "alias python=python3" >> ~/.bashrc
   $ source ~/.bashrc 
-  
   
   $ # after
   $ python
