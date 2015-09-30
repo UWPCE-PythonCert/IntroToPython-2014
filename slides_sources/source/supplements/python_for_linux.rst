@@ -120,7 +120,7 @@ You should now be able to run ``iPython``::
 Fedora and Red Hat Related Distros (CentOS)
 ==================================================
 
-.. raw::
+.. raw:: html
 
 	<h4 style="color:red">WARNING:</h4><span>CentOS is probably the most popular distor of these related flavors. However, getting Python3 on it can be a pain. You have been warned</span>
 	
