@@ -93,7 +93,7 @@ To get pip, the first option is to use your system package manager, something li
 
     $ sudo apt-get install python3-pip
 
-If that doesn't work, then look up the [official manual install notes](https://pip.pypa.io/en/latest/installing.html)
+If that doesn't work, then look up the `official manual install notes <https://pip.pypa.io/en/latest/installing.html>`_
 
 iPython
 --------
@@ -117,13 +117,13 @@ You should now be able to run ``iPython``::
 
 
 ==================================================
-Red Hat Linux and Related Distros (CentOS)
+Fedora and Red Hat Related Distros (CentOS)
 ==================================================
 
 Python
 -------
 
-Debian distros [1](https://wiki.debian.org/Python) already have the stable python2 and python3 releases preinstalled. Try the following commands:
+Fedora distros already have the stable python2 and python3 releases preinstalled `2 <Fedora Wiki>`_. Try the following commands:
 
 .. code-block:: bash
 
@@ -234,3 +234,8 @@ Footnotes:
 Debian Wiki
 =============
 	https://wiki.debian.org/Python
+
+Fedora Wiki
+=============
+	https://fedoraproject.org/wiki/Packaging:Python
+	
