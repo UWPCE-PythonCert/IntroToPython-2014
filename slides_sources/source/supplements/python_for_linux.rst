@@ -10,7 +10,7 @@ Debian and Related Distros (Ubuntu, Linux Mint)
 Python
 -------
 
-Debian distros already have the stable python2 and python3 releases preinstalled [1](#fnote1). Try the following commands:
+Debian distros already have the stable python2 and python3 releases preinstalled fNote1_. Try the following commands:
 
 .. code-block:: bash
 
@@ -229,4 +229,4 @@ You should now be able to run ``iPython``::
 
 
 
-<a name="fnote1">1</a>[https://wiki.debian.org/Python](https://wiki.debian.org/Python)
+.. _fNote1: [https://wiki.debian.org/Python](https://wiki.debian.org/Python)
