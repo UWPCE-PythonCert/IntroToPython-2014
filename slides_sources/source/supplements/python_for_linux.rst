@@ -228,10 +228,9 @@ You should now be able to run ``iPython``::
 	object?   -> Details about 'object', use 'object??' for extra details.
 
 
-Footnotes
-============
+Footnotes:
+===========
 
 Debian Wiki
---------------
-
+=============
 	https://wiki.debian.org/Python
