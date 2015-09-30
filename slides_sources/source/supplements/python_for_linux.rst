@@ -10,7 +10,7 @@ Debian and Related Distros (Ubuntu, Linux Mint)
 Python
 -------
 
-Debian distros already have the stable python2 and python3 releases preinstalled `Debian Wiki`_. Try the following commands:
+Debian distros already have the stable python2 and python3 releases preinstalled [`1 <Debian Wiki>`_]. Try the following commands:
 
 .. code-block:: bash
 
