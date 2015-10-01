@@ -10,10 +10,10 @@ class C(object):
         self.x = x
         self.y = y
 
-    def a_class_method(klass, y):
-        print "in a_class_method", klass
-        return klass(y, y**2)
-    a_class_method = classmethod(a_class_method)
+    @classmethod
+    def a_class_method(cls, y):
+        print "in a_class_method", cls
+        return cls(y, y**2)
 
 
 class C2(C):

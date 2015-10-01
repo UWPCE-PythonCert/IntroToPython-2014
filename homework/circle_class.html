@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Kata Fourteen: Tom Swift Under Milk Wood &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Circle Class Homework Assignment &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
         <link rel="up" title="Homework Materials" href="index.html"/>
-        <link rel="next" title="HTML Renderer Homework Assignment" href="html_builder.html"/>
-        <link rel="prev" title="Homework Materials" href="index.html"/> 
+        <link rel="next" title="Supplemental Materials" href="../supplements/index.html"/>
+        <link rel="prev" title="HTML Renderer Homework Assignment" href="html_builder.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -186,9 +186,9 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Homework Materials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
 <li class="toctree-l2"><a class="reference internal" href="html_builder.html">HTML Renderer Homework Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="circle_class.html">Circle Class Homework Assignment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Circle Class Homework Assignment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a><ul>
@@ -228,10 +228,10 @@
       
           <li><a href="index.html">Homework Materials</a> &raquo;</li>
       
-    <li>Kata Fourteen: Tom Swift Under Milk Wood</li>
+    <li>Circle Class Homework Assignment</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/homework/kata_fourteen.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/homework/circle_class.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -239,108 +239,204 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="kata-fourteen-tom-swift-under-milk-wood">
-<h1>Kata Fourteen: Tom Swift Under Milk Wood<a class="headerlink" href="#kata-fourteen-tom-swift-under-milk-wood" title="Permalink to this headline">¶</a></h1>
-<p>Adapted from Dave Thomas&#8217;s work:</p>
-<p><a class="reference external" href="http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/">http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/</a></p>
-<div class="section" id="trigrams">
-<h2>Trigrams<a class="headerlink" href="#trigrams" title="Permalink to this headline">¶</a></h2>
-<p>Trigrams can be used to mutate text into new, surreal, forms. But what
-heuristics do we apply to get a reasonable result?</p>
-<div class="section" id="the-problem">
-<h3>The Problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">¶</a></h3>
-<p>As a boy, one of my treats was go to the shops on a Saturday and spend part
-of my allowance on books; for a nine-year old, I had quite a collection of
-Tom Swift and Hardy Boys. Wouldn’t it be great to be able to create
-more and more of these classic books, to be able to generate a new Tom
-Swift adventure on demand?</p>
-<p>OK, perhaps not. But that won’t stop us trying. I coded up a quick
-program to generate some swash-buckling scientific adventure on demand. It
-came up with:</p>
+  <div class="section" id="circle-class-homework-assignment">
+<span id="homework-circle-class"></span><h1>Circle Class Homework Assignment<a class="headerlink" href="#circle-class-homework-assignment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="circle-class">
+<h2>Circle Class<a class="headerlink" href="#circle-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="goal">
+<h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
+<p>The goal is to create a class that represents a simple circle.</p>
+<p>A Circle can be defined by either specifying the radius or the diameter,
+and the user can query the circle for either its radius or diameter.</p>
+<p>Other abilities of a Circle instance:</p>
 <blockquote>
-<div><p>... it was in the wind that was what he thought was his companion. I
-think would be a good one and accordingly the ship their situation
-improved. Slowly so slowly that it beat the band! You’d think no one
-was a low voice. &#8220;Don’t take any of the elements and the
-inventors of the little Frenchman in the enclosed car or cabin completely
-fitted up in front of the gas in the house and wringing her hands.
-&#8220;I’m sure they’ll fall!&#8221;</p>
-<p>She looked up at them. He dug a mass of black vapor which it had
-refused to accept any. As for Mr. Swift as if it goes too high I’ll
-warn you and you can and swallow frequently. That will make the airship was
-shooting upward again and just before the raid wouldn’t have been
-instrumental in capturing the scoundrels right out of jail.&#8221;</p>
+<div><ul class="simple">
+<li>Compute the circle&#8217;s area</li>
+<li>Print the circle and get something nice</li>
+<li>Be able to add two circles together</li>
+<li>Be able to compare two circles to see which is bigger</li>
+<li>Be able to compare to see if there are equal</li>
+<li>(follows from above) be able to put them in a list and sort them</li>
+</ul>
 </div></blockquote>
-<p>Stylistically, it’s Victor Appleton meets Dylan Thomas. Technically,
-it’s all done with trigrams.</p>
-<p>Trigram analysis is very simple. Look at each set of three adjacent words
-in a document. Use the first two words of the set as a key, and remember
-the fact that the third word followed that key. Once you’ve finished,
-you know the list of individual words that can follow each two word
-sequence in the document. For example, given the input:</p>
-<div class="highlight-python"><div class="highlight"><pre>I wish I may I wish I might
+<p>This exercise should use &#8220;new style classes&#8221; i.e. inherit from <code class="docutils literal"><span class="pre">object</span></code></p>
+<p>You will also use:</p>
+<blockquote>
+<div><ul class="simple">
+<li>properties</li>
+<li>a classmethod</li>
+<li>a define a bunch of &#8220;special methods&#8221;</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="general-instructions">
+<h3>General Instructions:<a class="headerlink" href="#general-instructions" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>For each step, write a couple of unit tests that test the new features.</li>
+<li>Run these tests (and they will fail the first time)</li>
+<li>Add the code required for your tests to pass.</li>
+</ol>
+</div>
+<div class="section" id="step-1">
+<h3>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
+<p>create class called <code class="docutils literal"><span class="pre">Circle</span></code> &#8211; it&#8217;s signature should look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">the_radius</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You might generate:</p>
-<div class="highlight-python"><div class="highlight"><pre>&quot;I wish&quot; =&gt; [&quot;I&quot;, &quot;I&quot;]
-&quot;wish I&quot; =&gt; [&quot;may&quot;, &quot;might&quot;]
-&quot;may I&quot;  =&gt; [&quot;wish&quot;]
-&quot;I may&quot;  =&gt; [&quot;I&quot;]
+<p>The radius is a required parameter (can&#8217;t have a circle without one!)</p>
+<p>the resulting circle should have a attribute for the radius:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span><span class="o">.</span><span class="n">radius</span>
 </pre></div>
 </div>
-<p>This says that the words &#8220;I wish&#8221; are twice followed by the word
-&#8220;I&#8221;, the words &#8220;wish I&#8221; are followed once by
-&#8220;may&#8221; and once by &#8220;might&#8221; and so on.</p>
-<p>To generate new text from this analysis, choose an arbitrary word pair as a
-starting point. Use these to look up a random next word (using the table
-above) and append this new word to the text so far. This now gives you a
-new word pair at the end of the text, so look up a potential next word
-based on these. Add this to the list, and so on. In the previous example,
-we could start with &#8220;I may&#8221;. The only possible next word is
-&#8220;I&#8221;, so now we have:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I
+<p>So you can do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+<span class="mi">4</span>
 </pre></div>
 </div>
-<p>The last two words are &#8220;may I&#8221;, so the next word is
-&#8220;wish&#8221;. We then look up &#8220;I wish&#8221;, and find our choice
-is constrained to another &#8220;I&#8221;.:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I wish I
+<p>Remember: tests first!</p>
+</div>
+<div class="section" id="step-2">
+<h3>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
+<p>Add a &#8220;diameter&#8221; property, so the user can get the diameter of the circle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span>
+<span class="mi">8</span>
 </pre></div>
 </div>
-<p>Now we look up &#8220;wish I&#8221;, and find we have a choice. Let’s
-choose &#8220;may&#8221;:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I wish I may
+</div>
+<div class="section" id="step-3">
+<h3>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h3>
+<p>Set up the diameter property so that the user can set the diameter of the circle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
-<p>Now we’re back where we started from, with &#8220;I may.&#8221;
-Following the same sequence, but choosing &#8220;might&#8221; this time, we
-get:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I wish I may I wish I might
+<p><strong>NOTE</strong> that the radius has changed!</p>
+</div>
+<div class="section" id="step-4">
+<h3>Step 4:<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h3>
+<p>Add an <code class="docutils literal"><span class="pre">area</span></code> property so the user can get the area of the circle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span>
+<span class="mf">12.566370</span>
 </pre></div>
 </div>
-<p>At this point we stop, as no sequence starts &#8220;I might.&#8221;</p>
-<p>Given a short input text, the algorithm isn’t too interesting. Feed
-it a book, however, and you give it more options, so the resulting output
-can be surprising.</p>
-<p>For this kata, try implementing a trigram algorithm that generates a couple
-of hundred words of text using a book-sized file as input.
-<a class="reference external" href="http://www.gutenberg.org/">Project Gutenberg</a> is a good source of online
-books (Tom Swift and His Airship is <a class="reference external" href="http://sailor.gutenberg.org/etext02/03tom10.txt">here</a>.)</p>
-<p>Be warned that these files have DOS line endings (carriage return followed by
-newline).</p>
-<p>There is a copy of sherlock holmes right here:</p>
-<p><a class="reference download internal" href="../_downloads/sherlock.txt"><code class="xref download docutils literal"><span class="pre">sherlock.txt</span></code></a>.</p>
-<p>And a shorter copy for testing:</p>
-<p><a class="reference download internal" href="../_downloads/sherlock_small.txt"><code class="xref download docutils literal"><span class="pre">sherlock_small.txt</span></code></a>.</p>
+<p>(<code class="docutils literal"><span class="pre">pi</span></code> can be found in the math module)</p>
+<p>The user should not be able to set the area:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="ne">AttributeError</span>
+</pre></div>
 </div>
-<div class="section" id="objectives">
-<h3>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h3>
-<p>Kata’s are about trying something many times. In this one, what
-we’re experimenting with is not just the code, but the heuristics of
-processing the text. What do we do with punctuation? Paragraphs? Do we have
-to implement backtracking if we chose a next word that turns out to be a
-dead end?</p>
-<p>I’ll fire the signal and the fun will commence...</p>
+</div>
+<div class="section" id="step-5">
+<h3>Step 5:<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h3>
+<p>Add an &#8220;alternate constructor&#8221; that lets the user create a Circle directly
+with the diameter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="o">.</span><span class="n">from_diameter</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span>
+<span class="mi">8</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6">
+<h3>Step 6:<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h3>
+<p>Add __str__ and __repr__ methods to your Circle class.</p>
+<p>Now you can print it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="k">print</span> <span class="n">c</span>
+<span class="go">Circle with radius: 4.000000</span>
+
+<span class="gp">In [4]: </span><span class="nb">repr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gh">Out[4]: </span><span class="go">&#39;Circle(4)&#39;</span>
+
+<span class="gp">In [5]: </span><span class="n">d</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+<span class="gp">In [6]: </span><span class="n">d</span>
+<span class="gh">Out[6]: </span><span class="go">Circle(4)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7">
+<h3>Step 7:<a class="headerlink" href="#step-7" title="Permalink to this headline">¶</a></h3>
+<p>Add some of the numeric protocol to your Circle:</p>
+<p>You should be able to add two circles:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="n">c2</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [9]: </span><span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span>
+<span class="gh">Out[9]: </span><span class="go">Circle(6)</span>
+</pre></div>
+</div>
+<p>and multiply one times a number:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">c2</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gh">Out[16]: </span><span class="go">Circle(12)</span>
+</pre></div>
+</div>
+<p>(what happens with <code class="docutils literal"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">c2</span></code> ? &#8211; can you fix that?)</p>
+</div>
+<div class="section" id="step-8">
+<h3>Step 8:<a class="headerlink" href="#step-8" title="Permalink to this headline">¶</a></h3>
+<p>add the ability to compare two circles:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">c1</span> <span class="o">&gt;</span> <span class="n">c2</span>
+<span class="gh">Out[10]: </span><span class="go">False</span>
+
+<span class="gp">In [11]: </span><span class="n">c1</span> <span class="o">&lt;</span> <span class="n">c2</span>
+<span class="gh">Out[11]: </span><span class="go">True</span>
+
+<span class="gp">In [12]: </span><span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span>
+<span class="gh">Out[12]: </span><span class="go">False</span>
+
+<span class="gp">In [13]: </span><span class="n">c3</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">c2</span> <span class="o">==</span> <span class="n">c3</span>
+<span class="gh">Out[14]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>Once the comparing is done,  you should be able to sort a list of circles:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="k">print</span> <span class="n">circles</span>
+<span class="go">[Circle(6), Circle(7), Circle(8), Circle(4), Circle(0), Circle(2), Circle(3), Circle(5), Circle(9), Circle(1)]</span>
+
+<span class="gp">In [19]: </span><span class="n">circl</span>
+<span class="go">circle      circle.py   circle.pyc  circles</span>
+
+<span class="gp">In [19]: </span><span class="n">circles</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="gp">In [20]: </span><span class="k">print</span> <span class="n">circles</span>
+<span class="go">[Circle(0), Circle(1), Circle(2), Circle(3), Circle(4), Circle(5), Circle(6), Circle(7), Circle(8), Circle(9)]</span>
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> make sure to write unit tests for all of this! Ideally before writing the code.</p>
+</div>
+<div class="section" id="step-8-optional-features">
+<h3>Step 8: Optional Features:<a class="headerlink" href="#step-8-optional-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>See if you can make &#8220;reflected&#8221; numerics do the right thing:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a_circle</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">a_circle</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>What else makes sense: division?  others?</li>
+<li>Add the &#8220;augmented assignment&#8221; operators, where they make sense:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a_circle</span> <span class="o">+=</span> <span class="n">another_circle</span>
+
+<span class="n">a_circle</span> <span class="o">*=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>look through all the &#8220;magic methods&#8221; and see what makes sense for circles</li>
+</ul>
 </div>
 </div>
 </div>
@@ -351,10 +447,10 @@ dead end?</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="html_builder.html" class="btn btn-neutral float-right" title="HTML Renderer Homework Assignment">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../supplements/index.html" class="btn btn-neutral float-right" title="Supplemental Materials">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Homework Materials"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="html_builder.html" class="btn btn-neutral" title="HTML Renderer Homework Assignment"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
