@@ -29,19 +29,23 @@ Double click and install.
 Terminal
 ---------
 
-You can use the "DOS Box" as a terminal, though the newer "powershell" is a better option.
+If you are confident in your use of "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash. 
 
-But to use the Python in the terminal efectively, you need to put a couple paths on your "PATH" environment variable:
+When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking. 
+
+https://git-for-windows.github.io/
+
+This is actually your best bet for runing Python also -- If you use the Git Bash shell, you can use the same commands as Linux ans OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. To add Python to your environment variable follow the instructions here:
 
 http://www.computerhope.com/issues/ch000549.htm
 
-You want to add:
+You will want to add:
 
-``C:\Python2.7``
+``C:\Python34``
 
 and
 
-``C:\Python2.7\Scripts``
+``C:\Python34\Scripts``
 
 to ``PATH``
 
@@ -49,20 +53,13 @@ to ``PATH``
 git
 ----
 
-Get a git client -- the gitHub GUI client may be nice -- I honestly don't know.
+If you installed Git Bash, you will already have git, both usable in the terminal and as a gui, and can safely skip this section. If not, you still need a git client. You can use the above link and install git (it will install the bash shell as well, of course, but you can use your shell of choice instead).
 
 There is also TortoiseGit:
 
 https://code.google.com/p/tortoisegit/
 
-which integrates git with the filemanager. But for the purposes of learning, it may be better to use a command line client:
-
-http://git-scm.com/download/win
-
-That gives you a "Git bash shell" -- a command window that gives you a \*nix - like command line shell.
-
-This is actually your best bet for runing Python also -- If you use the Git Bash, shell, you can use the same commands as Linux ans OS-X users.
-
+which integrates git with the filemanager. Feel free to use this if you already have an understaning of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above)
 
 pip
 ---
