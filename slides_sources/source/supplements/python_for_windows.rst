@@ -2,8 +2,6 @@
 Setting up Windows for Python and this class
 ***********************************************************
 
-NOTE: this is from memory: no system to test on right now.
-
 ==================
 Getting The Tools
 ==================
@@ -29,13 +27,13 @@ Double click and install.
 Terminal
 ---------
 
-If you are confident in your use of "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash. 
+If you are confident in your use of "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash. 
 
 When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking. 
 
 https://git-for-windows.github.io/
 
-This is actually your best bet for runing Python also -- If you use the Git Bash shell, you can use the same commands as Linux ans OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. To add Python to your environment variable follow the instructions here:
+This is actually your best bet for runing Python also -- If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. To add Python to your environment variable, follow the instructions here:
 
 http://www.computerhope.com/issues/ch000549.htm
 
@@ -59,7 +57,7 @@ There is also TortoiseGit:
 
 https://code.google.com/p/tortoisegit/
 
-which integrates git with the filemanager. Feel free to use this if you already have an understaning of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above)
+which integrates git with the filemanager. Feel free to use this if you already have an understanding of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above).
 
 pip
 ---
