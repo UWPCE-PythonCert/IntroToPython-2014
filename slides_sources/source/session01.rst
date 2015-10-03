@@ -36,8 +36,8 @@ Your instructors
 
 .. rst-class:: center large
 
-| Nathan Savage
-| (nathansavagemail at gmail dot com)
+| Maria Mckinley
+| (Maria's email here)
 |
 
 Who are you?
@@ -85,7 +85,8 @@ Class Structure
 
 Class Time:
 
- *  Some lecture, lots of demos
+ * Some lecture -- as little as possible
+ * Lots of demos
  * Lab time: lots of hand-on practice
    - Take a break if you need one then...
  * Lather, Rinse, Repeat.....
@@ -97,13 +98,15 @@ Interrupt me with questions -- please!
 Homework:
 ----------
 
-* Assigned at each class
+* Most homework will be reading, and the occasional Video
+
+* Exercises will be started in class -- but you can finish them at home.
 
 * You are adults -- it's up to you to do it
 
-* You can do a gitHub "pull request" if you want us to review it.
+* You can do a gitHub "pull request" if you want us to review your work.
 
-    - We'll review how to do that later...
+    - We'll review how to do that in the second Session
 
 
 Mailing list and Office Hours
@@ -120,7 +123,7 @@ We've set up a google group -- you will all be invited to join:
 I generally will hold "office hours" at a coffee shop for a couple hours
 each weekend.
 
-Nathan can do some as well.
+Maria can do some as well.
 
 What are good times for you?
 
@@ -133,7 +136,7 @@ Lightning Talks
 
  * 5 minutes each (including setup) - no kidding!
  * Every student will give one
- * Purposes: introduce yourself, share interests, also show Python applications
+ * Purposes: introduce yourself, share interests, show Python applications
  * Any topic you like, that is related to Python -- according to you!
 
 
@@ -292,7 +295,7 @@ Python 3.x ("py3k")
 
 .. nextslide::
 
-This class uses Python 2.7 not Python 3.x
+This class uses Python 3.4 -- not Python 2.*
 
 .. rst-class:: build
 
@@ -1532,7 +1535,7 @@ A function is a self-contained chunk of code
 You use them when you need the same code to run multiple times,
 or in multiple parts of the program.
 
-(DRY) 
+(DRY)
 
 
 Or just to keep the code clean
