@@ -33,7 +33,7 @@ When you install Git Bash, you are installing git (and a git gui) as well, thus 
 
 https://git-for-windows.github.io/
 
-This is actually your best bet for runing Python also -- If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. To add Python to your environment variable, follow the instructions here:
+This is actually your best bet for running Python also -- If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. It is possible that this was done during the installation of python. If you type 'which python' into your terminal, and get back the answer '/c/python34/python', then you are good to go, otherwise, follow the instructions here:
 
 http://www.computerhope.com/issues/ch000549.htm
 
