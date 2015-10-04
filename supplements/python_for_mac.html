@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting up your Mac for Python and this class &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Setting up your Mac for Python &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -66,13 +66,16 @@
           
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#goals-for-session-one">Goals for Session One:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-ipython">Introduction to iPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#basic-python-syntax">Basic Python Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session01.html#id2">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#python-2-3-differences">Python 2-3 Differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#print">print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#id4">Homework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#next-class">Next Class</a></li>
 </ul>
 </li>
@@ -129,6 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#id3">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session05.html#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
@@ -193,7 +197,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up your Mac for Python and this class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up your Mac for Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python and this class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
@@ -228,7 +232,7 @@
       
           <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
       
-    <li>Setting up your Mac for Python and this class</li>
+    <li>Setting up your Mac for Python</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/supplements/python_for_mac.txt" rel="nofollow"> View page source</a>
@@ -239,11 +243,12 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="setting-up-your-mac-for-python-and-this-class">
-<h1>Setting up your Mac for Python and this class<a class="headerlink" href="#setting-up-your-mac-for-python-and-this-class" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="setting-up-your-mac-for-python">
+<h1>Setting up your Mac for Python<a class="headerlink" href="#setting-up-your-mac-for-python" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="getting-the-tools">
 <h2>Getting The Tools<a class="headerlink" href="#getting-the-tools" title="Permalink to this headline">¶</a></h2>
-<p class="left">OS-X comes with Python out of the box, but not the full setup you&#8217;ll need for development, and this class.</p>
+<p class="left">OS-X comes with Python out of the box, but not the full setup you&#8217;ll need for development, and this class. It also doesn&#8217;t have the latest version(s), and no versino of Python 3.</p>
+<p>So we recommend installing a new version.</p>
 <p class="left"><strong>Note</strong>:</p>
 <p class="left">If you use <code class="docutils literal"><span class="pre">macports</span></code> or <code class="docutils literal"><span class="pre">homebrew</span></code> to manage *nix software on your machine, feel free to use those for <code class="docutils literal"><span class="pre">python</span></code>, <code class="docutils literal"><span class="pre">git</span></code>, etc, as well. If not, then read on.</p>
 <div class="section" id="python">
@@ -252,9 +257,16 @@
 latest version, and you really don&#8217;t want to mess with the system
 installation. So I recommend installing an independent installation from
 <code class="docutils literal"><span class="pre">python.org</span></code>:</p>
-<p>Download and install Python 2.7.8 from Python.org:</p>
-<p><a class="reference external" href="https://www.python.org/ftp/python/2.7.8/python-2.7.8-macosx10.6.dmg">https://www.python.org/ftp/python/2.7.8/python-2.7.8-macosx10.6.dmg</a></p>
+<p>Download and install Python 3.4.3 64/32 bit installer from Python.org:</p>
+<p><a class="reference external" href="https://www.python.org/ftp/python/3.4.3/python-3.4.3-macosx10.6.pkg">https://www.python.org/ftp/python/3.4.3/python-3.4.3-macosx10.6.pkg</a></p>
+<p>(you can probably use 3.5.0, too, but it&#8217;s brand new, and there are a number of third party pacakges that are not yet available for it)</p>
 <p>Simple as that.</p>
+<p>Oddly, this does NOT install a <code class="docutils literal"><span class="pre">python</span></code> command, but rather a <code class="docutils literal"><span class="pre">python3</span></code> command. If you want to be able to simply type <code class="docutils literal"><span class="pre">python</span></code> and get python3, then you can add a symlink to the install:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd /Library/Frameworks/Python.framework/Versions/3.5/bin
+$ ln -s python3.5 python
+</pre></div>
+</div>
+<p>(or an alias in your shell &#8211; an <a href="#id1"><span class="problematic" id="id2">*</span></a>nix geeks here?)</p>
 </div>
 <div class="section" id="terminal">
 <h3>Terminal<a class="headerlink" href="#terminal" title="Permalink to this headline">¶</a></h3>
@@ -271,6 +283,11 @@ installation. So I recommend installing an independent installation from
 <p>This one:</p>
 <p><a class="reference external" href="http://sourceforge.net/projects/git-osx-installer/">http://sourceforge.net/projects/git-osx-installer/</a></p>
 <p>Is a big download and install, but has everything you need out of the box.</p>
+<p>NOTE: if you get a warnign about it beign unsigned, you&#8217;ll need to go to yoru system preferences:</p>
+<blockquote>
+<div><p>&#8220;Security and Privacy&#8221;</p>
+<p>Then check the box saying &#8220;Open Anyway&#8221;. Or maybe check the box saying you can install untrused pacakges &#8211; depends on the OS-X version</p>
+</div></blockquote>
 <p>This one:</p>
 <p><a class="reference external" href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
 <p>Works great, but you need the XCode command line tools to run it. If you already have that, or expect to need a compiler anyway, then this is a good option.</p>
@@ -285,31 +302,29 @@ git version 1.8.5.2 <span class="o">(</span>Apple Git-48<span class="o">)</span>
 </div>
 <div class="section" id="pip">
 <h3>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">pip</span></code> is the Python package installer. Unfortunately, it doesn&#8217;t come out of the box with Python2.7, so you need to install it:</p>
-<p><a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a></p>
-<p>download <code class="docutils literal"><span class="pre">get-pip.py</span></code> from that site, and run it with python:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python get-pip.py
+<p><code class="docutils literal"><span class="pre">pip</span></code> is the Python package installer. It is updated faster than python itself, so once you have python, you want to get the latest version of pip working:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python -m ensurepip --upgrade
 </pre></div>
 </div>
-<p>It should download and install <code class="docutils literal"><span class="pre">pip</span></code> (and <code class="docutils literal"><span class="pre">setuptools</span></code>)</p>
+<p>[first make sure that <code class="docutils literal"><span class="pre">python</span></code> gives you the one you want. You may need to call <code class="docutils literal"><span class="pre">python3</span></code> instead]</p>
+<p>It should download and install the latest <code class="docutils literal"><span class="pre">pip</span></code>.</p>
 <p>You can now use pip to install other packages.</p>
 </div>
 <div class="section" id="ipython">
 <h3>iPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
 <p>One we are going to use in class is <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ pip install ipython
+<div class="highlight-python"><div class="highlight"><pre>$ python3 -m pip install ipython
 </pre></div>
 </div>
 <p>You should now be able to run <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ipython
-    Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35)
-    Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+<div class="highlight-python"><div class="highlight"><pre>Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
+Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 
-    IPython 2.0.0 -- An enhanced Interactive Python.
-    ?         -&gt; Introduction and overview of IPython&#39;s features.
-    %quickref -&gt; Quick reference.
-    help      -&gt; Python&#39;s own help system.
-    object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
+IPython 4.0.0 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython&#39;s features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python&#39;s own help system.
+object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
 </pre></div>
 </div>
 </div>

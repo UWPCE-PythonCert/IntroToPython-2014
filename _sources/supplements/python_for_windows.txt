@@ -2,8 +2,6 @@
 Setting up Windows for Python and this class
 ***********************************************************
 
-NOTE: this is from memory: no system to test on right now.
-
 ==================
 Getting The Tools
 ==================
@@ -21,7 +19,7 @@ But for core use, the installer from python.org is the way to go:
 
 https://www.python.org/downloads/
 
-You want the installer for Python 2.7.8 -- probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.
+You want the installer for Python 3.4.3 -- probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.
 
 Double click and install.
 
@@ -29,19 +27,23 @@ Double click and install.
 Terminal
 ---------
 
-You can use the "DOS Box" as a terminal, though the newer "powershell" is a better option.
+If you are confident in your use of "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash. 
 
-But to use the Python in the terminal efectively, you need to put a couple paths on your "PATH" environment variable:
+When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking. 
+
+https://git-for-windows.github.io/
+
+This is actually your best bet for running Python also -- If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. It is possible that this was done during the installation of python. If you type 'which python' into your terminal, and get back the answer '/c/python34/python', then you are good to go, otherwise, follow the instructions here:
 
 http://www.computerhope.com/issues/ch000549.htm
 
-You want to add:
+You will want to add:
 
-``C:\Python2.7``
+``C:\Python34``
 
 and
 
-``C:\Python2.7\Scripts``
+``C:\Python34\Scripts``
 
 to ``PATH``
 
@@ -49,31 +51,22 @@ to ``PATH``
 git
 ----
 
-Get a git client -- the gitHub GUI client may be nice -- I honestly don't know.
+If you installed Git Bash, you will already have git, both usable in the terminal and as a gui, and can safely skip this section. If not, you still need a git client. You can use the above link and install git (it will install the bash shell as well, of course, but you can use your shell of choice instead).
 
 There is also TortoiseGit:
 
 https://code.google.com/p/tortoisegit/
 
-which integrates git with the filemanager. But for the purposes of learning, it may be better to use a command line client:
-
-http://git-scm.com/download/win
-
-I think that gives you a "Git bash shell" -- a command window that gives you a \*nix - like command line shell.
-
+which integrates git with the filemanager. Feel free to use this if you already have an understanding of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above).
 
 pip
 ---
 
-``pip`` is the Python package installer. Unfortunately, it doesn't come out of the box with Python2.7, so you need to install it:
+``pip`` is the Python package installer. It is updated faster than python itself, so once you have python you want to get the latest version of pip working::
 
-https://pip.pypa.io/en/latest/installing.html
+  $ python -m ensurepip --upgrade
 
-download ``get-pip.py`` from that site, and run it with python::
-
-  $ python get-pip.py
-
-It should download and install ``pip`` (and ``setuptools``)
+It should download and install the latest ``pip``.
 
 You can now use pip to install other packages.
 
@@ -84,10 +77,10 @@ One we are going to use in class is ``iPython``::
 
   $ pip install ipython
 
-You should now be able to run ``iPython``::
+You should now be able to run ``iPython`` from the git bash shell::
 
     $ ipython
-	Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35) 
+	Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35)
 	Type "copyright", "credits" or "license" for more information.
 
 	IPython 2.0.0 -- An enhanced Interactive Python.
@@ -96,9 +89,6 @@ You should now be able to run ``iPython``::
 	help      -> Python's own help system.
 	object?   -> Details about 'object', use 'object??' for extra details.
 
-
-
-
-
+We will use this as our default python interpreter.
 
 
