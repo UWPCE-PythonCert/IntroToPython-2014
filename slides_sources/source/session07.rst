@@ -52,7 +52,7 @@ Personal Project
 The bulk of the homework for the rest of the class will be a personal project:
 
 * It can be for fun, or something you need for your job.
-* It should be large enought to take a few weeks homework time to do.
+* It should be large enough to take a few weeks homework time to do.
 * It should demostrate that you can do something useful with python.
 * It should follow PEP8 (https://www.python.org/dev/peps/pep-0008)
 * It should have unit tests!
@@ -398,7 +398,7 @@ Let's use some of this to build a nice class to represent a Circle.
 
 For now, Let's do steps 1-4 of:
 
-:ref:`homework_circle_class`
+:ref:`excercise_circle_class`
 
 Lightning Talks
 ----------------
@@ -737,7 +737,7 @@ Let's complete our nifty Circle class:
 
 Steps 5-8 of:
 
-:ref:`homework_circle_class`
+:ref:`excercise_circle_class`
 
 
 ========

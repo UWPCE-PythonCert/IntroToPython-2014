@@ -77,7 +77,7 @@ A rendered HTML copy of the slides for this course may be found online at:
 
 http://uwpce-pythoncert.github.io/IntroToPython
 
-Also there are some homework descriptions and supplemental materials.
+Also there are some excercise descriptions and supplemental materials.
 
 The source of these materials are in the class gitHub repo:
 
@@ -107,7 +107,7 @@ Interrupt me with questions -- please!
 (Some of the best learning prompted by questions)
 
 Homework:
-----------
+---------
 
 * Most homework will be reading, and the occasional Video
 
@@ -1709,7 +1709,7 @@ The values you pass in are *bound* to the symbols inside the function and used.
 The ``if`` Statement
 ---------------------
 
-In order to do anything interesting at all (including this week's homework), you need to be able to make a decision.
+In order to do anything interesting at all, you need to be able to make a decision.
 
 .. nextslide::
 
@@ -1851,8 +1851,7 @@ If you are using SublimeText, here are some notes to make it super-nifty:
 Setting up `SublimeText`_ .
 
 At the end, your editor should support tab completion and pep8 and pyflakes
-linting. Your command line should be able to show you what virtualenv is active
-and give you information about your git repository when you are inside one.
+linting.
 
 If you are not using SublimeText, look for plugins that accomplish the same
 goals for your own editor.  If none are available, please consider a change of
@@ -1862,20 +1861,6 @@ editor.
 .. _Command Line: supplements/shell.html
 
 Also make sure you've got iPython working, if you didn't get to that in class.
-
-Task 2
-------
-
-**Python Pushups**
-
-To get a bit of exercise solving some puzzles with Python, work on the Python
-exercises at `CodingBat`_.
-
-
-There are 8 sets of puzzles. Do as many as you can, but try to at least
-get all the "Warmups" done.
-
-.. _CodingBat: http://codingbat.com
 
 
 Task 3
@@ -1907,6 +1892,20 @@ Task 3
     reference
 
 .. _Built In Exceptions: https://docs.python.org/2/library/exceptions.html
+
+Task 2
+------
+
+**Python Pushups**
+
+To get a bit of exercise solving some puzzles with Python, work on the Python
+exercises at `CodingBat`_.
+
+There are 8 sets of puzzles. Do as many as you can, but try to at least
+get all the "Warmups" done.
+
+.. _CodingBat: http://codingbat.com
+
 
 Task 5
 -------

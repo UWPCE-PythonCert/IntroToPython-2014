@@ -741,7 +741,7 @@ to specialize the behavior
 
 Details in:
 
-:ref:`homework_html_renderer`
+:ref:`excercise_html_renderer`
 
 
 Let's see if you can do step 1. in class...
@@ -894,7 +894,7 @@ More subclassing
 ----------------
 You can also call the superclass' other methods:
 
-.. code-block:: python  
+.. code-block:: python
 
     class Circle(object):
     ...
@@ -1093,7 +1093,7 @@ will get ``filename == "a_file_name"``
 Html rendering system:
 -----------------------
 
-:ref:`homework_html_renderer`
+:ref:`excrcise_html_renderer`
 
 |
 

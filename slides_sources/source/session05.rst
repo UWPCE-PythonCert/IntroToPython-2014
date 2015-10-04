@@ -67,7 +67,7 @@ Homework review
 
 Homework Questions?
 
-My Solutions to ALL the homework in the class repo in:
+My Solutions to ALL the excercises in the class repo in:
 
 ``Solutions/Session04``
 
@@ -629,7 +629,7 @@ Example
 LAB
 ===
 
-See homework for list comps...
+See the list comps exercises...
 
 Lightning Talks
 ----------------
@@ -637,10 +637,10 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-| Henry B Fischer
+| Some person
 |
 |
-| Kyle R Hart
+| Some other person
 |
 
 
