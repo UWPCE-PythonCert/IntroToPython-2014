@@ -35,6 +35,9 @@ Class Outline
 .. rst-class:: left
 
  * git primer
+
+an exercise: ::ref:`exercise_grid_printer`
+
  * Some basic Python
  * More on Functions
  * Boolean Expressions
@@ -198,7 +201,7 @@ You can use this to switch between branches and make changes in isolation.
 
     Branching allows you to keep related sets of work separate from each-other.
 
-    In class here, you can use it to do your homework for each session.
+    In class here, you can use it to do your excercises for each session.
 
     Simply create a new branch for each session from your repository master
     branch.
@@ -246,7 +249,7 @@ work on another.
 
     Just open those files and look for conflict markers:
 
-        * <<<<<<<<< *hash1* (stuff from the current branch) 
+        * <<<<<<<<< *hash1* (stuff from the current branch)
         * ========= (the pivot point between two branches' content)
         * >>>>>>>>> *hash2* (stuff from the branch being merged)
 
@@ -448,7 +451,7 @@ You can incorporate this into your daily workflow: ::
     $ git pull upstream master
     $ git push
     [do some work]
-    $ git commit -a 
+    $ git commit -a
     [add a good commit message]
     $ git push
     [make a pull request]
@@ -526,7 +529,7 @@ Many languages have a ``switch`` construct:
 
 **Not Python**
 
-use ``if..elif..elif..else`` 
+use ``if..elif..elif..else``
 
 (or a dictionary, or subclassing....)
 
@@ -940,9 +943,9 @@ What is true or false in Python?
 
 .. rst-class:: build
 
-* The Booleans: ``True``  and ``False`` 
+* The Booleans: ``True``  and ``False``
 * "Something or Nothing"
-*  http://mail.python.org/pipermail/python-dev/2002-April/022107.html 
+*  http://mail.python.org/pipermail/python-dev/2002-April/022107.html
 
 
 .. nextslide::

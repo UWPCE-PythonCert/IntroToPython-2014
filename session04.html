@@ -73,8 +73,7 @@
 <li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-ipython">Introduction to iPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#basic-python-syntax">Basic Python Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#python-2-3-differences">Python 2-3 Differences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#print">print</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#id4">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session01.html#id2">Homework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session01.html#next-class">Next Class</a></li>
 </ul>
 </li>
@@ -188,10 +187,11 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="homework/index.html">Homework Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="homework/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="homework/html_builder.html">HTML Renderer Homework Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="homework/circle_class.html">Circle Class Homework Assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Homework Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/grid_printer.html">Grid Printer Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/html_renderer.html">HTML Renderer Excercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/circle_class.html">Circle Class Excercise</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a><ul>
@@ -925,7 +925,7 @@ divisible 2, 3 and 4.</li>
 </div>
 <p>For the most part, you can/should use a built in one</p>
 <p>Choose the best match you can for the built in Exception you raise.</p>
-<p>Example (for last week&#8217;s ackerman homework):</p>
+<p>Example (from last week&#8217;s exercises):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
     <span class="k">raise</span> <span class="ne">ValueError</span>
 </pre></div>
@@ -1209,16 +1209,16 @@ your repo. Otherwise, you can get it from gitHub:</p>
 <blockquote>
 <div><p><a class="reference external" href="http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/">http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/</a></p>
 <p>and in this doc:</p>
-<p><a class="reference internal" href="homework/kata_fourteen.html"><em>Kata Fourteen: Tom Swift Under Milk Wood</em></a></p>
+<p><a class="reference internal" href="exercises/kata_fourteen.html"><em>Kata Fourteen: Tom Swift Under Milk Wood</em></a></p>
 <p>and on github here</p>
-<p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/homework/kata_fourteen.html">http://uwpce-pythoncert.github.io/IntroToPython/homework/kata_fourteen.html</a></p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/exercises/kata_fourteen.html">http://uwpce-pythoncert.github.io/IntroToPython/exercises/kata_fourteen.html</a></p>
 </div></blockquote>
 </li>
 </ul>
 <ul>
 <li><p class="first">Use The Adventures of Sherlock Holmes as input:</p>
 <blockquote>
-<div><p><a class="reference download internal" href="_downloads/sherlock.txt"><code class="xref download docutils literal"><span class="pre">./homework/sherlock.txt</span></code></a></p>
+<div><p><a class="reference download internal" href="_downloads/sherlock.txt"><code class="xref download docutils literal"><span class="pre">./exercises/sherlock.txt</span></code></a></p>
 <p>and on github here:</p>
 <p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt">http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt</a></p>
 </div></blockquote>
@@ -1235,8 +1235,12 @@ your repo. Otherwise, you can get it from gitHub:</p>
 <li>write a program which prints the full path to all files in the current
 directory, one per line</li>
 <li>write a program which copies a file from a source, to a destination
-(without using shutil, or the OS copy command)</li>
-<li>update mailroom from last weeks homework to:<ul>
+(without using shutil, or the OS copy command)<ul>
+<li>advanced: make it work for any size file: i.e. don&#8217;t read the entire
+contents of the file into memory at once.</li>
+</ul>
+</li>
+<li>update mailroom from last week to:<ul>
 <li>use dicts where appropriate</li>
 <li>write a full set of letters to everyone to individual files on disk</li>
 <li>see if you can use a dict to switch between the users selections</li>

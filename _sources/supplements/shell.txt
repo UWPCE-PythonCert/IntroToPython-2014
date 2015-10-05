@@ -1,3 +1,5 @@
+.. _shell_customization:
+
 *******************************************
 Shell Customizations for Python Development
 *******************************************
@@ -178,7 +180,7 @@ actually print something else entirely:
     $ echo ${PARAM:+'foo'}
     foo
     $ echo ${PARAM:+'bar'}
-    
+
     $
 
 The key here is the ``:<char>`` bit immediately after ``PARAM``. If the ``+``
@@ -202,7 +204,7 @@ no virtualenv was active:
 .. code-block:: bash
 
     $ echo ${VIRTUAL_ENV:+[`basename $VIRTUAL_ENV`]}
-    
+
     $ source /path/to/someenv/bin/activate
     $ echo ${VIRTUAL_ENV:+[`basename $VIRTUAL_ENV`]}
     someenv

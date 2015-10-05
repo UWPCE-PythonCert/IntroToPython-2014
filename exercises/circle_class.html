@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Useful Python Learning Resources &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Circle Class Excercise &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -31,9 +31,9 @@
 
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
-        <link rel="up" title="Supplemental Materials" href="index.html"/>
-        <link rel="next" title="Setting up your Mac for Python" href="python_for_mac.html"/>
-        <link rel="prev" title="Supplemental Materials" href="index.html"/> 
+        <link rel="up" title="Homework Materials" href="index.html"/>
+        <link rel="next" title="Supplemental Materials" href="../supplements/index.html"/>
+        <link rel="prev" title="HTML Renderer Excercise" href="html_renderer.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -188,22 +188,22 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Homework Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../exercises/grid_printer.html">Grid Printer Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../exercises/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../exercises/html_renderer.html">HTML Renderer Excercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../exercises/circle_class.html">Circle Class Excercise</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Homework Materials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="grid_printer.html">Grid Printer Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html_renderer.html">HTML Renderer Excercise</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Circle Class Excercise</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Useful Python Learning Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python and this class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_mac.html">Setting up your Mac for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/python_for_linux.html">Setting Up Python For Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supplements/unicode.html">Unicode in Python 2</a></li>
 </ul>
 </li>
 </ul>
@@ -230,12 +230,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
+          <li><a href="index.html">Homework Materials</a> &raquo;</li>
       
-    <li>Useful Python Learning Resources</li>
+    <li>Circle Class Excercise</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/supplements/python_learning_resources.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/exercises/circle_class.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -243,117 +243,205 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="useful-python-learning-resources">
-<span id="python-learning-resources"></span><h1>Useful Python Learning Resources<a class="headerlink" href="#useful-python-learning-resources" title="Permalink to this headline">¶</a></h1>
-<p>In addition to the material we cover in class, there are numerous online
-resources to help a newcomer get to know Python. The following list represents
-the best-known and best-regarded of the breed. If you are itching for a bit
-more work on your Python chops, you should try these out.</p>
-<div class="section" id="python-language-resources">
-<h2>Python Language Resources<a class="headerlink" href="#python-language-resources" title="Permalink to this headline">¶</a></h2>
-<p>As a Python programmer, you&#8217;ll want to keep a bookmark pointed at the
-official Python documentation (<a class="reference external" href="https://docs.python.org/3/">https://docs.python.org/3/</a>), especially
-the documentation for the standard library
-(<a class="reference external" href="https://docs.python.org/3/library/index.html">https://docs.python.org/3/library/index.html</a>). However, there are a
-number of additional resources you can (and should) use to help build
-your Python chops.</p>
-<div class="section" id="for-the-beginner">
-<h3>For the beginner<a class="headerlink" href="#for-the-beginner" title="Permalink to this headline">¶</a></h3>
+  <div class="section" id="circle-class-excercise">
+<span id="exercise-circle-class"></span><h1>Circle Class Excercise<a class="headerlink" href="#circle-class-excercise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="circle-class">
+<h2>Circle Class<a class="headerlink" href="#circle-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="goal">
+<h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
+<p>The goal is to create a class that represents a simple circle.</p>
+<p>A Circle can be defined by either specifying the radius or the diameter,
+and the user can query the circle for either its radius or diameter.</p>
+<p>Other abilities of a Circle instance:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Compute the circle&#8217;s area</li>
+<li>Print the circle and get something nice</li>
+<li>Be able to add two circles together</li>
+<li>Be able to compare two circles to see which is bigger</li>
+<li>Be able to compare to see if there are equal</li>
+<li>(follows from above) be able to put them in a list and sort them</li>
+</ul>
+</div></blockquote>
+<p>This exercise should use &#8220;new style classes&#8221; i.e. inherit from <code class="docutils literal"><span class="pre">object</span></code></p>
+<p>You will also use:</p>
+<blockquote>
+<div><ul class="simple">
+<li>properties</li>
+<li>a classmethod</li>
+<li>a define a bunch of &#8220;special methods&#8221;</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="general-instructions">
+<h3>General Instructions:<a class="headerlink" href="#general-instructions" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>For each step, write a couple of unit tests that test the new features.</li>
+<li>Run these tests (and they will fail the first time)</li>
+<li>Add the code required for your tests to pass.</li>
+</ol>
+</div>
+<div class="section" id="step-1">
+<h3>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
+<p>create class called <code class="docutils literal"><span class="pre">Circle</span></code> &#8211; it&#8217;s signature should look like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">the_radius</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The radius is a required parameter (can&#8217;t have a circle without one!)</p>
+<p>the resulting circle should have a attribute for the radius:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+</pre></div>
+</div>
+<p>So you can do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+<p>Remember: tests first!</p>
+</div>
+<div class="section" id="step-2">
+<h3>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
+<p>Add a &#8220;diameter&#8221; property, so the user can get the diameter of the circle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span>
+<span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3">
+<h3>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h3>
+<p>Set up the diameter property so that the user can set the diameter of the circle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>NOTE</strong> that the radius has changed!</p>
+</div>
+<div class="section" id="step-4">
+<h3>Step 4:<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h3>
+<p>Add an <code class="docutils literal"><span class="pre">area</span></code> property so the user can get the area of the circle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span>
+<span class="mf">12.566370</span>
+</pre></div>
+</div>
+<p>(<code class="docutils literal"><span class="pre">pi</span></code> can be found in the math module)</p>
+<p>The user should not be able to set the area:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="ne">AttributeError</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5">
+<h3>Step 5:<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h3>
+<p>Add an &#8220;alternate constructor&#8221; that lets the user create a Circle directly
+with the diameter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="o">.</span><span class="n">from_diameter</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">diameter</span>
+<span class="mi">8</span>
+<span class="o">&gt;&gt;</span> <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6">
+<h3>Step 6:<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h3>
+<p>Add __str__ and __repr__ methods to your Circle class.</p>
+<p>Now you can print it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="k">print</span> <span class="n">c</span>
+<span class="go">Circle with radius: 4.000000</span>
+
+<span class="gp">In [4]: </span><span class="nb">repr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gh">Out[4]: </span><span class="go">&#39;Circle(4)&#39;</span>
+
+<span class="gp">In [5]: </span><span class="n">d</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+<span class="gp">In [6]: </span><span class="n">d</span>
+<span class="gh">Out[6]: </span><span class="go">Circle(4)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7">
+<h3>Step 7:<a class="headerlink" href="#step-7" title="Permalink to this headline">¶</a></h3>
+<p>Add some of the numeric protocol to your Circle:</p>
+<p>You should be able to add two circles:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">c1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="n">c2</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [9]: </span><span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span>
+<span class="gh">Out[9]: </span><span class="go">Circle(6)</span>
+</pre></div>
+</div>
+<p>and multiply one times a number:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">c2</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gh">Out[16]: </span><span class="go">Circle(12)</span>
+</pre></div>
+</div>
+<p>(what happens with <code class="docutils literal"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">c2</span></code> ? &#8211; can you fix that?)</p>
+</div>
+<div class="section" id="step-8">
+<h3>Step 8:<a class="headerlink" href="#step-8" title="Permalink to this headline">¶</a></h3>
+<p>add the ability to compare two circles:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">c1</span> <span class="o">&gt;</span> <span class="n">c2</span>
+<span class="gh">Out[10]: </span><span class="go">False</span>
+
+<span class="gp">In [11]: </span><span class="n">c1</span> <span class="o">&lt;</span> <span class="n">c2</span>
+<span class="gh">Out[11]: </span><span class="go">True</span>
+
+<span class="gp">In [12]: </span><span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span>
+<span class="gh">Out[12]: </span><span class="go">False</span>
+
+<span class="gp">In [13]: </span><span class="n">c3</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">c2</span> <span class="o">==</span> <span class="n">c3</span>
+<span class="gh">Out[14]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>Once the comparing is done,  you should be able to sort a list of circles:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="k">print</span> <span class="n">circles</span>
+<span class="go">[Circle(6), Circle(7), Circle(8), Circle(4), Circle(0), Circle(2), Circle(3), Circle(5), Circle(9), Circle(1)]</span>
+
+<span class="gp">In [19]: </span><span class="n">circl</span>
+<span class="go">circle      circle.py   circle.pyc  circles</span>
+
+<span class="gp">In [19]: </span><span class="n">circles</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="gp">In [20]: </span><span class="k">print</span> <span class="n">circles</span>
+<span class="go">[Circle(0), Circle(1), Circle(2), Circle(3), Circle(4), Circle(5), Circle(6), Circle(7), Circle(8), Circle(9)]</span>
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> make sure to write unit tests for all of this! Ideally before writing the code.</p>
+</div>
+<div class="section" id="step-8-optional-features">
+<h3>Step 8: Optional Features:<a class="headerlink" href="#step-8-optional-features" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><strong>The Python Tutorial</strong>
-(<a class="reference external" href="https://docs.python.org/3/tutorial/">https://docs.python.org/3/tutorial/</a>): This is the
-official tutorial from the Python website. No more authoritative source is
-available.</li>
-<li><strong>Code Academy Python Track</strong>
-(<a class="reference external" href="http://www.codecademy.com/tracks/python">http://www.codecademy.com/tracks/python</a>): Often
-cited as a great resource, this site offers an entertaining and engaging
-approach and in-browser work.</li>
-<li><strong>Learn Python the Hard Way</strong>
-(<a class="reference external" href="http://learnpythonthehardway.org/book/">http://learnpythonthehardway.org/book/</a>): Solid
-and gradual. This course offers a great foundation for folks who have never
-programmed in any language before.</li>
-<li><strong>Dive Into Python 3</strong>
-(<a class="reference external" href="http://www.diveintopython3.net/">http://www.diveintopython3.net/</a>): The updated version
-of a classic. This book offers an introduction to Python aimed at the student
-who has experience programming in another language.</li>
-<li><strong>Python for You and Me</strong>
-(<a class="reference external" href="http://pymbook.readthedocs.org/en/latest/">http://pymbook.readthedocs.org/en/latest/</a>): Simple
-and clear. This is a great book for absolute newcomers, or to keep as a quick
-reference as you get used to the language.</li>
-<li><strong>Think Python</strong>
-(<a class="reference external" href="http://greenteapress.com/thinkpython/">http://greenteapress.com/thinkpython/</a>): Methodical and
-complete.  This book offers a very &#8220;computer science-style&#8221; introduction to
-Python. It is really an intro to Python <em>in the service of</em> Computer Science,
-though, so while helpful for the absolute newcomer, it isn&#8217;t quite as
-&#8220;pythonic&#8221; as it might be.</li>
-<li><strong>Core Python Programming</strong>
-(<a class="reference external" href="http://corepython.com/">http://corepython.com/</a>): Only available as a dead trees version, but
-if you like to have book to hold in your hands anyway, this
-is the best textbook style introduction out there. It starts from the
-beginning, but gets into the full language. Published in 2009, but still in
-print, with updated appendixes available for new language features.</li>
-<li><strong>Python 101</strong>
-(<a class="reference external" href="http://www.blog.pythonlibrary.org/2014/06/03/python-101-book-published-today/">http://www.blog.pythonlibrary.org/2014/06/03/python-101-book-published-today/</a>)
-Available as a reasonably priced ebook. This is a new one from a popular Blogger
-about Python. Lots of practical examples. Also avaiable as a Kindle book:
-<a class="reference external" href="http://www.amazon.com/Python-101-Michael-Driscoll-ebook/dp/B00KQTFHNK">http://www.amazon.com/Python-101-Michael-Driscoll-ebook/dp/B00KQTFHNK</a></li>
+<li>See if you can make &#8220;reflected&#8221; numerics do the right thing:</li>
 </ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a_circle</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">a_circle</span>
+</pre></div>
 </div>
-<div class="section" id="next-steps">
-<h3>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><strong>New Coder</strong>
-(<a class="reference external" href="http://newcoder.io">http://newcoder.io</a>): Advertised as &#8220;Five lifejackets to throw to
-the new coder&#8221;, this site offers five very interesting tutorials written in
-an engaging style. Not an introduction. More a second step.</li>
-<li><strong>OpenHatch</strong>
-(<a class="reference external" href="https://openhatch.org/wiki/Intermediate_Python_Workshop/Projects">https://openhatch.org/wiki/Intermediate_Python_Workshop/Projects</a>):
-The Open Hatch project offers a number of workshops with well-paced
-intermediate tutorials for Python programming. A great place to go once you
-have the basics down and are ready for more challenging work.</li>
+<li>What else makes sense: division?  others?</li>
+<li>Add the &#8220;augmented assignment&#8221; operators, where they make sense:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a_circle</span> <span class="o">+=</span> <span class="n">another_circle</span>
+
+<span class="n">a_circle</span> <span class="o">*=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>look through all the &#8220;magic methods&#8221; and see what makes sense for circles</li>
 </ul>
 </div>
-<div class="section" id="evaluating-your-options">
-<h3>Evaluating Your Options<a class="headerlink" href="#evaluating-your-options" title="Permalink to this headline">¶</a></h3>
-<p>The blurbs above are short descriptions of the material in each resource. We&#8217;ve
-drawn them both from our own usage of the various tools, and from a wonderful
-set of online reviews:</p>
-<p>(<a class="reference external" href="http://planningadinner.blogspot.com/search/label/So%20you%20want%20to%20learn%20Python.%20What%27s%20next%3F">http://planningadinner.blogspot.com/search/label/So%20you%20want%20to%20learn%20Python.%20What%27s%20next%3F</a>)</p>
-<p>done by Marta Maria Casetti on her blog, &#8220;Planning a Dinner&#8221;
-(<a class="reference external" href="http://planningadinner.blogspot.com/">http://planningadinner.blogspot.com/</a>).</p>
-<p>The poster she presented at PyCon 2014
-(<a class="reference external" href="http://planningadinner.blogspot.com/2014/04/the-poster.html">http://planningadinner.blogspot.com/2014/04/the-poster.html</a>)
-as a result of that research offers some great hints about the aspects of
-Python programming best covered by each resource. I would urge any new student
-of Python to take the time to look over this poster to help determine the best
-path forward for themselves.</p>
-</div>
-</div>
-<div class="section" id="ipython-interpreter-resources">
-<h2>iPython Interpreter Resources<a class="headerlink" href="#ipython-interpreter-resources" title="Permalink to this headline">¶</a></h2>
-<p>iPython is an enhanced interpreter that makes interactive experimentation at the command line much more pleasant and powerful.</p>
-<ul>
-<li><dl class="first docutils">
-<dt><strong>The iPython tutorial</strong></dt>
-<dd><p class="first last">(<a class="reference external" href="https://ipython.org/ipython-doc/stable/interactive/tutorial.html">https://ipython.org/ipython-doc/stable/interactive/tutorial.html</a>)</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>Using IPython for interactive work</strong></dt>
-<dd><p class="first last">(<a class="reference external" href="http://ipython.org/ipython-doc/stable/interactive/index.html">http://ipython.org/ipython-doc/stable/interactive/index.html</a>)
-Learn about the abilities iPython provides for interactive sessions.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>The iPython Documentation</strong></dt>
-<dd><p class="first last">(<a class="reference external" href="http://ipython.org/ipython-doc/stable/index.html">http://ipython.org/ipython-doc/stable/index.html</a>)
-Use this to learn more about iPython&#8217;s amazing capabilities.</p>
-</dd>
-</dl>
-</li>
-</ul>
 </div>
 </div>
 
@@ -363,10 +451,10 @@ Use this to learn more about iPython&#8217;s amazing capabilities.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="python_for_mac.html" class="btn btn-neutral float-right" title="Setting up your Mac for Python">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../supplements/index.html" class="btn btn-neutral float-right" title="Supplemental Materials">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Supplemental Materials"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="html_renderer.html" class="btn btn-neutral" title="HTML Renderer Excercise"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
