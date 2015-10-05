@@ -312,12 +312,12 @@ This class uses Python 3.4 -- not Python 2.*
 
 * Adoption of Python 3 is growing fast
 
-  * Almost all key packages still supported (https://python3wos.appspot.com/)
+  * Almost all key packages now supported (https://python3wos.appspot.com/)
   * But most code in the wild is still 2.x
 
 * If you find yourself needing to work with Python 2 and 3, there are ways to write compatible code: https://wiki.python.org/moin/PortingPythonToPy3k
 
-* We will cover that more later in the program. Also: a short intro to the differences you really need to know about up font later this session.
+* We will cover that more later in the program. Also: a short intro to the differences you really need to know about up front later this session.
 
 
 Introduction to Your Environment
@@ -354,7 +354,7 @@ Windows provides the "DOS" command line, which is OK, but pretty old an limited,
 
 If you are comfortable with either of these -- go for it.
 
-If not, you can use the "git Bash" shell -- which is much like the bash shell on OS-X and *nix.
+If not, you can use the "git Bash" shell -- which is much like the bash shell on OS-X and Linux.
 
 Your Interpreter
 ----------------
@@ -381,13 +381,13 @@ Try it out:
 
 .. code-block:: python
 
-    >>> print "hello world!"
+    >>> print("hello world!")
     hello world!
     >>> 4 + 5
     9
     >>> 2 ** 8 - 1
     255
-    >>> print "one string" + " plus another"
+    >>> print ("one string" + " plus another")
     one string plus another
     >>>
 
@@ -493,19 +493,18 @@ If not, I suggest ``SublimeText``:
 
 http://www.sublimetext.com/
 
+(Use version 3, even though it's "beta")
 
 Why No IDE?
 -----------
 
 I am often asked this question.
 
-An IDE does not give you much that you can't get with a good editor plus a good
-interpreter.
+An IDE does not give you much that you can't get with a good editor plus a good interpreter.
 
 An IDE often weighs a great deal
 
-Setting up IDEs to work with different projects can be challenging and
-time-consuming.
+Setting up IDEs to work with different projects can be challenging and time-consuming.
 
 Particularly when you are first learning, you don't want too much done for you.
 
@@ -713,7 +712,6 @@ To run it, you have a couple options:
 
         [demo]
 
-
 Basic Python Syntax
 ===================
 
@@ -735,13 +733,14 @@ All of programming is really about manipulating values.
 .. rst-class:: build
 
 * Values are pieces of unnamed data: ``42, 'Hello, world',``
+
 * In Python, all values are objects
 
-  * Try ``dir(42)``  - lots going on behind the curtain!
+  - Try ``dir(42)``  - lots going on behind the curtain!
 
 * Every value belongs to a type
 
-  * Try ``type(42)`` - the type of a value determines what it can do
+  - Try ``type(42)`` - the type of a value determines what it can do
 
 .. ifslides::
 
@@ -797,12 +796,9 @@ Statements:
 
     In [6]: # statements do not return a value, may contain an expression
 
-    In [7]: print("this")
-    this
+    In [7]: line_count = 42
 
-    In [8]: line_count = 42
-
-    In [9]:
+    In [8]: return something
 
 
 .. nextslide:: The Print Function
@@ -1038,7 +1034,7 @@ Variables?
 
 * That's because they are used, for the most part, for the same purposes.
 
-* But many of you defined a "variable" as something like:
+* But often a "variable" is defined as something like:
   "a place in memory that can store values"
 
 * That is **NOT** what a name in python is!
@@ -1765,8 +1761,8 @@ There are a lot of subtle differences that you don't need to concern yourself wi
 
 But a couple that you'll need to know right off the bat:
 
-print
-=====
+print()
+-------
 
 In python2, ``print`` is a "statement", rather than a function. That means it didn't require parenthes around what you want printed::
 
@@ -1826,7 +1822,7 @@ We'll talk about all that when we cover those topics.
 Homework
 ========
 
-Tasks and reading by Next Week
+Tasks and reading by next week
 
 
 Task 1
@@ -1837,7 +1833,7 @@ Task 1
 Make sure you have the basics of command line usage down:
 
 Work through the supplemental tutorials on setting up your
-`Command Line`_ for good development support.
+Command Line (::ref:`shell_customization`) for good development support.
 
 Make sure you've got your editor set up productively -- at the very very
 least, make sure it does Python indentation and syntax coloring well.
@@ -1848,7 +1844,7 @@ least, make sure it does Python indentation and syntax coloring well.
 
 If you are using SublimeText, here are some notes to make it super-nifty:
 
-Setting up `SublimeText`_ .
+::ref:`sublime_as_ide`
 
 At the end, your editor should support tab completion and pep8 and pyflakes
 linting.
@@ -1856,9 +1852,6 @@ linting.
 If you are not using SublimeText, look for plugins that accomplish the same
 goals for your own editor.  If none are available, please consider a change of
 editor.
-
-.. _SublimeText: supplements/sublime_as_ide.html
-.. _Command Line: supplements/shell.html
 
 Also make sure you've got iPython working, if you didn't get to that in class.
 
@@ -1873,9 +1866,7 @@ Task 3
   $ mkdir session01
   $ cd session01
 
-
 * Add a new file to it called ``break_me.py``
-
 
 * In the ``break_me.py`` file write four simple Python functions:
 
@@ -1891,7 +1882,7 @@ Task 3
   * Use the Python standard library reference on `Built In Exceptions`_ as a
     reference
 
-.. _Built In Exceptions: https://docs.python.org/2/library/exceptions.html
+.. _Built In Exceptions: https://docs.python.org/3/library/exceptions.html
 
 Task 2
 ------
@@ -1899,100 +1890,48 @@ Task 2
 **Python Pushups**
 
 To get a bit of exercise solving some puzzles with Python, work on the Python
-exercises at `CodingBat`_.
+exercises at "Coding Bat": http://codingbat.com/python
 
 There are 8 sets of puzzles. Do as many as you can, but try to at least
 get all the "Warmups" done.
 
-.. _CodingBat: http://codingbat.com
 
+Reading, etc.
+-------------
 
-Task 5
--------
+Every one of you has a different backgrond and learning style.
 
-**Part 1** (adapted from Downey, "Think Python", ex. 3.5)
+So take a bit of time to figure out which resource works for you.
 
-Write a function that draws a grid like the following::
+::ref:`python_learning_resources` provides some options. Do look it over.
 
-    + - - - - + - - - - +
-    |         |         |
-    |         |         |
-    |         |         |
-    |         |         |
-    + - - - - + - - - - +
-    |         |         |
-    |         |         |
-    |         |         |
-    |         |         |
-    + - - - - + - - - - +
-
-.. nextslide::
-
-Hint: to print more than one value on a line, you can pass multiple names into the print function:
-``print('+', '-')``
-
-If you don't want a newline after somethign is printed, you tell python what you want the print to end with like so:
-
-::
-
-  print('+', end=' '),
-  print('-')
-
-The output of these statements is ``'+ -'``.
-
-A print function with no arguments ends the current line and goes to the next line::
-
-    print()
-
-.. nextslide::
-
-**Part 2:**
-
-Write a function ``print_grid()`` that takes one integer argument
-and prints a grid like the picture above, BUT the size of the
-grid is given by the argument.
-
-For example, ``print_grid(11)`` prints the grid in the above picture.
-
-This problem is underspecified.  Do something reasonable.
-
-Hints:
-
-  A character is a string of length 1
-
-  ``s + t`` is string ``s`` followed by string ``t``
-
-  ``s * n`` is string ``s`` replicated n times
-
-.. nextslide::
-
-**Part 3:**
-
-Write a function that draws a similar grid with three rows and three columns.
-
-(what to do about rounding?)
-
-And while you are at it -- n rows and columns...
-
-
-Recommended Reading, etc.
--------------------------
-
-If you want some more practice with these key concepts:
+But here are few to get you started this week:
 
 *Think Python:* Chapters 1–7 (http://greenteapress.com/thinkpython/)
 
-*Dive Into Python:* Chapters 1–3 (http://www.diveinto.org/python3/)
+*Dive Into Python:* Chapters 1–2 (http://www.diveintopython3.net/)
 
 *LPTHW:* ex. 1–10, 18-21 (http://learnpythonthehardway.org/book/)
+  **NOTE:** LPTHW is python 2 -- you will need to add parentheses to all yoru print calls!
 
-Or follow this Excellent introductory tutorial:
+Or follow this excellent introductory tutorial:
 
 http://pyvideo.org/video/1850/a-hands-on-introduction-to-python-for-beginning-p
 
+(also python2 -- so same thing with the print function...)
+
+You should be comfortable with working with variables, numbers, strings, and basic functions.
 
 Next Class
 ===========
+
+Next week, we'll:
+
+ * get set up with git
+ * Some more basic Python
+ * More on Functions
+ * Boolean Expressions
+ * Code Structure, Modules, and Namespaces
 
 
 Office Hours
@@ -2000,7 +1939,8 @@ Office Hours
 
 I'll do office hours on either Saturday or Sunday from 12:00 -- 3:00
 
-Probably in Wallingford, or Fremont
+Probably in Wallingford or Fremont
+ - is a coffeeshop OK?
 
 Do you have a preference?
 

@@ -878,7 +878,7 @@ For the most part, you can/should use a built in one
 
 Choose the best match you can for the built in Exception you raise.
 
-Example (from last week's excercises)::
+Example (from last week's exercises)::
 
   if (not isinstance(m, int)) or (not isinstance(n, int)):
       raise ValueError
@@ -1241,17 +1241,17 @@ Text and files and dicts, and...
 
     and in this doc:
 
-    :doc:`./excercises/kata_fourteen`
+    :doc:`./exercises/kata_fourteen`
 
     and on github here
 
-    http://uwpce-pythoncert.github.io/IntroToPython/excercises/kata_fourteen.html
+    http://uwpce-pythoncert.github.io/IntroToPython/exercises/kata_fourteen.html
 
 .. nextslide::
 
 * Use The Adventures of Sherlock Holmes as input:
 
-    :download:`./excercises/sherlock.txt`
+    :download:`./exercises/sherlock.txt`
 
     and on github here:
 
@@ -1270,6 +1270,9 @@ Paths and File Processing
 
 * write a program which copies a file from a source, to a destination
   (without using shutil, or the OS copy command)
+
+  - advanced: make it work for any size file: i.e. don't read the entire
+    contents of the file into memory at once.
 
 * update mailroom from last week to:
 

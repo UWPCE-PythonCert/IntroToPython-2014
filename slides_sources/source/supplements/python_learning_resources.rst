@@ -8,20 +8,20 @@ the best-known and best-regarded of the breed. If you are itching for a bit
 more work on your Python chops, you should try these out.
 
 Python Language Resources
-===============================
+==========================
 
 As a Python programmer, you'll want to keep a bookmark pointed at the
-official Python documentation (https://docs.python.org/2/), especially
+official Python documentation (https://docs.python.org/3/), especially
 the documentation for the standard library
-(https://docs.python.org/2/library/index.html). However, there are a
+(https://docs.python.org/3/library/index.html). However, there are a
 number of additional resources you can (and should) use to help build
 your Python chops.
 
 For the beginner
-----------------------
+-----------------
 
 * **The Python Tutorial**
-  (https://docs.python.org/2/tutorial/): This is the
+  (https://docs.python.org/3/tutorial/): This is the
   official tutorial from the Python website. No more authoritative source is
   available.
 
@@ -36,7 +36,7 @@ For the beginner
   programmed in any language before.
 
 * **Dive Into Python 3**
-  (http://www.diveinto.org/python3/): The updated version
+  (http://www.diveintopython3.net/): The updated version
   of a classic. This book offers an introduction to Python aimed at the student
   who has experience programming in another language.
 
@@ -47,14 +47,14 @@ For the beginner
 
 * **Think Python**
   (http://greenteapress.com/thinkpython/): Methodical and
-  complete.  This book offers a very "computer science"-style introduction to
+  complete.  This book offers a very "computer science-style" introduction to
   Python. It is really an intro to Python *in the service of* Computer Science,
   though, so while helpful for the absolute newcomer, it isn't quite as
   "pythonic" as it might be.
 
 * **Core Python Programming**
-  (http://corepython.com/): Only available as a dead
-  trees version, but if you like to have book to hold in your hands anyway, this
+  (http://corepython.com/): Only available as a dead trees version, but
+  if you like to have book to hold in your hands anyway, this
   is the best textbook style introduction out there. It starts from the
   beginning, but gets into the full language. Published in 2009, but still in
   print, with updated appendixes available for new language features.
@@ -82,12 +82,15 @@ Next Steps
 Evaluating Your Options
 -----------------------------
 
-The blurbs above are short descriptions of the material in each resource. I've
-drawn them both from my own usage of the various tools, and from a wonderful
-set of online reviews
+The blurbs above are short descriptions of the material in each resource. We've
+drawn them both from our own usage of the various tools, and from a wonderful
+set of online reviews:
+
 (http://planningadinner.blogspot.com/search/label/So%20you%20want%20to%20learn%20Python.%20What%27s%20next%3F)
+
 done by Marta Maria Casetti on her blog, "Planning a Dinner"
 (http://planningadinner.blogspot.com/).
+
 The poster she presented at PyCon 2014
 (http://planningadinner.blogspot.com/2014/04/the-poster.html)
 as a result of that research offers some great hints about the aspects of
@@ -96,12 +99,12 @@ of Python to take the time to look over this poster to help determine the best
 path forward for themselves.
 
 iPython Interpreter Resources
-==================================
+=============================
 
 iPython is an enhanced interpreter that makes interactive experimentation at the command line much more pleasant and powerful.
 
 * **The iPython tutorial**
-    (http://ipython.org/ipython-doc/rel-0.10.2/html/interactive/tutorial.html)
+    (https://ipython.org/ipython-doc/stable/interactive/tutorial.html)
 
 * **Using IPython for interactive work**
     (http://ipython.org/ipython-doc/stable/interactive/index.html)
@@ -110,3 +113,4 @@ iPython is an enhanced interpreter that makes interactive experimentation at the
 * **The iPython Documentation**
     (http://ipython.org/ipython-doc/stable/index.html)
     Use this to learn more about iPython's amazing capabilities.
+

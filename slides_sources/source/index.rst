@@ -9,7 +9,7 @@ In This Course
     | .. toctree::         | .. toctree::          |
     |     :maxdepth: 1     |     :maxdepth: 1      |
     |                      |                       |
-    |     session01        |     excercises/index  |
+    |     session01        |     exercises/index   |
     |     session02        |     supplements/index |
     |     session03        |                       |
     |     session04        |                       |
@@ -46,7 +46,7 @@ In This Course
     .. toctree::
         :maxdepth: 2
 
-        excercises/index
+        exercises/index
         supplements/index
 
 .. rst-class:: credit

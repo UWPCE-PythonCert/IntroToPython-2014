@@ -741,7 +741,7 @@ to specialize the behavior
 
 Details in:
 
-:ref:`excercise_html_renderer`
+:ref:`exercise_html_renderer`
 
 
 Let's see if you can do step 1. in class...
@@ -1093,7 +1093,7 @@ will get ``filename == "a_file_name"``
 Html rendering system:
 -----------------------
 
-:ref:`excrcise_html_renderer`
+:ref:`exercise_html_renderer`
 
 |
 

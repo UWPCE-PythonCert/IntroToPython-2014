@@ -398,7 +398,7 @@ Let's use some of this to build a nice class to represent a Circle.
 
 For now, Let's do steps 1-4 of:
 
-:ref:`excercise_circle_class`
+:ref:`exercise_circle_class`
 
 Lightning Talks
 ----------------
@@ -737,7 +737,7 @@ Let's complete our nifty Circle class:
 
 Steps 5-8 of:
 
-:ref:`excercise_circle_class`
+:ref:`exercise_circle_class`
 
 
 ========

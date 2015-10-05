@@ -35,6 +35,9 @@ Class Outline
 .. rst-class:: left
 
  * git primer
+
+an exercise: ::ref:`exercise_grid_printer`
+
  * Some basic Python
  * More on Functions
  * Boolean Expressions
