@@ -87,22 +87,35 @@ pip
 
 Many python packages are also available directly from your distro -- but you'll get the latest and greatest if you use ``pip`` to install it instead.
 
-To get pip, the first option is to use your system package manager, something like:
+
+If you have a new-enough version of python, you should be able to update pip like so:
+
+.. code-block:: bash
+
+    $ python -m ensurepip --upgrade
+
+[first make sure that ``python`` gives you the one you want. You may need to call ``python3`` instead]
+
+If you have an older version, that may not work, so the next option is to use your system package manager, something like:
 
 .. code-block:: bash
 
     $ sudo apt-get install python3-pip
 
-If that doesn't work, then look up the `official manual install notes <https://pip.pypa.io/en/latest/installing.html>`_
+If that doesn't work, all is not lost -- look up the `official manual install notes <https://pip.pypa.io/en/latest/installing.html>`_
 
 iPython
 --------
 
-One we are going to use in class is ``iPython``::
+One extra package we are going to use in class is ``iPython``:
+
+.. code-block:: bash
 
   $ sudo pip3 install ipython[all]
 
-You should now be able to run ``iPython``::
+You should now be able to run ``iPython``:
+
+.. code-block:: bash
 
     $ ipython3
 	Python 3.4.3 ()
