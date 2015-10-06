@@ -1,7 +1,7 @@
 CodingBat Solutions
 ====================
 
-A few selected solutions form teh codingbat site:
+A few selected solutions from the codingbat site:
 
 http://codingbat.com/python
 

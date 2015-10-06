@@ -43,4 +43,4 @@ if __name__ == "__main__":
     assert cigar_party(40, True) is True
     assert cigar_party(39, True) is False
 
-    print "All tests passed"
+    print("All tests passed")

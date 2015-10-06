@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-##############################
-## Warmup-1 > monkey_trouble
+#############################
+# Warmup-1 > monkey_trouble
 
 
 def monkey_trouble(a_smile, b_smile):
@@ -43,7 +43,7 @@ def monkey_trouble4(a_smile, b_smile):
 if __name__ == "__main__":
     # a few tests
 
-    ## neat trick to test all versions:
+    # neat trick to test all versions:
     for test_fun in (monkey_trouble,
                      monkey_trouble2,
                      monkey_trouble3,
@@ -53,4 +53,4 @@ if __name__ == "__main__":
         assert test_fun(True, False) is False
         assert test_fun(False, True) is False
 
-    print "All tests passed"
+    print("All tests passed")
