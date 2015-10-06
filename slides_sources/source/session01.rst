@@ -36,8 +36,8 @@ Your instructors
 
 .. rst-class:: center large
 
-| Nathan Savage
-| (nathansavagemail at gmail dot com)
+| Maria McKinley
+| (maria at mariakathryn dot net)
 |
 
 Who are you?
@@ -120,7 +120,7 @@ We've set up a google group -- you will all be invited to join:
 I generally will hold "office hours" at a coffee shop for a couple hours
 each weekend.
 
-Nathan can do some as well.
+Maria will do some as well.
 
 What are good times for you?
 
@@ -2010,6 +2010,6 @@ Probably in Wallingford, or maybe South Lake Union
 
 Do you have a preference?
 
-Nathan's office hours??
+Maria's office hours??
 
 

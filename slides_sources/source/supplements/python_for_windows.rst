@@ -27,7 +27,7 @@ Double click and install.
 Terminal
 ---------
 
-If you are confident in your use of "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash. 
+If you are confident in your use of "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash. From now on, if you hear the terms 'bash', 'shell' or 'terminal', know that this is the application that is being referred to.
 
 When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking. 
 
