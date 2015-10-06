@@ -1919,7 +1919,7 @@ You should be comfortable with working with variables, numbers, strings, and bas
 git
 ---
 
-We'll be covering teh basics of git next week - enough to use for this class. Please read one of these so you'll have a head start:
+We'll be covering the basics of git next week - enough to use for this class. Please read one of these so you'll have a head start:
 
 http://rogerdudler.github.io/git-guide/
 
