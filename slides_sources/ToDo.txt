@@ -1,8 +1,0 @@
-Things to do for the UWPCE Intro to Python class:
-
-Future Sessions:
-
-Sorting!
-
-add pathlib examples
-
