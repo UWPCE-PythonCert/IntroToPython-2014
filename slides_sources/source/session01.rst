@@ -1121,7 +1121,7 @@ Deleting
 
 You can't actually delete anything in python...
 
-``del`` only deletes a name (or unbinds the name...)
+``del`` only deletes a name (or "unbinds" the name...)
 
 .. code-block:: ipython
 
@@ -1444,10 +1444,8 @@ There are several exceptions that you are likely to see a lot of:
 
 .. rst-class:: build
 
-* ``NameError``: indicates that you have tried to use a symbol that is not bound to
-  a value.
-* ``TypeError``: indicates that you have tried to use the wrong kind of object for
-  an operation.
+* ``NameError``: indicates that you have tried to use a symbol that is not bound to a value.
+* ``TypeError``: indicates that you have tried to use the wrong kind of object for an operation.
 * ``SyntaxError``: indicates that you have mis-typed something.
 * ``AttributeError``: indicates that you have tried to access an attribute or
   method that an object does not have (this often means you have a different
@@ -1463,15 +1461,12 @@ What is a function?
 
 A function is a self-contained chunk of code
 
-
 You use them when you need the same code to run multiple times,
 or in multiple parts of the program.
 
 (DRY)
 
-
 Or just to keep the code clean
-
 
 Functions can take and return information
 
@@ -1503,8 +1498,7 @@ Functions: ``def``
 
   * it is executed
   * it creates a local name
-
-
+  * it does *not* return a value
 .. nextslide::
 
 function defs must be executed before the functions can be called:
@@ -1543,12 +1537,12 @@ You **call** a function using the function call operator (parens):
     In [4]: simple()
     I am a simple function
 
+Calling a function is how you run the code in that function.
 
 Functions: Call Stack
 ---------------------
 
-functions call functions -- this makes an execution stack -- that's all a trace
-back is
+functions call functions -- this makes an execution stack -- that's all a trace back is
 
 .. code-block:: ipython
 
@@ -1621,12 +1615,12 @@ if you don't explicilty put ``return``  there, Python will:
     In [12]: print(result)
     None
 
-note that the interpreter eats ``None``
+note that the interpreter eats ``None`` -- ou need to call ``print()`` to see it.
 
 
 .. nextslide::
 
-Only one return statement will ever be executed.
+Only one return statement in a function will ever be executed.
 
 Ever.
 
@@ -1686,7 +1680,7 @@ In a ``def`` statement, the values written *inside* the parens are
        ....:     print(x, y, z, q)
        ....:
 
-x, y, z are *local* symbols -- so is q
+x, y, z are *local* names -- so is q
 
 
 Functions: arguments

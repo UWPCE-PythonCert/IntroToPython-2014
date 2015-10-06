@@ -1,6 +1,8 @@
-***********************************************************
+.. _python_learning_resources:
+
+*********************************
 Useful Python Learning Resources
-***********************************************************
+*********************************
 
 In addition to the material we cover in class, there are numerous online
 resources to help a newcomer get to know Python. The following list represents
