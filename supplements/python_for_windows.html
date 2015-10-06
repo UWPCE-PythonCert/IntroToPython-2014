@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting up Windows for Python and this class &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Setting up Windows for Python &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
         <link rel="up" title="Supplemental Materials" href="index.html"/>
         <link rel="next" title="Setting Up Python For Linux" href="python_for_linux.html"/>
-        <link rel="prev" title="Setting up your Mac for Python and this class" href="python_for_mac.html"/> 
+        <link rel="prev" title="Setting up your Mac for Python" href="python_for_mac.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -66,12 +66,15 @@
           
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#goals-for-session-one">Goals for Session One:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introductions">Introductions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-this-class">Introduction to This Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#python-ecosystem">Python Ecosystem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-ipython">Introduction to iPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#basic-python-syntax">Basic Python Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session01.html#python-2-3-differences">Python 2-3 Differences</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#id2">Homework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#next-class">Next Class</a></li>
 </ul>
@@ -186,16 +189,17 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../homework/index.html">Homework Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../homework/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/html_builder.html">HTML Renderer Homework Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/circle_class.html">Circle Class Homework Assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Homework Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/grid_printer.html">Grid Printer Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/html_renderer.html">HTML Renderer Excercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/circle_class.html">Circle Class Excercise</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python and this class</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up Windows for Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
@@ -229,7 +233,7 @@
       
           <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
       
-    <li>Setting up Windows for Python and this class</li>
+    <li>Setting up Windows for Python</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/supplements/python_for_windows.txt" rel="nofollow"> View page source</a>
@@ -240,16 +244,18 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="setting-up-windows-for-python-and-this-class">
-<h1>Setting up Windows for Python and this class<a class="headerlink" href="#setting-up-windows-for-python-and-this-class" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="setting-up-windows-for-python">
+<h1>Setting up Windows for Python<a class="headerlink" href="#setting-up-windows-for-python" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="getting-the-tools">
 <h2>Getting The Tools<a class="headerlink" href="#getting-the-tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="python">
 <h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
 <p>There are a number of python distributions available &#8211; many designed for easier support of scientific programming:</p>
-<p>Anaconda
-Enthought Canopy
-Python(x,y)</p>
+<ul class="simple">
+<li>Anaconda</li>
+<li>Enthought Canopy</li>
+<li>Python(x,y)</li>
+</ul>
 <p>But for core use, the installer from python.org is the way to go:</p>
 <p><a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
 <p>You want the installer for Python 3.4.3 &#8211; probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.</p>
@@ -257,10 +263,11 @@ Python(x,y)</p>
 </div>
 <div class="section" id="terminal">
 <h3>Terminal<a class="headerlink" href="#terminal" title="Permalink to this headline">¶</a></h3>
-<p>If you are confident in your use of &#8220;DOS Box&#8221; or &#8220;powershell&#8221;, feel free to use one of those. However, your life may be easier if you install &#8220;Git Bash&#8221;, as then you can follow terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash.</p>
+<p>If you are confident in your use of the &#8220;DOS Box&#8221; or &#8220;powershell&#8221;, feel free to use one of those. However, your life may be easier if you install &#8220;Git Bash&#8221;, as then you can follow unix-style terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash.
+From now on, if you hear the terms &#8216;bash&#8217;, &#8216;shell&#8217; or &#8216;terminal&#8217;, know that this is the application that is being referred to.</p>
 <p>When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking.</p>
 <p><a class="reference external" href="https://git-for-windows.github.io/">https://git-for-windows.github.io/</a></p>
-<p>This is actually your best bet for running Python also &#8211; If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. It is possible that this was done during the installation of python. If you type &#8216;which python&#8217; into your terminal, and get back the answer &#8216;/c/python34/python&#8217;, then you are good to go, otherwise, follow the instructions here:</p>
+<p>This is actually your best bet for running Python also &#8211; If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environment. It is possible that this was done during the installation of python. If you type &#8216;which python&#8217; into your terminal, and get back the answer &#8216;/c/python34/python&#8217;, then you are good to go, otherwise, follow the instructions here:</p>
 <p><a class="reference external" href="http://www.computerhope.com/issues/ch000549.htm">http://www.computerhope.com/issues/ch000549.htm</a></p>
 <p>You will want to add:</p>
 <p><code class="docutils literal"><span class="pre">C:\Python34</span></code></p>
@@ -273,7 +280,7 @@ Python(x,y)</p>
 <p>If you installed Git Bash, you will already have git, both usable in the terminal and as a gui, and can safely skip this section. If not, you still need a git client. You can use the above link and install git (it will install the bash shell as well, of course, but you can use your shell of choice instead).</p>
 <p>There is also TortoiseGit:</p>
 <p><a class="reference external" href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
-<p>which integrates git with the filemanager. Feel free to use this if you already have an understanding of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above).</p>
+<p>which integrates git with the file manager. Feel free to use this if you already have an understanding of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above).</p>
 </div>
 <div class="section" id="pip">
 <h3>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
@@ -286,7 +293,7 @@ Python(x,y)</p>
 </div>
 <div class="section" id="ipython">
 <h3>iPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
-<p>One we are going to use in class is <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
+<p>One extra package we are going to use in class is <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ pip install ipython
 </pre></div>
 </div>
@@ -302,6 +309,7 @@ Python(x,y)</p>
     object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
 </pre></div>
 </div>
+<p>(or from the DOS box or PowerShell prompt)</p>
 <p>We will use this as our default python interpreter.</p>
 </div>
 </div>
@@ -316,7 +324,7 @@ Python(x,y)</p>
         <a href="python_for_linux.html" class="btn btn-neutral float-right" title="Setting Up Python For Linux">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="python_for_mac.html" class="btn btn-neutral" title="Setting up your Mac for Python and this class"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="python_for_mac.html" class="btn btn-neutral" title="Setting up your Mac for Python"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

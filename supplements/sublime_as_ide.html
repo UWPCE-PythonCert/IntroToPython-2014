@@ -74,7 +74,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#introduction-to-ipython">Introduction to iPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#basic-python-syntax">Basic Python Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#python-2-3-differences">Python 2-3 Differences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../session01.html#print">print</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#id2">Homework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#next-class">Next Class</a></li>
 </ul>
@@ -190,7 +189,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Homework Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../exercises/grid_printer.html">Circle Class Excercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/grid_printer.html">Grid Printer Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/html_renderer.html">HTML Renderer Excercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/circle_class.html">Circle Class Excercise</a></li>
@@ -199,7 +198,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python and this class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Turning Sublime Text Into a Lightweight Python IDE</a></li>
@@ -268,8 +267,9 @@ debugging, the editor will follow along with the debugger.</li>
 </div>
 <div class="section" id="which-version">
 <h2>Which Version?<a class="headerlink" href="#which-version" title="Permalink to this headline">¶</a></h2>
-<p>Version 2 will be fine, but I would urge you to consider updating to version 3.
-Some of the plugins I recommend are not available for version 2.</p>
+<p>While Version 3 is still considered &#8220;beta&#8221;, it is the one everyone is putting
+their effort into, and some of the plugins I recommend are not available for
+version 2.</p>
 </div>
 <div class="section" id="basic-settings">
 <h2>Basic Settings<a class="headerlink" href="#basic-settings" title="Permalink to this headline">¶</a></h2>
@@ -400,23 +400,10 @@ simplified and thus made easier to understand and more testable.</p>
 <p>There is a nice plugin for the SublimeLinter that <a class="reference external" href="https://sublime.wbond.net/packages/SublimeLinter-flake8">utilizes flake8</a>. For it to
 work, the plugin will need to have a Python executable that has the Python
 tools it needs installed.</p>
-<p>Use <a class="reference external" href="http://virtualenv.org">virtualenv</a> to accomplish this.</p>
-<p>(<strong>Warning:</strong> there is some indication that <code class="docutils literal"><span class="pre">SublimeLinter</span></code> doesn&#8217;t support
-virtual environments. So if you have trouble, it may be best to make sure
-that the python packages you need are installed in your main python install,
-rather than a virtualenv. To do this, simply skip the virtualenv instrcutions
-below, and go on the pip installing.)</p>
-<p>First, create a virtualenv and activate it:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ cd /Users/cewing/virtualenvs
-$ virtualenv sublenv
-New python executable in sublenv/bin/python
-Installing setuptools, pip...done.
-$ source sublenv/bin/activate
-(sublenv)$
-</pre></div>
-</div>
-<p>Then use Python packaging tools to install the required packages:</p>
-<div class="highlight-bash"><div class="highlight"><pre>(sublenv)$ pip install flake8
+<p>Make sure that the python packages you need are installed in your main
+python install, rather than a virtualenv.</p>
+<p>Use Python packaging tools to install the required packages:</p>
+<div class="highlight-bash"><div class="highlight"><pre>$ pip install flake8
 Downloading/unpacking flake8
 [...]
 Downloading/unpacking pyflakes&gt;=0.7.3 (from flake8)
@@ -429,19 +416,17 @@ Installing collected packages: flake8, pyflakes, pep8, mccabe
 [...]
 Successfully installed flake8 pyflakes pep8 mccabe
 Cleaning up...
-(sublenv)$
+$
 </pre></div>
 </div>
-<p>The Python executable for this <code class="docutils literal"><span class="pre">virtualenv</span></code> now has the required packages
-installed. You can look in <code class="docutils literal"><span class="pre">/path/to/sublenv/bin</span></code> to see the executable
-commands for each:</p>
-<blockquote>
-<div>(sublenv)$ ls sublenv/bin
-activate            easy_install-2.7    pip2.7
-activate.csh        flake8              pyflakes
-activate.fish       pep8                python
-activate_this.py    pip                 python2
-easy_install        pip2                python2.7</div></blockquote>
+<p>Your Python install now has the required packages installed.</p>
+<p>try typeing these command to make sure:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ flake8
+Usage: flake8 [options] input ...
+
+flake8: error: input not specified
+</pre></div>
+</div>
 <p>Now install SublimeLinter and then SublimeLinter-flake8 using Package Control.</p>
 <p>Here are the settings you can add to <code class="docutils literal"><span class="pre">Preferences</span></code> -&gt; <code class="docutils literal"><span class="pre">Package</span> <span class="pre">Settings</span></code> -&gt;
 <code class="docutils literal"><span class="pre">SublimeLinter</span></code> -&gt; <code class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">User</span></code>:</p>

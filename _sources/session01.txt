@@ -47,8 +47,8 @@ Your instructors
 
 .. rst-class:: center large
 
-| Maria Mckinley
-| (Maria's email here)
+| Maria McKinley
+| (maria at mariakathryn dot net)
 |
 
 Who are you?
@@ -153,7 +153,7 @@ Lightning Talks
 
 
 Python Ecosystem
------------------
+================
 
 Python is  Used for:
 
@@ -1915,6 +1915,18 @@ http://pyvideo.org/video/1850/a-hands-on-introduction-to-python-for-beginning-p
 (also python2 -- so same thing with the print function...)
 
 You should be comfortable with working with variables, numbers, strings, and basic functions.
+
+git
+---
+
+We'll be covering the basics of git next week - enough to use for this class. Please read one of these so you'll have a head start:
+
+http://rogerdudler.github.io/git-guide/
+
+or
+
+https://try.github.io/levels/1/challenges/1
+
 
 Next Class
 ===========
