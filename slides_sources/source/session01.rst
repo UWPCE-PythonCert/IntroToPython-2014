@@ -1916,6 +1916,18 @@ http://pyvideo.org/video/1850/a-hands-on-introduction-to-python-for-beginning-p
 
 You should be comfortable with working with variables, numbers, strings, and basic functions.
 
+git
+---
+
+We'll be covering teh basics of git next week - enough to use for this class. Please read one of these so you'll have a head start:
+
+http://rogerdudler.github.io/git-guide/
+
+or
+
+https://try.github.io/levels/1/challenges/1
+
+
 Next Class
 ===========
 

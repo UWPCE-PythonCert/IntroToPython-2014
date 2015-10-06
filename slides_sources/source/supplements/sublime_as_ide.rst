@@ -31,8 +31,9 @@ Here are *my* requirements for an 'IDE':
 Which Version?
 ==============
 
-Version 2 will be fine, but I would urge you to consider updating to version 3.
-Some of the plugins I recommend are not available for version 2.
+While Version 3 is still considered "beta", it is the one everyone is putting
+their effort into, and some of the plugins I recommend are not available for
+version 2.
 
 
 Basic Settings
@@ -222,33 +223,18 @@ work, the plugin will need to have a Python executable that has the Python
 tools it needs installed.
 
 
-Use `virtualenv`_ to accomplish this.
 
-(**Warning:** there is some indication that ``SublimeLinter`` doesn't support
-virtual environments. So if you have trouble, it may be best to make sure
-that the python packages you need are installed in your main python install,
-rather than a virtualenv. To do this, simply skip the virtualenv instrcutions
-below, and go on the pip installing.)
+Make sure that the python packages you need are installed in your main
+python install, rather than a virtualenv.
 
-First, create a virtualenv and activate it:
 
 .. _utilizes flake8: https://sublime.wbond.net/packages/SublimeLinter-flake8
-.. _virtualenv: http://virtualenv.org
+
+Use Python packaging tools to install the required packages:
 
 .. code-block:: bash
 
-    $ cd /Users/cewing/virtualenvs
-    $ virtualenv sublenv
-    New python executable in sublenv/bin/python
-    Installing setuptools, pip...done.
-    $ source sublenv/bin/activate
-    (sublenv)$
-
-Then use Python packaging tools to install the required packages:
-
-.. code-block:: bash
-
-    (sublenv)$ pip install flake8
+    $ pip install flake8
     Downloading/unpacking flake8
     [...]
     Downloading/unpacking pyflakes>=0.7.3 (from flake8)
@@ -261,18 +247,16 @@ Then use Python packaging tools to install the required packages:
     [...]
     Successfully installed flake8 pyflakes pep8 mccabe
     Cleaning up...
-    (sublenv)$
+    $
 
-The Python executable for this ``virtualenv`` now has the required packages
-installed. You can look in ``/path/to/sublenv/bin`` to see the executable
-commands for each:
+Your Python install now has the required packages installed.
 
-    (sublenv)$ ls sublenv/bin
-    activate            easy_install-2.7    pip2.7
-    activate.csh        flake8              pyflakes
-    activate.fish       pep8                python
-    activate_this.py    pip                 python2
-    easy_install        pip2                python2.7
+try typeing these command to make sure::
+
+    $ flake8
+    Usage: flake8 [options] input ...
+
+    flake8: error: input not specified
 
 Now install SublimeLinter and then SublimeLinter-flake8 using Package Control.
 
