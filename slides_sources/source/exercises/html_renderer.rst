@@ -1,11 +1,11 @@
-.. _homework_html_renderer:
+.. _excercises_html_renderer:
 
-==================================
-HTML Renderer Homework Assignment
-==================================
+=======================
+HTML Renderer Excercise
+=======================
 
-HTML Render
-============
+HTML Renderer
+=============
 
 Goal:
 ------

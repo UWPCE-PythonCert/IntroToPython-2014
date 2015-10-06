@@ -1,3 +1,5 @@
+.. _sublime_as_ide:
+
 **************************************************
 Turning Sublime Text Into a Lightweight Python IDE
 **************************************************

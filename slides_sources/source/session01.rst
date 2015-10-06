@@ -15,6 +15,17 @@ Session One: Introductions
 
 .. _xkcd.com/353: http://xkcd.com/353
 
+Goals for Session One:
+======================
+
+* Meet each other, set expectations for the class.
+
+* Schedule lightning talks.
+
+* Get you all up and running with Python
+
+* Start having fun with Python with a quick tutorial
+
 Introductions
 =============
 
@@ -66,7 +77,7 @@ A rendered HTML copy of the slides for this course may be found online at:
 
 http://uwpce-pythoncert.github.io/IntroToPython
 
-Also there are some homework descriptions and supplemental materials.
+Also there are some excercise descriptions and supplemental materials.
 
 The source of these materials are in the class gitHub repo:
 
@@ -85,7 +96,8 @@ Class Structure
 
 Class Time:
 
- *  Some lecture, lots of demos
+ * Some lecture -- as little as possible
+ * Lots of demos
  * Lab time: lots of hand-on practice
    - Take a break if you need one then...
  * Lather, Rinse, Repeat.....
@@ -95,15 +107,17 @@ Interrupt me with questions -- please!
 (Some of the best learning prompted by questions)
 
 Homework:
-----------
+---------
 
-* Assigned at each class
+* Most homework will be reading, and the occasional Video
+
+* Exercises will be started in class -- but you can finish them at home.
 
 * You are adults -- it's up to you to do it
 
-* You can do a gitHub "pull request" if you want us to review it.
+* You can do a gitHub "pull request" if you want us to review your work.
 
-    - We'll review how to do that later...
+    - We'll review how to do that in the second Session
 
 
 Mailing list and Office Hours
@@ -120,7 +134,7 @@ We've set up a google group -- you will all be invited to join:
 I generally will hold "office hours" at a coffee shop for a couple hours
 each weekend.
 
-Maria will do some as well.
+Maria can do some as well.
 
 What are good times for you?
 
@@ -133,7 +147,7 @@ Lightning Talks
 
  * 5 minutes each (including setup) - no kidding!
  * Every student will give one
- * Purposes: introduce yourself, share interests, also show Python applications
+ * Purposes: introduce yourself, share interests, show Python applications
  * Any topic you like, that is related to Python -- according to you!
 
 
@@ -292,20 +306,18 @@ Python 3.x ("py3k")
 
 .. nextslide::
 
-This class uses Python 2.7 not Python 3.x
+This class uses Python 3.4 -- not Python 2.*
 
 .. rst-class:: build
 
 * Adoption of Python 3 is growing fast
 
-  * A few key packages still not supported (https://python3wos.appspot.com/)
-  * Most code in the wild is still 2.x
-
-* You *can* learn to write Python that is forward compatible from 2.x to 3.x
-
-* We will cover that more later in the program.
+  * Almost all key packages now supported (https://python3wos.appspot.com/)
+  * But most code in the wild is still 2.x
 
 * If you find yourself needing to work with Python 2 and 3, there are ways to write compatible code: https://wiki.python.org/moin/PortingPythonToPy3k
+
+* We will cover that more later in the program. Also: a short intro to the differences you really need to know about up front later this session.
 
 
 Introduction to Your Environment
@@ -327,16 +339,22 @@ Your Command Line (cli)
 
 Having some facility on the command line is important
 
-We won't cover this in class, so if you are not comfortable, please bone up at
-home.
+We won't cover this in class, so if you are not comfortable,
+please bone up at home.
 
 I suggest running through the **cli** tutorial at "learn code the hard way":
 
-`http://cli.learncodethehardway.org/book`_
+http://cli.learncodethehardway.org/book/
 
-.. _http://cli.learncodethehardway.org/book: http://cli.learncodethehardway.org/book
+**Windows:**
 
+Most of the demos in class, etc, will be done using the "bash" command line shell on OS-X. This is identical to the bash shell on Linux.
 
+Windows provides the "DOS" command line, which is OK, but pretty old an limited, or "Power Shell" -- a more modern, powerful, flexible command shell.
+
+If you are comfortable with either of these -- go for it.
+
+If not, you can use the "git Bash" shell -- which is much like the bash shell on OS-X and Linux.
 
 Your Interpreter
 ----------------
@@ -345,13 +363,12 @@ Python comes with a built-in interpreter.
 
 You see it when you type ``python`` at the command line:
 
-.. code-block:: pycon
+.. code-block:: python
 
-    $ python
-    Python 2.7.5 (default, Aug 25 2013, 00:04:04)
-    [GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
-    Type "help", "copyright", "credits" or "license" for more information.
-    >>>
+  $ python
+  Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
+  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+  Type "help", "copyright", "credits" or "license" for more information.
 
 That last thing you see, ``>>>`` is the "Python prompt".
 
@@ -362,15 +379,15 @@ This is where you type code.
 
 Try it out:
 
-.. code-block:: pycon
+.. code-block:: python
 
-    >>> print "hello world!"
+    >>> print("hello world!")
     hello world!
     >>> 4 + 5
     9
     >>> 2 ** 8 - 1
     255
-    >>> print "one string" + " plus another"
+    >>> print ("one string" + " plus another")
     one string plus another
     >>>
 
@@ -476,19 +493,18 @@ If not, I suggest ``SublimeText``:
 
 http://www.sublimetext.com/
 
+(Use version 3, even though it's "beta")
 
 Why No IDE?
 -----------
 
 I am often asked this question.
 
-An IDE does not give you much that you can't get with a good editor plus a good
-interpreter.
+An IDE does not give you much that you can't get with a good editor plus a good interpreter.
 
 An IDE often weighs a great deal
 
-Setting up IDEs to work with different projects can be challenging and
-time-consuming.
+Setting up IDEs to work with different projects can be challenging and time-consuming.
 
 Particularly when you are first learning, you don't want too much done for you.
 
@@ -517,21 +533,21 @@ We will take the time here in class to get this going.
 This helps to ensure that you will be able to work.
 
 
-Step 1: Python 2.7
+Step 1: Python 3.4
 ------------------
 
 .. rst-class:: large
 
-You have this already, RIGHT?
+Do you already have this??
 
 .. code-block:: bash
 
-    $ python
-    Python 2.7.5 (default, Aug 25 2013, 00:04:04)
-    [GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
-    Type "help", "copyright", "credits" or "license" for more information.
-    >>> ^D
-    $
+
+  $ python
+  Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
+  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>> ^D
 
 If not:
 
@@ -550,28 +566,13 @@ Sometimes you need a bit more.
 
 Pip allows you to install Python packages to expand your system.
 
-You install it by downloading and then executing an installer script:
-
-.. code-block:: bash
-
-    $ curl -O https://bootstrap.pypa.io/get-pip.py
-    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-    100 1309k  100 1309k    0     0   449k      0  0:00:02  0:00:02 --:--:--  449k
-
-    $ python get-pip.py
-
-(or go to: http://pip.readthedocs.org/en/latest/installing.html)
-
-(Windows users will need to do that....)
-
-.. nextslide:: Using Pip
+The previous instructions include pip as well - make sure it's working.
 
 Once you've installed pip, you use it to install Python packages by name:
 
 .. code-block:: bash
 
-    $ pip install foobar
+    $ python -m pip install foobar
     ...
 
 To find packages (and their proper names), you can search the python
@@ -586,55 +587,11 @@ Step 3: Install iPython
 As this is an intro class, we are going to use almost entirely features
 of standard library. But there are a couple things you may want:
 
-**iPython**
+**iPython** is an "enhanced python shell" -- it make s it easier to work with python interatively.
 
 .. code-block:: bash
 
-  $pip install ipython
-
-If you are using SublimeText, you may want:
-
-.. code-block:: bash
-
-  $ pip install PdbSublimeTextSupport
-
-
-Step 4: Clone Class Repository
-------------------------------
-
-`gitHub <www.github.com>`_ is an industry-standard system for
-collaboration on software projects -- particularly open source ones.
-
-We will use it this class to manage submitting and reviewing your work, etc.
-
-**Wait!** Don't have a gitHub account? Set one up now.
-
-Next, you'll make a copy of the class repository using ``git``.
-
-The canonical copy is in the UWPCE organization on GitHub:
-
-https://github.com/UWPCE-PythonCert/IntroToPython
-
-Open that URL, and click on the *Fork* button at the top right corner.
-
-This will make a copy of this repository in *your* github account.
-
-
-.. nextslide:: Clone Your Fork
-
-From here, you'll want to make a clone of your copy on your local machine.
-
-At your command line, run the following commands:
-
-.. code-block:: bash
-
-    $ cd your_working_directory_for_the_class
-    $ git clone https://github.com/<yourname>/IntroToPython.git
-
-(you can copy and paste that link from the gitHub page)
-
-**Remember**, <yourname> should be replaced by your github account name.
-
+  $ python -m pip install ipython
 
 Introduction to iPython
 =======================
@@ -671,18 +628,15 @@ Start it up
 
 .. code-block:: bash
 
-    $ipython
+  $ ipython
+  Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
+  Type "copyright", "credits" or "license" for more information.
 
-    $ ipython
-    Python 2.7.6 (v2.7.6:3a1db0d2747e, Nov 10 2013, 00:42:54)
-    Type "copyright", "credits" or "license" for more information.
-
-    IPython 2.0.0 -- An enhanced Interactive Python.
-    ?         -> Introduction and overview of IPython's features.
-    %quickref -> Quick reference.
-    help      -> Python's own help system.
-    object?   -> Details about 'object', use 'object??' for extra details.
-
+  IPython 4.0.0 -- An enhanced Interactive Python.
+  ?         -> Introduction and overview of IPython's features.
+  %quickref -> Quick reference.
+  help      -> Python's own help system.
+  object?   -> Details about 'object', use 'object??' for extra details.
 
 .. ifslides::
 
@@ -758,8 +712,6 @@ To run it, you have a couple options:
 
         [demo]
 
-
-
 Basic Python Syntax
 ===================
 
@@ -781,19 +733,21 @@ All of programming is really about manipulating values.
 .. rst-class:: build
 
 * Values are pieces of unnamed data: ``42, 'Hello, world',``
+
 * In Python, all values are objects
 
-  * Try ``dir(42)``  - lots going on behind the curtain!
+  - Try ``dir(42)``  - lots going on behind the curtain!
 
 * Every value belongs to a type
 
-  * Try ``type(42)`` - the type of a value determines what it can do
+  - Try ``type(42)`` - the type of a value determines what it can do
 
 .. ifslides::
 
     .. rst-class:: centered
 
         [demo]
+
 
 Literals for the Basic Value types:
 ------------------------------------
@@ -842,46 +796,27 @@ Statements:
 
     In [6]: # statements do not return a value, may contain an expression
 
-    In [7]: print "this"
-    this
+    In [7]: line_count = 42
 
-    In [8]: line_count = 42
-
-    In [9]:
+    In [8]: return something
 
 
-.. nextslide:: The Print Statement
+.. nextslide:: The Print Function
 
 It's kind of obvious, but handy when playing with code:
 
 .. code-block:: ipython
 
-    In [1]: print "something"
+    In [1]: print ("something")
     something
 
 You can print multiple things:
 
 .. code-block:: ipython
 
-    In [2]: print "the value is", 5
+    In [2]: print("the value is", 5)
     the value is 5
 
-
-.. nextslide::
-
-Python automatically adds a newline, which you can suppress with a comma:
-
-
-.. code-block:: ipython
-
-    In [12]: for i in range(5):
-       ....:     print "the value is",
-       ....:     print i
-       ....:
-    the value is 0
-    the value is 1
-    the value is 2
-    the value is 3
 
 .. nextslide::
 
@@ -893,7 +828,7 @@ Any python object can be printed (though it might not be pretty...)
        ...:     pass
        ...:
 
-    In [2]: print bar
+    In [2]: print(bar)
     <class '__main__.bar'>
 
 
@@ -910,7 +845,7 @@ Blocks of code are delimited by a colon and indentation:
 .. code-block:: python
 
     for i in range(100):
-        print i**2
+        print(i**2)
 
 .. code-block:: python
 
@@ -941,12 +876,12 @@ These two blocks look the same:
 .. code-block:: python
 
     for i in range(100):
-        print i**2
+        print(i**2)
 
 .. code-block:: python
 
     for i in range(100):
-        print i**2
+        print(i**2)
 
 
 .. nextslide::
@@ -978,7 +913,7 @@ Even when you hit the <tab> key
 
 
 Expressions
-----------------
+------------
 
 An *expression* is made up of values and operators.
 
@@ -1025,7 +960,7 @@ Symbols are how we give names to values (objects).
 
 * Symbols don't have a type; values do
 
-  * This is why python is 'Dynamic'
+  * This is why python is "Dynamic"
 
 
 Symbols and Type
@@ -1095,11 +1030,11 @@ Variables?
 
 * In most languages, what I'm calling symbols, or names, are called "variables".
 
-* In fact, Ill probably call them variables in this class.
+* In fact, I'll probably call them variables in this class.
 
 * That's because they are used, for the most part, for the same purposes.
 
-* But many of you defined a "variable" as something like:
+* But often a "variable" is defined as something like:
   "a place in memory that can store values"
 
 * That is **NOT** what a name in python is!
@@ -1181,13 +1116,12 @@ Using this feature, we can swap values between two names in one statement:
 
 Multiple assignment and symbol swapping can be very useful in certain contexts
 
-
 Deleting
 --------
 
 You can't actually delete anything in python...
 
-``del`` only deletes a name (or unbinds the name...)
+``del`` only deletes a name (or "unbinds" the name...)
 
 .. code-block:: ipython
 
@@ -1432,6 +1366,7 @@ You *cannot* use these words as symbols.
 
 .. nextslide::
 
+
 If you try to use any of the keywords as symbols, you will cause a
 ``SyntaxError``:
 
@@ -1446,7 +1381,7 @@ If you try to use any of the keywords as symbols, you will cause a
 .. code-block:: ipython
 
     In [14]: def a_function(else='something'):
-       ....:     print else
+       ....:     print(else)
        ....:
       File "<ipython-input-14-1dbbea504a9e>", line 1
         def a_function(else='something'):
@@ -1509,10 +1444,8 @@ There are several exceptions that you are likely to see a lot of:
 
 .. rst-class:: build
 
-* ``NameError``: indicates that you have tried to use a symbol that is not bound to
-  a value.
-* ``TypeError``: indicates that you have tried to use the wrong kind of object for
-  an operation.
+* ``NameError``: indicates that you have tried to use a symbol that is not bound to a value.
+* ``TypeError``: indicates that you have tried to use the wrong kind of object for an operation.
 * ``SyntaxError``: indicates that you have mis-typed something.
 * ``AttributeError``: indicates that you have tried to access an attribute or
   method that an object does not have (this often means you have a different
@@ -1528,15 +1461,12 @@ What is a function?
 
 A function is a self-contained chunk of code
 
-
 You use them when you need the same code to run multiple times,
 or in multiple parts of the program.
 
-(DRY) 
-
+(DRY)
 
 Or just to keep the code clean
-
 
 Functions can take and return information
 
@@ -1568,8 +1498,7 @@ Functions: ``def``
 
   * it is executed
   * it creates a local name
-
-
+  * it does *not* return a value
 .. nextslide::
 
 function defs must be executed before the functions can be called:
@@ -1587,7 +1516,7 @@ function defs must be executed before the functions can be called:
 .. code-block:: ipython
 
     In [18]: def simple():
-       ....:     print "I am a simple function"
+       ....:     print("I am a simple function")
        ....:
 
     In [19]: simple()
@@ -1608,17 +1537,17 @@ You **call** a function using the function call operator (parens):
     In [4]: simple()
     I am a simple function
 
+Calling a function is how you run the code in that function.
 
 Functions: Call Stack
 ---------------------
 
-functions call functions -- this makes an execution stack -- that's all a trace
-back is
+functions call functions -- this makes an execution stack -- that's all a trace back is
 
 .. code-block:: ipython
 
     In [5]: def exceptional():
-       ...:     print "I am exceptional!"
+       ...:     print("I am exceptional!")
        ...:     print 1/0
        ...:
     In [6]: def passive():
@@ -1652,8 +1581,8 @@ Functions: Tracebacks
 
     <ipython-input-5-d8100c70edef> in exceptional()
           1 def exceptional():
-          2     print "I am exceptional!"
-    ----> 3     print 1/0
+          2     print("I am exceptional!")
+    ----> 3     print(1/0)
           4
 
     ZeroDivisionError: integer division or modulo by zero
@@ -1683,15 +1612,15 @@ if you don't explicilty put ``return``  there, Python will:
        ...:
     In [10]: fun()
     In [11]: result = fun()
-    In [12]: print result
+    In [12]: print(result)
     None
 
-note that the interpreter eats ``None``
+note that the interpreter eats ``None`` -- ou need to call ``print()`` to see it.
 
 
 .. nextslide::
 
-Only one return statement will ever be executed.
+Only one return statement in a function will ever be executed.
 
 Ever.
 
@@ -1704,7 +1633,7 @@ This is useful when debugging!
     In [14]: def no_error():
        ....:     return 'done'
        ....:     # no more will happen
-       ....:     print 1/0
+       ....:     print(1/0)
        ....:
     In [15]: no_error()
     Out[15]: 'done'
@@ -1748,10 +1677,10 @@ In a ``def`` statement, the values written *inside* the parens are
 
     In [22]: def fun(x, y, z):
        ....:     q = x + y + z
-       ....:     print x, y, z, q
+       ....:     print(x, y, z, q)
        ....:
 
-x, y, z are *local* symbols -- so is q
+x, y, z are *local* names -- so is q
 
 
 Functions: arguments
@@ -1770,7 +1699,7 @@ The values you pass in are *bound* to the symbols inside the function and used.
 The ``if`` Statement
 ---------------------
 
-In order to do anything interesting at all (including this week's homework), you need to be able to make a decision.
+In order to do anything interesting at all, you need to be able to make a decision.
 
 .. nextslide::
 
@@ -1778,11 +1707,11 @@ In order to do anything interesting at all (including this week's homework), you
 
     In [12]: def test(a):
        ....:     if a == 5:
-       ....:         print "that's the value I'm looking for!"
+       ....:         print("that's the value I'm looking for!")
        ....:     elif a == 7:
-       ....:         print "that's an OK number"
+       ....:         print("that's an OK number")
        ....:     else:
-       ....:         print "that number won't do!"
+       ....:         print("that number won't do!")
 
     In [13]: test(5)
     that's the value I'm looking for!
@@ -1815,10 +1744,79 @@ Schedule the lightning talks:
 
 [demo]
 
+Python 2-3 Differences
+======================
+
+Much of the example code you'll find online is Python2, rather than Python3
+
+For the most part, they are the same -- so you can sue those examples to learn from.
+
+There are a lot of subtle differences that you don't need to concern yourself with just yet.
+
+But a couple that you'll need to know right off the bat:
+
+print()
+-------
+
+In python2, ``print`` is a "statement", rather than a function. That means it didn't require parenthes around what you want printed::
+
+  print something, something_else
+
+This made it a bit less flexible and powerful.
+
+But -- if you try to use it that way in Python3, you'll get an error::
+
+  In [15]: print "this"
+    File "<ipython-input-15-70c8add5d16e>", line 1
+      print "this"
+                 ^
+  SyntaxError: Missing parentheses in call to 'print'
+
+So -- if you get this error, simply add the parentheses::
+
+  In [16]: print ("this")
+  this
+
+.. nextslide:: division
+
+In python 3, the divsion operator is "smart" when you divide integers::
+
+  In [17]: 1 / 2
+  Out[17]: 0.5
+
+However in python2, if you use integers, is will give you an integer result::
+
+  In [1]: 1/2
+  Out[1]: 0
+
+In both versions, you can get "integer division" if you want it with a double slash::
+
+  In [1]: 1/2
+  Out[1]: 0
+
+And in python2, you can get the behavior of py3 with "true division"::
+
+  In [2]: from __future__ import division
+
+  In [3]: 1/2
+  Out[3]: 0.5
+
+For the most part, you just need to be a bit careful with the rare cases where py2 code counts on integer division.
+
+Other py2/py3 differences
+-------------------------
+
+Most of the other differences are essentially of implementation details, like getting iterators instead of sequences -- we'll talk about that more when it comes up in class.
+
+There are also a few syntax differences with more advances topics: Exceptions, super(), etc.
+
+We'll talk about all that when we cover those topics.
+
+
 Homework
 ========
 
-??? Tasks by Next Week
+Tasks and reading by next week
 
 
 Task 1
@@ -1829,7 +1827,7 @@ Task 1
 Make sure you have the basics of command line usage down:
 
 Work through the supplemental tutorials on setting up your
-`Command Line`_ for good development support.
+Command Line (::ref:`shell_customization`) for good development support.
 
 Make sure you've got your editor set up productively -- at the very very
 least, make sure it does Python indentation and syntax coloring well.
@@ -1840,34 +1838,16 @@ least, make sure it does Python indentation and syntax coloring well.
 
 If you are using SublimeText, here are some notes to make it super-nifty:
 
-Setting up `SublimeText`_ .
+::ref:`sublime_as_ide`
 
 At the end, your editor should support tab completion and pep8 and pyflakes
-linting. Your command line should be able to show you what virtualenv is active
-and give you information about your git repository when you are inside one.
+linting.
 
 If you are not using SublimeText, look for plugins that accomplish the same
 goals for your own editor.  If none are available, please consider a change of
 editor.
 
-.. _SublimeText: supplements/sublime_as_ide.html
-.. _Command Line: supplements/shell.html
-
 Also make sure you've got iPython working, if you didn't get to that in class.
-
-Task 2
-------
-
-**Python Pushups**
-
-To get a bit of exercise solving some puzzles with Python, work on the Python
-exercises at `CodingBat`_.
-
-
-There are 8 sets of puzzles. Do as many as you can, but try to at least
-get all the "Warmups" done.
-
-.. _CodingBat: http://codingbat.com
 
 
 Task 3
@@ -1880,9 +1860,7 @@ Task 3
   $ mkdir session01
   $ cd session01
 
-
 * Add a new file to it called ``break_me.py``
-
 
 * In the ``break_me.py`` file write four simple Python functions:
 
@@ -1898,115 +1876,65 @@ Task 3
   * Use the Python standard library reference on `Built In Exceptions`_ as a
     reference
 
-.. _Built In Exceptions: https://docs.python.org/2/library/exceptions.html
+.. _Built In Exceptions: https://docs.python.org/3/library/exceptions.html
 
-Task 5
--------
+Task 2
+------
 
-**Part 1** (adapted from Downey, "Think Python", ex. 3.5)
+**Python Pushups**
 
-Write a function that draws a grid like the following::
+To get a bit of exercise solving some puzzles with Python, work on the Python
+exercises at "Coding Bat": http://codingbat.com/python
 
-    + - - - - + - - - - +
-    |         |         |
-    |         |         |
-    |         |         |
-    |         |         |
-    + - - - - + - - - - +
-    |         |         |
-    |         |         |
-    |         |         |
-    |         |         |
-    + - - - - + - - - - +
-
-.. nextslide::
-
-Hint: to print more than one value on a line, you can print a comma-separated sequence:
-``print '+', '-'``
-
-If the sequence ends with a comma, Python leaves the line unfinished, so the value printed next appears on the same line.
-
-::
-
-  print '+',
-  print '-'
-
-The output of these statements is ``'+ -'``.
-
-A print statement all by itself ends the current line and goes to the next line.
-
-.. nextslide::
-
-**Part 2:**
-
-Write a function ``print_grid()`` that takes one integer argument
-and prints a grid like the picture above, BUT the size of the
-grid is given by the argument.
-
-For example, ``print_grid(11)`` prints the grid in the above picture.
-
-This problem is underspecified.  Do something reasonable.
-
-Hints:
-
-  A character is a string of length 1
-
-  ``s + t`` is string ``s`` followed by string ``t``
-
-  ``s * n`` is string ``s`` replicated n times
-
-.. nextslide::
-
-**Part 3:**
-
-Write a function that draws a similar grid with three rows and three columns.
-
-(what to do about rounding?)
-
-And while you are at it -- n rows and columns...
+There are 8 sets of puzzles. Do as many as you can, but try to at least
+get all the "Warmups" done.
 
 
-Recommended Reading, etc.
--------------------------
+Reading, etc.
+-------------
 
-If you want some more practice with these key concepts:
+Every one of you has a different backgrond and learning style.
+
+So take a bit of time to figure out which resource works for you.
+
+::ref:`python_learning_resources` provides some options. Do look it over.
+
+But here are few to get you started this week:
 
 *Think Python:* Chapters 1–7 (http://greenteapress.com/thinkpython/)
 
-*Dive Into Python:* Chapters 1–3 (http://www.diveinto.org/python3/)
+*Dive Into Python:* Chapters 1–2 (http://www.diveintopython3.net/)
 
 *LPTHW:* ex. 1–10, 18-21 (http://learnpythonthehardway.org/book/)
+  **NOTE:** LPTHW is python 2 -- you will need to add parentheses to all yoru print calls!
 
-Or follow this Excellent introductory tutorial:
+Or follow this excellent introductory tutorial:
 
 http://pyvideo.org/video/1850/a-hands-on-introduction-to-python-for-beginning-p
 
+(also python2 -- so same thing with the print function...)
+
+You should be comfortable with working with variables, numbers, strings, and basic functions.
 
 Next Class
 ===========
 
-.. rst-class:: left
+Next week, we'll:
 
-Next class I will be out of town.
+ * get set up with git
+ * Some more basic Python
+ * More on Functions
+ * Boolean Expressions
+ * Code Structure, Modules, and Namespaces
 
-.. rst-class:: left
-
-You will be in the capable hands of Cris Ewing
-
-.. rst-class:: left
-
-Cris is the instructor for the next class in this sequence
-
-.. rst-class:: left
-
-And a great teacher.
 
 Office Hours
 ------------
 
 I'll do office hours on either Saturday or Sunday from 12:00 -- 3:00
 
-Probably in Wallingford, or maybe South Lake Union
+Probably in Wallingford or Fremont
+ - is a coffeeshop OK?
 
 Do you have a preference?
 

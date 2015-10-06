@@ -1,8 +1,8 @@
-.. _homework_circle_class:
+.. _exercise_circle_class:
 
-==================================
-Circle Class Homework Assignment
-==================================
+======================
+Circle Class Excercise
+======================
 
 Circle Class
 ============

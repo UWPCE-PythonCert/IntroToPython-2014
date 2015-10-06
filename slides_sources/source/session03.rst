@@ -1041,13 +1041,13 @@ List Performance
 * indexing is fast and constant time: O(1)
 * x in s proportional to n: O(n)
 * visiting all is proportional to n: O(n)
-* operating on the end of list is fast and constant time: O(1) 
+* operating on the end of list is fast and constant time: O(1)
 
   * append(), pop()
 
 * operating on the front (or middle) of the list depends on n: O(n)
 
-  * pop(0), insert(0, v) 
+  * pop(0), insert(0, v)
   * But, reversing is fast. Also, collections.deque
 
  http://wiki.python.org/moin/TimeComplexity
@@ -1070,7 +1070,7 @@ Otherwise ... taste and convention
 .. nextslide:: Convention
 
 Lists are Collections (homogeneous):
--- contain values of the same type 
+-- contain values of the same type
 -- simplifies iterating, sorting, etc
 
 tuples are mixed types:
@@ -1687,14 +1687,14 @@ One Last Trick
 
 .. rst-class:: left
 
-For some of your homework, you'll need to interact with a user at the
+For some of the exercises, you'll need to interact with a user at the
 command line.
 
-There's a nice builtin function to do this - ``raw_input``:
+There's a nice built in function to do this - ``input``:
 
 .. code-block:: ipython
 
-    In [196]: fred = raw_input('type something-->')
+    In [196]: fred = input('type something-->')
     type something-->;alksdjf
     In [197]: fred
     Out[197]: ';alksdjf'
@@ -1702,7 +1702,6 @@ There's a nice builtin function to do this - ``raw_input``:
 This will display a prompt to the user, allowing them to input text and
 allowing you to bind that input to a symbol.
 
-(There is also ``input()`` -- please dont use it!)
 
 String Formatting LAB
 =====================
@@ -1731,7 +1730,7 @@ Task 1
 
 Finish the List Lab from class
 
-(and the string formatting lab)
+Finish the string formatting lab
 
 Task 2
 ------

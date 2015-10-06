@@ -1,6 +1,6 @@
-***********************************************************
-Setting up your Mac for Python and this class
-***********************************************************
+******************************
+Setting up your Mac for Python
+******************************
 
 ==================
 Getting The Tools
@@ -8,7 +8,9 @@ Getting The Tools
 
 .. rst-class:: left
 
-OS-X comes with Python out of the box, but not the full setup you'll need for development, and this class. It also doesn't ahve the latest version(s). So we recommend installing a new version.
+OS-X comes with Python out of the box, but not the full setup you'll need for development, and this class. It also doesn't have the latest version(s), and no versino of Python 3.
+
+So we recommend installing a new version.
 
 .. rst-class:: left
 
@@ -19,16 +21,18 @@ OS-X comes with Python out of the box, but not the full setup you'll need for de
 If you use ``macports`` or ``homebrew`` to manage \*nix software on your machine, feel free to use those for ``python``, ``git``, etc, as well. If not, then read on.
 
 Python
--------
+------
 
 While OS-X does provide python out of the box -- it tends not to have the
 latest version, and you really don't want to mess with the system
 installation. So I recommend installing an independent installation from
 ``python.org``:
 
-Download and install Python 3.5.0 64/32 bit installer from Python.org:
+Download and install Python 3.4.3 64/32 bit installer from Python.org:
 
-https://www.python.org/ftp/python/2.7.8/python-2.7.8-macosx10.6.dmg
+https://www.python.org/ftp/python/3.4.3/python-3.4.3-macosx10.6.pkg
+
+(you can probably use 3.5.0, too, but it's brand new, and there are a number of third party pacakges that are not yet available for it)
 
 Simple as that.
 
@@ -37,6 +41,7 @@ Oddly, this does NOT install a ``python`` command, but rather a ``python3`` comm
   $ cd /Library/Frameworks/Python.framework/Versions/3.5/bin
   $ ln -s python3.5 python
 
+(or an alias in your shell -- an *nix geeks here?)
 
 Terminal
 ---------

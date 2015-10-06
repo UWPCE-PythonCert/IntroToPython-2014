@@ -1,6 +1,6 @@
-***********************************************************
-Setting up Windows for Python and this class
-***********************************************************
+*****************************
+Setting up Windows for Python
+*****************************
 
 ==================
 Getting The Tools
@@ -11,9 +11,9 @@ Python
 
 There are a number of python distributions available -- many designed for easier support of scientific programming:
 
-Anaconda
-Enthought Canopy
-Python(x,y)
+- Anaconda
+- Enthought Canopy
+- Python(x,y)
 
 But for core use, the installer from python.org is the way to go:
 
@@ -27,13 +27,14 @@ Double click and install.
 Terminal
 ---------
 
-If you are confident in your use of "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash. From now on, if you hear the terms 'bash', 'shell' or 'terminal', know that this is the application that is being referred to.
+If you are confident in your use of the "DOS Box" or "powershell", feel free to use one of those. However, your life may be easier if you install "Git Bash", as then you can follow unix-style terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash.
+From now on, if you hear the terms 'bash', 'shell' or 'terminal', know that this is the application that is being referred to.
 
-When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking. 
+When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking.
 
 https://git-for-windows.github.io/
 
-This is actually your best bet for running Python also -- If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environemnt. It is possible that this was done during the installation of python. If you type 'which python' into your terminal, and get back the answer '/c/python34/python', then you are good to go, otherwise, follow the instructions here:
+This is actually your best bet for running Python also -- If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environment. It is possible that this was done during the installation of python. If you type 'which python' into your terminal, and get back the answer '/c/python34/python', then you are good to go, otherwise, follow the instructions here:
 
 http://www.computerhope.com/issues/ch000549.htm
 
@@ -57,7 +58,7 @@ There is also TortoiseGit:
 
 https://code.google.com/p/tortoisegit/
 
-which integrates git with the filemanager. Feel free to use this if you already have an understanding of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above).
+which integrates git with the file manager. Feel free to use this if you already have an understanding of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above).
 
 pip
 ---
@@ -73,7 +74,7 @@ You can now use pip to install other packages.
 iPython
 --------
 
-One we are going to use in class is ``iPython``::
+One extra package we are going to use in class is ``iPython``::
 
   $ pip install ipython
 
@@ -88,6 +89,8 @@ You should now be able to run ``iPython`` from the git bash shell::
 	%quickref -> Quick reference.
 	help      -> Python's own help system.
 	object?   -> Details about 'object', use 'object??' for extra details.
+
+(or from the DOS box or PowerShell prompt)
 
 We will use this as our default python interpreter.
 

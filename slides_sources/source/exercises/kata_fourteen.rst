@@ -1,3 +1,5 @@
+.. _exercise_trigrams:
+
 =========================================
 Kata Fourteen: Tom Swift Under Milk Wood
 =========================================
