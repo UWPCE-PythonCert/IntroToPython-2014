@@ -1,3 +1,5 @@
+.. _python_for_linux:
+
 ******************************
 Setting Up Python For Linux
 ******************************

@@ -2,8 +2,13 @@
 Session One: Introductions
 **************************
 
-| In which you are introduced to this class, your instructors, your environment
-| and your new best friend, Python.
+Introductions
+=============
+
+In which you are introduced to this class, your instructors, your environment,
+and your new best friend, Python.
+
+|
 
 .. image:: /_static/python.png
     :align: center
@@ -37,7 +42,7 @@ In which we meet each-other
 Your instructors
 ----------------
 
-.. rst-class:: center large
+.. rst-class:: center medium
 
 | Christopher Barker
 | (PythonCHB at gmail dot com)
@@ -45,7 +50,7 @@ Your instructors
 
 .. nextslide::
 
-.. rst-class:: center large
+.. rst-class:: center medium
 
 | Maria McKinley
 | (maria at mariakathryn dot net)
@@ -54,7 +59,7 @@ Your instructors
 Who are you?
 -------------
 
-.. rst-class:: center large
+.. rst-class:: center medium
 
   Tell us a tiny bit about yourself:
 
@@ -155,44 +160,6 @@ Lightning Talks
 Python Ecosystem
 ================
 
-Python is  Used for:
-
- * CS education (this course!)
- * Application scripting (GIS, GNU Radio, Blender...)
- * Systems administration and "glue"
- * Web applications (Django etc. etc. etc.)
- * Scientific/technical computing (a la MATLAB, R, .... )
- * Software tools (automated software testing, distributed version control, ...)
- * Research (natural language, graph theory, distributed computing, ...)
-
-An unusually large number of niches -- versatile
-
-.. nextslide::
-
-Used by:
-
-* Beginners
-* Professional software developers, computer system administrators, ...
-* Professionals OTHER THAN computer specialists: biologists, urban planners, ....
-
-An unusually large number of types of users -- versatile
-
-You can be productive in Python WITHOUT full-time immersion!
-
-
-Python Features
----------------
-
-Gets many things right:
-
-* Readable -- looks nice, makes sense
-* No ideology about best way to program --  object-oriented programming,  functional, etc.
-* No platform preference -- Windows, Mac, Linux, ...
-* Easy to connect to other languages -- C, Fortran - essential for science/math
-* Large standard library
-* Even larger network of external packages
-* Countless conveniences, large and small, make it pleasant to work with
-
 
 What is Python?
 ---------------
@@ -204,7 +171,6 @@ What is Python?
 * Byte-compiled
 * Interpreted
 
-
 .. nextslide::
 
 .. rst-class:: center large
@@ -214,7 +180,6 @@ But what does that mean?
 
 Python Features
 ---------------
-
 
 .. rst-class:: build
 
@@ -339,7 +304,7 @@ Your Command Line (cli)
 
 Having some facility on the command line is important
 
-We won't cover this in class, so if you are not comfortable,
+We won't cover this much in class, so if you are not comfortable,
 please bone up at home.
 
 I suggest running through the **cli** tutorial at "learn code the hard way":
@@ -350,7 +315,7 @@ http://cli.learncodethehardway.org/book/
 
 Most of the demos in class, etc, will be done using the "bash" command line shell on OS-X. This is identical to the bash shell on Linux.
 
-Windows provides the "DOS" command line, which is OK, but pretty old an limited, or "Power Shell" -- a more modern, powerful, flexible command shell.
+Windows provides the "DOS" command line, which is OK, but pretty old and limited, or "Power Shell" -- a more modern, powerful, flexible command shell.
 
 If you are comfortable with either of these -- go for it.
 
@@ -374,8 +339,21 @@ That last thing you see, ``>>>`` is the "Python prompt".
 
 This is where you type code.
 
+LAB: Getting set up
+-------------------
 
-.. nextslide:: Python in the Interpreter
+BEfore we move on -- we need to get all of us on tehsame page, with teh tools we need for class.
+
+You will find instructions for how to get python, etc, up and running on your machine here:
+
+**Windows:** ::ref:`python_for_windows`
+
+**OS-X:** ::ref:`python_for_mac`
+
+**Linux:** ::ref:`python_for_linux`
+
+Python in the Interpreter
+-------------------------
 
 Try it out:
 

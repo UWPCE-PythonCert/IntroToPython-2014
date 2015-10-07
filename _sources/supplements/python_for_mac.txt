@@ -1,3 +1,5 @@
+.. _python_for_mac:
+
 ******************************
 Setting up your Mac for Python
 ******************************
@@ -41,7 +43,7 @@ Oddly, this does NOT install a ``python`` command, but rather a ``python3`` comm
   $ cd /Library/Frameworks/Python.framework/Versions/3.5/bin
   $ ln -s python3.5 python
 
-(or an alias in your shell -- an *nix geeks here?)
+(or an alias in your shell -- an Unix geeks here?)
 
 Terminal
 ---------
