@@ -78,7 +78,7 @@ iPython
 
 One extra package we are going to use in class is ``iPython``::
 
-  $ pip install ipython
+  $ pip install ipython[all]
 
 You should now be able to run ``iPython`` from the git bash shell::
 

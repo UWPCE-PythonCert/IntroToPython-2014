@@ -112,7 +112,7 @@ iPython
 
 One we are going to use in class is ``iPython``::
 
-  $ python3 -m pip install ipython
+  $ python3 -m pip install ipython[all]
 
 You should now be able to run ``iPython``::
 

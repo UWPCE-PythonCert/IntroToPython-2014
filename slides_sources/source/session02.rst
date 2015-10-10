@@ -455,13 +455,14 @@ You can incorporate this into your daily workflow: ::
 
 
 LAB An Exercise
-============
+================
 
-with only the ability to do a bit with numbers and text, you should be able to do this little project:
+with only the ability to do a bit with numbers and text, you should be
+able to do this little project:
 
-::ref:`exercise_grid_printer`
+:ref:`exercise_grid_printer`
 
-We'll start by putting a file in git.
+We'll start by putting a file in your clone of the class gitHub project.
 
 Then you can give the problem a try.
 
