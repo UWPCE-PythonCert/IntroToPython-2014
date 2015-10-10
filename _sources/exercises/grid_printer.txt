@@ -53,10 +53,8 @@ The output of these statements is ``'+ -'``.
 
 .. nextslide:: no arguments...
 
-no arguments
--------------
 
-A print function with no arguments ends the current line and goes to the next line::
+A print function with no arguments ends the current line and goes to the next line:
 
 .. code-block:: python
 
