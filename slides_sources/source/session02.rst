@@ -1,13 +1,12 @@
-********************************************
-Session Two: Functions, Booleans and Modules
-********************************************
+****************************************************
+Session Two: gitHub, functions, Booleans and Modules
+****************************************************
 
 .. ifslides::
 
     .. rst-class:: center large
 
     Oh My!
-
 
 
 Review/Questions
@@ -35,10 +34,8 @@ Class Outline
 .. rst-class:: left
 
  * git primer
-
-an exercise: ::ref:`exercise_grid_printer`
-
  * Some basic Python
+   an exercise: ::ref:`exercise_grid_printer`
  * More on Functions
  * Boolean Expressions
  * Code Structure, Modules, and Namespaces
@@ -455,6 +452,18 @@ You can incorporate this into your daily workflow: ::
     [add a good commit message]
     $ git push
     [make a pull request]
+
+
+LAB An Exercise
+============
+
+with only the ability to do a bit with numbers and text, you should be able to do this little project:
+
+::ref:`exercise_grid_printer`
+
+We'll start by putting a file in git.
+
+Then you can give the problem a try.
 
 
 Quick Intro to Basics
