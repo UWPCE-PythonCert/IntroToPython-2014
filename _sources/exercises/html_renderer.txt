@@ -1,7 +1,7 @@
-.. _excercises_html_renderer:
+.. _exercise_html_renderer:
 
 =======================
-HTML Renderer Excercise
+HTML Renderer Exercise
 =======================
 
 HTML Renderer

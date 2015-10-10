@@ -80,10 +80,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../session01.html#next-class">Next Class</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: Functions, Booleans and Modules</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, functions, Booleans and Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../session02.html#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session02.html#class-outline">Class Outline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session02.html#first-a-little-git-primer">First a little git Primer...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../session02.html#lab-an-exercise">LAB An Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session02.html#quick-intro-to-basics">Quick Intro to Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session02.html#break-time">BREAK TIME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../session02.html#functions">Functions</a></li>
@@ -193,7 +194,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Homework Materials</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">Grid Printer Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="html_renderer.html">HTML Renderer Excercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html_renderer.html">HTML Renderer Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="circle_class.html">Circle Class Excercise</a></li>
 </ul>
 </li>
@@ -266,31 +267,84 @@
 + - - - - + - - - - +
 </pre></div>
 </div>
-<p>Hint: to print more than one value on a line, you can pass multiple names into the print function:
-<code class="docutils literal"><span class="pre">print('+',</span> <span class="pre">'-')</span></code></p>
-<p>If you don&#8217;t want a newline after somethign is printed, you tell python what you want the print to end with like so:</p>
-<div class="highlight-python"><div class="highlight"><pre>print(&#39;+&#39;, end=&#39; &#39;),
-print(&#39;-&#39;)
+</div>
+<div class="section" id="hints">
+<h3>hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h3>
+<p>A couple features to get you started...</p>
+</div>
+<div class="section" id="printing">
+<h3>printing<a class="headerlink" href="#printing" title="Permalink to this headline">¶</a></h3>
+<p>To print more than one value on a line, you can pass multiple names into the print function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you don&#8217;t want a newline after something is printed, you tell python what you want the print to end with like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output of these statements is <code class="docutils literal"><span class="pre">'+</span> <span class="pre">-'</span></code>.</p>
+<p>(that end parameter defaults to a newline...)</p>
 <p>A print function with no arguments ends the current line and goes to the next line:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre>.. code-block:: python
 </pre></div>
 </div>
-<p><strong>Part 2:</strong></p>
+<blockquote>
+<div>print()</div></blockquote>
+</div>
+<div class="section" id="simple-string-manipulation">
+<h3>Simple string manipulation:<a class="headerlink" href="#simple-string-manipulation" title="Permalink to this headline">¶</a></h3>
+<p>You can put two strings together with the plus operator:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="s">&quot;this&quot;</span> <span class="o">+</span> <span class="s">&quot;that&quot;</span>
+<span class="gh">Out[20]: </span><span class="go">&#39;thisthat</span>
+</pre></div>
+</div>
+<p>Particularly useful if they have been assigned names:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="n">plus</span> <span class="o">=</span> <span class="s">&#39;+&#39;</span>
+
+<span class="gp">In [22]: </span><span class="n">minus</span> <span class="o">=</span> <span class="s">&#39;-&#39;</span>
+
+<span class="gp">In [23]: </span><span class="n">plus</span><span class="o">+</span><span class="n">minus</span><span class="o">+</span><span class="n">plus</span>
+<span class="gh">Out[23]: </span><span class="go">&#39;+-+&#39;</span>
+</pre></div>
+</div>
+<p>Note that you can string any number of operations together in an expression.</p>
+<p>You can also multiply strings:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="s">&#39;+&#39;</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="gh">Out[24]: </span><span class="go">&#39;++++++++++&#39;</span>
+</pre></div>
+</div>
+<p>And combine that with plus in a complex expression:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">first_name</span> <span class="o">=</span> <span class="s">&#39;Chris&#39;</span>
+
+<span class="gp">In [30]: </span><span class="n">last_name</span> <span class="o">=</span> <span class="s">&#39;Barker&#39;</span>
+
+<span class="gp">In [31]: </span><span class="mi">5</span> <span class="o">*</span> <span class="s">&#39;*&#39;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span><span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="n">last_name</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="s">&#39;*&#39;</span>
+<span class="gh">Out[31]: </span><span class="go">&#39;*****Chris Barker*****&#39;</span>
+</pre></div>
+</div>
+<p>Note that there are better ways to build up complex strings &#8211; we&#8217;ll get to that later.</p>
+<p>Now you&#8217;ve got what you need to print that grid...</p>
+</div>
+</div>
+<div class="section" id="part-2">
+<h2>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h2>
+<p>Making it more general</p>
+<div class="section" id="make-it-a-function">
+<h3>Make it a function<a class="headerlink" href="#make-it-a-function" title="Permalink to this headline">¶</a></h3>
+<p>One of the points of writing functions is so you can write code that does similar things, but customized to input parameters. So what if we want to be able to print that grid at an arbitrary size?</p>
 <p>Write a function <code class="docutils literal"><span class="pre">print_grid()</span></code> that takes one integer argument
 and prints a grid like the picture above, BUT the size of the
 grid is given by the argument.</p>
 <p>For example, <code class="docutils literal"><span class="pre">print_grid(11)</span></code> prints the grid in the above picture.</p>
 <p>This problem is underspecified.  Do something reasonable.</p>
-<p>Hints:</p>
-<blockquote>
-<div><p>A character is a string of length 1</p>
-<p><code class="docutils literal"><span class="pre">s</span> <span class="pre">+</span> <span class="pre">t</span></code> is string <code class="docutils literal"><span class="pre">s</span></code> followed by string <code class="docutils literal"><span class="pre">t</span></code></p>
-<p><code class="docutils literal"><span class="pre">s</span> <span class="pre">*</span> <span class="pre">n</span></code> is string <code class="docutils literal"><span class="pre">s</span></code> replicated n times</p>
-</div></blockquote>
-<p><strong>Part 3:</strong></p>
+</div>
+</div>
+<div class="section" id="part-3">
+<h2>Part 3:<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h2>
+<p>Even more general...</p>
+<div class="section" id="a-function-with-two-parameters">
+<h3>A function with two parameters<a class="headerlink" href="#a-function-with-two-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Write a function that draws a similar grid with three rows and three columns.</p>
 <p>(what to do about rounding?)</p>
 <p>And while you are at it &#8211; n rows and columns...</p>
@@ -346,6 +400,7 @@ grid is given by the argument.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
