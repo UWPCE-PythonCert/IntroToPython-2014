@@ -51,14 +51,13 @@ The output of these statements is ``'+ -'``.
 
 (that end parameter defaults to a newline...)
 
-.. nextslide:: no arguments...
-
 
 A print function with no arguments ends the current line and goes to the next line:
 
 .. code-block:: python
 
     print()
+
 
 Simple string manipulation:
 ---------------------------
