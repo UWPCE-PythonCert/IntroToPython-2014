@@ -54,10 +54,15 @@ Let's get to know git a bit
 Why Version Control?
 --------------------
 
-.. image:: /_static/phd101212s.gif
-    :width: 50%
-    :align: center
+.. figure:: /_static/phd101212s.gif
+   :class: fill
+   :width: 45 %
 
+.. ifnotslides::
+   
+   "Piled Higher and Deeper" by Jorge Cham  
+   
+   www.phdcomics.com 
 
 What is git?
 ------------
