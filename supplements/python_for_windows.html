@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setting up Windows for Python &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
+        <link rel="up" title="Supplemental Materials" href="index.html"/>
+        <link rel="next" title="Setting Up Python For Linux" href="python_for_linux.html"/>
+        <link rel="prev" title="Setting up your Mac for Python" href="python_for_mac.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: More OO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Callable classes, Iterators, Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Homework Materials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up Windows for Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-tools">Getting The Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#terminal">Terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git">git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pip">pip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ipython">iPython</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_overview.html">A Picture of git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
+      
+    <li>Setting up Windows for Python</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/supplements/python_for_windows.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-windows-for-python">
+<span id="python-for-windows"></span><h1>Setting up Windows for Python<a class="headerlink" href="#setting-up-windows-for-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-the-tools">
+<h2>Getting The Tools<a class="headerlink" href="#getting-the-tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p>There are a number of python distributions available &#8211; many designed for easier support of scientific programming:</p>
+<ul class="simple">
+<li>Anaconda</li>
+<li>Enthought Canopy</li>
+<li>Python(x,y)</li>
+</ul>
+<p>But for core use, the installer from python.org is the way to go:</p>
+<p><a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+<p>You want the installer for Python 3.4.3 &#8211; probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.</p>
+<p>Double click and install.</p>
+</div>
+<div class="section" id="terminal">
+<h3>Terminal<a class="headerlink" href="#terminal" title="Permalink to this headline">¶</a></h3>
+<p>If you are confident in your use of the &#8220;DOS Box&#8221; or &#8220;powershell&#8221;, feel free to use one of those. However, your life may be easier if you install &#8220;Git Bash&#8221;, as then you can follow unix-style terminal instructions exactly, and do not have to translate. Also, your instructors are more experienced with Bash.
+From now on, if you hear the terms &#8216;bash&#8217;, &#8216;shell&#8217; or &#8216;terminal&#8217;, know that this is the application that is being referred to.</p>
+<p>When you install Git Bash, you are installing git (and a git gui) as well, thus killing two birds with one stone, metaphorically speaking.</p>
+<p><a class="reference external" href="https://git-for-windows.github.io/">https://git-for-windows.github.io/</a></p>
+<p>This is actually your best bet for running Python also &#8211; If you use the Git Bash shell, you can use the same commands as Linux and OS-X users. Regardless of which shell you choose, you will need to add Python to your environment. It is possible that this was done during the installation of python. If you type &#8216;which python&#8217; into your terminal, and get back the answer &#8216;/c/python34/python&#8217;, then you are good to go, otherwise, follow the instructions here:</p>
+<p><a class="reference external" href="http://www.computerhope.com/issues/ch000549.htm">http://www.computerhope.com/issues/ch000549.htm</a></p>
+<p>You will want to add:</p>
+<p><code class="docutils literal"><span class="pre">C:\Python34</span></code></p>
+<p>and</p>
+<p><code class="docutils literal"><span class="pre">C:\Python34\Scripts</span></code></p>
+<p>to <code class="docutils literal"><span class="pre">PATH</span></code></p>
+</div>
+<div class="section" id="git">
+<h3>git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
+<p>If you installed Git Bash, you will already have git, both usable in the terminal and as a gui, and can safely skip this section. If not, you still need a git client. You can use the above link and install git (it will install the bash shell as well, of course, but you can use your shell of choice instead).</p>
+<p>There is also TortoiseGit:</p>
+<p><a class="reference external" href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
+<p>which integrates git with the file manager. Feel free to use this if you already have an understanding of how git works, but for the purposes of learning, it may be better to use a command line client (git Bash above).</p>
+</div>
+<div class="section" id="pip">
+<h3>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">pip</span></code> is the Python package installer. It is updated faster than python itself, so once you have python you want to get the latest version of pip working:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python -m ensurepip --upgrade
+</pre></div>
+</div>
+<p>It should download and install the latest <code class="docutils literal"><span class="pre">pip</span></code>.</p>
+<p>You can now use pip to install other packages.</p>
+</div>
+<div class="section" id="ipython">
+<h3>iPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
+<p>One extra package we are going to use in class is <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ pip install ipython[all]
+</pre></div>
+</div>
+<p>You should now be able to run <code class="docutils literal"><span class="pre">iPython</span></code> from the git bash shell:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ipython
+    Python 2.7.8 (v2.7.8:ee879c0ffa11, Jun 29 2014, 21:07:35)
+    Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+
+    IPython 2.0.0 -- An enhanced Interactive Python.
+    ?         -&gt; Introduction and overview of IPython&#39;s features.
+    %quickref -&gt; Quick reference.
+    help      -&gt; Python&#39;s own help system.
+    object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
+</pre></div>
+</div>
+<p>(or from the DOS box or PowerShell prompt)</p>
+<p>We will use this as our default python interpreter.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python_for_linux.html" class="btn btn-neutral float-right" title="Setting Up Python For Linux" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="python_for_mac.html" class="btn btn-neutral" title="Setting up your Mac for Python" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
