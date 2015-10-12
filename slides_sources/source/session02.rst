@@ -22,8 +22,7 @@ Class Outline
 -------------
 
  * git primer
- * Some basic Python
-   an exercise: :ref:`exercise_grid_printer`
+ * Python exercise: :ref:`exercise_grid_printer`
  * More on Functions
  * Boolean Expressions
  * Code Structure, Modules, and Namespaces
@@ -115,7 +114,7 @@ With git, you work with *local* repositories and *remotes* that they are connect
         origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
 
     This shows that the local repo on my machine *originated* from the one in
-    my gitHub account (don't worry that it shows it twice, they should be the same)
+    the UWPCE-PythonCert gitHub account (don't worry that it shows it twice, they should be the same)
 
 .. nextslide::
 
@@ -126,14 +125,13 @@ With git, you work with *local* repositories and *remotes* that they are connect
 
     When you *fork* a repository, you make a copy of that repository in your own (Github) account. 
 
-    When you have made changes that you believe the rest of the community will want to adopt, you make a *pull request* to the original project. The maintainers of that project than have the option of accepting your changes, in which case your changes will become part of that project. 
+    When you have made changes that you believe the rest of the community will want to adopt, you make a *pull request* to the original project. The maintainer(s) of that project than have the option of accepting your changes, in which case your changes will become part of that project. 
 
     This is how we will be working in this class. When you want feedback on your work, you will make a *pull request* to the instructors.
 
 .. nextslide::
 
-Our class materials reside in a repository on *Github* in the
-*UWPCE-PythonCert* organization:
+Our class materials reside in a repository on *Github* in the *UWPCE-PythonCert* organization:
 
 .. figure:: /_static/remotes_start.png
     :width: 50%
@@ -150,7 +148,7 @@ account on GitHub into your personal account:
 
 .. nextslide::
 
-You've make a *clone* of your fork to your own computer, which means that
+The next step is to make a *clone* of your fork on your own computer, which means that
 **your fork** in github is the *origin*:
 
 .. figure:: /_static/remotes_clone.png
@@ -159,11 +157,70 @@ You've make a *clone* of your fork to your own computer, which means that
 
 .. nextslide::
 
+We will now set up our individual folders and include a README in this folder. In your terminal, cd
+into the students directory in the directory created when we made the clone, which may or may not be called IntroPython2015. 
+
 .. rst-class:: build
 .. container::
 
-    You've pushed your own changes to that fork, and then issued pull requests
-    to have that worked merged back to the ``UWPCE-PythonCert`` original.
+    .. code-block:: bash
+    
+        $ cd IntroPython2015/students
+        $ git status
+    
+    .. code-block:: bash
+
+        $ git pull origin master
+
+    .. code-block:: bash
+
+        $ mkdir maria_mckinley
+
+    .. code-block:: bash
+
+        $ cd maria_mckinley
+
+    .. code-block:: bash
+
+        $ echo "# Python code for UWPCE-PythonCert class" >> README.rst
+
+.. nextslide::
+
+.. rst-class:: build
+.. container::
+
+    Check the status
+
+    .. code-block:: bash
+
+        $ git status
+
+    Add anything you want to commit to your commit:
+
+    .. code-block:: bash
+    
+        $ git add README.rst
+
+    Make your commit:
+    
+    .. code-block:: bash
+    
+        $ git commit -m 'added a readme file'
+
+    Push your changes:
+    
+    .. code-block:: bash
+    
+        $ git push origin master
+
+    Go onto GitHub, and make a pull request!
+
+.. nextslide::
+
+You've pushed your own changes to that fork, and then issued pull requests to have that worked merged back to the ``UWPCE-PythonCert`` original.
+
+.. rst-class:: build
+.. container::
 
     You want to keep your fork up-to-date with that original copy as the class
     goes forward.
@@ -175,7 +232,7 @@ You've make a *clone* of your fork to your own computer, which means that
 You can add *remotes* at will, to connect your *local* repository to other
 copies of it in different remote locations.
 
-When add a *remote* (existing git repository), it creates a directory with the name of the repository at the top level.
+When you add a *remote* (existing git repository), it creates a directory with the name of the repository at the top level.
 
 .. rst-class:: build
 .. container::
@@ -223,12 +280,8 @@ Then you can see the branches you have locally available:
   $ git branch -a
   * master
     remotes/origin/HEAD -> origin/master
-    remotes/origin/gh-pages
     remotes/origin/master
-    remotes/upstream/gh-pages
     remotes/upstream/master
-
-(the gh-pages branch is used to publish these notes)
 
 .. nextslide:: Fetching Upstream Changes
 
