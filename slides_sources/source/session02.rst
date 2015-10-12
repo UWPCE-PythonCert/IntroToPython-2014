@@ -35,7 +35,7 @@ Class Outline
 
  * git primer
  * Some basic Python
-   an exercise: ::ref:`exercise_grid_printer`
+   an exercise: :ref:`exercise_grid_printer`
  * More on Functions
  * Boolean Expressions
  * Code Structure, Modules, and Namespaces
@@ -454,21 +454,41 @@ You can incorporate this into your daily workflow: ::
     [make a pull request]
 
 
-LAB An Exercise
-================
+LAB
+====
 
-with only the ability to do a bit with numbers and text, you should be
+With only the ability to do a bit with numbers and text, you should be
 able to do this little project:
 
 :ref:`exercise_grid_printer`
 
-We'll start by putting a file in your clone of the class gitHub project.
+Lets use git and gitHub to manage this project:
+
+ * We'll start by putting a file in your clone of the class gitHub project.
 
 Then you can give the problem a try.
 
+Lightning Talks Today:
+----------------------
 
-Quick Intro to Basics
-=====================
+|
+| Brendan Fogarty
+|
+| Bruce Bauman
+|
+| Michelle Yu
+|
+
+Lightning Talk:
+---------------
+
+|
+| Bruce Bauman
+|
+
+
+Beyond Printing
+================
 
 .. rst-class:: center large
 
@@ -477,11 +497,12 @@ Because there's a few things you just gotta have
 Basics
 ------
 
-It turns out you can't really do much at all without at least a container type,
-conditionals and looping...
+You really can't really do much at all without at least
+conditionals, looping, and a container type...
 
 
-.. nextslide:: if
+Making a Decision
+------------------
 
 ``if`` and ``elif`` allow you to make decisions:
 
@@ -535,7 +556,7 @@ Many languages have a ``switch`` construct:
         document.write("Sorry, we are out of " + expr + ".<br>");
     }
 
-.. nextslide:: switch?
+.. nextslide::
 
 **Not Python**
 
@@ -544,7 +565,8 @@ use ``if..elif..elif..else``
 (or a dictionary, or subclassing....)
 
 
-.. nextslide:: lists
+Lists
+-----
 
 A way to store a bunch of stuff in order
 
@@ -555,6 +577,7 @@ Pretty much like an "array" or "vector" in other languages
     a_list = [2,3,5,9]
     a_list_of_strings = ['this', 'that', 'the', 'other']
 
+You can put any type of object in a list...
 
 .. nextslide:: tuples
 
@@ -565,24 +588,27 @@ Another way to store an ordered list of things
     a_tuple = (2,3,4,5)
     a_tuple_of_strings = ('this', 'that', 'the', 'other')
 
+You can also put any type of object in a tuple...
+(sense a theme here?)
 
 Tuples are **not** the same as lists.
 
 The exact difference is a topic for next session.
 
 
-.. nextslide:: for
+for
+---
 
 Sometimes called a 'determinate' loop
 
-When you need to do something to everything in a sequence
+When you need to do something to all the objects in a sequence
 
 .. code-block:: ipython
 
     In [10]: a_list = [2,3,4,5]
 
     In [11]: for item in a_list:
-       ....:     print item
+       ....:     print(item)
        ....:
     2
     3
@@ -590,30 +616,45 @@ When you need to do something to everything in a sequence
     5
 
 
-.. nextslide:: range() and for
+.. nextslide:: ``range()`` and for
 
-Range builds lists of numbers automatically
+``range`` builds sequences of numbers automatically
 
 Use it when you need to do something a set number of times
 
 .. code-block:: ipython
 
-    In [12]: range(6)
-    Out[12]: [0, 1, 2, 3, 4, 5]
-
-    In [13]: for i in range(6):
-       ....:     print "*",
+    In [31]: for i in range(4):
+        print('*', end=' ')
        ....:
-    * * * * * *
+    * * * *
 
 
-.. nextslide:: Intricacies
+NOTE: ``range(n)`` creates an "iterable" -- something you can loop over
+-- more on that later.
+
+Intricacies
+------------
 
 This is enough to get you started.
 
 Each of these have intricacies special to python
 
 We'll get to those over the next couple of classes
+
+
+
+Lightning Talks Today:
+----------------------
+
+|
+| Brendan Fogarty
+|
+| Bruce Bauman
+|
+| Michelle Yu
+|
+
 
 
 BREAK TIME
@@ -626,6 +667,17 @@ talks:
 
     * Chantal Huynh
     * David Fugelso
+
+* Look up the ``%``  operator. What do these do?
+
+  * ``10 % 7 == 3``
+  * ``14 % 7 == 0``
+
+*  Write a program that prints the numbers from 1 to 100 inclusive. But for
+   multiples of three print "Fizz" instead of the number and for the multiples
+   of five print "Buzz". For numbers which are multiples of both three and five
+   print "FizzBuzz" instead.
+
 
 
 Functions

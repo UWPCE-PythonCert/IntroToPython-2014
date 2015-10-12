@@ -66,8 +66,10 @@ are quite personal, find ones that suit you.):
         "color_scheme": "Packages/User/Cobalt (SL).tmTheme",
         "theme": "Soda Light 3.sublime-theme",
         // A font face that helps distinguish between 0 (the number) and 'O' (the letter)
-        // among other problem characters.
-        "font_face": "DroidSansMonoSlashed",
+        // among other problem characters. YOu also want a "fixed width font"
+        // Monaco is a nice option that comes with all Macs.
+        // Not sure what's best on Windows.
+        "font_face": "Monaco",
         // getting older. I wonder if comfy font size increases as a linear
         //  function of age?
         "font_size": 15,
@@ -88,8 +90,8 @@ are quite personal, find ones that suit you.):
         "tab_size": 4,
         "translate_tabs_to_spaces": true,
         "use_tab_stops": true,
+        "draw_white_space": "all", // I like so see spaces and tabs -- makes it easier to debug
     }
-
 
 Especially important is the setting ``translate_tabs_to_spaces``, which ensures
 that any time you hit a tab key, the single ``\t`` character is replaced by four

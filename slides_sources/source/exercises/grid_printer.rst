@@ -29,7 +29,9 @@ Write a function that draws a grid like the following::
 hints
 -----
 
-A couple features to get you started...
+.. rst-class:: center medium
+
+    A couple features to get you started...
 
 printing
 --------
@@ -53,11 +55,12 @@ The output of these statements is ``'+ -'``.
 
 .. nextslide:: no arguments...
 
-A print function with no arguments ends the current line and goes to the next line::
+A print function with no arguments ends the current line and goes to the next line:
 
 .. code-block:: python
 
     print()
+
 
 Simple string manipulation:
 ---------------------------
@@ -81,6 +84,8 @@ Particularly useful if they have been assigned names:
   Out[23]: '+-+'
 
 Note that you can string any number of operations together in an expression.
+
+.. nextslide:: multiplication of strings
 
 You can also multiply strings:
 
@@ -107,14 +112,16 @@ Now you've got what you need to print that grid...
 Part 2
 =======
 
-Making it more general
+.. rst-class:: center medium
+
+    Making it more general
 
 Make it a function
 ------------------
 
 One of the points of writing functions is so you can write code that does similar things, but customized to input parameters. So what if we want to be able to print that grid at an arbitrary size?
 
-Write a function ``print_grid()`` that takes one integer argument
+Write a function ``print_grid(n)`` that takes one integer argument
 and prints a grid like the picture above, BUT the size of the
 grid is given by the argument.
 
