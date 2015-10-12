@@ -1869,3 +1869,19 @@ Vinay Gupta
 
 Wayne R Fukuhara
 
+
+Homework
+========
+
+Review and/or finish reading these class notes.
+
+Finish any labs from class....
+
+**Reading:**
+
+Think Python, chapters 11, 13, 14
+
+Learn Python the Hard way:
+
+
+

@@ -1,11 +1,11 @@
 ****************************************************
-Session Two: gitHub, functions, Booleans and Modules
+Session Two: gitHub, Functions, Booleans and Modules
 ****************************************************
 
 Review/Questions
 ================
 
-.. rst-class:: build
+.. rst-class:: left medium
 
   * Values and Types
   * Expressions
@@ -16,18 +16,34 @@ Homework Review
 
 .. rst-class:: center large
 
-Any questions that are nagging?
+  Any questions that are nagging?
+
+Lightning Talks Today:
+----------------------
+
+.. rst-class: medium
+
+|
+|
+| Brendan Fogarty
+|
+| Bruce Bauman
+|
+| Michelle Yu
+|
+|
 
 Class Outline
 -------------
 
- * git primer
- * Some basic Python
-   an exercise: :ref:`exercise_grid_printer`
- * More on Functions
+ * git / gitHub primer
+ * An exercise: :ref:`exercise_grid_printer`
+ * Decisions, Decisions.
+ * An exercise: FizzBuzz
+ * More on functions
+ * An exercise: Fibonacci
  * Boolean Expressions
  * Code Structure, Modules, and Namespaces
-
 
 First a little git Primer...
 ==============================
@@ -257,37 +273,29 @@ You can incorporate this into your daily workflow: ::
     [make a pull request]
 
 
-LAB
-====
+LAB: Grid Printer
+=================
 
-With only the ability to do a bit with numbers and text, you should be
-able to do this little project:
+.. rst-class:: left
 
-:ref:`exercise_grid_printer`
+    With only the ability to do a bit with numbers and text, you should be
+    able to do this little project:
 
-Lets use git and gitHub to manage this project:
+    :ref:`exercise_grid_printer`
 
- * We'll start by putting a file in your clone of the class gitHub project.
+    Lets use git and gitHub to manage this project:
 
-Then you can give the problem a try.
+     * We'll start by putting a file in your clone of the class gitHub project.
 
-Lightning Talks Today:
-----------------------
+    Then you can give the problem a try.
 
-|
-| Brendan Fogarty
-|
-| Bruce Bauman
-|
-| Michelle Yu
-|
 
 Lightning Talk:
 ---------------
 
-|
-| Bruce Bauman
-|
+.. rst-class:: center medium
+
+Brendan Fogarty
 
 
 Beyond Printing
@@ -306,6 +314,10 @@ conditionals, looping, and a container type...
 
 Making a Decision
 ------------------
+
+.. rst-class:: center medium
+
+    "Conditionals"
 
 ``if`` and ``elif`` allow you to make decisions:
 
@@ -331,41 +343,13 @@ What's the difference between these two:
         print 'a'
     elif b:
         print 'b'
+
     ## versus...
     if a:
         print 'a'
     if b:
         print 'b'
 
-
-.. nextslide:: switch?
-
-Many languages have a ``switch`` construct:
-
-.. code-block:: js
-
-    switch (expr) {
-      case "Oranges":
-        document.write("Oranges are $0.59 a pound.<br>");
-        break;
-      case "Apples":
-        document.write("Apples are $0.32 a pound.<br>");
-        break;
-      case "Mangoes":
-      case "Papayas":
-        document.write("Mangoes and papayas are $2.79 a pound.<br>");
-        break;
-      default:
-        document.write("Sorry, we are out of " + expr + ".<br>");
-    }
-
-.. nextslide::
-
-**Not Python**
-
-use ``if..elif..elif..else``
-
-(or a dictionary, or subclassing....)
 
 
 Lists
@@ -382,7 +366,8 @@ Pretty much like an "array" or "vector" in other languages
 
 You can put any type of object in a list...
 
-.. nextslide:: tuples
+Tuples
+-------
 
 Another way to store an ordered list of things
 
@@ -399,8 +384,8 @@ Tuples are **not** the same as lists.
 The exact difference is a topic for next session.
 
 
-for
----
+``for`` loops
+--------------
 
 Sometimes called a 'determinate' loop
 
@@ -446,57 +431,46 @@ Each of these have intricacies special to python
 We'll get to those over the next couple of classes
 
 
+LAB: Fizz Buzz
+===============
 
-Lightning Talks Today:
-----------------------
-
-|
-| Brendan Fogarty
-|
-| Bruce Bauman
-|
-| Michelle Yu
-|
-
-
-
-BREAK TIME
-==========
-
-Take a few moments to take a breather, when we return we'll do two lightning
-talks:
-
-.. ifslides::
-
-    * Chantal Huynh
-    * David Fugelso
+We now have the tools to do a implementation of the classic "Fizz Buzz" problem:
 
 * Look up the ``%``  operator. What do these do?
 
   * ``10 % 7 == 3``
   * ``14 % 7 == 0``
 
-*  Write a program that prints the numbers from 1 to 100 inclusive. But for
-   multiples of three print "Fizz" instead of the number and for the multiples
-   of five print "Buzz". For numbers which are multiples of both three and five
-   print "FizzBuzz" instead.
+* Write a program that prints the numbers from 1 to 100 inclusive.
+
+* But for multiples of three print "Fizz" instead of the number
+
+* For the multiples of five print "Buzz".
+
+* For numbers which are multiples of both three and five print "FizzBuzz" instead.
 
 
+Lightning Talk:
+---------------
 
-Functions
-=========
+.. rst-class:: center medium
 
-Review
-------
+Bruce Bauman
+
+
+More on Functions
+=================
+
+Variable scope
+--------------
 
 Defining a function:
 
 .. code-block:: python
 
     def fun(x, y):
-        z = x+y
+        z = x + y
         return z
-
 
 x, y, z are *local* names
 
@@ -515,7 +489,7 @@ given block.
     In [15]: y = 33
     In [16]: z = 34
     In [17]: def fun(y, z):
-       ....:     print x, y, z
+       ....:     print(x, y, z)
        ....:
     In [18]: fun(3, 4)
     32 3 4
@@ -539,8 +513,8 @@ But, did the value of y and z change in the *global* scope?
 
 In general, you should use global bindings mostly for constants.
 
-In python we designate global constants by typing the symbols we bind to them
-in ALL_CAPS
+The python convention is to designate global constants by typing the
+symbols we bind to them in ALL_CAPS
 
 .. code-block:: python
 
@@ -551,7 +525,8 @@ in ALL_CAPS
 This is just a convention, but it's a good one to follow.
 
 
-.. nextslide:: Global Gotcha
+Global Gotcha
+--------------
 
 Take a look at this function definition:
 
@@ -562,8 +537,8 @@ Take a look at this function definition:
     In [22]: def f():
        ....:     y = x
        ....:     x = 5
-       ....:     print x
-       ....:     print y
+       ....:     print(x)
+       ....:     print(y)
        ....:
 
 What is going to happen when we call ``f``
@@ -574,17 +549,19 @@ Try it and see:
 
 .. code-block:: ipython
 
-    In [23]: f()
+    In [34]: f()
     ---------------------------------------------------------------------------
     UnboundLocalError                         Traceback (most recent call last)
-    <ipython-input-23-0ec059b9bfe1> in <module>()
+    <ipython-input-34-0ec059b9bfe1> in <module>()
     ----> 1 f()
-    <ipython-input-22-9225fa53a20a> in f()
+
+    <ipython-input-33-4363b2b69f73> in f()
           1 def f():
     ----> 2     y = x
           3     x = 5
-          4     print x
-          5     print y
+          4     print(x)
+          5     print(y)
+
     UnboundLocalError: local variable 'x' referenced before assignment
 
 Because you are binding the symbol ``x`` locally, it becomes a local and masks
@@ -599,7 +576,7 @@ So far we've seen simple parameter lists:
 .. code-block:: python
 
     def fun(x, y, z):
-        print x, y, z
+        print(x, y, z)
 
 These types of parameters are called *positional*
 
@@ -614,7 +591,7 @@ You can provide *default values* for parameters in a function definition:
 .. code-block:: ipython
 
     In [24]: def fun(x=1, y=2, z=3):
-       ....:     print x, y, z
+       ....:     print(x, y, z)
        ....:
 
 When parameters are given with default values, they become *optional*
@@ -671,8 +648,6 @@ This can help reduce the number of `WTFs per minute`_ in reading it later.
 
 There are two approaches to this:
 
-.. rst-class:: build
-
 * Comments
 * Docstrings
 
@@ -692,11 +667,11 @@ You can use them to mark places you want to revisit later:
 .. code-block:: python
 
     for partygoer in partygoers:
-        for baloon in baloons:
+        for balloon in balloons:
             for cupcake in cupcakes:
                 # TODO: Reduce time complexity here.  It's killing us
                 #  for large parties.
-                resolve_party_favor(partygoer, baloon, cupcake)
+                resolve_party_favor(partygoer, balloon, cupcake)
 
 .. nextslide:: Comments
 
@@ -797,6 +772,47 @@ We can use a recursive function nicely to model this mathematical function
 
     [demo]
 
+``assert``
+----------
+
+Writing ``tests`` that demonstrate that your program works is an important part of learning to program.
+
+The python ``assert`` statement is useful in writing ``main`` blocks that test
+your code.
+
+.. code-block:: ipython
+
+    In [1]: def add(n1, n2):
+       ...:     return n1 + n2
+       ...:
+
+    In [2]: assert add(3, 4) == 7
+
+    In [3]: assert add(3, 4) == 10
+
+    ---------------------------------------------------------------------
+    AssertionError                     Traceback (most recent call last)
+    <ipython-input-3-6731d4ac4476> in <module>()
+    ----> 1 assert add(3, 4) == 10
+
+    AssertionError:
+
+
+LAB: Fibonacci
+==============
+
+Let's write a few functions in class:
+
+:ref:`exercise_fibonacci`
+
+
+Lightning Talk:
+---------------
+
+.. rst-class:: center medium
+
+Michelle Yu
+
 
 Boolean Expressions
 ===================
@@ -806,10 +822,10 @@ Truthiness
 
 What is true or false in Python?
 
-.. rst-class:: build
-
 * The Booleans: ``True``  and ``False``
+
 * "Something or Nothing"
+
 *  http://mail.python.org/pipermail/python-dev/2002-April/022107.html
 
 
@@ -822,36 +838,41 @@ Determining Truthiness:
     bool(something)
 
 
-.. nextslide:: What is False?
+What is False?
+--------------
 
 .. rst-class:: build
 
 * ``None``
+
 * ``False``
+
 * **Nothing:**
 
-* zero of any numeric type: ``0, 0L, 0.0, 0j``.
-* any empty sequence, for example, ``"", (), []``.
-* any empty mapping, for example, ``{}`` .
-* instances of user-defined classes, if the class defines a ``__nonzero__()``
-  or ``__len__()`` method, when that method returns the integer zero or bool
-  value ``False``.
+    - zero of any numeric type: ``0, 0L, 0.0, 0j``.
+    - any empty sequence, for example, ``"", (), []``.
+    - any empty mapping, for example, ``{}`` .
+    - instances of user-defined classes, if the class defines a ``__nonzero__()``
+      or ``__len__()`` method, when that method returns the integer zero or bool
+      value ``False``.
 
 * http://docs.python.org/library/stdtypes.html
 
-.. nextslide:: What is True?
+What is True?
+-------------
 
 .. rst-class:: center large
 
 Everything Else
 
 
-.. nextslide:: Pythonic Booleans
+Pythonic Booleans
+-----------------
 
 Any object in Python, when passed to the ``bool()`` type object, will
 evaluate to ``True`` or ``False``.
 
-When you use the ``if`` keyword, it automatically does this to the statement provided.
+When you use the ``if`` keyword, it automatically does this to the expression provided.
 
 Which means that this is redundant, and not Pythonic:
 
@@ -871,8 +892,8 @@ Instead, use what Python gives you:
         do_something()
 
 
-and, or and not
-----------------
+``and``, ``or`` and ``not``
+---------------------------
 
 Python has three boolean keywords, ``and``, ``or`` and ``not``.
 
@@ -939,12 +960,13 @@ The first value that defines the result is returned
 
 .. ifslides::
 
-    .. rst-class:: centered
+    .. rst-class:: centered large
 
     (demo)
 
 
-.. nextslide:: Ternary Expressions
+Ternary Expressions
+-------------------
 
 This is a fairly common idiom:
 
@@ -972,7 +994,7 @@ PEP 308:
 Boolean Return Values
 ---------------------
 
-Remember this puzzle from your CodingBat exercises?
+Remember this puzzle from the CodingBat exercises?
 
 .. code-block:: python
 
@@ -1028,49 +1050,28 @@ And you can even do math with them (though it's a bit odd to do so):
     (demo)
 
 
-In-Class Lab:
+LAB: Booleans
 =============
 
-.. rst-class:: center large
+.. rst-class:: left
 
-Funky Bools
+Working with Booleans, Ternary Expressions, etc:
 
-Exercises
----------
+Re-write a couple CodingBat exercises, returning the direct boolean results, and/or using ternary expressions.
+
+
+Functions and name scope
+------------------------
 
 * Try your hand at writing a function that computes the distance between two
   points::
 
       dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
 
-    print locals()
-
-* Look up the ``%``  operator. What do these do?
-
-  * ``10 % 7 == 3``
-  * ``14 % 7 == 0``
-
-*  Write a program that prints the numbers from 1 to 100 inclusive. But for
-   multiples of three print "Fizz" instead of the number and for the multiples
-   of five print "Buzz". For numbers which are multiples of both three and five
-   print "FizzBuzz" instead.
-
-* Experiment with ``locals`` by adding this statement to the functions you just
+* Experiment with ``locals`` by adding this statement to the function you just
   wrote:::
 
     print locals()
-
-
-BREAK TIME
-==========
-
-Again, let's take a few moments out to take a short break.  When we return
-we'll have our second two lightning talks:
-
-.. ifslides::
-
-    * Ian M Davis
-    * Schuyler Alan Schwafel
 
 
 Code Structure, Modules, and Namespaces
@@ -1200,7 +1201,8 @@ inside it.
     (demo)
 
 
-.. nextslide:: importing from packages
+importing from packages
+-----------------------
 
 .. code-block:: python
 
@@ -1216,7 +1218,7 @@ inside it.
 
 http://effbot.org/zone/import-confusion.htm
 
-.. nextslide:: importing from packages
+.. nextslide::
 
 .. code-block:: python
 
@@ -1227,21 +1229,22 @@ http://effbot.org/zone/import-confusion.htm
 **Don't do this!**
 
 
-Import
-------
+``import``
+----------
 
 When you import a module, or a symbol from a module, the Python code is
 *compiled* to **bytecode**.
 
 The result is a ``module.pyc`` file.
 
-This process **executes all code at the module scope**.
+Then after compiling, all the code in the module is run **at the module scope**.
 
 For this reason, it is good to avoid module-scope statements that have global
 side-effects.
 
 
-.. nextslide:: Re-import
+Re-import
+----------
 
 The code in a module is NOT re-run when imported again
 
@@ -1284,8 +1287,7 @@ is the same as the filename.
 
 When you *run* a module, the value of the symbol ``__name__`` is ``__main__``.
 
-This allows you to create blocks of code that are executed *only when you run a
-module*
+This allows you to create blocks of code that are executed *only when you run a module*
 
 .. code-block:: python
 
@@ -1308,39 +1310,11 @@ You can put code here that proves that your module works.
     [demo]
 
 
-.. nextslide:: ``Assert``
-
-Writing ``tests`` that demonstrate that your program works is an important part
-of learning to program.
-
-The python ``assert`` statement is useful in writing ``main`` blocks that test
-your code.
-
-.. code-block:: ipython
-
-    In [1]: def add(n1, n2):
-       ...:     return n1 + n2
-       ...:
-
-    In [2]: assert add(3, 4) == 7
-
-    In [3]: assert add(3, 4) == 10
-    ---------------------------------------------------------------------------
-    AssertionError                            Traceback (most recent call last)
-    <ipython-input-3-6731d4ac4476> in <module>()
-    ----> 1 assert add(3, 4) == 10
-
-    AssertionError:
-
-In-Class Lab
-============
 
 Import Interactions
+-------------------
 
-Exercises
----------
-
-Experiment with importing different ways:
+Let's experiment with importing different ways:
 
 .. code-block:: ipython
 
@@ -1384,7 +1358,6 @@ Experiment with importing different ways:
     import os
     print os.path
 
-
 You wouldn't want to import * those!
 
   -- check out
@@ -1394,109 +1367,45 @@ You wouldn't want to import * those!
     os.path.split('/foo/bar/baz.txt')
     os.path.join('/foo/bar', 'baz.txt')
 
+
+Next Class
+==========
+
+.. rst-class left
+
+* Sequences
+* Iteration
+* Strings and String Formatting
+
+* Lightning talks by:
+  - Eric Rosko
+  - Michael Waddle
+  - Robert Stevens Alford
+
+Office hours: Sunday 10:00 -- 12:00
+
+
 Homework
-========
+---------
 
-You have two tasks to complete by next class:
+Review and/or finish reading these class notes.
 
-Task 1
-------
+Finish any labs from class....
 
-The Ackermann function, A(m, n), is defined::
+**Reading:**
 
-    A(m, n) =
-        n+1   if  m = 0
-        A(m−1, 1)   if  m > 0  and  n = 0
-        A(m−1, A(m, n−1))   if  m > 0  and  n > 0.
+Think Python, chapters 8, 9, 10, 12
 
-See http://en.wikipedia.org/wiki/Ackermann_function.
+(http://greenteapress.com/thinkpython/html/thinkpython009.html)
 
-Create a new module called ``ack.py`` in a ``session02`` folder in your student folder. In that module, write a function named ``ack`` that performs Ackermann's function.
+Learn Python the Hard way: exercises 11 -- 14, 18, 19, 21, 28-33
+(the ones in between are about files -- we'll get to that later.)
 
-* Write a good ``docstring`` for your function according to PEP 257.
-* Ackermann's function is not defined for input values less than 0.  Validate
-  inputs to your function and return None if they are negative.
+http://learnpythonthehardway.org/book/ex11.html
 
-.. nextslide::
+NOTE: In python3, you use ``input``, rather than ``raw_input``
 
-The wikipedia page provides a table of output values for inputs between 0 and
-4. Using this table, add a ``if __name__ == "__main__":`` block to test your
-function.
+Dive Into Python: chapter 4
 
-Test each pair of inputs between 0 and 4 and assert that the result produced by
-your function is the result expected by the wikipedia table.
+(http://www.diveintopython3.net/strings.html)
 
-When your module is run from the command line, these tests should be executed.
-If they all pass, print "All Tests Pass" as the result.
-
-Add your new module to your git clone and commit frequently while working on
-your implementation. Include good commit messages that explain concisely both
-*what* you are doing and *why*.
-
-When you are finished, push your changes to your fork of the class repository
-in GitHub and make a pull request.
-
-::
-
-    - Adapted from "Think Python": Chapter 6, exercise 5.
-
-Task 2
-------
-
-The `Fibonacci Series`_ is a numeric series starting with the integers 0 and 1.
-In this series, the next integer is determined by summing the previous two.
-This gives us::
-
-    0, 1, 1, 2, 3, 5, 8, 13, ...
-
-Create a new module ``series.py`` in the ``session02`` folder in your student folder. In it, add a function called ``fibonacci``. The function should have one parameter ``n``. The function should return the ``nth`` value in the fibonacci series.
-
-Ensure that your function has a well-formed ``docstring``
-
-.. _Fibonacci Series: http://en.wikipedia.org/wiki/Fibbonaci_Series
-
-.. nextslide::
-
-The `Lucas Numbers`_ are a related series of integers that start with the
-values 2 and 1 rather than 0 and 1. The resulting series looks like this::
-
-    2, 1, 3, 4, 7, 11, 18, 29, ...
-
-.. _Lucas Numbers: http://en.wikipedia.org/wiki/Lucas_number
-
-In your ``series.py`` module, add a new function ``lucas`` that returns the
-``nth`` value in the *lucas numbers*
-
-Ensure that your function has a well-formed ``docstring``
-
-.. nextslide::
-
-Both the *fibonacci series* and the *lucas numbers* are based on an identical
-formula.
-
-Add a third function called ``sum_series`` with one required parameter and two
-optional parameters. The required parameter will determine which element in the
-series to print. The two optional parameters will have default values of 0 and
-1 and will determine the first two values for the series to be produced.
-
-Calling this function with no optional parameters will produce numbers from the
-*fibonacci series*.  Calling it with the optional arguments 2 and 1 will
-produce values from the *lucas numbers*. Other values for the optional
-parameters will produce other series.
-
-Ensure that your function has a well-formed ``docstring``
-
-.. nextslide::
-
-Add an ``if __name__ == "__main__":`` block to the end of your ``series.py``
-module. Use the block to write a series of ``assert`` statements that
-demonstrate that your three functions work properly.
-
-Use comments in this block to inform the observer what your tests do.
-
-Add your new module to your git clone and commit frequently while working on
-your implementation. Include good commit messages that explain concisely both
-*what* you are doing and *why*.
-
-When you are finished, push your changes to your fork of the class repository
-in GitHub and make a pull request.
