@@ -64,21 +64,49 @@ Setting up git
 
 You should have git installed on your machine and accessible from the command line. There will be a little bit of setup for git that you should only have to do once.
 
+.. code-block:: bash
+
+    $ git config --global user.name "Marie Curie"
+    $ git config --global user.email "marie@radioactive.com"
+
+Editor
+------
+
+You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, let's set up a different editor, before you find yourself accidentally stuck in VI land.
+Nano is a very straight-forward, simple editor, available without installing anything on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown below). To install nano on Windows: :ref:`supplement_install_nano_win`
+
+nano   
+``$ git config --global core.editor "nano -w"``
+
+sublime (mac) 
+``$ git config --global core.editor "subl -n -w"``
+
+sublime (win) 
+``$ git config --global core.editor "'c:/program files/sublime text 2/sublime_text.exe' -w"``
+
+Notepad++ (Win) 
+``$ git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"``
+
+Repositories
+------------
+
+A repository is just a collection of files that 'belong together'. 
+
+Since ``git`` is a *distributed* versioning system, there is no **central**
+repository that serves as the one to rule them all. This simply means that all repositories should look the same. 
+
+However, to keep things sane, there is generally one repository chosen that users check with for changes, for us this is GitHub.
 
 
 Working with Remotes
 --------------------
 
-Since ``git`` is a *distributed* versioning system, there is no **central**
-repository that serves as the one to rule them all.
+With git, you work with *local* repositories and *remotes* that they are connected to.
 
 .. rst-class:: build
 .. container::
 
-    Instead, you work with *local* repositories, and *remotes* that they are
-    connected to.
-
-    Cloned repositories get an *origin* remote for free:
+    Git uses shortcuts to address *remotes*. Cloned repositories get an *origin* shortcut for free:
 
     .. code-block:: bash
 
@@ -87,7 +115,20 @@ repository that serves as the one to rule them all.
         origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
 
     This shows that the local repo on my machine *originated* from the one in
-    my gitHub account (the one it was cloned from)
+    my gitHub account (don't worry that it shows it twice, they should be the same)
+
+.. nextslide::
+
+.. rst-class:: build
+.. container::
+
+    You can work on any project you wish to that has a public repository on Github. However, since you won't have permission to edit most projects directly, there is such a thing as *forking* a project. 
+
+    When you *fork* a repository, you make a copy of that repository in your own (Github) account. 
+
+    When you have made changes that you believe the rest of the community will want to adopt, you make a *pull request* to the original project. The maintainers of that project than have the option of accepting your changes, in which case your changes will become part of that project. 
+
+    This is how we will be working in this class. When you want feedback on your work, you will make a *pull request* to the instructors.
 
 .. nextslide::
 
@@ -100,7 +141,7 @@ Our class materials reside in a repository on *Github* in the
 
 .. nextslide::
 
-You've created a fork of the class repository from the ``UWPCE-PythonCert``
+We will now create a fork of the class repository from the ``UWPCE-PythonCert``
 account on GitHub into your personal account:
 
 .. figure:: /_static/remotes_fork.png
@@ -109,7 +150,7 @@ account on GitHub into your personal account:
 
 .. nextslide::
 
-You've made a *clone* of your fork to your own computer, which means that
+You've make a *clone* of your fork to your own computer, which means that
 **your fork** in github is the *origin*:
 
 .. figure:: /_static/remotes_clone.png
@@ -133,6 +174,8 @@ You've made a *clone* of your fork to your own computer, which means that
 
 You can add *remotes* at will, to connect your *local* repository to other
 copies of it in different remote locations.
+
+When add a *remote* (existing git repository), it creates a directory with the name of the repository at the top level.
 
 .. rst-class:: build
 .. container::
