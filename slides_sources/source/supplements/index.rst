@@ -11,4 +11,5 @@ Supplemental Materials
     virtualenv
     sublime_as_ide
     shell
+    git_overview
     unicode
