@@ -12,4 +12,5 @@ Supplemental Materials
     sublime_as_ide
     shell
     git_overview
+    install_nano_win
     unicode
