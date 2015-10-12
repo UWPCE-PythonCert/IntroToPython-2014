@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Introduction To Python 1.3 documentation</title>
+  <title>switch? &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -49,7 +49,7 @@
         
         
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -231,8 +231,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>switch?</li>
       <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/unused_stuff.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -240,19 +242,30 @@
 </div>
           <div role="main" class="document">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="switch">
+<h1>switch?<a class="headerlink" href="#switch" title="Permalink to this headline">¶</a></h1>
+<p>Many languages have a <code class="docutils literal"><span class="pre">switch</span></code> construct:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="k">switch</span> <span class="p">(</span><span class="nx">expr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="s2">&quot;Oranges&quot;</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Oranges are $0.59 a pound.&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="s2">&quot;Apples&quot;</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Apples are $0.32 a pound.&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="s2">&quot;Mangoes&quot;</span><span class="o">:</span>
+  <span class="k">case</span> <span class="s2">&quot;Papayas&quot;</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Mangoes and papayas are $2.79 a pound.&lt;br&gt;&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;Sorry, we are out of &quot;</span> <span class="o">+</span> <span class="nx">expr</span> <span class="o">+</span> <span class="s2">&quot;.&lt;br&gt;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Not Python</strong></p>
+<p>use <code class="docutils literal"><span class="pre">if..elif..elif..else</span></code></p>
+<p>(or a dictionary, or subclassing....)</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
           </div>
           <footer>
@@ -292,7 +305,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -308,14 +320,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
