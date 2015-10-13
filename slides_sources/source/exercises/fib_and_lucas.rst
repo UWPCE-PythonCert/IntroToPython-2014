@@ -78,7 +78,7 @@ Ensure that your function has a well-formed ``docstring``
 Tests...
 --------
 
-Add an ``if __name__ == "__main__":`` block to the end of your ``series.py``
+Add a block of code to the end of your ``series.py``
 module. Use the block to write a series of ``assert`` statements that
 demonstrate that your three functions work properly.
 

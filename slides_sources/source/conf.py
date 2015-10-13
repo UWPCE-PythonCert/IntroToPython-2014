@@ -279,6 +279,8 @@ extensions += [
 slide_title = "Intro to Python"
 slide_theme = 'slides2'
 slide_levels = 3
+slide_numbers = False
+
 
 # Place custom static assets in the _static directory and uncomment
 # the following lines to include them
