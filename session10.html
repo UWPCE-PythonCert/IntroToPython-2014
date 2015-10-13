@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Session Ten: Unicode, Wrap Up &mdash; Introduction To Python 1.3 documentation</title>
@@ -14,7 +15,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -35,7 +35,7 @@
         <link rel="prev" title="Session Nine: Decorators, Context Managers, Packages and packaging" href="session09.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -45,11 +45,27 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="index.html" class="fa fa-home"> Introduction To Python</a>
-        
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -57,164 +73,76 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
           
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#goals-for-session-one">Goals for Session One:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#id1">Introductions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#python-ecosystem">Python Ecosystem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-ipython">Introduction to iPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#basic-python-syntax">Basic Python Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#python-2-3-differences">Python 2-3 Differences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#id2">Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#next-class">Next Class</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#first-a-little-git-primer">First a little git Primer...</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#lab-grid-printer">LAB: Grid Printer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#beyond-printing">Beyond Printing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#lab-fizz-buzz">LAB: Fizz Buzz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#more-on-functions">More on Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#lab-fibonacci">LAB: Fibonacci</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#boolean-expressions">Boolean Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#lab-booleans">LAB: Booleans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session02.html#next-class">Next Class</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#sequences">Sequences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#lab">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#lists-tuples">Lists, Tuples...</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#mutability">Mutability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#id1">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#id3">Iteration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#string-features">String Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#string-formatting-lab">String Formatting LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#homework">Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#next-week">Next Week:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#id4">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#handy-hints-for-from-homework">Handy hints for/from Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#a-little-warm-up">A little warm up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#exceptions">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#id5">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#file-reading-and-writing">File Reading and Writing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#paths-and-directories">Paths and Directories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#id7">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#homework">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#id1">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#note">NOTE:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#homework-review">Homework review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#test-driven-development-demo">Test Driven development demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#anonymous-functions">Anonymous functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#functional-programming">Functional Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#lab">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#object-oriented-programming">Object Oriented Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#python-classes">Python Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#more-on-subclassing">More on Subclassing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#homework">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: More OO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#more-on-subclassing">More on Subclassing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#static-and-class-methods">Static and Class Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#special-methods">Special Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#homework">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: Callable classes, Iterators, Generators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#emulating-standard-types">Emulating Standard types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#lab">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#iterators-and-generators">Iterators and Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#homework">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#decorators">Decorators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#context-managers">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#packages-and-packaging">Packages and Packaging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#distributing">Distributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#next-week">Next Week</a></li>
-</ul>
-</li>
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: More OO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: Callable classes, Iterators, Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Ten: Unicode, Wrap Up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#web-development-class">Web Development Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unicode">Unicode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mechanics">Mechanics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-unicode-lab">Basic Unicode LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#projects">Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#unicode">Unicode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fact-number-1">Fact number 1:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-the-heck-is-unicode-anyway">What the heck is Unicode anyway?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fact-number-2">Fact number 2:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enter-unicode">Enter Unicode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mechanics">Mechanics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-strings">What are strings?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#str-vs-unicode">str vs unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-unicode-in-py2">Using unicode in Py2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encoding-and-decoding">Encoding and Decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicode-literals">Unicode Literals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-unicode">Using Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-unicode-everywhere">Using unicode everywhere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encodings">Encodings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utf-8">UTF-8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utf-16">UTF-16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utf-16-criticism">UTF-16 criticism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#latin-1">Latin-1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicode-docs">Unicode Docs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gotchas-in-python-2">Gotchas in Python 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicode-in-python-3">Unicode in Python 3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-unicode-lab">Basic Unicode LAB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#challenge-unicode-lab">Challenge Unicode LAB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#code-review">Code Review?</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Homework Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercises/grid_printer.html">Grid Printer Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/html_renderer.html">HTML Renderer Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/circle_class.html">Circle Class Excercise</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_learning_resources.html">Useful Python Learning Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_mac.html">Setting up your Mac for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_windows.html">Setting up Windows for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_linux.html">Setting Up Python For Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/virtualenv.html">Working with Virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/shell.html">Shell Customizations for Python Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/git_overview.html">A Picture of git</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/install_nano_win.html">Installing Nano on Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/unicode.html">Unicode in Python 2</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Homework Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -229,20 +157,29 @@
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
     <li>Session Ten: Unicode, Wrap Up</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/session10.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/session10.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="session-ten-unicode-wrap-up">
 <h1>Session Ten: Unicode, Wrap Up<a class="headerlink" href="#session-ten-unicode-wrap-up" title="Permalink to this headline">¶</a></h1>
@@ -697,15 +634,16 @@ that yourself?)</p>
 </div>
 
 
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="exercises/index.html" class="btn btn-neutral float-right" title="Homework Materials">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="exercises/index.html" class="btn btn-neutral float-right" title="Homework Materials" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="session09.html" class="btn btn-neutral" title="Session Nine: Decorators, Context Managers, Packages and packaging"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="session09.html" class="btn btn-neutral" title="Session Nine: Decorators, Context Managers, Packages and packaging" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -715,12 +653,13 @@ that yourself?)</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
 </footer>
+
         </div>
       </div>
 

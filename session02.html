@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Session Two: gitHub, Functions, Booleans and Modules &mdash; Introduction To Python 1.3 documentation</title>
@@ -14,7 +15,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -35,7 +35,7 @@
         <link rel="prev" title="Session One: Introductions" href="session01.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -45,11 +45,27 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="index.html" class="fa fa-home"> Introduction To Python</a>
-        
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -57,164 +73,110 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
           
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introductions">Introductions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#goals-for-session-one">Goals for Session One:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#id1">Introductions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-this-class">Introduction to This Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#python-ecosystem">Python Ecosystem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-your-environment">Introduction to Your Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#setting-up-your-environment">Setting Up Your Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#introduction-to-ipython">Introduction to iPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#basic-python-syntax">Basic Python Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#python-2-3-differences">Python 2-3 Differences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#id2">Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session01.html#next-class">Next Class</a></li>
-</ul>
-</li>
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Session Two: gitHub, Functions, Booleans and Modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#first-a-little-git-primer">First a little git Primer...</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lab-grid-printer">LAB: Grid Printer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#beyond-printing">Beyond Printing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lab-fizz-buzz">LAB: Fizz Buzz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#more-on-functions">More on Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lab-fibonacci">LAB: Fibonacci</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#boolean-expressions">Boolean Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-outline">Class Outline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#first-a-little-git-primer">First a little git Primer...</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-version-control">Why Version Control?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-git">What is git?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-git">Setting up git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editor">Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repositories">Repositories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-remotes">Working with Remotes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-grid-printer">LAB: Grid Printer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#committing-your-code">Committing your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talk">Lightning Talk:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#beyond-printing">Beyond Printing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-a-decision">Making a Decision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lists">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tuples">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-loops"><code class="docutils literal"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intricacies">Intricacies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-fizz-buzz">LAB: Fizz Buzz</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Lightning Talk:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#more-on-functions">More on Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variable-scope">Variable scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-vs-global">Local vs. Global</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-gotcha">Global Gotcha</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docstrings">Docstrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursion">Recursion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assert"><code class="docutils literal"><span class="pre">assert</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-fibonacci">LAB: Fibonacci</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Lightning Talk:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#boolean-expressions">Boolean Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#truthiness">Truthiness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-false">What is False?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-true">What is True?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythonic-booleans">Pythonic Booleans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#and-or-and-not"><code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code> and <code class="docutils literal"><span class="pre">not</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ternary-expressions">Ternary Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boolean-return-values">Boolean Return Values</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#lab-booleans">LAB: Booleans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#next-class">Next Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-structure-modules-and-namespaces">Code Structure, Modules, and Namespaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-structure">Code Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules-and-packages">Modules and Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-from-packages">importing from packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import"><code class="docutils literal"><span class="pre">import</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#re-import">Re-import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-interactions">Import Interactions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#sequences">Sequences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#lab">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#lists-tuples">Lists, Tuples...</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#mutability">Mutability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#mutable-sequence-methods">Mutable Sequence Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#id1">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#id3">Iteration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#string-features">String Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#string-formatting-lab">String Formatting LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#homework">Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#next-week">Next Week:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session03.html#id4">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-class">Next Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#handy-hints-for-from-homework">Handy hints for/from Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#a-little-warm-up">A little warm up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#dictionaries-and-sets">Dictionaries and Sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#exceptions">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#id5">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#file-reading-and-writing">File Reading and Writing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#paths-and-directories">Paths and Directories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#id7">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session04.html#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#advanced-argument-passing">Advanced Argument Passing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#list-and-dict-comprehensions">List and Dict Comprehensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#id1">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#id3">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#homework">Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session05.html#material-to-review-for-homework">Material to review for Homework:</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#note">NOTE:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#homework-review">Homework review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#test-driven-development-demo">Test Driven development demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#anonymous-functions">Anonymous functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#functional-programming">Functional Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#lab">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#object-oriented-programming">Object Oriented Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#python-classes">Python Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#more-on-subclassing">More on Subclassing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session06.html#homework">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: More OO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#more-on-subclassing">More on Subclassing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#properties">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#static-and-class-methods">Static and Class Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#special-methods">Special Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session07.html#homework">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: Callable classes, Iterators, Generators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#emulating-standard-types">Emulating Standard types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#lab">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#iterators-and-generators">Iterators and Generators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session08.html#homework">Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#decorators">Decorators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#context-managers">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#packages-and-packaging">Packages and Packaging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#distributing">Distributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session09.html#next-week">Next Week</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#web-development-class">Web Development Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#review-questions">Review/Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#unicode">Unicode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#mechanics">Mechanics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#basic-unicode-lab">Basic Unicode LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="session10.html#code-review">Code Review?</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: More OO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: Callable classes, Iterators, Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Homework Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exercises/grid_printer.html">Grid Printer Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/html_renderer.html">HTML Renderer Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercises/circle_class.html">Circle Class Excercise</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_learning_resources.html">Useful Python Learning Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_mac.html">Setting up your Mac for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_windows.html">Setting up Windows for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/python_for_linux.html">Setting Up Python For Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/virtualenv.html">Working with Virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/shell.html">Shell Customizations for Python Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/git_overview.html">A Picture of git</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/install_nano_win.html">Installing Nano on Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supplements/unicode.html">Unicode in Python 2</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Homework Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -229,20 +191,29 @@
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
     <li>Session Two: gitHub, Functions, Booleans and Modules</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/session02.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/session02.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="session-two-github-functions-booleans-and-modules">
 <h1>Session Two: gitHub, Functions, Booleans and Modules<a class="headerlink" href="#session-two-github-functions-booleans-and-modules" title="Permalink to this headline">¶</a></h1>
@@ -278,9 +249,9 @@
 <li>git / gitHub primer</li>
 <li>Exercise: <a class="reference internal" href="exercises/grid_printer.html#exercise-grid-printer"><span>Grid Printer Exercise</span></a></li>
 <li>Decisions, Decisions.</li>
-<li>Exercise: FizzBuzz</li>
+<li>Exercise: <a class="reference internal" href="exercises/fizz_buzz.html#exercise-fizz-buzz"><span>Fizz Buzz Exercise</span></a></li>
 <li>More on functions</li>
-<li>Exercise: Fibonacci</li>
+<li>Exercise: <a class="reference internal" href="exercises/fib_and_lucas.html#exercise-fibonacci"><span>Fibonacci Series Exercise</span></a></li>
 <li>Boolean Expressions</li>
 <li>Code Structure, Modules, and Namespaces</li>
 </ul>
@@ -292,7 +263,11 @@
 <p>Let&#8217;s get to know git a bit</p>
 <div class="section" id="why-version-control">
 <h3>Why Version Control?<a class="headerlink" href="#why-version-control" title="Permalink to this headline">¶</a></h3>
-<a class="reference internal image-reference" href="_images/phd101212s.gif"><img alt="_images/phd101212s.gif" class="align-center" src="_images/phd101212s.gif" style="width: 50%;" /></a>
+<div class="figure">
+<a class="fill reference internal image-reference" href="_images/phd101212s.gif"><img alt="_images/phd101212s.gif" class="fill" src="_images/phd101212s.gif" style="width: 45%;" /></a>
+</div>
+<p>&#8220;Piled Higher and Deeper&#8221; by Jorge Cham</p>
+<p>www.phdcomics.com</p>
 </div>
 <div class="section" id="what-is-git">
 <h3>What is git?<a class="headerlink" href="#what-is-git" title="Permalink to this headline">¶</a></h3>
@@ -503,13 +478,36 @@ $ git push
 <p class="left">With only the ability to do a bit with numbers and text, you should be
 able to do this little project:</p>
 <p class="left"><a class="reference internal" href="exercises/grid_printer.html#exercise-grid-printer"><span>Grid Printer Exercise</span></a></p>
-<p class="left">Lets use git and gitHub to manage this project:</p>
-<blockquote class="left">
-<div><ul class="simple">
-<li>We&#8217;ll start by putting a file in your clone of the class gitHub project.</li>
-</ul>
-</div></blockquote>
-<p class="left">Then you can give the problem a try.</p>
+<div class="section" id="getting-started">
+<h3>Getting Started:<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h3>
+<p>Lets use git and gitHub to manage this project:</p>
+<p>Start by putting a python file in your clone of the class gitHub project:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>my_personal_directory
+<span class="nv">$ </span>mkdir session_01
+<span class="nv">$ </span><span class="nb">cd </span>session_01
+<span class="nv">$ </span>touch grid_printer.py
+<span class="nv">$ </span>git add grid_printer.py
+</pre></div>
+</div>
+<p>Then put your code in grid_printer.py</p>
+</div>
+<div class="section" id="committing-your-code">
+<h3>Committing your code<a class="headerlink" href="#committing-your-code" title="Permalink to this headline">¶</a></h3>
+<p>When it does something useful, you can commit it.</p>
+<p>First check the status:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git status
+</pre></div>
+</div>
+<p>If it&#8217;s what you expect, you can push:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git commit -a -m <span class="s2">&quot;first version&quot;</span>
+</pre></div>
+</div>
+<p>And when you want us to take a look, push it to gitHub:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push
+</pre></div>
+</div>
+<p>Then you can go to gitHub and do a &#8220;Pull Request&#8221;</p>
+</div>
 <div class="section" id="lightning-talk">
 <h3>Lightning Talk:<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
 <p class="center medium">Brendan Fogarty</p>
@@ -517,7 +515,7 @@ able to do this little project:</p>
 </div>
 <div class="section" id="beyond-printing">
 <h2>Beyond Printing<a class="headerlink" href="#beyond-printing" title="Permalink to this headline">¶</a></h2>
-<p class="center large">Because there&#8217;s a few things you just gotta have</p>
+<p class="center medium">Because there&#8217;s a few things you just gotta have</p>
 <div class="section" id="basics">
 <h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
 <p>You really can&#8217;t really do much at all without at least
@@ -525,8 +523,8 @@ conditionals, looping, and a container type...</p>
 </div>
 <div class="section" id="making-a-decision">
 <h3>Making a Decision<a class="headerlink" href="#making-a-decision" title="Permalink to this headline">¶</a></h3>
-<p class="center medium">&#8220;Conditionals&#8221;</p>
-<p><code class="docutils literal"><span class="pre">if</span></code> and <code class="docutils literal"><span class="pre">elif</span></code> allow you to make decisions:</p>
+<p><strong>&#8220;Conditionals&#8221;</strong></p>
+<p><code class="docutils literal"><span class="pre">if</span></code> and <code class="docutils literal"><span class="pre">elif</span></code> (else if) allow you to make decisions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">a</span><span class="p">:</span>
     <span class="k">print</span> <span class="s">&#39;a&#39;</span>
 <span class="k">elif</span> <span class="n">b</span><span class="p">:</span>
@@ -537,7 +535,7 @@ conditionals, looping, and a container type...</p>
     <span class="k">print</span> <span class="s">&#39;that was unexpected&#39;</span>
 </pre></div>
 </div>
-<p>What&#8217;s the difference between these two:</p>
+<p>What&#8217;s the difference between these two?</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">a</span><span class="p">:</span>
     <span class="k">print</span> <span class="s">&#39;a&#39;</span>
 <span class="k">elif</span> <span class="n">b</span><span class="p">:</span>
@@ -608,18 +606,9 @@ conditionals, looping, and a container type...</p>
 </div>
 <div class="section" id="lab-fizz-buzz">
 <h2>LAB: Fizz Buzz<a class="headerlink" href="#lab-fizz-buzz" title="Permalink to this headline">¶</a></h2>
-<p>We now have the tools to do a implementation of the classic &#8220;Fizz Buzz&#8221; problem:</p>
-<ul class="simple">
-<li>Look up the <code class="docutils literal"><span class="pre">%</span></code>  operator. What do these do?<ul>
-<li><code class="docutils literal"><span class="pre">10</span> <span class="pre">%</span> <span class="pre">7</span> <span class="pre">==</span> <span class="pre">3</span></code></li>
-<li><code class="docutils literal"><span class="pre">14</span> <span class="pre">%</span> <span class="pre">7</span> <span class="pre">==</span> <span class="pre">0</span></code></li>
-</ul>
-</li>
-<li>Write a program that prints the numbers from 1 to 100 inclusive.</li>
-<li>But for multiples of three print &#8220;Fizz&#8221; instead of the number</li>
-<li>For the multiples of five print &#8220;Buzz&#8221;.</li>
-<li>For numbers which are multiples of both three and five print &#8220;FizzBuzz&#8221; instead.</li>
-</ul>
+<p class="left">We now have the tools to do a implementation of the classic &#8220;Fizz Buzz&#8221; problem:</p>
+<p class="left"><a class="reference internal" href="exercises/fizz_buzz.html#exercise-fizz-buzz"><span>Fizz Buzz Exercise</span></a></p>
+<p class="left">Do the same git / gitHub dance with this, too!</p>
 <div class="section" id="id1">
 <h3>Lightning Talk:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p class="center medium">Bruce Bauman</p>
@@ -639,7 +628,7 @@ conditionals, looping, and a container type...</p>
 </div>
 <div class="section" id="local-vs-global">
 <h3>Local vs. Global<a class="headerlink" href="#local-vs-global" title="Permalink to this headline">¶</a></h3>
-<p>Symbols bound in Python have a <em>scope</em></p>
+<p>Names bound in Python have a <em>scope</em></p>
 <p>That <em>scope</em> determines where a symbol is visible, or what value it has in a
 given block.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [14]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">32</span>
@@ -785,8 +774,11 @@ thinking when you wrote it.</p>
     <span class="n">worker</span><span class="o">.</span><span class="n">apply_soap</span><span class="p">(</span><span class="n">sponge</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In Python, <code class="docutils literal"><span class="pre">docstrings</span></code> are used to provide in-line documentation in a number
-of places.</p>
+<p>Note: Nothing special about Python here &#8211; basic good programing practice.</p>
+</div>
+<div class="section" id="docstrings">
+<h3>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+<p>In Python, <code class="docutils literal"><span class="pre">docstrings</span></code> are used to provide in-line documentation in a number of places.</p>
 <p>The first place we will see is in the definition of <code class="docutils literal"><span class="pre">functions</span></code>.</p>
 <p>To define a function you use the <code class="docutils literal"><span class="pre">def</span></code> keyword.</p>
 <p>If a <code class="docutils literal"><span class="pre">string</span> <span class="pre">literal</span></code> is the first thing in the function block following the
@@ -799,19 +791,19 @@ header, it is a <code class="docutils literal"><span class="pre">docstring</span
 <p>You can then read this in an interpreter as the <code class="docutils literal"><span class="pre">__doc__</span></code> attribute of the
 function object.</p>
 <p>A <code class="docutils literal"><span class="pre">docstring</span></code> should:</p>
-<ul class="build simple">
-<li>be a complete sentence in the form of a command describing what the function
+<ul class="simple">
+<li>Be a complete sentence in the form of a command describing what the function
 does.<ul>
 <li>&#8220;&#8221;&#8220;Return a list of values based on blah blah&#8221;&#8220;&#8221; is a good docstring</li>
 <li>&#8220;&#8221;&#8220;Returns a list of values based on blah blah&#8221;&#8220;&#8221; is <em>not</em></li>
 </ul>
 </li>
-<li>fit onto a single line.<ul>
+<li>Have a useful single line.<ul>
 <li>If more description is needed, make the first line a complete sentence and
 add more lines below for enhancement.</li>
 </ul>
 </li>
-<li>be enclosed with triple-quotes.<ul>
+<li>Be enclosed with triple-quotes.<ul>
 <li>This allows for easy expansion if required at a later date</li>
 <li>Always close on the same line if the docstring is only one line.</li>
 </ul>
@@ -839,8 +831,8 @@ integer by every integer smaller than it down to 1.</p>
 <div class="section" id="assert">
 <h3><code class="docutils literal"><span class="pre">assert</span></code><a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h3>
 <p>Writing <code class="docutils literal"><span class="pre">tests</span></code> that demonstrate that your program works is an important part of learning to program.</p>
-<p>The python <code class="docutils literal"><span class="pre">assert</span></code> statement is useful in writing <code class="docutils literal"><span class="pre">main</span></code> blocks that test
-your code.</p>
+<p>The python <code class="docutils literal"><span class="pre">assert</span></code> statement is useful in writing simple tests
+for your code.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
 <span class="gp">   ...:</span>
@@ -885,7 +877,7 @@ your code.</p>
 </div>
 <div class="section" id="what-is-false">
 <h3>What is False?<a class="headerlink" href="#what-is-false" title="Permalink to this headline">¶</a></h3>
-<ul class="build">
+<ul>
 <li><p class="first"><code class="docutils literal"><span class="pre">None</span></code></p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">False</span></code></p>
@@ -893,12 +885,10 @@ your code.</p>
 <li><p class="first"><strong>Nothing:</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li>zero of any numeric type: <code class="docutils literal"><span class="pre">0,</span> <span class="pre">0L,</span> <span class="pre">0.0,</span> <span class="pre">0j</span></code>.</li>
-<li>any empty sequence, for example, <code class="docutils literal"><span class="pre">&quot;&quot;,</span> <span class="pre">(),</span> <span class="pre">[]</span></code>.</li>
-<li>any empty mapping, for example, <code class="docutils literal"><span class="pre">{}</span></code> .</li>
-<li>instances of user-defined classes, if the class defines a <code class="docutils literal"><span class="pre">__nonzero__()</span></code>
-or <code class="docutils literal"><span class="pre">__len__()</span></code> method, when that method returns the integer zero or bool
-value <code class="docutils literal"><span class="pre">False</span></code>.</li>
+<li>Zero of any numeric type: <code class="docutils literal"><span class="pre">0,</span> <span class="pre">0L,</span> <span class="pre">0.0,</span> <span class="pre">0j</span></code>.</li>
+<li>Any empty sequence, for example, <code class="docutils literal"><span class="pre">&quot;&quot;,</span> <span class="pre">(),</span> <span class="pre">[]</span></code>.</li>
+<li>Any empty mapping, for example, <code class="docutils literal"><span class="pre">{}</span></code> .</li>
+<li>Instances of user-defined classes, if the class defines a <code class="docutils literal"><span class="pre">__nonzero__()</span></code> or <code class="docutils literal"><span class="pre">__len__()</span></code> method, when that method returns the integer zero or bool value <code class="docutils literal"><span class="pre">False</span></code>.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -1033,23 +1023,10 @@ not x                return True,
 <div class="section" id="lab-booleans">
 <h2>LAB: Booleans<a class="headerlink" href="#lab-booleans" title="Permalink to this headline">¶</a></h2>
 <p class="left">Working with Booleans, Ternary Expressions, etc:</p>
-<p>Re-write a couple CodingBat exercises, returning the direct boolean results, and/or using ternary expressions.</p>
-<div class="section" id="functions-and-name-scope">
-<h3>Functions and name scope<a class="headerlink" href="#functions-and-name-scope" title="Permalink to this headline">¶</a></h3>
-<ul>
-<li><p class="first">Try your hand at writing a function that computes the distance between two
-points:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+<p class="left">Re-write a couple CodingBat exercises, returning the direct boolean results, and/or using ternary expressions.</p>
+<p class="left">Experiment with <code class="docutils literal"><span class="pre">locals</span></code> by adding this statement one of the functions you wrote today:</p>
+<div class="left highlight-python"><div class="highlight"><pre>print locals()
 </pre></div>
-</div>
-</li>
-<li><p class="first">Experiment with <code class="docutils literal"><span class="pre">locals</span></code> by adding this statement to the function you just
-wrote::</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="nb">locals</span><span class="p">()</span>
-</pre></div>
-</div>
-</li>
-</ul>
 </div>
 </div>
 <div class="section" id="code-structure-modules-and-namespaces">
@@ -1251,15 +1228,16 @@ is the same as the filename.</p>
 </div>
 
 
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="session03.html" class="btn btn-neutral float-right" title="Session Three: Sequences, Iteration and String Formatting">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="session03.html" class="btn btn-neutral float-right" title="Session Three: Sequences, Iteration and String Formatting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="session01.html" class="btn btn-neutral" title="Session One: Introductions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="session01.html" class="btn btn-neutral" title="Session One: Introductions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1269,12 +1247,13 @@ is the same as the filename.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
 </footer>
+
         </div>
       </div>
 
