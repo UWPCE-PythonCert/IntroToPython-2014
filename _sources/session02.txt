@@ -39,9 +39,9 @@ Class Outline
  * git / gitHub primer
  * Exercise: :ref:`exercise_grid_printer`
  * Decisions, Decisions.
- * Exercise: :ref:`exercise_fizz_buzz`
+ * Exercise: FizzBuzz
  * More on functions
- * Exercise: :ref:`exercise_fibonacci`
+ * Exercise: Fibonacci
  * Boolean Expressions
  * Code Structure, Modules, and Namespaces
 
@@ -54,15 +54,10 @@ Let's get to know git a bit
 Why Version Control?
 --------------------
 
-.. figure:: /_static/phd101212s.gif
-   :class: fill
-   :width: 45 %
+.. image:: /_static/phd101212s.gif
+    :width: 50%
+    :align: center
 
-.. ifnotslides::
-   
-   "Piled Higher and Deeper" by Jorge Cham  
-   
-   www.phdcomics.com 
 
 What is git?
 ------------
@@ -385,47 +380,11 @@ LAB: Grid Printer
 
     :ref:`exercise_grid_printer`
 
-Getting Started:
-----------------
+    Lets use git and gitHub to manage this project:
 
-Lets use git and gitHub to manage this project:
+     * We'll start by putting a file in your clone of the class gitHub project.
 
-Start by putting a python file in your clone of the class gitHub project:
-
-.. code-block:: bash
-
-  $ cd my_personal_directory
-  $ mkdir session_01
-  $ cd session_01
-  $ touch grid_printer.py
-  $ git add grid_printer.py
-
-Then put your code in grid_printer.py
-
-Committing your code
---------------------
-
-When it does something useful, you can commit it.
-
-First check the status:
-
-.. code-block:: bash
-
-  $ git status
-
-If it's what you expect, you can push:
-
-.. code-block:: bash
-
-  $ git commit -a -m "first version"
-
-And when you want us to take a look, push it to gitHub:
-
-.. code-block:: bash
-
-  $ git push
-
-Then you can go to gitHub and do a "Pull Request"
+    Then you can give the problem a try.
 
 
 Lightning Talk:
@@ -439,7 +398,7 @@ Brendan Fogarty
 Beyond Printing
 ================
 
-.. rst-class:: center medium
+.. rst-class:: center large
 
 Because there's a few things you just gotta have
 
@@ -453,9 +412,11 @@ conditionals, looping, and a container type...
 Making a Decision
 ------------------
 
-**"Conditionals"**
+.. rst-class:: center medium
 
-``if`` and ``elif`` (else if) allow you to make decisions:
+    "Conditionals"
+
+``if`` and ``elif`` allow you to make decisions:
 
 .. code-block:: python
 
@@ -471,7 +432,7 @@ Making a Decision
 
 .. nextslide:: if
 
-What's the difference between these two?
+What's the difference between these two:
 
 .. code-block:: python
 
@@ -570,13 +531,20 @@ We'll get to those over the next couple of classes
 LAB: Fizz Buzz
 ===============
 
-.. rst-class:: left
+We now have the tools to do a implementation of the classic "Fizz Buzz" problem:
 
-    We now have the tools to do a implementation of the classic "Fizz Buzz" problem:
+* Look up the ``%``  operator. What do these do?
 
-    :ref:`exercise_fizz_buzz`
+  * ``10 % 7 == 3``
+  * ``14 % 7 == 0``
 
-    Do the same git / gitHub dance with this, too!
+* Write a program that prints the numbers from 1 to 100 inclusive.
+
+* But for multiples of three print "Fizz" instead of the number
+
+* For the multiples of five print "Buzz".
+
+* For numbers which are multiples of both three and five print "FizzBuzz" instead.
 
 
 Lightning Talk:
@@ -607,7 +575,7 @@ x, y, z are *local* names
 Local vs. Global
 ----------------
 
-Names bound in Python have a *scope*
+Symbols bound in Python have a *scope*
 
 That *scope* determines where a symbol is visible, or what value it has in a
 given block.
@@ -818,12 +786,10 @@ This is not useful:
         # apply soap to each sponge
         worker.apply_soap(sponge)
 
-Note: Nothing special about Python here -- basic good programing practice.
+.. nextslide:: Docstrings
 
-Docstrings
-----------
-
-In Python, ``docstrings`` are used to provide in-line documentation in a number of places.
+In Python, ``docstrings`` are used to provide in-line documentation in a number
+of places.
 
 The first place we will see is in the definition of ``functions``.
 
@@ -841,23 +807,24 @@ header, it is a ``docstring``:
 You can then read this in an interpreter as the ``__doc__`` attribute of the
 function object.
 
-.. nextslide::
+.. nextslide:: Docstrings
 
 A ``docstring`` should:
 
+.. rst-class:: build
 
-* Be a complete sentence in the form of a command describing what the function
+* be a complete sentence in the form of a command describing what the function
   does.
 
   * """Return a list of values based on blah blah""" is a good docstring
   * """Returns a list of values based on blah blah""" is *not*
 
-* Have a useful single line.
+* fit onto a single line.
 
   * If more description is needed, make the first line a complete sentence and
     add more lines below for enhancement.
 
-* Be enclosed with triple-quotes.
+* be enclosed with triple-quotes.
 
   * This allows for easy expansion if required at a later date
   * Always close on the same line if the docstring is only one line.
@@ -907,8 +874,8 @@ We can use a recursive function nicely to model this mathematical function
 
 Writing ``tests`` that demonstrate that your program works is an important part of learning to program.
 
-The python ``assert`` statement is useful in writing simple tests
-for your code.
+The python ``assert`` statement is useful in writing ``main`` blocks that test
+your code.
 
 .. code-block:: ipython
 
@@ -971,16 +938,20 @@ Determining Truthiness:
 What is False?
 --------------
 
+.. rst-class:: build
+
 * ``None``
 
 * ``False``
 
 * **Nothing:**
 
-    - Zero of any numeric type: ``0, 0L, 0.0, 0j``.
-    - Any empty sequence, for example, ``"", (), []``.
-    - Any empty mapping, for example, ``{}`` .
-    - Instances of user-defined classes, if the class defines a ``__nonzero__()`` or ``__len__()`` method, when that method returns the integer zero or bool value ``False``.
+    - zero of any numeric type: ``0, 0L, 0.0, 0j``.
+    - any empty sequence, for example, ``"", (), []``.
+    - any empty mapping, for example, ``{}`` .
+    - instances of user-defined classes, if the class defines a ``__nonzero__()``
+      or ``__len__()`` method, when that method returns the integer zero or bool
+      value ``False``.
 
 * http://docs.python.org/library/stdtypes.html
 
@@ -1181,11 +1152,21 @@ LAB: Booleans
 
 .. rst-class:: left
 
-    Working with Booleans, Ternary Expressions, etc:
+Working with Booleans, Ternary Expressions, etc:
 
-    Re-write a couple CodingBat exercises, returning the direct boolean results, and/or using ternary expressions.
+Re-write a couple CodingBat exercises, returning the direct boolean results, and/or using ternary expressions.
 
-    Experiment with ``locals`` by adding this statement one of the functions you wrote today::
+
+Functions and name scope
+------------------------
+
+* Try your hand at writing a function that computes the distance between two
+  points::
+
+      dist = sqrt( (x1-x2)**2 + (y1-y2)**2 )
+
+* Experiment with ``locals`` by adding this statement to the function you just
+  wrote:::
 
     print locals()
 
