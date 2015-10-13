@@ -59,10 +59,10 @@ Why Version Control?
    :width: 45 %
 
 .. ifnotslides::
-   
-   "Piled Higher and Deeper" by Jorge Cham  
-   
-   www.phdcomics.com 
+
+   "Piled Higher and Deeper" by Jorge Cham
+
+   www.phdcomics.com
 
 What is git?
 ------------
@@ -1187,7 +1187,7 @@ LAB: Booleans
 
     Experiment with ``locals`` by adding this statement one of the functions you wrote today::
 
-    print locals()
+        print locals()
 
 
 Code Structure, Modules, and Namespaces
