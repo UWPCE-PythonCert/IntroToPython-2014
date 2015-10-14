@@ -25,4 +25,4 @@ def print_grid(n, m):
 if(len(sys.argv) >= 2):
     print(print_grid(int(sys.argv[1]), int(sys.argv[2])))
 else:
-    print("Please pass two arguments!")
+    print("Please pass two numeric arguments!")
