@@ -1,18 +1,18 @@
 
-#def print topedge():
-#	print("+" + (" -" * 4))
+def edgeline(count):
+	return ("+" + ((" -" * count)) + " ") * 2 + "+" 
 
-toppart = "+ " + ("- " * 4)
-plus = "+"
-middlepart = "| " + (" " * 8)
-pipe = "|"
-middleline = middlepart * 2 + pipe + "\n"
+def middleline(count):
+	return ("|" + (("  " * count)) + " ") * 2 + "|" + "\n"
 
+def printlines(count):
+	print(middleline(count))
+	
+def printgrid(count):
+	print(edgeline(count))
+	print(middleline(count) * 4, end="")
+	print(edgeline(count))
+	print(middleline(count) * 4, end="")
+	print(edgeline(count))
 
-print(toppart * 2 + plus)
-print(middleline * 4, end='')
-
-print(toppart * 2 + plus)
-print(middleline * 4, end='')
-
-print(toppart * 2 + plus)
+printgrid(4)
