@@ -5,8 +5,8 @@ def makegrid(n):
     top = ("+ " + ("- " * hN )) * 2 + "+\n"
     side = (("|" + " " * (n + 1)) * 2) + "|\n"
     print(top + side * hN + top + side * hN + top)
-    print(n)
-    print(hN)
-    print(top)
+   # print(n)
+   # print(hN)
+   # print(top)
 
 makegrid(11)
