@@ -15,4 +15,11 @@ def printgrid(count):
 	print(middleline(count) * 4, end="")
 	print(edgeline(count))
 
-printgrid(4)
+def printgrid(rows, columns):
+	print(edgeline(columns))
+	print(middleline(columns) * rows, end="")
+	print(edgeline(columns))
+	print(middleline(columns) * rows, end="")
+	print(edgeline(columns))
+
+printgrid(6, 5)
