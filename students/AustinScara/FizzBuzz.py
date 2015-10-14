@@ -6,13 +6,12 @@ def divFive(n):
 	return n % 5 == 0
 
 
-
 for number in range(101):
-	if divThree(number) is True and divFive(number) is True:
+	if divThree(number) and divFive(number):
 		print ("FizzBuzz")
-	elif divThree(number) is True and divFive(number) is False:
+	elif divThree(number) and not divFive(number):
 		print ("Fizz")
-	elif divThree(number) is False and divFive(number) is True:
+	elif not divThree(number) and divFive(number):
 		print ("Buzz")
 	else:
 		print (number)
