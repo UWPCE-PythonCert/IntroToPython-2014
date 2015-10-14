@@ -1,17 +1,3 @@
-def dumb_grid():
-    print( '''
-+ - - - - + - - - - +
-|         |         |
-|         |         |
-|         |         |
-|         |         |
-+ - - - - + - - - - +
-|         |         |
-|         |         |
-|         |         |
-|         |         |
-+ - - - - + - - - - + ''')
-
 def _is_odd(n):
     return not n % 2 == 0
 
@@ -31,11 +17,14 @@ def square_grid(n):
     if n < 3:
         n = 3
 
-    print(_horizontal(n))
+    box = []
+    box.append(_horizontal(n))
     for i in range((n-3)//2):
-        print(_vertical(n))
-    print(_horizontal(n))
+        box.append(_vertical(n))
+    box.append(_horizontal(n))
     for i in range((n-3)//2):
-        print(_vertical(n))
-    print(_horizontal(n))
+        box.append(_vertical(n))
+    box.append(_horizontal(n))
+
+    return '\n'.join(box)
 
