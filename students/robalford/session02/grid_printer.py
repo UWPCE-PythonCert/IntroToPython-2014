@@ -1,8 +1,9 @@
-def print_grid():
+def print_grid(size, rows_and_columns):
     # return value, then print function
-    top_row = ('+ ' + '- ' * 4) * 2 + '+ \n'
-    next_four = ('|' + ' ' * 9) * 2 + '| \n'
-    return (top_row + next_four * 4) * 2 + top_row 
+    plus_row = ('+ ' + '- ' * size) * rows_and_columns + '+ \n'
+    pipe_row = ('| ' + '  ' * size) * rows_and_columns + '| \n'
+    grid = (plus_row + pipe_row * size) * rows_and_columns + plus_row
+    return grid
     
 
     
