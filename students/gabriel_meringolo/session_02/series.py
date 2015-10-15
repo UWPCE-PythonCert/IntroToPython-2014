@@ -20,7 +20,7 @@ def sum_series(n, x = 0, y = 1):
 
 
 """asserts are cross-checking the function generated values for n with the
-   actually value for n to ensure proper operation
+   actual value for n to ensure proper operation
 """
 assert lucas(10) == 76
 assert fibonacci(10) == 34
