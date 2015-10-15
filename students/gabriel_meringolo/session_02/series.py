@@ -36,6 +36,6 @@ def sum_series(n, x = 0, y = 1):
 
 
 
-print(fibonacci(4))
-print(lucas(4))
+print(fibonacci(10))
+print(lucas(10))
 print(sum_series(4))
