@@ -6,7 +6,19 @@
 def mkgrid(k):
     a = ('+' + '-'*(4+k)) * 2 + '+'
     b = ('|' + " "*(4+k)) * 2 + '|'
-    return (a + ('\n' + b)*k) + '\n' + (a + ('\n' + b)*k) + '\n' +a
+    print ((a + ('\n' + b)*k) + '\n' + (a + ('\n' + b)*k) + '\n' +a)
+
+def mkgrid2(k, j):
+    a = ('+' + '-'*(4 + k)) * k + '+'
+    b = ('|' + " "*(4 + k)) * k+ '|'
+    #print (a + ('\n'+ b) + '\n')
+    print (((a + ('\n'+ b)*k + '\n') * j) + a)
+
+mkgrid2 (2, 4)
+mkgrid2(3, 3)
+mkgrid2(4, 1)
+mkgrid2 (5, 7)
+
 
 print(mkgrid(3))
 
