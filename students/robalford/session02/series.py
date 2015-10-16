@@ -33,4 +33,11 @@ assert fibonacci(2) == 1
 # test accuracy of two larger values for the fibonacci series
 assert fibonacci(7) == 13
 assert fibonacci(12) == 144
+# test for accuracy of first recursively generated value in lucas series
+assert lucas(2) == 3
+# test accuracy of two larger values for the lucas series
+assert lucas(7) == 29
+assert lucas(10) == 123
+
+
 
