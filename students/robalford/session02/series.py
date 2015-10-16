@@ -25,3 +25,12 @@ def sum_series(n, step_one=0, step_two=1):
         return step_two
     else:
         return sum_series(n-1, step_one, step_two) + sum_series(n-2, step_one, step_two)
+
+# Tests
+
+# test for accuracy of first recursively generated value in fibonacci series
+assert fibonacci(2) == 1
+# test accuracy of two larger values for the fibonacci series
+assert fibonacci(7) == 13
+assert fibonacci(12) == 144
+
