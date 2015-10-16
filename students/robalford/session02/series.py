@@ -38,6 +38,9 @@ assert lucas(2) == 3
 # test accuracy of two larger values for the lucas series
 assert lucas(7) == 29
 assert lucas(10) == 123
+# test sum_series for accuracy using large values of fibonacci and lucas series
+assert sum_series(12, 0, 1) == 144
+assert sum_series(10, 2, 1) == 123
 
 
 
