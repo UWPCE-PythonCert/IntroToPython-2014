@@ -5,7 +5,8 @@ def fizz_buzz():
             fizz_buzz += 'Fizz'
         if i % 5 == 0:
             fizz_buzz += 'Buzz'
-        if fizz_buzz:
-            print(fizz_buzz)
-        else:
-            print(i)
+        print(fizz_buzz if fizz_buzz else i)
+        # if fizz_buzz:
+        #     print(fizz_buzz)
+        # else:
+        #     print(i)
