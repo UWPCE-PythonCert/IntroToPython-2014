@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 IntroToPython
 ==============
 
@@ -13,3 +14,6 @@ Class lecture materials are available in a rendered version from:
 
 http://UWPCE-PythonCert.github.io/IntroToPython
 
+=======
+# Python code for the UWPCE Intro to Python class
+>>>>>>> b5f4f2fbabdb66fec9e1b0bddf971af5179546d5
