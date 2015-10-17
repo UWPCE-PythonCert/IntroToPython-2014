@@ -28,8 +28,6 @@ Homework Review
 
 * FizzBuzz
 
-* Ackerman
-
 * Series
 
 .. rst-class:: center large
@@ -41,20 +39,18 @@ git
 
 .. rst-class:: center large
 
-  OK -- I'll answer git questions...
+  OK -- we'll answer git questions...
 
 Lightning Talks Today:
 ----------------------
 
 .. rst-class:: mlarge
 
-    James Brent Nunn
+   Eric Rosko
 
-    Lauren Fries
+   Michael Waddle
 
-    Lesley D Reece
-
-    Michel Claessens
+   Robert Alford
 
 
 Sequences
@@ -86,16 +82,16 @@ A *sequence* can be considered as anything that supports
 Sequence Types
 --------------
 
-There are seven builtin types in Python that are *sequences*:
+There are eight builtin types in Python that are *sequences*:
 
 * strings
-* Unicode strings
 * lists
 * tuples
+* bytes
 * bytearrays
 * buffers
 * array.arrays
-* xrange objects (almost)
+* range objects (almost)
 
 For this class, you won't see much beyond the string types, lists, tuples -- the rest are pretty special purpose.
 
@@ -215,7 +211,7 @@ Why start from zero?
 
 Python indexing feels 'weird' to some folks -- particularly those that don't come with a background in the C family of languages.
 
-Why is the "first" item indexed with zero?
+Why is the "first" item indexed with **zero**?
 
 Why is the last item in the slice **not** included?
 
@@ -321,13 +317,12 @@ Using ``+`` or ``*`` on sequences will *concatenate* them:
 
 .. code-block:: ipython
 
-    In [25]: s1 = "left"
-    In [26]: s2 = "right"
-    In [27]: s1 + s2
-    Out[27]: 'leftright'
-    In [28]: (s1 + s2) * 3
-    Out[28]: 'leftrightleftrightleftright'
-
+    In [18]: l1 = [1,2,3,4]
+    In [19]: l2 = [5,6,7,8]
+    In [20]: l1 + l2
+    Out[20]: [1, 2, 3, 4, 5, 6, 7, 8]
+    In [21]: (l1+l2) * 2
+    Out[21]: [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8]
 
 .. nextslide:: Multiplying and Slicing
 
@@ -397,11 +392,11 @@ All sequences also support the ``min`` and ``max`` builtins:
 
 Why are those the answers you get? (hint: ``ord('a')``)
 
+Of course this works with numbers, too!
 
 .. nextslide:: Index
 
-All sequences also support the ``index`` method, which returns the index of the
-first occurence of an item in the sequence:
+All sequences also support the ``index`` method, which returns the index of the first occurence of an item in the sequence:
 
 .. code-block:: ipython
 
@@ -445,7 +440,9 @@ Iteration
 
 .. rst-class:: center large
 
-More on this in a while.
+    All sequences are "iterables" --
+
+    More on this in a while.
 
 LAB
 ====
@@ -468,10 +465,10 @@ Lightning Talks
 ----------------
 
 |
-| James Brent Nunn
+| Eric Rosko
 |
 |
-| Lauren Fries
+| Michael Waddle
 |
 
 
@@ -507,6 +504,7 @@ Or by using the ``list`` type object as a constructor:
     In [8]: list('abc')
     Out[8]: ['a', 'b', 'c']
 
+It will take any "iterable"
 
 .. nextslide:: List Elements
 
@@ -570,14 +568,13 @@ But they *do* need commas...!
     In [156]: t = ( 3 )
     In [157]: type(t)
     Out[157]: int
-    In [158]: t = (3,)
+    In [158]: t = ( 3, )
     In [160]: type(t)
     Out[160]: tuple
 
 .. nextslide:: Converting to Tuple
 
-You can also use the ``tuple`` type object to convert any sequence into a
-tuple:
+You can also use the ``tuple`` type object to convert any iterable(sequence) into a tuple:
 
 .. code-block:: ipython
 
@@ -613,7 +610,7 @@ multiple names (or no name)
 
 .. rst-class:: center large
 
-So Why Have Both?
+    So Why Have Both?
 
 
 Mutability
@@ -642,6 +639,7 @@ Objects which are mutable may be *changed in place*.
 
 Objects which are immutable may not be changed.
 
+Ever.
 
 .. nextslide:: The Types We Know
 
@@ -760,7 +758,7 @@ So, what is going to be in ``bins`` now?
 
 We multiplied a sequence containing a single *mutable* object.
 
-We got a list containing five pointers to a single *mutable* object.
+We got a list containing five references to a single *mutable* object.
 
 
 .. nextslide:: Mutable Default Argument
@@ -790,12 +788,12 @@ used to change the list.
 
 You can find all these in the Standard Library Documentation:
 
-http://www.python.org/2/library/stdtypes.html#mutable-sequence-types
+https://docs.python.org/3/library/stdtypes.html#typesseq-mutable
 
 Assignment
 -----------
 
-Yo've already seen changing a single element of a list by assignment.
+You've already seen changing a single element of a list by assignment.
 
 Pretty much the same as "arrays" in most languages:
 
@@ -936,9 +934,7 @@ Consider this common pattern:
         if should_be_removed(x):
             somelist.remove(x)
 
-This looks benign enough, but changing a list while you are iterating over it
-can be the cause of some pernicious bugs.
-
+This looks benign enough, but changing a list while you are iterating over it can be the cause of some pernicious bugs.
 
 .. nextslide:: The Problem
 
@@ -946,14 +942,14 @@ For example:
 
 .. code-block:: ipython
 
-    In [121]: list = range(10)
-    In [122]: list
-    Out[122]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    In [123]: for x in list:
-       .....:     list.remove(x)
-       .....:
-    In [124]: list
-    Out[124]: [1, 3, 5, 7, 9]
+    In [27]: l = list(range(10))
+    In [28]: l
+    Out[28]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    In [29]: for item in l:
+       ....:     l.remove(item)
+       ....:
+    In [30]: l
+    Out[30]: [1, 3, 5, 7, 9]
 
 Was that what you expected?
 
@@ -963,12 +959,13 @@ Iterate over a copy, and mutate the original:
 
 .. code-block:: ipython
 
-    In [126]: list = range(10)
-    In [127]: for x in list[:]:
-       .....:     list.remove(x)
-       .....:
-    In [128]: list
-    Out[128]: []
+    In [33]: l = list(range(10))
+
+    In [34]: for item in l[:]:
+       ....:     l.remove(item)
+       ....:
+    In [35]: l
+    Out[35]: []
 
 
 .. nextslide:: Just Say It, Already
@@ -982,17 +979,16 @@ You can iterate over a sequence.
     for element in sequence:
         do_something(element)
 
+which is what we mean when we say a sequence is an "iterable".
 
-Again, we'll touch more on this in a short while, but first a few more words
-about Lists and Tuples.
+Again, we'll touch more on this in a short while, but first a few more words about Lists and Tuples.
 
 
 Miscellaneous List Methods
 --------------------------
 
 
-These methods change a list in place and are not available on immutable
-sequence types.
+These methods change a list in place and are not available on immutable sequence types.
 
 ``.reverse()``
 
@@ -1011,16 +1007,14 @@ sequence types.
     In [133]: food
     Out[133]: ['eggs', 'ham', 'spam']
 
-Because these methods mutate the list in place, they have a return value of
-``None``
+Because these methods mutate the list in place, they have a return value of ``None``
 
 
 .. nextslide:: Custom Sorting
 
 ``.sort()`` can take an optional ``key`` parameter.
 
-It should be a function that takes one parameter (list items one at a time) and
-returns something that can be used for sorting:
+It should be a function that takes one parameter (list items one at a time) and returns something that can be used for sorting:
 
 .. code-block:: ipython
 
@@ -1039,7 +1033,7 @@ List Performance
 .. rst-class:: build
 
 * indexing is fast and constant time: O(1)
-* x in s proportional to n: O(n)
+* ``x in l`` is proportional to n: O(n)
 * visiting all is proportional to n: O(n)
 * operating on the end of list is fast and constant time: O(1)
 
@@ -1047,8 +1041,8 @@ List Performance
 
 * operating on the front (or middle) of the list depends on n: O(n)
 
-  * pop(0), insert(0, v)
-  * But, reversing is fast. Also, collections.deque
+  * ``pop(0)``, ``insert(0, v)``
+  * But, reversing is fast. ``Also, collections.deque``
 
  http://wiki.python.org/moin/TimeComplexity
 
@@ -1067,7 +1061,9 @@ Here are a few guidelines on when to choose a list or a tuple:
 Otherwise ... taste and convention
 
 
-.. nextslide:: Convention
+Convention
+-----------
+
 
 Lists are Collections (homogeneous):
 -- contain values of the same type
@@ -1078,7 +1074,8 @@ tuples are mixed types:
 -- Kind of like simple C structs.
 
 
-.. nextslide:: Other Considerations
+Other Considerations
+--------------------
 
 .. rst-class:: build
 
@@ -1108,7 +1105,7 @@ More Documentation
 
 For more information, read the list docs:
 
-http://docs.python.org/2/library/stdtypes.html#mutable-sequence-types
+https://docs.python.org/3.5/library/stdtypes.html#mutable-sequence-types
 
 (actually any mutable sequence....)
 
