@@ -1,15 +1,25 @@
 # This file prints a simple grid consisting of '+', '-', and '|' characters.
-def makegrid(size):
+def print_grid(size):
     numfiller = size // 2
     crossline = "+" + (numfiller * "-") + "+" + (numfiller * "-") + "+"
     verticalline = "|" + (numfiller * " ") + "|" + (numfiller * " ") + "|"
+    rtnString = ""
     for i in range(size):
         mod = i % numfiller
         if 0 == mod:
-            print(crossline)
+            rtnString += crossline + "\n"
         else:
-            print(verticalline)
+            rtnString += verticalline + "\n"
 
-    return None
+    return rtnString
 
-makegrid(11)
+def print_grid(numboxes, numfiller):
+    crossline = "+" + ((("-" * numfiller) + "+") * numboxes) + "\n"
+    verticalline = "|" + (((" " * numfiller) + "|") * numboxes) + "\n"
+    return (crossline + (((verticalline * numfiller) + crossline) * numboxes))
+
+#print(print_grid(11))
+#print(print_grid(3))
+#print(print_grid(3,4))
+#print(print_grid(5,3))
+print(print_grid(3,3))
