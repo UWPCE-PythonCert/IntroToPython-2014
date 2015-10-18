@@ -1115,79 +1115,17 @@ LAB
 List Lab
 ---------
 
-List Lab (after http://www.upriss.org.uk/python/session5.html)
+Let's list a bit about Python lists...
 
-In your student folder, create a new file called ``list_lab.py``.
-
-The file should be an executable python script. That is to say that one
-should be able to run the script directly like so:
-
-.. code-block:: bash
-
-    $ ./list_lab.py
-
-Add the file to your clone of the repository and commit changes frequently
-while working on the following tasks. When you are done, push your changes to
-GitHub and issue a pull request.
-
-(if you are struggling with git -- just write the code for now)
-
-When the script is run, it should accomplish the following four series of
-actions:
-
-.. nextslide:: Series 1
-
-- Create a list that contains "Apples", "Pears", "Oranges" and "Peaches".
-- Display the list.
-- Ask the user for another fruit and add it to the end of the list.
-- Display the list.
-- Ask the user for a number and display the number back to the user and the
-  fruit corresponding to that number (on a 1-is-first basis).
-- Add another fruit to the beginning of the list using "+" and display the
-  list.
-- Add another fruit to the beginning of the list using insert() and display the
-  list.
-- Display all the fruits that begin with "P", using a for loop.
+:ref: `exercise_list_lab`
 
 
-.. nextslide:: Series 2
 
-Using the list created in series 1 above:
-
-- Display the list.
-- Remove the last fruit from the list.
-- Display the list.
-- Ask the user for a fruit to delete and find it and delete it.
-- (Bonus: Multiply the list times two. Keep asking until a match is found. Once
-  found, delete all occurrences.)
-
-.. nextslide:: Series 3
-
-Again, using the list from series 1:
-
-- Ask the user for input displaying a line like "Do you like apples?"
-- for each fruit in the list (making the fruit all lowercase).
-- For each "no", delete that fruit from the list.
-- For any answer that is not "yes" or "no", prompt the user to answer with one
-  of those two values (a while loop is good here):
-- Display the list.
-
-.. nextslide:: Series 4
-
-Once more, using the list from series 1:
-
-- Make a copy of the list and reverse the letters in each fruit in the copy.
-- Delete the last item of the original list. Display the original list and the
-  copy.
-
-Lightning Talks
-----------------
+Lightning Talk
+---------------
 
 |
-| Lesley D Reece
-|
-|
-| Michel Claessens
+| Robert Alford
 |
 
 
