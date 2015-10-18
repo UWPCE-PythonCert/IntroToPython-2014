@@ -17,7 +17,7 @@ The Classic Fizz Buzz Problem
 
     (http://c2.com/cgi/wiki?FizzBuzzTest)
 
-    Now that I've psyced you out -- it's really pretty straightforward.
+    Now that I've psyched you out -- it's really pretty straightforward.
 
 Goal:
 -----
@@ -41,5 +41,29 @@ Hint:
 (try that in iPython)
 
 * Do try to write it without looking it up -- there are a million nifty solutions posted on the web.
+
+Results:
+--------
+
+Running your code should result in something like::
+
+    1
+    2
+    Fizz
+    4
+    Buzz
+    Fizz
+    7
+    8
+    Fizz
+    Buzz
+    11
+    Fizz
+    13
+    14
+    FizzBuzz
+    16
+    ....
+
 
 
