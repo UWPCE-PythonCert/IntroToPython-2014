@@ -313,8 +313,8 @@ repository that serves as the one to rule them all. This simply means that all r
 <div class="build container">
 <p>Git uses shortcuts to address <em>remotes</em>. Cloned repositories get an <em>origin</em> shortcut for free:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote -v
-origin  https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>push<span class="o">)</span>
+origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git <span class="o">(</span>push<span class="o">)</span>
 </pre></div>
 </div>
 <p>This shows that the local repo on my machine <em>originated</em> from the one in
@@ -393,13 +393,13 @@ copies of it in different remote locations.</p>
 locations.</p>
 <p>For our class, we will add an <em>upstream</em> remote to our local copy that points
 to the original copy of the material in the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> account.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add upstream https://github.com/UWPCE-PythonCert/IntroToPython.git
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add upstream https://github.com/UWPCE-PythonCert/IntroPython2015.git
 
 <span class="nv">$ </span>git remote -v
-origin  https://github.com/PythonCHB/IntroToPython.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  https://github.com/PythonCHB/IntroToPython.git <span class="o">(</span>push<span class="o">)</span>
-upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>fetch<span class="o">)</span>
-upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git <span class="o">(</span>push<span class="o">)</span>
+origin  https://github.com/PythonCHB/IntroPython2015.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/PythonCHB/IntroPython2015.git <span class="o">(</span>push<span class="o">)</span>
+upstream    https://github.com/UWPCE-PythonCert/IntroPython2015.git <span class="o">(</span>fetch<span class="o">)</span>
+upstream    https://github.com/UWPCE-PythonCert/IntroPython2015.git <span class="o">(</span>push<span class="o">)</span>
 </pre></div>
 </div>
 </div>
@@ -431,7 +431,7 @@ Fetching upstream
 think you are.</p>
 <p>Then, fetch the upstream master branch and merge it into your master:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch upstream master
-From https://github.com/UWPCE-PythonCert/IntroToPython
+From https://github.com/UWPCE-PythonCert/IntroPython2015
  * branch            master     -&gt; FETCH_HEAD
 
 <span class="nv">$ </span>git merge upstream/master

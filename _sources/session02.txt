@@ -132,8 +132,8 @@ With git, you work with *local* repositories and *remotes* that they are connect
     .. code-block:: bash
 
         $ git remote -v
-        origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
-        origin  https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
+        origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git (fetch)
+        origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git (push)
 
     This shows that the local repo on my machine *originated* from the one in
     the UWPCE-PythonCert gitHub account (don't worry that it shows it twice, they should be the same)
@@ -267,13 +267,13 @@ When you add a *remote* (existing git repository), it creates a directory with t
 
     .. code-block:: bash
 
-        $ git remote add upstream https://github.com/UWPCE-PythonCert/IntroToPython.git
+        $ git remote add upstream https://github.com/UWPCE-PythonCert/IntroPython2015.git
 
         $ git remote -v
-        origin  https://github.com/PythonCHB/IntroToPython.git (fetch)
-        origin  https://github.com/PythonCHB/IntroToPython.git (push)
-        upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git (fetch)
-        upstream    https://github.com/UWPCE-PythonCert/IntroToPython.git (push)
+        origin  https://github.com/PythonCHB/IntroPython2015.git (fetch)
+        origin  https://github.com/PythonCHB/IntroPython2015.git (push)
+        upstream    https://github.com/UWPCE-PythonCert/IntroPython2015.git (fetch)
+        upstream    https://github.com/UWPCE-PythonCert/IntroPython2015.git (push)
 
 .. nextslide::
 
@@ -325,7 +325,7 @@ Then, fetch the upstream master branch and merge it into your master:
 .. code-block:: bash
 
   $ git fetch upstream master
-  From https://github.com/UWPCE-PythonCert/IntroToPython
+  From https://github.com/UWPCE-PythonCert/IntroPython2015
    * branch            master     -> FETCH_HEAD
 
   $ git merge upstream/master

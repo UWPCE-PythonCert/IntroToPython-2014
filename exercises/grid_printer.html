@@ -254,9 +254,37 @@
 <h3>Make it a function<a class="headerlink" href="#make-it-a-function" title="Permalink to this headline">¶</a></h3>
 <p>One of the points of writing functions is so you can write code that does similar things, but customized to input parameters. So what if we want to be able to print that grid at an arbitrary size?</p>
 <p>Write a function <code class="docutils literal"><span class="pre">print_grid(n)</span></code> that takes one integer argument
-and prints a grid like the picture above, BUT the size of the
+and prints a grid just like before, BUT the size of the
 grid is given by the argument.</p>
 <p>For example, <code class="docutils literal"><span class="pre">print_grid(11)</span></code> prints the grid in the above picture.</p>
+<p><code class="docutils literal"><span class="pre">print_grid(3)</span></code> would print a smaller grid:</p>
+<div class="highlight-python"><div class="highlight"><pre>+ - + - +
+|   |   |
++ - + - +
+|   |   |
++ - + - +
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">print_grid(15)</span></code> prints a larger grid:</p>
+<div class="highlight-python"><div class="highlight"><pre>+ - - - - - - - + - - - - - - - +
+|               |               |
+|               |               |
+|               |               |
+|               |               |
+|               |               |
+|               |               |
+|               |               |
++ - - - - - - - + - - - - - - - +
+|               |               |
+|               |               |
+|               |               |
+|               |               |
+|               |               |
+|               |               |
+|               |               |
++ - - - - - - - + - - - - - - - +
+</pre></div>
+</div>
 <p>This problem is underspecified.  Do something reasonable.</p>
 </div>
 </div>
@@ -265,9 +293,51 @@ grid is given by the argument.</p>
 <p>Even more general...</p>
 <div class="section" id="a-function-with-two-parameters">
 <h3>A function with two parameters<a class="headerlink" href="#a-function-with-two-parameters" title="Permalink to this headline">¶</a></h3>
-<p>Write a function that draws a similar grid with three rows and three columns.</p>
-<p>(what to do about rounding?)</p>
-<p>And while you are at it &#8211; n rows and columns...</p>
+<p>Write a function that draws a similar grid with a specified number of rows and three columns.</p>
+<p>for example,  <code class="docutils literal"><span class="pre">print_grid2(3,4)</span></code> results in:</p>
+<div class="highlight-python"><div class="highlight"><pre>+ - - - - + - - - - + - - - - +
+|         |         |         |
+|         |         |         |
+|         |         |         |
+|         |         |         |
++ - - - - + - - - - + - - - - +
+|         |         |         |
+|         |         |         |
+|         |         |         |
+|         |         |         |
++ - - - - + - - - - + - - - - +
+|         |         |         |
+|         |         |         |
+|         |         |         |
+|         |         |         |
++ - - - - + - - - - + - - - - +
+</pre></div>
+</div>
+<p>What to do about rounding? &#8211; you decide.</p>
+<p>Another example: <code class="docutils literal"><span class="pre">print_grid2(5,3)</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>+ - - - + - - - + - - - + - - - + - - - +
+|       |       |       |       |       |
+|       |       |       |       |       |
+|       |       |       |       |       |
++ - - - + - - - + - - - + - - - + - - - +
+|       |       |       |       |       |
+|       |       |       |       |       |
+|       |       |       |       |       |
++ - - - + - - - + - - - + - - - + - - - +
+|       |       |       |       |       |
+|       |       |       |       |       |
+|       |       |       |       |       |
++ - - - + - - - + - - - + - - - + - - - +
+|       |       |       |       |       |
+|       |       |       |       |       |
+|       |       |       |       |       |
++ - - - + - - - + - - - + - - - + - - - +
+|       |       |       |       |       |
+|       |       |       |       |       |
+|       |       |       |       |       |
++ - - - + - - - + - - - + - - - + - - - +
+</pre></div>
+</div>
 </div>
 </div>
 </div>

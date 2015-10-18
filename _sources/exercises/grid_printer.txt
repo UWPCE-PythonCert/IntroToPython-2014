@@ -122,13 +122,44 @@ Make it a function
 One of the points of writing functions is so you can write code that does similar things, but customized to input parameters. So what if we want to be able to print that grid at an arbitrary size?
 
 Write a function ``print_grid(n)`` that takes one integer argument
-and prints a grid like the picture above, BUT the size of the
+and prints a grid just like before, BUT the size of the
 grid is given by the argument.
 
 For example, ``print_grid(11)`` prints the grid in the above picture.
 
-This problem is underspecified.  Do something reasonable.
+``print_grid(3)`` would print a smaller grid::
 
+  + - + - +
+  |   |   |
+  + - + - +
+  |   |   |
+  + - + - +
+
+.. nextslide::
+
+``print_grid(15)`` prints a larger grid::
+
+    + - - - - - - - + - - - - - - - +
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    + - - - - - - - + - - - - - - - +
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    |               |               |
+    + - - - - - - - + - - - - - - - +
+
+.. nextslide::
+
+This problem is underspecified.  Do something reasonable.
 
 Part 3:
 =======
@@ -138,8 +169,54 @@ Even more general...
 A function with two parameters
 -------------------------------
 
-Write a function that draws a similar grid with three rows and three columns.
+Write a function that draws a similar grid with a specified number of rows and three columns.
 
-(what to do about rounding?)
+for example,  ``print_grid2(3,4)`` results in::
 
-And while you are at it -- n rows and columns...
+    + - - - - + - - - - + - - - - +
+    |         |         |         |
+    |         |         |         |
+    |         |         |         |
+    |         |         |         |
+    + - - - - + - - - - + - - - - +
+    |         |         |         |
+    |         |         |         |
+    |         |         |         |
+    |         |         |         |
+    + - - - - + - - - - + - - - - +
+    |         |         |         |
+    |         |         |         |
+    |         |         |         |
+    |         |         |         |
+    + - - - - + - - - - + - - - - +
+
+.. nextslide::
+
+What to do about rounding? -- you decide.
+
+Another example: ``print_grid2(5,3)``::
+
+    + - - - + - - - + - - - + - - - + - - - +
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    + - - - + - - - + - - - + - - - + - - - +
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    + - - - + - - - + - - - + - - - + - - - +
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    + - - - + - - - + - - - + - - - + - - - +
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    + - - - + - - - + - - - + - - - + - - - +
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    |       |       |       |       |       |
+    + - - - + - - - + - - - + - - - + - - - +
+
+
+
