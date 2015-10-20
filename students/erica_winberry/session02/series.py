@@ -101,3 +101,11 @@ if __name__ == "__main__":
 #    assert sum_series(7) == 10
 #    assert sum_series(7,2,1) == 21
 #    assert sum_series(4,4,5) == 16
+
+# run some tests
+    assert sum_series(5) == fibonacci(5)
+
+    # test if sum_series matched lucas
+    assert sum_series(5, 2, 1) == lucas(5)
+
+    print("tests passed")
