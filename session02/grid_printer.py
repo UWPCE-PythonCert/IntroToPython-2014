@@ -7,13 +7,6 @@ def middleline(count):
 
 def printlines(count):
 	print(middleline(count))
-	
-def printgrid(count):
-	print(edgeline(count))
-	print(middleline(count) * 4, end="")
-	print(edgeline(count))
-	print(middleline(count) * 4, end="")
-	print(edgeline(count))
 
 def printgrid(rows, columns):
 	print(edgeline(columns))
@@ -22,4 +15,16 @@ def printgrid(rows, columns):
 	print(middleline(columns) * rows, end="")
 	print(edgeline(columns))
 
-printgrid(6, 5)
+#printgrid(6, 5)
+
+def main():
+	while True:
+		user_input = input("\nPrintGrid\nEnter width and height separated by comma, i.e. \"3,4\" (q to quit): ")
+		if user_input == 'q':
+			break;
+		print(user_input)
+		width = user_input.split(",")[0]
+		height = user_input.split(",")[1]
+		printgrid(int(width), int(height))
+
+main()
