@@ -25,6 +25,6 @@ def main():
 		print(user_input)
 		width = user_input.split(",")[0]
 		height = user_input.split(",")[1]
-		printgrid(int(width), int(height))
+		printgrid(int(height),int(width))
 
 main()
