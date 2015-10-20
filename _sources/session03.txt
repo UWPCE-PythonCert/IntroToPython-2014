@@ -449,17 +449,8 @@ LAB
 
 Slicing Lab
 
-Slicing Lab
-------------
-Write some functions that:
+:ref:`exercise_slicing`
 
-* return a string with the first and last characters exchanged.
-* return a string with every other character removed
-* return a string with the first and last 4 characters removed, and every other char in between
-* return a string reversed (just with slicing)
-* return a string with the middle, then last, then first third in the new order
-
-NOTE: these should work with ANY sequence -- not just strings!
 
 Lightning Talks
 ----------------
@@ -602,7 +593,7 @@ multiple names (or no name)
     In [25]: a = (1, 2, name)
     In [26]: b = (3, 4, other)
     In [27]: for i in range(3):
-       ....:     print a[i] is b[i],
+       ....:     print(a[i] is b[i], end=' ')
        ....:
     False False True
 
@@ -1115,7 +1106,7 @@ LAB
 List Lab
 ---------
 
-Let's list a bit about Python lists...
+Let's play a bit with Python lists...
 
 :ref: `exercise_list_lab`
 
@@ -1145,7 +1136,7 @@ We've seen simple iteration over a sequence with ``for ... in``:
 .. code-block:: ipython
 
     In [170]: for x in "a string":
-       .....:         print x
+       .....:         print(x)
        .....:
     a
     s
@@ -1162,7 +1153,7 @@ Contrast this with other languages, where you must build and use an ``index``:
 
 .. code-block:: javascript
 
-    for(var i=0; i<arr.length; i++) {
+    for(var i = 0; i < arr.length; i++) {
         var value = arr[i];
         alert(i + ") " + value);
 
@@ -1171,19 +1162,20 @@ If you *do* need an index, you can use ``enumerate``:
 .. code-block:: ipython
 
     In [140]: for idx, letter in enumerate('Python'):
-       .....:     print idx, letter,
+       .....:     print(idx, letter, end=' ')
        .....:
     0 P 1 y 2 t 3 h 4 o 5 n
 
 
-.. nextslide:: ``range`` and ``for`` Loops
+``range`` and ``for`` Loops
+---------------------------
 
 The ``range`` builtin is useful for looping a known number of times:
 
 .. code-block:: ipython
 
     In [171]: for i in range(5):
-       .....:     print i
+       .....:     print(i)
        .....:
     0
     1
@@ -1192,6 +1184,21 @@ The ``range`` builtin is useful for looping a known number of times:
     4
 
 But you don't really need to do anything at all with ``i``
+
+.. nextslide::
+
+In fact, it's a common convension to make this clear with a "nothing" name:
+
+.. code-block:: ipython
+
+    In [21]: for __ in range(5):
+       ....:     print("*")
+       ....:
+    *
+    *
+    *
+    *
+    *
 
 
 .. nextslide:: No Namespace
@@ -1222,7 +1229,7 @@ The ``break`` keyword will cause a loop to immediately terminate:
 .. code-block:: ipython
 
     In [141]: for i in range(101):
-       .....:     print i
+       .....:     print(i)
        .....:     if i > 50:
        .....:         break
        .....:
@@ -1240,11 +1247,11 @@ allow iteration to continue:
        .....:         break
        .....:     if i < 25:
        .....:         continue
-       .....:     print i,
+       .....:     print(i, end=' ')
        .....:
        25 26 27 28 29 ... 41 42 43 44 45 46 47 48 49 50
 
-.. nextslide:: Else
+.. nextslide:: else
 
 For loops can also take an optional ``else`` block.
 
@@ -1256,14 +1263,14 @@ Executed only when the loop exits normally (not via break):
        .....:     if x == 11:
        .....:         break
        .....: else:
-       .....:     print 'finished'
+       .....:     print('finished')
     finished
     In [148]: for x in range(10):
        .....:     if x == 5:
-       .....:         print x
+       .....:         print(x)
        .....:         break
        .....: else:
-       .....:     print 'finished'
+       .....:     print('finished')
     5
 
 This is a really nice unique Python feature!
@@ -1295,7 +1302,7 @@ potential error -- infinite loops:
 
     i = 0;
     while i < 5:
-        print i
+        print(i)
 
 
 .. nextslide:: Terminating a while Loop
@@ -1308,7 +1315,7 @@ Use ``break``:
        .....:     i += 1
        .....:     if i > 10:
        .....:         break
-       .....:     print i
+       .....:     print(i)
        .....:
     1 2 3 4 5 6 7 8 9 10
 
@@ -1322,7 +1329,7 @@ Set a flag:
     In [157]: keep_going = True
     In [158]: while keep_going:
        .....:     num = random.choice(range(5))
-       .....:     print num
+       .....:     print(num)
        .....:     if num == 3:
        .....:         keep_going = False
        .....:
@@ -1336,7 +1343,7 @@ Use a condition:
 
     In [161]: while i < 10:
        .....:     i += random.choice(range(4))
-       .....:     print i
+       .....:     print(i)
        .....:
     0 0 2 3 4 6 8 8 8 9 12
 
@@ -1354,7 +1361,7 @@ loop terminates normally (no ``break``)
 
 
 String Features
-=================
+================
 
 .. rst-class:: center large
 
@@ -1385,6 +1392,13 @@ You can also use ``str()``
 (demo)
 
 
+String Methods
+===============
+
+String objects have a lot of methods.
+
+Here are just a few:
+
 String Manipulations
 ---------------------
 
@@ -1400,7 +1414,8 @@ String Manipulations
     Out[170]: 'comma|separated|values'
 
 
-.. nextslide:: Case Switching
+Case Switching
+--------------
 
 .. code-block:: ipython
 
@@ -1415,7 +1430,8 @@ String Manipulations
     Out[175]: 'A Long String Of Words'
 
 
-.. nextslide:: Testing
+Testing
+--------
 
 .. code-block:: ipython
 
@@ -1429,6 +1445,7 @@ String Manipulations
     In [185]: fancy = "Th!$ $tr!ng h@$ $ymb0l$"
     In [186]: fancy.isalnum()
     Out[186]: False
+
 
 String Literals
 -----------------
@@ -1450,14 +1467,14 @@ for example -- for tab-separted values:
 
     In [25]: s = "these\tare\tseparated\tby\ttabs"
 
-    In [26]: print s
+    In [26]: print(s)
     these   are separated    by  tabs
 
-
-http://docs.python.org/release/2.5.2/ref/strings.html
+https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals
+https://docs.python.org/3/library/stdtypes.html#string-methods
 
 Raw Strings
--------------
+------------
 
 Add an ``r`` in front of the string literal:
 
@@ -1465,10 +1482,10 @@ Escape Sequences Ignored
 
 .. code-block:: ipython
 
-    In [408]: print "this\nthat"
+    In [408]: print("this\nthat")
     this
     that
-    In [409]: print r"this\nthat"
+    In [409]: print(r"this\nthat")
     this\nthat
 
 **Gotcha**
@@ -1488,20 +1505,20 @@ Characters in strings are stored as numeric values:
 
 * "ASCII" values: 1-127
 
-* "ANSI" values: 1-255
+* Unicode values -- 1 - 1,114,111 (!!!)
 
 To get the value:
 
 .. code-block:: ipython
 
     In [109]: for i in 'Chris':
-       .....:     print ord(i),
+       .....:     print(ord(i), end=' ')
     67 104 114 105 115
     In [110]: for i in (67,104,114,105,115):
-       .....:     print chr(i),
-    C h r i s
+       .....:     print(chr(i), end='')
+    Chris
 
-(these days, stick with ASCII, or use Unicode: more on that in a few weeks)
+(these days, stick with ASCII, or use full Unicode: more on that in a few weeks)
 
 
 Building Strings
@@ -1513,66 +1530,88 @@ You can, but please don't do this:
 
     'Hello ' + name + '!'
 
+(I know -- we did that in the grid_printing excercise)
+
 Do this instead:
 
 .. code-block:: python
 
-    'Hello %s!' % name
+    'Hello {}!'.format(name)
 
 It's much faster and safer, and easier to modify as code gets complicated.
 
-http://docs.python.org/library/stdtypes.html#string-formatting-operations
+https://docs.python.org/3/library/string.html#string-formatting
 
+Old and New string formatting
+-----------------------------
+
+back in early python days, there was the string formatting operator: ``%``
+
+.. code-block:: python
+
+    " a string: %s and a number: %i "%("text", 45)
+
+This is very similar to C-style string formatting (`sprintf`).
+
+It's still around, and handy --- but ...
+
+The "new" ``format()`` method is more powerful and flexible, so we'll focus on that in this class.
 
 .. nextslide:: String Formatting
 
-The string format operator: ``%``
+The string ``format()`` method:
 
 .. code-block:: ipython
 
-    In [261]: "an integer is: %i" % 34
-    Out[261]: 'an integer is: 34'
-    In [262]: "a floating point is: %f" % 34.5
-    Out[262]: 'a floating point is: 34.500000'
-    In [263]: "a string is: %s" % "anything"
-    Out[263]: 'a string is: anything'
+    In [62]: "A decimal integer is: {:d}".format(34)
+    Out[62]: 'A decimal integer is: 34'
 
-.. nextslide:: More Placeholders
+    In [63]: "a floating point is: {:f}".format(34.5)
+    Out[63]: 'a floating point is: 34.500000'
+
+    In [64]: "a string is the default: {}".format("anything")
+    Out[64]: 'a string is the default: anything'
+
 
 Multiple placeholders:
+-----------------------
 
 .. code-block:: ipython
 
-    In [264]: "the number %s is %i" % ('five', 5)
-    Out[264]: 'the number five is 5'
-    In [266]: "the first 3 numbers are: %i, %i, %i" % (1,2,3)
-    Out[266]: 'the first 3 numbers are: 1, 2, 3'
+    In [65]: "the number is {} is {}".format('five', 5)
+    Out[65]: 'the number is five is 5'
+
+    In [66]: "the first 3 numbers are {}, {}, {}".format(1,2,3)
+    Out[66]: 'the first 3 numbers are 1, 2, 3'
 
 The counts must agree:
 
 .. code-block:: ipython
 
-    In [187]: "string with %i formatting %s" % (1, )
+    In [67]: "string with {} formatting {}".format(1)
     ---------------------------------------------------------------------------
-    ...
-    TypeError: not enough arguments for format string
+    IndexError                                Traceback (most recent call last)
+    <ipython-input-67-a079bc472aca> in <module>()
+    ----> 1 "string with {} formatting {}".format(1)
 
+    IndexError: tuple index out of range
 
-.. nextslide::
 
 Named placeholders:
+-------------------
 
 .. code-block:: ipython
 
-    In [191]: "Hello, %(name)s, whaddaya know?" % {'name': "Joe"}
-    Out[191]: 'Hello, Joe, whaddaya know?'
+
+    In [69]: "Hello, {name}, whaddaya know?".format(name="Joe")
+    Out[69]: 'Hello, Joe, whaddaya know?'
 
 You can use values more than once, and skip values:
 
 .. code-block:: ipython
 
-    In [193]: "Hi, %(name)s. Howzit, %(name)s?" % {'name': "Bob", 'age': 27}
-    Out[193]: 'Hi, Bob. Howzit, Bob?'
+    In [73]: "Hi, {name}. Howzit, {name}?".format(name='Bob')
+    Out[73]: 'Hi, Bob. Howzit, Bob?'
 
 .. nextslide::
 
@@ -1580,41 +1619,24 @@ The format operator works with string variables, too:
 
 .. code-block:: ipython
 
-    In [45]: s = "%i / %i = %i"
+    In [80]: s = "{:d} / {:d} = {:f}"
 
-    In [46]: a, b = 12, 3
+    In [81]: a, b = 12, 3
 
-    In [47]: s%(a, b, a/b)
-    Out[47]: '12 / 3 = 4'
+    In [82]: s.format(a, b, a/b)
+    Out[82]: '12 / 3 = 4.000000'
 
 So you can dynamically build a format string
 
+Complex Formatting
+------------------
 
-.. nextslide:: New Formatting
-
-In more recent versions of Python (2.6+) this is `being phased out`_ in favor of the ``.format()`` method on strings.
-
-.. code-block:: ipython
-
-    In [194]: "Hello, {}, how's your {}".format("Bob", "wife")
-    Out[194]: "Hello, Bob, how's your wife"
-    In [195]: "Hi, {name}. How's your {relation}?".format(name='Bob', relation='wife')
-    Out[195]: "Hi, Bob. How's your wife?"
-
-
-.. nextslide:: Complex Formatting
-
-For both of these forms of string formatting, there is a complete syntax for
-specifying all sorts of options.
+There is a complete syntax for specifying all sorts of options.
 
 It's well worth your while to spend some time getting to know this
 `formatting language`_. You can accomplish a great deal just with this.
 
-.. _formatting language: https://docs.python.org/2/library/string.html#format-specification-mini-language
-
-.. _being phased out: https://docs.python.org/2/library/stdtypes.html#str.format
-
-
+.. _formatting language: https://docs.python.org/3/library/string.html#format-specification-mini-language
 
 
 One Last Trick
@@ -1629,10 +1651,11 @@ There's a nice built in function to do this - ``input``:
 
 .. code-block:: ipython
 
-    In [196]: fred = input('type something-->')
-    type something-->;alksdjf
-    In [197]: fred
-    Out[197]: ';alksdjf'
+    In [85]: fred = input('type something-->')
+    type something-->I've typed something
+
+    In [86]: print(fred)
+    I've typed something
 
 This will display a prompt to the user, allowing them to input text and
 allowing you to bind that input to a symbol.
@@ -1641,21 +1664,9 @@ allowing you to bind that input to a symbol.
 String Formatting LAB
 =====================
 
-.. rst-class:: left
+Let's play with these a bit:
 
- * Rewrite: ``the first 3 numbers are: %i, %i, %i"%(1,2,3)``
-
-   for an arbitrary number of numbers...
-
- * Write a format string that will take:
-
-    ``( 2, 123.4567, 10000)``
-
-    and produce:
-
-    ``'file_002 :   123.46, 1e+04'``
-
-  * Then do these with the format() method...
+:ref:`exercise_string_formatting`
 
 Homework
 ========
@@ -1674,39 +1685,7 @@ Task 2
 
 ROT13
 
-The ROT13 encryption scheme is a simple substitution cypher where each letter
-in a text is replace by the letter 13 away from it (imagine the alphabet as a
-circle, so it wraps around).
-
-Add a python module named ``rot13.py`` to the session03 dir in your student dir.
-This module should provide at least one function called ``rot13`` that takes
-any amount of text and returns that same text encrypted by ROT13.
-
-This function should preserve whitespace, punctuation and capitalization.
-
-Your module should include an ``if __name__ == '__main__':`` block with tests
-that demonstrate that your ``rot13`` function and any helper functions you add
-work properly.
-
-
-.. nextslide:: A bit more
-
-There is a "short-cut" available that will help you accomplish this task. Some
-spelunking in `the documentation for strings`_ should help you to find it. If
-you do find it, using it is completely fair game.
-
-As usual, add your new file to your local clone right away.  Make commits
-early and often and include commit messages that are descriptive and concise.
-
-When you are done, if you want me to review it, push your changes to github
-and issue a pull request.
-
-try decrypting this:
-
-"Zntargvp sebz bhgfvqr arne pbeare"
-
-.. _the documentation for strings: https://docs.python.org/2/library/stdtypes.html#string-methods
-
+:ref:`exercise_rot13`
 
 Task 3
 ------
@@ -1715,79 +1694,16 @@ Task 3
 
 Mail Room
 
-You work in the mail room at a local charity. Part of your job is to write
-incredibly boring, repetitive emails thanking your donors for their generous
-gifts. You are tired of doing this over an over again, so yo've decided to
-let Python help you out of a jam.
+:ref:`exercise_mailroom`
 
-Write a small command-line script called ``mailroom.py``.  As with Task 1,
-This script should be executable. The script should accomplish the
-following goals:
+Reading
+-------
 
-* It should have a data structure that holds a list of your donors and a
-  history of the amounts they have donated. This structure should be populated
-  at first with at least five donors, with between 1 and 3 donations each
-* The script should prompt the user (you) to choose from a menu of 2 actions:
-  'Send a Thank You' or 'Create a Report'.
+Think Python: Chapters 11, 13, 14
 
-.. nextslide:: Sending a Thank You
+Learn Python the Hard way: 15-17, 39
 
-* If the user (you) selects 'Send a Thank You', prompt for a Full Name.
-
-  * If the user types 'list', show them a list of the donor names and re-prompt
-  * If the user types a name not in the list, add that name to the data
-    structure and use it.
-  * If the user types a name in the list, use it.
-  * Once a name has been selected, prompt for a donation amount.
-  * Verify that the amount is in fact a number, and re-prompt if it isn't.
-  * Once an amount has been given, add that amount to the donation history of
-    the selected user.
-  * Finally, use string formatting to compose an email thanking the donor for
-    their generous donation. Print the email to the terminal and return to the
-    original prompt.
-
-**It is fine to forget new donors once the script quits running.**
-
-.. nextslide:: Creating a Report
-
-* If the user (you) selected 'Create a Report' Print a list of your donors,
-  sorted by total historical donation amount.
-
-  - Include Donor Name, total donated, number of donations and average donation
-    amount as values in each row.
-  - Using string formatting, format the output rows as nicely as possible.  The
-    end result should be tabular (values in each column should align with those
-    above and below)
-  - After printing this report, return to the original prompt.
-
-* At any point, the user should be able to quit their current task and return
-  to the original prompt.
-
-* From the original prompt, the user should be able to quit the script cleanly
-
-.. nextslide:: Guidelines
-
-First, factor your script into separate functions. Each of the above
-tasks can be accomplished by a series of steps.  Write discreet functions
-that accomplish individual steps and call them.
-
-Second, use loops to control the logical flow of your program. Interactive
-programs are a classic use-case for the ``while`` loop.
-
-Put the functions you write into the script at the top.
-
-Put your main interaction into an ``if __name__ == '__main__'`` block.
-
-Finally, use only functions and the basic Python data types you've learned
-about so far. There is no need to go any farther than that for this assignment.
-
-.. nextslide:: Submission
-
-As always, put the new file in your student directory in a ``session03``
-directory, and add it to your clone early. Make frequent commits with
-good, clear messages about what you are doing and why.
-
-When you are done, push your changes and make a pull request.
+Dive Into Python3: Sections 2.6, 2.7, 11
 
 Next Week:
 ===========
@@ -1796,27 +1712,14 @@ Next Week:
 
     **Lightning talks next week:**
 
-Benjamin C Mier
+Andrey Gusev
 
-Robert W Perkins
+Cheryl Ohashi
 
-Vinay Gupta
-
-Wayne R Fukuhara
+Maxwell MacCamy
 
 
-Homework
-========
 
-Review and/or finish reading these class notes.
-
-Finish any labs from class....
-
-**Reading:**
-
-Think Python, chapters 11, 13, 14
-
-Learn Python the Hard way:
 
 
 

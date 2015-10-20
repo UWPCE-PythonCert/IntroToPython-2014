@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mailroom &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: More OO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Callable classes, Iterators, Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Excercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Mailroom</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/exercises/mailroom.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mailroom">
+<span id="exercise-mailroom"></span><h1>Mailroom<a class="headerlink" href="#mailroom" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-complete-program">
+<h2>A complete program<a class="headerlink" href="#a-complete-program" title="Permalink to this headline">¶</a></h2>
+<p>Using basic data types and logic for a full program</p>
+<div class="section" id="goal">
+<h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
+<p>You work in the mail room at a local charity. Part of your job is to write
+incredibly boring, repetitive emails thanking your donors for their generous
+gifts. You are tired of doing this over an over again, so yo&#8217;ve decided to
+let Python help you out of a jam.</p>
+</div>
+<div class="section" id="the-program">
+<h3>The program<a class="headerlink" href="#the-program" title="Permalink to this headline">¶</a></h3>
+<p>Write a small command-line script called <code class="docutils literal"><span class="pre">mailroom.py</span></code>. This script should be executable. The script should accomplish the following goals:</p>
+<ul class="simple">
+<li>It should have a data structure that holds a list of your donors and a
+history of the amounts they have donated. This structure should be populated
+at first with at least five donors, with between 1 and 3 donations each</li>
+<li>The script should prompt the user (you) to choose from a menu of 2 actions:
+&#8216;Send a Thank You&#8217; or &#8216;Create a Report&#8217;.</li>
+</ul>
+</div>
+<div class="section" id="sending-a-thank-you">
+<h3>Sending a Thank You<a class="headerlink" href="#sending-a-thank-you" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>If the user (you) selects &#8216;Send a Thank You&#8217;, prompt for a Full Name.<ul>
+<li>If the user types &#8216;list&#8217;, show them a list of the donor names and re-prompt</li>
+<li>If the user types a name not in the list, add that name to the data structure and use it.</li>
+<li>If the user types a name in the list, use it.</li>
+<li>Once a name has been selected, prompt for a donation amount.</li>
+<li>Verify that the amount is in fact a number, and re-prompt if it isn&#8217;t.</li>
+<li>Once an amount has been given, add that amount to the donation history of
+the selected user.</li>
+<li>Finally, use string formatting to compose an email thanking the donor for
+their generous donation. Print the email to the terminal and return to the
+original prompt.</li>
+</ul>
+</li>
+</ul>
+<p><strong>It is fine to forget new donors once the script quits running.</strong></p>
+</div>
+<div class="section" id="creating-a-report">
+<h3>Creating a Report<a class="headerlink" href="#creating-a-report" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>If the user (you) selected &#8216;Create a Report&#8217; Print a list of your donors,
+sorted by total historical donation amount.<ul>
+<li>Include Donor Name, total donated, number of donations and average donation amount as values in each row.</li>
+<li>Using string formatting, format the output rows as nicely as possible.  The end result should be tabular (values in each column should align with those above and below)</li>
+<li>After printing this report, return to the original prompt.</li>
+</ul>
+</li>
+<li>At any point, the user should be able to quit their current task and return
+to the original prompt.</li>
+<li>From the original prompt, the user should be able to quit the script cleanly</li>
+</ul>
+</div>
+<div class="section" id="guidelines">
+<h3>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h3>
+<p>First, factor your script into separate functions. Each of the above
+tasks can be accomplished by a series of steps.  Write discreet functions
+that accomplish individual steps and call them.</p>
+<p>Second, use loops to control the logical flow of your program. Interactive
+programs are a classic use-case for the <code class="docutils literal"><span class="pre">while</span></code> loop.</p>
+<p>Of course, <code class="docutils literal"><span class="pre">input()</span></code> will be useful here.</p>
+<p>Put the functions you write into the script at the top.</p>
+<p>Put your main interaction into an <code class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code> block.</p>
+<p>Finally, use only functions and the basic Python data types you&#8217;ve learned
+about so far. There is no need to go any farther than that for this assignment.</p>
+</div>
+<div class="section" id="submission">
+<h3>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h3>
+<p>As always, put the new file in your student directory in a <code class="docutils literal"><span class="pre">session03</span></code>
+directory, and add it to your clone early. Make frequent commits with
+good, clear messages about what you are doing and why.</p>
+<p>When you are done, push your changes and make a pull request.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

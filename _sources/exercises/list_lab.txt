@@ -25,7 +25,7 @@ to query the user for info at the command line, you use:
 
      response = input("a prompt for the user > ")
 
-`response` will be a string of whatever the user types (until a >return>).
+``response`` will be a string of whatever the user types (until a <return>).
 
 
 Procedure
@@ -40,13 +40,17 @@ should be able to run the script directly like so:
 
     $ ./list_lab.py
 
-At least on OS-X and Linux -- you do that with this command:
+(At least on OS-X and Linux)
+
+-- you do that with this command:
 
 .. code-block:: bash
 
   $ chmod +x list_lab.py
 
 (The +x means make this executable)
+
+.. nextslide::
 
 Add the file to your clone of the repository and commit changes frequently
 while working on the following tasks. When you are done, push your changes to
