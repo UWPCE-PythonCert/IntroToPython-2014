@@ -1,41 +1,33 @@
+
 def fibonacci(n):
-    '''returns the nth number in the fibonacci sequence'''
-    fib = (0,1) # sets up fib sequence
-    assert type(n) == int and n > 0, "ERROR: Argument must be IntType greater than 0."
-    # assert checks for Int greater than zero, if false throws error
-    for i in range(n):
-        newFib = (fib[-2] + fib[-1]) # adds the last two numbers in sequence, creates next number...
-        fib += (newFib,) # creates new tuple with old one and new number
-    #print(fib) # for testing
-    #print(fib[n - 1]) # for testing
-    return (fib[n - 1]) # returns the nth number in the sequence, misusing one because seq starts at 0
+    '''returns the nth number in the fibonacci series'''
+    return sum_series(n) # calls sum series using default parameters
 
 
 def lucas(n):
-    '''returns the nth number in the lucas sequence'''
-    luc = (2,1) # sets up lucas sequence
-    assert type(n) == int and n > 0, "ERROR: Argument must be IntType greater than 0."
-    # assert checks for Int greater than zero, if false throws error
-    for i in range(n):
-        newLuc = (luc[-2] + luc[-1]) # adds the last two numbers in sequence, creates next number...
-        luc += (newLuc,) # creates new tuple with old one and new number
-    #print(luc) # for testing
-    #print(luc[n - 1]) # for testing
-    return (luc[n - 1]) # returns the nth number in the sequence, misusing one because seq starts at 0
+    '''returns the nth number in the lucas numbers'''
+    return sum_series(n,2,1) # calls sum series using specific arguments
 
 
 
 def sum_series(n, x = 0, y = 1):
-    '''returns nth number of fib sequence if x, y are default/ lucas numbers if x = 2, y = 1'''
-    if x == 0 and y == 1:
-        return fibonacci(n) # calls fib function if x, y are default
-    elif x == 2 and y == 1:
-        return lucas(n) # calls lucas function if x = 2 and y = 1
-    else:
-        return "Those are not accepted parameters." # throws error if not 0/1 or 2/1
+    '''nth number in series, default x and y for fib series, x = 2 and y = 1 for lucas numbers'''
+    ser = [x,y] # creating a list with x/y parameters
+    for i in range(n): # creates range
+        ser.append(ser[-2] + ser[-1]) # appends list with next number in sequence
+    return (ser[n - 1]) # returns nth number in sequence
+
+if __name__ == "__main__":
+    assert lucas(10) == 76
+    assert fibonacci(10) == 34
+    assert sum_series(10) == 34
+    assert sum_series(10, 2, 1) == 76
+
+"""asserts are cross-checking the function generated values for n with the
+   actual value for n to ensure proper operation
+"""
 
 
-
-print(fibonacci(4))
-print(lucas(4))
-print(sum_series(4))
+print(lucas(8))
+print(sum_series(7))
+print(fibonacci(2))
