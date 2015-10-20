@@ -13,6 +13,8 @@ Contents:
     fib_and_lucas
 
     list_lab
+    string_formatting
+    rot13
 
     kata_fourteen
     html_renderer
