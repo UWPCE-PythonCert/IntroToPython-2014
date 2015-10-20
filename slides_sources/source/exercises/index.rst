@@ -12,9 +12,11 @@ Contents:
     fizz_buzz
     fib_and_lucas
 
+    slicing
     list_lab
     string_formatting
     rot13
+    mailroom
 
     kata_fourteen
     html_renderer

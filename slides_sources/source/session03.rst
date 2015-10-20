@@ -449,17 +449,8 @@ LAB
 
 Slicing Lab
 
-Slicing Lab
-------------
-Write some functions that:
+:ref:`exercise_slicing`
 
-* return a string with the first and last characters exchanged.
-* return a string with every other character removed
-* return a string with the first and last 4 characters removed, and every other char in between
-* return a string reversed (just with slicing)
-* return a string with the middle, then last, then first third in the new order
-
-NOTE: these should work with ANY sequence -- not just strings!
 
 Lightning Talks
 ----------------
@@ -1708,9 +1699,11 @@ Mail Room
 Reading
 -------
 
-Think Python, chapters 11, 13, 14
+Think Python: Chapters 11, 13, 14
 
-Learn Python the Hard way:
+Learn Python the Hard way: 15-17, 39
+
+Dive Into Python3: Sections 2.6, 2.7, 11
 
 Next Week:
 ===========
