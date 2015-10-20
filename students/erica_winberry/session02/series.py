@@ -58,3 +58,46 @@ def sum_series(n, p1=0, p2=1):
         num = sum_series(n - 2,p1,p2) + sum_series(n - 1,p1,p2)
         return num
 
+
+
+# TESTING
+# Add a block of code to the end of your series.py module. 
+# Use the block to write a series of assert statements that demonstrate that your three functions work properly.
+# Use comments in this block to inform the observer what your tests do.
+
+if __name__ == "__main__":
+# Testing fibonacci function to make sure that the first two if/elif statements are working properly:
+    assert fibonacci(2) == 1 and fibonacci(1) == 0
+# Testing the fibonacci function with the first few numbers in the fibonacci series:
+    assert fibonacci(3) == 1
+    assert fibonacci(4) == 2
+    assert fibonacci(5) == 3
+    assert fibonacci(6) == 5
+# Testing lucas function to make sure that the first two if/elif statements are working properly:
+    assert lucas(2) == 1 and lucas(1) == 2
+# Testing the lucas function with the first few numbers in the fibonacci series:
+    assert lucas(3) == 3
+    assert lucas(4) == 4
+    assert lucas(5) == 7
+    assert lucas(6) == 11
+# Testing the sum_series function to make sure it returns the correct numbers in the Fibonacci series:
+    assert sum_series(3) == 1
+    assert sum_series(4) == 2
+    assert sum_series(5) == 3
+    assert sum_series(6) == 5
+# Testing the sum_series function to make sure it returns the correct numbers in the Lucas series:
+    assert sum_series(3,2,1) == 3
+    assert sum_series(4,2,1) == 4
+    assert sum_series(5,2,1) == 7
+    assert sum_series(6,2,1) == 11
+# Testing the sum_series function when using other 2nd and 3rd parameters. The 3rd number in a series should always be the sum of the last two parameters:
+    assert sum_series(3,4,5) == 9
+    assert sum_series(3,5,6) == 11
+    assert sum_series(3,6,7) == 13
+    assert sum_series(3,7,8) == 15
+# Deliberately making incorrect assertions - commented out. Remove the hash to test a line:
+#    assert fibonacci(7) == 9
+#    assert lucas(7) == 20
+#    assert sum_series(7) == 10
+#    assert sum_series(7,2,1) == 21
+#    assert sum_series(4,4,5) == 16
