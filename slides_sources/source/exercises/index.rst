@@ -1,5 +1,9 @@
-Homework Materials
-======================
+=========
+Exercises
+=========
+
+Contents:
+=========
 
 .. toctree::
     :maxdepth: 1
@@ -7,6 +11,13 @@ Homework Materials
     grid_printer
     fizz_buzz
     fib_and_lucas
+
+    slicing
+    list_lab
+    string_formatting
+    rot13
+    mailroom
+
     kata_fourteen
     html_renderer
     circle_class
