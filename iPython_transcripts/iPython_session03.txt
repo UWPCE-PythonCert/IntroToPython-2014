@@ -1,0 +1,165 @@
+   1: s = [4,5,5.6, "this"]]
+   2: s = [4,5,5.6, "this"]
+   3: s
+[4, 5, 5.6, 'this']
+   4: 'this' in s
+True
+   5: 4 in s
+True
+   6: [4,5] in s
+False
+   7: s = [4,5,5.6, "this", [4,5]]
+   8: s
+[4, 5, 5.6, 'this', [4, 5]]
+   9: [4,5] in s
+True
+  10: fred = [4,5]
+  11: fred
+[4, 5]
+  12: fred in s
+True
+  13: 4 and 5
+5
+  14: 4 or 5
+4
+  15: bob
+  16: 4 or bob
+4
+  17: 4 and bob
+  18: 0 or bob
+  19: 0 and bob
+0
+  20: 4 in s and 5 in s
+True
+  21: (4 in s) and (5 in s)
+True
+  22: (45 in s) and (5 in s)
+False
+  23:
+def front3(str):
+        return str[:3] * 3
+  24: front3('this is a long')
+'thithithi'
+  25: front3('this')
+'thithithi'
+  26: front3('th')
+'ththth'
+  27: front3('')
+''
+  28: s
+[4, 5, 5.6, 'this', [4, 5]]
+  29: len(s)
+5
+  30: s[5]
+  31: s[-1]
+[4, 5]
+  32: ord('a')
+97
+  33: ord('z')
+122
+  34: ord('Z')
+90
+  35: ord('A')
+65
+  36: s = "a little string"
+  37: s.index(l)
+  38: s.index('l')
+2
+  39: s[2]
+'l'
+  40: s
+'a little string'
+  41: s.index('i')
+3
+  42: s.count('i')
+2
+  43: s.index('z')
+  44: s.count('z')
+0
+  45: run slicing_lab.py
+  46: run slicing_lab.py
+  47: run slicing_lab.py
+  48: run slicing_lab.py
+  49: run slicing_lab.py
+  50: run slicing_lab.py
+  51: run slicing_lab.py
+  52: run slicing_lab.py
+  53: run slicing_lab.py
+  54: run slicing_lab.py
+  55: run slicing_lab.py
+  56: run slicing_lab.py
+  57: run slicing_lab.py
+  58: run slicing_lab.py
+  59: run slicing_lab.py
+  60: run slicing_lab.py
+  61: run slicing_lab.py
+  62: run slicing_lab.py
+  63: run slicing_lab.py
+  64: %paste
+  65: original
+[2, 3, 4]
+  66: original = [1, 2, 3]
+  67: altered = original
+  68: original = [1, 2, 3]
+  69: original = tuple(original)
+  70: original
+(1, 2, 3)
+  71: altered = original
+  72: altered[2] = 45
+  73: altered = list(original)
+  74: altered[2] = 45
+  75: altered
+[1, 2, 45]
+  76: original
+(1, 2, 3)
+  77: original = [1,2,3]
+  78: altered = original[:]
+  79: altered[2] = 45
+  80: altered
+[1, 2, 45]
+  81: original
+[1, 2, 3]
+  82: altered = list(original)
+  83: altered is original
+False
+  84: food = ['spam', 'eggs', 'ham']
+  85: food.append('bread', 'water')
+  86: food.extend('bread', 'water')
+  87: i = 0;
+  88:
+while i < 5:
+        print(i)
+  89:
+s = """ this
+is
+a
+multiline
+string
+"""
+  90: s
+' this\nis \na \nmultiline\nstring\n'
+  91: str(23)
+'23'
+  92: str(True)
+'True'
+  93: str([1,2,3])
+'[1, 2, 3]'
+  94: l = "this, that,the other""
+  95: l = "this, that,the other"
+  96: strings = l.split(',')
+  97: strings
+['this', ' that', 'the other']
+  98: ";".join(strings)
+'this; that;the other'
+  99: "".join(strings)
+'this thatthe other'
+ 100: "|--|".join(strings)
+'this|--| that|--|the other'
+ 101: history?
+ 102: history -f test_history.txt
+ 103: pwd
+'/Users/Chris/PythonStuff/UWPCE/IntroToPython/Examples/Session03'
+ 104: history?
+ 105: history -n -f test_history.txt
+ 106: history?
+ 107: history -n -o -f test_history.txt
