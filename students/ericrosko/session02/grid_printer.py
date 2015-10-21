@@ -9,6 +9,7 @@ def printlines(count):
 	print(middleline(count))
 
 def printgrid(rows, columns):
+	assert isinstance(rows, int) and isinstance(columns, int), "Rows and columns must both be of integer type."
 	print(edgeline(columns))
 	print(middleline(columns) * rows, end="")
 	print(edgeline(columns))
@@ -25,6 +26,6 @@ def main():
 		print(user_input)
 		width = user_input.split(",")[0]
 		height = user_input.split(",")[1]
-		printgrid(height,width)
+		printgrid(int(height), int(width))
 
 main()
