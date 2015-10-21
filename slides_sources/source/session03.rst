@@ -1106,7 +1106,7 @@ List Lab
 
 Let's play a bit with Python lists...
 
-:ref: `exercise_list_lab`
+:ref:`exercise_list_lab`
 
 
 
