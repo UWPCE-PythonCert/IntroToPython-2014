@@ -1,18 +1,36 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 """
-a template for the series assignment
+series.py
+
+solutions to the Fibonacci Series and Lucas numbers
 """
 
 
 def fibonacci(n):
     """ compute the nth Fibonacci number """
-    pass
+
+    if n < 0:
+        return None
+    elif n == 0:
+        return 0
+    if n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
 
 
 def lucas(n):
     """ compute the nth Lucas number """
-    pass
+
+    if n < 0:
+        return None
+    if n == 0:
+        return 2
+    elif n == 1:
+        return 1
+    else:
+        return lucas(n - 1) + lucas(n - 2)
 
 
 def sum_series(n, n0=0, n1=1):
@@ -26,10 +44,22 @@ def sum_series(n, n0=0, n1=1):
 
     if n0 == 2 and n1 == 1, the result is the Lucas series
     """
-    pass
+    if n < 0:
+        return None
+    if n == 0:
+        return n0
+    elif n == 1:
+        return n1
+    else:
+        return sum_series(n - 1, n0, n1) + sum_series(n - 2, n0, n1)
+
 
 if __name__ == "__main__":
     # run some tests
+
+    assert fibonacci(-1) is None
+    assert fibonacci(-23) is None
+
     assert fibonacci(0) == 0
     assert fibonacci(1) == 1
     assert fibonacci(2) == 1
@@ -39,14 +69,28 @@ if __name__ == "__main__":
     assert fibonacci(6) == 8
     assert fibonacci(7) == 13
 
-    assert lucas(0) == 2
-    assert lucas(1) == 1
+    assert lucas(-1) is None
+    assert lucas(-23) is None
 
-    assert lucas(4) == 7
+    # do these with a loop:
+    tests = [(0, 2),
+             (1, 1),
+             (2, 3),
+             (3, 4),
+             (4, 7),
+             (5, 11),
+             (6, 18),
+             (7, 29),
+             ]
+    for input, output in tests:
+        assert lucas(input) == output
 
-    assert sum_series(5) == fibonacci(5)
+    # test if sum_series matched Fibonacci
+    for n in range(0, 10):
+        assert sum_series(n) == fibonacci(n)
 
     # test if sum_series matched lucas
-    assert sum_series(5, 2, 1) == lucas(5)
+    for n in range(0, 10):
+        assert sum_series(n, 2, 1) == lucas(n)
 
     print("tests passed")
