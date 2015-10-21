@@ -105,7 +105,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#iteration">Iteration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#slicing-lab">Slicing LAB</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
 </ul>
 </li>
@@ -131,12 +131,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#more-documentation">More Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">LAB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#list-lab">List Lab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talk">Lightning Talk</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Iteration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Iteration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#for-loops">For Loops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#range-and-for-loops"><code class="docutils literal"><span class="pre">range</span></code> and <code class="docutils literal"><span class="pre">for</span></code> Loops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#while-loops">While Loops</a></li>
@@ -182,7 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Excercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a></li>
 </ul>
 
@@ -234,7 +234,7 @@
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-session">
 <h3>Review of Previous Session<a class="headerlink" href="#review-of-previous-session" title="Permalink to this headline">¶</a></h3>
-<ul class="build simple">
+<ul class="simple">
 <li>Functions<ul>
 <li>recursion</li>
 <li>optional arguments</li>
@@ -287,21 +287,21 @@
 <h3>Sequence Types<a class="headerlink" href="#sequence-types" title="Permalink to this headline">¶</a></h3>
 <p>There are eight builtin types in Python that are <em>sequences</em>:</p>
 <ul class="simple">
-<li>strings</li>
-<li>lists</li>
-<li>tuples</li>
+<li>string</li>
+<li>list</li>
+<li>tuple</li>
 <li>bytes</li>
-<li>bytearrays</li>
-<li>buffers</li>
-<li>array.arrays</li>
-<li>range objects (almost)</li>
+<li>bytearray</li>
+<li>buffer</li>
+<li>array.array</li>
+<li>range object (almost)</li>
 </ul>
-<p>For this class, you won&#8217;t see much beyond the string types, lists, tuples &#8211; the rest are pretty special purpose.</p>
-<p>But what we say today applies to all sequences (with minor caveats)</p>
+<p>For this class, you won&#8217;t see much beyond string, lists, and tuples &#8211; the rest are pretty special purpose.</p>
+<p>But what we learn today applies to all sequences (with minor caveats)</p>
 </div>
 <div class="section" id="indexing">
 <h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h3>
-<p>Items in a sequence may be looked up by <em>index</em> using the subscription
+<p>Items in a sequence may be looked up by <em>index</em> using the indexing
 operator: <code class="docutils literal"><span class="pre">[]</span></code></p>
 <p>Indexing in Python always starts at zero.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [98]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;this is a string&quot;</span>
@@ -342,7 +342,7 @@ operator: <code class="docutils literal"><span class="pre">[]</span></code></p>
 <h3>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h3>
 <p>Slicing a sequence creates a new sequence with a range of objects from the
 original sequence.</p>
-<p>It also uses the subscription operator (<code class="docutils literal"><span class="pre">[]</span></code>), but with a twist.</p>
+<p>It also uses the indexing operator (<code class="docutils literal"><span class="pre">[]</span></code>), but with a twist.</p>
 <p><code class="docutils literal"><span class="pre">sequence[start:finish]</span></code> returns all sequence[i] for which start &lt;= i &lt; finish:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [121]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;a bunch of words&quot;</span>
 <span class="gp">In [122]: </span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -491,8 +491,7 @@ concise code:</p>
 <span class="gh">Out[37]: </span><span class="go">25</span>
 </pre></div>
 </div>
-<p>Remember, Python sequences are zero-indexed, so the last index in a sequence is
-<code class="docutils literal"><span class="pre">len(s)</span> <span class="pre">-</span> <span class="pre">1</span></code>:</p>
+<p>Remember: Sequences are 0-indexed, so the last index is <code class="docutils literal"><span class="pre">len(s)-1</span></code>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [38]: </span><span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="gp">In [39]: </span><span class="n">s</span><span class="p">[</span><span class="n">count</span><span class="p">]</span>
 <span class="gt">------------------------------------------------------------</span>
@@ -548,14 +547,14 @@ appears:</p>
 </div>
 <div class="section" id="iteration">
 <h3>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h3>
-<p class="center large">All sequences are &#8220;iterables&#8221; &#8211;</p>
-<p class="center large">More on this in a while.</p>
+<p class="center mlarge">All sequences are &#8220;iterables&#8221; &#8211;</p>
+<p class="center mlarge">More on this in a while.</p>
 </div>
 </div>
-<div class="section" id="lab">
-<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
-<p>Slicing Lab</p>
-<p><a class="reference internal" href="exercises/slicing.html#exercise-slicing"><span>Slicing Lab</span></a></p>
+<div class="section" id="slicing-lab">
+<h2>Slicing LAB<a class="headerlink" href="#slicing-lab" title="Permalink to this headline">¶</a></h2>
+<p class="center medium">Let&#8217;s practice Slicing!</p>
+<p class="center medium"><a class="reference internal" href="exercises/slicing.html#exercise-slicing"><span>Slicing Lab</span></a></p>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
@@ -570,7 +569,7 @@ appears:</p>
 </div>
 <div class="section" id="lists-tuples">
 <h2>Lists, Tuples...<a class="headerlink" href="#lists-tuples" title="Permalink to this headline">¶</a></h2>
-<p class="center large">The <em>other</em> sequence types.</p>
+<p class="center large">The <em>primary</em> sequence types.</p>
 <div class="section" id="lists">
 <h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p>Lists can be constructed using list Literals (<code class="docutils literal"><span class="pre">[]</span></code>):</p>
@@ -1040,8 +1039,8 @@ used to change the list.</p>
 <p>(actually any mutable sequence....)</p>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>LAB<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lab">
+<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="list-lab">
 <h3>List Lab<a class="headerlink" href="#list-lab" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s play a bit with Python lists...</p>
@@ -1063,8 +1062,8 @@ used to change the list.</p>
 </div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>Iteration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>Iteration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p class="build">Repetition, Repetition, Repetition, Repe...</p>
 <div class="section" id="for-loops">
 <h3>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>

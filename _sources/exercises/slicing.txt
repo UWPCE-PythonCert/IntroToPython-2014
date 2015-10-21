@@ -14,11 +14,12 @@ Tasks
 
 Write some functions that:
 
-* return a string with the first and last characters exchanged.
-* return a string with every other character removed
-* return a string with the first and last 4 characters removed, and every other char in between
-* return a string reversed (just with slicing)
-* return a string with the middle, then last, then first third in the new order
+* return a sequence with the first and last items exchanged.
+* return a sequence with every other item removed
+* return a sequence with the first and last 4 items removed, and every other item in between
+* return a sequence reversed (just with slicing)
+* return a sequence with the middle third, then last third, then the first third in the new order
 
-NOTE: these should work with ANY sequence -- not just strings!
+NOTE:
+these should work with ANY sequence -- but you can use strings to test, if you like.
 

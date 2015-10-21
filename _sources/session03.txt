@@ -8,12 +8,9 @@ Review/Questions
 Review of Previous Session
 --------------------------
 
-.. rst-class:: build
-
 * Functions
 
   - recursion
-
   - optional arguments
 
 * Booleans
@@ -84,24 +81,24 @@ Sequence Types
 
 There are eight builtin types in Python that are *sequences*:
 
-* strings
-* lists
-* tuples
+* string
+* list
+* tuple
 * bytes
-* bytearrays
-* buffers
-* array.arrays
-* range objects (almost)
+* bytearray
+* buffer
+* array.array
+* range object (almost)
 
-For this class, you won't see much beyond the string types, lists, tuples -- the rest are pretty special purpose.
+For this class, you won't see much beyond string, lists, and tuples -- the rest are pretty special purpose.
 
-But what we say today applies to all sequences (with minor caveats)
+But what we learn today applies to all sequences (with minor caveats)
 
 
 Indexing
 --------
 
-Items in a sequence may be looked up by *index* using the subscription
+Items in a sequence may be looked up by *index* using the indexing
 operator: ``[]``
 
 Indexing in Python always starts at zero.
@@ -155,7 +152,7 @@ Slicing
 Slicing a sequence creates a new sequence with a range of objects from the
 original sequence.
 
-It also uses the subscription operator (``[]``), but with a twist.
+It also uses the indexing operator (``[]``), but with a twist.
 
 ``sequence[start:finish]`` returns all sequence[i] for which start <= i < finish:
 
@@ -357,8 +354,7 @@ All sequences have a length.  You can get it with the ``len`` builtin:
     In [37]: len(s)
     Out[37]: 25
 
-Remember, Python sequences are zero-indexed, so the last index in a sequence is
-``len(s) - 1``:
+Remember: Sequences are 0-indexed, so the last index is ``len(s)-1``:
 
 .. code-block:: ipython
 
@@ -438,18 +434,20 @@ This does not raise an error if the item you seek is not present:
 Iteration
 ---------
 
-.. rst-class:: center large
+.. rst-class:: center mlarge
 
     All sequences are "iterables" --
 
     More on this in a while.
 
-LAB
-====
+Slicing LAB
+===========
 
-Slicing Lab
+.. rst-class:: center medium
 
-:ref:`exercise_slicing`
+  Let's practice Slicing!
+
+  :ref:`exercise_slicing`
 
 
 Lightning Talks
@@ -468,7 +466,7 @@ Lists, Tuples...
 
 .. rst-class:: center large
 
-The *other* sequence types.
+The *primary* sequence types.
 
 Lists
 -----
