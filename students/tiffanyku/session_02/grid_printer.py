@@ -1,22 +1,40 @@
-"""
-plusminus = '+ - - - - + - - - - +'
-lines = '|         |         |'
+def print_grid():
+	top =  ('+ ' + '- ' * 4) * 2 + '+\n'
+	sides = ('| ' + '  ' * 4) * 2 + '|\n'
+	return (top + sides * 4) * 2 + top
 
-print (plusminus)
-print (lines)
-print (lines)
-print (lines)
-print (lines)
-print (plusminus)
-print (lines)
-print (lines)
-print (lines)
-print (lines)
-print (plusminus)
-"""
+print(print_grid())
 
-def make_grid()
-	plusminus = '+ - - - - + - - - - +'
-	lines = '|         |         |'
-	return plusminus + '\n' + lines * 4 + "\n" + plusminus
+
+def one_var(n):
+
+	size = int(n/2)
+
+	top =  ('+ ' + '- ' * size) * 2 + '+\n'
+	sides = ('| ' + ' ' * 2 * size) * 2 + '|\n'
+
+	row = top + sides * size
+
+	grid = (row * 2 + top)
+
+	print(grid)
+
+
+one_var(11)
+
+
+def two_vars(w, h):
+	size = int(w/2)
+
+	top =  ('+ ' + '- ' * size) * 2 + '+\n'
+	sides = ('| ' + ' ' * 2 * size) * 2 + '|\n'
+
+	row = top + sides * size
+
+	grid = (row * h + top)
+
+	print (grid)
+
+two_vars(11, 7)
+
 
