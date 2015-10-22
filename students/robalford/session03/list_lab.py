@@ -42,7 +42,6 @@ print(fruity_list)
 
 double_fruity_list = fruity_list * 2
 
-# fruit_gone = input('Give me a fruit to lose!')
 # refactor to make this more pythonic?
 while fruit_gone not in double_fruity_list:
     fruit_gone = input('Give me a fruit to lose!')
@@ -51,3 +50,14 @@ for fruit in double_fruity_list:
         double_fruity_list.remove(fruit_gone)
 
 print(double_fruity_list)
+
+# series 3
+
+for fruit in fruity_list:
+    fruit_preference = input('Do you like {}?'.format(fruit.lower()))
+    # while fruit_preference.lower() != 'yes' or 'no':
+    #     fruit_preference = input('Yes or no')
+    if fruit_preference.lower() == 'no':
+        fruity_list.remove(fruit)
+
+print(fruity_list)
