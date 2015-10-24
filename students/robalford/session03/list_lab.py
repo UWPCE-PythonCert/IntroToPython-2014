@@ -23,7 +23,7 @@ fruity_list.insert(0, 'Pomegranate')
 print(fruity_list)
 
 for fruit in fruity_list:
-    if fruit[0] == 'P':
+    if fruit[0].lower() == 'p':
         print(fruit)
 
 # Series 2
@@ -45,7 +45,7 @@ double_fruity_list = fruity_list * 2
 # refactor to make this more pythonic?
 while fruit_gone not in double_fruity_list:
     fruit_gone = input('Give me a fruit to lose!')
-for fruit in double_fruity_list:
+for fruit in double_fruity_list[:]:
     if fruit == fruit_gone:
         double_fruity_list.remove(fruit_gone)
 
@@ -76,11 +76,11 @@ if not fruity_list:
 
 fruity_copy = fruity_list[:]
 
-# use counter for assignment of new list values
-for counter, fruit in enumerate(fruity_copy):
-    fruity_copy[counter] = fruit[::-1]
+for fruit in fruity_copy[:]:
+    backwards_fruit = fruit[::-1]
+    fruity_copy.remove(fruit)
+    fruity_copy.append(backwards_fruit)
 
 fruity_list.pop()
 
 print(fruity_list, fruity_copy)
-# print(fruity_copy)
