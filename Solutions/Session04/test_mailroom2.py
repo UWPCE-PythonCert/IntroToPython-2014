@@ -5,10 +5,10 @@ unit tests for the mailroom program
 """
 import os
 
-import mailroom
+import mailroom2 as mailroom
 
 
-#DB = mailroom.donor_db
+# DB = mailroom.donor_db
 
 def test_list_donors():
     listing = mailroom.list_donors()
@@ -18,7 +18,7 @@ def test_list_donors():
     # errors
     assert listing.startswith("Donor list:\n")
     assert "Jeff Bezos" in listing
-    assert "William Gates, III" in listing
+    assert "William Gates III" in listing
     assert len(listing.split('\n')) == 5
 
 
@@ -40,7 +40,7 @@ def test_gen_letter():
     """ test the donor letter """
 
     # create a sample donor
-    donor = ( "Fred Flintstone", [432.45, 65.45, 230.0] )
+    donor = ("Fred Flintstone", [432.45, 65.45, 230.0])
     letter = mailroom.gen_letter(donor)
     # what to test? tricky!
     assert letter.startswith("Dear Fred Flintstone")
@@ -62,9 +62,10 @@ def test_generate_donor_report():
 
     report = mailroom.generate_donor_report()
 
-    print report
-    assert report.startswith("               Donor Name | Total Given | Num Gifts | Average Gift")
-    assert "               Jeff Bezos        877.33           1         877.33" in report
+    print(report)  # printing so you can see it if it fails
+    assert report.startswith("Donor Name                | Total Given | Num Gifts | Average Gift")
+
+    assert "Jeff Bezos                       877.33           1         877.33" in report
 
 
 def test_save_letters_to_disk():
@@ -74,4 +75,3 @@ def test_save_letters_to_disk():
 
     assert os.path.isfile('Jeff_Bezos.txt')
     assert os.path.isfile('William_Gates,_III.txt')
-

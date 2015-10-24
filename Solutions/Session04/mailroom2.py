@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 mailroom assignment
 
@@ -18,23 +17,23 @@ from textwrap import dedent
 # using a tuple for each donor
 # -- kind of like a record in a database table
 # using a dict with a lower case version of the donor's name as the key
-donor_db = {}
-donor_db['william gates, iii'] = ("William Gates, III", [653772.32, 12.17])
-donor_db['jeff bezos'] = ("Jeff Bezos", [877.33])
-donor_db['paul allen'] = ("Paul Allen", [663.23, 43.87, 1.32])
-donor_db['mark zuckerberg'] = ("Mark Zuckerberg", [1663.23, 4300.87, 10432.0])
+donor_db = {'william gates iii': ("William Gates III", [653772.32, 12.17]),
+            'jeff bezos': ("Jeff Bezos", [877.33]),
+            'paul allen': ("Paul Allen", [663.23, 43.87, 1.32]),
+            'mark zuckerberg': ("Mark Zuckerberg", [1663.23, 4300.87, 10432.0]),
+            }
 
 
 def list_donors():
     """
-    creates alist of the donors as a string, so tehy can be printed
+    creates alist of the donors as a string, so they can be printed
 
-    not calling print from here makes it more flexible and easier to
+    Not calling print from here makes it more flexible and easier to
     test
     """
     listing = ["Donor list:"]
     for donor in donor_db.values():
-        listing.append( donor[0] )
+        listing.append(donor[0])
     return "\n".join(listing)
 
 
@@ -52,7 +51,7 @@ def find_donor(name):
 
 def add_donor(name):
     """
-    add a new donor to the donr db
+    add a new donor to the donor db
 
     :param: the name of the donor
 
@@ -68,7 +67,7 @@ def main_menu_selection():
     """
     Print out the main application menu and then read the user input.
     """
-    input = raw_input(dedent('''
+    action = input(dedent('''
       Choose an action:
 
       1 - Send a Thank You
@@ -77,7 +76,7 @@ def main_menu_selection():
       4 - Quit
 
       > '''))
-    return input.strip()
+    return action.strip()
 
 
 def gen_letter(donor):
@@ -95,7 +94,7 @@ def gen_letter(donor):
 
                          Sincerely,
                             -The Team
-          '''.format(donor[0], donor[1][-1]) )
+          '''.format(donor[0], donor[1][-1]))
 
 
 def send_thank_you():
@@ -105,9 +104,9 @@ def send_thank_you():
     # Read a valid donor to send a thank you from, handling special commands to
     # let the user navigate as defined.
     while True:
-        name = raw_input("Enter a donor's name (or list to see all donors or 'menu' to exit)> ").strip()
+        name = input("Enter a donor's name (or list to see all donors or 'menu' to exit)> ").strip()
         if name == "list":
-            print list_donors()
+            print(list_donors())
         elif name == "menu":
             return
         else:
@@ -117,7 +116,7 @@ def send_thank_you():
     # also an exit point to the main menu, we want to make sure this is
     # done before mutating the db .
     while True:
-        amount_str = raw_input("Enter a donation amount (or 'menu' to exit)> ").strip()
+        amount_str = input("Enter a donation amount (or 'menu' to exit)> ").strip()
         if amount_str == "menu":
             return
         # Make sure amount is a valid amount before leaving the input loop
@@ -130,7 +129,7 @@ def send_thank_you():
                 raise ValueError
         # in this case, the ValueError could be raised by the float() call, or by the NaN-check
         except ValueError:
-            print "error: donation amount is invalid\n"
+            print("error: donation amount is invalid\n")
         else:
             break
 
@@ -142,11 +141,11 @@ def send_thank_you():
 
     # Record the donation
     donor[1].append(amount)
-    print gen_letter(donor)
+    print(gen_letter(donor))
 
 
 def sort_key(item):
-    ## used to sort on name in donor_db
+    # used to sort on name in donor_db
     return item[1]
 
 
@@ -162,15 +161,15 @@ def generate_donor_report():
         total_gifts = sum(gifts)
         num_gifts = len(gifts)
         avg_gift = total_gifts / num_gifts
-        report_rows.append( (name, total_gifts, num_gifts, avg_gift) )
+        report_rows.append((name, total_gifts, num_gifts, avg_gift))
 
-    #sort the report data
+    # sort the report data
     report_rows.sort(key=sort_key)
     report = []
-    report.append("%25s | %11s | %9s | %12s"%("Donor Name","Total Given","Num Gifts","Average Gift") )
+    report.append("{:25s} | {:11s} | {:9s} | {:12s}".format("Donor Name", "Total Given", "Num Gifts", "Average Gift"))
     report.append("-"*66)
     for row in report_rows:
-        report.append("%25s   %11.2f   %9i   %12.2f"%row)
+        report.append("{:25s}   {:11.2f}   {:9d}   {:12.2f}".format(*row))
     return "\n".join(report)
 
 
@@ -180,12 +179,13 @@ def save_letters_to_disk():
     """
     for donor in donor_db.values():
         letter = gen_letter(donor)
-        filename = donor[0].replace(" ","_") + ".txt" # I don't like spaces in filenames...
+        # I don't like spaces in filenames...
+        filename = donor[0].replace(" ", "_") + ".txt"
         open(filename, 'w').write(letter)
 
 
 def print_donor_report():
-    print generate_donor_report()
+    print(generate_donor_report())
 
 
 def quit():
@@ -204,7 +204,4 @@ if __name__ == "__main__":
         try:
             selection_dict[selection]()
         except KeyError:
-            print "error: menu selection is invalid!"
-
-
-
+            print("error: menu selection is invalid!")
