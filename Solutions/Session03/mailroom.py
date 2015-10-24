@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Mailroom Excercise -- as of Session 3 -- no dictionaries or Exceptions
+Mailroom Exercise -- as of Session 3 -- no dictionaries or Exceptions
 """
 
 from textwrap import dedent  # nifty utility!
@@ -13,11 +13,11 @@ import math
 # the donations are in a list -- so you can add to them
 # Note the mutable inside an immutable
 
-donor_db = []
-donor_db.append(("William Gates, III", [653772.32, 12.17]))
-donor_db.append(("Jeff Bezos", [877.33]))
-donor_db.append(("Paul Allen", [663.23, 43.87, 1.32]))
-donor_db.append(("Mark Zuckerberg", [1663.23, 4300.87, 10432.0]))
+donor_db = [("William Gates, III", [653772.32, 12.17]),
+            ("Jeff Bezos", [877.33]),
+            ("Paul Allen", [663.23, 43.87, 1.32]),
+            ("Mark Zuckerberg", [1663.23, 4300.87, 10432.0]),
+            ]
 
 
 def print_donors():
@@ -65,14 +65,14 @@ def gen_letter(donor):
     :returns: string with letter
     """
     return dedent('''
-          Dear %s
+          Dear {}
 
-          Thank you for your very kind donation of %.2f.
+          Thank you for your very kind donation of {:.2f}.
           It will be put to very good use.
 
                          Sincerely,
                             -The Team
-          ''' % (donor[0], donor[1][-1]))
+          '''.format(donor[0], donor[1][-1]))
 
 
 def send_thank_you():
@@ -133,10 +133,10 @@ def print_donor_report():
 
     # sort the report data
     report_rows.sort(key=sort_key)
-    print("%25s | %11s | %9s | %12s" % ("Donor Name", "Total Given", "Num Gifts", "Average Gift"))
+    print("{:25s} | {:11s} | {:9s} | {:12s}".format("Donor Name", "Total Given", "Num Gifts", "Average Gift"))
     print("-"*66)
     for row in report_rows:
-        print("%25s   %11.2f   %9i   %12.2f" % row)
+        print("{:25s}   {:11.2f}   {:9d}   {:12.2f}".format(*row))
 
 if __name__ == "__main__":
     running = True
