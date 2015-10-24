@@ -53,7 +53,8 @@ print(double_fruity_list)
 
 # series 3
 
-for fruit in fruity_list:
+
+for fruit in fruity_list[:]:
     fruit_preference = input('Do you like {}?'.format(fruit.lower()))
     fruit_preference = fruit_preference.lower()
     while fruit_preference != 'yes' and fruit_preference != 'no':
@@ -64,3 +65,19 @@ for fruit in fruity_list:
         fruity_list.remove(fruit)
 
 print(fruity_list)
+
+# series 4
+
+# Check to make sure the user didnt erase the whole list in the last
+# series and reset the list to original value if they did.
+# if not fruity_list:
+#     fruity_list = ['Apples', 'Pears', 'Oranges', 'Peaches']
+
+# fruity_copy = fruity_list[:]
+
+# for fruit in fruity_copy:
+#     fruit = fruit[::-1]
+
+# fruity_list.pop()
+
+# print(fruity_list and fruity_copy)
