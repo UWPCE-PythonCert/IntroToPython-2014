@@ -53,7 +53,8 @@ print(double_fruity_list)
 
 # series 3
 
-
+# iterate over a copy in order to preserve the original length
+# as items are removed
 for fruit in fruity_list[:]:
     fruit_preference = input('Do you like {}?'.format(fruit.lower()))
     fruit_preference = fruit_preference.lower()
@@ -70,14 +71,14 @@ print(fruity_list)
 
 # Check to make sure the user didnt erase the whole list in the last
 # series and reset the list to original value if they did.
-# if not fruity_list:
-#     fruity_list = ['Apples', 'Pears', 'Oranges', 'Peaches']
+if not fruity_list:
+    fruity_list = ['Apples', 'Pears', 'Oranges', 'Peaches']
 
-# fruity_copy = fruity_list[:]
+fruity_copy = fruity_list[:]
 
-# for fruit in fruity_copy:
-#     fruit = fruit[::-1]
+for fruit in fruity_copy:
+    fruit = fruit[::-1]
 
-# fruity_list.pop()
+fruity_list.pop()
 
-# print(fruity_list and fruity_copy)
+print(fruity_list and fruity_copy)
