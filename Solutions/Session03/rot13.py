@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-## the above line is so I can use Unicode in the source
-## only there for the µ charactor in the timings report...
 
 """
 A simple function to compute rot13 encoding
@@ -13,11 +10,12 @@ characters and replacing each one by the letter 13 places further along in
 the alphabet, wrapping back to the beginning if necessary
 """
 
-## note: the string translate() method would be the high-performance solution
+# note: the string translate() method would be the high-performance solution
 
+# the string module has some handy constants.
 import string
 
-# a few handy constanst:
+# a few handy constants:
 a = ord('a')
 z = ord('z')
 A = ord('A')
@@ -26,9 +24,9 @@ Z = ord('Z')
 
 def rot13a(text):
     """
-    My first solution
+    My first solution: brute force
     """
-    # loop through the letters
+    # loop through the letters in the input string
     new_text = []
     for c in text:
         # do upper and lower case separately
@@ -42,7 +40,7 @@ def rot13a(text):
                 o = A-1 + o-Z
         else:
             o = ord(c)
-        new_text.append( chr(o) )
+        new_text.append(chr(o))
     return "".join(new_text)
 
 
@@ -53,104 +51,118 @@ def rot13b(text):
     And do a check on the ord value, rather than looking in
     string.ascii_lowercase
     """
-    # loop through the letters
+    # loop through the letters in teh input string
     new_text = []
     for c in text:
         o = ord(c)
         # do upper and lower case separately
         if a <= o <= z:
-            o = a + ( (o - a + 13)%26 )
+            o = a + ((o - a + 13) % 26)
         elif A <= o <= Z:
-            o = A + ( (o - A + 13)%26 )
-        new_text.append( chr(o) )
+            o = A + ((o - A + 13) % 26)
+        new_text.append(chr(o))
     return "".join(new_text)
 
 # Translation table for 1 byte string objects:
-## Faster if you build a translation table and use that
-## a translation table needs to be 256 characters long
-##  -- all ord vales from 0 to 255
+# Faster if you build a translation table and use that
+# a translation table needs to be 256 characters long
+#  -- all ord vales from 0 to 255
 
 # build a translation table:
 str_table = []
 # loop through all possible ascii values
-for c in range(256):
+for c in range(z+1):  # only need up to z
     # do upper and lower case separately
     if a <= c <= z:
-        c = a + (c - a + 13)%26
+        c = a + (c - a + 13) % 26
     elif A <= c <= Z:
-        c = A + (c - A + 13)%26
-    str_table.append( chr(c) )
+        c = A + (c - A + 13) % 26
+    str_table.append(chr(c))
 str_table = "".join(str_table)
 
-## Translation table for unicode objects.
-##   Unicode has a LOT of code points, so you only specifiy the ones
-##   that need changing in a Unicode translation table -- in a dict
-## NOTE: I'm not expecting anyone to do Unicode at this pint, but for
-##       completelness sake, it's here.
 
-uni_table = {}
+#   Unicode has a LOT of code points, so better to use a dict
+#   and only specifiy the ones that need changing -- in a dict
+# NOTE: we haven't covered dicts yet, but for completelness' sake,
+#       it's here.
+
+dict_table = {}
 # the lower-case letters
 for c in range(a, z+1):
-    uni_table[c] = a + (c - a + 13)%26
+    dict_table[c] = a + (c - a + 13) % 26
 # the lower-case letters
 for c in range(A, Z+1):
-    uni_table[c] = A + (c - A + 13)%26
+    dict_table[c] = A + (c - A + 13) % 26
 
 
 def rot13c(text):
     """
     This one uses str.translate() or unicode.translate()
     """
-    if type(text) == str:
-        return text.translate(str_table)
-    elif type(text) == unicode:
-        return text.translate(uni_table)
+    return text.translate(str_table)
 
 
 def rot13d(text):
     """
+    this one uses a dict translation table -- so better suite to unicode
+    """
+    return text.translate(dict_table)
+
+import codecs
+
+
+def rot13e(text):
+    """
     This one "cheats" by using the built-in 'rot13' encoding
     """
-    return text.encode('rot13')
+    return codecs.encode(text, encoding='rot13')
 
 
 if __name__ == "__main__":
-    print rot13a("Zntargvp sebz bhgfvqr arne pbeare")
-    print rot13b("Zntargvp sebz bhgfvqr arne pbeare")
-    print rot13c("Zntargvp sebz bhgfvqr arne pbeare")
-    print rot13d("Zntargvp sebz bhgfvqr arne pbeare")
+    print (rot13a("Zntargvp sebz bhgfvqr arne pbeare"))
+    print (rot13b("Zntargvp sebz bhgfvqr arne pbeare"))
+    print (rot13c("Zntargvp sebz bhgfvqr arne pbeare"))
+    print (rot13d("Zntargvp sebz bhgfvqr arne pbeare"))
+    print (rot13e("Zntargvp sebz bhgfvqr arne pbeare"))
 
-    ## rot13 should be reversible:
+    # rot13 should be reversible:
 
-    assert ( rot13a("Zntargvp sebz bhgfvqr arne pbeare") ==
-                    "Magnetic from outside near corner" )
+    assert (rot13a("Zntargvp sebz bhgfvqr arne pbeare") ==
+            "Magnetic from outside near corner")
 
     text = "Some random text to try!"
-    assert rot13a( rot13a(text) ) == text
+    assert rot13a(rot13a(text)) == text
 
-    assert rot13a(text) == rot13b(text) == rot13c(text)
+    assert (rot13a(text) ==
+            rot13b(text) ==
+            rot13c(text) ==
+            rot13d(text) ==
+            rot13e(text)
+            )
 
-    ## And a Unicode test:
+    print ("All assertions pass")
 
-    text = u"Some random text to try!"
-    print rot13a(text)
+# # Some timings:
+# # Note that the translate tabel versions are MUCH faster
 
-    assert rot13a( rot13a(text) ) == text
+# In [2]: timeit rot13a('This is a pretty short string, but maybe long enough to test')
+# 10000 loops, best of 3: 31.5 µs per loop
 
-    assert rot13a(text) == rot13b(text) == rot13c(text) == rot13d(text)
+# In [3]: timeit rot13b('This is a pretty short string, but maybe long enough to test')
+# 10000 loops, best of 3: 32.5 µs per loop
 
-    print "All assertions pass"
+# In [4]: timeit rot13c('This is a pretty short string, but maybe long enough to test')
+# The slowest run took 9.36 times longer than the fastest. This could mean that an intermediate result is being cached
+# 1000000 loops, best of 3: 1.03 µs per loop
 
+# In [5]: timeit rot13c('This is a pretty short string, but maybe long enough to test')
+# The slowest run took 10.23 times longer than the fastest. This could mean that an intermediate result is being cached
+# 1000000 loops, best of 3: 1.02 µs per loop
 
-# In [34]: timeit rot13a('This is a pretty short string, but maybe long enough to test')
-# 10000 loops, best of 3: 29.4 µs per loop
+# In [6]: timeit rot13d('This is a pretty short string, but maybe long enough to test')
+# The slowest run took 6.75 times longer than the fastest. This could mean that an intermediate result is being cached
+# 1000000 loops, best of 3: 1.1 µs per loop
 
-# In [35]: timeit rot13b('This is a pretty short string, but maybe long enough to test')
-# 10000 loops, best of 3: 29 µs per loop
-
-# In [36]: timeit rot13c('This is a pretty short string, but maybe long enough to test')
-# 1000000 loops, best of 3: 419 ns per loop
-
-# In [37]: timeit rot13d('This is a pretty short string, but maybe long enough to test')
-# 100000 loops, best of 3: 2.78 µs per loop
-
+# In [7]: timeit rot13e('This is a pretty short string, but maybe long enough to test')
+# The slowest run took 8.59 times longer than the fastest. This could mean that an intermediate result is being cached
+# 100000 loops, best of 3: 2.31 µs per loop

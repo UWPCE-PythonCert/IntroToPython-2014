@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Chris' solution to the week 1 homework problem.
+Chris' solution to the grid printing Exercise.
 
 Note that we only did the basics of loops, and you can
 do all this without any loops at all, so that's what I did.
@@ -9,6 +9,25 @@ do all this without any loops at all, so that's what I did.
 Note also that there is more than one way to skin a cat --
    or code a function
 """
+
+
+def print_grid_trivial():
+    """
+    Did anyone come up with the most trivial possible solution?
+    """
+    print("""
++ - - - - + - - - - +
+|         |         |
+|         |         |
+|         |         |
+|         |         |
++ - - - - + - - - - +
+|         |         |
+|         |         |
+|         |         |
+|         |         |
++ - - - - + - - - - +
+""")
 
 
 def print_grid(size):
@@ -19,17 +38,17 @@ def print_grid(size):
         a multiple of 2
     """
     number = 2
-    box_size = int((size-1) // 2)  # size of one grid box
-    print "box_size:", box_size
+    box_size = int((size - 1) // 2)  # size of one grid box: integer division
+    print("box_size:", box_size)
     # top row
     top = ('+ ' + '- ' * box_size) * number + '+' + '\n'
     middle = ('| ' + ' ' * 2 * box_size) * number + '|' + '\n'
 
-    row = top + middle*box_size
+    row = top + middle * box_size
 
-    grid = row*number + top
+    grid = row * number + top
 
-    print grid
+    print(grid)
 
 
 def print_grid2(number, size):
@@ -41,14 +60,14 @@ def print_grid2(number, size):
     :param size: size of each grid box
     """
     # top row
-    top = ('+ ' + '- '*size)*number + '+' + '\n'
-    middle = ('| ' + ' '*2*size)*number + '|' + '\n'
+    top = ('+ ' + '- ' * size) * number + '+' + '\n'
+    middle = ('| ' + ' ' * 2 * size) * number + '|' + '\n'
 
-    row = top + middle*size
+    row = top + middle * size
 
-    grid = row*number + top
+    grid = row * number + top
 
-    print grid
+    print(grid)
 
 
 def print_grid3(size):
@@ -56,9 +75,11 @@ def print_grid3(size):
     same as print_grid, but calling print_grid2 to do the work
     """
     number = 2
-    box_size = (size-1) / 2  # size of one grid box
+    box_size = (size - 1) // 2  # size of one grid box: note integer divsion!
     print_grid2(number, box_size)
 
+
+print_grid_trivial()
 
 print_grid(11)
 print_grid(7)

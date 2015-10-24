@@ -78,8 +78,8 @@ if __name__ == "__main__":
              (2, 3),
              (3, 4),
              (4, 7),
-             (5,11),
-             (6,18),
+             (5, 11),
+             (6, 18),
              (7, 29),
              ]
     for input, output in tests:
@@ -93,4 +93,4 @@ if __name__ == "__main__":
     for n in range(0, 10):
         assert sum_series(n, 2, 1) == lucas(n)
 
-    print "tests passed"
+    print("tests passed")
