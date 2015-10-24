@@ -1,22 +1,29 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-from textwrap import dedent
+"""
+Mailroom Excercise -- as of Session 3 -- no dictionaries or Exceptions
+"""
+
+from textwrap import dedent  # nifty utility!
 import math
 
 # In memory representation of the donor database
 # using a tuple for each donor
 # -- kind of like a record in a database table
+# the donations are in a list -- so you can add to them
+# Note the mutable inside an immutable
+
 donor_db = []
-donor_db.append( ("William Gates, III", [653772.32, 12.17]) )
-donor_db.append( ("Jeff Bezos", [877.33]) )
-donor_db.append( ("Paul Allen", [663.23, 43.87, 1.32]) )
-donor_db.append( ("Mark Zuckerberg", [1663.23, 4300.87, 10432.0]) )
+donor_db.append(("William Gates, III", [653772.32, 12.17]))
+donor_db.append(("Jeff Bezos", [877.33]))
+donor_db.append(("Paul Allen", [663.23, 43.87, 1.32]))
+donor_db.append(("Mark Zuckerberg", [1663.23, 4300.87, 10432.0]))
 
 
 def print_donors():
-    print "Donor list:\n"
+    print("Donor list:\n")
     for donor in donor_db:
-        print donor[0]
+        print(donor[0])
 
 
 def find_donor(name):
@@ -38,7 +45,7 @@ def main_menu_selection():
     """
     Print out the main application menu and then read the user input.
     """
-    input = raw_input(dedent('''
+    action = input(dedent('''
       Choose an action:
 
       1 - Send a Thank You
@@ -46,7 +53,7 @@ def main_menu_selection():
       3 - Quit
 
       > '''))
-    return input.strip()
+    return action.strip()
 
 
 def gen_letter(donor):
@@ -65,7 +72,7 @@ def gen_letter(donor):
 
                          Sincerely,
                             -The Team
-          ''' % (donor[0], donor[1][-1]) )
+          ''' % (donor[0], donor[1][-1]))
 
 
 def send_thank_you():
@@ -75,7 +82,7 @@ def send_thank_you():
     # Read a valid donor to send a thank you from, handling special commands to
     # let the user navigate as defined.
     while True:
-        name = raw_input("Enter a donor's name (or list to see all donors or 'menu' to exit)> ").strip()
+        name = input("Enter a donor's name (or 'list' to see all donors or 'menu' to exit)> ").strip()
         if name == "list":
             print_donors()
         elif name == "menu":
@@ -87,13 +94,13 @@ def send_thank_you():
     # point to the main menu, we want to make sure this is done before mutating the db
     # list object.
     while True:
-        amount_str = raw_input("Enter a donation amount (or 'menu' to exit)> ").strip()
+        amount_str = input("Enter a donation amount (or 'menu' to exit)> ").strip()
         if amount_str == "menu":
             return
         # Make sure amount is a valid amount before leaving the input loop
         amount = float(amount_str)
         if math.isnan(amount) or math.isinf(amount) or round(amount, 2) == 0.00:
-            print "error: donation amount is invalid\n"
+            print("error: donation amount is invalid\n")
         else:
             break
 
@@ -101,11 +108,11 @@ def send_thank_you():
     donor = find_donor(name)
     if donor is None:
         donor = (name, [])
-        donor_db.append( donor )
+        donor_db.append(donor)
 
     # Record the donation
     donor[1].append(amount)
-    print gen_letter(donor)
+    print(gen_letter(donor))
 
 
 def sort_key(item):
@@ -122,14 +129,14 @@ def print_donor_report():
         total_gifts = sum(gifts)
         num_gifts = len(gifts)
         avg_gift = total_gifts / num_gifts
-        report_rows.append( (name, total_gifts, num_gifts, avg_gift) )
+        report_rows.append((name, total_gifts, num_gifts, avg_gift))
 
-    #sort the report data
+    # sort the report data
     report_rows.sort(key=sort_key)
-    print "%25s | %11s | %9s | %12s"%("Donor Name","Total Given","Num Gifts","Average Gift")
-    print "-"*66
+    print("%25s | %11s | %9s | %12s" % ("Donor Name", "Total Given", "Num Gifts", "Average Gift"))
+    print("-"*66)
     for row in report_rows:
-        print "%25s   %11.2f   %9i   %12.2f"%row
+        print("%25s   %11.2f   %9i   %12.2f" % row)
 
 if __name__ == "__main__":
     running = True
@@ -142,4 +149,4 @@ if __name__ == "__main__":
         elif selection is "3":
             running = False
         else:
-            print "error: menu selection is invalid!"
+            print("error: menu selection is invalid!")
