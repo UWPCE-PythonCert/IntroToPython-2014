@@ -36,13 +36,10 @@ Lightning Talks Today:
 
 .. rst-class:: mlarge
 
-    Benjamin C Mier
+  Andrey Gusev
+  Cheryl Ohashi
+  Maxwell MacCamy
 
-    Robert W Perkins
-
-    Lesley D Reece
-
-    Wayne R Fukuhara
 
 
 ==============================
@@ -683,10 +680,10 @@ Lightning Talks
 ----------------
 
 |
-| Benjamin C Mier
+| Andrey Gusev
 |
 |
-| Robert W Perkins
+| Cheryl Ohashi
 |
 
 ==========
@@ -913,14 +910,14 @@ Improving ``raw_input``
 * Update your mailroom program to use exceptions (and IBAFP) to handle
   malformed numeric input
 
-Lightning Talks
+Lightning Talk
 ----------------
 
 |
 | Lesley D Reece
 |
 |
-| Wayne R Fukuhara
+| Maxwell MacCamy
 |
 
 
