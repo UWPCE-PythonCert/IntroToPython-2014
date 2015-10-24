@@ -45,9 +45,10 @@ double_fruity_list = fruity_list * 2
 # refactor to make this more pythonic?
 while fruit_gone not in double_fruity_list:
     fruit_gone = input('Give me a fruit to lose!')
-for fruit in double_fruity_list[:]:
-    if fruit == fruit_gone:
-        double_fruity_list.remove(fruit_gone)
+    for fruit in double_fruity_list[:]:
+        if fruit == fruit_gone:
+            double_fruity_list.remove(fruit_gone)
+    break
 
 print(double_fruity_list)
 
