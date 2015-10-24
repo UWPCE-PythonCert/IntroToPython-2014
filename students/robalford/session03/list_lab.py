@@ -76,9 +76,11 @@ if not fruity_list:
 
 fruity_copy = fruity_list[:]
 
-for fruit in fruity_copy:
-    fruit = fruit[::-1]
+# use counter for assignment of new list values
+for counter, fruit in enumerate(fruity_copy):
+    fruity_copy[counter] = fruit[::-1]
 
 fruity_list.pop()
 
-print(fruity_list and fruity_copy)
+print(fruity_list, fruity_copy)
+# print(fruity_copy)
