@@ -56,13 +56,10 @@ print(double_fruity_list)
 for fruit in fruity_list:
     fruit_preference = input('Do you like {}?'.format(fruit.lower()))
     fruit_preference = fruit_preference.lower()
-    while fruit_preference != 'yes' or fruit_preference != 'no':
+    while fruit_preference != 'yes' and fruit_preference != 'no':
         fruit_preference = input('Yes or no')
         fruit_preference = fruit_preference = fruit_preference.lower()
         break
-    # else:
-    #     break
-    # fruit_preference = fruit_preference.lower()
     if fruit_preference == 'no':
         fruity_list.remove(fruit)
 
