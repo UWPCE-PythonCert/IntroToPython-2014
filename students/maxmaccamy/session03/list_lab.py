@@ -2,6 +2,19 @@ __author__ = 'Max MacCamy'
 
 def main():
     """
+    Executes each step of the list lab.
+    :return: None
+    """
+    print("Running exercise 1...")
+    seq = listLabExercise1();
+
+    print("\nRunning exercise 2...")
+    listLabExercise2(seq)
+
+    return None
+
+def listLabExercise1():
+    """
     When ran this function acomplishes the following:
     - Creates a list that contains "Apples", "Pears",
     "Oranges" and "Peaches"
@@ -18,7 +31,7 @@ def main():
     insert() and display the list.
     - Display all the fruits that begin with "P", using a
     for loop.
-    :return: None
+    :return: List of fruits manipulated by a user.
     """
     seq = ["Apples", "Pears", "Oranges", "Peaches"]
     print(seq)
@@ -63,7 +76,7 @@ def main():
             # Warn the user that their given index is not an integer.
             print("That's not an integer!")
 
-    return None
+    return seq
 
 def validInteger(input):
     """
@@ -77,6 +90,42 @@ def validInteger(input):
         return True
     except ValueError:
         return False
+
+def listLabExercise2(seq):
+    """
+    Takes a list and performs the following:
+    - Displays the list
+    - Removes the last fruit from the list
+    - Displays the list
+    - Asks the user for a fruit to delete and find it and delete it.
+    :param seq: Sequence to operate on
+    :return: None
+    """
+    # Display the list
+    print(seq)
+
+    # Remove last fruit from the list
+    seq.pop()
+
+    # Display the list
+    print(seq)
+
+    while(True):
+        # Ask the user for a fruit to delete and find it and delete it.
+        userInput = input("Which fruit would you like to delete? (case sensitive)\n")
+
+        # Ignore case by making all the elements of the list lowercase
+        if (seq.count(userInput) > 0):
+            seq = removeItemFromList(seq, userInput)
+            print(seq)
+            break;
+        else:
+            print("Fruit doesn't exist in list")
+
+    return None
+
+def removeItemFromList(theList, item):
+    return [value for value in theList if value != item]
 
 # Execute main()
 main()
