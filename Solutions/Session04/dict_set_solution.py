@@ -48,11 +48,11 @@ print(d.values())
 
 # Display whether or not "cake" is a key in the dictionary (i.e. False) (now).
 
-print 'cake' in d
+print('cake' in d)
 
 # Display whether or not "Mango" is a value in the dictionary.
 
-print 'Mango' in d.values()
+print('Mango' in d.values())
 
 # Using the dict constructor and zip, build a dictionary of numbers
 # from zero to fifteen and the hexadecimal equivalent (string is fine).
@@ -64,7 +64,7 @@ for num in nums:
 
 hex_dict = dict(zip(nums, hexes))
 
-print hex_dict
+print(hex_dict)
 
 
 # Using the dictionary from item 1: Make a dictionary using the same keys
@@ -73,7 +73,7 @@ print hex_dict
 a_dict = {}
 for key, val in d.items():
     a_dict[key] = val.count('t')
-print a_dict
+print(a_dict)
 
 
 # replacing the values in the original dict:
@@ -117,7 +117,7 @@ print(s4.issubset(s2))
 s = set('Python')
 s.add('i')
 
-print s
+print(s)
 
 # maybe:
 s = set('Python'.lower())  # that wasn't specified...
@@ -129,14 +129,10 @@ fs = frozenset('marathon')
 
 # display the union and intersection of the two sets.
 
-print "union:", s.union(fs)
-print "intersection:", s.intersection(fs)
+print("union:", s.union(fs))
+print("intersection:", s.intersection(fs))
 
-## not that order doesn't matter for these:
+# note that order doesn't matter for these:
 
-print "union:", fs.union(s)
-print "intersection:", fs.intersection(s)
-
-
-
-
+print("union:", fs.union(s))
+print("intersection:", fs.intersection(s))
