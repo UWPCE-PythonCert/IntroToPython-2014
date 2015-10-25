@@ -68,7 +68,7 @@ You can do that in a for loop, also:
   In [4]: l = [(1, 2), (3, 4), (5, 6)]
 
   In [5]: for i, j in l:
-              print "i:%i, j:%i"%(i, j)
+              print("i:%i, j:%i"%(i, j))
 
   i:1, j:2
   i:3, j:4
@@ -91,7 +91,7 @@ Looping through two loops at once:
     In [11]: l2 = [3, 4, 5]
 
     In [12]: for i, j in zip(l1, l2):
-       ....:     print "i:%i, j:%i"%(i, j)
+       ....:     print("i:%i, j:%i"%(i, j))
        ....:
     i:1, j:3
     i:2, j:4
@@ -116,7 +116,7 @@ Need the index and the item?
     In [2]: l = ['this', 'that', 'the other']
 
     In [3]: for i, item in enumerate(l):
-       ...:     print "the %ith item is: %s"%(i, item)
+       ...:     print("the %ith item is: %s"%(i, item))
        ...:
     the 0th item is: this
     the 1th item is: that
@@ -321,7 +321,7 @@ Dictionaries have no defined order
     In [353]: d
     Out[353]: {'one': 1, 'three': 3, 'two': 2}
     In [354]: d.keys()
-    Out[354]: ['three', 'two', 'one']
+    Out[354]: dict_keys(['three', 'two', 'one'])
 
 Dictionary Iterating
 --------------------
@@ -333,7 +333,7 @@ Dictionary Iterating
 	In [15]: d = {'name': 'Brian', 'score': 42}
 
 	In [16]: for x in d:
-	    print x
+	    print(x)
 	   ....:
 	score
 	name
@@ -349,13 +349,13 @@ dict keys and values
 	In [20]: d = {'name': 'Brian', 'score': 42}
 
 	In [21]: d.keys()
-	Out[21]: ['score', 'name']
+	Out[21]: dict_keys(['score', 'name'])
 
 	In [22]: d.values()
-	Out[22]: [42, 'Brian']
+	Out[22]: dict_values([42, 'Brian'])
 
 	In [23]: d.items()
-	Out[23]: [('score', 42), ('name', 'Brian')]
+	Out[23]: dict_items([('score', 42), ('name', 'Brian')])
 
 
 dict keys and values
@@ -368,7 +368,7 @@ Iterating on everything
 	In [26]: d = {'name': 'Brian', 'score': 42}
 
 	In [27]: for k, v in d.items():
-	    print "%s: %s" % (k,v)
+	    print("%s: %s" % (k,v))
 	   ....:
 	score: 42
 	name: Brian
@@ -437,23 +437,32 @@ iterating
 
 .. code-block:: ipython
 
-  In [13]: for item in d.iteritems():
-     ....:     print item
-     ....:
-  ('this', 5)
-  ('that', 7)
-  In [15]: for key in d.iterkeys():
-      print key
+  In [13]: for item in d:
+     ....:     print(item)
      ....:
   this
   that
-  In [16]: for val in d.itervalues():
-      print val
+
+which is equivalent to, but faster than:
+
+.. code-block:: ipython
+
+  In [15]: for key in d.keys():
+      print(key)
+     ....:
+  this
+  that
+
+but to get values, must specify you want values:
+
+.. code-block:: ipython
+
+  In [16]: for val in d.values():
+      print(val)
      ....:
   5
   7
 
-the ``iter*`` methods don't actually create the lists.
 
 .. nextslide::
 
@@ -495,30 +504,39 @@ gets the value if it's there, sets it if it's not
   In [28]: d
   Out[28]: {'something': 'a value'}
 
-  In [29]: d.setdefault('something', 'a value')
-  Out[29]: 'a value'
-
-  In [30]: d
-  Out[30]: {'something': 'a value'}
 
 .. nextslide::
 
-dict View objects:
-
-Like ``keys()``, ``values()``, ``items()``, but maintain a link to the original dict
+Assignment maintains link to the original dict
 
 .. code-block:: ipython
 
   In [47]: d
   Out[47]: {'something': 'a value'}
 
-  In [48]: item_view = d.viewitems()
+  In [48]: item_view = d
 
   In [49]: d['something else'] = 'another value'
 
   In [50]: item_view
-  Out[50]: dict_items([('something else', 'another value'), ('something', 'a value')])
+  Out[50]: {'something': 'a value', 'something else': 'another value'}
 
+Use explicit copy method to get a copy
+
+.. code-block:: ipython
+
+  In [51] item_copy = d.copy()
+
+  In [52]: d['another thing'] = 'different value'
+
+  In [53]: d
+  Out[53]:
+  {'another thing': 'different value',
+   'something': 'a value',
+   'something else': 'another value'}
+
+   In [54]: item_copy
+   Out[54]: {'something': 'a value', 'something else': 'another value'}
 
 
 Sets
@@ -533,19 +551,19 @@ Set Constructors
 .. code-block:: ipython
 
     >>> set()
-    set([])
+    set()
 
     >>> set([1, 2, 3])
-    set([1, 2, 3])
+    {1, 2, 3}
 
     >>> {1, 2, 3}
-    set([1, 2, 3])
+    {1, 2, 3}
 
     >>> s = set()
 
     >>> s.update([1, 2, 3])
     >>> s
-    set([1, 2, 3])
+    {1, 2, 3}
 
 
 Set Properties
