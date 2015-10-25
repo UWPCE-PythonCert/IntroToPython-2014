@@ -16,7 +16,7 @@ When the script is run, it should accomplish the following four series of action
 """
 def froots():
     #   Create a list that contains “Apples”, “Pears”, “Oranges” and “Peaches” and display the list.
-    fruits = ['Apples', 'Pears', 'Oranges']
+    fruits = ['Apples', 'Pears', 'Oranges', 'Peaches']
 
     print("Our initial fruits are: " , fruits)
 
