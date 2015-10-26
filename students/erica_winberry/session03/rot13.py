@@ -13,21 +13,41 @@
 # As usual, add your new file to your local clone right away. 
 # Make commits early and often and include commit messages that are descriptive and concise.
 
+
+
 def translator(l):
+    # Return a translation of a rot13 encoded string.
     for i in l:
         if i.isalpha:
-            i = translate_letter(i)
+            i = rot13_decode(i)
             return i
         else:
             return i
 
-def translate_letter(l):
+def encoder(l):
+    # Encode a given string in rot13 format.
+    for i in l:
+        if i.isalpha:
+            i = rot13_encode(i)
+            return i
+        else:
+            return i
+
+def rot13_decode(l):
+    # Return a translation of a rot13 encoded character.
     base_alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     plus13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
     switcher = str.maketrans(base_alpha, plus13)
     new = l.translate(switcher)
     print(new)
 
+def rot13_encode(l):
+    # Encode a character in rot13 format.
+    base_alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    plus13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
+    switcher = str.maketrans(plus13, base_alpha)
+    new = l.translate(switcher)
+    print(new)
 
 #if name == __main__:
 #    for i in l:
