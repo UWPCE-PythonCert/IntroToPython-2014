@@ -12,3 +12,28 @@
 
 # As usual, add your new file to your local clone right away. 
 # Make commits early and often and include commit messages that are descriptive and concise.
+
+def translator(l):
+    for i in l:
+        if i.isalpha:
+            i = translate_letter(i)
+            return i
+        else:
+            return i
+
+def translate_letter(l):
+    base_alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    plus13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
+    switcher = str.maketrans(base_alpha, plus13)
+    new = l.translate(switcher)
+    print(new)
+
+
+#if name == __main__:
+#    for i in l:
+#        assert not i.isnumeric()
+
+# OR
+    # take a letter, get the ordinal of that letter.
+    # add 13 to the oridinal of that letter.
+    # return the character of the new letter.
