@@ -6,40 +6,62 @@ donors = [
     ['Yoko Ono', 275.50, 5.00]
 ]
 
-menu = input("Enter '1' to send a thank you. Enter '2' to create a report.")
 
-if menu == '1':
+def select_command():
+    command = input("""Commands:
+Enter 'Thank you' to send a thank you message.
+Enter 'Report' to create a report.
+Enter 'Home' to return to this screen.
+Enter 'Quit' to exit My Donation Manager.""")
+    print(command)
+    return command
+
+
+def write_email():
     full_name = input("Enter the donor's full name or type 'list' to see all donors.")
 
-while full_name == 'list':
+    while full_name == 'list':
+        for donor in donors:
+            print(donor[0])
+        full_name = input("Enter the donor's full name or type 'list' to see all donors.")
+        break
+
+    if full_name not in donors:
+        donors.append([full_name])
+
+    donation_amount = input('Enter the donation amount.')
+
+    while donation_amount:
+        try:
+            donation_amount = float(donation_amount)
+            break
+        except:
+            donation_amount = input('Please enter a numeric value.')
+
     for donor in donors:
-        print(donor[0])
-    full_name = input("Enter the donor's full name or type 'list' to see all donors.")
-    break
+        if full_name == donor[0]:
+            donor.append(donation_amount)
 
-if full_name not in donors:
-    donors.append([full_name])
+    thank_you = """Dear {},
+    Thank you for your generous donation of ${}. You're
+    the best!
 
-donation_amount = input('Enter the donation amount.')
-# this doesnt work for floats. fix or change to strings since you're not doing any math with them?
-while not donation_amount.isnumeric():
-    donation_amount = input('Enter the donation amount as a whole number.')
-    break
+    Sincerely,
+    Your favorite charity """.format(full_name, donation_amount)
 
-for donor in donors:
-    if full_name == donor[0]:
-        donor.append(donation_amount)
+    print(thank_you)
 
-thank_you = """Dear {},
-Thank you for your generous donation of {} dollars. You're
-the best!
 
-Sincerely,
-Your favorite charity """.format(full_name, donation_amount)
+def create_report():
+    print('Donor\t\t\tTotal\t\tNumber\t\tAverage')
+    for donor in donors:
+        total_donation = sum(donor[1:])
+        number_of_donations = len(donor[1:])
+        average_donation = total_donation/number_of_donations
+        print('{}\t\t{:.2f}\t\t{:d}\t\t{:.2f}'.format(donor[0], total_donation, number_of_donations, average_donation))
 
-print(thank_you)
-
-menu = input("Enter '1' to send a thank you. Enter '2' to create a report.")
-
+if __name__ == '__main__':
+    command = select_command()
+    
 
 
