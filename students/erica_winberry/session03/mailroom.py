@@ -7,10 +7,10 @@
 # 2. The script should prompt the user (you) to choose from a menu of 2
 # actions: ‘Send a Thank You’ or ‘Create a Report’.
 
-if __name__ == "__main__":
-    
+# if __name__ == "__main__":
 
 # -- DATA --
+
 
 donors = [
     ["Carol Danvers", 25, 100],
@@ -21,12 +21,12 @@ donors = [
     ]
 
 
-
 def intro():
     print("\tMAILROOM OPTIONS")
     print("\t1 - Send a Thank You")
     print("\t2 - Create a Report")
-    print("\n\t(Type 'quit' at any time to exit.")
+    print("\n\t(Type 'exit' at any time to quit.")
+
 
 def mailroom():
     while True:
@@ -35,33 +35,33 @@ def mailroom():
             thanks()
 
 
+# Sending a Thank You
 def thanks():
+    get_name()
+
+
+def get_name():
     while True:
+        # If the user (you) selects ‘Send a Thank You’, prompt for a Full Name.
         donor_name = input("Please enter the full name of the donor you wish to thank. (Type 'list' for a list of donors.) ")
-        if donor_name.lower() == "list":
+        if donor_name.lower == "exit":
+            break
+        # If the user types ‘list’, show them a list of the donor names and re-prompt
+        elif donor_name.lower() == "list":
             print("The current list of donors is: ")
             for i in donors:
-                print i[0]
+                print(i[0])
             pass
+        # If the user types a name not in the list, add that name to the data structure and use it.
         elif donor_name.lower() not in donors:
             donors.append([donor_name])
             return donor_name
+        # If the user types a name in the list, use it.
         else: 
+            assert donor_name in donors
             return donor_name
-    
 
 
-
-
-
-
-
-
-# Sending a Thank You
-# If the user (you) selects ‘Send a Thank You’, prompt for a Full Name.
-# If the user types ‘list’, show them a list of the donor names and re-prompt
-# If the user types a name not in the list, add that name to the data structure and use it.
-# If the user types a name in the list, use it.
 # Once a name has been selected, prompt for a donation amount.
 # Verify that the amount is in fact a number, and re-prompt if it isn’t.
 # Once an amount has been given, add that amount to the donation history of the selected user.
