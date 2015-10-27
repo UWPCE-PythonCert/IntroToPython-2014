@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
 
-
-
 def fibonacci(n):
     """Function to return the nth value in the Fibonacci series.
     
@@ -27,8 +25,7 @@ def fibonacci(n):
             if i == n-1:
                 print(p)
                 return p
-        
-    
+
 
 def lucas(n):
     """Function to return the nth value in the Lucas series.
@@ -54,9 +51,8 @@ def lucas(n):
             if i == n-1:
                 print(p)
                 return p
-    
-    
-    
+
+  
 def sum_series(n, f=0, s=1):
     """Function to return the nth value in a sum series.
     
@@ -83,10 +79,9 @@ def sum_series(n, f=0, s=1):
                 return p
 
 
-
-
 if __name__ == "__main__":
     # run some tests
+
     assert fibonacci(1) == 0
     assert fibonacci(2) == 1
     assert fibonacci(3) == 1
@@ -98,7 +93,6 @@ if __name__ == "__main__":
     
     assert lucas(1) == 2
     assert lucas(2) == 1
-    
     assert lucas(5) == 7
     
     assert sum_series(5) == fibonacci(5)
