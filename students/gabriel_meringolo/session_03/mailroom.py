@@ -188,9 +188,3 @@ def num_check(x, y, z):
 
 if __name__ == '__main__':
     mail_head(donors)
-
-
-"""x = donor list
-   y = donor name
-   z = donation amount
-"""
