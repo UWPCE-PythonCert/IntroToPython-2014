@@ -36,9 +36,9 @@ Lightning Talks Today:
 
 .. rst-class:: mlarge
 
-  Andrey Gusev
-  Cheryl Ohashi
-  Maxwell MacCamy
+ Andrey Gusev
+ Cheryl Ohashi
+ Maxwell MacCamy
 
 
 
@@ -453,6 +453,8 @@ which is equivalent to, but faster than:
   this
   that
 
+.. nextslide::
+
 but to get values, must specify you want values:
 
 .. code-block:: ipython
@@ -520,6 +522,9 @@ Assignment maintains link to the original dict
 
   In [50]: item_view
   Out[50]: {'something': 'a value', 'something else': 'another value'}
+
+
+.. nextslide::
 
 Use explicit copy method to get a copy
 
@@ -636,63 +641,14 @@ immutable -- for use as a key in a dict
       File "<stdin>", line 1, in <module>
     AttributeError: 'frozenset' object has no attribute 'add'
 
-LAB
-====
 
-Dict / Set Lab
+LAB: Dictionaries and Sets lab
+==============================
 
-Dictionaries and Sets lab
---------------------------
+Have some fun with dictionaries and sets!
 
-1.
+:ref:`exercise_dict_lab`
 
-* Create a dictionary containing "name", "city", and "cake" for "Chris" from "Seattle" who likes "Chocolate".
-
-* Display the dictionary.
-
-* Delete the entry for "cake".
-
-* Display the dictionary.
-
-* Add an entry for "fruit" with "Mango" and display the dictionary.
-
-  - Display the dictionary keys.
-  - Display the dictionary values.
-  - Display whether or not "cake" is a key in the dictionary (i.e. False) (now).
-  - Display whether or not "Mango" is a value in the dictionary (i.e. True).
-
-.. nextslide::
-
-2.
-
-* Using the dict constructor and zip, build a dictionary of numbers from zero
-  to fifteen and the hexadecimal equivalent (string is fine).
-
-3.
-
-* Using the dictionary from item 1: Make a dictionary using the same keys but
-  with the number of 't's in each value.
-
-.. nextslide:: sets
-
-4.
-
-* Create sets s2, s3 and s4 that contain numbers from zero through twenty,
-  divisible 2, 3 and 4.
-
-* Display the sets.
-
-* Display if s3 is a subset of s2 (False)
-
-* and if s4 is a subset of s2 (True).
-
-5.
-
-* Create a set with the letters in 'Python' and add 'i' to the set.
-
-* Create a frozenset with the letters in 'marathon'
-
-* display the union and intersection of the two sets.
 
 Lightning Talks
 ----------------
@@ -720,7 +676,7 @@ Another Branching structure:
         f = open('missing.txt')
         process(f)   # never called if file missing
     except IOError:
-        print "couldn't open missing.txt"
+        print("couldn't open missing.txt")
 
 Exceptions
 ----------
@@ -770,7 +726,7 @@ So you can do
     try:
         num_in = int(num_in)
     except ValueError:
-        print "Input must be an integer, try again."
+        print("Input must be an integer, try again.")
 
 Or let the Exception be raised....
 
@@ -806,7 +762,7 @@ Exceptions -- finally
         f = open('missing.txt')
         process(f)   # never called if file missing
     except IOError:
-        print "couldn't open missing.txt"
+        print("couldn't open missing.txt")
     finally:
         do_some_clean-up
 
@@ -822,7 +778,7 @@ Exceptions -- else
         do_something()
         f = open('missing.txt')
     except IOError:
-        print "couldn't open missing.txt"
+        print("couldn't open missing.txt")
     else:
         process(f) # only called if there was no exception
 
@@ -839,7 +795,7 @@ Exceptions -- using them
         do_something()
         f = open('missing.txt')
     except IOError as the_error:
-        print the_error
+        print(the_error)
         the_error.extra_info = "some more information"
         raise
 
@@ -987,8 +943,7 @@ File Opening Modes
     'rb', 'wb', 'ab'
     r+, w+, a+
     r+b, w+b, a+b
-    U
-    U+
+
 
 These follow the Unix conventions, and aren't all that well documented
 in the Python docs. But these BSD docs make it pretty clear:
@@ -1004,7 +959,6 @@ Text is default
   * Newlines are translated: ``\r\n -> \n``
   *   -- reading and writing!
   * Use \*nix-style in your code: ``\n``
-  * In text mode, you can use 'U' for "Universal" newline mode.
 
 
 Gotcha:
@@ -1034,7 +988,7 @@ Common Idioms
 .. code-block:: python
 
     for line in open('secrets.txt'):
-        print line
+        print(line)
 
 (the file object is an iterator!)
 
@@ -1047,6 +1001,18 @@ Common Idioms
             break
         do_something_with_line()
 
+.. nextslide::
+
+We will learn more about the keyword with later, but for now, just understand 
+the syntax and the advantage over the try-finally block:
+
+.. code-block:: python
+
+ with open('workfile', 'r') as f:
+     read_data = f.read()
+ f.closed
+ True
+
 
 File Writing
 ------------
@@ -1056,6 +1022,11 @@ File Writing
     outfile = open('output.txt', 'w')
     for i in range(10):
         outfile.write("this is line: %i\n"%i)
+    outfile.close()
+
+    with open('output.txt', 'w'):
+        for i in range(10):
+           f.write("this is line: %i\n"%i)
 
 
 File Methods
@@ -1071,37 +1042,21 @@ Commonly Used Methods
 
     f.seek(offset)   f.tell() # for binary files, mostly
 
-    f.flush()
-
     f.close()
-
-
-File Like Objects
------------------
-
-
-Many classes implement the file interface:
-
-  * loggers
-  * ``sys.stdout``
-  * ``urllib.open()``
-  * pipes, subprocesses
-  * StringIO
-  * variois objects in the ``io`` module
-
-https://docs.python.org/2/library/stdtypes.html#file-objects
 
 StringIO
 --------
 
 .. code-block:: python
 
-    In [417]: import StringIO
-    In [420]: f = StringIO.StringIO()
+    In [417]: import io
+    In [420]: f = io.StringIO()
     In [421]: f.write("somestuff")
     In [422]: f.seek(0)
     In [423]: f.read()
     Out[423]: 'somestuff'
+    Out[424]: stuff = f.getvalue()
+    Out[425]: f.close()
 
 (handy for testing file handling code...)
 
@@ -1143,10 +1098,10 @@ os module
 
 .. code-block:: python
 
-    os.getcwd() -- os.getcwdu() (u for Unicode)
-    chdir(path)
+    os.getcwd()
+    os.chdir(path)
     os.path.abspath()
-    os.path.relpath()￼
+    os.path.relpath()
 
 
 .. nextslide:: os.path module
@@ -1175,15 +1130,9 @@ os module
 pathlib
 -------
 
-``pathlib`` is a new package for handling paths in an OO way:
+``pathlib`` is a package for handling paths in an OO way:
 
 http://pathlib.readthedocs.org/en/pep428/
-
-It is now part of the Python3 standard library, and has been back-ported for use with Python2:
-
-.. code-block:: bash
-
-    $ pip install pathlib
 
 All the stuff in os.path and more:
 
@@ -1196,7 +1145,7 @@ All the stuff in os.path and more:
     In [67]: pth.absolute()
     Out[67]: PosixPath('/Users/Chris/PythonStuff/CodeFellowsClass/sea-f2-python-sept14/Examples/Session04')
     In [68]: for f in pth.iterdir():
-                 print f
+                 print(f)
     junk2.txt
     junkfile.txt
     ...
@@ -1212,7 +1161,7 @@ Files Lab
 
 In the class repo, in:
 
-``Examples\Session01\students.txt``
+``Examples\students.txt``
 
 You will find the list I generated of all the students in the class, and
 what programming languages they have used in the past.
@@ -1225,7 +1174,7 @@ Extra credit: keep track of how many students specified each language.
 If you've got git set up right, ``git pull upstream master`` should update
 your repo. Otherwise, you can get it from gitHub:
 
-``https://github.com/UWPCE-PythonCert/IntroToPython/blob/master/Examples/Session01/students.txt``
+``https://github.com/UWPCE-PythonCert/IntroPython2015/blob/master/Examples/students.txt``
 
 
 =========
