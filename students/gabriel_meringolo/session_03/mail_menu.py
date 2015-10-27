@@ -58,7 +58,6 @@ def mail_menu(x):
     print("--------------------------------------------\a")
     menu = input("1: Send a 'Thank You' Letter to Donor\n2: Create Donor report\n3: Quit\n>")
     if menu == "1":
-        #name = input("")
         thank_you(x)
     if menu == "2":
         report(x)
@@ -130,7 +129,6 @@ def donor_check(x):
     :param y: donor name
     :return:
     '''
-    #new_don = ""
     y = input("\nEnter Donor name\n> ")
     if y.lower() == "quit":
         quit_mr()
@@ -138,10 +136,7 @@ def donor_check(x):
         print("\nDonor Found")
         return y
     elif y not in flat_list(x):
-        #print(new_don, "rad")
-        #new_don = y
-        #print(new_don, "radder")
-        add_donor(x,y)
+        return add_donor(x,y)
 
 
 def add_donate(x, y):
