@@ -13,32 +13,50 @@
 
 
 donors = [
-    ["Carol Danvers", 25, 100],
-    ["Kumala Khan", 15, 15, 25],
-    ["Jennifer Walters", 50, 100, 65],
-    ["Monica Rambeau", 200],
-    ["Jessica Drew", 45, 30, 70]
+    ["Carol Danvers", 25.00, 100.00],
+    ["Kumala Khan", 15.00, 15.00, 25.00],
+    ["Jennifer Walters", 50.00, 100.00, 65.00],
+    ["Monica Rambeau", 200.00],
+    ["Jessica Drew", 45.00, 30.00, 70.00]
     ]
 
 
 def intro():
-    print("\tMAILROOM OPTIONS")
-    print("\t1 - Send a Thank You")
-    print("\t2 - Create a Report")
-    print("\n\t(Type 'exit' at any time to quit.")
+    print("\nMAILROOM OPTIONS")
+    print("1 - Send a Thank You")
+    print("2 - Create a Report")
+    print("\n(Type 'exit' at any time.)\n")
 
 
 def mailroom():
+    intro()
     while True:
         choice = input("What would you like to do? ")
-        if choice == 1:
+        if choice == "1":
+            print("\nSend a Thank You:\n")
             thanks()
+#         elif choice == "2":
+#             report()
+        elif choice.lower() == "exit":
+            print("\nGoodbye.")
+            break
+#        else:
+#            print("\nThat choice isn't on the list.\n")
+
 
 
 # Sending a Thank You
 def thanks():
-    get_name()
-
+    donor_name = get_name()
+    if donor_name is not "exit":
+        donation = get_amount(donor_name)
+    else: 
+        donation = 0
+    if donation is not 0:
+        write_letter(donor_name, donation)
+    else:
+        print("Returning to main menu.\n")
+        intro()
 
 def get_name():
     while True:
@@ -51,23 +69,51 @@ def get_name():
             print("The current list of donors is: ")
             for i in donors:
                 print(i[0])
-            pass
-        # If the user types a name not in the list, add that name to the data structure and use it.
-        elif donor_name.lower() not in donors:
-            donors.append([donor_name])
-            return donor_name
-        # If the user types a name in the list, use it.
-        else: 
-            assert donor_name in donors
-            return donor_name
+        else:
+            # If the user types a name in the list, use it.
+            count = 0 
+            for i in donors:
+                if donor_name in i:
+                    count += 1
+            if count > 0:
+                return donor_name
+            # If the user types a name not in the list, add that name to the data structure and use it.
+            else:
+                donors.append([donor_name])
+                return donor_name
 
 
-# Once a name has been selected, prompt for a donation amount.
-# Verify that the amount is in fact a number, and re-prompt if it isn’t.
-# Once an amount has been given, add that amount to the donation history of the selected user.
+def get_amount(donor_name):
+    new_donation = 0
+    while new_donation < 1:
+        # Once a name has been selected, prompt for a donation amount.
+        new_donation = input("Please enter the dollar amount of the new donation from " + donor_name + ", rounded: $")
+        # Verify that the amount is in fact a number, and re-prompt if it isn’t.
+        # Once an amount has been given, add that amount to the donation history of the selected user.
+        if new_donation.lower() == "exit":
+            break
+        elif new_donation.isnumeric():
+            new_donation = int(new_donation)
+            for i in donors:
+                if donor_name is i[0]:
+                    i.append(new_donation)
+                    return new_donation
+        else:
+            print("You didn't enter a dollar amount.")
+
 # Finally, use string formatting to compose an email thanking the donor for 
 # their generous donation. Print the email to the terminal and return to the original prompt.
-# It is fine to forget new donors once the script quits running.
+def write_letter(donor,amount):
+    if amount == 0:
+        return ("No letter will be written.")
+    else:
+        charity = "Carter Home for Retired Superheroes"
+        signed = "S.A. Carter"
+        print("Dear {name}".format(name = donor))
+        print("\nThank you so much for your generous donation of ${:d} to the \n{}.".format(amount, charity))
+        print("\n{:},".format("Sincerely"))
+        print("{}".format(signed))
+
 
 
 
