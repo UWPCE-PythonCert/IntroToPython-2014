@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 # had a busy week - this is a work in progress - just realized too i probably should not be using dicts
-# i will make another version using just lists
+# i will make another version using just lists (or maybe a tuple with a list in it)
 
 donors = {
     'John Doe' : ['25', '50', '50'],
