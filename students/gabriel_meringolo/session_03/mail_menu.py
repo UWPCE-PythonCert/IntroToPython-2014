@@ -1,14 +1,17 @@
 donors = [["Graham", 1, 5, 10], ["Eric", 4, 6], ["Terry", 5, 5, 5], ["John", 20], ["Michael", 10, 10]]
 
-def get_two(item): #returns the second item
+
+def get_two(item):
+    '''returns second item in list'''
     return item[1]
 
-def doner_list(x): #compiles the donor list descending by total donations
+
+def report(x): #compiles the donor list descending by total donations
     d_list = []
     for i in x:
         d_list.append(list(((i[0], sum(i[1:]), len(i) - 1, (sum(i[1:]) // (len(i) - 1))))))
     d_list = sorted(d_list,key=get_two, reverse=True)
-    print("Donors              Total Amt           Total Donations        Average Amt        ")
+    print("\nDonors              Total Amt           Total Donations        Average Amt        ")
     print("------------------------------------------------------------------------------\n")
     for i in d_list:
         donor = str(i[0])
@@ -18,6 +21,7 @@ def doner_list(x): #compiles the donor list descending by total donations
         print("{}".format(donor) + " " * (20 - len(str(i[0]))) + "${}".format(totes) +
               " " * 18 + "{}".format(donx) + " " * 22 + "${}".format(ave),)
     print("\n")
+
 
 def mail_head(x):
     '''
@@ -34,6 +38,12 @@ def mail_head(x):
     mail_menu(x)
 
 
+def quit_mr():
+    '''prints goodbye and quits program'''
+    print("\nThank you for using the Mail-Tron 2000\nGoodbye")
+    quit()
+
+
 def mail_menu(x):
     '''
     prints mailroom user interface
@@ -44,29 +54,27 @@ def mail_menu(x):
     print("--------------------------------------------\a")
     menu = input("1: Send a 'Thank You' Letter to Donor\n2: Create Donor report\n3: Quit\n>")
     if menu == "1":
-        name = input("")
-        thank_you()
+        #name = input("")
+        thank_you(x)
     if menu == "2":
-        doner_list(x)
+        report(x)
         mail_menu(x)
     if menu.lower() == "quit" or menu == "3":
-        print("\nThank you for using the Mail-Tron 2000\nGoodbye")
-        quit()
+        quit_mr()
 
+
+def thank_you(x):
+    pers = input("\nPlease make a selection from the menu below\n"
+                 "-------------------------------------------\n"
+                 "1. Enter Donor name\n2. Display list of Donors\n3. Return to Main Menu\n4. Quit\n> ")
+    if pers == "1":
+        donor_check(x)
+    if pers == "2":
+        donor_names(x)
+        thank_you(x)
+    if pers == "3":
+        mail_menu()
+    if menu.lower() == "quit" or menu == "4":
+        quit_mr()
 
 mail_head(donors)
-
-
-
-
-#If the user (you) selected ‘Create a Report’ Print a list of your donors, sorted by total historical donation amount.
-#Include Donor Name, total donated, number of donations and average donation amount as values in each row.
-#Using string formatting, format the output rows as nicely as possible. The end result should be tabular (values in each column should align with those above and below)
-#After printing this report, return to the original prompt.
-#At any point, the user should be able to quit their current task and return to the original prompt.
-#From the original prompt, the user should be able to quit the script cleanly
-
-
-#print(dnrct)
-#print(dntct)
-#print(amtct)
