@@ -60,5 +60,6 @@ def report():
     print('\nreports:  COMING EVENTUALLY')
     print(mailroom())
 
+if __name__ == '__main__':
 print(mailroom())
 
