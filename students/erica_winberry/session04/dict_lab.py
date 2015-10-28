@@ -1,3 +1,5 @@
+# -- PART 1 --
+
 # Create a dictionary containing “name”, “city”, and “cake” for “Chris” from “Seattle” who likes “Chocolate”.
 d = {"name": "Chris", "city": "Seattle", "cake": "Chocolate"}
 # Display the dictionary.
@@ -17,3 +19,16 @@ print(d.get("cake", "Not there!"))
 # Display whether or not “Mango” is a value in the dictionary (i.e. True).
 if "Mango" in d.values():
     print("True")
+
+
+# -- PART 2 --
+# Using the dictionary from item 1: 
+# Make a dictionary using the same keys but with the number of ‘t’s in each value.
+
+d2 = d.copy()
+for k, v in d2.items():
+   d2[k] = (v.count("t"))
+
+print(d2)
+
+# -- PART 3 --
