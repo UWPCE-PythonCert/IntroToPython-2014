@@ -51,7 +51,7 @@ def mailroom():
                 for i in d:
                     t = t + int(i)
                 avg = int(t) // len(d)
-                print("{}\t\t{:^9}\t{:^7}\t\t{:^5}".format(n, len(d), avg, t))
+                print("{:20}\t{:^9}\t{:^7}\t\t{:^5}".format(n, len(d), avg, t))
         if a == 'q':
             sys.exit()
             

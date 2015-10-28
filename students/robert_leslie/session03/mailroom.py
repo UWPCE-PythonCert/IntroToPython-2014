@@ -33,24 +33,26 @@ def mailroom():
                 print()
                 for p, d in donors:
                     print(p)
-        #    elif n in donors:
-        #        m = get_donation()
-        #        donors[n].append(m)
-        #        print(donors[n])
-        #        make_email(n,m)
-        #    else:
-        #        m = get_donation()
-        #        donors[n] = [m]
-        #        print(donors[n])
-        #if a == '2':
-        #    print('\nName\t\t\tDonations\tAverage\t\tTotal\n')
-        #    for n in donors.keys():
-        #        d = donors[n]
-        #        t = 0
-        #        for i in d:
-        #            t = t + int(i)
-        #        avg = int(t) // len(d)
-        #        print("{}\t\t{:^9}\t{:^7}\t\t{:^5}".format(n, len(d), avg, t))
+            else:
+                for p, d in donors:
+                    if p == n:
+                        m = get_donation()
+                        d.append(m)
+                        break
+                    else:
+                        m = get_donation()
+                        donors.append((n, [m]))
+                        break
+                #print(donors)
+                make_email(n,m)
+        if a == '2':
+            print('\nName\t\t\tDonations\tAverage\t\tTotal\n')
+            for p, d in donors:
+                t = 0
+                for i in d:
+                    t = t + int(i)
+                avg = int(t) // len(d)
+                print("{:20}\t{:^9}\t{:^7}\t\t{:^5}".format(p, len(d), avg, t))
         if a == 'q':
             sys.exit()
             
