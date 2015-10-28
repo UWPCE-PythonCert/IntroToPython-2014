@@ -6,7 +6,7 @@ def FizzBuzz(num):
     :return: print values and string based on logic statements
     """
     for num in range(1, (num + 1)):
-        if num%3 == 0 and num%5 == 0:
+        if num%15 == 0:
             print ("FizzBuzz")
         elif num%3 == 0:
             print ("Fizz")
