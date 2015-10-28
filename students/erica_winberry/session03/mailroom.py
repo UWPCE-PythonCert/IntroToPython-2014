@@ -16,6 +16,13 @@ donors = [
     ]
 
 
+def safe_input(message):
+    try: 
+        input(message)
+    except (KeyboardInterrupt, EOFError):
+        return None
+
+
 def intro():
     print("\nMAILROOM OPTIONS")
     print("1 - Send a Thank You")
@@ -26,7 +33,7 @@ def intro():
 def mailroom():
     intro()
     while True:
-        choice = input("What would you like to do? ")
+        choice = safe_input("What would you like to do? ")
         if choice == "1":
             print("\nSend a Thank You:\n")
             thanks()
