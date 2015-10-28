@@ -24,9 +24,8 @@ s2 = {x for x in range(0,21) if x%2 == 0}
 s3 = {x for x in range(0,21) if x%3 == 0}
 s4 = {x for x in range(0,21) if x%4 == 0}
 
-print (s2)
-print (s3)
-print (s4)
+print (s2, "\n", s3, "\n", s4)
+
 
 print (s3.issubset(s2))
 print (s4.issubset(s2))
