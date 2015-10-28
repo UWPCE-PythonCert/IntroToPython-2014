@@ -5,14 +5,27 @@ Mail Room
 
 
 def list_donors():
+    ''' Return sorted list of donors'''
+    x = [i for i in donors.keys()]
+    x.sort()
+    return x
+
+
+def show_email(d):
+    ''' Print email to screen'''
     pass
 
 
-def thankyou():
-    d = input("Donor's name (enter 'list' for current donor roster): ")
-    if d == 'list':
-        print(list_donors)
-
+def get_donation():
+    '''Request and return a .2f formatted float'''
+    while True:
+        try:
+            a = float(input("Enter donation amount: "))
+        except ValueError:
+            print("Donation must be a number.")
+        break
+    # Ensure that we are returning a formatted float
+    return float('{0:.2f}'.format(a))
 
 if __name__ == '__main__':
     donors = {
@@ -28,7 +41,7 @@ if __name__ == '__main__':
 
     menu = '''
 MailRoom
-==============================================================
+=====================================================================
 A) Send a 'Thank You' note
 B) Create a report
 X) Quit
@@ -38,9 +51,26 @@ X) Quit
     while True:
         print(menu)
         x = input('>')
-        if x.lower() is 'a':
+        if x.lower() == 'a':
+            # Send a 'Thank You'
+            prompt = "Donor's full name (enter 'list' for roster or 'menu'"\
+                     " for main menu): "
+            d = input(prompt)
+            # Print out donor list if requested
+            if d == 'list':
+                print('Current Donors', '='*70)
+                for i in list_donors():
+                    print(i)
+                continue
+            # Add new donor if not in list
+            if d not in donors:
+                donors[d] = []
+            # Get donation amount
+            donors[d] = get_donation()
+
+        elif x.lower() == 'b':
+            # Report
             pass
-        elif x.lower() is 'b':
-            pass
-        elif x.lower() is 'x':
+        elif x.lower() == 'x':
+            # Quit
             break
