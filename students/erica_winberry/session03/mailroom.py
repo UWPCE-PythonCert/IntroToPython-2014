@@ -61,9 +61,7 @@ def report(l):
     print("{:>20}".format("------------------") * 4)
     for i in l:
         donor = i[0].title()
-        total_amount = 0
-        for d in i[1:]:
-            total_amount += d
+        total_amount = sum(i[1:])
         total_donations = (len(i)-1)
         avg_donation = total_amount / total_donations
         print("{:>20}{:>20.2f}{:>20.2f}{:>20.2f}".format(donor, total_amount, total_donations, avg_donation))
@@ -125,6 +123,7 @@ def get_amount(donor, l):
         else:
             print("You didn't enter a dollar amount.")
 
+
 # Finally, use string formatting to compose an email thanking the donor for 
 # their generous donation. Print the email to the terminal and return to the original prompt.
 def write_letter(donor,amount):
@@ -140,6 +139,7 @@ def write_letter(donor,amount):
         print("\nThank you so much for your generous donation of ${:.2f} to the \n{}.".format(amount, charity))
         print("\n{:},".format(closing))
         print("{}\n".format(signed))
+
 
 if __name__ == "__main__":
     mailroom()
