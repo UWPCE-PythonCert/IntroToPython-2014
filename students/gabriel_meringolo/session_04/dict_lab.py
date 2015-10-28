@@ -1,33 +1,36 @@
 #When the script is run, it should accomplish the following four series of actions:
 
 #Create a dictionary containing “name”, “city”, and “cake” for “Chris” from “Seattle” who likes “Chocolate”.
-dict = {"name" : "Chris", "city" : "Seattle", "cake" : "Chocolate"}
+dic = {"name" : "Chris", "city" : "Seattle", "cake" : "Chocolate"}
 
 #Display the dictionary.
-print(dict)
+print(dic)
 
 #Delete the entry for “cake”.
-del dict["cake"]
+del dic["cake"]
 
 ##Display the dictionary.
-print(dict)
+print(dic)
 
 #Add an entry for “fruit” with “Mango” and display the dictionary.
-dict["fruit"] = "Mango"
+dic["fruit"] = "Mango"
 
 #Display the dictionary keys.
-print(dict.keys())
+print(dic.keys())
 
 #Display the dictionary values.
-print(dict.values())
+print(dic.values())
 
 #Display whether or not “cake” is a key in the dictionary (i.e. False) (now).
-print("cake" in dict)
+print("cake" in dic)
 
 #Display whether or not “Mango” is a value in the dictionary (i.e. True).
-print("Mango" in dict)
+print("Mango" in dic)
 
 #Using the dictionary from item 1: Make a dictionary using the same keys but with the number of ‘t’s in each value.
+t_dict = dict(dic)
+print(t_dict)
+
 
 
 #Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
@@ -59,8 +62,14 @@ print(s4 in s2)
 py_set = set()
 for i in "Python":
     py_set.update(i)
-py_set.update("i")
+py_set.add("i")
 print(py_set)
 
 #Create a frozenset with the letters in ‘marathon’
+m_set = frozenset(["m","a","r","a","t","h","o","n"])
+print(m_set)
+
+
 #display the union and intersection of the two sets.
+print("union: ", py_set.union(m_set))
+print("intersection: ", py_set.intersection(m_set))
