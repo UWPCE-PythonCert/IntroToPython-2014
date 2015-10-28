@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 IntroToPython
 ==============
 
@@ -16,12 +15,5 @@ Class lecture materials are available in a rendered version from:
 http://UWPCE-PythonCert.github.io/IntroToPython
 
 =======
-hello world
+# Python code for the UWPCE Intro to Python class
 >>>>>>> b5f4f2fbabdb66fec9e1b0bddf971af5179546d5
-=======
-==============================
-Class Repo for Intro to Python
-==============================
-
-This repository is used to keep track of student's work and solutions for the first class of the UWPCE Python Certificate Program -- begining Fall 2015 
->>>>>>> 4fec6f7c2ac1cc7cb5ac190671cd9924a1e0c0d8
