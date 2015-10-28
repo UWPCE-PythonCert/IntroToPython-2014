@@ -1,3 +1,6 @@
+import os
+
+os.chdir("../../../Examples")
 student_data = []
 f = open("students.txt", "r")
 for line in f:
