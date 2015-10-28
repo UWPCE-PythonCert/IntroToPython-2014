@@ -11,9 +11,18 @@ def list_donors():
     return x
 
 
-def show_email(d):
-    ''' Print email to screen'''
-    pass
+def write_email(d, a):
+    ''' Print email to screen
+        d is the donor name
+        a is the amount donated'''
+    email = '''
+Dear {name},
+    Thank you kindly for your significant contribution of ${amount:,.2f}.
+
+Sincerely,
+The Mgmt
+'''
+    return email.format(name=d, amount=a)
 
 
 def get_donation():
@@ -26,6 +35,32 @@ def get_donation():
         break
     # Ensure that we are returning a formatted float
     return float('{0:.2f}'.format(a))
+
+
+def send_thank_you():
+    prompt = "Donor's full name (enter 'list' for roster or 'menu'"\
+             " for main menu): "
+    # Print out donor list if requested
+    while True:
+        d = input(prompt)
+        if d == 'list':
+            print('Current Donors', '='*70)
+            for i in list_donors():
+                print(i)
+            print('\n')
+            continue
+        elif d == 'menu':
+            return
+        else:
+            # We got a name
+            break
+    # Add new donor if not in list
+    if d not in donors:
+        donors[d] = []
+    # Get donation amount
+    amount = get_donation()
+    donors[d].append(amount)
+    print(write_email(d, amount))
 
 if __name__ == '__main__':
     donors = {
@@ -50,24 +85,10 @@ X) Quit
 
     while True:
         print(menu)
-        x = input('>')
+        x = input('> ')
         if x.lower() == 'a':
             # Send a 'Thank You'
-            prompt = "Donor's full name (enter 'list' for roster or 'menu'"\
-                     " for main menu): "
-            d = input(prompt)
-            # Print out donor list if requested
-            if d == 'list':
-                print('Current Donors', '='*70)
-                for i in list_donors():
-                    print(i)
-                continue
-            # Add new donor if not in list
-            if d not in donors:
-                donors[d] = []
-            # Get donation amount
-            donors[d] = get_donation()
-
+            send_thank_you()
         elif x.lower() == 'b':
             # Report
             pass
