@@ -8,6 +8,8 @@ for line in f:
     student, langs = line
     if "\n" in langs:
         langs = langs.replace("\n", "")
+    if "," in langs:
+        langs = langs.replace(",", "")
     langs = langs.split(" ")
     student_data.append(langs)
 f.close()
@@ -21,20 +23,20 @@ for i in student_data:
         if "," in t:
             t.replace(",", "")
 
-
-def get_count(l):
+def count_langs(l):
+    languages = {}
     for t in l:
-        if t == []:
-            pass
-        else:
-            num = l.count(t)
-            return(num)
+        for item in t:
+            if item not in languages:
+                languages[item] = 1
+            else:
+                languages[item] += 1
+    return languages
 
-for i, item in enumerate(student_data):
-    for t in item:
-        x = get_count(t)
-        print(t, x)
+for k, v in (count_langs(student_data)).items():
+    print(v, k)
 
+os.chdir("../students/erica_winberry/session04")
 
 
 
