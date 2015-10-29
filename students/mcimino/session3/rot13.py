@@ -12,11 +12,12 @@ def rot13(str1):
 
     return str2
 
-a = rot13('Hello there!')
-print(a)
+if __name__ == '__main__':
+    a = rot13('Hello there!')
+    print(a)
 
-b = rot13('I am the walrus!')
-print(b)
+    b = rot13('I am the walrus!')
+    print(b)
 
-c = rot13('Zntargvp sebz bhgfvqr arne pbeare')
-print(c)
+    c = rot13('Zntargvp sebz bhgfvqr arne pbeare')
+    print(c)
