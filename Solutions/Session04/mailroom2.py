@@ -17,7 +17,8 @@ from textwrap import dedent
 # using a tuple for each donor
 # -- kind of like a record in a database table
 # using a dict with a lower case version of the donor's name as the key
-donor_db = {'william gates iii': ("William Gates III", [653772.32, 12.17]),
+def get_donor_db():
+    return {'william gates iii': ("William Gates III", [653772.32, 12.17]),
             'jeff bezos': ("Jeff Bezos", [877.33]),
             'paul allen': ("Paul Allen", [663.23, 43.87, 1.32]),
             'mark zuckerberg': ("Mark Zuckerberg", [1663.23, 4300.87, 10432.0]),
@@ -26,7 +27,7 @@ donor_db = {'william gates iii': ("William Gates III", [653772.32, 12.17]),
 
 def list_donors():
     """
-    creates alist of the donors as a string, so they can be printed
+    creates a list of the donors as a string, so they can be printed
 
     Not calling print from here makes it more flexible and easier to
     test
@@ -192,6 +193,9 @@ def quit():
     sys.exit(0)
 
 if __name__ == "__main__":
+
+    donor_db = get_donor_db()
+
     running = True
 
     selection_dict = {"1": send_thank_you,

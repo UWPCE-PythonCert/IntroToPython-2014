@@ -7,14 +7,15 @@ import os
 
 import mailroom2 as mailroom
 
+# so that it's there for the tests
+mailroom.donor_db = mailroom.get_donor_db()
 
-# DB = mailroom.donor_db
 
 def test_list_donors():
     listing = mailroom.list_donors()
 
     # hard to test this throughly -- better not to hard code the entire
-    # thing. But check for a few aspects -- this will catchthe likley
+    # thing. But check for a few aspects -- this will catch the likley
     # errors
     assert listing.startswith("Donor list:\n")
     assert "Jeff Bezos" in listing
@@ -62,7 +63,7 @@ def test_generate_donor_report():
 
     report = mailroom.generate_donor_report()
 
-    print(report)  # printing so you can see it if it fails
+    # print(report)  # printing so you can see it if it fails
     assert report.startswith("Donor Name                | Total Given | Num Gifts | Average Gift")
 
     assert "Jeff Bezos                       877.33           1         877.33" in report
@@ -75,3 +76,15 @@ def test_save_letters_to_disk():
 
     assert os.path.isfile('Jeff_Bezos.txt')
     assert os.path.isfile('William_Gates,_III.txt')
+
+if __name__ == "__main__":
+    # this is best run with a test runner, like pytest
+    # But if not, at least this will run them all.
+    test_list_donors()
+    test_find_donor()
+    test_find_donor_not()
+    test_gen_letter()
+    test_add_donor()
+    test_generate_donor_report()
+    test_save_letters_to_disk()
+    print("All tests Passed")

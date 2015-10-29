@@ -22,6 +22,30 @@ import string
 import random
 
 
+def strip_punctuation(text):
+    """
+    strips the punctuation from a bunch of text
+    """
+    # build a translation table for string.translate:
+    # there are other ways to do this:
+
+    # create a translation table to replace all punctuation with spaces
+    #    -- then split() will remove the extra spaces
+    punctuation = string.punctuation
+    punctuation = punctuation.replace("'", "")  # keep apostropies
+    punctuation = punctuation.replace("-", "")  # keep hyphenated words
+    # building a translation table
+    table = {}
+    for c in punctuation:
+        table[ord(c)] = ' '
+    # remove punctuation with the translation table
+    text = text.translate(table)
+    # remove "--" -- can't do multiple characters with translate
+    text = text.replace("--", " ")
+
+    return text
+
+
 def make_words(text):
 
     """
@@ -29,46 +53,29 @@ def make_words(text):
 
     strips all the punctuation and other stuff from a string
     """
-
-    # build a translation table for string.translate:
-    # there are other ways to do this:
-    #   a_word.strip() works well, too.
-
-    punctuation = string.punctuation
-    punctuation = punctuation.replace("'", "") # keep apostropies
-    punctuation = punctuation.replace("-", "") # keep hyphenated words
-    ## this will replace punctiation with spaces
-    ##    -- then split() will remove the extra spaces
-    table = string.maketrans(punctuation, " "*len(punctuation))
+    text = strip_punctuation(text)
 
     # lower-case everything to remove that complication:
     text = text.lower()
 
-    # remove punctuation
-    text = text.translate(table)
-
-    # remove "--" -- can't do multiple characters with translate
-    text = text.replace("--", " ")
-
     # split into words
     words = text.split()
 
-    # remove the bare single quotes
-    # " ' " is both a quote and an apostrophe
+    # remove the bare single quotes: "'" is both a quote and an apostrophe
+    # and capitalize "i"
     words2 = []
     for word in words:
-        if word != "'": # remove quote by itself
+        if word != "'":  # remove quote by itself
             # "i" by itself should be capitalized
             words2.append("I" if word == 'i' else word)
-    ## could be done with list comp too -- next week!
+    # could be done with list comp too -- next week!
     # words2 = [("I" if word == 'i' else word) for word in words if word != "'"]
-
     return words2
 
 
 def read_in_data(infilename):
 
-    infile = open(infilename, 'r') # text mode is default
+    infile = open(infilename, 'r')  # text mode is default
     # strip out the header, table of contents, etc.
     for i in range(61):
         infile.readline()
@@ -92,13 +99,12 @@ def build_trigram(words):
     # The values will be a list of the words that follow each pair
     word_pairs = {}
 
-
     # loop through the words
     # (rare case where using the index to loop is easiest)
-    for i in range(len(words) - 2): # minus 2, 'cause you need a pair'
-        pair = tuple( words[i:i+2] )  # a tuple so it can be a key in the dict
+    for i in range(len(words) - 2):  # minus 2, 'cause you need a pair'
+        pair = tuple(words[i:i+2])  # a tuple so it can be a key in the dict
         follower = words[i+2]
-        word_pairs.setdefault(pair,[]).append(follower)
+        word_pairs.setdefault(pair, []).append(follower)
 
         # setdefault() returns the value if pair is already in the dict
         #    if it's not, it adds it, setting the value to a an empty list
@@ -120,19 +126,19 @@ def build_text(word_pairs):
     """
 
     new_text = []
-    for i in range(30): # do thirty sentences
+    for i in range(30):  # do thirty sentences
         # pick a word pair to start the sentence
-        sentence = list(random.choice( word_pairs.keys() ) )
-
+        # need to make dict.keys() a list to randomly select from it
+        sentence = list(random.choice(list(word_pairs.keys())))
         # now add a random number of additional words to the sentence
-        for j in range(random.randint(2,10)):
+        for j in range(random.randint(2, 10)):
             pair = tuple(sentence[-2:])
-            sentence.append( random.choice(word_pairs[pair]) )
+            sentence.append(random.choice(word_pairs[pair]))
 
-        #capitalize the first word:
+        # capitalize the first word:
         sentence[0] = sentence[0].capitalize()
 
-        #Add the period
+        # Add the period
         sentence[-1] += "."
         new_text.extend(sentence)
 
@@ -142,12 +148,11 @@ def build_text(word_pairs):
 
 
 if __name__ == "__main__":
-
     # get the filename from the command line
     try:
         filename = sys.argv[1]
     except IndexError:
-        print "You must pass in a filename"
+        print("You must pass in a filename")
         sys.exit(1)
 
     in_data = read_in_data(filename)
@@ -155,4 +160,4 @@ if __name__ == "__main__":
     word_pairs = build_trigram(words)
     new_text = build_text(word_pairs)
 
-    print new_text
+    print(new_text)
