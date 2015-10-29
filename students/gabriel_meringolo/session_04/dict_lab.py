@@ -29,6 +29,8 @@ print("Mango" in dic)
 
 #Using the dictionary from item 1: Make a dictionary using the same keys but with the number of ‘t’s in each value.
 t_dict = dict(dic)
+for i,j in dic.items():
+        t_dict[i] = j.count("t")
 print(t_dict)
 
 
