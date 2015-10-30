@@ -1,24 +1,13 @@
-x = open("sherlock.txt", "r").read().split() # opened txt file as file object makes it readable and splits it
-first_two = " ".join(x[:2])
-print(first_two)
-#x = y.read() # reading file object
+x = open("sherlock.txt", "r").read() # opened txt file as file object
+y = x.split()
+first_two = " ".join(x.split()[:2]) # isolating first two words
 
-#first_two = " ".join(x.split()[:2]) # isolating first two words
-
-#print(first_two)
-#x[x.index(first_two) + 1]
-#print(x[x.find(first_two) + len(first_two) + 1])
-
-#next_word = first_two.split()[1]
-#print(next_word)
-
-#print(first_two.split()[1])
-#print(x[x.find(first_two) + len(first_two) + 1:])
-#print(first_two)
+start_point = (x.index(first_two) + len(first_two))
+next_word = [" ".join(x[start_point:].split()[:1])]
+#print(" ".join(x[start_point:].split()[:1]))
 #if first_two in x:
-#    print(x[x.find(first_two) + len(first_two) + 1:])
-#print(" ".join(x.split()[:2]))
+#    print(x.index(first_two + len(first_two)))
+print(first_two, "=>", next_word)
 
-#print(x[x.find("may") + len("may") : ])
 
 
