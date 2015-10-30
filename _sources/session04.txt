@@ -37,9 +37,10 @@ Lightning Talks Today:
 .. rst-class:: mlarge
 
  Andrey Gusev
- Cheryl Ohashi
- Maxwell MacCamy
 
+ Cheryl Ohashi
+
+ Maxwell MacCamy
 
 
 ==============================
@@ -650,15 +651,13 @@ Have some fun with dictionaries and sets!
 :ref:`exercise_dict_lab`
 
 
-Lightning Talks
-----------------
+Lightning Talk
+--------------
 
 |
-| Andrey Gusev
+| Maxwell MacCamy
 |
-|
-| Cheryl Ohashi
-|
+
 
 ==========
 Exceptions
@@ -873,9 +872,9 @@ Exceptions Lab
 Exceptions Lab
 ---------------
 
-Improving ``raw_input``
+Improving ``input``
 
-* The ``raw_input()``  function can generate two exceptions: ``EOFError``
+* The ``input()``  function can generate two exceptions: ``EOFError``
   or ``KeyboardInterrupt``  on end-of-file(EOF) or canceled input.
 
 * Create a wrapper function, perhaps ``safe_input()``  that returns ``None``
@@ -883,16 +882,6 @@ Improving ``raw_input``
 
 * Update your mailroom program to use exceptions (and IBAFP) to handle
   malformed numeric input
-
-Lightning Talk
-----------------
-
-|
-| Lesley D Reece
-|
-|
-| Maxwell MacCamy
-|
 
 
 ========================
@@ -1003,7 +992,7 @@ Common Idioms
 
 .. nextslide::
 
-We will learn more about the keyword with later, but for now, just understand 
+We will learn more about the keyword with later, but for now, just understand
 the syntax and the advantage over the try-finally block:
 
 .. code-block:: python
