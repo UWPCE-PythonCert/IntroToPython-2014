@@ -29,7 +29,7 @@ def trigrams_to_text(trigrams):
     next_pair = (new_text[-2], new_text[-1])
 
     while next_pair in keys_list:
-        if len(new_text) >= 200:
+        if len(new_text) > 200:
             break
         else:
             new_text.append(random.choice(trigrams[next_pair]))
