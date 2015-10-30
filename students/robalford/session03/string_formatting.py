@@ -7,3 +7,6 @@ values = (2, 4, 6, 8, 10, 12)
 num_values = len(values)
 values_string = str(values).strip('()')
 print("the first {:d} numbers are: {}".format(num_values, values_string))
+
+# exercise 2 revisions
+
