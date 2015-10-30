@@ -65,8 +65,7 @@ def rot13b(text):
 
 # Translation table for 1 byte string objects:
 # Faster if you build a translation table and use that
-# a translation table needs to be 256 characters long
-#  -- all ord vales from 0 to 255
+
 
 # build a translation table:
 str_table = []
@@ -94,6 +93,11 @@ for c in range(a, z+1):
 for c in range(A, Z+1):
     dict_table[c] = A + (c - A + 13) % 26
 
+# OR use the maketrans() method, and hard code the translation
+orig =    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+rotated = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+table = str.maketrans(orig, rotated)
+
 
 def rot13c(text):
     """
@@ -108,10 +112,16 @@ def rot13d(text):
     """
     return text.translate(dict_table)
 
-import codecs
-
 
 def rot13e(text):
+    """
+    this one uses a dict translation table -- so better suite to unicode
+    """
+    return text.translate(dict_table)
+
+
+import codecs
+def rot13f(text):
     """
     This one "cheats" by using the built-in 'rot13' encoding
     """
@@ -124,20 +134,23 @@ if __name__ == "__main__":
     print (rot13c("Zntargvp sebz bhgfvqr arne pbeare"))
     print (rot13d("Zntargvp sebz bhgfvqr arne pbeare"))
     print (rot13e("Zntargvp sebz bhgfvqr arne pbeare"))
+    print (rot13f("Zntargvp sebz bhgfvqr arne pbeare"))
 
-    # rot13 should be reversible:
 
     assert (rot13a("Zntargvp sebz bhgfvqr arne pbeare") ==
             "Magnetic from outside near corner")
 
+    # rot13 should be reversible:
     text = "Some random text to try!"
     assert rot13a(rot13a(text)) == text
 
+    # they all should do the same thing
     assert (rot13a(text) ==
             rot13b(text) ==
             rot13c(text) ==
             rot13d(text) ==
-            rot13e(text)
+            rot13e(text) ==
+            rot13f(text)
             )
 
     print ("All assertions pass")
