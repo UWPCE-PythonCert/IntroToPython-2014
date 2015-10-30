@@ -9,7 +9,7 @@ def skip(lest):
     return(lest[::2])
 
 def d4(lest):
-    return(lest[4:-5:2])
+    return(lest[4:-4:2])
 
 def reverse(lest):
     return(lest[::-1])
