@@ -26,8 +26,8 @@ def make_email(name, donation):
 
 def mailroom():
     a = ''
-    while a not in ('1','2'):
-        a = input("\nPress 1 to 'Send a Thank You', 2 to 'Create a Report', or  q to 'Quit': ")
+    while a not in ('1','2','3'):
+        a = input("\nPress 1 to 'Send a Thank You', 2 to 'Create a Report', or  3 to 'Quit': ")
         if a == '1':
             n = input("\nEnter full name or type 'list' to list all current donors: ")
             if n == 'list':
@@ -52,7 +52,7 @@ def mailroom():
                     t = t + int(i)
                 avg = int(t) // len(d)
                 print("{:20}\t{:^9}\t{:^7}\t\t{:^5}".format(n, len(d), avg, t))
-        if a == 'q':
+        if a == '3':
             sys.exit()
             
 
