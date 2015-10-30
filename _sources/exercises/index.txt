@@ -18,6 +18,8 @@ Contents:
     rot13
     mailroom
 
+    dict_lab
     kata_fourteen
+
     html_renderer
     circle_class
