@@ -5,7 +5,7 @@ def rot13(i):
     one = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
     another = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM"
     transtab = str.maketrans(one, another)
-    print(i.translate(transtab))
+    return i.translate(transtab)
 
 if __name__ == "__main__":
     print("main")
@@ -14,4 +14,4 @@ if __name__ == "__main__":
 
 
 
-rot13("abcdefghijklmnopqrstovwxyz")
+print(rot13("abcdefghijklmnopqrstovwxyz"))
