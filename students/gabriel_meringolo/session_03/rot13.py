@@ -1,11 +1,11 @@
 
 
 
-def rot13(i):
+def rot13(text_to_trans):
     one = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
     another = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM"
     transtab = str.maketrans(one, another)
-    return i.translate(transtab)
+    return text_to_trans.translate(transtab)
 
 if __name__ == "__main__":
     print("main")
