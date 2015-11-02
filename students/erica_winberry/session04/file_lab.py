@@ -21,7 +21,6 @@ def read_student_data(filename):
                 item.remove(t)
     
     return student_data
-
     
 
 def count_langs(l):
