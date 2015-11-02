@@ -534,7 +534,7 @@
 <div class="section" id="other-dict-operations">
 <h3>Other dict operations:<a class="headerlink" href="#other-dict-operations" title="Permalink to this headline">¶</a></h3>
 <p>See them all here:</p>
-<p><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#mapping-types-dict">https://docs.python.org/2/library/stdtypes.html#mapping-types-dict</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">https://docs.python.org/3/library/stdtypes.html#mapping-types-dict</a></p>
 <p>Is it in there?</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">d</span>
 <span class="gh">Out[5]: </span><span class="go">{&#39;that&#39;: 7, &#39;this&#39;: 5}</span>
@@ -785,7 +785,7 @@
 <blockquote>
 <div>&#8211; Grace Hopper</div></blockquote>
 <p><a class="reference external" href="http://www.youtube.com/watch?v=AZDWveIdqjY">http://www.youtube.com/watch?v=AZDWveIdqjY</a></p>
-<p>(Pycon talk by Alex Martelli)</p>
+<p>(PyCon talk by Alex Martelli)</p>
 <p>For simple scripts, let exceptions happen.</p>
 <p>Only handle the exception if the code can and will do something about it.</p>
 <p>(much better debugging info when an error does occur)</p>
@@ -1069,7 +1069,7 @@ the syntax and the advantage over the try-finally block:</p>
 <span class="gp">In [66]: </span><span class="n">pth</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
 <span class="gh">Out[66]: </span><span class="go">True</span>
 <span class="gp">In [67]: </span><span class="n">pth</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
-<span class="gh">Out[67]: </span><span class="go">PosixPath(&#39;/Users/Chris/PythonStuff/CodeFellowsClass/sea-f2-python-sept14/Examples/Session04&#39;)</span>
+<span class="gh">Out[67]: </span><span class="go">PosixPath(&#39;/Users/Chris/PythonStuff/UWPCE/IntroPython2015&#39;)</span>
 <span class="gp">In [68]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">pth</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
 <span class="go">             print(f)</span>
 <span class="go">junk2.txt</span>
@@ -1155,12 +1155,14 @@ directory, one per line</li>
 (without using shutil, or the OS copy command)<ul>
 <li>advanced: make it work for any size file: i.e. don&#8217;t read the entire
 contents of the file into memory at once.</li>
+<li>Note that if you want it to do any kind of file, you need to open the files in binary mode:
+<code class="docutils literal"><span class="pre">open(filename,</span> <span class="pre">'rb')</span></code> (or <code class="docutils literal"><span class="pre">'wb'</span></code> for writing.)</li>
 </ul>
 </li>
 <li>update mailroom from last week to:<ul>
-<li>use dicts where appropriate</li>
-<li>write a full set of letters to everyone to individual files on disk</li>
-<li>see if you can use a dict to switch between the users selections</li>
+<li>Use dicts where appropriate</li>
+<li>Write a full set of letters to everyone to individual files on disk</li>
+<li>See if you can use a dict to switch between the users selections</li>
 <li>Try to use a dict and the .format() method to do the letter as one
 big template &#8211; rather than building up a big string in parts.</li>
 </ul>
