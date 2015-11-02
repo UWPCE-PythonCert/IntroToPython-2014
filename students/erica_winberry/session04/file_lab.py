@@ -7,8 +7,7 @@ for line in f:
     line = line.strip()
     line = line.split(":")
     student, langs = line
-    if "," in langs:
-        langs = langs.replace(",", "")
+    langs = langs.replace(",", "")
     langs = langs.split(" ")
     student_data.append(langs)
 f.close()
