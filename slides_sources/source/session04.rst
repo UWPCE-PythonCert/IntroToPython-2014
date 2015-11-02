@@ -37,9 +37,10 @@ Lightning Talks Today:
 .. rst-class:: mlarge
 
  Andrey Gusev
- Cheryl Ohashi
- Maxwell MacCamy
 
+ Cheryl Ohashi
+
+ Maxwell MacCamy
 
 
 ==============================
@@ -396,7 +397,7 @@ Other dict operations:
 
 See them all here:
 
-https://docs.python.org/2/library/stdtypes.html#mapping-types-dict
+https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
 Is it in there?
 
@@ -650,15 +651,13 @@ Have some fun with dictionaries and sets!
 :ref:`exercise_dict_lab`
 
 
-Lightning Talks
-----------------
+Lightning Talk
+--------------
 
 |
-| Andrey Gusev
+| Maxwell MacCamy
 |
-|
-| Cheryl Ohashi
-|
+
 
 ==========
 Exceptions
@@ -741,7 +740,7 @@ Or let the Exception be raised....
 
 http://www.youtube.com/watch?v=AZDWveIdqjY
 
-(Pycon talk by Alex Martelli)
+(PyCon talk by Alex Martelli)
 
 .. nextslide:: Do you catch all Exceptions?
 
@@ -873,9 +872,9 @@ Exceptions Lab
 Exceptions Lab
 ---------------
 
-Improving ``raw_input``
+Improving ``input``
 
-* The ``raw_input()``  function can generate two exceptions: ``EOFError``
+* The ``input()``  function can generate two exceptions: ``EOFError``
   or ``KeyboardInterrupt``  on end-of-file(EOF) or canceled input.
 
 * Create a wrapper function, perhaps ``safe_input()``  that returns ``None``
@@ -883,16 +882,6 @@ Improving ``raw_input``
 
 * Update your mailroom program to use exceptions (and IBAFP) to handle
   malformed numeric input
-
-Lightning Talk
-----------------
-
-|
-| Lesley D Reece
-|
-|
-| Maxwell MacCamy
-|
 
 
 ========================
@@ -1003,7 +992,7 @@ Common Idioms
 
 .. nextslide::
 
-We will learn more about the keyword with later, but for now, just understand 
+We will learn more about the keyword with later, but for now, just understand
 the syntax and the advantage over the try-finally block:
 
 .. code-block:: python
@@ -1143,7 +1132,7 @@ All the stuff in os.path and more:
     In [66]: pth.is_dir()
     Out[66]: True
     In [67]: pth.absolute()
-    Out[67]: PosixPath('/Users/Chris/PythonStuff/CodeFellowsClass/sea-f2-python-sept14/Examples/Session04')
+    Out[67]: PosixPath('/Users/Chris/PythonStuff/UWPCE/IntroPython2015')
     In [68]: for f in pth.iterdir():
                  print(f)
     junk2.txt
@@ -1184,7 +1173,6 @@ Homework
 Recommended Reading:
 ---------------------
   * Dive Into Python: Chapt. 13,14
-  * Unicode: http://www.joelonsoftware.com/articles/Unicode.html
 
 Assignments:
 -------------
@@ -1238,11 +1226,14 @@ Paths and File Processing
   - advanced: make it work for any size file: i.e. don't read the entire
     contents of the file into memory at once.
 
+  - Note that if you want it to do any kind of file, you need to open the files in binary mode:
+    ``open(filename, 'rb')`` (or ``'wb'`` for writing.)
+
 * update mailroom from last week to:
 
-  - use dicts where appropriate
-  - write a full set of letters to everyone to individual files on disk
-  - see if you can use a dict to switch between the users selections
+  - Use dicts where appropriate
+  - Write a full set of letters to everyone to individual files on disk
+  - See if you can use a dict to switch between the users selections
   - Try to use a dict and the .format() method to do the letter as one
     big template -- rather than building up a big string in parts.
 

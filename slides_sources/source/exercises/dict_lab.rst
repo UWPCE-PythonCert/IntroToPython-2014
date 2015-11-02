@@ -1,8 +1,8 @@
 .. _exercise_dict_lab:
 
-********
+**********************
 Dictionary and Set Lab
-********
+**********************
 
 Learning about dictionaries and sets
 ====================================
