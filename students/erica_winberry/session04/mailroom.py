@@ -120,8 +120,8 @@ def get_name(donor_list):
 def get_amount(donor, donations):
     # Get the amount of a new donation for a thank you letter.
     # Append a new donation to the list of donations made by an individual in list donationans.
-    new_donation = ""
-    while type(new_donation) is not float:
+    new_donation = 0
+    while new_donation < 1:
         # Once a name has been selected, prompt for a donation amount.
         new_donation = safe_input("Please enter the amount of the new donation from " + donor + " to the nearest whole dollar: $")
         # Verify that the amount is in fact a number, and re-prompt if it isn’t.
@@ -151,9 +151,11 @@ def write_letter(donor, amount):
         return ("\nExiting to main menu.")
     else:
         charity = "Carter Home for Retired Superheroes"
+        closing = "Sincerely"
+        signed = "S.A. Carter"
         new_letter = print("\nDear {},".format(donor) + 
-            "\nThank you so much for your generous donation of ${:.2f} to the \n{}.".format(amount, charity) + 
-            "\n{closing},".format(closing="Sincerely") + "\n{}".format(signed="S.A. Carter"))
+            "\nThank you so much for your generous donation of ${:.2f} to the \n{:}.".format(amount, charity) + 
+            "\n{:},".format(closing) + "\n{}".format(signed))
         return new_letter
 
 
