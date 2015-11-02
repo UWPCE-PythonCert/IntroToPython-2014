@@ -4,10 +4,9 @@ os.chdir("../../../Examples")
 student_data = []
 f = open("students.txt", "r")
 for line in f:
+    line = line.strip()
     line = line.split(":")
     student, langs = line
-    if "\n" in langs:
-        langs = langs.replace("\n", "")
     if "," in langs:
         langs = langs.replace(",", "")
     langs = langs.split(" ")
