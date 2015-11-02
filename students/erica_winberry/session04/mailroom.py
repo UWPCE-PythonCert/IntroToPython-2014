@@ -17,7 +17,7 @@ donors = [
 
 
 def safe_input(message):
-    try: 
+    try:
         user_input = input(message)
         return user_input
     except (KeyboardInterrupt, EOFError):
@@ -28,14 +28,14 @@ def intro():
     print("\nMAILROOM OPTIONS")
     print("1 - Send a Thank You")
     print("2 - Create a Report")
-    print("\n(Type 'exit' at any time.)\n")
+    print("\n(Type 'exit' at any time.)")
 
 
 def mailroom():
     intro()
     while True:
-        choice = safe_input("What would you like to do? ")
-        if choice == None:
+        choice = safe_input("\nWhat would you like to do? ")
+        if choice is None:
             break
         elif choice.lower() == "exit":
             print("\nGoodbye.")
@@ -55,9 +55,11 @@ def mailroom():
 def thanks():
     donor_name = get_name(donors)
     if donor_name == "exit":
-        return print("Returning to main menu.\n")
+        return "Returning to main menu.\n"
     donation = get_amount(donor_name, donors)
-    if donation != 0:
+    if donation == "exit":
+        return "Returning to main menu.\n"
+    elif donation != 0:
         write_letter(donor_name, donation)
     else:
         print("Returning to main menu.\n")
@@ -73,7 +75,10 @@ def report(report_source):
         donor = item[0].title()
         total_amount = sum(item[1:])
         total_donations = (len(item)-1)
-        avg_donation = total_amount / total_donations
+        try:
+            avg_donation = total_amount / total_donations
+        except ZeroDivisionError as e:
+            return e
         print("{:>20}{:>20.2f}{:>20.2f}{:>20.2f}".format(donor, total_amount, total_donations, avg_donation))
     print(("{:>20}".format("------------------") * 4) + "\n")
     intro()
@@ -92,7 +97,7 @@ def get_name(donor_list):
     while True:
         # If the user (you) selects ‘Send a Thank You’, prompt for a Full Name.
         donor_name = safe_input("Please enter the full name of the donor you wish to thank. (Type 'list' for a list of donors.) ")
-        if donor_name == None:
+        if donor_name is None:
             break
         elif donor_name.lower == "exit":
             break
@@ -115,25 +120,24 @@ def get_name(donor_list):
 def get_amount(donor, donations):
     # Get the amount of a new donation for a thank you letter.
     # Append a new donation to the list of donations made by an individual in list donationans.
-    new_donation = 0
-    while new_donation < 1:
+    new_donation = ""
+    while type(new_donation) is not float:
         # Once a name has been selected, prompt for a donation amount.
-        new_donation = safe_input("Please enter the amount of the new donation \
-            from " + donor + " to the nearest whole dollar: $")
+        new_donation = safe_input("Please enter the amount of the new donation from " + donor + " to the nearest whole dollar: $")
         # Verify that the amount is in fact a number, and re-prompt if it isn’t.
         # Once an amount has been given, add that amount to the donation history of the selected user.
-        if new_donation == None:
+        if new_donation is None:
             break
         elif new_donation.lower() == "exit":
             break
         elif new_donation.isnumeric():
             new_donation = float(new_donation)
-            for i in donations:
-                if donor is i[0]:
-                    i.append(new_donation)
+            for item in donations:
+                if donor is item[0]:
+                    item.append(new_donation)
                     return new_donation
         else:
-            print("You didn't enter a dollar amount.")
+            print("You didn't enter a whole dollar amount.")
 
 
 # Finally, use string formatting to compose an email thanking the donor for 
@@ -141,16 +145,15 @@ def get_amount(donor, donations):
 def write_letter(donor, amount):
     # Write a thank you letter for a charitable contribution. Make sure that "charity" and 
     # "signature" are correct for the organization sending the letter.
-    if amount == 0:
+    if amount == 0.0:
         return ("\nNo new donations. No letter will be written.\n")
+    elif amount == "exit":
+        return ("\nExiting to main menu.")
     else:
         charity = "Carter Home for Retired Superheroes"
-        closing = "Sincerely"
-        signed = "S.A. Carter"
         new_letter = print("\nDear {},".format(donor) + 
             "\nThank you so much for your generous donation of ${:.2f} to the \n{}.".format(amount, charity) + 
-            "\n{:},".format(closing) + 
-            "\n{}".format(signed))
+            "\n{closing},".format(closing="Sincerely") + "\n{}".format(signed="S.A. Carter"))
         return new_letter
 
 
