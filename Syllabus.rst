@@ -16,7 +16,7 @@ First Course: Introduction to Python
 =====================================
 
 Tuesdays 6-9 pm: Oct 6 - Dec 8, 2015 (10 Sessions)
-.....................................................
+---------------------------------------------------
 
 
 NOTE: in the spirit of the dynamic nature of Python, this Syllabus (and the class) will be a dynamic document -- evolving as the class progresses. The general structure is fixed, but the details will change to meet the evolving needs of the class.
@@ -274,9 +274,9 @@ Week 4: Oct 27
 
 Dictionaries, Sets and Mutability.
 
-Exceptions.
-
 Files and Text Processing
+
+Exceptions.
 
 
 Week 5: November 3
