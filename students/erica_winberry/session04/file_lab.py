@@ -1,25 +1,28 @@
 import os
 
 os.chdir("../../../Examples")
-student_data = []
-f = open("students.txt", "r")
-for line in f:
-    line = line.strip()
-    line = line.split(":")
-    student, langs = line
-    langs = langs.replace(",", "")
-    langs = langs.split(" ")
-    student_data.append(langs)
-f.close()
 
-for i in student_data:
-    for t in i:
-        if t == "and":
-            i.remove(t)
-        if t == "":
-            i.remove(t)
-        if "," in t:
-            t.replace(",", "")
+def read_student_data(filename):
+    student_data = []
+    f = open(filename, "r")
+    for line in f:
+        line = line.strip()
+        line = line.split(":")
+        student, langs = line
+        langs = langs.replace(",", "")
+        langs = langs.replace("and", "")
+        langs = langs.split(" ")
+        student_data.append(langs)
+    f.close()
+    
+    for item in student_data:
+        for t in item:
+            if t == "":
+                item.remove(t)
+    
+    return student_data
+
+    
 
 def count_langs(l):
     languages = {}
@@ -31,7 +34,7 @@ def count_langs(l):
                 languages[item] += 1
     return languages
 
-for k, v in (count_langs(student_data)).items():
+for k, v in (count_langs(read_student_data("students.txt"))).items():
     print(v, k)
 
 os.chdir("../students/erica_winberry/session04")
