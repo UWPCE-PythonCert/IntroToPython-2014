@@ -18,7 +18,8 @@ donors = [
 
 def safe_input(message):
     try: 
-        input(message)
+        user_input = input(message)
+        return user_input
     except (KeyboardInterrupt, EOFError):
         return None
 
@@ -33,16 +34,18 @@ def intro():
 def mailroom():
     intro()
     while True:
-        choice = input("What would you like to do? ")
-        if choice == "1":
+        choice = safe_input("What would you like to do? ")
+        if choice == None:
+            break
+        elif choice.lower() == "exit":
+            print("\nGoodbye.")
+            break
+        elif choice == "1":
             print("\nSend a Thank You:\n")
             thanks()
         elif choice == "2":
             print("\nCreate a Report:\n")
             report(donors)
-        elif choice.lower() == "exit":
-            print("\nGoodbye.")
-            break
         else:
             print("\nThat choice isn't on the list.\n")
             intro()
@@ -88,8 +91,10 @@ def get_name(donor_list):
     # Adds a new donor to the donor_list if the donor's name is not found.
     while True:
         # If the user (you) selects ‘Send a Thank You’, prompt for a Full Name.
-        donor_name = input("Please enter the full name of the donor you wish to thank. (Type 'list' for a list of donors.) ")
-        if donor_name.lower == "exit":
+        donor_name = safe_input("Please enter the full name of the donor you wish to thank. (Type 'list' for a list of donors.) ")
+        if donor_name == None:
+            break
+        elif donor_name.lower == "exit":
             break
         # If the user types ‘list’, show them a list of the donor names and re-prompt
         elif donor_name.lower() == "list":
@@ -113,11 +118,13 @@ def get_amount(donor, donations):
     new_donation = 0
     while new_donation < 1:
         # Once a name has been selected, prompt for a donation amount.
-        new_donation = input("Please enter the amount of the new donation \
+        new_donation = safe_input("Please enter the amount of the new donation \
             from " + donor + " to the nearest whole dollar: $")
         # Verify that the amount is in fact a number, and re-prompt if it isn’t.
         # Once an amount has been given, add that amount to the donation history of the selected user.
-        if new_donation.lower() == "exit":
+        if new_donation == None:
+            break
+        elif new_donation.lower() == "exit":
             break
         elif new_donation.isnumeric():
             new_donation = float(new_donation)
