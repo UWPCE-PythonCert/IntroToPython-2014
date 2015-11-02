@@ -1173,7 +1173,6 @@ Homework
 Recommended Reading:
 ---------------------
   * Dive Into Python: Chapt. 13,14
-  * Unicode: http://www.joelonsoftware.com/articles/Unicode.html
 
 Assignments:
 -------------

@@ -1,11 +1,7 @@
 
-.. Foundations 2: Python slides file, created by
-   hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
-
-
-*********************************************************************
-Session Five: Advanced Argument passing, List and Dict Comprehensions
-*********************************************************************
+*****************************************************************
+Session Five: Advanced Argument passing, Testing, Comprehensions
+*****************************************************************
 
 ======================
 Lightning Talks Today:
@@ -13,14 +9,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-  Darcy Balcarce
+Michael Cimino
 
-  Eric Buer
+Pei Lin
 
-  Henry B Fischer
-
-  Kyle R Hart
-
+Tiffany Ku
 
 ================
 Review/Questions
@@ -59,15 +52,13 @@ Review of Previous Class
 
     * I want time to go over it in class.
 
-    * So I'm ditching Unicode -- we'll hit it in the last class
-
 
 Homework review
 ---------------
 
 Homework Questions?
 
-My Solutions to ALL the excercises in the class repo in:
+My Solutions to ALL the exercises in the class repo in:
 
 ``Solutions/Session04``
 
@@ -156,7 +147,7 @@ Can set defaults to variables
 
     In [156]: y = 4
     In [157]: def fun(x=y):
-        print "x is:", x
+        print("x is:", x)
        .....:
     In [158]: fun()
     x is: 4
@@ -170,7 +161,7 @@ Defaults are evaluated when the function is defined
 
     In [156]: y = 4
     In [157]: def fun(x=y):
-        print "x is:", x
+        print("x is:", x)
        .....:
     In [158]: fun()
     x is: 4
@@ -191,7 +182,7 @@ function arguments are really just
 .. code-block:: python
 
     def f(x, y, w=0, h=0):
-        print "position: %s, %s -- shape: %s, %s"%(x, y, w, h)
+        print("position: %s, %s -- shape: %s, %s"%(x, y, w, h))
 
     position = (3,4)
     size = {'h': 10, 'w': 20}
@@ -209,8 +200,8 @@ You can also pull the parameters out in the function as a tuple and a dict:
 .. code-block:: ipython
 
     def f(*args, **kwargs):
-        print "the positional arguments are:", args
-        print "the keyword arguments are:", kwargs
+        print("the positional arguments are:", args)
+        print("the keyword arguments are:", kwargs)
 
     In [389]: f(2, 3, this=5, that=7)
     the positional arguments are: (2, 3)
@@ -382,7 +373,7 @@ Another "gotcha" is using mutables as default arguments:
 
     In [11]: def fun(x, a=[]):
        ....:     a.append(x)
-       ....:     print a
+       ....:     print(a)
        ....:
 
 This makes sense: maybe you'd pass in a list, but the default is an empty list.
@@ -414,7 +405,7 @@ The standard practice for such a mutable default argument:
        ....:     if a is None:
        ....:         a = []
        ....:     a.append(x)
-       ....:     print a
+       ....:     print(a)
     In [16]: fun(3)
     [3]
     In [17]: fun(4)
@@ -448,10 +439,10 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-| Darcy Balcarce
+| Michael Cimino
 |
 |
-| Eric Buer
+| Pei Lin
 |
 
 
@@ -586,7 +577,7 @@ Example: finding all the vowels in a string...
 
     In [20]: vowels = set('aeiou')
 
-    In [21]: { let for let in s if let in vowels }
+    In [21]: { l for l in s if l in vowels }
     Out[21]: {'a', 'e', 'i', 'o'}
 
 Side note: why did I do ``set('aeiou')`` rather than just `aeiou` ?
@@ -629,18 +620,19 @@ Example
 LAB
 ===
 
-See the list comps exercises...
+List comps exercises:
 
-Lightning Talks
+:ref:`exercise_comprehensions`
+
+
+
+Lightning Talk
 ----------------
 
 .. rst-class:: medium
 
 |
-| Some person
-|
-|
-| Some other person
+| Tiffany Ku
 |
 
 
@@ -899,221 +891,6 @@ Catch up!
 * Then on to some exercises....
 
 
-List comprehensions
---------------------
-
-Note: this is a bit of a "backwards" exercise --
-we show you code, you figure out what it does.
-
-As a result, not much to submit -- but so we can give you credit, submit
-a file with a solution to the final problem.
-
-.. code-block:: python
-
-    >>> feast = ['lambs', 'sloths', 'orangutans', 'breakfast cereals', 'fruit bats']
-
-    >>> comprehension = [delicacy.capitalize() for delicacy in feast]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> comprehension[0]
-    ???
-
-    >>> comprehension[2]
-    ???
-
-(figure it out before you try it)
-
-.. nextslide:: 2. Filtering lists with list comprehensions
-
-
-.. code-block:: python
-
-    >>> feast = ['spam', 'sloths', 'orangutans', 'breakfast cereals',
-                'fruit bats']
-
-    >>> comprehension = [delicacy for delicacy in feast if len(delicacy) > 6]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> len(feast)
-    ???
-
-    >>> len(comprehension)
-    ???
-
-(figure it out first!)
-
-.. nextslide:: 3. Unpacking tuples in list comprehensions
-
-
-.. code-block:: python
-
-    >>> list_of_tuples = [(1, 'lumberjack'), (2, 'inquisition'), (4, 'spam')]
-
-    >>> comprehension = [ skit * number for number, skit in list_of_tuples ]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> comprehension[0]
-    ???
-
-    >>> len(comprehension[2])
-    ???
-
-.. nextslide::  4. Double list comprehensions
-
-.. code-block:: python
-
-    >>> list_of_eggs = ['poached egg', 'fried egg']
-
-    >>> list_of_meats = ['lite spam', 'ham spam', 'fried spam']
-
-    >>> comprehension = [ '{0} and {1}'.format(egg, meat) for egg in list_of_eggs for meat in list_of_meats]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> len(comprehension)
-    ???
-
-    >>> comprehension[0]
-    ???
-
-.. nextslide::  5. Set comprehensions
-
-
-.. code-block:: python
-
-    >>> comprehension = { x for x in 'aabbbcccc'}
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> comprehension
-    ???
-
-.. nextslide::  6. Dictionary comprehensions
-
-
-.. code-block:: python
-
-    >>> dict_of_weapons = {'first': 'fear',
-                           'second': 'surprise',
-                           'third':'ruthless efficiency',
-                           'forth':'fanatical devotion',
-                           'fifth': None}
-    >>> dict_comprehension = \
-    { k.upper(): weapon for k, weapon in dict_of_weapons.iteritems() if weapon}
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> 'first' in dict_comprehension
-    ???
-    >>> 'FIRST' in dict_comprehension
-    ???
-    >>> len(dict_of_weapons)
-    ???
-    >>> len(dict_comprehension)
-    ???
-
-.. nextslide:: Other resources
-
-
-See also:
-
-https://github.com/gregmalcolm/python_koans
-
-https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comprehension.py
-
-
-.. nextslide:: 7. Count even numbers
-
-
-Use test-driven development!
-
-This is from CodingBat "count_evens" (http://codingbat.com/prob/p189616)
-
-*Using a list comprehension*, return the number of even ints in the given array.
-
-Note: the % "mod" operator computes the remainder, e.g. ``5 % 2`` is 1.
-
-.. code-block:: python
-
-    count_evens([2, 1, 2, 3, 4]) == 3
-
-    count_evens([2, 2, 0]) == 3
-
-    count_evens([1, 3, 5]) == 0
-
-
-.. code-block:: python
-
-    def count_evens(nums):
-       one_line_comprehension_here
-
-
-``dict`` and ``set`` comprehensions
-------------------------------------
-
-Let's revisiting the dict/set lab -- see how much you can do with
-comprehensions instead.
-
-Specifically,  look at these:
-
-First a slightly bigger, more interesting (or at least bigger..) dict:
-
-.. code-block:: python
-
-    food_prefs = {"name": u"Chris",
-                  u"city": u"Seattle",
-                  u"cake": u"chocolate",
-                  u"fruit": u"mango",
-                  u"salad": u"greek",
-                  u"pasta": u"lasagna"}
-
-.. nextslide:: Working with this dict:
-
-1. Print the dict by passing it to a string format method, so that you
-get something like:
-
-    "Chris is from Seattle, and he likes chocolate cake, mango fruit,
-     greek salad, and lasagna pasta"
-
-2. Using a list comprehension, build a dictionary of numbers from zero
-to fifteen and the hexadecimal equivalent (string is fine).
-
-3. Do the previous entirely with a dict comprehension -- should be a one-liner
-
-4. Using the dictionary from item 1: Make a dictionary using the same
-keys but with the number of 'a's in each value. You can do this either
-by editing the dict in place, or making a new one. If you edit in place,
-make a copy first!
-
-.. nextslide::
-
-5. Create sets s2, s3 and s4 that contain numbers from zero through twenty,
-divisible 2, 3 and 4.
-
-    a. Do this with one set comprehension for each set.
-
-    b. What if you had a lot more than 3? -- Don't Repeat Yourself (DRY)
-
-       - create a sequence that holds all three sets
-
-       - loop through that sequence to build the sets up -- so no repeated code.
-
-    c. Extra credit:  do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, that may be getting carried away!)
 
 ================================
 Material to review for Homework:

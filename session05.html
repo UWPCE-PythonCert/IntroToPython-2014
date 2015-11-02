@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Five: Advanced Argument passing, List and Dict Comprehensions &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Five: Advanced Argument passing, Testing, Comprehensions &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -86,7 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Five: Advanced Argument passing, List and Dict Comprehensions</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Five: Advanced Argument passing, Testing, Comprehensions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
@@ -117,7 +117,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">LAB</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Lightning Talks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talk">Lightning Talk</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
@@ -126,11 +126,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#using-unittest">Using <code class="docutils literal"><span class="pre">unittest</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#catch-up">Catch up!</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">List comprehensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dict-and-set-comprehensions"><code class="docutils literal"><span class="pre">dict</span></code> and <code class="docutils literal"><span class="pre">set</span></code> comprehensions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#material-to-review-for-homework">Material to review for Homework:</a></li>
@@ -175,7 +173,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Session Five: Advanced Argument passing, List and Dict Comprehensions</li>
+    <li>Session Five: Advanced Argument passing, Testing, Comprehensions</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -189,14 +187,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="session-five-advanced-argument-passing-list-and-dict-comprehensions">
-<h1>Session Five: Advanced Argument passing, List and Dict Comprehensions<a class="headerlink" href="#session-five-advanced-argument-passing-list-and-dict-comprehensions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="session-five-advanced-argument-passing-testing-comprehensions">
+<h1>Session Five: Advanced Argument passing, Testing, Comprehensions<a class="headerlink" href="#session-five-advanced-argument-passing-testing-comprehensions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lightning-talks-today">
 <h2>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h2>
-<p class="medium">Darcy Balcarce</p>
-<p class="medium">Eric Buer</p>
-<p class="medium">Henry B Fischer</p>
-<p class="medium">Kyle R Hart</p>
+<p class="medium">Michael Cimino</p>
+<p>Pei Lin</p>
+<p>Tiffany Ku</p>
 </div>
 <div class="section" id="review-questions">
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
@@ -217,13 +214,12 @@
 <ul class="build medium simple">
 <li>But it&#8217;s all good stuff.</li>
 <li>I want time to go over it in class.</li>
-<li>So I&#8217;m ditching Unicode &#8211; we&#8217;ll hit it in the last class</li>
 </ul>
 </div>
 <div class="section" id="homework-review">
 <h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
 <p>Homework Questions?</p>
-<p>My Solutions to ALL the excercises in the class repo in:</p>
+<p>My Solutions to ALL the exercises in the class repo in:</p>
 <p><code class="docutils literal"><span class="pre">Solutions/Session04</span></code></p>
 <p>A few tidbits ....</p>
 <p>dicts aren&#8217;t sorted, so what if you want to do something in a sorted way?</p>
@@ -279,7 +275,7 @@
 <p>Can set defaults to variables</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
-<span class="go">    print &quot;x is:&quot;, x</span>
+<span class="go">    print(&quot;x is:&quot;, x)</span>
 <span class="gp">   .....:</span>
 <span class="gp">In [158]: </span><span class="n">fun</span><span class="p">()</span>
 <span class="go">x is: 4</span>
@@ -288,7 +284,7 @@
 <p>Defaults are evaluated when the function is defined</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
-<span class="go">    print &quot;x is:&quot;, x</span>
+<span class="go">    print(&quot;x is:&quot;, x)</span>
 <span class="gp">   .....:</span>
 <span class="gp">In [158]: </span><span class="n">fun</span><span class="p">()</span>
 <span class="go">x is: 4</span>
@@ -306,7 +302,7 @@
 <li>a dict (keyword arguments)</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&quot;position: </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s"> -- shape: </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;position: </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s"> -- shape: </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
 
 <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">size</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;h&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
@@ -320,8 +316,8 @@
 <h3>Function parameters in variables<a class="headerlink" href="#function-parameters-in-variables" title="Permalink to this headline">¶</a></h3>
 <p>You can also pull the parameters out in the function as a tuple and a dict:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="go">def f(*args, **kwargs):</span>
-<span class="go">    print &quot;the positional arguments are:&quot;, args</span>
-<span class="go">    print &quot;the keyword arguments are:&quot;, kwargs</span>
+<span class="go">    print(&quot;the positional arguments are:&quot;, args)</span>
+<span class="go">    print(&quot;the keyword arguments are:&quot;, kwargs)</span>
 
 <span class="gp">In [389]: </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">this</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">that</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="go">the positional arguments are: (2, 3)</span>
@@ -439,7 +435,7 @@ you can do this nifty trick:</p>
 <p>Another &#8220;gotcha&#8221; is using mutables as default arguments:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">[]):</span>
 <span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">a</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">   ....:</span>
 </pre></div>
 </div>
@@ -460,7 +456,7 @@ you can do this nifty trick:</p>
 <span class="gp">   ....: </span>    <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
 <span class="gp">   ....: </span>        <span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">   ....: </span>    <span class="k">print</span> <span class="n">a</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">In [16]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">[3]</span>
 <span class="gp">In [17]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -489,10 +485,10 @@ you can do this nifty trick:</p>
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
 <div class="line"><br /></div>
-<div class="line">Darcy Balcarce</div>
+<div class="line">Michael Cimino</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
-<div class="line">Eric Buer</div>
+<div class="line">Pei Lin</div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -576,7 +572,7 @@ you can do this nifty trick:</p>
 
 <span class="gp">In [20]: </span><span class="n">vowels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s">&#39;aeiou&#39;</span><span class="p">)</span>
 
-<span class="gp">In [21]: </span><span class="p">{</span> <span class="n">let</span> <span class="k">for</span> <span class="n">let</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">let</span> <span class="ow">in</span> <span class="n">vowels</span> <span class="p">}</span>
+<span class="gp">In [21]: </span><span class="p">{</span> <span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">vowels</span> <span class="p">}</span>
 <span class="gh">Out[21]: </span><span class="go">{&#39;a&#39;, &#39;e&#39;, &#39;i&#39;, &#39;o&#39;}</span>
 </pre></div>
 </div>
@@ -605,15 +601,13 @@ you can do this nifty trick:</p>
 </div>
 <div class="section" id="id1">
 <h2>LAB<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>See the list comps exercises...</p>
-<div class="section" id="id2">
-<h3>Lightning Talks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>List comps exercises:</p>
+<p><a class="reference internal" href="exercises/comprehensions_lab.html#exercise-comprehensions"><span>Comprehensions Lab</span></a></p>
+<div class="section" id="lightning-talk">
+<h3>Lightning Talk<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
 <div class="line"><br /></div>
-<div class="line">Some person</div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line">Some other person</div>
+<div class="line">Tiffany Ku</div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -754,8 +748,8 @@ the code that fixes these tests.</p>
 <p>Let&#8217;s do that next!</p>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>LAB<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Pick an example from codingbat:</p>
 <p><code class="docutils literal"><span class="pre">http://codingbat.com</span></code></p>
 <p>Do a bit of test-driven development on it:</p>
@@ -779,161 +773,6 @@ the code that fixes these tests.</p>
 </li>
 <li>Then on to some exercises....</li>
 </ul>
-</div>
-<div class="section" id="id4">
-<h3>List comprehensions<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>Note: this is a bit of a &#8220;backwards&#8221; exercise &#8211;
-we show you code, you figure out what it does.</p>
-<p>As a result, not much to submit &#8211; but so we can give you credit, submit
-a file with a solution to the final problem.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;lambs&#39;</span><span class="p">,</span> <span class="s">&#39;sloths&#39;</span><span class="p">,</span> <span class="s">&#39;orangutans&#39;</span><span class="p">,</span> <span class="s">&#39;breakfast cereals&#39;</span><span class="p">,</span> <span class="s">&#39;fruit bats&#39;</span><span class="p">]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span><span class="n">delicacy</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">delicacy</span> <span class="ow">in</span> <span class="n">feast</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">???</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">???</span>
-</pre></div>
-</div>
-<p>(figure it out before you try it)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;sloths&#39;</span><span class="p">,</span> <span class="s">&#39;orangutans&#39;</span><span class="p">,</span> <span class="s">&#39;breakfast cereals&#39;</span><span class="p">,</span>
-<span class="go">            &#39;fruit bats&#39;]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span><span class="n">delicacy</span> <span class="k">for</span> <span class="n">delicacy</span> <span class="ow">in</span> <span class="n">feast</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">delicacy</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">feast</span><span class="p">)</span>
-<span class="go">???</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">)</span>
-<span class="go">???</span>
-</pre></div>
-</div>
-<p>(figure it out first!)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;lumberjack&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;inquisition&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">)]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span> <span class="n">skit</span> <span class="o">*</span> <span class="n">number</span> <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">skit</span> <span class="ow">in</span> <span class="n">list_of_tuples</span> <span class="p">]</span>
-</pre></div>
-</div>
-<p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">???</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="go">???</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_eggs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;poached egg&#39;</span><span class="p">,</span> <span class="s">&#39;fried egg&#39;</span><span class="p">]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_meats</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;lite spam&#39;</span><span class="p">,</span> <span class="s">&#39;ham spam&#39;</span><span class="p">,</span> <span class="s">&#39;fried spam&#39;</span><span class="p">]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;{0} and {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">egg</span><span class="p">,</span> <span class="n">meat</span><span class="p">)</span> <span class="k">for</span> <span class="n">egg</span> <span class="ow">in</span> <span class="n">list_of_eggs</span> <span class="k">for</span> <span class="n">meat</span> <span class="ow">in</span> <span class="n">list_of_meats</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">)</span>
-<span class="go">???</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">???</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s">&#39;aabbbcccc&#39;</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span>
-<span class="go">???</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dict_of_weapons</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;first&#39;</span><span class="p">:</span> <span class="s">&#39;fear&#39;</span><span class="p">,</span>
-<span class="go">                       &#39;second&#39;: &#39;surprise&#39;,</span>
-<span class="go">                       &#39;third&#39;:&#39;ruthless efficiency&#39;,</span>
-<span class="go">                       &#39;forth&#39;:&#39;fanatical devotion&#39;,</span>
-<span class="go">                       &#39;fifth&#39;: None}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_comprehension</span> <span class="o">=</span> \
-<span class="go">{ k.upper(): weapon for k, weapon in dict_of_weapons.iteritems() if weapon}</span>
-</pre></div>
-</div>
-<p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;first&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
-<span class="go">???</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;FIRST&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
-<span class="go">???</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">dict_of_weapons</span><span class="p">)</span>
-<span class="go">???</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">dict_comprehension</span><span class="p">)</span>
-<span class="go">???</span>
-</pre></div>
-</div>
-<p>See also:</p>
-<p><a class="reference external" href="https://github.com/gregmalcolm/python_koans">https://github.com/gregmalcolm/python_koans</a></p>
-<p><a class="reference external" href="https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comprehension.py">https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comprehension.py</a></p>
-<p>Use test-driven development!</p>
-<p>This is from CodingBat &#8220;count_evens&#8221; (<a class="reference external" href="http://codingbat.com/prob/p189616">http://codingbat.com/prob/p189616</a>)</p>
-<p><em>Using a list comprehension</em>, return the number of even ints in the given array.</p>
-<p>Note: the % &#8220;mod&#8221; operator computes the remainder, e.g. <code class="docutils literal"><span class="pre">5</span> <span class="pre">%</span> <span class="pre">2</span></code> is 1.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">count_evens</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span>
-
-<span class="n">count_evens</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span>
-
-<span class="n">count_evens</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">count_evens</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-   <span class="n">one_line_comprehension_here</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="dict-and-set-comprehensions">
-<h3><code class="docutils literal"><span class="pre">dict</span></code> and <code class="docutils literal"><span class="pre">set</span></code> comprehensions<a class="headerlink" href="#dict-and-set-comprehensions" title="Permalink to this headline">¶</a></h3>
-<p>Let&#8217;s revisiting the dict/set lab &#8211; see how much you can do with
-comprehensions instead.</p>
-<p>Specifically,  look at these:</p>
-<p>First a slightly bigger, more interesting (or at least bigger..) dict:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">food_prefs</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">u&quot;Chris&quot;</span><span class="p">,</span>
-              <span class="s">u&quot;city&quot;</span><span class="p">:</span> <span class="s">u&quot;Seattle&quot;</span><span class="p">,</span>
-              <span class="s">u&quot;cake&quot;</span><span class="p">:</span> <span class="s">u&quot;chocolate&quot;</span><span class="p">,</span>
-              <span class="s">u&quot;fruit&quot;</span><span class="p">:</span> <span class="s">u&quot;mango&quot;</span><span class="p">,</span>
-              <span class="s">u&quot;salad&quot;</span><span class="p">:</span> <span class="s">u&quot;greek&quot;</span><span class="p">,</span>
-              <span class="s">u&quot;pasta&quot;</span><span class="p">:</span> <span class="s">u&quot;lasagna&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>1. Print the dict by passing it to a string format method, so that you
-get something like:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&#8220;Chris is from Seattle, and he likes chocolate cake, mango fruit,</dt>
-<dd>greek salad, and lasagna pasta&#8221;</dd>
-</dl>
-</div></blockquote>
-<p>2. Using a list comprehension, build a dictionary of numbers from zero
-to fifteen and the hexadecimal equivalent (string is fine).</p>
-<ol class="arabic simple" start="3">
-<li>Do the previous entirely with a dict comprehension &#8211; should be a one-liner</li>
-</ol>
-<p>4. Using the dictionary from item 1: Make a dictionary using the same
-keys but with the number of &#8216;a&#8217;s in each value. You can do this either
-by editing the dict in place, or making a new one. If you edit in place,
-make a copy first!</p>
-<p>5. Create sets s2, s3 and s4 that contain numbers from zero through twenty,
-divisible 2, 3 and 4.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li>Do this with one set comprehension for each set.</li>
-<li>What if you had a lot more than 3? &#8211; Don&#8217;t Repeat Yourself (DRY)<ul>
-<li>create a sequence that holds all three sets</li>
-<li>loop through that sequence to build the sets up &#8211; so no repeated code.</li>
-</ul>
-</li>
-<li>Extra credit:  do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, that may be getting carried away!)</li>
-</ol>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="material-to-review-for-homework">
