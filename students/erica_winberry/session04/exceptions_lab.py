@@ -8,8 +8,9 @@
 #Update your mailroom program to use exceptions (and IBAFP) to handle 
 # malformed numeric input
 
+
 def safe_input(message):
-    try: 
+    try:
         input(message)
     except (KeyboardInterrupt, EOFError):
         return None
