@@ -13,4 +13,4 @@ for i in range(len(listr) - 2):
         trigram_dict[pair] = follower + " "
 
 for keys, values in trigram_dict.items():
-    print(keys, " => ", values)
+    print(keys.replace("'","").replace("[","").replace("]","").replace(",",""), " => ", values)
