@@ -48,6 +48,7 @@ def trigrams_to_text(trigrams):
 
     for i in range(len(new_text)):
         new_text[i] = new_text[i].replace('"', '')
+        # catch known abbreviations so they don't end the line
         abbreviations = ['Mr.', 'Mrs.', 'Ms.', 'St.']
         if new_text[i] not in abbreviations:
             new_text[i] = new_text[i].replace('.', '.\n\n')
