@@ -16,14 +16,6 @@ Enter 'Quit' to exit My Donation Manager.""")
     return command
 
 
-# def input(prompt):
-#     command = input(prompt)
-#     while command.lower() == 'home':
-#         command = select_command()
-#     return command
-
-
-# this should be broken up into smaller functions
 def write_email(donor, donation_amount):
     thank_you = """Dear {},
 
