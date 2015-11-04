@@ -97,7 +97,7 @@ You don't actually need to use the result of a list comp:
 The collections module
 -----------------------
 
-The collections module has a numbe rof handy special purpose
+The collections module has a number of handy special purpose
 collections:
 
  * defautltdict

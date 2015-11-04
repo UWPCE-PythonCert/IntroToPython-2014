@@ -282,6 +282,8 @@ Exceptions.
 Week 5: November 3
 ........................
 
+Exceptions
+
 Advanced Argument passing
 
 Testing

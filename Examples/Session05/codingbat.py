@@ -10,6 +10,4 @@ Put here so we can write unit tests for them ourselves
 
 
 def sleep_in(weekday, vacation):
-    return not (weekday == True and vacation == False)
-
-
+    return not (weekday and vacation)

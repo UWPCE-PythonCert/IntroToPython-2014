@@ -14,7 +14,7 @@ def test_false_false():
 
 
 def test_true_false():
-    assert not ( sleep_in(True, False) )
+    assert not (sleep_in(True, False))
 
 
 def test_false_true():

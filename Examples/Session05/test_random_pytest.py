@@ -8,20 +8,19 @@ import random
 import pytest
 
 
-seq = range(10)
+seq = list(range(10))
 
 
 def test_shuffle():
     # make sure the shuffled sequence does not lose any elements
     random.shuffle(seq)
-    seq.sort()
-    print "seq:", seq
-    ## expect this to fail -- so we can see the output.
-    assert seq == range(10)
+    # seq.sort()  # this will amke it fail, so we can see output
+    print("seq:", seq)  # only see output if it fails
+    assert seq == list(range(10))
 
 
 def test_shuffle_immutable():
-    pytest.raises(TypeError, random.shuffle, (1,2,3) )
+    pytest.raises(TypeError, random.shuffle, (1, 2, 3))
 
 
 def test_choice():
