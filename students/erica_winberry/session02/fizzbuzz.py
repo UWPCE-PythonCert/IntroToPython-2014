@@ -19,3 +19,22 @@ def fizzbuzz():
             i += 1
 
 fizzbuzz()
+
+# Another solution (these are not complete!):
+
+def fizzbuzz2(n):
+    for i in range(1, n+1):
+        msg = " "
+        if i % 3 == 0
+            msg += "fizz"
+        elif i % 5 == 0
+            msg += "buzz"
+
+
+
+        for i in range(1, n + 1)
+            msg = "fizz" if i % 3 = 0 else " "
+            msg += "buzz" if i % 5 == 0 else " "
+            print(msg or i)
+
+for i in range(1, n + 1): print("fizz" * (not (1 % 3))) + "buzz" * (not( 1 % 5))
