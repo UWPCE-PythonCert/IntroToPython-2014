@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-script to determine what programming languages students came to this clas with
+script to determine what programming languages students came to this class with
 """
 
 infilename = "students.txt"
