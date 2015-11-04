@@ -11,6 +11,7 @@
 
 def safe_input(message):
     try:
-        input(message)
+        user_input = input(message)
+        return user_input
     except (KeyboardInterrupt, EOFError):
         return None

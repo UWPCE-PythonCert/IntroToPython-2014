@@ -17,6 +17,7 @@ donors = [
 
 
 def safe_input(message):
+    # Prevents error when ctrl-c or ctrl-d are used to stop the script.
     try:
         user_input = input(message)
         return user_input
@@ -32,6 +33,7 @@ def intro():
 
 
 def mailroom():
+    # Main loop that directs what action the user will take.
     intro()
     while True:
         choice = safe_input("\nWhat would you like to do? ")
@@ -51,8 +53,8 @@ def mailroom():
             intro()
 
 
-# Sending a Thank You
 def thanks():
+    # Collects information from the user when sending a thank you letter.
     donor_name = get_name(donors)
     if donor_name == "exit":
         return "Returning to main menu.\n"
@@ -120,8 +122,8 @@ def get_name(donor_list):
 def get_amount(donor, donations):
     # Get the amount of a new donation for a thank you letter.
     # Append a new donation to the list of donations made by an individual in list donationans.
-    new_donation = 0
-    while new_donation < 1:
+    new_donation = ""
+    while type(new_donation) is not float:
         # Once a name has been selected, prompt for a donation amount.
         new_donation = safe_input("Please enter the amount of the new donation from " + donor + " to the nearest whole dollar: $")
         # Verify that the amount is in fact a number, and re-prompt if it isn’t.
@@ -154,7 +156,7 @@ def write_letter(donor, amount):
         closing = "Sincerely"
         signed = "S.A. Carter"
         new_letter = print("\nDear {},".format(donor) + 
-            "\nThank you so much for your generous donation of ${:.2f} to the \n{:}.".format(amount, charity) + 
+            "\nThank you so much for your generous donation of ${:.2f} to the \n{}.".format(amount, charity) + 
             "\n{:},".format(closing) + "\n{}".format(signed))
         return new_letter
 
