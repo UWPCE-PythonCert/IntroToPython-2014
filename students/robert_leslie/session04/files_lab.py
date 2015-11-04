@@ -1,26 +1,22 @@
 #!/usr/bin/env python3
 
 
-
-
 langs = []
 
-num_langs = {
-    
-}
+num_langs = {}
 
 for line in open('../../../Examples/students.txt', 'r'):
     #print(line)
     line = line.split(':')[1]
-    line = line.replace(',','')
-    line = line.replace('\n','')
+    line = line.replace(',', '')
+    line = line.replace('\n', '')
     line = line.split(' ')
     line.pop(0)
     if len(line) < 1:
         break
     #print(line)
     for lang in line:
-        if lang in ('languages' ,''):
+        if lang in ('languages', ''):
             pass
         else:
             if not lang in langs:
