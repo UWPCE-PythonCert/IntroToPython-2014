@@ -6,12 +6,12 @@ There is also the option of sending a Thank You email to a particular donor.
 
 '''
 
-donors = [ 
-          ('John Galt', [0]), 
-          ('Sparkle Lestat', [10000]), 
-          ('Hef Bezos', [500, 500]), 
-          ('Gilliam Wates', [1000000, 1000000, 1000000]) 
-          ]
+donors = { 
+          ('John Galt': 0), 
+          ('Sparkle Lestat': 10000), 
+          ('Hef Bezos': 500, 500), 
+          ('Gilliam Wates': 1000000, 1000000, 1000000) 
+          }
 
 #   a function to print the list of donors
 def report():
