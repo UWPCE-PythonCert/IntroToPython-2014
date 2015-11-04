@@ -1,5 +1,8 @@
+#!/usr/bin/python3
+
 import re
 import random
+import glob
 
 
 def generate_trigram_db(filename):
@@ -12,11 +15,13 @@ def generate_trigram_db(filename):
     l = []
 
     with open(filename, 'r') as f:
-        for line in f.readlines():
+        while True:
+            line = f.readline()
+            if not line or line.startswith(
+                                 '*** END OF THIS PROJECT GUTENBERG'):
+                break
             if line.startswith('*** START OF THIS PROJECT GUTENBERG'):
                 continue
-            if line.startswith('*** END OF THIS PROJECT GUTENBERG'):
-                break
             l += re.findall(r"[\w']+|[.,!?;]", line)
             for i in range(len(l) - 2):
                 try:
@@ -41,7 +46,9 @@ def write_story(db, length):
         story.append(random.choice(word_list))
         cursor += 1
 
-    return story
+    # story is still a list ans has spaces inserted before punctuation.
+    # returning a string with leading space stripped from punctuation
+    return re.sub(r'\s([?.!;,"](?:\s|$))', r'\1', ' '.join(story))
 
 
 def begin_story(db):
@@ -55,4 +62,9 @@ def begin_story(db):
             l.append(i)
     return l
 
-
+if __name__ == "__main__":
+    db = {}
+    for i in glob.glob('*.txt'):
+        db.update(generate_trigram_db(i))
+    print('DB has {} key entries'.format(len(db)))
+    print(write_story(db, 500))
