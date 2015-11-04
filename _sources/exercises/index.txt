@@ -41,6 +41,7 @@ Session 5:
 .. toctree::
     :maxdepth: 1
 
+    exceptions_lab
     comprehensions_lab
 
 Session 6:

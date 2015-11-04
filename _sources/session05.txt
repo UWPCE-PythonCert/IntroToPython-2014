@@ -9,11 +9,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-Michael Cimino
+    Michael Cimino
 
-Pei Lin
+    Pei Lin
 
-Tiffany Ku
+    Tiffany Ku
 
 ================
 Review/Questions
@@ -23,8 +23,8 @@ Review of Previous Class
 ------------------------
 
   * Dictionaries
-  * Exceptions
-  * Files, etc.
+  * Sets
+  * File processing, etc.
 
 .. nextslide::
 
@@ -50,7 +50,7 @@ Review of Previous Class
 
     * But it's all good stuff.
 
-    * I want time to go over it in class.
+    * I'll take time to go over it in class.
 
 
 Homework review
@@ -58,23 +58,22 @@ Homework review
 
 Homework Questions?
 
-My Solutions to ALL the exercises in the class repo in:
+My Solutions to all the exercises in the class repo in:
 
 ``Solutions/Session04``
 
 A few tidbits ....
 
-.. nextslide:: Sorting stuff in dictionaries:
+Sorting stuff in dictionaries:
+-------------------------------
 
 dicts aren't sorted, so what if you want to do something in a sorted way?
 
-The "old" way:
+The "standard" way:
 
 .. code-block:: python
 
-  keys = d.keys()
-  keys.sort()
-  for key in keys:
+  for key in sorted(d.keys()):
       ...
 
 Other options:
@@ -83,9 +82,83 @@ Other options:
 
     collections.OrderedDict
 
-    sorted()
+Also other nifty stuff in the ``collections`` module:
+
+https://docs.python.org/3.5/library/collections.html
+
+
+PEP 8 reminder
+--------------
+
+PEP 8 (Python Enhancement Proposal 8): https://www.python.org/dev/peps/pep-0008/
+
+Is the "official" style guide for Python code.
+
+Strictly speaking, you only need to follow it for code in the standard library.
+
+But style matters -- consistent style makes your code easier to read and understand.
+
+So **follow PEP 8**
+
+*Exception* -- if you have a company style guide follow that instead.
+
+try the "pep8" module on your code::
+
+  $ python3 -m pip install pep8
+  $ pep8 my_python_file
 
 (demo)
+
+Naming things...
+----------------
+
+It matters what names you give your variables.
+
+Python has rules about what it *allows*
+
+PEP8 has rules for style: capitalization, and underscores and all that.
+
+But you still get to decide within those rules.
+
+So use names that make sense to the reader.
+
+Naming Guidelines
+-----------------
+
+Only use single-letter names for things with limited scope: indexes and teh like:
+
+.. code-block:: python
+
+    for i, item in enumerate(a_sequence):
+        do_something(i, item)
+
+**Don't** use a name like "item", when there is a meaning to what the item is:
+
+.. code-block:: python
+
+    for name in all_the_names:
+        do_something_with(name)
+
+Use plurals for collections of things:
+
+.. code-block:: python
+
+    names = ['Fred', 'George', ...]
+
+.. nextslide::
+
+**Do** re-use names when the use is essentially the same, and you don't need the old one:
+
+.. code-block:: python
+
+    line = line.strip()
+    line = line.replace(",", " ")
+    ....
+
+Here's a nice talk about naming:
+
+http://pyvideo.org/video/3792/name-things-once-0
+
 
 Code Review
 ------------
@@ -103,6 +176,221 @@ Anyone look at my solutions?
 
 Anything in particular you'd like me to go over?
 
+==========
+Exceptions
+==========
+
+Since there wasn't time last class...
+
+Exceptions
+----------
+
+Another Branching structure:
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+        process(f)   # never called if file missing
+    except IOError:
+        print("couldn't open missing.txt")
+
+Exceptions
+----------
+Never Do this:
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+        process(f)   # never called if file missing
+    except:
+        print "couldn't open missing.txt"
+
+
+Exceptions
+----------
+
+Use Exceptions, rather than your own tests:
+
+Don't do this:
+
+.. code-block:: python
+
+    do_something()
+    if os.path.exists('missing.txt'):
+        f = open('missing.txt')
+        process(f)   # never called if file missing
+
+It will almost always work -- but the almost will drive you crazy
+
+.. nextslide::
+
+Example from homework
+
+.. code-block:: python
+
+    if num_in.isdigit():
+        num_in = int(num_in)
+
+but -- ``int(num_in)`` will only work if the string can be converted to an integer.
+
+So you can do
+
+.. code-block:: python
+
+    try:
+        num_in = int(num_in)
+    except ValueError:
+        print("Input must be an integer, try again.")
+
+Or let the Exception be raised....
+
+
+.. nextslide:: EAFP
+
+
+"it's Easier to Ask Forgiveness than Permission"
+
+ -- Grace Hopper
+
+
+http://www.youtube.com/watch?v=AZDWveIdqjY
+
+(PyCon talk by Alex Martelli)
+
+.. nextslide:: Do you catch all Exceptions?
+
+For simple scripts, let exceptions happen.
+
+Only handle the exception if the code can and will do something about it.
+
+(much better debugging info when an error does occur)
+
+
+Exceptions -- finally
+---------------------
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+        process(f)   # never called if file missing
+    except IOError:
+        print("couldn't open missing.txt")
+    finally:
+        do_some_clean-up
+
+The ``finally:``  clause will always run
+
+
+Exceptions -- else
+-------------------
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+    except IOError:
+        print("couldn't open missing.txt")
+    else:
+        process(f) # only called if there was no exception
+
+Advantage:
+
+you know where the Exception came from
+
+Exceptions -- using them
+------------------------
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+    except IOError as the_error:
+        print(the_error)
+        the_error.extra_info = "some more information"
+        raise
+
+
+Particularly useful if you catch more than one exception:
+
+.. code-block:: python
+
+    except (IOError, BufferError, OSError) as the_error:
+        do_something_with (the_error)
+
+
+Raising Exceptions
+-------------------
+
+.. code-block:: python
+
+    def divide(a,b):
+        if b == 0:
+            raise ZeroDivisionError("b can not be zero")
+        else:
+            return a / b
+
+
+when you call it:
+
+.. code-block:: ipython
+
+    In [515]: divide (12,0)
+    ZeroDivisionError: b can not be zero
+
+
+Built in Exceptions
+-------------------
+
+You can create your own custom exceptions
+
+But...
+
+.. code-block:: python
+
+    exp = \
+     [name for name in dir(__builtin__) if "Error" in name]
+    len(exp)
+    32
+
+
+For the most part, you can/should use a built in one
+
+.. nextslide::
+
+Choose the best match you can for the built in Exception you raise.
+
+Example (from last week's exercises)::
+
+  if (not isinstance(m, int)) or (not isinstance(n, int)):
+      raise ValueError
+
+Is it the *value* or the input the problem here?
+
+Nope: the *type* is the problem::
+
+  if (not isinstance(m, int)) or (not isinstance(n, int)):
+      raise TypeError
+
+but should you be checking type anyway? (EAFP)
+
+===
+LAB
+===
+
+Exceptions Lab:
+
+A number of you already did this -- so do it at home if you haven't
+
+:ref:`exercise_exceptions_lab`
+
 =========================
 Advanced Argument Passing
 =========================
@@ -115,7 +403,7 @@ When defining a function, you can specify only what you need -- in any order
 .. code-block:: ipython
 
     In [151]: def fun(x,y=0,z=0):
-            print x,y,z
+            print(x,y,z)
        .....:
     In [152]: fun(1,2,3)
     1 2 3
@@ -170,7 +458,6 @@ Defaults are evaluated when the function is defined
     x is: 4
 
 
-
 Function arguments in variables
 -------------------------------
 
@@ -182,12 +469,12 @@ function arguments are really just
 .. code-block:: python
 
     def f(x, y, w=0, h=0):
-        print("position: %s, %s -- shape: %s, %s"%(x, y, w, h))
+        print("position: {}, {} -- shape: {}, {}".format(x, y, w, h))
 
     position = (3,4)
     size = {'h': 10, 'w': 20}
 
-    >>> f( *position, **size)
+    >>> f(*position, **size)
     position: 3, 4 -- shape: 20, 10
 
 
@@ -215,25 +502,25 @@ Passing a dict to str.format()
 Now that you know that keyword args are really a dict,
 you can do this nifty trick:
 
-The ``format`` method takes keyword arguments:
+The string ``format()`` method takes keyword arguments:
 
 .. code-block:: ipython
 
-    In [24]: u"My name is {first} {last}".format(last=u"Barker", first=u"Chris")
-    Out[24]: u'My name is Chris Barker'
+    In [24]: "My name is {first} {last}".format(last="Barker", first="Chris")
+    Out[24]: 'My name is Chris Barker'
 
 Build a dict of the keys and values:
 
 .. code-block:: ipython
 
-    In [25]: d = {u"last":u"Barker", u"first":u"Chris"}
+    In [25]: d = {"last":"Barker", "first":"Chris"}
 
 And pass to ``format()``with ``**``
 
 .. code-block:: ipython
 
-    In [26]: u"My name is {first} {last}".format(**d)
-    Out[26]: u'My name is Chris Barker'
+    In [26]: "My name is {first} {last}".format(**d)
+    Out[26]: 'My name is Chris Barker'
 
 =====================================
 A bit more on mutability (and copies)
@@ -308,7 +595,7 @@ The elements are the same object!
 
 This is known as a "shallow" copy -- Python doesn't want to copy more than it needs to, so in this case, it makes a new list, but does not make copies of the contents.
 
-Same for dicts (and any container type)
+Same for dicts (and any container type -- even tuples!)
 
 If the elements are immutable, it doesn't really make a differnce -- but be very careful with mutable elements.
 
@@ -359,7 +646,6 @@ I happened on this thread on stack overflow:
 
 http://stackoverflow.com/questions/3975376/understanding-dict-copy-shallow-or-deep
 
-
 The OP is pretty confused -- can you sort it out?
 
 Make sure you understand the difference between a reference, a shallow copy, and a deep copy.
@@ -376,7 +662,7 @@ Another "gotcha" is using mutables as default arguments:
        ....:     print(a)
        ....:
 
-This makes sense: maybe you'd pass in a list, but the default is an empty list.
+This makes sense: maybe you'd pass in a specific list, but if not, the default is an empty list.
 
 But:
 
@@ -414,7 +700,6 @@ The standard practice for such a mutable default argument:
 You get a new list every time the function is called
 
 
-
 LAB
 ----
 
@@ -432,6 +717,7 @@ LAB
 * Have it print the colors (use strings for the colors)
 * Call it with a couple different parameters set
 * Have it pull the parameters out with ``*args, **kwargs``
+  - and print those
 
 Lightning Talks
 ----------------
@@ -446,16 +732,14 @@ Lightning Talks
 |
 
 
-
-
 ============================
 List and Dict Comprehensions
 ============================
 
 List comprehensions
 -------------------
-A bit of functional programming
 
+A bit of functional programming
 
 consider this common ``for`` loop structure:
 
@@ -473,7 +757,6 @@ This can be expressed with a single line using a "list comprehension"
 
 
 .. nextslide::
-
 
 What about nested for loops?
 
@@ -512,7 +795,6 @@ You can add a conditional to the comprehension:
     new_list = [expr for var in a_list if something_is_true]
 
 
-
 (demo)
 
 .. nextslide::
@@ -534,7 +816,7 @@ Examples:
 
 .. nextslide::
 
-Remember this from last week?
+Remember this from earlier today?
 
 .. code-block:: python
 
@@ -545,7 +827,6 @@ Remember this from last week?
      'BufferError',
      'EOFError',
      ....
-
 
 
 Set Comprehensions
@@ -677,12 +958,11 @@ block.
 Standard Library: ``unittest``
 -------------------------------
 
-
 The original testing system in Python.
 
 ``import unittest``
 
-More or less a port of Junit from Java
+More or less a port of ``Junit`` from Java
 
 A bit verbose: you have to write classes & methods
 
@@ -747,8 +1027,7 @@ This way, you can write your code in one file and test it from another:
 
     It provides a wide variety of assertions for testing all sorts of situations.
 
-    It allows for a setup and tear down workflow both before and after all tests
-    and before and after each test.
+    It allows for a setup and tear down workflow both before and after all tests and before and after each test.
 
     It's well known and well understood.
 
@@ -769,28 +1048,29 @@ This way, you can write your code in one file and test it from another:
 
     Test discovery is both inflexible and brittle.
 
-.. nextslide:: Other Options
+    And there is no built-in parameterized testing.
+
+Other Options
+-------------
 
 There are several other options for running tests in Python.
 
+* `Nose`: https://nose.readthedocs.org/
 
-* `Nose`_
-* `pytest`_
+* `pytest`: http://pytest.org/latest/
+
 * ... (many frameworks supply their own test runners)
 
-We are going to play today with pytest
+Both are very capable and widely used. I have a personal preference for pytest -- so we'll use it for this class
 
-.. _Nose: https://nose.readthedocs.org/
-.. _pytest: http://pytest.org/latest/
-
-
-.. nextslide:: Installing ``pytest``
+Installing ``pytest``
+---------------------
 
 The first step is to install the package:
 
 .. code-block:: bash
 
-    (cff2py)$ pip install pytest
+    $ python3 -m pip install pytest
 
 Once this is complete, you should have a ``py.test`` command you can run
 at the command line:
@@ -806,11 +1086,12 @@ If you have any tests in your repository, that will find and run them.
 
     **Do you?**
 
-.. nextslide:: Pre-existing Tests
+Pre-existing Tests
+------------------
 
 Let's take a look at some examples.
 
-``\Examples\Session05``
+``IntroToPython\Examples\Session05``
 
 `` $ py.test``
 
@@ -836,8 +1117,7 @@ It follows some simple rules:
 
 * Any python file that starts with ``test_`` or ``_test`` is imported.
 * Any functions in them that start with ``test_`` are run as tests.
-* Any classes that start with ``Test`` are treated similarly, with methods that
-  begin with ``test_`` treated as tests.
+* Any classes that start with ``Test`` are treated similarly, with methods that begin with ``test_`` treated as tests.
 
 
 .. nextslide:: pytest
@@ -870,10 +1150,11 @@ Pick an example from codingbat:
 
 Do a bit of test-driven development on it:
 
- * run somethign on the web site.
+ * run something on the web site.
  * write a few tests using the examples from the site.
  * then write the function, and fix it 'till it passes the tests.
 
+Do at least two of these...
 
 =========
 Homework
@@ -883,25 +1164,37 @@ Catch up!
 ---------
 
 
-* First task -- catch up from last week.
+* Finish the LABs from today
+  - Exceptions lab
 
+* Catch up from last week.
+
+  - Add Exception handling to mailroom
   - and add some tests
   - and list (and dict, and set) comprehensions...
 
-* Then on to some exercises....
+* If you've done all that -- check out the collections module:
 
+  - https://docs.python.org/3.5/library/collections.html
+  - here's a good overview: https://pymotw.com/3/collections/
 
+====================================
+Material to review before next week:
+====================================
 
-================================
-Material to review for Homework:
-================================
+ * Dive into Python3: 7.2 -- 7.3
+   http://www.diveintopython3.net/iterators.html#defining-classes
 
-Raymond Hettinger:
+ * Think Pyhton: 15 -- 18
+   http://www.greenteapress.com/thinkpython/html/thinkpython016.html
+
+ * LPTHW: 40 -- 44
+   http://learnpythonthehardway.org/book/ex40.html
+
+[note that in py3 you dont need to inherit from object]
+
+Talk by Raymond Hettinger:
 
 https://youtu.be/HTLu2DFOdTg
 
 https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger
-
-
-
-
