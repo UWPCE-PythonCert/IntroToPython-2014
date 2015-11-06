@@ -16,6 +16,7 @@ Do we have to implement backtracking if we chose a next word that turns
 out to be a dead end?
 """
 
+# Fuction #1: trigram_prep
 # open a text file
 # read the text file
     # split the text file into a series of strings (split on " ")
@@ -23,6 +24,7 @@ out to be a dead end?
 # save the first two words as a key, and the next word as a value
     # repeat this for the entire text.
 
+# Function #2: trigram_create
 # Randomly select a key:value pair to start (select by capitalization?)
     # Convert all three into a string
 # Find the key that matches the last two words of the above string
@@ -31,9 +33,14 @@ out to be a dead end?
 # Set the loop to end after a set number of tries, if the last value 
 # a period at the end.
 
+
 def trigram_prep(source_file):
     trigram_dict = {}
     with open(source_file, "r") as f:
-        for line in f.read(): # use dict comprehension to shorten this
+        for line in f: # later: use dict comprehension to shorten this
             line = line.replace("--", " ").split()
-        
+#            print(line)
+
+
+
+# {int(k): v for line in f for (k, v) in (line.strip().split(None, 1),)}
