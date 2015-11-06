@@ -50,56 +50,70 @@ def trigram_prep(source_file):
 # a period at the end.
 
 
-def create_trigram_text(source_dict, length):
-    trigram = ["I", "was"]
-    # trigram = [random.choice(list(source_dict.keys()))]
-    for i in range(length):
-        pair = " ".join(trigram[-2:])
-        # print(pair)
-        new_word = source_dict[pair]
-        trigram.append(new_word)
-    final_output = " ".join(trigram)
-    print(final_output)
-
-    # trigram = [random.choice(list(source_dict.keys()))]
+# def create_trigram_text(source_dict, length):
+    # Setting the initial phrase
     # try:
-    #     pair.lower() in source_dict
+    #     trigram = ["I", "was"]
+    #     for i in range(length):
+    #         pair = " ".join(trigram[-2:])
+    #         # print(pair)
+    #         new_word = source_dict[pair]
+    #         trigram.append(new_word)
+    #     final_output = " ".join(trigram)
+    #     print(final_output)
     # except KeyError:
-    #     print("KeyError: The phrase '" + pair + "' doesn't exist in the text!")
+    #     print("KeyError: The phrase '" + trigram + "' doesn't exist in the text!")
+
+
+def create_trigram_text2(source_dict, length):
+    try:
+        trigram = format_test(source_dict)
+# #        print(trigram)
+#         first_pair = " ".join(trigram)
+# #        print(first_pair)
+#         first_word = source_dict[first_pair]
+# #        print(first_word)
+#         trigram.append(first_word)
+        # print(trigram)
+        for i in range(length):
+            pair = " ".join(trigram[-2:])
+            # print(pair)
+            new_word = source_dict[pair]
+            trigram.append(new_word)
+        trigram[0] = trigram[0].capitalize()
+        final_output = " ".join(trigram)
+        print(final_output + ".")
+    except KeyError as e:
+        print(e)
+
+
     # first_pair = " ".join(trigram)
     # first_v = source_dict[first_pair]
     # trigram.append(first_v)
     # print(type(trigram))
     # trigram[0] = trigram[0].capitalize()
 
+def format_test(source_dict):
+    # An attempt to make the initial language of the trigram generated 
+    # text more likely to be grammatically correct.
+    format_test = 0
+    while format_test < 1:
+        starter = [random.choice(list(source_dict.keys()))]
+        starter = starter[0].split(" ")
+        if "." in starter:
+            continue
+        elif "," in starter:
+            continue
+        elif '"' in starter:
+            continue
+        # elif starter[0] != "the":
+        #     continue
+        else:
+            format_test = 1
+    return starter
 
 
-
-    # try:
-        # trigram.append(source_dict[start.lower()])
-    # except KeyError:
-        # print("KeyError: The phrase '" + start + "' doesn't exist in the text!")
-    # trigram = start.capitalize() + " " + source_dict[start]
-
-# def format_test(source_dict):
-#     # An attempt to make the initial language of the trigram generated 
-#     # text more likely to be grammatically correct.
-#     format_test = 0
-#     while format_test < 1:
-#         starter = [random.choice(list(source_dict.keys()))]
-#         if "." in starter:
-#             pass
-#         elif "," in starter:
-#             pass
-#         elif '"' in starter:
-#             pass
-#         else:
-#             starter[0] = starter[0].capitalize()
-#             format_test = 1
-#     return starter
-
-
-create_trigram_text(trigram_prep("sherlock_small.txt"), 20)
+create_trigram_text2(trigram_prep("jabberwocky.txt"), 100)
 
 # trigram_prep("sherlock_small.txt")
 
