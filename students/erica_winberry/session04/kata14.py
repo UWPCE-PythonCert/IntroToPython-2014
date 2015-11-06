@@ -106,6 +106,8 @@ def format_test(source_dict):
             continue
         elif '"' in starter:
             continue
+        elif "'" in starter:
+            continue
         # elif starter[0] != "the":
         #     continue
         else:

@@ -1,14 +1,23 @@
-# This script should be executable. The script should accomplish the following goals:
+"""
+update mailroom from last week to:
 
-# 1. It should have a data structure that holds a list of your donors and a
-# history of the amounts they have donated. This structure should be populated
-# at first with at least five donors, with between 1 and 3 donations each
+Use dicts where appropriate
 
-# 2. The script should prompt the user (you) to choose from a menu of 2
-# actions: ‘Send a Thank You’ or ‘Create a Report’.
+Write a full set of letters to everyone to individual files on disk
+
+See if you can use a dict to switch between the users selections
+
+Try to use a dict and the .format() method to do the letter as one big 
+template – rather than building up a big string in parts.
+
+THEN:
+Add Exception handling to mailroom
+and add some tests
+and list (and dict, and set) comprehensions...
+"""
 
 donors = [
-    ["Carol Danvers", 25.00, 100.00],
+    {"Carol Danvers": "Carol Danvers", 25.00, 100.00],
     ["Kumala Khan", 15.00, 15.00, 25.00],
     ["Jennifer Walters", 50.00, 100.00, 65.00],
     ["Monica Rambeau", 200.00],
