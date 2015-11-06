@@ -16,6 +16,8 @@ Do we have to implement backtracking if we chose a next word that turns
 out to be a dead end?
 """
 
+import random
+
 # Fuction #1: trigram_prep
 # open a text file
 # read the text file
@@ -23,15 +25,6 @@ out to be a dead end?
     # replace m-dashes with spaces.
 # save the first two words as a key, and the next word as a value
     # repeat this for the entire text.
-
-# Function #2: trigram_create
-# Randomly select a key:value pair to start (select by capitalization?)
-    # Convert all three into a string
-# Find the key that matches the last two words of the above string
-    # add the value from that key to the string
-    # LRR
-# Set the loop to end after a set number of tries, if the last value 
-# a period at the end.
 
 
 def trigram_prep(source_file):
@@ -43,9 +36,79 @@ def trigram_prep(source_file):
             word_list.extend(line)
         for word in range(len(word_list)-2):
             pair = " ".join(word_list[word:word+2])
-            value = word_list[+2]
+            value = word_list[word+2]
             trigram_dict[pair] = value
 #            trigram_dict[" ".join(word_list[0:2])] = word_list[+2]
-        print(trigram_dict)
+        return trigram_dict
 
-# {int(k): v for line in f for (k, v) in (line.strip().split(None, 1),)}
+# Function #2: create trigram text
+# Randomly select a key:value pair to start; capitalize first letter.
+# Find the key that matches the last two words of the above string
+    # add the value from that key to the string
+    # LRR
+# Set the loop to end after a set number of tries, if the last value 
+# a period at the end.
+
+
+def create_trigram_text(source_dict, length):
+    trigram = ["I", "was"]
+    # trigram = [random.choice(list(source_dict.keys()))]
+    for i in range(length):
+        pair = " ".join(trigram[-2:])
+        # print(pair)
+        new_word = source_dict[pair]
+        trigram.append(new_word)
+    final_output = " ".join(trigram)
+    print(final_output)
+
+    # trigram = [random.choice(list(source_dict.keys()))]
+    # try:
+    #     pair.lower() in source_dict
+    # except KeyError:
+    #     print("KeyError: The phrase '" + pair + "' doesn't exist in the text!")
+    # first_pair = " ".join(trigram)
+    # first_v = source_dict[first_pair]
+    # trigram.append(first_v)
+    # print(type(trigram))
+    # trigram[0] = trigram[0].capitalize()
+
+
+
+
+    # try:
+        # trigram.append(source_dict[start.lower()])
+    # except KeyError:
+        # print("KeyError: The phrase '" + start + "' doesn't exist in the text!")
+    # trigram = start.capitalize() + " " + source_dict[start]
+
+# def format_test(source_dict):
+#     # An attempt to make the initial language of the trigram generated 
+#     # text more likely to be grammatically correct.
+#     format_test = 0
+#     while format_test < 1:
+#         starter = [random.choice(list(source_dict.keys()))]
+#         if "." in starter:
+#             pass
+#         elif "," in starter:
+#             pass
+#         elif '"' in starter:
+#             pass
+#         else:
+#             starter[0] = starter[0].capitalize()
+#             format_test = 1
+#     return starter
+
+
+create_trigram_text(trigram_prep("sherlock_small.txt"), 20)
+
+# trigram_prep("sherlock_small.txt")
+
+
+
+
+
+
+
+
+
+
