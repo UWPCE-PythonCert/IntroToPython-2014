@@ -75,7 +75,7 @@ def test_save_letters_to_disk():
     mailroom.save_letters_to_disk()
 
     assert os.path.isfile('Jeff_Bezos.txt')
-    assert os.path.isfile('William_Gates,_III.txt')
+    assert os.path.isfile('William_Gates_III.txt')
 
 if __name__ == "__main__":
     # this is best run with a test runner, like pytest
