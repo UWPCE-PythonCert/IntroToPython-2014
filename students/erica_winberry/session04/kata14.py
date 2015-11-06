@@ -39,9 +39,13 @@ def trigram_prep(source_file):
     trigram_dict = {}
     with open(source_file, "r") as f:
         for line in f: # later: use dict comprehension to shorten this
-            modified_text = line.replace("--", " ").split()
-            word_list = " ".join(modified_text)
-#    print(type(word_list))
-
+            line = line.replace("--", " ").split()
+            modified_text.extend(line)
+        print(modified_text)
+            # word_list = " ".join(modified_text)
+            # print(word_list)
+            # for word in word_list[:-2]:
+            #     trigram_dict[word_list[0:2]] = word_list[+2]
+            # print(trigram_dict)
 
 # {int(k): v for line in f for (k, v) in (line.strip().split(None, 1),)}
