@@ -35,17 +35,17 @@ out to be a dead end?
 
 
 def trigram_prep(source_file):
-    modified_text = []
+    word_list = []
     trigram_dict = {}
     with open(source_file, "r") as f:
         for line in f: # later: use dict comprehension to shorten this
-            line = line.replace("--", " ").split()
-            modified_text.extend(line)
-        print(modified_text)
-            # word_list = " ".join(modified_text)
-            # print(word_list)
-            # for word in word_list[:-2]:
-            #     trigram_dict[word_list[0:2]] = word_list[+2]
-            # print(trigram_dict)
+            line = line.replace("--", " ").replace("(", "").replace(")", "").split()
+            word_list.extend(line)
+        for word in range(len(word_list)-2):
+            pair = " ".join(word_list[word:word+2])
+            value = word_list[+2]
+            trigram_dict[pair] = value
+#            trigram_dict[" ".join(word_list[0:2])] = word_list[+2]
+        print(trigram_dict)
 
 # {int(k): v for line in f for (k, v) in (line.strip().split(None, 1),)}
