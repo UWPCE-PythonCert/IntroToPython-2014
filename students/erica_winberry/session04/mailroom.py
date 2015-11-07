@@ -38,6 +38,7 @@ def intro():
     print("\nMAILROOM OPTIONS")
     print("1 - Send a Thank You")
     print("2 - Create a Report")
+    print("3 - Write Thank You letters to all donors.")
     print("\n(Type 'exit' at any time.)")
 
 
@@ -151,6 +152,20 @@ Superheroes") + "\n{closing},".format(closing="Sincerely") +
         return new_letter
 
 
+def generate_letters(dictionary_of_donors):
+    for dictionaries in dictionary_of_donors:
+        for entry in dictionaries:
+            donor = dictionaries["name"]
+            file_name = donor + "_thanks.txt"
+            total_amount = sum(dictionaries["donations"])
+            new_letter = ("\nDear {},".format(donor) + "\nThank \
+you for your generous donation(s) totaling ${:.2f} to the \
+\n{charity}.".format(total_amount, charity="Carter Home for Retired \
+Superheroes") + "\n{closing},".format(closing="Sincerely") +
+                "\n{signed}".format(signed="S.A. Carter"))
+            with open(file_name, "w") as f:
+                f.write(new_letter)
+
 if __name__ == "__main__":
     while True:
         intro()
@@ -166,5 +181,8 @@ if __name__ == "__main__":
         elif choice == "2":
             print("\nCreate a Report:\n")
             report(donors)
+        elif choice == "3":
+            generate_letters(donors)
+            print("\nYour letters have been saved as text files.")
         else:
             print("\nThat choice isn't on the list.\n")
