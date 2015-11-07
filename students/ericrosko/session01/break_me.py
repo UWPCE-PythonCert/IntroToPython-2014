@@ -71,6 +71,7 @@ def main():
 			1.) makeNameError
 			2.) makeKeyError
 			3.) makeAttributeError
+			Note: For a syntax error, the py file won't even compile.
 			""")
 		if user_input == 'q':
 			break;
