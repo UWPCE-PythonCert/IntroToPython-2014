@@ -201,12 +201,12 @@ First a slightly bigger, more interesting (or at least bigger..) dict:
 
 .. code-block:: python
 
-    food_prefs = {"name": u"Chris",
-                  u"city": u"Seattle",
-                  u"cake": u"chocolate",
-                  u"fruit": u"mango",
-                  u"salad": u"greek",
-                  u"pasta": u"lasagna"}
+    food_prefs = {"name": "Chris",
+                  "city": "Seattle",
+                  "cake": "chocolate",
+                  "fruit": "mango",
+                  "salad": "greek",
+                  "pasta": "lasagna"}
 
 .. nextslide:: Working with this dict:
 

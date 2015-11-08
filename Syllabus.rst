@@ -276,15 +276,11 @@ Dictionaries, Sets and Mutability.
 
 Files and Text Processing
 
-Exceptions.
-
 
 Week 5: November 3
 ........................
 
 Exceptions
-
-Advanced Argument passing
 
 Testing
 
@@ -293,13 +289,16 @@ List and Dict Comprehensions
 Week 6: November 10
 ....................
 
+Advanced Argument passing
+
 Lambda and Functions as Objects
 
-Object Oriented Programming: classes, instances, and methods
 
 
 Week 7: November 17
 .......................
+
+Object Oriented Programming: classes, instances, and methods
 
 More OO -- Multiple inheritance, Properties, special methods
 
