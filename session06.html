@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Six: Functional and Object Oriented Programming &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Six: Advanced Argument Passing, lambda, functions as objects &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
         <link rel="next" title="Session Seven: More OO" href="session07.html"/>
-        <link rel="prev" title="Session Five: Advanced Argument passing, Testing, Comprehensions" href="session05.html"/> 
+        <link rel="prev" title="Session Five: Exceptions, Testing, Comprehensions" href="session05.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -85,10 +85,9 @@
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, Testing, Comprehensions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Six: Functional and Object Oriented Programming</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#note">NOTE:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Six: Advanced Argument Passing, lambda, functions as objects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
@@ -97,11 +96,23 @@
 <li class="toctree-l2"><a class="reference internal" href="#homework-review">Homework review</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#notes-from-homework">Notes from Homework:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-collections-module">The collections module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#defaultdict">defaultdict</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#counter">Counter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#test-driven-development-demo">Test Driven development demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-argument-passing">Advanced Argument Passing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keyword-arguments">Keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-arguments-in-variables">Function arguments in variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-parameters-in-variables">Function parameters in variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passing-a-dict-to-str-format">Passing a dict to str.format()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#a-bit-more-on-mutability-and-copies">A bit more on mutability (and copies)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mutable-objects">mutable objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-copy-module">The copy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mutables-as-default-arguments">Mutables as default arguments:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lab">LAB</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#anonymous-functions">Anonymous functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lambda">lambda</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#functions-as-first-class-objects">Functions as first class objects</a></li>
@@ -116,19 +127,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#a-bit-more-about-lambda">A bit more about lambda</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">LAB</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lambda-and-keyword-argument-magic">lambda and keyword argument magic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#object-oriented-programming">Object Oriented Programming</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Object Oriented Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Object Oriented Programming</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#python-classes">Python Classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Python Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">LAB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Lightning Talks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Python Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">LAB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Lightning Talks</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#subclassing-inheritance">Subclassing/Inheritance</a><ul>
@@ -193,7 +204,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Session Six: Functional and Object Oriented Programming</li>
+    <li>Session Six: Advanced Argument Passing, lambda, functions as objects</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -207,31 +218,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="session-six-functional-and-object-oriented-programming">
-<h1>Session Six: Functional and Object Oriented Programming<a class="headerlink" href="#session-six-functional-and-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
-<p class="left medium">Lambda and Functional programming.</p>
-<p class="left medium">Object oriented programming:</p>
-<p class="left medium">classes, instances, attributes, and subclassing</p>
-<div class="section" id="note">
-<h2>NOTE:<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
-<p class="center large">Veteran&#8217;s Day:</p>
-<p class="center large">No class next week</p>
-</div>
+  <div class="section" id="session-six-advanced-argument-passing-lambda-functions-as-objects">
+<h1>Session Six: Advanced Argument Passing, lambda, functions as objects<a class="headerlink" href="#session-six-advanced-argument-passing-lambda-functions-as-objects" title="Permalink to this headline">¶</a></h1>
+<p class="left medium">Advanced Argument passing</p>
+<p class="left medium">Lambda</p>
+<p class="left medium">Functions as objects</p>
 <div class="section" id="lightning-talks-today">
 <h2>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h2>
-<p class="medium">Aleksey Kramer</p>
-<p class="medium">Alexander R Galvin</p>
-<p class="medium">Gideon I Sylvan</p>
-<p class="medium">Hui Zhang</p>
+<p class="medium">Gabriel Meringolo</p>
+<p class="medium">Joseph Cardenas</p>
+<p class="medium">Marc Teale</p>
 </div>
 <div class="section" id="review-questions">
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-class">
 <h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Argument Passing: <code class="docutils literal"><span class="pre">*args</span></code>, <code class="docutils literal"><span class="pre">**kwargs</span></code></li>
-<li>comprehensions</li>
-<li>testing (a bit more on that soon)</li>
+<li>Exceptions</li>
+<li>Comprehensions</li>
+<li>Testing (a bit more on that soon)</li>
 </ul>
 </div>
 </div>
@@ -275,33 +280,247 @@ collections:</p>
 <li>Counter</li>
 </ul>
 </div></blockquote>
-<p><a class="reference external" href="https://docs.python.org/2/library/collections.html">https://docs.python.org/2/library/collections.html</a></p>
-</div>
-<div class="section" id="defaultdict">
-<h3>defaultdict<a class="headerlink" href="#defaultdict" title="Permalink to this headline">¶</a></h3>
-<p>An alternative to <code class="docutils literal"><span class="pre">dict.setdefault()</span></code></p>
-<p>Makes sense when you are buildng a dict where every value will be the same thing</p>
-<p>Carolyn found this in the <code class="docutils literal"><span class="pre">collections</span></code> package. Useful for the trigrams
-assignment:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-
-<span class="n">trigrams</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="o">...</span>
-    <span class="n">trigrams</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">follower</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="counter">
-<h3>Counter<a class="headerlink" href="#counter" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">Counter</span></code>:</p>
-<p>Hui Zhang found this for counting how many students used which previous
-languages.</p>
-<p>See my example in <code class="docutils literal"><span class="pre">/Solutions/Session05</span></code></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/collections.html">https://docs.python.org/3/library/collections.html</a></p>
+<p>Did you all explore that a bit?</p>
 </div>
 </div>
 <div class="section" id="test-driven-development-demo">
 <h2>Test Driven development demo<a class="headerlink" href="#test-driven-development-demo" title="Permalink to this headline">¶</a></h2>
 <p>In <code class="docutils literal"><span class="pre">Examples/Session06/</span></code></p>
+</div>
+<div class="section" id="advanced-argument-passing">
+<h2>Advanced Argument Passing<a class="headerlink" href="#advanced-argument-passing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="keyword-arguments">
+<h3>Keyword arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<p>When defining a function, you can specify only what you need &#8211; in any order</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [151]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="go">        print(x,y,z)</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [152]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">1 2 3</span>
+<span class="gp">In [153]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">1 0 3</span>
+<span class="gp">In [154]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">1 2 3</span>
+</pre></div>
+</div>
+<p>A Common Idiom:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">do_something_different</span>
+    <span class="n">go_on_here</span>
+</pre></div>
+</div>
+<p>Can set defaults to variables</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
+<span class="go">    print(&quot;x is:&quot;, x)</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [158]: </span><span class="n">fun</span><span class="p">()</span>
+<span class="go">x is: 4</span>
+</pre></div>
+</div>
+<p>Defaults are evaluated when the function is defined</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
+<span class="go">    print(&quot;x is:&quot;, x)</span>
+<span class="gp">   .....:</span>
+<span class="gp">In [158]: </span><span class="n">fun</span><span class="p">()</span>
+<span class="go">x is: 4</span>
+<span class="gp">In [159]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="gp">In [160]: </span><span class="n">fun</span><span class="p">()</span>
+<span class="go">x is: 4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-arguments-in-variables">
+<h3>Function arguments in variables<a class="headerlink" href="#function-arguments-in-variables" title="Permalink to this headline">¶</a></h3>
+<p>function arguments are really just</p>
+<ul class="simple">
+<li>a tuple (positional arguments)</li>
+<li>a dict (keyword arguments)</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;position: {}, {} -- shape: {}, {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+
+<span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;h&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">position</span><span class="p">,</span> <span class="o">**</span><span class="n">size</span><span class="p">)</span>
+<span class="n">position</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="o">--</span> <span class="n">shape</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-parameters-in-variables">
+<h3>Function parameters in variables<a class="headerlink" href="#function-parameters-in-variables" title="Permalink to this headline">¶</a></h3>
+<p>You can also pull the parameters out in the function as a tuple and a dict:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go">def f(*args, **kwargs):</span>
+<span class="go">    print(&quot;the positional arguments are:&quot;, args)</span>
+<span class="go">    print(&quot;the keyword arguments are:&quot;, kwargs)</span>
+
+<span class="gp">In [389]: </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">this</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">that</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">the positional arguments are: (2, 3)</span>
+<span class="go">the keyword arguments are: {&#39;this&#39;: 5, &#39;that&#39;: 7}</span>
+</pre></div>
+</div>
+<p>This can be very powerful...</p>
+</div>
+<div class="section" id="passing-a-dict-to-str-format">
+<h3>Passing a dict to str.format()<a class="headerlink" href="#passing-a-dict-to-str-format" title="Permalink to this headline">¶</a></h3>
+<p>Now that you know that keyword args are really a dict,
+you can do this nifty trick:</p>
+<p>The string <code class="docutils literal"><span class="pre">format()</span></code> method takes keyword arguments:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="s">&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">last</span><span class="o">=</span><span class="s">&quot;Barker&quot;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="s">&quot;Chris&quot;</span><span class="p">)</span>
+<span class="gh">Out[24]: </span><span class="go">&#39;My name is Chris Barker&#39;</span>
+</pre></div>
+</div>
+<p>Build a dict of the keys and values:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;last&quot;</span><span class="p">:</span><span class="s">&quot;Barker&quot;</span><span class="p">,</span> <span class="s">&quot;first&quot;</span><span class="p">:</span><span class="s">&quot;Chris&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>And pass to <code class="docutils literal"><span class="pre">format()``with</span> <span class="pre">``**</span></code></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="s">&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
+<span class="gh">Out[26]: </span><span class="go">&#39;My name is Chris Barker&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-bit-more-on-mutability-and-copies">
+<h2>A bit more on mutability (and copies)<a class="headerlink" href="#a-bit-more-on-mutability-and-copies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mutable-objects">
+<h3>mutable objects<a class="headerlink" href="#mutable-objects" title="Permalink to this headline">¶</a></h3>
+<p>We&#8217;ve talked about this: mutable objects can have their contents changed in place.</p>
+<p>Immutable objects can not.</p>
+<p>This has implications when you have a container with mutable objects in it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>one way to make a copy of a list:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span><span class="p">[:]</span>
+
+<span class="gp">In [30]: </span><span class="n">list2</span> <span class="ow">is</span> <span class="n">list1</span>
+<span class="gh">Out[30]: </span><span class="go">False</span>
+</pre></div>
+</div>
+<p>they are different lists.</p>
+<p>What if we set an element to a new value?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+
+<span class="gp">In [32]: </span><span class="n">list1</span>
+<span class="gh">Out[32]: </span><span class="go">[[5, 6, 7], [&#39;a&#39;, &#39;b&#39;]]</span>
+
+<span class="gp">In [33]: </span><span class="n">list2</span>
+<span class="gh">Out[33]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;]]</span>
+</pre></div>
+</div>
+<p>So they are independent.</p>
+<p>But what if we mutate an element?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [34]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;c&#39;</span><span class="p">)</span>
+
+<span class="gp">In [35]: </span><span class="n">list1</span>
+<span class="gh">Out[35]: </span><span class="go">[[5, 6, 7], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+
+<span class="gp">In [36]: </span><span class="n">list2</span>
+<span class="gh">Out[36]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+</pre></div>
+</div>
+<p>uuh oh! mutating an element in one list mutated the one in the other list.</p>
+<p>Why is that?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [38]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="n">list2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gh">Out[38]: </span><span class="go">True</span>
+</pre></div>
+</div>
+<p>The elements are the same object!</p>
+<p>This is known as a &#8220;shallow&#8221; copy &#8211; Python doesn&#8217;t want to copy more than it needs to, so in this case, it makes a new list, but does not make copies of the contents.</p>
+<p>Same for dicts (and any container type &#8211; even tuples!)</p>
+<p>If the elements are immutable, it doesn&#8217;t really make a differnce &#8211; but be very careful with mutable elements.</p>
+</div>
+<div class="section" id="the-copy-module">
+<h3>The copy module<a class="headerlink" href="#the-copy-module" title="Permalink to this headline">¶</a></h3>
+<p>most objects have a way to make copies (<code class="docutils literal"><span class="pre">dict.copy()</span></code> for instance).</p>
+<p>but if not, you can use the <code class="docutils literal"><span class="pre">copy</span></code> module to make a copy:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [39]: </span><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="gp">In [40]: </span><span class="n">list3</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
+
+<span class="gp">In [41]: </span><span class="n">list3</span>
+<span class="gh">Out[41]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+</pre></div>
+</div>
+<p>This is also a shallow copy.</p>
+<p>But there is another option:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">list1</span>
+<span class="gh">Out[3]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+
+<span class="gp">In [4]: </span><span class="n">list2</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+
+<span class="gp">In [5]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [6]: </span><span class="n">list1</span>
+<span class="gh">Out[6]: </span><span class="go">[[1, 2, 3, 4], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+
+<span class="gp">In [7]: </span><span class="n">list2</span>
+<span class="gh">Out[7]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">deepcopy</span></code> recurses through the object, making copies of everything as it goes.</p>
+<p>I happened on this thread on stack overflow:</p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/3975376/understanding-dict-copy-shallow-or-deep">http://stackoverflow.com/questions/3975376/understanding-dict-copy-shallow-or-deep</a></p>
+<p>The OP is pretty confused &#8211; can you sort it out?</p>
+<p>Make sure you understand the difference between a reference, a shallow copy, and a deep copy.</p>
+</div>
+<div class="section" id="mutables-as-default-arguments">
+<h3>Mutables as default arguments:<a class="headerlink" href="#mutables-as-default-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Another &#8220;gotcha&#8221; is using mutables as default arguments:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">[]):</span>
+<span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">   ....:</span>
+</pre></div>
+</div>
+<p>This makes sense: maybe you&#8217;d pass in a specific list, but if not, the default is an empty list.</p>
+<p>But:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">[3]</span>
+
+<span class="gp">In [13]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">[3, 4]</span>
+</pre></div>
+</div>
+<p>Huh?!</p>
+<p>Remember that that default argument is defined when the function is created: there will be only one list, and every time the function is called, that same list is used.</p>
+<p>The solution:</p>
+<p>The standard practice for such a mutable default argument:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">   ....: </span>        <span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">In [16]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">[3]</span>
+<span class="gp">In [17]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">[4]</span>
+</pre></div>
+</div>
+<p>You get a new list every time the function is called</p>
+</div>
+<div class="section" id="lab">
+<h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
+<p class="medium">keyword arguments:</p>
+<ul class="simple">
+<li>Write a function that has four optional parameters (with defaults):<ul>
+<li>fore_color</li>
+<li>back_color</li>
+<li>link_color</li>
+<li>visited_color</li>
+</ul>
+</li>
+<li>Have it print the colors (use strings for the colors)</li>
+<li>Call it with a couple different parameters set</li>
+<li>Have it pull the parameters out with <code class="docutils literal"><span class="pre">*args,</span> <span class="pre">**kwargs</span></code>
+- and print those</li>
+</ul>
+</div>
 </div>
 <div class="section" id="anonymous-functions">
 <h2>Anonymous functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
@@ -312,7 +531,7 @@ languages.</p>
 <span class="gh">Out[172]: </span><span class="go">5</span>
 </pre></div>
 </div>
-<p>Content can only be an expression &#8211; not a statement</p>
+<p>Content of function can only be an expression &#8211; not a statement</p>
 <p>Anyone remember what the difference is?</p>
 <p>Called &#8220;Anonymous&#8221;: it doesn&#8217;t need a name.</p>
 <p>It&#8217;s a python object, it can be stored in a list or other container</p>
@@ -435,7 +654,7 @@ It keeps only those for which the function is True</p>
 <span class="go">    l.append(lambda x, e=i: x**e)</span>
 <span class="gp">   .....:</span>
 <span class="gp">In [189]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
-<span class="go">    print f(3)</span>
+<span class="go">    print(f(3))</span>
 <span class="go">1</span>
 <span class="go">3</span>
 <span class="go">9</span>
@@ -444,8 +663,8 @@ It keeps only those for which the function is True</p>
 <p>Note when the keyword argument is evaluated: this turns out to be very handy!</p>
 </div>
 </div>
-<div class="section" id="lab">
-<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>LAB<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lambda-and-keyword-argument-magic">
 <h3>lambda and keyword argument magic<a class="headerlink" href="#lambda-and-keyword-argument-magic" title="Permalink to this headline">¶</a></h3>
 <p>Write a function that returns a list of n functions,
@@ -466,7 +685,7 @@ incremented by an increasing number.</p>
 <span class="go">## the 1st element of the list is a function that adds 1</span>
 <span class="go">## to the input value, thus called with 2, returns 3</span>
 <span class="gp">In [100]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">the_list</span><span class="p">:</span>
-<span class="go">    print f(5)</span>
+<span class="go">    print(f(5))</span>
 <span class="gp">   .....:</span>
 <span class="go">5</span>
 <span class="go">6</span>
@@ -490,8 +709,8 @@ incremented by an increasing number.</p>
 </div>
 <div class="section" id="object-oriented-programming">
 <h2>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>Object Oriented Programming<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Object Oriented Programming<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>More about Python implementation than OO design/strengths/weaknesses</p>
 <p>One reason for this:</p>
 <p>Folks can&#8217;t even agree on what OO &#8220;really&#8221; means</p>
@@ -595,8 +814,8 @@ as a variable, or single object, as opposed to a ...</dd>
 <p class="left">It is created when the statement is run &#8211; much like <code class="docutils literal"><span class="pre">def</span></code></p>
 <p class="left">You don&#8217;t <em>have</em> to subclass from <code class="docutils literal"><span class="pre">object</span></code>, but you <em>should</em></p>
 <p class="left">(note on &#8220;new style&#8221; classes)</p>
-<div class="section" id="id3">
-<h3>Python Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Python Classes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>About the simplest class you can write</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
@@ -624,8 +843,8 @@ as a variable, or single object, as opposed to a ...</dd>
 <span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="c">## access the attributes</span>
-<span class="k">print</span> <span class="s">&quot;p.x is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span>
-<span class="k">print</span> <span class="s">&quot;p.y is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;p.x is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;p.y is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>see: <code class="docutils literal"><span class="pre">Examples/Session06/simple_classes.py</span></code></p>
@@ -705,8 +924,8 @@ instance of the class shares the same one.</p>
 <p><code class="docutils literal"><span class="pre">self</span></code> is implicitly passed in for you by python.</p>
 <p>(demo of bound vs. unbound methods)</p>
 </div>
-<div class="section" id="id4">
-<h3>LAB<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>LAB<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s say you need to render some html...</p>
 <p>The goal is to build a set of classes that render an html
 page like this:</p>
@@ -717,8 +936,8 @@ to specialize the behavior</p>
 <p><a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span>HTML Renderer Exercise</span></a></p>
 <p>Let&#8217;s see if you can do step 1. in class...</p>
 </div>
-<div class="section" id="id5">
-<h3>Lightning Talks<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Lightning Talks<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
 <div class="line"><br /></div>
 <div class="line">Gideon Sylvan</div>
@@ -763,7 +982,7 @@ from pre-existing classes called base classes or super classes.</p>
 <span class="k">class</span> <span class="nc">NewCircle</span><span class="p">(</span><span class="n">Circle</span><span class="p">):</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">NewCircle</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">nc</span><span class="o">.</span><span class="n">color</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">nc</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
 <span class="n">blue</span>
 </pre></div>
 </div>
@@ -990,7 +1209,7 @@ user types:</p>
         <a href="session07.html" class="btn btn-neutral float-right" title="Session Seven: More OO" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="session05.html" class="btn btn-neutral" title="Session Five: Advanced Argument passing, Testing, Comprehensions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="session05.html" class="btn btn-neutral" title="Session Five: Exceptions, Testing, Comprehensions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

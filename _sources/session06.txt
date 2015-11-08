@@ -1,25 +1,15 @@
 
-********************************************************
-Session Six: Functional and Object Oriented Programming
-********************************************************
+********************************************************************
+Session Six: Advanced Argument Passing, lambda, functions as objects
+********************************************************************
 
 .. rst-class:: left medium
 
-    Lambda and Functional programming.
+    Advanced Argument passing
 
-    Object oriented programming:
+    Lambda
 
-    classes, instances, attributes, and subclassing
-
-=====
-NOTE:
-=====
-
-.. rst-class:: center large
-
-    Veteran's Day:
-
-    No class next week
+    Functions as objects
 
 ======================
 Lightning Talks Today:
@@ -27,14 +17,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-    Aleksey Kramer
+    Gabriel Meringolo
 
-    Alexander R Galvin
+    Joseph Cardenas
 
-    Gideon I Sylvan
-
-    Hui Zhang
-
+    Marc Teale
 
 ================
 Review/Questions
@@ -43,11 +30,11 @@ Review/Questions
 Review of Previous Class
 ------------------------
 
-* Argument Passing: ``*args``, ``**kwargs``
+* Exceptions
 
-* comprehensions
+* Comprehensions
 
-* testing (a bit more on that soon)
+* Testing (a bit more on that soon)
 
 ===============
 Homework review
@@ -105,42 +92,343 @@ collections:
  * deque
  * Counter
 
-https://docs.python.org/2/library/collections.html
+https://docs.python.org/3/library/collections.html
 
-defaultdict
------------
-
-An alternative to ``dict.setdefault()``
-
-Makes sense when you are buildng a dict where every value will be the same thing
-
-Carolyn found this in the ``collections`` package. Useful for the trigrams
-assignment:
-
-.. code-block:: python
-
-    from collections import defaultdict
-
-    trigrams = defaultdict(list)
-    ...
-        trigrams[pair].append(follower)
-
-Counter
--------
-
-``Counter``:
-
-Hui Zhang found this for counting how many students used which previous
-languages.
-
-See my example in ``/Solutions/Session05``
-
+Did you all explore that a bit?
 
 ============================
 Test Driven development demo
 ============================
 
 In ``Examples/Session06/``
+
+=========================
+Advanced Argument Passing
+=========================
+
+Keyword arguments
+-----------------
+
+When defining a function, you can specify only what you need -- in any order
+
+.. code-block:: ipython
+
+    In [151]: def fun(x,y=0,z=0):
+            print(x,y,z)
+       .....:
+    In [152]: fun(1,2,3)
+    1 2 3
+    In [153]: fun(1, z=3)
+    1 0 3
+    In [154]: fun(1, z=3, y=2)
+    1 2 3
+
+
+.. nextslide::
+
+
+A Common Idiom:
+
+.. code-block:: python
+
+    def fun(x, y=None):
+        if y is None:
+            do_something_different
+        go_on_here
+
+
+
+.. nextslide::
+
+Can set defaults to variables
+
+.. code-block:: ipython
+
+    In [156]: y = 4
+    In [157]: def fun(x=y):
+        print("x is:", x)
+       .....:
+    In [158]: fun()
+    x is: 4
+
+
+.. nextslide::
+
+Defaults are evaluated when the function is defined
+
+.. code-block:: ipython
+
+    In [156]: y = 4
+    In [157]: def fun(x=y):
+        print("x is:", x)
+       .....:
+    In [158]: fun()
+    x is: 4
+    In [159]: y = 6
+    In [160]: fun()
+    x is: 4
+
+
+Function arguments in variables
+-------------------------------
+
+function arguments are really just
+
+* a tuple (positional arguments)
+* a dict (keyword arguments)
+
+.. code-block:: python
+
+    def f(x, y, w=0, h=0):
+        print("position: {}, {} -- shape: {}, {}".format(x, y, w, h))
+
+    position = (3,4)
+    size = {'h': 10, 'w': 20}
+
+    >>> f(*position, **size)
+    position: 3, 4 -- shape: 20, 10
+
+
+
+Function parameters in variables
+--------------------------------
+
+You can also pull the parameters out in the function as a tuple and a dict:
+
+.. code-block:: ipython
+
+    def f(*args, **kwargs):
+        print("the positional arguments are:", args)
+        print("the keyword arguments are:", kwargs)
+
+    In [389]: f(2, 3, this=5, that=7)
+    the positional arguments are: (2, 3)
+    the keyword arguments are: {'this': 5, 'that': 7}
+
+This can be very powerful...
+
+Passing a dict to str.format()
+-------------------------------
+
+Now that you know that keyword args are really a dict,
+you can do this nifty trick:
+
+The string ``format()`` method takes keyword arguments:
+
+.. code-block:: ipython
+
+    In [24]: "My name is {first} {last}".format(last="Barker", first="Chris")
+    Out[24]: 'My name is Chris Barker'
+
+Build a dict of the keys and values:
+
+.. code-block:: ipython
+
+    In [25]: d = {"last":"Barker", "first":"Chris"}
+
+And pass to ``format()``with ``**``
+
+.. code-block:: ipython
+
+    In [26]: "My name is {first} {last}".format(**d)
+    Out[26]: 'My name is Chris Barker'
+
+=====================================
+A bit more on mutability (and copies)
+=====================================
+
+mutable objects
+----------------
+
+We've talked about this: mutable objects can have their contents changed in place.
+
+Immutable objects can not.
+
+This has implications when you have a container with mutable objects in it:
+
+.. code-block:: ipython
+
+    In [28]: list1 = [ [1,2,3], ['a','b'] ]
+
+one way to make a copy of a list:
+
+.. code-block:: ipython
+
+    In [29]: list2 = list1[:]
+
+    In [30]: list2 is list1
+    Out[30]: False
+
+they are different lists.
+
+.. nextslide::
+
+What if we set an element to a new value?
+
+.. code-block:: ipython
+
+    In [31]: list1[0] = [5,6,7]
+
+    In [32]: list1
+    Out[32]: [[5, 6, 7], ['a', 'b']]
+
+    In [33]: list2
+    Out[33]: [[1, 2, 3], ['a', 'b']]
+
+So they are independent.
+
+.. nextslide::
+
+But what if we mutate an element?
+
+.. code-block:: ipython
+
+    In [34]: list1[1].append('c')
+
+    In [35]: list1
+    Out[35]: [[5, 6, 7], ['a', 'b', 'c']]
+
+    In [36]: list2
+    Out[36]: [[1, 2, 3], ['a', 'b', 'c']]
+
+uuh oh! mutating an element in one list mutated the one in the other list.
+
+.. nextslide::
+
+Why is that?
+
+.. code-block:: ipython
+
+    In [38]: list1[1] is list2[1]
+    Out[38]: True
+
+The elements are the same object!
+
+This is known as a "shallow" copy -- Python doesn't want to copy more than it needs to, so in this case, it makes a new list, but does not make copies of the contents.
+
+Same for dicts (and any container type -- even tuples!)
+
+If the elements are immutable, it doesn't really make a differnce -- but be very careful with mutable elements.
+
+
+The copy module
+----------------
+
+most objects have a way to make copies (``dict.copy()`` for instance).
+
+but if not, you can use the ``copy`` module to make a copy:
+
+.. code-block:: ipython
+
+    In [39]: import copy
+
+    In [40]: list3 = copy.copy(list2)
+
+    In [41]: list3
+    Out[41]: [[1, 2, 3], ['a', 'b', 'c']]
+
+This is also a shallow copy.
+
+.. nextslide::
+
+But there is another option:
+
+.. code-block:: ipython
+
+    In [3]: list1
+    Out[3]: [[1, 2, 3], ['a', 'b', 'c']]
+
+    In [4]: list2 = copy.deepcopy(list1)
+
+    In [5]: list1[0].append(4)
+
+    In [6]: list1
+    Out[6]: [[1, 2, 3, 4], ['a', 'b', 'c']]
+
+    In [7]: list2
+    Out[7]: [[1, 2, 3], ['a', 'b', 'c']]
+
+``deepcopy`` recurses through the object, making copies of everything as it goes.
+
+.. nextslide::
+
+
+I happened on this thread on stack overflow:
+
+http://stackoverflow.com/questions/3975376/understanding-dict-copy-shallow-or-deep
+
+The OP is pretty confused -- can you sort it out?
+
+Make sure you understand the difference between a reference, a shallow copy, and a deep copy.
+
+Mutables as default arguments:
+------------------------------
+
+Another "gotcha" is using mutables as default arguments:
+
+.. code-block:: ipython
+
+    In [11]: def fun(x, a=[]):
+       ....:     a.append(x)
+       ....:     print(a)
+       ....:
+
+This makes sense: maybe you'd pass in a specific list, but if not, the default is an empty list.
+
+But:
+
+.. code-block:: ipython
+
+    In [12]: fun(3)
+    [3]
+
+    In [13]: fun(4)
+    [3, 4]
+
+Huh?!
+
+.. nextslide::
+
+Remember that that default argument is defined when the function is created: there will be only one list, and every time the function is called, that same list is used.
+
+
+The solution:
+
+The standard practice for such a mutable default argument:
+
+.. code-block:: ipython
+
+    In [15]: def fun(x, a=None):
+       ....:     if a is None:
+       ....:         a = []
+       ....:     a.append(x)
+       ....:     print(a)
+    In [16]: fun(3)
+    [3]
+    In [17]: fun(4)
+    [4]
+
+You get a new list every time the function is called
+
+
+LAB
+----
+
+.. rst-class:: medium
+
+  keyword arguments:
+
+* Write a function that has four optional parameters (with defaults):
+
+  - fore_color
+  - back_color
+  - link_color
+  - visited_color
+
+* Have it print the colors (use strings for the colors)
+* Call it with a couple different parameters set
+* Have it pull the parameters out with ``*args, **kwargs``
+  - and print those
 
 
 ===================
@@ -156,7 +444,7 @@ lambda
     In [172]: f(2,3)
     Out[172]: 5
 
-Content can only be an expression -- not a statement
+Content of function can only be an expression -- not a statement
 
 Anyone remember what the difference is?
 
@@ -331,7 +619,7 @@ Can also use keyword arguments
         l.append(lambda x, e=i: x**e)
        .....:
     In [189]: for f in l:
-        print f(3)
+        print(f(3))
     1
     3
     9
@@ -372,7 +660,7 @@ Not clear? here's what you should get
     ## the 1st element of the list is a function that adds 1
     ## to the input value, thus called with 2, returns 3
     In [100]: for f in the_list:
-        print f(5)
+        print(f(5))
        .....:
     5
     6
@@ -597,8 +885,8 @@ Basic Structure of a real class:
     p = Point(3,4)
 
     ## access the attributes
-    print "p.x is:", p.x
-    print "p.y is:", p.y
+    print("p.x is:", p.x)
+    print("p.y is:", p.y)
 
 
 see: ``Examples/Session06/simple_classes.py``
@@ -810,7 +1098,7 @@ Overriding is as simple as creating a new attribute with the same name:
     class NewCircle(Circle):
         color = "blue"
     >>> nc = NewCircle
-    >>> print nc.color
+    >>> print(nc.color)
     blue
 
 
