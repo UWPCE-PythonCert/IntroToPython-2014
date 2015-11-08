@@ -15,7 +15,7 @@ def cigar_party(cigars, is_weekend):
     """
     basic solution
     """
-    if ( 40 <= cigars <= 60 ) or ( cigars >= 40 and is_weekend):
+    if (40 <= cigars <= 60) or (cigars >= 40 and is_weekend):
         return True
     else:
         return False

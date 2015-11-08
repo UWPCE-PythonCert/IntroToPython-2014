@@ -8,50 +8,54 @@ demonstrating the basics of a class
 import math
 
 
-## create a point class
+# create a point class
 class Point(object):
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
-## create an instance of that class
-p = Point(3,4)
+# create an instance of that class
+p = Point(3, 4)
 
-## access the attributes
-print "p.x is:", p.x
-print "p.y is:", p.y
+# access the attributes
+print("p.x is:", p.x)
+print("p.y is:", p.y)
 
 
 class Point2(object):
     size = 4
-    color= "red"
+    color = "red"
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
-p2 = Point2(4,5)
-print p2.size
-print p2.color
+p2 = Point2(4, 5)
+print(p2.size)
+print(p2.color)
 
 
 class Point3(object):
     size = 4
-    color= "red"
+    color = "red"
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
     def get_color(self):
         return self.color
 
 
-p3 = Point3(4,5)
-print p3.size
-print p3.get_color()
+p3 = Point3(4, 5)
+print(p3.size)
+print(p3.get_color())
 
 
 class Circle(object):
     color = "red"
     styles = ['dashed']
+
     def __init__(self, diameter):
         self.diameter = diameter
 
@@ -78,7 +82,7 @@ class NewCircle(Circle):
         self.diameter = self.diameter * math.sqrt(2)
 
 nc = NewCircle
-print nc.color
+print(nc.color)
 
 
 class CircleR(Circle):
