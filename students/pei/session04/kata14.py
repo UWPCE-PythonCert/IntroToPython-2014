@@ -1,33 +1,28 @@
 import random
+
 txt = open('sherlocksmall.txt')
-#strip take white space off at either end of the space
 txt_data = txt.read().split()
 txt.close()
+
 #txt_data = txt.read()
 #grab the first 3, put them in the list, increment by 1 and grab the next 3
 #to create a dictionary
-#pair =[]
-trigrams ={} 
+# grouping1 =[]
+trigrams = {}
 for n in range(len(txt_data)-2):
-    pair = " ".join (txt_data[n:n+2])
+    pair = " ".join(txt_data[n:n+2])
     following_word = txt_data[n+2]
-    #print (pair)
-    #raise(Exception)
     trigrams.setdefault(pair, []).append(following_word)
-    # if pair not in trigrams:
-    #    trigrams[pair] = [following_word]
-    # else:
-    #    trigrams[pair].append(following_word)
+
 print (trigrams)
-#raise Exception
+
 
 #generate new sentance using the dict
 #def generate (strText):
 new = "he was"
 word_pair = new
-
-#word_pair in trigrams
-new_text =[]
+#strLastTwo in trigrams
+new_text = []
 new_text.extend(word_pair.split())
 for i in range(100):
     try:
@@ -36,35 +31,32 @@ for i in range(100):
         word_pair = random.choice(list(trigrams.keys()))
         continue
     new_text.append(following_word)
-    word_pair =" ".join(new_text[-2:])
-print (" ".join(new_text))
+    word_pair = " ".join(new_text[-2:])
+print(" ".join(new_text))
 
-    #while word_pair in trigrams:
-    #word_pair = ' '.join(new.split()[-2:])
-    #try: 
-        #new += " " + ''.join(random.choice(trigrams.get(word_pair)))
-    #except TypeError:
-        #print(new)
+    # strLastTwo = ' '.join(new.split()[-2:])
+    # try:
+    #     new += " " + ''.join(random.choice(trigrams.get(strLastTwo)))
+    # except TypeError:
+    #     print(new)
 #else:
     #print (new)
     #break
 
+txt.close()
+
 """
 Result
-he was employing his extraordinary powers. 
-His rooms were brilliantly lit, and, even as I looked up, 
-I saw his tall, spare figure pass twice in a dark silhouette 
-against the blind. He was pacing the room swiftly, eagerly, 
-with his head sunk upon his chest and his hands clasped behind him. 
-To me, who knew his every mood and habit, 
-his attitude and manner told their own story. 
-He was at work again. He had risen out of his drug-created dreams 
-and was hot upon the scent of some new problem. 
-I rang the bell and was shown up to the chamber which had formerly 
+he was employing his extraordinary powers.
+His rooms were brilliantly lit, and, even as I looked up,
+I saw his tall, spare figure pass twice in a dark silhouette
+against the blind. He was pacing the room swiftly, eagerly,
+with his head sunk upon his chest and his hands clasped behind him.
+To me, who knew his every mood and habit,
+his attitude and manner told their own story.
+He was at work again. He had risen out of his drug-created dreams
+and was hot upon the scent of some new problem.
+I rang the bell and was shown up to the chamber which had formerly
 been in part my own.
 """
-
-
-
-
 

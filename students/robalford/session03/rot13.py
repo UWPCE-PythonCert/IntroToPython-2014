@@ -2,30 +2,28 @@ import string
 
 
 def rot13(str):
-    all_the_characters = list(string.ascii_lowercase)
-    new_string = ''
-    upper = False
+    new_text = []
+    a = ord('a')
+    z = ord('z')
     for i in str:
         # preserve capitalization.
+        upper = False
         if i.isupper():
             upper = True
             i = i.lower()
-        # preserve punctuation
-        if i in string.punctuation:
-            new_string += i
-        # preserve whitespace
-        elif i in string.whitespace:
-            new_string += i
+        # preserve punctuation and whitespace
+        if not i.isalpha():
+            new_text += i
         else:
-            location = all_the_characters.index(i)
+            location = ord(i)
             new_location = location - 13
-            if new_location < 0:
-                new_location = len(all_the_characters) + new_location
+            if new_location < a:
+                new_location = (z - (a - 1)) + new_location
             if upper:
-                new_string += all_the_characters[new_location].upper()
+                new_text += chr(new_location).upper()
             else:
-                new_string += all_the_characters[new_location]
-    return new_string
+                new_text += chr(new_location)
+    return ''.join(new_text)
 
 if __name__ == '__main__':
     # test for a and z

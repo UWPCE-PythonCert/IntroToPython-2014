@@ -1,0 +1,6 @@
+{
+  "test_codingbat.py::test_true_false": true,
+  "test_codingbat.py::test_true_true": true,
+  "test_pytest_parameter.py::test_add[input3-this that]": true,
+  "test_random_pytest.py::test_shuffle": true
+}
