@@ -1,40 +1,53 @@
+import random
 txt = open('sherlocksmall.txt')
-txt_data = txt.read().replace("\n", " ").strip().split(' ')
+#strip take white space off at either end of the space
+txt_data = txt.read().split()
+txt.close()
 #txt_data = txt.read()
 #grab the first 3, put them in the list, increment by 1 and grab the next 3
 #to create a dictionary
-grouping1 =[ ]
-grouping2 ={ } 
+#pair =[]
+trigrams ={} 
 for n in range(len(txt_data)-2):
-    del grouping1 [:]
-    grouping1.append(txt_data[n] + " " + txt_data[n+1])
-    grouping1.append(txt_data[n+2]) 
-    #print (grouping1[0])
-    if grouping1[0] not in grouping2:
-        #grouping2[(grouplist1[0])] = (grouping1[1]) 
-        grouping2[grouping1[0]] = [grouping1[1]]
-    else:
-        grouping2[grouping1[0]].append(grouping1[1])
-
-print (grouping2)
+    pair = " ".join (txt_data[n:n+2])
+    following_word = txt_data[n+2]
+    #print (pair)
+    #raise(Exception)
+    trigrams.setdefault(pair, []).append(following_word)
+    # if pair not in trigrams:
+    #    trigrams[pair] = [following_word]
+    # else:
+    #    trigrams[pair].append(following_word)
+print (trigrams)
+#raise Exception
 
 #generate new sentance using the dict
 #def generate (strText):
-import random
 new = "he was"
-strLastTwo = new
-#strLastTwo in grouping2
-while strLastTwo in grouping2:
-    strLastTwo = ' '.join(new.split()[-2:])
-    try: 
-        new += " " + ''.join(random.choice(grouping2.get(strLastTwo)))
-    except TypeError:
-        print(new)
+word_pair = new
+
+#word_pair in trigrams
+new_text =[]
+new_text.extend(word_pair.split())
+for i in range(100):
+    try:
+        following_word = random.choice(trigrams[word_pair])
+    except KeyError:
+        word_pair = random.choice(list(trigrams.keys()))
+        continue
+    new_text.append(following_word)
+    word_pair =" ".join(new_text[-2:])
+print (" ".join(new_text))
+
+    #while word_pair in trigrams:
+    #word_pair = ' '.join(new.split()[-2:])
+    #try: 
+        #new += " " + ''.join(random.choice(trigrams.get(word_pair)))
+    #except TypeError:
+        #print(new)
 #else:
     #print (new)
     #break
-
-txt.close()
 
 """
 Result
