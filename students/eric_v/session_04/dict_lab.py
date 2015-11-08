@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 d = {'name':'Chris', 'city':'Seattle', 'cake':'chocolate'}
 print(d)
 d.pop('cake')
