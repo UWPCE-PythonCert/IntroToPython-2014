@@ -1,10 +1,9 @@
-safeStr = ""
-def safe_input (name):
+def safe_input (prompt):
     try:
-        safeStr = input("please provide your first name:")
+        safeStr = input(prompt)
         return"Hi {0}, I hope you are having a great day!".format(safeStr)
     except (KeyboardInterrupt, EOFError):
         return None
     return safe_input
 
-print (safe_input(safeStr))
+print (safe_input("Please enter your first name:"))
