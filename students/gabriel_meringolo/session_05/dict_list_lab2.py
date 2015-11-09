@@ -16,3 +16,15 @@ print({x: y for x, y in zip(numbs, hex_numbs)})
 
 # Do the previous entirely with a dict comprehension – should be a one-liner
 print({i : hex(i) for i in range(16)})
+
+
+# Using the dictionary from item 1: Make a dictionary using the same keys but
+# with the number of ‘a’s in each value. You can do this either by editing the
+# dict in place, or making a new one. If you edit in place, make a copy first!
+
+food_prefs2 = {"name": "Chris", "city": "Seattle", "cake": "chocolate",
+              "fruit": "mango", "salad": "caesar", "pasta": "lasagna"}
+
+food_aa = {key: value.count("a") for key, value in food_prefs2.items()}
+print(food_aa)
+
