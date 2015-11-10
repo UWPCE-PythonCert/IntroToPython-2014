@@ -14,7 +14,7 @@ seq = list(range(10))
 def test_shuffle():
     # make sure the shuffled sequence does not lose any elements
     random.shuffle(seq)
-    # seq.sort()  # this will amke it fail, so we can see output
+    seq.sort()  # this will amke it fail, so we can see output
     print("seq:", seq)  # only see output if it fails
     assert seq == list(range(10))
 
