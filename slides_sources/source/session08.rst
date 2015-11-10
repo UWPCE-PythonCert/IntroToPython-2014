@@ -38,6 +38,27 @@ Eric W Westman
 
 Ryan J Albright
 
+Personal Project
+-----------------
+
+The bulk of the homework for the rest of the class will be a personal project:
+
+* It can be for fun, or something you need for your job.
+* It should be large enough to take a few weeks homework time to do.
+* It should demostrate that you can do something useful with python.
+* It should follow PEP8 (https://www.python.org/dev/peps/pep-0008)
+* It should have unit tests!
+* Ideally, it will be in version control (gitHub)
+* I don't require an specific python features (i.e. classes): use
+  what is appropriate for your project
+
+* Due the Friday after the last class (December 11)
+
+|
+|  By next week, send me a project proposal: can be short and sweet.
+|
+
+
 =========================
 Emulating Standard types
 =========================

@@ -48,11 +48,17 @@ Session 6:
 ----------
 .. toctree::
     :maxdepth: 1
-
-    html_renderer
+    trapazoid
 
 Session 7:
 ----------
+.. toctree::
+    :maxdepth: 1
+
+    html_renderer
+
+Session 8:
+-----------
 .. toctree::
     :maxdepth: 1
 
