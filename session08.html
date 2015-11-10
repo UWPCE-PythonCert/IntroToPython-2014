@@ -94,6 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#personal-project">Personal Project</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#emulating-standard-types">Emulating Standard types</a><ul>
@@ -210,6 +211,28 @@
 <p>Eric W Westman</p>
 <p>Ryan J Albright</p>
 </div>
+<div class="section" id="personal-project">
+<h3>Personal Project<a class="headerlink" href="#personal-project" title="Permalink to this headline">¶</a></h3>
+<p>The bulk of the homework for the rest of the class will be a personal project:</p>
+<ul class="simple">
+<li>It can be for fun, or something you need for your job.</li>
+<li>It should be large enough to take a few weeks homework time to do.</li>
+<li>It should demostrate that you can do something useful with python.</li>
+<li>It should follow PEP8 (<a class="reference external" href="https://www.python.org/dev/peps/pep-0008">https://www.python.org/dev/peps/pep-0008</a>)</li>
+<li>It should have unit tests!</li>
+<li>Ideally, it will be in version control (gitHub)</li>
+<li>I don&#8217;t require an specific python features (i.e. classes): use
+what is appropriate for your project</li>
+<li>Due the Friday after the last class (December 11)</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">By next week, send me a project proposal: can be short and sweet.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="emulating-standard-types">
 <h2>Emulating Standard types<a class="headerlink" href="#emulating-standard-types" title="Permalink to this headline">¶</a></h2>
@@ -229,6 +252,8 @@
 </div>
 <p>But what if we need to store some data to know how to evaluate that function?</p>
 <p>Example: a function that computes a quadratic function:</p>
+<div class="math">
+\[y = a x^2 + bx + c\]</div>
 <p>You could pass in a, b and c each time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
@@ -707,6 +732,7 @@ build an iterator that iterates over sequences in various common ways</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

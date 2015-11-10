@@ -46,3 +46,4 @@ Trick: You can pass in a tuple of values to a function with a ``*``::
 
     In [53]: "the first 3 numbers are: {:d}, {:d}, {:d}".format(*t)
     Out[53]: 'the first 3 numbers are: 1, 2, 3'
+
