@@ -28,3 +28,21 @@ food_prefs2 = {"name": "Chris", "city": "Seattle", "cake": "chocolate",
 food_aa = {key: value.count("a") for key, value in food_prefs2.items()}
 print(food_aa)
 
+
+# Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
+# Do this with one set comprehension for each set.
+# What if you had a lot more than 3? – Don’t Repeat Yourself (DRY)
+# create a sequence that holds all three sets
+# loop through that sequence to build the sets up – so no repeated code.
+# Extra credit: do it all as a one-liner by nesting a set comprehension inside a list
+# comprehension. (OK, that may be getting carried away!)
+
+
+s2 = {i for i in range(21) if i % 2 == 0}
+s3 = {i for i in range(21) if i % 3 == 0}
+s4 = {i for i in range(21) if i % 4 == 0}
+
+
+print(s2)
+print(s3)
+print(s4)
