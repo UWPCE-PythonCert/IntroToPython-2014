@@ -685,10 +685,35 @@ Lightning Talk
 Closures and function Currying
 ==============================
 
+Defining specilized functions on the fly
+
+Closures
+--------
+
 "Closures" and "Currying" are cool CS terms for what is really just defining functions on the fly.
 
+you can find a "proper" definition here:
 
+https://en.wikipedia.org/wiki/Closure_(computer_programming)
 
+but I even have trouble following that.
+
+So let's go straight to some examples:
+
+.. nextslide::
+
+.. code-block:: python
+
+    def counter(start_at=0):
+        count = [start_at]
+        def incr():
+            count[0] += 1
+            return count[0]
+        return incr
+
+What's going on here?
+
+We have define stored the start ``start_at``
 
 
 
