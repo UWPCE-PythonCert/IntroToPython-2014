@@ -51,18 +51,33 @@ def makeAttributeError():
 
 # AttributeError: 'str' object has no attribute 'fakemethod'
 
+def makeImportError():
+	import fakelibrary
+#/Users/erosko/Desktop/python/IntroPython2015/students/ericrosko/session01/break_me.py in makeImportError()
+#     53 
+#     54 def makeImportError():
+#---> 55         import fakelibrary
+#     56 
+#     57 #makeTypeError()
+#ImportError: No module named 'fakelibrary'
+
+
 #makeTypeError()
 #makeNameError()
 #makeKeyError()
 #makeAttributeError()
 #raise Exception
 
+
+
 options = { 0 : makeTypeError,
 			1 : makeNameError,
 			2 : makeKeyError,
-			3 : makeAttributeError}
+			3 : makeAttributeError,
+			4 : makeImportError
+		   }
 
-		
+
 
 def main():
 	while True:
@@ -71,6 +86,7 @@ def main():
 			1.) makeNameError
 			2.) makeKeyError
 			3.) makeAttributeError
+			4.) makeImportError
 			Note: For a syntax error, the py file won't even compile.
 			""")
 		if user_input == 'q':
@@ -78,4 +94,5 @@ def main():
 		print("input is: + user_input")
 		options[int(user_input)]()
 
-main()
+if __name__ == "__main__":
+	main()
