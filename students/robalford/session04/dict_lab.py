@@ -32,11 +32,11 @@ divisible_by4 = set()
 
 for i in range(20):
     if i % 2 == 0:
-        divisible_by2.update([i])
+        divisible_by2.add(i)
     if i % 3 == 0:
-        divisible_by3.update([i])
+        divisible_by3.add(i)
     if i % 4 == 0:
-        divisible_by4.update([i])
+        divisible_by4.add(i)
 
 print(divisible_by2, divisible_by3, divisible_by4)
 
