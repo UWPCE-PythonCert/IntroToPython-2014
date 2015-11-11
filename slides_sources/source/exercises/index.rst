@@ -48,7 +48,9 @@ Session 6:
 ----------
 .. toctree::
     :maxdepth: 1
-    trapazoid
+
+    lambda_magic
+    trapezoid
 
 Session 7:
 ----------

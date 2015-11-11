@@ -1,10 +1,20 @@
 #!/usr/bin/env python
 
-import cigar_party
+"""
+When squirrels get together for a party, they like to have cigars.
+A squirrel party is successful when the number of cigars is between
+40 and 60, inclusive. Unless it is the weekend, in which case there
+is no upper bound on the number of cigars.
 
-#cigar_party = cigar_party.cigar_party
-#cigar_party = cigar_party.cigar_party2
-cigar_party = cigar_party.cigar_party3
+Return True if the party with the given values is successful,
+or False otherwise.
+"""
+
+
+# you can change this import to test different versions
+from cigar_party import cigar_party
+# from cigar_party import cigar_party2 as cigar_party
+# from cigar_party import cigar_party3 as cigar_party
 
 
 def test_1():
@@ -51,4 +61,3 @@ def test_10():
 
 def test_11():
     assert cigar_party(39, True) is False
-

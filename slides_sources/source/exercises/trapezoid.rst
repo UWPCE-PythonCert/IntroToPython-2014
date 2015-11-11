@@ -1,7 +1,7 @@
 .. _exercise_trapezoidal_rule:
 
 *****************
-Trapazoidal Rule
+Trapezoidal Rule
 *****************
 
 Passing functions around
@@ -56,25 +56,27 @@ The Solution:
 
 Your function definition should look like:
 
-def trapz(fun, a, b):
-    """
-    Compute the area under the curve defined by
-    y = fun(x), for x between a and b
+.. code-block:: python
 
-    :param fun: the function to evaluate
-    :type fun: a function that takes a single parameter
+  def trapz(fun, a, b):
+      """
+      Compute the area under the curve defined by
+      y = fun(x), for x between a and b
 
-    :param a: the start point for teh integration
-    :type a: a numeric value
+      :param fun: the function to evaluate
+      :type fun: a function that takes a single parameter
 
-    :param b: the end point for the integration
-    :type b: a numeric value
-    """
-    pass
+      :param a: the start point for teh integration
+      :type a: a numeric value
+
+      :param b: the end point for the integration
+      :type b: a numeric value
+      """
+      pass
 
 In the function, you want to compute the following equation:
 
-    .. math::
+.. math::
 
     result = \frac{b-a}{2N}(f(x_1) + 2f(x_2) + 2f(x_3) + 2f(x_4) + \dotsb + 2f(x_N) + f(x_{N+1})).
 
@@ -125,6 +127,7 @@ So you can do:
 or
 
 .. code-block:: python
+
     coef = {'a':1, 'b':3, 'c': 2}
     trapz(quadratic, 2, 20, **coef)
 

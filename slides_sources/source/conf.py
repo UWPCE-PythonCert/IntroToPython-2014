@@ -35,7 +35,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     # 'sphinx.ext.pngmath',
-    #'sphinx.ext.mathjax',
+    'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
