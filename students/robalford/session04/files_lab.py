@@ -1,5 +1,5 @@
 #
-students = open('/Users/robalford/Desktop/python_practice/python_class/IntroPython2015/Examples/students.txt')
+students = open('../../../Examples/students.txt')
 
 languages = []
 for line in students:
@@ -9,7 +9,7 @@ for line in students:
         line[0] = line[0][:-1]
         line[0] = line[0].split()
     languages += line
-students.close
+students.close()
 languages.pop(0)
 
 language_list = []

@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 
 # mailroom exercise with a dictionary instead of lists
+# todo add exceptions and tests
+
 
 import sys
 

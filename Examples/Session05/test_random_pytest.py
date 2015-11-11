@@ -19,6 +19,7 @@ def test_shuffle():
     # make sure the shuffled sequence does not lose any elements
     random.shuffle(seq)
 <<<<<<< HEAD
+<<<<<<< HEAD
     seq.sort()
     print "seq:", seq
     ## expect this to fail -- so we can see the output.
@@ -29,6 +30,9 @@ def test_shuffle_immutable():
     pytest.raises(TypeError, random.shuffle, (1,2,3) )
 =======
     # seq.sort()  # this will amke it fail, so we can see output
+=======
+    seq.sort()  # this will amke it fail, so we can see output
+>>>>>>> ac3fdc60a59913a3b8f9a60b7c4f2ee2b5eb08fe
     print("seq:", seq)  # only see output if it fails
     assert seq == list(range(10))
 
