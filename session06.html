@@ -244,12 +244,23 @@
     <span class="p">[</span> <span class="n">st</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">j</span><span class="o">%</span><span class="n">i</span> <span class="p">]</span>
 </pre></div>
 </div>
+<p>Apropos of today&#8217;s topics:</p>
+<p>Python functions are objects, so if you dont call them, you do&#8217;nt get an error, you jsut get the function object, ususally not what you want:</p>
+<div class="highlight-python"><div class="highlight"><pre>elif donor_name.lower == &quot;exit&quot;:
+</pre></div>
+</div>
+<p>this is comparing the string <code class="docutils literal"><span class="pre">lower</span></code> method to the string &#8220;exit&#8221; and theyare never going to be equal!</p>
+<p>That should be:</p>
+<div class="highlight-python"><div class="highlight"><pre>elif donor_name.lower() == &quot;exit&quot;:
+</pre></div>
+</div>
+<p>This is actually a pretty common typo &#8211; keep an eye out for it when you get strange errors, or something just doesn&#8217;t seem to be getting triggered.</p>
 </div>
 </div>
 <div class="section" id="test-driven-development-demo">
 <h2>Test Driven development demo<a class="headerlink" href="#test-driven-development-demo" title="Permalink to this headline">¶</a></h2>
-<p>We did some of this last class &#8211; but i want to really drive it home :-)</p>
-<p>In <code class="docutils literal"><span class="pre">Examples/Session06/</span></code></p>
+<p>We did some of this last class &#8211; but I want to really drive it home :-)</p>
+<p>In <code class="docutils literal"><span class="pre">Examples/Session06/test_cigar_party.py</span></code></p>
 </div>
 <div class="section" id="advanced-argument-passing">
 <h2>Advanced Argument Passing<a class="headerlink" href="#advanced-argument-passing" title="Permalink to this headline">¶</a></h2>

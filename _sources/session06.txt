@@ -73,14 +73,29 @@ You don't actually need to use the result of a list comp:
     for i, st in zip( divisors, sets):
         [ st.add(j) for j in range(21) if not j%i ]
 
+.. nextslide::
+
+Apropos of today's topics:
+
+Python functions are objects, so if you dont call them, you do'nt get an error, you jsut get the function object, ususally not what you want::
+
+        elif donor_name.lower == "exit":
+
+this is comparing the string ``lower`` method to the string "exit" and theyare never going to be equal!
+
+That should be::
+
+    elif donor_name.lower() == "exit":
+
+This is actually a pretty common typo -- keep an eye out for it when you get strange errors, or something just doesn't seem to be getting triggered.
 
 ============================
 Test Driven development demo
 ============================
 
-We did some of this last class -- but i want to really drive it home :-)
+We did some of this last class -- but I want to really drive it home :-)
 
-In ``Examples/Session06/``
+In ``Examples/Session06/test_cigar_party.py``
 
 
 =========================
