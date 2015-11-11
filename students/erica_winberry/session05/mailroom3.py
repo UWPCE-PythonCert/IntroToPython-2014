@@ -79,7 +79,7 @@ def get_name(donor_list):
 donor you wish to thank. (Type 'list' for a list of donors.) ")
         if donor_name is None:
             break
-        elif donor_name.lower == "exit":
+        elif donor_name.lower() == "exit":
             break
         elif donor_name.lower() == "list":
             print("The current list of donors is: ")
