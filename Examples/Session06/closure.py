@@ -21,5 +21,6 @@ def power(base, exponent):
     return base ** exponent
 
 # now some specialized versions:
+
 square = partial(power, exponent=2)
 cube = partial(power, exponent=3)
