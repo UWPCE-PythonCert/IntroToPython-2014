@@ -4,7 +4,12 @@ donors = {
     'Ringo Starr': [1.00],
     'George Harrison': [1000.00, 500.00, 1586.78],
     'Yoko Ono': [275.50, 5.00]
-}
+    }
+
+
+def list_donors():
+    donor_list = [donor for donor in donors.keys()]
+    return '\n'.join(donor_list)
 
 
 def select_command():
@@ -30,9 +35,12 @@ def write_email(donor, donation_amount):
 
 
 def add_new_donation(full_name, donation_amount):
+    # donors = get_donors()
     while True:
-        if donation_amount.lower() == 'home':
+        # check to see is user typed 'home'
+        if isinstance(donation_amount, str) and donation_amount.lower() == 'home':
             return
+        # check that the input is an int or float
         try:
             donation_amount = float(donation_amount)
         except ValueError:
@@ -51,7 +59,7 @@ def send_thank_you():
     while getting_donor:
         full_name = input("Enter the donor's full name. Type 'list' to see all donors or 'home' to exit.")
         if full_name.lower() == 'list':
-            [print(donor) for donor in donors.keys()]
+            print(list_donors())
             getting_donor
         elif full_name.lower() == 'home':
             return
@@ -66,13 +74,23 @@ def send_thank_you():
 
 
 def create_report():
-    print('Donor\t\t\tTotal\t\tNumber\t\tAverage')
+    donor_reports = []
     for donor in donors:
-        total_donation = sum(donors[donor])
-        number_of_donations = len(donors[donor])
-        average_donation = total_donation/number_of_donations
-        report = '{}\t\t{:.2f}\t\t{:d}\t\t{:.2f}'.format(donor, total_donation, number_of_donations, average_donation)
-        print(report)
+        donor_report = (
+            donor, sum(donors[donor]),
+            len(donors[donor]),
+            sum(donors[donor])/len(donors[donor])
+        )
+        # report = '{}\t\t{:.2f}\t\t{}\t\t{:.2f}\n'.format(*donor_report)
+        donor_reports.append(donor_report)
+    return donor_reports
+
+
+def print_report():
+    donor_reports = create_report()
+    print('Donor\t\t\tTotal\t\tNumber\t\tAverage')
+    for report in donor_reports:
+        print('{}\t\t{:.2f}\t\t{}\t\t{:.2f}\n'.format(*report))
 
 
 def create_letter_files():
@@ -90,7 +108,7 @@ if __name__ == '__main__':
         if command.lower() == 'thank you':
             send_thank_you()
         elif command.lower() == 'report':
-            create_report()
+            print_report()
         elif command.lower() == 'save letters':
             create_letter_files()
         elif command.lower() == 'quit':
