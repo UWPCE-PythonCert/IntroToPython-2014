@@ -1,0 +1,128 @@
+Username for 'https://github.com': tycobass
+14:26 ~ $ pwd
+/home/tycobass
+14:26 ~ $ ls
+Info  IntroPython2015  README.txt  perl_projects_2014
+14:26 ~ $ cd IntroPython2015/
+
+
+14:26 ~/IntroPython2015 (master)$ git checkout master
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+
+
+14:27 ~/IntroPython2015 (master)$ git pull upstream master
+remote: Counting objects: 4, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/UWPCE-PythonCert/IntroPython2015
+ * branch            master     -> FETCH_HEAD
+   4fec6f7..3b3ae1d  master     -> upstream/master
+Updating 4fec6f7..3b3ae1d
+Fast-forward
+ Examples/students.txt | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+ create mode 100644 Examples/students.txt
+ 
+ 
+14:27 ~/IntroPython2015 (master)$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+  git config --global push.default matching
+To squelch this message and adopt the new behavior now, use:
+  git config --global push.default simple
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Password for 'https://tycobass@github.com': 
+To https://github.com/tycobass/IntroPython2015.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/tycobass/IntroPython2015.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+14:27 ~/IntroPython2015 (master)$ git pull upstream master
+From https://github.com/UWPCE-PythonCert/IntroPython2015
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+
+14:28 ~/IntroPython2015 (master)$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+
+
+14:28 ~/IntroPython2015 (master)$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+
+
+18:47 ~/IntroPython2015 (master)$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+  git config --global push.default matching
+To squelch this message and adopt the new behavior now, use:
+  git config --global push.default simple
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+Username for 'https://github.com': tycobass
+Password for 'https://tycobass@github.com': 
+To https://github.com/tycobass/IntroPython2015.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/tycobass/IntroPython2015.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+18:48 ~/IntroPython2015 (master)$ git pull upstream master
+From https://github.com/UWPCE-PythonCert/IntroPython2015
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+
+18:48 ~/IntroPython2015 (master)$ git pull origin master                                                         
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 2), reused 6 (delta 2), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+From https://github.com/tycobass/IntroPython2015
+ * branch            master     -> FETCH_HEAD
+   4fec6f7..cae5ee8  master     -> origin/master
+Updating 3b3ae1d..cae5ee8
+Fast-forward
+ students/eric_v/session_03/mailroom.py | 75 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
+ create mode 100644 students/eric_v/session_03/mailroom.py
+ 
+ 
+18:49 ~/IntroPython2015 (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working directory clean
+18:49 ~/IntroPython2015 (master)$
