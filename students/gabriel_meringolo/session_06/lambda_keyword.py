@@ -12,5 +12,8 @@ def function_builder(func_amount, l=None):
     return l
 
 
-lamb_list = function_builder(4)
+def function_builder2(func_amount):
+    return [lambda x, e=i: x + e for i in range(func_amount)]
+
+lamb_list = function_builder2(4)
 print(lamb_list[1](3))
