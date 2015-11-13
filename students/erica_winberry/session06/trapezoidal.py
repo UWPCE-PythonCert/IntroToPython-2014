@@ -5,7 +5,6 @@ under an arbitrary function, using the trapezoidal rule.
 The function will take another function as an argument, as well as the
 start and end points to compute, and return the area under the curve.
 '''
-import math
 
 
 def trapz(fun, a, b):
@@ -42,11 +41,14 @@ def x_values(a, b):
     return l
 
 
+def line(y):
+    return y
+
+
 def squared(x):
     return x * x
 
-
-print(trapz(squared, 1, 10))
+print(trapz(line, 1, 10))
 
 """
 result = b−a/2N(f(x1)+2f(x2)+2f(x3)+2f(x4)+...+2f(xN)+f(xN+1))

@@ -1,7 +1,7 @@
 import math
-from trapezoidal import trapz
-from trapezoidal import line
-from trapezoidal import squared
+from trapezoidal2 import trapz
+from trapezoidal2 import line
+from trapezoidal2 import squared
 
 
 def test_trapz_line():
