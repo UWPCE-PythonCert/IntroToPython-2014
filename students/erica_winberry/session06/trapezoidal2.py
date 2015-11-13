@@ -9,8 +9,13 @@ def trapz(fun, start, stop, *args, **kwargs):
     # using the trapezoidal rule.
 
     if kwargs is not None:
-    #     fun = quadratic(x, *args, **kwargs)
-            # return (a * x**2) + (b * x) + c
+        new_kwargs = dict(kwargs)
+        print(new_kwargs)
+    
+    def quadratic(x, **kwargs):
+        return (new_kwargs[a] * x**2) + (new_kwargs[b] * x) + new_kwargs[c]
+
+    fun = quadratic(x, new_kwargs)
 
     values = x_values(start, stop)
     l = []
