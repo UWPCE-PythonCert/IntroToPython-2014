@@ -1,0 +1,16 @@
+comprehension = ['Lambs'] # Winner
+comprehension = ['Oragnutans'] #Winner
+
+len = 5
+# List comprehension (or python) with declare a new list if a new name is used.
+
+len = 0 #Wrong!!!! Why?
+
+comprehension[0] = 'lumperjack'#Winner
+len(comprehension[2]) = 16 #winner
+
+# Double list comprehensions
+#1 Can you comma deliminate the comprehension for loops? Answer: Doesn't matter, they unroll into nested for loops!!!
+len(comprehension) = 2
+
+#Sets only contain unique elements
