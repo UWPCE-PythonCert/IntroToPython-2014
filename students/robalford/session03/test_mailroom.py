@@ -15,8 +15,6 @@ def test_write_email():
 
 
 def test_add_new_donation():
-    # exit function if user types 'home'
-    assert mailroom.add_new_donation('Bob Dylan', 'home') is None
     # new donation for existing donor
     mailroom.add_new_donation('Ringo Starr', 1.00)
     assert mailroom.donors['Ringo Starr'][-1] == 1.00

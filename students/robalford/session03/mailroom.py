@@ -8,8 +8,7 @@ donors = {
 
 
 def list_donors():
-    donor_list = [donor for donor in donors.keys()]
-    return '\n'.join(donor_list)
+    return '\n'.join(donors.keys())
 
 
 def select_command():
@@ -35,19 +34,6 @@ def write_email(donor, donation_amount):
 
 
 def add_new_donation(full_name, donation_amount):
-    # donors = get_donors()
-    while True:
-        # check to see is user typed 'home'
-        if isinstance(donation_amount, str) and donation_amount.lower() == 'home':
-            return
-        # check that the input is an int or float
-        try:
-            donation_amount = float(donation_amount)
-        except ValueError:
-            donation_amount = input('Please enter a numeric value.')
-        else:
-            break
-
     try:
         donors[full_name].append(donation_amount)
     except KeyError:
@@ -68,6 +54,16 @@ def send_thank_you():
 
     donation_amount = input("Enter the donation amount. Type 'home' to exit")
 
+    while True:
+        if donation_amount.lower() == 'home':
+                return
+        try:
+            donation_amount = float(donation_amount)
+        except ValueError:
+            donation_amount = input('Please enter a numeric value.')
+        else:
+            break
+
     add_new_donation(full_name, donation_amount)
 
     print(write_email(full_name, donation_amount))
@@ -75,13 +71,12 @@ def send_thank_you():
 
 def create_report():
     donor_reports = []
-    for donor in donors:
+    for donor, donations in donors.items():
         donor_report = (
-            donor, sum(donors[donor]),
-            len(donors[donor]),
-            sum(donors[donor])/len(donors[donor])
+            donor, sum(donations),
+            len(donations),
+            sum(donations)/len(donations)
         )
-        # report = '{}\t\t{:.2f}\t\t{}\t\t{:.2f}\n'.format(*donor_report)
         donor_reports.append(donor_report)
     return donor_reports
 
