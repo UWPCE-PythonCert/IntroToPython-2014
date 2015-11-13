@@ -29,36 +29,38 @@ def write_email(donor, donation_amount):
     return thank_you
 
 
-def send_thank_you():
-    full_name = input("Enter the donor's full name. Type 'list' to see all donors or 'home' to exit.")
+def add_new_donation(full_name, donation_amount):
     while True:
+        if donation_amount.lower() == 'home':
+            return
+        try:
+            donation_amount = float(donation_amount)
+        except ValueError:
+            donation_amount = input('Please enter a numeric value.')
+        else:
+            break
+
+    try:
+        donors[full_name].append(donation_amount)
+    except KeyError:
+        donors[full_name] = [donation_amount]
+
+
+def send_thank_you():
+    getting_donor = True
+    while getting_donor:
+        full_name = input("Enter the donor's full name. Type 'list' to see all donors or 'home' to exit.")
         if full_name.lower() == 'list':
-            for donor in donors.keys():
-                print(donor)
-                break
+            [print(donor) for donor in donors.keys()]
+            getting_donor
         elif full_name.lower() == 'home':
             return
         else:
             break
 
-    while True:
-        donation_amount = input("Enter the donation amount. Type 'home' to exit")
-        if donation_amount.lower() == 'home':
-            return
-        try:
-            donation_amount = float(donation_amount)
-        except:
-            donation_amount = input('Please enter a numeric value.')
-        else:
-            break
+    donation_amount = input("Enter the donation amount. Type 'home' to exit")
 
-    new_donor = True
-    if full_name in donors.keys():
-            new_donor = False
-            donors[full_name].append(donation_amount)
-
-    if new_donor:
-        donors[full_name] = [donation_amount]
+    add_new_donation(full_name, donation_amount)
 
     print(write_email(full_name, donation_amount))
 

@@ -1,16 +1,16 @@
 donors = {"Graham": [1, 5, 10], "Eric": [4, 6], "Terry" : [5, 5, 5], "John": [20,], "Michael": [10, 10]}
 donor_dict = donors
-#dict_list = list(donor)
+
+
 
 
 def report(donor_dict):
     print("\nDonors              Total Amt           Total Donations        Average Amt        ")
     print("------------------------------------------------------------------------------")
-    for i in donor_dict:
-        donor = i
-        donations = str((donors.get(i))).strip("[]")
-        total = sum(donors.get(i))
-        average = sum(donors.get(i))//len(donors.get(i))
+    for donor in donor_dict:
+        donations = str((donor_dict.get(donor))).strip("[]")
+        total = sum(donor_dict.get(donor))
+        average = total//len(donor_dict.get(donor))
         print("{:<20} {:>4} {:>25} {:>20}".format(donor, total, donations, average))
 
 
@@ -62,12 +62,11 @@ def donor_names(donor_dict):
     '''
     prints list of donor names
     :param donor_dict: donor list
-    :return: donors ini x
+    :return:
     '''
-    print("\n")
-    for i in donor_dict:
-        print(i)
-    print("\n")
+    print("\n" + "\n".join(list(i for i in donor_dict)))
+
+
 
 def mail_head(donor_dict):
     '''
@@ -84,129 +83,77 @@ def mail_head(donor_dict):
     mail_menu(donor_dict)
 
 
-
-
-
-
-
-mail_head(donors)
-
-
-
-
-
-
-
-
-
-def thank_you(x):
-    '''
-    displays thank you letter menu
-    :param x: donor database list
-    :return:
-    '''
-    pers = input("\nPlease make a selection from the menu below\n"
-                 "-------------------------------------------\n"
-                 "1. Enter Donor name\n2. Display list of Donors\n3. Return to Main Menu\n4. Quit\n> ")
-    if pers == "1":
-        thanks(x, add_donate(x, (donor_check(x))))
-    if pers == "2":
-        donor_names(x)
-        thank_you(x)
-    if pers == "3":
-        mail_menu(x)
-    if pers.lower() == "quit" or pers == "4":
-        quit_mr()
-
-
-def flat_list(x):
-    '''
-    flattens nested list and makes new list
-    :param x: nested list
-    :return:
-    '''
-    flat = []
-    for i in x:
-        for ii in i:
-            flat.append(ii)
-    return flat
-
-
-
-
-def add_donor(x, y):
+def add_donor(donor_dict, donor_name):
     '''
     adds donor to list
-    :param x: donor database list
-    :param y: donor name
-    :return: donor name y added at end of list x
+    :param donor_dict: donor database list
+    :param donor_name: donor name
+    :return: donor name added at end of donor dict
     '''
-    x.append([y, ])
-    print("\nAdded Donor: {}".format(y))
-    return y
+    donor_dict[donor_name] = []
+    print("\nAdded Donor: {}".format(donor_name))
+    return donor_name
 
 
-def donor_check(x):
+def donor_check(donor_dict):
     '''
     checks for donor on list
-    :param x: donor database list
-    :param y: donor name
+    :param donor_dict: donor database list
     :return:
     '''
-    y = input("\nEnter Donor name\n> ")
-    if y.lower() == "quit":
+    donor_name = input("\nEnter Donor name\n> ")
+    if donor_name.lower() == "quit":
         quit_mr()
-    if y in flat_list(x):
+    if donor_name in donor_dict:
         print("\nDonor Found")
-        return y
-    elif y not in flat_list(x):
-        return add_donor(x,y)
+        return donor_name
+    elif donor_name not in donor_dict:
+        return add_donor(donor_dict, donor_name)
 
 
-def add_donate(x, y):
+def add_donate(donor_dict, donor_name):
     '''
     adds a donation
-    :param x: donor database list
-    :param y: donor name
+    :param donor_dict: donor database list
+    :param donor_name: donor name
     :return:
     '''
-    z = input("\nEnter donation amount\n> ")
-    if num_check(x, y, z) == True:
-        for i in x:
-            if i[0] == y:
-                i.append(int(z))
-                return i
+    donation = input("\nEnter donation amount\n> ")
+    if num_check(donor_dict, donor_name, donation):
+        (donor_dict.get(donor_name)).append(int(donation))
+        print(donor_dict)
+        return donor_name
 
 
-def thanks(x, y):
+def thanks(donor_dict, donor_name):
     '''
     creates and prints boring repetitve email
-    :param x: donor database list
-    :param y: specific donor sub list
+    :param donor_dict: donor database list
+    :param donor_name: specific donor sub list
     :return:
     '''
-    name = y[0]
-    donation = y[-1]
-    print("Thank you Mr(s). {} for your most genourous donation of ${}".format(name, donation))
-    mail_menu(x)
+    print("Thank you Mr(s). {} for your most generous donation of ${}".format(donor_name, donor_dict.get(donor_name)[-1]))
+    mail_menu(donor_dict)
 
 
 
-def num_check(x, y, z):
+def num_check(donor_dict, donor_name, donation):
     '''
-    checking for float or int
-    :param x: donor database list
-    :param y: donor
-    :param z: donation amount
+    checking for real number
+    :param donor_dict: donor database list
+    :param donor_name: specific donor sub list
+    :param donation: donation amount
     :return:
     '''
     try:
-        float(z) or int(z)
+        int(donation)
         return True
     except:
         print("That is not a valid donation")
-        add_donate(x, y)
+        add_donate(donor_dict, donor_name)
 
 
 if __name__ == '__main__':
     mail_head(donors)
+
+
