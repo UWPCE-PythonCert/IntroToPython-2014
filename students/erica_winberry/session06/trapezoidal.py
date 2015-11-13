@@ -36,7 +36,7 @@ def x_values(a, b):
     l = []
     l.append(a)
     [l.append(a+((i * (b-a))/segment_count))
-        for i in range(1, segment_count)]
+        for i in range(1, (segment_count+2))]
     l.append(b)
     return l
 

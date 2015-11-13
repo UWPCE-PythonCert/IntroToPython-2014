@@ -2,11 +2,13 @@ import math
 from trapezoidal2 import trapz
 from trapezoidal2 import line
 from trapezoidal2 import squared
+from trapezoidal2 import quadratic
 
 
 def test_trapz_line():
     assert math.isclose(float((trapz(line, 1, 10))), 50.0, rel_tol=.1)
     assert math.isclose(float((trapz(squared, 1, 10))), 333.0, rel_tol=.001)
+    assert math.isclose(float((trapz(quadratic, 1, 10))), 500.0, rel_tol=.1)
 
 
 '''

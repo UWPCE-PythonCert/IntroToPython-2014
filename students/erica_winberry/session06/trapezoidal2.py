@@ -9,10 +9,9 @@ def trapz(fun, start, stop, *args, **kwargs):
     # using the trapezoidal rule.
 
     if kwargs is not None:
-        def quadratic(x, **kwargs):
-            return (a * x**2) + (b * x) + c
+    #     fun = quadratic(x, *args, **kwargs)
+            # return (a * x**2) + (b * x) + c
 
-    fun = quadratic
     values = x_values(start, stop)
     l = []
 
@@ -31,7 +30,7 @@ def trapz(fun, start, stop, *args, **kwargs):
 
 def x_values(a, b):
     # create a list of x values from a to b
-    segment_count = 1000000
+    segment_count = 10000
     l = []
     l.append(a)
     [l.append(a+((i * (b-a))/segment_count))
@@ -52,4 +51,4 @@ def squared(x):
     return x * x
 
 
-print(trapz(quadratic, 1, 10, a=2, b=3, c=4))
+print(trapz(quadratic, 1, 10, a=1, b=3, c=2))
