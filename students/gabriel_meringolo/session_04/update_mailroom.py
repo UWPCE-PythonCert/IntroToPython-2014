@@ -1,16 +1,16 @@
 donors = {"Graham": [1, 5, 10], "Eric": [4, 6], "Terry" : [5, 5, 5], "John": [20,], "Michael": [10, 10]}
 donor_dict = donors
-#dict_list = list(donor)
+
+
 
 
 def report(donor_dict):
     print("\nDonors              Total Amt           Total Donations        Average Amt        ")
     print("------------------------------------------------------------------------------")
-    for i in donor_dict:
-        donor = i
-        donations = str((donors.get(i))).strip("[]")
-        total = sum(donors.get(i))
-        average = sum(donors.get(i))//len(donors.get(i))
+    for donor in donor_dict:
+        donations = str((donor_dict.get(donor))).strip("[]")
+        total = sum(donor_dict.get(donor))
+        average = sum(donor_dict.get(donor))//len(donor_dict.get(donor))
         print("{:<20} {:>4} {:>25} {:>20}".format(donor, total, donations, average))
 
 
@@ -62,10 +62,9 @@ def donor_names(donor_dict):
     '''
     prints list of donor names
     :param donor_dict: donor list
-    :return: donors ini x
+    :return:
     '''
     print("\n" + "\n".join(list(i for i in donor_dict)))
-
 
 
 
@@ -84,30 +83,12 @@ def mail_head(donor_dict):
     mail_menu(donor_dict)
 
 
-
-
-
-
-
-#mail_head(donors)
-
-
-
-
-
-
-
-
-
-
-
-
 def add_donor(donor_dict, donor_name):
     '''
     adds donor to list
-    :param x: donor database list
-    :param y: donor name
-    :return: donor name y added at end of list x
+    :param donor_dict: donor database list
+    :param donor_name: donor name
+    :return: donor name added at end of donor dict
     '''
     donor_dict[donor_name] = []
     print("\nAdded Donor: {}".format(donor_name))
@@ -117,8 +98,7 @@ def add_donor(donor_dict, donor_name):
 def donor_check(donor_dict):
     '''
     checks for donor on list
-    :param x: donor database list
-    :param y: donor name
+    :param donor_dict: donor database list
     :return:
     '''
     donor_name = input("\nEnter Donor name\n> ")
@@ -134,46 +114,35 @@ def donor_check(donor_dict):
 def add_donate(donor_dict, donor_name):
     '''
     adds a donation
-    :param x: donor database list
-    :param y: donor name
+    :param donor_dict: donor database list
+    :param donor_name: donor name
     :return:
     '''
     donation = input("\nEnter donation amount\n> ")
-    if num_check(donation):
-        (donor_dict.get(donor_name)).append(donation)
-        print((donor_dict.get(donor_name)))
-        print("**" * 100)
-        print("**" * 100)
-        for name in donor_dict:
-            if name == donor_name:
-                print(donor_dict.keys(donor_name))
-                donor_dict[donor_name] = donation
-                print("found")
-
-               # i(int(donation))
-                #return i
+    if num_check(donor_dict, donor_name, donation):
+        (donor_dict.get(donor_name)).append(int(donation))
+        print(donor_dict)
+        return donor_name
 
 
-def thanks(x, y):
+def thanks(donor_dict, donor_name):
     '''
     creates and prints boring repetitve email
-    :param x: donor database list
-    :param y: specific donor sub list
+    :param donor_dict: donor database list
+    :param donor_name: specific donor sub list
     :return:
     '''
-    name = y[0]
-    donation = y[-1]
-    print("Thank you Mr(s). {} for your most genourous donation of ${}".format(name, donation))
-    mail_menu(x)
+    print("Thank you Mr(s). {} for your most generous donation of ${}".format(donor_name, donor_dict.get(donor_name)[-1]))
+    mail_menu(donor_dict)
 
 
 
-def num_check(donation):
+def num_check(donor_dict, donor_name, donation):
     '''
-    checking for float or int
-    :param x: donor database list
-    :param y: donor
-    :param z: donation amount
+    checking for real number
+    :param donor_dict: donor database list
+    :param donor_name: specific donor sub list
+    :param donation: donation amount
     :return:
     '''
     try:
@@ -181,8 +150,10 @@ def num_check(donation):
         return True
     except:
         print("That is not a valid donation")
-        #add_donate(x, y)
+        add_donate(donor_dict, donor_name)
 
 
 if __name__ == '__main__':
     mail_head(donors)
+
+
