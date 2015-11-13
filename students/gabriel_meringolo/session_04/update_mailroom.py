@@ -64,10 +64,10 @@ def donor_names(donor_dict):
     :param donor_dict: donor list
     :return: donors ini x
     '''
-    print("\n")
-    for i in donor_dict:
-        print(i)
-    print("\n")
+    print("\n" + "\n".join(list(i for i in donor_dict)))
+
+
+
 
 def mail_head(donor_dict):
     '''
@@ -89,7 +89,7 @@ def mail_head(donor_dict):
 
 
 
-mail_head(donors)
+#mail_head(donors)
 
 
 
@@ -99,83 +99,59 @@ mail_head(donors)
 
 
 
-def thank_you(x):
-    '''
-    displays thank you letter menu
-    :param x: donor database list
-    :return:
-    '''
-    pers = input("\nPlease make a selection from the menu below\n"
-                 "-------------------------------------------\n"
-                 "1. Enter Donor name\n2. Display list of Donors\n3. Return to Main Menu\n4. Quit\n> ")
-    if pers == "1":
-        thanks(x, add_donate(x, (donor_check(x))))
-    if pers == "2":
-        donor_names(x)
-        thank_you(x)
-    if pers == "3":
-        mail_menu(x)
-    if pers.lower() == "quit" or pers == "4":
-        quit_mr()
-
-
-def flat_list(x):
-    '''
-    flattens nested list and makes new list
-    :param x: nested list
-    :return:
-    '''
-    flat = []
-    for i in x:
-        for ii in i:
-            flat.append(ii)
-    return flat
 
 
 
-
-def add_donor(x, y):
+def add_donor(donor_dict, donor_name):
     '''
     adds donor to list
     :param x: donor database list
     :param y: donor name
     :return: donor name y added at end of list x
     '''
-    x.append([y, ])
-    print("\nAdded Donor: {}".format(y))
-    return y
+    donor_dict[donor_name] = []
+    print("\nAdded Donor: {}".format(donor_name))
+    return donor_name
 
 
-def donor_check(x):
+def donor_check(donor_dict):
     '''
     checks for donor on list
     :param x: donor database list
     :param y: donor name
     :return:
     '''
-    y = input("\nEnter Donor name\n> ")
-    if y.lower() == "quit":
+    donor_name = input("\nEnter Donor name\n> ")
+    if donor_name.lower() == "quit":
         quit_mr()
-    if y in flat_list(x):
+    if donor_name in donor_dict:
         print("\nDonor Found")
-        return y
-    elif y not in flat_list(x):
-        return add_donor(x,y)
+        return donor_name
+    elif donor_name not in donor_dict:
+        return add_donor(donor_dict, donor_name)
 
 
-def add_donate(x, y):
+def add_donate(donor_dict, donor_name):
     '''
     adds a donation
     :param x: donor database list
     :param y: donor name
     :return:
     '''
-    z = input("\nEnter donation amount\n> ")
-    if num_check(x, y, z) == True:
-        for i in x:
-            if i[0] == y:
-                i.append(int(z))
-                return i
+    donation = input("\nEnter donation amount\n> ")
+    if num_check(donation):
+        (donor_dict.get(donor_name)).append(donation)
+        print((donor_dict.get(donor_name)))
+        print("**" * 100)
+        print("**" * 100)
+        for name in donor_dict:
+            if name == donor_name:
+                print(donor_dict.keys(donor_name))
+                donor_dict[donor_name] = donation
+                print("found")
+
+               # i(int(donation))
+                #return i
 
 
 def thanks(x, y):
@@ -192,7 +168,7 @@ def thanks(x, y):
 
 
 
-def num_check(x, y, z):
+def num_check(donation):
     '''
     checking for float or int
     :param x: donor database list
@@ -201,11 +177,11 @@ def num_check(x, y, z):
     :return:
     '''
     try:
-        float(z) or int(z)
+        int(donation)
         return True
     except:
         print("That is not a valid donation")
-        add_donate(x, y)
+        #add_donate(x, y)
 
 
 if __name__ == '__main__':
