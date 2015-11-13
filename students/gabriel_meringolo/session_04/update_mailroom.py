@@ -10,7 +10,7 @@ def report(donor_dict):
     for donor in donor_dict:
         donations = str((donor_dict.get(donor))).strip("[]")
         total = sum(donor_dict.get(donor))
-        average = sum(donor_dict.get(donor))//len(donor_dict.get(donor))
+        average = total//len(donor_dict.get(donor))
         print("{:<20} {:>4} {:>25} {:>20}".format(donor, total, donations, average))
 
 
