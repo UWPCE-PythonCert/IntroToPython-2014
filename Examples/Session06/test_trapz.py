@@ -3,6 +3,7 @@
 """
 test code for the trapezoidal rule exercise
 """
+import pytest
 
 from trapz import trapz, frange, quadratic
 
@@ -89,6 +90,15 @@ def test_sloping_line():
     # I got 159.99999999999 rather than 160
     #   hence the need for isclose()
     assert isclose(trapz(line, 2, 10), 160)
+    m, B = 3, 2
+    a, b = 0, 5
+    assert isclose(trapz(line, a, b), 1/2*m*(b**2 - a**2) + B*(b-a))
+
+    a, b = 5, 10
+    assert isclose(trapz(line, a, b), 1/2*m*(b**2 - a**2) + B*(b-a))
+
+    a, b = -10, 5
+    assert isclose(trapz(line, a, b), 1/2*m*(b**2 - a**2) + B*(b-a))
 
 
 def test_sine():
@@ -104,8 +114,55 @@ def test_sine2():
 
 
 # test the quadratic function itself
-def test_quadratic():
+#   this is pytest's way to test a bunch of input and output values
+#   it creates a separate test for each case.
+@pytest.mark.parametrize(("x", "y"), [(0, 1),
+                                      (1, 3),
+                                      (2, 7),
+                                      (-2, 3)
+                                      ])
+def test_quadratic_1(x, y):
     """
-    test the quadratic function itself
+    one set of coefficients
     """
-    assert quadratic(0, a=1, b=1, c=1) == 1.0
+    assert quadratic(x, A=1, B=1, C=1) == y
+
+
+@pytest.mark.parametrize(("x", "y"), [(0, 2),
+                                      (1, 3),
+                                      (2, 0),
+                                      (-2, -12)
+                                      ])
+def test_quadratic_2(x, y):
+    """
+    different coefficients
+    """
+    assert quadratic(x, A=-2, B=3, C=2) == y
+
+
+def quad_solution(a, b, A, B, C):
+    """
+    Analytical solution to the area under a quadratic
+    used for testing
+    """
+    return A/3*(b**3 - a**3) + B/2*(b**2 - a**2) + C*(b - a)
+
+
+def test_quadratic_trapz_1():
+    """
+    simplest case -- horizontal line
+    """
+    A, B, C = 0, 0, 5
+    a, b = 0, 10
+    assert trapz(quadratic, a, b, A=A, B=B, C=C) == quad_solution(a, b, A, B, C)
+
+
+def test_quadratic_trapz_2():
+    """
+    one case: A=-1/3, B=0, C=4
+    """
+    A, B, C = -1/3, 0, 4
+    a, b = -2, 2
+    assert isclose(trapz(quadratic, a, b, A=A, B=B, C=C),
+                   quad_solution(a, b, A, B, C),
+                   rel_tol=1e-3)  # not a great tolerance -- maybe should try more samples!
