@@ -181,8 +181,8 @@
 <div class="section" id="example">
 <h3>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;a very simple straight horizontal line&#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="mi">3</span>
+    <span class="sd">&#39;&#39;&#39;a very simple straight horizontal line at y = 5&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="mi">5</span>
 
 <span class="n">area</span> <span class="o">=</span> <span class="n">trapz</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
@@ -216,17 +216,19 @@
 </div>
 <p>In the function, you want to compute the following equation:</p>
 <div class="math">
-\[result = \frac{b-a}{2N}(f(x_1) + 2f(x_2) + 2f(x_3) + 2f(x_4) + \dotsb + 2f(x_N) + f(x_{N+1}))\]</div>
+\[area = \frac{b-a}{2N}(f(x_0) + 2f(x_1) + 2f(x_2) + \dotsb + 2f(x_{N-1}) + f(x_N))\]</div>
 <p>So you will need to:</p>
 <blockquote>
 <div><ul class="simple">
 <li>create a list of x values from a to b (maybe 100 or so values to start)</li>
 <li>compute the function for each of those values and double them</li>
 <li>add them all up</li>
-<li>multiply by the half of the difference between a and b.</li>
+<li>multiply by the half of the difference between a and b divided by the number of steps.</li>
 </ul>
 </div></blockquote>
-<p>Note that the first and last values are not doubled.</p>
+<p>Note that the first and last values are not doubled, so it may be more efficient to rearrange it like this:</p>
+<div class="math">
+\[area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i) \right)\]</div>
 <p>Can you use comprehensions for this?</p>
 <p>NOTE: <code class="docutils literal"><span class="pre">range()</span></code> only works for integers &#8211; how can you deal with that?</p>
 <p>Once you have that, it should work for any function that can be evaluated between a and b.</p>
@@ -235,14 +237,17 @@
 <div class="section" id="tests">
 <h3>tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
 <p>Do this using test-drive development.</p>
-<p>A few examples:</p>
+<p>A few examples of analytical solutions you can use for tests:</p>
 <p>A simple horizontal line &#8211; see above.</p>
 <p>A sloped straight line:</p>
 <div class="math">
 \[\int_a^b  y = mx + B = \frac{1}{2} m (b^2-a^2) + B (b-a)\]</div>
+<p>The quadratic:</p>
+<div class="math">
+\[\int_a^b  y = Ax^2 + Bx + C = \frac{A}{3} (b^3-a^3) + \frac{B}{2} (b^2-a^2) + C (b-a)\]</div>
 <p>The sine function:</p>
 <div class="math">
-\[\int_a^b \sin(x) = -\cos(b) + \cos(a)\]</div>
+\[\int_a^b \sin(x) = \cos(a) - \cos(b)\]</div>
 </div>
 <div class="section" id="computational-accuracy">
 <h3>Computational Accuracy<a class="headerlink" href="#computational-accuracy" title="Permalink to this headline">¶</a></h3>
@@ -258,17 +263,17 @@
 <h3>Stage two:<a class="headerlink" href="#stage-two" title="Permalink to this headline">¶</a></h3>
 <p>Some functions need extra parameters to do their thing. But the above will only handle a single parameter. For example, a quadratic function:</p>
 <div class="math">
-\[y = a x^2 + bx + c\]</div>
-<p>Requires values for a, b, and c in order to compute y from an given x.</p>
-<p>You could write a specialized version of this function for each a, b, and c:</p>
+\[y = A x^2 + Bx + C\]</div>
+<p>Requires values for A, B, and C in order to compute y from an given x.</p>
+<p>You could write a specialized version of this function for each A, B, and C:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quad1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
 </pre></div>
 </div>
 <p>But then you need to write a new function for any value of these parameters you might need.</p>
-<p>Instead, you can pass in a, b and c each time:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+<p>Instead, you can pass in A, B and C each time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">C</span>
 </pre></div>
 </div>
 <p>Nice and general purpose.</p>
@@ -278,15 +283,15 @@
 <h3>Passing arguments through:<a class="headerlink" href="#passing-arguments-through" title="Permalink to this headline">¶</a></h3>
 <p>Update your trapz() function so that you can give it a function that takes arbitrary extra arguments, either positional or keyword, after the x.</p>
 <p>So you can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">coef</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">coef</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;A&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">**</span><span class="n">coef</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -294,7 +299,7 @@
 <div class="section" id="currying">
 <h3>Currying<a class="headerlink" href="#currying" title="Permalink to this headline">¶</a></h3>
 <p>Another way to solve the above problem is to use the original <code class="docutils literal"><span class="pre">trapz</span></code>, and create a custom version of the quadratic() function instead.</p>
-<p>Write a function that takes <code class="docutils literal"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">and</span> <span class="pre">c</span></code> as arguments, and returns a function that evaluates the quadratic for those particular coefficients.</p>
+<p>Write a function that takes <code class="docutils literal"><span class="pre">A,</span> <span class="pre">B,</span> <span class="pre">and</span> <span class="pre">C</span></code> as arguments, and returns a function that evaluates the quadratic for those particular coefficients.</p>
 <p>Try passing the results of this into your <code class="docutils literal"><span class="pre">trapz()</span></code> and see if you get the same answer.</p>
 </div>
 <div class="section" id="partial">
