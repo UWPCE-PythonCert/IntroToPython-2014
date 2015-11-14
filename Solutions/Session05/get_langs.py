@@ -9,23 +9,23 @@ a set at the same time.
 
 """
 
-import collections # lots of neat stuff in there
+import collections  # lots of neat stuff in there
 
-file_path = '../../Examples/Session01/students.txt'
+file_path = '../../Examples/students.txt'
 
 # use a counter to ensure unique values and keep track of count
 all_langs = collections.Counter()
 
-f = open(file_path) # default read text mode
+f = open(file_path)  # default read text mode
 
-f.readline() # read and toss the header
+f.readline()   # read and toss the header
 
 for line in f:
     langs = line.split(':')[1]
     langs = langs.split(',')
     for lang in langs:
         lang = lang.strip().lower()
-        if lang: # don't want empty strings
+        if lang:  # don't want empty strings
             all_langs[lang] += 1
 for lang, count in all_langs.items():
-    print "%10s: %i students"%(lang, count)
+    print("{10:}: {:d} students".format(lang, count))
