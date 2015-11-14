@@ -14,13 +14,12 @@ def another_curve(x):
 
 
 def trapz(fun, a, b):
-    num_of_grids = 100  # breaks when you change # of grids
+    num_of_grids = 100
     grid_spacing = (b-a)/num_of_grids
     # return grid_spacing
     list_of_values = [a + grid_spacing]
-    for i in range(num_of_grids-2):  #this is to account for bad rounding. there must be a better way!
+    for i in range(num_of_grids-2):
         list_of_values.append(list_of_values[-1] + grid_spacing)
-    # list_of_values.pop()
     # return list_of_values
     list_of_values = [2*fun(i) for i in list_of_values]
     list_of_values.append(fun(a)+fun(b))
