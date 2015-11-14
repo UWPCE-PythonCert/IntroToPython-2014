@@ -1,4 +1,6 @@
-from trapz import line, trapz
+from math import sin
+
+from trapz import line, a_curve, another_curve, trapz
 
 # need a function for testing approximate equality
 try:
@@ -47,6 +49,22 @@ def test_is_close():
     assert not isclose(4.5, 4.6)
     # of course, not comprehesive!
 
+# used this online calculator to check solutions:
+# http://nastyaccident.com/calculators/calculus/trapezoidalRule
+
 
 def test_trapz():
-    trapz(line, 0, 10) == 50
+    # a simple line
+    assert trapz(line, 0, 10) == 50
+    # a simple curve
+    under_curve = trapz(a_curve, 1, 6)
+    assert isclose(under_curve, 7.4512822710374)
+    # a simple curve with larger arbitrary start and end points
+    under_curve = trapz(a_curve, 22, 146)
+    assert isclose(under_curve, 1099.8560901121)
+    # another curve with arbirtrary start and end points
+    under_other_curve = trapz(another_curve, 1, 1999)
+    assert isclose(under_other_curve, 2662803597.7332)
+    # python sin function with arbitrary start and end points
+    under_sin = trapz(sin, 24, 346)
+    assert isclose(under_sin, 0.030750318486179)
