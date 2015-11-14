@@ -45,8 +45,8 @@ Example:
 .. code-block:: python
 
     def line(x):
-        '''a very simple straight horizontal line'''
-        return 3
+        '''a very simple straight horizontal line at y = 5'''
+        return 5
 
     area = trapz(line, 0, 10)
 
@@ -88,7 +88,7 @@ In the function, you want to compute the following equation:
 
 .. math::
 
-    result = \frac{b-a}{2N}(f(x_1) + 2f(x_2) + 2f(x_3) + 2f(x_4) + \dotsb + 2f(x_N) + f(x_{N+1}))
+    area = \frac{b-a}{2N}(f(x_0) + 2f(x_1) + 2f(x_2) + \dotsb + 2f(x_{N-1}) + f(x_N))
 
 So you will need to:
 
@@ -98,9 +98,15 @@ So you will need to:
 
  - add them all up
 
- - multiply by the half of the difference between a and b.
+ - multiply by the half of the difference between a and b divided by the number of steps.
 
-Note that the first and last values are not doubled.
+.. nextslide::
+
+Note that the first and last values are not doubled, so it may be more efficient to rearrange it like this:
+
+.. math::
+
+  area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i) \right)
 
 Can you use comprehensions for this?
 
@@ -117,9 +123,11 @@ tests
 
 Do this using test-drive development.
 
-A few examples:
+A few examples of analytical solutions you can use for tests:
 
 A simple horizontal line -- see above.
+
+.. nextslide::
 
 A sloped straight line:
 
@@ -127,11 +135,18 @@ A sloped straight line:
 
   \int_a^b  y = mx + B = \frac{1}{2} m (b^2-a^2) + B (b-a)
 
+The quadratic:
+
+.. math::
+
+  \int_a^b  y = Ax^2 + Bx + C = \frac{A}{3} (b^3-a^3) + \frac{B}{2} (b^2-a^2) + C (b-a)
+
+
 The sine function:
 
 .. math::
 
-  \int_a^b \sin(x) = -\cos(b) + \cos(a)
+  \int_a^b \sin(x) = \cos(a) - \cos(b)
 
 Computational Accuracy
 ----------------------
@@ -159,27 +174,27 @@ Some functions need extra parameters to do their thing. But the above will only 
 
 .. math::
 
-    y = a x^2 + bx + c
+    y = A x^2 + Bx + C
 
-Requires values for a, b, and c in order to compute y from an given x.
+Requires values for A, B, and C in order to compute y from an given x.
 
-You could write a specialized version of this function for each a, b, and c:
+You could write a specialized version of this function for each A, B, and C:
 
 .. code-block:: python
 
   def quad1(x):
-      return 3 + x**2 + 2 + 4
+      return 3 * x**2 + 2*x + 4
 
 But then you need to write a new function for any value of these parameters you might need.
 
 .. nextslide::
 
-Instead, you can pass in a, b and c each time:
+Instead, you can pass in A, B and C each time:
 
 .. code-block:: python
 
-    def quadratic(x, a=0, b=0, c=0):
-        return a * x**2 + b * x + c
+    def quadratic(x, A=0, B=0, C=0):
+        return A * x**2 + B * x + C
 
 Nice and general purpose.
 
@@ -194,19 +209,19 @@ So you can do:
 
 .. code-block:: python
 
-    trapz(quadratic, 2, 20, a=1, b=3, c=2)
+    trapz(quadratic, 2, 20, A=1, B=3, C=2)
 
 or
 
 .. code-block:: python
 
-    trapz(quadratic, 2, 20, 1, 3, c=2)
+    trapz(quadratic, 2, 20, 1, 3, C=2)
 
 or
 
 .. code-block:: python
 
-    coef = {'a':1, 'b':3, 'c': 2}
+    coef = {'A':1, 'B':3, 'C': 2}
     trapz(quadratic, 2, 20, **coef)
 
 
@@ -215,7 +230,7 @@ Currying
 
 Another way to solve the above problem is to use the original ``trapz``, and create a custom version of the quadratic() function instead.
 
-Write a function that takes ``a, b, and c`` as arguments, and returns a function that evaluates the quadratic for those particular coefficients.
+Write a function that takes ``A, B, and C`` as arguments, and returns a function that evaluates the quadratic for those particular coefficients.
 
 Try passing the results of this into your ``trapz()`` and see if you get the same answer.
 

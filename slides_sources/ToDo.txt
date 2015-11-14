@@ -1,8 +1,15 @@
 Things to do for the UWPCE Intro to Python class:
 
+Notes about homework:
+
+" ".join(dict.keys())
+
+no need to make a list first.
+
+NEED to do more with iterators vs iterables vs sequences.
+
 Future Sessions:
 
-Sorting!
 
 add pathlib examples
 
