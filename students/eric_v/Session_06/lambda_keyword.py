@@ -1,5 +1,5 @@
-def function_builder(i):
-    list1 = []
-    for j in range(i):
-        list1.append(j)
-    return list1
+def function_builder(num_of_increments):
+    list_of_functions = []
+    for increment in range(num_of_increments):
+        list_of_functions.append(lambda num_of_increments, up_increment = increment: num_of_increments + up_increment)
+    return list_of_functions
