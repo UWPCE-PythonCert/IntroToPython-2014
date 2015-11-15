@@ -198,7 +198,7 @@ Instead, you can pass in A, B and C each time:
 
 Nice and general purpose.
 
-But how would we compute the area under this function? the function we wrote above only passes x in to the function it is integrating.
+But how would we compute the area under this function? The function we wrote above only passes x in to the function it is integrating.
 
 Passing arguments through:
 --------------------------
@@ -223,6 +223,12 @@ or
 
     coef = {'A':1, 'B':3, 'C': 2}
     trapz(quadratic, 2, 20, **coef)
+
+NOTE: Make sure this will work with ANY function, with ANY additional positional or keyword arguments -- not just this particular function.
+
+This is pretty conceptually challenging -- but it's very little code!
+
+If you are totally lost -- look at the lecture notes from last class -- how can you both accept and pass arbitrary arguments to/from a function?
 
 
 Currying

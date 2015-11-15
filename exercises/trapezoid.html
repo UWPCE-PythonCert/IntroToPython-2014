@@ -277,7 +277,7 @@
 </pre></div>
 </div>
 <p>Nice and general purpose.</p>
-<p>But how would we compute the area under this function? the function we wrote above only passes x in to the function it is integrating.</p>
+<p>But how would we compute the area under this function? The function we wrote above only passes x in to the function it is integrating.</p>
 </div>
 <div class="section" id="passing-arguments-through">
 <h3>Passing arguments through:<a class="headerlink" href="#passing-arguments-through" title="Permalink to this headline">¶</a></h3>
@@ -295,6 +295,9 @@
 <span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">**</span><span class="n">coef</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>NOTE: Make sure this will work with ANY function, with ANY additional positional or keyword arguments &#8211; not just this particular function.</p>
+<p>This is pretty conceptually challenging &#8211; but it&#8217;s very little code!</p>
+<p>If you are totally lost &#8211; look at the lecture notes from last class &#8211; how can you both accept and pass arbitrary arguments to/from a function?</p>
 </div>
 <div class="section" id="currying">
 <h3>Currying<a class="headerlink" href="#currying" title="Permalink to this headline">¶</a></h3>
