@@ -5,7 +5,8 @@ def increment_size(a, b, number_of_increments):
     a is lower function evaluation boundary
     b is upper function evaluation boundary
     """
-    increment_width = ((float(b) - float(a))/float(number_of_increments))
+    #increment_width = ((float(b) - float(a))/float(number_of_increments))
+    increment_width = ((b - a)/number_of_increments)
     print('increment_width: ', increment_width)
     return increment_width
 
@@ -32,7 +33,6 @@ for increment in range(number_of_increments):
     local_increment_area = evaluate_increment(lower_boundary, upper_boundary)
     print ('local area: ', local_increment_area)
     cumulative_increment_area += local_increment_area
-    print ("cumulative area: ", cumulative_increment_area)
-    print("\n")
+    print ('cumulative area: ', cumulative_increment_area, '\n' )
 
 
