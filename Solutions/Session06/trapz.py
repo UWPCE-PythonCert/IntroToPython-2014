@@ -57,3 +57,11 @@ def trapz(fun, a, b, *args, **kwargs):
     s *= (b-a) / n
 
     return s
+
+
+# "currying" version of quadratic:
+def curry_quadratic(A, B, C):
+    """
+    "curry" the quadratic function to "lock in" particular arguments
+    """
+    return lambda x: quadratic(x, A=A, B=B, C=C)
