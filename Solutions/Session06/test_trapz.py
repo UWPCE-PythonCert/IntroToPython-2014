@@ -208,3 +208,33 @@ def test_curry_quadratic_trapz():
 
     # try it with the trapz function
     assert trapz(quad234, -5, 5) == trapz(quadratic, -5, 5, -2, 2, 3)
+
+
+# testing the functools.partial version:
+from trapz import quad_partial_123
+def test_partial():
+    a = 4
+    b = 10
+    # quad_partial_123 is the quadratic function with A,B,C = 1,2,3
+    assert trapz(quad_partial_123, a, b) == trapz(quadratic, a, b, 1, 2, 3)
+
+
+# testing trapz with another function with multiple parameters.
+def sine_freq_amp(t, amp, freq):
+    "the sine function with a frequency and amplitude specified"
+    return amp * math.sin(freq * t)
+
+
+def solution_freq_amp(a, b, amp, freq):
+    " the solution to the definite integral of the general sin function"
+    return amp / freq * (math.cos(freq * a) - math.cos(freq * b))
+
+
+def test_sine_freq_amp():
+    a = 0
+    b = 5
+    omega = 0.5
+    amp = 10
+    assert isclose(trapz(sine_freq_amp, a, b, amp=amp, freq=omega),
+                   solution_freq_amp(a, b, amp, omega),
+                   rel_tol=1e-04)

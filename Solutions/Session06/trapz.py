@@ -65,3 +65,8 @@ def curry_quadratic(A, B, C):
     "curry" the quadratic function to "lock in" particular arguments
     """
     return lambda x: quadratic(x, A=A, B=B, C=C)
+
+# using functools.partial
+import functools
+quad_partial_123 = functools.partial(quadratic, A=1, B=2, C=3)
+
