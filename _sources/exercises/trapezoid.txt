@@ -198,7 +198,9 @@ Instead, you can pass in A, B and C each time:
 
 Nice and general purpose.
 
-But how would we compute the area under this function? The function we wrote above only passes x in to the function it is integrating.
+But how would we compute the area under this function?
+
+The function we wrote above only passes x in to the function it is integrating.
 
 Passing arguments through:
 --------------------------
@@ -224,12 +226,31 @@ or
     coef = {'A':1, 'B':3, 'C': 2}
     trapz(quadratic, 2, 20, **coef)
 
-NOTE: Make sure this will work with ANY function, with ANY additional positional or keyword arguments -- not just this particular function.
+.. nextslide::
+
+**NOTE:** Make sure this will work with ANY function, with **ANY** additional positional or keyword arguments -- not just this particular function.
 
 This is pretty conceptually challenging -- but it's very little code!
 
 If you are totally lost -- look at the lecture notes from last class -- how can you both accept and pass arbitrary arguments to/from a function?
 
+.. nextslide::
+
+You want your trapz function to take ANY function that can take ANY arbitrary extra arguments -- not just the quadratic function, and not just ``A,B, and C``. So good to test with another example.
+
+The generalized sine function is:
+
+.. math::
+
+  A \sin(\omega t)
+
+where :math:`A` is the amplitude, and :math:`\omega` is the frequency of the function. In this case, the area under the curve from a to b is:
+
+.. math::
+
+  \frac{A}{\omega} \left( \cos(\omega a) - \cos(\omega b) \right)
+
+The test code has a test for this one, too.
 
 Currying
 --------
@@ -253,6 +274,8 @@ This isn't really the point of the exercise, but see if you can make it dynamica
 How accurate it is depends on how small the chunks are that you break the function up into.
 
 See if you can think of a way to dynamically determine how small a step you should use.
+
+This is one for the math and computational programming geeks!
 
 
 

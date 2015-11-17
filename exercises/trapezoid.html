@@ -277,7 +277,8 @@
 </pre></div>
 </div>
 <p>Nice and general purpose.</p>
-<p>But how would we compute the area under this function? The function we wrote above only passes x in to the function it is integrating.</p>
+<p>But how would we compute the area under this function?</p>
+<p>The function we wrote above only passes x in to the function it is integrating.</p>
 </div>
 <div class="section" id="passing-arguments-through">
 <h3>Passing arguments through:<a class="headerlink" href="#passing-arguments-through" title="Permalink to this headline">¶</a></h3>
@@ -295,9 +296,17 @@
 <span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">**</span><span class="n">coef</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>NOTE: Make sure this will work with ANY function, with ANY additional positional or keyword arguments &#8211; not just this particular function.</p>
+<p><strong>NOTE:</strong> Make sure this will work with ANY function, with <strong>ANY</strong> additional positional or keyword arguments &#8211; not just this particular function.</p>
 <p>This is pretty conceptually challenging &#8211; but it&#8217;s very little code!</p>
 <p>If you are totally lost &#8211; look at the lecture notes from last class &#8211; how can you both accept and pass arbitrary arguments to/from a function?</p>
+<p>You want your trapz function to take ANY function that can take ANY arbitrary extra arguments &#8211; not just the quadratic function, and not just <code class="docutils literal"><span class="pre">A,B,</span> <span class="pre">and</span> <span class="pre">C</span></code>. So good to test with another example.</p>
+<p>The generalized sine function is:</p>
+<div class="math">
+\[A \sin(\omega t)\]</div>
+<p>where <span class="math">\(A\)</span> is the amplitude, and <span class="math">\(\omega\)</span> is the frequency of the function. In this case, the area under the curve from a to b is:</p>
+<div class="math">
+\[\frac{A}{\omega} \left( \cos(\omega a) - \cos(\omega b) \right)\]</div>
+<p>The test code has a test for this one, too.</p>
 </div>
 <div class="section" id="currying">
 <h3>Currying<a class="headerlink" href="#currying" title="Permalink to this headline">¶</a></h3>
@@ -314,6 +323,7 @@
 <p>This isn&#8217;t really the point of the exercise, but see if you can make it dynamically accurate.</p>
 <p>How accurate it is depends on how small the chunks are that you break the function up into.</p>
 <p>See if you can think of a way to dynamically determine how small a step you should use.</p>
+<p>This is one for the math and computational programming geeks!</p>
 </div>
 </div>
 </div>
