@@ -5,7 +5,7 @@ examples of a static methods
 """
 
 
-class C(object):
+class C:
 
     @staticmethod
     def a_static_method(a, b):
@@ -13,7 +13,7 @@ class C(object):
         return a+b
 
     def test(self):
-        return self.a_static_method(2,3)
+        return self.a_static_method(2, 3)
 
 # if __name__ == "__main__":
 
@@ -24,5 +24,3 @@ class C(object):
 #     print c.a_static_method(4,5)
 
 #     print c.test()
-
-

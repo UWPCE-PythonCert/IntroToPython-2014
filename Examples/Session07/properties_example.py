@@ -8,7 +8,7 @@ NOTE: if your getters and setters are this simple: don't do this!
 """
 
 
-class C(object):
+class C:
     def __init__(self):
         self._x = None
     @property
@@ -24,5 +24,5 @@ class C(object):
 if __name__ == "__main__":
     c = C()
     c.x = 5
-    print c.x
+    print(c.x)
 

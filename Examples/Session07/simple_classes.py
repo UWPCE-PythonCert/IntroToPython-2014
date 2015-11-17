@@ -9,7 +9,7 @@ import math
 
 
 # create a point class
-class Point(object):
+class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -22,7 +22,7 @@ print("p.x is:", p.x)
 print("p.y is:", p.y)
 
 
-class Point2(object):
+class Point2:
     size = 4
     color = "red"
 
@@ -35,7 +35,7 @@ print(p2.size)
 print(p2.color)
 
 
-class Point3(object):
+class Point3:
     size = 4
     color = "red"
 
@@ -52,7 +52,7 @@ print(p3.size)
 print(p3.get_color())
 
 
-class Circle(object):
+class Circle:
     color = "red"
     styles = ['dashed']
 

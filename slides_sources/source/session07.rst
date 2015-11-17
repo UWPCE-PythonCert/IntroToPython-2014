@@ -2,9 +2,9 @@
 .. Foundations 2: Python slides file, created by
    hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
 
-***********************
-Session Seven: More OO
-***********************
+***************************
+Object Oriented Programming
+***************************
 
 .. rst-class:: medium centered
 
@@ -42,10 +42,32 @@ Homework review
 
 Homework Questions?
 
-Have you all got an HTML Renderer working?
+Did you all get a trapedzoidal rule function working?
 
 Do you have a feel for classes, subclassing, overriding methods, ...?
 
+Notes on Floating point
+-----------------------
+
+Did anyone look at the isclose() function?
+
+How to make a range of numbers in floating point?
+
+Anyone do something like this?:
+
+.. code-block:: python
+
+  s = []
+  x = a
+  while x <= b:
+      s.append(x)
+      x += delta_x
+
+  -- see my solution.
+
+Some notes about FP issues:
+
+https://docs.python.org/3.5/tutorial/floatingpoint.html
 
 
 Lightning Talks Today:
@@ -53,11 +75,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-  three
+ Eric Vegors
 
-  people's
+ Ian Cote
 
-  names
+ Masako Tebbetts
 
 ===========================
 Object Oriented Programming
@@ -210,7 +232,7 @@ Python Classes
 
     .. code-block:: ipython
 
-        In [4]: class C(object):
+        In [4]: class C:
             pass
            ...:
         In [5]: type(C)
@@ -220,10 +242,6 @@ Python Classes
 
     It is created when the statement is run -- much like ``def``
 
-    You don't *have* to subclass from ``object``, but you *should*
-
-    (note on "new style" classes)
-
 Python Classes
 --------------
 
@@ -231,7 +249,7 @@ About the simplest class you can write
 
 .. code-block:: python
 
-    >>> class Point(object):
+    >>> class Point:
     ...     x = 1
     ...     y = 2
     >>> Point
@@ -250,7 +268,7 @@ Basic Structure of a real class:
 
 .. code-block:: python
 
-    class Point(object):
+    class Point:
     # everything defined in here is in the class namespace
 
         def __init__(self, x, y):
@@ -265,7 +283,7 @@ Basic Structure of a real class:
     print("p.y is:", p.y)
 
 
-see: ``Examples/Session06/simple_classes.py``
+see: ``Examples/Session07/simple_classes.py``
 
 .. nextslide::
 
@@ -1004,7 +1022,7 @@ properties
 
     In [28]: c = C()
     In [30]: c.x = 5
-    In [31]: print c.x
+    In [31]: print(c.x)
     5
 
 Now the interface is like simple attribute access!
@@ -1185,7 +1203,7 @@ argument
        ....:     x = 2
        ....:     @classmethod
        ....:     def a_class_method(cls, y):
-       ....:         print "in a class method: ", cls
+       ....:         print("in a class method: ", cls)
        ....:         return y ** cls.x
        ....:
     In [42]: Classy.a_class_method(4)
@@ -1307,7 +1325,7 @@ try: ``dir(2)``  or ``dir(list)``
 Most classes should at lest have these special methods:
 
 ``object.__str__``:
-  Called by the str() built-in function and by the print statement to compute
+  Called by the str() built-in function and by the print function to compute
   the *informal* string representation of an object.
 
 ``object.__unicode__``:

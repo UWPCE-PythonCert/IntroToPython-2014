@@ -6,5 +6,5 @@ fill this in so it will pass all the tests.
 import math
 
 
-class Circle(object):
+class Circle:
     pass

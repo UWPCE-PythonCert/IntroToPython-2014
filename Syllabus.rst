@@ -286,6 +286,7 @@ Testing
 
 List and Dict Comprehensions
 
+
 Week 6: November 10
 ....................
 
@@ -294,35 +295,33 @@ Advanced Argument passing
 Lambda and Functions as Objects
 
 
-
 Week 7: November 17
 .......................
 
 Object Oriented Programming: classes, instances, and methods
 
-More OO -- Multiple inheritance, Properties, special methods
-
 
 Week 8: November 24
 ....................
+More OO -- Multiple inheritance, Properties, special methods.
 
-More OO -- Emulating built-in types
-
-Iterators and Generators
+Emulating built-in types
 
 
 Week 9: December 1
 ...................
 
+Iterators and Generators
+
 Decorators
 
 Context Managers
 
-Packages and packaging
-
 
 Week 10: December 8
 ....................
+
+Packages and packaging
 
 Unicode
 
