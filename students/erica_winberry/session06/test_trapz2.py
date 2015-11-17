@@ -1,8 +1,5 @@
 import math
-from trapezoidal2 import trapz
-from trapezoidal2 import line
-from trapezoidal2 import squared
-from trapezoidal2 import quadratic
+from trapezoidal2 import trapz, line, squared, quadratic
 
 
 def test_trapz_line():

@@ -8,14 +8,7 @@ def trapz(fun, start, stop, *args, **kwargs):
     # compute the area under an arbitrary function,
     # using the trapezoidal rule.
 
-    if kwargs is not None:
-        new_kwargs = dict(kwargs)
-        print(new_kwargs)
-    
-    def quadratic(x, **kwargs):
-        return (new_kwargs[a] * x**2) + (new_kwargs[b] * x) + new_kwargs[c]
-
-    fun = quadratic(x, new_kwargs)
+    fun = fun(*args, **kwargs)
 
     values = x_values(start, stop)
     l = []
@@ -54,6 +47,7 @@ def quadratic(x, a=0, b=0, c=0):
 
 def squared(x):
     return x * x
+
 
 
 print(trapz(quadratic, 1, 10, a=1, b=3, c=2))
