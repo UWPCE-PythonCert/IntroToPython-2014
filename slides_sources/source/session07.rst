@@ -318,7 +318,7 @@ The instance of the class is passed as the first parameter for every method.
 
 .. code-block:: python
 
-    class Point(object):
+    class Point:
         def a_function(self, x, y):
     ...
 
@@ -351,10 +351,9 @@ Note: the methods defined by ``def`` are class attributes as well.
 
 The class is one namespace, the instance is another.
 
-
 .. code-block:: python
 
-    class Point(object):
+    class Point:
         size = 4
         color= "red"
     ...
@@ -373,7 +372,7 @@ Typical methods:
 
 .. code-block:: python
 
-    class Circle(object):
+    class Circle:
         color = "red"
 
         def __init__(self, diameter):
@@ -414,9 +413,7 @@ LAB
 Let's say you need to render some html...
 
 The goal is to build a set of classes that render an html
-page like this:
-
-``Examples/Session06/sample_html.html``
+page.
 
 We'll start with a single class, then add some sub-classes
 to specialize the behavior
@@ -425,9 +422,7 @@ Details in:
 
 :ref:`exercise_html_renderer`
 
-
-Let's see if you can do step 1. in class...
-
+Let's get a start with step 1. in class...
 
 Lightning Talks
 ----------------
@@ -435,10 +430,11 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-| Gideon Sylvan
+| Eric Vegors
 |
-| Hui Zhang
+| Ian Cote
 |
+| Masako Tebbetts
 
 =======================
 Subclassing/Inheritance
@@ -475,8 +471,6 @@ The simplest subclass in Python:
 
 ``A_subclass``  now has exactly the same behavior as ``The_superclass``
 
-NOTE: when we put ``object`` in there, it means we are deriving from object -- getting core functionality of all objects.
-
 Overriding attributes
 ---------------------
 
@@ -484,7 +478,7 @@ Overriding is as simple as creating a new attribute with the same name:
 
 .. code-block:: python
 
-    class Circle(object):
+    class Circle:
         color = "red"
 
     ...
@@ -505,7 +499,7 @@ Same thing, but with methods (remember, a method *is* an attribute in python)
 
 .. code-block:: python
 
-    class Circle(object):
+    class Circle:
     ...
         def grow(self, factor=2):
             """grows the circle's diameter by factor"""
@@ -527,15 +521,9 @@ Here's a program design suggestion:
 
 """
 
-Whenever you override a method, the
-interface of the new method should be the same as the old.  It should take
-the same parameters, return the same type, and obey the same preconditions
-and postconditions.
+Whenever you override a method, the interface of the new method should be the same as the old.  It should takethe same parameters, return the same type, and obey the same preconditions and postconditions.
 
-If you obey this rule, you will find that any function
-designed to work with an instance of a superclass, like a Deck, will also work
-with instances of subclasses like a Hand or PokerHand.  If you violate this
-rule, your code will collapse like (sorry) a house of cards.
+If you obey this rule, you will find that any function designed to work with an instance of a superclass, like a Deck, will also work with instances of subclasses like a Hand or PokerHand.  If you violate this rule, your code will collapse like (sorry) a house of cards.
 
 """
 
@@ -552,13 +540,13 @@ More on Subclassing
 Overriding \_\_init\_\_
 -----------------------
 
-``__init__`` common method to override}
+``__init__`` common method to override
 
 You often need to call the super class ``__init__``  as well
 
 .. code-block:: python
 
-    class Circle(object):
+    class Circle:
         color = "red"
         def __init__(self, diameter):
             self.diameter = diameter
@@ -569,7 +557,6 @@ You often need to call the super class ``__init__``  as well
             Circle.__init__(self, diameter)
 
 
-
 exception to: "don't change the method signature" rule.
 
 More subclassing
@@ -578,7 +565,7 @@ You can also call the superclass' other methods:
 
 .. code-block:: python
 
-    class Circle(object):
+    class Circle:
     ...
         def get_area(self, diameter):
             return math.pi * (diameter/2.0)**2
@@ -637,7 +624,7 @@ Python looks for it in this order:
 
 It can get more complicated...
 
-http://www.python.org/getit/releases/2.3/mro/
+https://www.python.org/download/releases/2.3/mro/
 
 http://python-history.blogspot.com/2010/06/method-resolution-order.html
 
@@ -687,7 +674,7 @@ GvR: "Five Minute Multi- methods in Python":
 
 http://www.artima.com/weblogs/viewpost.jsp?thread=101605
 
-http://www.python.org/getit/releases/2.3/mro/
+https://www.python.org/download/releases/2.3/mro/
 
 http://python-history.blogspot.com/2010/06/method-resolution-order.html
 
@@ -725,55 +712,25 @@ http://pyvideo.org/video/880/stop-writing-classes
 -- you don't need a class"
 
 
-========
-Homework
-========
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Andrew P Klock
+|
+| Vinay Gupta
+|
+
+
+===
+LAB
+===
 
 .. rst-class:: left medium
 
-    * finish the lambda:keyword magic lab
-
-    * functional files
-
-    * html renderer
-
-
-Functional files
------------------
-
-Write a program that takes a filename and "cleans" the file be removing
-all the leading and trailing whitespace from each line.
-
-Read in the original file and write out a new one, either creating a new
-file or overwriting the existing one.
-
-Give your user the option of which to perform.
-
-Use ``map()`` to do the work.
-
-Write a second version using a comprehension.
-
-.. nextslide:: Hint
-
-``sys.argv`` hold the command line arguments the user typed in. If the
-user types:
-
-.. code-block:: bash
-
-  $ python the_script a_file_name
-
-Then:
-
-.. code-block:: python
-
-    import sys
-    filename = sys.argv[1]
-
-will get ``filename == "a_file_name"``
-
-
-Html rendering system:
------------------------
+    * html renderer: let's see how much more we can do!
 
 :ref:`exercise_html_renderer`
 
@@ -795,14 +752,13 @@ More on Subclassing
 
 .. rst-class:: left
 
-    I pointed you to this Video last class:
+    This is a great talk (yes, I'm repeating):
 
     The Art of Subclassing: *Raymond Hettinger*
 
     http://pyvideo.org/video/879/the-art-of-subclassing
 
     If you haven't watched it,  It's well worth your time
-
 
 What's a Subclass For?
 ----------------------
@@ -883,25 +839,8 @@ Real World Example: `FloatCanvas`_
 .. _FloatCanvas: https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L485
 
 
-.. nextslide:: New-Style Classes
-
-All the class definitions we've been showing inherit from ``object``.
-
-This is referred to as a "new style" class.
-
-They were introduced in python2.2 to better merge types and classes, and clean
-up a few things.
-
-There are differences in method resolution order and properties.
-
-**Always Make New-Style Classes**
-
-(that is, always subclass from object...)
-
-The differences are subtle, and may not appear until they jump up to bite you.
-
-
-.. nextslide:: ``super()``
+``super()``
+-----------
 
 ``super()``: use it to call a superclass method, rather than explicitly calling
 the unbound method on the superclass.
@@ -921,7 +860,7 @@ You can do:
 
     class A(B):
         def __init__(self, *args, **kwargs)
-            super(A, self).__init__(*argw, **kwargs)
+            super().__init__(*argw, **kwargs)
             ...
 
 .. nextslide:: Caveats
@@ -942,7 +881,7 @@ https://fuhm.net/super-harmful/
 
 "super() considered super!"  --  Raymond Hettinger
 
-http://rhettinger.wordpress.com/2011/05/26/super-considered-super/}
+http://rhettinger.wordpress.com/2011/05/26/super-considered-super/
 
 (Both worth reading....)
 
@@ -959,7 +898,7 @@ Properties
 
     .. code-block:: ipython
 
-        In [5]: class C(object):
+        In [5]: class C:
                 def __init__(self):
                         self.x = 5
         In [6]: c = C()
@@ -986,7 +925,7 @@ But what if you need to add behavior later?
 
 .. code-block:: ipython
 
-    In [5]: class C(object):
+    In [5]: class C:
        ...:     def __init__(self):
        ...:         self.x = 5
        ...:     def get_x(self):
@@ -1011,7 +950,7 @@ properties
 
 .. code-block:: ipython
 
-    class C(object):
+    class C:
         _x = None
         @property
         def x(self):
@@ -1055,7 +994,7 @@ You do not need to define a setter. If you don't, you get a "read only" attribut
 
 .. code-block:: ipython
 
-    In [11]: class D(object):
+    In [11]: class D():
        ....:     def __init__(self, x=5):
        ....:         self._x = 5
        ....:     @property
@@ -1081,7 +1020,7 @@ a deleter is well:
 
 .. code-block:: ipython
 
-    In [11]: class D(object):
+    In [11]: class D():
        ....:     def __init__(self, x=5):
        ....:         self._x = 5
        ....:     @property
@@ -1099,25 +1038,15 @@ what you want.
 [demo: :download:`properties_example.py <../../Examples/Session07/properties_example.py>`]
 
 
+===
 LAB
-----
+===
 
 Let's use some of this to build a nice class to represent a Circle.
 
 For now, Let's do steps 1-4 of:
 
 :ref:`exercise_circle_class`
-
-Lightning Talks
-----------------
-
-.. rst-class:: medium
-
-|
-| Andrew P Klock
-|
-| Vinay Gupta
-|
 
 
 ========================
@@ -1215,7 +1144,8 @@ argument
 [demo: :download:`class_method.py <../../Examples/Session07/class_method.py>`]
 
 
-.. nextslide:: Why?
+Why?
+----
 
 .. rst-class:: build
 .. container::
@@ -1236,7 +1166,8 @@ argument
         in a class method:  <class '__main__.SubClassy'>
         Out[45]: 64
 
-.. nextslide:: Alternate Constructors
+Alternate Constructors
+-----------------------
 
 Because of this friendliness to subclassing, class methods are often used to
 build alternate constructors.
@@ -1423,23 +1354,12 @@ Look up the special methods you need and define them.
 
 There's more to read about the details of implementing these methods:
 
-* https://docs.python.org/2/reference/datamodel.html#special-method-names
+* https://docs.python.org/3.5/reference/datamodel.html#special-method-names
 * http://www.rafekettler.com/magicmethods.html
 
-
-Lightning Talks
-----------------
-
-.. rst-class:: medium
-
-|
-| Ousmane Conde
-|
-| Salim Hassan Hamed
-|
-
+===
 LAB
-----
+===
 
 Let's complete our nifty Circle class:
 
@@ -1452,8 +1372,8 @@ Steps 5-8 of:
 Homework
 ========
 
+Complete your html renderer.
+
 Complete the Circle class
 
 Decide what you are going to do for your proejct, and send me a simple proposal.
-
-

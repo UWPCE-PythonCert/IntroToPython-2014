@@ -7,37 +7,38 @@ Uncomment the steps as you add to your rendering.
 
 """
 
-from cStringIO import StringIO
-
+from io import StringIO
 
 # importing the html_rendering code with a short name for easy typing.
 import html_render as hr
-reload(hr) # reloading in case you are running this in iPython
-           #  -- we want to make sure the latest version is used
+# reloading in case you are running this in iPython
+#  -- we want to make sure the latest version is used
+import importlib
+importlib.reload(hr)
 
 
-## writing the file out:
+# writing the file out:
 def render_page(page, filename):
     """
     render the tree of elements
 
-    This uses cSstringIO to render to memory, then dump to console and
+    This uses StringIO to render to memory, then dump to console and
     write to file -- very handy!
     """
 
     f = StringIO()
     page.render(f, "    ")
 
-    f.reset()
+    f.seek(0)
 
-    print f.read()
+    print(f.read())
 
-    f.reset()
-    open(filename, 'w').write( f.read() )
+    f.seek(0)
+    open(filename, 'w').write(f.read())
 
 
-## Step 1
-##########
+# Step 1
+#########
 
 page = hr.Element()
 
@@ -221,7 +222,3 @@ render_page(page, "test_html_output1.html")
 # page.append(body)
 
 # render_page(page, "test_html_output8.html")
-
-
-
-
