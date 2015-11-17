@@ -7,6 +7,7 @@ def text_to_trigrams(text):
     for i in range(len(text_as_list)-2):
         k = (text_as_list[i], text_as_list[i+1])
         v = [text_as_list[i+2]]
+        # refactor this to use setdefault
         if k in trigrams:
             trigrams[k] = trigrams[k] + v
         else:

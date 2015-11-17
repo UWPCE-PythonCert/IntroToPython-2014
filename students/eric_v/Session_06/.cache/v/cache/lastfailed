@@ -1,0 +1,4 @@
+{
+  "test_lambda.py::test_increment": true,
+  "test_lambda.py::test_increment2": true
+}
