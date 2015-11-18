@@ -1,34 +1,27 @@
-#!/usr/bin/env python3
-
-"""
-test code for the trapezoidal rule exercise
-"""
 import pytest
 
-from trapz import trapz, frange, quadratic, curry_quadratic
+from math import sin
+
+from trapz import line, a_curve, another_curve, quadratic, trapz
 
 # need a function for testing approximate equality
-import math
 try:
     from math import isclose
 except ImportError:  # only there in py3.5
+    import math
 
     def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
         """
         Determine whether two floating point numbers are close in value.
-
         rel_tol
            maximum difference for being considered "close", relative to the
            magnitude of the input values
         abs_tol
            maximum difference for being considered "close", regardless of the
            magnitude of the input values
-
         Return True if a is close in value to b, and False otherwise.
-
         For the values to be considered close, the difference between them
         must be smaller than at least one of the tolerances.
-
         -inf, inf and NaN behave similarly to the IEEE 754 Standard.  That
         is, NaN is not close to anything, even itself.  inf and -inf are
         only close to themselves.
@@ -58,45 +51,42 @@ def test_is_close():
     assert not isclose(4.5, 4.6)
     # of course, not comprehesive!
 
-
-# you need to compute a bunch of evenly spaced numbers from a to b
-#  kind of like range() but for floating point numbers
-# I did it as a separate function so I could test it
-def test_frange():
-    '''
-    tests the floating point range function
-    '''
-    r = frange(10, 20, 100)
-    assert len(r) == 101
-    assert r[0] == 10
-    assert r[-1] == 20
-    assert r[1] == 10.1
-    assert r[-2] == 19.9
+# used this online calculator to check solutions:
+# http://nastyaccident.com/calculators/calculus/trapezoidalRule
 
 
-def test_simple_line():
-    ''' a simple horizontal line at y = 5'''
-    def line(x):
-        return 5
-
+def test_trapz():
+    # a simple line
     assert trapz(line, 0, 10) == 50
+    # a simple curve
+    under_curve = trapz(a_curve, 1, 6)
+    assert isclose(under_curve, 7.4512822710374)
+    # a simple curve with larger arbitrary start and end points
+    under_curve = trapz(a_curve, 22, 146)
+    assert isclose(under_curve, 1099.8560901121)
+    # another curve with arbirtrary start and end points
+    under_other_curve = trapz(another_curve, 1, 1999)
+    assert isclose(under_other_curve, 2662803597.7332)
+    # python sin function with arbitrary start and end points
+    under_sin = trapz(sin, 24, 346)
+    assert isclose(under_sin, 0.030750318486179)
+
+
+# Christopher's tests
 
 
 def test_sloping_line():
     ''' a simple linear function '''
     def line(x):
         return 2 + 3*x
-
-    # I got 159.99999999999 rather than 160
-    #   hence the need for isclose()
+# I got 159.99999999999 rather than 160
+#   hence the need for isclose()
     assert isclose(trapz(line, 2, 10), 160)
     m, B = 3, 2
     a, b = 0, 5
     assert isclose(trapz(line, a, b), 1/2*m*(b**2 - a**2) + B*(b-a))
-
     a, b = 5, 10
     assert isclose(trapz(line, a, b), 1/2*m*(b**2 - a**2) + B*(b-a))
-
     a, b = -10, 5
     assert isclose(trapz(line, a, b), 1/2*m*(b**2 - a**2) + B*(b-a))
 
@@ -123,16 +113,11 @@ def test_sine2():
                                       ])
 def test_quadratic_1(x, y):
     """
-    one set of coefficients
-    """
+        one set of coefficients
+        """
     assert quadratic(x, A=1, B=1, C=1) == y
 
 
-# this is a nifty trick to write multiple tests at once:
-# this will generate a test for each tuple passed in:
-#   each tuple is an x, and the expected y result
-#   don't worry about that weird "@" just yet -- we'll get to that!
-#   (but it's called a "decorator" if you're curious)
 @pytest.mark.parametrize(("x", "y"), [(0, 2),
                                       (1, 3),
                                       (2, 0),
@@ -140,23 +125,23 @@ def test_quadratic_1(x, y):
                                       ])
 def test_quadratic_2(x, y):
     """
-    different coefficients
-    """
+        different coefficients
+        """
     assert quadratic(x, A=-2, B=3, C=2) == y
 
 
 def quad_solution(a, b, A, B, C):
     """
-    Analytical solution to the area under a quadratic
-    used for testing
-    """
+        Analytical solution to the area under a quadratic
+        used for testing
+        """
     return A/3*(b**3 - a**3) + B/2*(b**2 - a**2) + C*(b - a)
 
 
 def test_quadratic_trapz_1():
     """
-    simplest case -- horizontal line
-    """
+        simplest case -- horizontal line
+        """
     A, B, C = 0, 0, 5
     a, b = 0, 10
     assert trapz(quadratic, a, b, A=A, B=B, C=C) == quad_solution(a, b, A, B, C)
@@ -164,77 +149,10 @@ def test_quadratic_trapz_1():
 
 def test_quadratic_trapz_2():
     """
-    one case: A=-1/3, B=0, C=4
-    """
+        one case: A=-1/3, B=0, C=4
+        """
     A, B, C = -1/3, 0, 4
     a, b = -2, 2
     assert isclose(trapz(quadratic, a, b, A=A, B=B, C=C),
-                   quad_solution(a, b, A, B, C),
-                   rel_tol=1e-3)  # not a great tolerance -- maybe should try more samples!
-
-
-def test_quadratic_trapz_args_kwargs():
-    """
-    Testing if you can pass a combination of positional and keyword arguments
-    one case: A=2, B=-4, C=3
-    """
-    A, B, C = 2, -4, 3
-    a, b = -2, 2
-    assert isclose(trapz(quadratic, a, b, A, B, C=C),
-                   quad_solution(a, b, A, B, C),
-                   rel_tol=1e-3)  # not a great tolerance -- maybe should try more samples!
-
-
-def test_curry_quadratic():
-    # tests if the quadratic currying function
-
-    # create a specific quadratic function:
-    quad234 = curry_quadratic(2, 3, 4)
-    # quad234 is now a function that can take one argument, x
-    # and will evaluate quadratic for those particular values of A,B,C
-
-    # try it for a few values
-    for x in range(5):
-        assert quad234(x) == quadratic(x, 2, 3, 4)
-
-
-def test_curry_quadratic_trapz():
-    # tests if the quadratic currying function
-
-    # create a specific quadratic function:
-    quad234 = curry_quadratic(-2, 2, 3)
-    # quad234 is now a function that can take one argument, x
-    # and will evaluate quadratic for those particular values of A,B,C
-
-    # try it with the trapz function
-    assert trapz(quad234, -5, 5) == trapz(quadratic, -5, 5, -2, 2, 3)
-
-
-# testing the functools.partial version:
-from trapz import quad_partial_123
-def test_partial():
-    a = 4
-    b = 10
-    # quad_partial_123 is the quadratic function with A,B,C = 1,2,3
-    assert trapz(quad_partial_123, a, b) == trapz(quadratic, a, b, 1, 2, 3)
-
-
-# testing trapz with another function with multiple parameters.
-def sine_freq_amp(t, amp, freq):
-    "the sine function with a frequency and amplitude specified"
-    return amp * math.sin(freq * t)
-
-
-def solution_freq_amp(a, b, amp, freq):
-    " the solution to the definite integral of the general sin function"
-    return amp / freq * (math.cos(freq * a) - math.cos(freq * b))
-
-
-def test_sine_freq_amp():
-    a = 0
-    b = 5
-    omega = 0.5
-    amp = 10
-    assert isclose(trapz(sine_freq_amp, a, b, amp=amp, freq=omega),
-                   solution_freq_amp(a, b, amp, omega),
-                   rel_tol=1e-04)
+                       quad_solution(a, b, A, B, C),
+    rel_tol=1e-3)  # not a great tolerance -- maybe should try more samples!
