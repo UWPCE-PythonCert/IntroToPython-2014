@@ -1,37 +1,65 @@
 .. _exercise_html_renderer:
 
-=======================
+======================
 HTML Renderer Exercise
-=======================
+======================
 
 HTML Renderer
 =============
 
+Ever need to generate some HTML?
+
+And not want to write all those tags yourself?
+
 Goal:
 ------
 
-The goal is to create a set of classes to render html pages -- in a "pretty printed" way. i.e nicely indented and human readable. We'll try to get to all the features required to render:
+The goal is to create a set of classes to render html pages -- in a "pretty printed" way.
+
+i.e. nicely indented and human readable.
+
+We'll try to get to all the features required to render:
 
 :download:`sample_html.html  <./sample_html.html>`
+
+Take a look at it with "view source" in your browser -- or open in a text editor -- it's also in the Examples dir.
+
+If you don't know html -- just look at the example and copy that....
 
 The exercise is broken down into a number of steps -- each requiring a few more OO concepts in Python.
 
 General Instructions:
 ---------------------
 
-For each step, add the required functionality. There is example code to run your code for each step in: ``code\session06\run_html_render.py``
+For each step, add the required functionality. There is example code to run your code for each step in: ``Examples\session07\run_html_render.py``
 
-name your file: ``html_render.py`` -- so it can be imported by ``run_html_render.py``
+Name your file: ``html_render.py`` -- so it can be imported by ``run_html_render.py``
 
 You should be able to run that code at each step, uncommenting each new step in ``run_html_render.py`` as you go.
 
-It builds up a html tree, and then calls the ``render()`` method of your element to render the page.
+It builds up an html tree, and then calls the ``render()`` method of your element to render the page.
 
 It uses a ``cStringIO`` object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.
 
-The html generated at each step is in the files: ``test_html_ouput?.html``
+The html generated at each step will be in the files: ``test_html_ouput?.html``
 
 At each step, your results should look similar that those (maybe not identical...)
+
+Unit tests
+------------
+
+Use "test driven development":
+
+In addition to checking if the output is what you expect with the running script -- you should also write unit tests as you go.
+
+Each new line of code should have a test that will run it -- *before* you write that code.
+
+That is:
+
+  1. write a test that exercises the next step in your process
+  2. run the tests -- the new test will fail
+  3. write your code...
+  4. run the tests. If it still fails, go back to step 3...
 
 
 Step 1:
@@ -41,21 +69,23 @@ Create an ``Element`` class for rendering an html element (xml element).
 
 It should have class attributes for the tag name ("html" first) and the indentation (spaces to indent for pretty printing)
 
-The constructor signature should look like
+The initializer signature should look like
 
 .. code-block:: python
 
     Element(content=None)
 
-where ``content`` is a string
+where ``content`` is expected to be a string
 
 It should have an ``append`` method that can add another string to the content.
+
+So your class will need a way to store the content in a way that you can keep adding more to it.
+
+.. nextslide::
 
 It should have a ``render(file_out, ind = "")`` method that renders the tag and the strings in the content.
 
 ``file_out`` could be any file-like object ( i.e. have a ``write()`` method ).
-
-.. nextslide::
 
 ``ind`` is a string with the indentation level in it: the amount that the tag should be indented for pretty printing.
 
@@ -65,6 +95,14 @@ The amount of indentation should be set by the class attribute: ``indent``
 
 NOTE: don't worry too much about indentation at this stage -- the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you've got that working.
 
+.. nextslide::
+
+So this ``render()`` method takes a file-like object, and calls its ``write()`` method, writing the html for a tag. Something like::
+
+    <html>
+        Some content. Some more content.
+    <\html>
+
 You should now be able to render an html tag with text in it as contents.
 
 See: step 1. in ``run_html_render.py``
@@ -72,25 +110,27 @@ See: step 1. in ``run_html_render.py``
 Step 2:
 --------
 
-Create a couple subclasses of ``Element``, for a ``html``, ``<body>``, and ``<p>`` tag. All you should have to do is override the ``tag`` class attribute (you may need to add a ``tag`` class attribute to the Element class first...).
+Create a couple subclasses of ``Element``, for each of ``<html>``, ``<body>``, and ``<p>`` tags. All you should have to do is override the ``tag`` class attribute (you may need to add a ``tag`` class attribute to the ``Element`` class first, if you haven't already).
 
 Now you can render a few different types of element.
 
-Extend the ``Element.render()`` method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the ``render()`` method of the elements it contains. You'll need to be smart about setting the ``ind`` optional parameter -- so that the nested elements get indented correctly.
+Extend the ``Element.render()`` method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the ``render()`` method of the elements it contains. You'll need to be smart about setting the ``ind`` optional parameter -- so that the nested elements get indented correctly. (again, this is a secondary concern...)
 
-Figure out a way to deal with the fact that the contained elements could be either simple strings or ``Element`` s with render methods (there are a few ways to handle that...).
+Figure out a way to deal with the fact that the contained elements could be either simple strings or ``Element`` s with render methods (there are a few ways to handle that...). Think about "Duck Typing" and EAFP.
 
-You should now be able to render a basic web page with an html tag around
+.. nextslide::
+
+You should now be able to render a basic web page with an ``<html>`` tag around
 the whole thing, a ``<body>`` tag inside, and multiple ``<p>`` tags inside that, with text inside that. And all indented nicely.
 
 See ``test_html_output2.html``
 
-NOTE: when you run step 2 in ``run_html_render.py``, you will want o comment out step 1 -- that way you'll only get one set of output.
+NOTE: when you run step 2 in ``run_html_render.py``, you will want to comment out step 1 -- that way you'll only get one set of output.
 
 Step 3:
 --------
 
-Create a ``<head>`` element -- simple subclass.
+Create a ``<head>`` element -- a simple subclass.
 
 Create a ``OneLineTag`` subclass of ``Element``:
 
@@ -115,7 +155,7 @@ constructor, ie. (``run_html_render.py``)
 
     Element("some text content", id="TheList", style="line-height:200%")
 
-( remember ``**kwargs``? )
+html elements can take essentially any attributes -- so you can't hard-cody thes particular ones. ( remember ``**kwargs``? )
 
 The render method will need to be extended to render the attributes properly.
 
@@ -140,13 +180,13 @@ See ``test_html_output5.html``
 Step 6:
 -------
 
-Create a ``A`` class for an anchor (link) element. Its constructor should look like::
+Create an ``A`` class for an anchor (link) element. Its constructor should look like::
 
     A(self, link, content)
 
-where link is the link, and content is what you see. It can be called like so::
+where ``link`` is the link, and ``content`` is what you see. It can be called like so::
 
-    A(u"http://google.com", u"link to google")
+    A("http://google.com", "link to google")
 
 You should be able to subclass from ``Element``, and only override the ``__init__`` --- Calling the ``Element`` ``__init__`` from the  ``A __init__``
 
