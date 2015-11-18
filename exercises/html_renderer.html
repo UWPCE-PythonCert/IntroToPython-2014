@@ -89,7 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: More OO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Object Oriented Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Callable classes, Iterators, Generators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a></li>
@@ -162,32 +162,54 @@
 <span id="exercise-html-renderer"></span><h1>HTML Renderer Exercise<a class="headerlink" href="#html-renderer-exercise" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="html-renderer">
 <h2>HTML Renderer<a class="headerlink" href="#html-renderer" title="Permalink to this headline">¶</a></h2>
+<p>Ever need to generate some HTML?</p>
+<p>And not want to write all those tags yourself?</p>
 <div class="section" id="goal">
 <h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
-<p>The goal is to create a set of classes to render html pages &#8211; in a &#8220;pretty printed&#8221; way. i.e nicely indented and human readable. We&#8217;ll try to get to all the features required to render:</p>
+<p>The goal is to create a set of classes to render html pages &#8211; in a &#8220;pretty printed&#8221; way.</p>
+<p>i.e. nicely indented and human readable.</p>
+<p>We&#8217;ll try to get to all the features required to render:</p>
 <p><a class="reference download internal" href="../_downloads/sample_html.html"><code class="xref download docutils literal"><span class="pre">sample_html.html</span></code></a></p>
+<p>Take a look at it with &#8220;view source&#8221; in your browser &#8211; or open in a text editor &#8211; it&#8217;s also in the Examples dir.</p>
+<p>If you don&#8217;t know html &#8211; just look at the example and copy that....</p>
 <p>The exercise is broken down into a number of steps &#8211; each requiring a few more OO concepts in Python.</p>
 </div>
 <div class="section" id="general-instructions">
 <h3>General Instructions:<a class="headerlink" href="#general-instructions" title="Permalink to this headline">¶</a></h3>
-<p>For each step, add the required functionality. There is example code to run your code for each step in: <code class="docutils literal"><span class="pre">code\session06\run_html_render.py</span></code></p>
-<p>name your file: <code class="docutils literal"><span class="pre">html_render.py</span></code> &#8211; so it can be imported by <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
+<p>For each step, add the required functionality. There is example code to run your code for each step in: <code class="docutils literal"><span class="pre">Examples\session07\run_html_render.py</span></code></p>
+<p>Name your file: <code class="docutils literal"><span class="pre">html_render.py</span></code> &#8211; so it can be imported by <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
 <p>You should be able to run that code at each step, uncommenting each new step in <code class="docutils literal"><span class="pre">run_html_render.py</span></code> as you go.</p>
-<p>It builds up a html tree, and then calls the <code class="docutils literal"><span class="pre">render()</span></code> method of your element to render the page.</p>
+<p>It builds up an html tree, and then calls the <code class="docutils literal"><span class="pre">render()</span></code> method of your element to render the page.</p>
 <p>It uses a <code class="docutils literal"><span class="pre">cStringIO</span></code> object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.</p>
-<p>The html generated at each step is in the files: <code class="docutils literal"><span class="pre">test_html_ouput?.html</span></code></p>
+<p>The html generated at each step will be in the files: <code class="docutils literal"><span class="pre">test_html_ouput?.html</span></code></p>
 <p>At each step, your results should look similar that those (maybe not identical...)</p>
+</div>
+<div class="section" id="unit-tests">
+<h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
+<p>Use &#8220;test driven development&#8221;:</p>
+<p>In addition to checking if the output is what you expect with the running script &#8211; you should also write unit tests as you go.</p>
+<p>Each new line of code should have a test that will run it &#8211; <em>before</em> you write that code.</p>
+<p>That is:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>write a test that exercises the next step in your process</li>
+<li>run the tests &#8211; the new test will fail</li>
+<li>write your code...</li>
+<li>run the tests. If it still fails, go back to step 3...</li>
+</ol>
+</div></blockquote>
 </div>
 <div class="section" id="step-1">
 <h3>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
 <p>Create an <code class="docutils literal"><span class="pre">Element</span></code> class for rendering an html element (xml element).</p>
 <p>It should have class attributes for the tag name (&#8220;html&#8221; first) and the indentation (spaces to indent for pretty printing)</p>
-<p>The constructor signature should look like</p>
+<p>The initializer signature should look like</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal"><span class="pre">content</span></code> is a string</p>
+<p>where <code class="docutils literal"><span class="pre">content</span></code> is expected to be a string</p>
 <p>It should have an <code class="docutils literal"><span class="pre">append</span></code> method that can add another string to the content.</p>
+<p>So your class will need a way to store the content in a way that you can keep adding more to it.</p>
 <p>It should have a <code class="docutils literal"><span class="pre">render(file_out,</span> <span class="pre">ind</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code> method that renders the tag and the strings in the content.</p>
 <p><code class="docutils literal"><span class="pre">file_out</span></code> could be any file-like object ( i.e. have a <code class="docutils literal"><span class="pre">write()</span></code> method ).</p>
 <p><code class="docutils literal"><span class="pre">ind</span></code> is a string with the indentation level in it: the amount that the tag should be indented for pretty printing.</p>
@@ -198,23 +220,29 @@
 </div></blockquote>
 <p>The amount of indentation should be set by the class attribute: <code class="docutils literal"><span class="pre">indent</span></code></p>
 <p>NOTE: don&#8217;t worry too much about indentation at this stage &#8211; the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you&#8217;ve got that working.</p>
+<p>So this <code class="docutils literal"><span class="pre">render()</span></code> method takes a file-like object, and calls its <code class="docutils literal"><span class="pre">write()</span></code> method, writing the html for a tag. Something like:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;html&gt;
+    Some content. Some more content.
+&lt;\html&gt;
+</pre></div>
+</div>
 <p>You should now be able to render an html tag with text in it as contents.</p>
 <p>See: step 1. in <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
 </div>
 <div class="section" id="step-2">
 <h3>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
-<p>Create a couple subclasses of <code class="docutils literal"><span class="pre">Element</span></code>, for a <code class="docutils literal"><span class="pre">html</span></code>, <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code>, and <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tag. All you should have to do is override the <code class="docutils literal"><span class="pre">tag</span></code> class attribute (you may need to add a <code class="docutils literal"><span class="pre">tag</span></code> class attribute to the Element class first...).</p>
+<p>Create a couple subclasses of <code class="docutils literal"><span class="pre">Element</span></code>, for each of <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code>, <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code>, and <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags. All you should have to do is override the <code class="docutils literal"><span class="pre">tag</span></code> class attribute (you may need to add a <code class="docutils literal"><span class="pre">tag</span></code> class attribute to the <code class="docutils literal"><span class="pre">Element</span></code> class first, if you haven&#8217;t already).</p>
 <p>Now you can render a few different types of element.</p>
-<p>Extend the <code class="docutils literal"><span class="pre">Element.render()</span></code> method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the <code class="docutils literal"><span class="pre">render()</span></code> method of the elements it contains. You&#8217;ll need to be smart about setting the <code class="docutils literal"><span class="pre">ind</span></code> optional parameter &#8211; so that the nested elements get indented correctly.</p>
-<p>Figure out a way to deal with the fact that the contained elements could be either simple strings or <code class="docutils literal"><span class="pre">Element</span></code> s with render methods (there are a few ways to handle that...).</p>
-<p>You should now be able to render a basic web page with an html tag around
+<p>Extend the <code class="docutils literal"><span class="pre">Element.render()</span></code> method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the <code class="docutils literal"><span class="pre">render()</span></code> method of the elements it contains. You&#8217;ll need to be smart about setting the <code class="docutils literal"><span class="pre">ind</span></code> optional parameter &#8211; so that the nested elements get indented correctly. (again, this is a secondary concern...)</p>
+<p>Figure out a way to deal with the fact that the contained elements could be either simple strings or <code class="docutils literal"><span class="pre">Element</span></code> s with render methods (there are a few ways to handle that...). Think about &#8220;Duck Typing&#8221; and EAFP.</p>
+<p>You should now be able to render a basic web page with an <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code> tag around
 the whole thing, a <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code> tag inside, and multiple <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags inside that, with text inside that. And all indented nicely.</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output2.html</span></code></p>
-<p>NOTE: when you run step 2 in <code class="docutils literal"><span class="pre">run_html_render.py</span></code>, you will want o comment out step 1 &#8211; that way you&#8217;ll only get one set of output.</p>
+<p>NOTE: when you run step 2 in <code class="docutils literal"><span class="pre">run_html_render.py</span></code>, you will want to comment out step 1 &#8211; that way you&#8217;ll only get one set of output.</p>
 </div>
 <div class="section" id="step-3">
 <h3>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h3>
-<p>Create a <code class="docutils literal"><span class="pre">&lt;head&gt;</span></code> element &#8211; simple subclass.</p>
+<p>Create a <code class="docutils literal"><span class="pre">&lt;head&gt;</span></code> element &#8211; a simple subclass.</p>
 <p>Create a <code class="docutils literal"><span class="pre">OneLineTag</span></code> subclass of <code class="docutils literal"><span class="pre">Element</span></code>:</p>
 <ul>
 <li><p class="first">It should override the render method, to render everything on one line &#8211; for the simple tags, like:</p>
@@ -235,7 +263,7 @@ constructor, ie. (<code class="docutils literal"><span class="pre">run_html_rend
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="s">&quot;some text content&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;TheList&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;line-height:200%&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>( remember <code class="docutils literal"><span class="pre">**kwargs</span></code>? )</p>
+<p>html elements can take essentially any attributes &#8211; so you can&#8217;t hard-cody thes particular ones. ( remember <code class="docutils literal"><span class="pre">**kwargs</span></code>? )</p>
 <p>The render method will need to be extended to render the attributes properly.</p>
 <p>You can now render some <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags (and others) with attributes</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output4.html</span></code></p>
@@ -253,12 +281,12 @@ attributes, if any.</p>
 </div>
 <div class="section" id="step-6">
 <h3>Step 6:<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h3>
-<p>Create a <code class="docutils literal"><span class="pre">A</span></code> class for an anchor (link) element. Its constructor should look like:</p>
+<p>Create an <code class="docutils literal"><span class="pre">A</span></code> class for an anchor (link) element. Its constructor should look like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where link is the link, and content is what you see. It can be called like so:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="s">u&quot;http://google.com&quot;</span><span class="p">,</span> <span class="s">u&quot;link to google&quot;</span><span class="p">)</span>
+<p>where <code class="docutils literal"><span class="pre">link</span></code> is the link, and <code class="docutils literal"><span class="pre">content</span></code> is what you see. It can be called like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="s">&quot;http://google.com&quot;</span><span class="p">,</span> <span class="s">&quot;link to google&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You should be able to subclass from <code class="docutils literal"><span class="pre">Element</span></code>, and only override the <code class="docutils literal"><span class="pre">__init__</span></code> &#8212; Calling the <code class="docutils literal"><span class="pre">Element</span></code> <code class="docutils literal"><span class="pre">__init__</span></code> from the  <code class="docutils literal"><span class="pre">A</span> <span class="pre">__init__</span></code></p>

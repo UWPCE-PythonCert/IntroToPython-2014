@@ -1,5 +1,12 @@
 .. _supplement_git_states:
 
+============
+git Overview
+============
+
+A Graphical Tutorial
+====================
+
 A Picture of git
 ----------------
 
@@ -134,7 +141,7 @@ You can use this to switch between branches and make changes in isolation.
 
     Branching allows you to keep related sets of work separate from each-other.
 
-    In class here, you can use it to do your excercises for each session.
+    In class here, you can use it to do your exercises for each session.
 
     Simply create a new branch for each session from your repository master
     branch.
@@ -197,3 +204,22 @@ code in any language and will cause errors.
 
 Once a conflict is resolved, you can ``git add`` the file back and then commit
 the merge.
+
+Other Resources
+===============
+
+.. rst-class:: left
+    Here are few good places to look for more info about using git:
+
+
+    **Pro git**
+
+    The semi-offical documentation -- the first few chapters are worth going through:
+
+    https://git-scm.com/book/en
+
+    ** git Branching**
+
+    Interactive tutorial about branching -- try it right in the browser!
+
+    http://pcottle.github.io/learnGitBranching/
