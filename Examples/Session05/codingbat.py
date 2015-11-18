@@ -21,6 +21,10 @@ def sleep_in(weekday, vacation):
 =======
     return not (weekday is True and vacation is False)
 
+<<<<<<< HEAD
+def monkey_trouble():
+    pass
+=======
 def monkey_trouble(a_smile, b_smile):
     if a_smile is b_smile:
         return True

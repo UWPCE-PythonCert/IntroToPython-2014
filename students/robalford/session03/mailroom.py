@@ -4,7 +4,11 @@ donors = {
     'Ringo Starr': [1.00],
     'George Harrison': [1000.00, 500.00, 1586.78],
     'Yoko Ono': [275.50, 5.00]
-}
+    }
+
+
+def list_donors():
+    return '\n'.join(donors.keys())
 
 
 def select_command():
@@ -29,48 +33,59 @@ def write_email(donor, donation_amount):
     return thank_you
 
 
+def add_new_donation(full_name, donation_amount):
+    try:
+        donors[full_name].append(donation_amount)
+    except KeyError:
+        donors[full_name] = [donation_amount]
+
+
 def send_thank_you():
-    full_name = input("Enter the donor's full name. Type 'list' to see all donors or 'home' to exit.")
-    while True:
+    getting_donor = True
+    while getting_donor:
+        full_name = input("Enter the donor's full name. Type 'list' to see all donors or 'home' to exit.")
         if full_name.lower() == 'list':
-            for donor in donors.keys():
-                print(donor)
-                break
+            print(list_donors())
+            getting_donor
         elif full_name.lower() == 'home':
             return
         else:
             break
 
+    donation_amount = input("Enter the donation amount. Type 'home' to exit")
+
     while True:
-        donation_amount = input("Enter the donation amount. Type 'home' to exit")
         if donation_amount.lower() == 'home':
-            return
+                return
         try:
             donation_amount = float(donation_amount)
-        except:
+        except ValueError:
             donation_amount = input('Please enter a numeric value.')
         else:
             break
 
-    new_donor = True
-    if full_name in donors.keys():
-            new_donor = False
-            donors[full_name].append(donation_amount)
-
-    if new_donor:
-        donors[full_name] = [donation_amount]
+    add_new_donation(full_name, donation_amount)
 
     print(write_email(full_name, donation_amount))
 
 
 def create_report():
+    donor_reports = []
+    for donor, donations in donors.items():
+        donor_report = (
+            donor, sum(donations),
+            len(donations),
+            sum(donations)/len(donations)
+        )
+        donor_reports.append(donor_report)
+    return donor_reports
+
+
+def print_report():
+    donor_reports = create_report()
     print('Donor\t\t\tTotal\t\tNumber\t\tAverage')
-    for donor in donors:
-        total_donation = sum(donors[donor])
-        number_of_donations = len(donors[donor])
-        average_donation = total_donation/number_of_donations
-        report = '{}\t\t{:.2f}\t\t{:d}\t\t{:.2f}'.format(donor, total_donation, number_of_donations, average_donation)
-        print(report)
+    for report in donor_reports:
+        print('{}\t\t{:.2f}\t\t{}\t\t{:.2f}\n'.format(*report))
 
 
 def create_letter_files():
@@ -88,7 +103,7 @@ if __name__ == '__main__':
         if command.lower() == 'thank you':
             send_thank_you()
         elif command.lower() == 'report':
-            create_report()
+            print_report()
         elif command.lower() == 'save letters':
             create_letter_files()
         elif command.lower() == 'quit':
