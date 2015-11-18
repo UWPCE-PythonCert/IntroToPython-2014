@@ -1,7 +1,8 @@
 '''
 Eric Rosko
+Session03
 mailroom.py
-Tuesday, Nov. 10, 2015
+Tuesday, Nov. 16, 2015
 
 Description:
 	Part Session 3 homework
