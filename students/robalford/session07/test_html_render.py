@@ -145,7 +145,7 @@ def test_title():
 
 
 def test_attributes():
-    e = hr.P('a paragraph of text', id='"MyText"')
+    e = hr.P('a paragraph of text', id='MyText')
     f = StringIO()
     e.render(f)
     f.seek(0)
@@ -153,3 +153,43 @@ def test_attributes():
     assert 'id="MyText"' in text
     # print(text)
     # assert False
+
+
+def test_self_closing():
+    e = hr.SelfClosingTag()
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert ' />' in text
+
+
+def test_hr():
+    e = hr.Hr()
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text == '<hr />'
+
+
+def test_br_with_content():
+    e = hr.Br('content that should not display')
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text == '<br />'
+    assert 'content that should not display' not in text
+
+
+def test_A():
+    e = hr.A("http://google.com", "link to google")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert 'href="http://google.com"' in text
+    assert text.startswith('<a')
+    assert text.endswith('</a>')
+    assert 'link to google' in text
