@@ -12800,6 +12800,7 @@ with this eBook or online at www.gutenberg.net
 
 1.E.2.  If an individual Project Gutenberg-tm electronic work is derived
 from the public domain (does not contain a notice indicating that it is
+
 posted with permission of the copyright holder), the work can be copied
 and distributed to anyone in the United States without paying any fees
 or charges.  If you are redistributing or providing access to a work

@@ -1,0 +1,3 @@
+notes:
+
+using a set is faster to look though than a regular list or string, as the set has a hash table underneath it 

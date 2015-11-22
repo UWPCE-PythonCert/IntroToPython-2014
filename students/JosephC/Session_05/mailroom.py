@@ -14,16 +14,16 @@ donors = {
           'Hef Bezos': [500, 500], 
           'Gilliam Wates': [1000000, 1000000, 1000000] 
           }
+
+name  = input("Please enter a name to search our list of donors, or type 'list' to generate a list of current donors: ")
+
 #    prompt the user to enter a donor name or generate a list
 def new_Donor():
     new_name = input("That name is not in our database.  Please enter name: ")
     new_amt = input("Please enter the donations for this donor.")
     donors[new_name] = new_amt
 
-def prompt():
-    name  = input("Please enter a name to search our list of donors, or type 'list' to generate a list of current donors: ")
-    #email_to = input("Want to send an email to a fav donor?  Type 'email'. ")
-    
+def Prompt():
     if name in donors:
         print(name, donors[name])
     elif name == 'list' or 'List':
@@ -32,11 +32,13 @@ def prompt():
     if name not in donors and (name  != 'list' and name != 'List'):
         new_Donor()
 
+def Email():
+    email_to = input("Want to send an email to a fav donor?  Type their name: ")
+    if email_to in donors:
+        print("Thank you {} for your generous donation of {}.".format(email_to, donors[email_to]))
+     
 
-def thank_you():
-    print("Thank you{} for your generous donation of {}".format(email_to, donors[name]))
-
-def main():
-    prompt() 
-
-main()
+def Main():
+    Prompt() 
+    Email()
+Main()
