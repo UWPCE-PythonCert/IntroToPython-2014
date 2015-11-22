@@ -4,6 +4,14 @@ from io import StringIO
 import html_render as hr
 
 
+def render_me(element):
+    """A utility to render an element so you can see if it's doing the right thing"""
+    f = StringIO()
+    element.render(f)
+    f.seek(0)
+    return f.read()
+
+
 def test_init():
     hr.Element()
 
@@ -17,7 +25,7 @@ def test_content():
     assert e.content is not None
 
 
-def test_content_None():
+def test_content_none():
     e = hr.Element()
     print(e.content)
     assert None not in e.content
@@ -45,34 +53,28 @@ def test_append():
 def test_render():
     e = hr.Element("this")
     e.append("that")
-    f = StringIO()
-    e.render(f)
-    f.seek(0)
-    text = f.read().strip()
+    text = render_me(e).strip()
     assert text.startswith("<html>")
     assert text.endswith("</html>")
     assert "this" in text
     assert "that" in text
 
+
 def test_body():
     e = hr.Body("this")
-    f = StringIO()
-    e.render(f)
-    f.seek(0)
-    text = f.read().strip()
+    text = render_me(e).strip()
     assert text.startswith("<body>")
     assert text.endswith("</body>")
     assert "this" in text
 
+
 def test_p():
     e = hr.P("this")
-    f = StringIO()
-    e.render(f)
-    f.seek(0)
-    text = f.read().strip()
+    text = render_me(e).strip()
     assert text.startswith("<p>")
     assert text.endswith("</p>")
     assert "this" in text
+
 
 def test_nest():
     e = hr.Element()
@@ -81,11 +83,15 @@ def test_nest():
     p = hr.P("another paragraph of text")
     e.append(p)
 
-    f = StringIO()
-    e.render(f)
-    f.seek(0)
-    text = f.read().strip()
-
+    text = render_me(e).strip()
     print(text)
-    assert False
-
+    # there should be two <p> tags in there:
+    assert text.count("<p>") == 2
+    # and two closing tags
+    assert text.count("</p>") == 2
+    # and one <html> tag
+    assert text.count("<html>") == 1
+    assert text.count("</html>") == 1
+    # and the text:
+    assert "a paragraph of text" in text
+    assert "another paragraph of text" in text
