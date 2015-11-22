@@ -4,8 +4,7 @@ class Element():
     tag = "html"
 
     def __init__(self, content=None, **kwargs):
-        #for key in kwargs:
-        #    print('{}="{}"'.format(key,kwargs.get(key)))
+        self.attributes = kwargs
         self.content = []
         if content is not None:
             self.content.append(content)
@@ -14,7 +13,15 @@ class Element():
         self.content.append(content)
 
     def render(self, f, ind="    "):
-        start_tag = "<{}>".format(self.tag)
+        if self.attributes != {}:
+            for key, value in self.attributes.items():
+                atts = ' {}="{}"'.format(key, value)
+                #print('{}="{}"'.format(key, value))
+            #title = ('{}="{}"'.format(key, value)) # use title for attribute format
+                                                   # write a test!!!!!!
+        else:
+            atts = ""
+        start_tag = "<{}{}>".format(self.tag, atts)
         f.write(start_tag + "\n")
         for el in self.content:
             try:
