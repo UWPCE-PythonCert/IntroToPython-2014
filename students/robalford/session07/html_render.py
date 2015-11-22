@@ -25,6 +25,7 @@ class Element:
             f.write('\n')
             # EAFP
             try:
+                el.indent = self.indent + 1
                 el.render(f)
             except AttributeError:
                 f.write((self.indent * ind) + ind)
@@ -65,12 +66,10 @@ class SelfClosingTag(Element):
 
 class Meta(SelfClosingTag):
     tag = 'meta'
-    indent = 3
 
 
 class A(OneLineTag):
     tag = 'a'
-    indent = 5
 
     def __init__(self, link, content=None, **kwargs):
         Element.__init__(self, content, href=link)
@@ -78,7 +77,6 @@ class A(OneLineTag):
 
 class H(OneLineTag):
     tag = 'h'
-    indent = 3
 
     def __init__(self, header_level, content=None, **kwargs):
         self.tag = self.tag + str(header_level)
@@ -86,48 +84,40 @@ class H(OneLineTag):
 
 
 class Html(Element):
-    indent = 1
 
     def render(self, f, ind='    '):
         f.write('<!DOCTYPE html>\n')
+        self.indent = 1
         Element.render(self, f, ind='    ')
 
 
 class Head(Element):
     tag = 'head'
-    indent = 2
 
 
 class Title(OneLineTag):
     tag = 'title'
-    indent = 3
 
 
 class Body(Element):
     tag = 'body'
-    indent = 2
 
 
 class P(Element):
     tag = 'p'
-    indent = 3
 
 
 class Ul(Element):
     tag = 'ul'
-    indent = 3
 
 
 class Li(Element):
     tag = 'li'
-    indent = 4
 
 
 class Hr(SelfClosingTag):
     tag = 'hr'
-    indent = 3
 
 
 class Br(SelfClosingTag):
     tag = 'br'
-    indent = 3
