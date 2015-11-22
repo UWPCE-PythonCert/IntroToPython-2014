@@ -193,3 +193,55 @@ def test_A():
     assert text.startswith('<a')
     assert text.endswith('</a>')
     assert 'link to google' in text
+
+
+def test_ul():
+    e = hr.Ul()
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith('<ul>')
+    assert text.endswith('</ul>')
+
+
+def test_li():
+    e = hr.Li('this')
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith('<li>')
+    assert text.endswith('</li>')
+    assert 'this' in text
+
+
+def test_H():
+    e = hr.H(1, 'this')
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith('<h1>')
+    assert text.endswith('</h1>')
+    assert 'this' in text
+    assert '\n' not in text
+
+
+def test_Html_DOCTYPE():
+    e = hr.Html()
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith('<!DOCTYPE html>\n')
+    assert text.endswith('</html>')
+
+
+def test_Meta():
+    e = hr.Meta(charset="UTF-8")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text == '<meta charset="UTF-8" />'

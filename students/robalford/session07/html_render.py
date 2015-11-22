@@ -56,20 +56,41 @@ class OneLineTag(Element):
 class SelfClosingTag(Element):
     def render(self, f, ind='    '):
         f.write(ind * self.indent)
-        self_closing_tag = '<{} />'.format(self.tag)
+        self_closing_tag = '<{}'.format(self.tag)
+        for k, v in self.attributes.items():
+            self_closing_tag += ' {}="{}"'.format(k, v)
+        self_closing_tag += ' />'
         f.write(self_closing_tag)
+
+
+class Meta(SelfClosingTag):
+    tag = 'meta'
+    indent = 3
 
 
 class A(OneLineTag):
     tag = 'a'
-    indent = 3
+    indent = 5
 
     def __init__(self, link, content=None, **kwargs):
         Element.__init__(self, content, href=link)
 
 
+class H(OneLineTag):
+    tag = 'h'
+    indent = 3
+
+    def __init__(self, header_level, content=None, **kwargs):
+        self.tag = self.tag + str(header_level)
+        Element.__init__(self, content, **kwargs)
+
+
 class Html(Element):
     indent = 1
+
+    def render(self, f, ind='    '):
+        f.write('<!DOCTYPE html>\n')
+        Element.render(self, f, ind='    ')
 
 
 class Head(Element):
@@ -90,6 +111,16 @@ class Body(Element):
 class P(Element):
     tag = 'p'
     indent = 3
+
+
+class Ul(Element):
+    tag = 'ul'
+    indent = 3
+
+
+class Li(Element):
+    tag = 'li'
+    indent = 4
 
 
 class Hr(SelfClosingTag):
