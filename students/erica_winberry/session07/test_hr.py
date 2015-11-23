@@ -48,10 +48,19 @@ def test_render():
     e.render(f)
     f.seek(0)
     text = f.read().strip()
+    assert "this" in text
+    assert "that" in text
+
+
+def test_Html():
+    e = hr.Html("this")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
     assert text.startswith("<html>")
     assert text.endswith("</html>")
     assert "this" in text
-    assert "that" in text
 
 
 def test_Body():
@@ -76,17 +85,6 @@ def test_Para():
     assert "this" in text
 
 
-def test_Html():
-    e = hr.Html("this")
-    f = StringIO()
-    e.render(f)
-    f.seek(0)
-    text = f.read().strip()
-    assert text.startswith("<html>")
-    assert text.endswith("</html>")
-    assert "this" in text
-
-
 def test_Head():
     e = hr.Head("this")
     f = StringIO()
@@ -98,19 +96,36 @@ def test_Head():
     assert "this" in text
 
 
-# def test_nest():
-#     e = hr.Html()
-#     p = hr.Paragraph("A paragraph of text")
-#     e.append(p)
-#     p = hr.Paragraph("Another paragraph of text")
-#     e.append(p)
-#     f = StringIO()
-#     e.render(f)
-#     f.seek(0)
-#     text = f.read().strip()
+def test_OneLine_Title():
+    e = hr.Title("this")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith("<title>")
+    assert text.endswith("</title>")
+    assert "this" in text
 
-#     # print(text)
-#     # assert False
+
+def test_nest():
+    e = hr.Html()
+    h = hr.Head()
+    e.append(h)
+    t = hr.Title("Your title goes here")
+    h.append(t)
+    b = hr.Body()
+    e.append(b)
+    p = hr.Paragraph("A paragraph of text")
+    b.append(p)
+    p = hr.Paragraph("Another paragraph of text")
+    b.append(p)
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+
+    print(text)
+    assert False
 
     # assert text.startswith("<p>")
     # assert text.endswith("</p>")

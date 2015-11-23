@@ -48,36 +48,36 @@ def render_page(page, filename):
 # ## Step 2
 # ##########
 
-page = hr.Html()
+# page = hr.Html()
 
-body = hr.Body()
+# body = hr.Body()
 
-body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text"))
+# body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text"))
 
-body.append(hr.Paragraph("And here is another piece of text -- you should be able to add any number"))
+# body.append(hr.Paragraph("And here is another piece of text -- you should be able to add any number"))
 
-page.append(body)
+# page.append(body)
 
-render_page(page, "test_html_output2.html")
+# render_page(page, "test_html_output2.html")
 
 # # Step 3
 # ##########
 
-# page = hr.Html()
+page = hr.Html()
 
-# head = hr.Head()
-# head.append(hr.Title("PythonClass = Revision 1087:"))
+head = hr.Head()
+head.append(hr.Title("PythonClass = Revision 1087:"))
 
-# page.append(head)
+page.append(head)
 
-# body = hr.Body()
+body = hr.Body()
 
-# body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text"))
-# body.append(hr.P("And here is another piece of text -- you should be able to add any number"))
+body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text"))
+body.append(hr.Paragraph("And here is another piece of text -- you should be able to add any number"))
 
-# page.append(body)
+page.append(body)
 
-# render_page(page, "test_html_output3.html")
+render_page(page, "test_html_output3.html")
 
 # # Step 4
 # ##########
@@ -91,7 +91,7 @@ render_page(page, "test_html_output2.html")
 
 # body = hr.Body()
 
-# body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+# body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #               style="text-align: center; font-style: oblique;"))
 
 # page.append(body)
@@ -110,7 +110,7 @@ render_page(page, "test_html_output2.html")
 
 # body = hr.Body()
 
-# body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+# body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #               style="text-align: center; font-style: oblique;"))
 
 # body.append(hr.Hr())
@@ -131,7 +131,7 @@ render_page(page, "test_html_output2.html")
 
 # body = hr.Body()
 
-# body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+# body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #               style="text-align: center; font-style: oblique;"))
 
 # body.append(hr.Hr())
@@ -158,7 +158,7 @@ render_page(page, "test_html_output2.html")
 
 # body.append( hr.H(2, "PythonClass - Class 6 example") )
 
-# body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+# body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #               style="text-align: center; font-style: oblique;"))
 
 # body.append(hr.Hr())
@@ -197,7 +197,7 @@ render_page(page, "test_html_output2.html")
 
 # body.append( hr.H(2, "PythonClass - Class 6 example") )
 
-# body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+# body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #                  style="text-align: center; font-style: oblique;"))
 
 # body.append(hr.Hr())
