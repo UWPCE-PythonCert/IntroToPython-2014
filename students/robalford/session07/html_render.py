@@ -1,6 +1,5 @@
 class Element:
     tag = 'html'
-    indent = 0
 
     def __init__(self, content=None, **kwargs):
         self.content = []
@@ -11,38 +10,37 @@ class Element:
     def append(self, content):
         self.content.append(content)
 
-    def render(self, f, ind='    '):
-        f.write(ind * self.indent)
+    def format_start_tag(self, self_closing=False):
         start_tag = '<{}'.format(self.tag)
-        # is there a better way to format this?
-        # also should inherit this portion of render via
-        # another method? rather than copy
         for k, v in self.attributes.items():
             start_tag += ' {}="{}"'.format(k, v)
-        start_tag += '>'
+        start_tag += ' />' if self_closing else '>'
+        return start_tag
+
+    def render(self, f, ind='    '):
+        f.write(ind)
+        start_tag = self.format_start_tag()
         f.write(start_tag)
+        ind += '    '
         for el in self.content:
             f.write('\n')
             # EAFP
             try:
-                el.indent = self.indent + 1
-                el.render(f)
+                el.render(f, ind)
             except AttributeError:
-                f.write((self.indent * ind) + ind)
+                f.write(ind)
                 f.write(str(el))
+        ind = ind[:-4]
         f.write('\n')
-        f.write(ind * self.indent)
+        f.write(ind)
         end_tag = '</{}>'.format(self.tag)
         f.write(end_tag)
 
 
 class OneLineTag(Element):
     def render(self, f, ind='    '):
-        f.write(ind * self.indent)
-        start_tag = '<{}'.format(self.tag)
-        for k, v in self.attributes.items():
-            start_tag += ' {}="{}"'.format(k, v)
-        start_tag += '>'
+        f.write(ind)
+        start_tag = self.format_start_tag()
         f.write(start_tag)
         for el in self.content:
             # EAFP
@@ -56,11 +54,8 @@ class OneLineTag(Element):
 
 class SelfClosingTag(Element):
     def render(self, f, ind='    '):
-        f.write(ind * self.indent)
-        self_closing_tag = '<{}'.format(self.tag)
-        for k, v in self.attributes.items():
-            self_closing_tag += ' {}="{}"'.format(k, v)
-        self_closing_tag += ' />'
+        f.write(ind)
+        self_closing_tag = self.format_start_tag(self_closing=True)
         f.write(self_closing_tag)
 
 
@@ -87,7 +82,6 @@ class Html(Element):
 
     def render(self, f, ind='    '):
         f.write('<!DOCTYPE html>\n')
-        self.indent = 1
         Element.render(self, f, ind='    ')
 
 
