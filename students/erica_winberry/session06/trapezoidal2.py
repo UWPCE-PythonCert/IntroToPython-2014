@@ -43,7 +43,12 @@ def quadratic(x, a=0, b=0, c=0):
     return (a * x**2) + (b * x) + c
 
 
+def quad_curry(x, a=0, b=0, c=0):
+    answer = (a * x**2) + (b * x) + c
+    return answer
+
+
 def squared(x):
     return x * x
 
-print(trapz(quadratic, 1, 10, a=1, b=3, c=2))
+print(trapz(quad_curry, 1, 10, a=1, b=3, c=2))
