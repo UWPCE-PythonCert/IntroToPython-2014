@@ -1,5 +1,6 @@
 
 class Element:
+    """Renders basic HTML elements by tag."""
 
     indent = 4
     tag = ""
@@ -14,10 +15,8 @@ class Element:
         self.content.append(content)
 
     def render(self, f, ind=" "):
-        spacing = self.indent * ind
-        start_tag = ("\n<{}".format(self.tag))
+        start_tag = ("\n{:>}<{}".format((ind * self.indent), self.tag))
         if self.kwargs:
-            f.write(spacing)
             f.write(start_tag)
             for k, v in self.kwargs.items():
                 attribute = '{}="{}"'.format(k, v)
@@ -29,46 +28,26 @@ class Element:
             try:
                 element.render(f)
             except AttributeError:
-                f.write((ind * self.indent) + str(element))
-        end_tag = "\n</{}>".format(self.tag)
+                f.write("{:>}    {}".format((ind * self.indent), (str(element))))
+        end_tag = "\n{}</{}>".format((ind * self.indent), self.tag)
         f.write(end_tag)
 
 
 class Body(Element):
+    """Renders body (<body>) element."""
 
-    indent = 4
     tag = "body"
-
-    def render(self, f, ind=" "):
-        start_tag = '\n<{}>'.format(self.tag)
-        f.write(start_tag)
-        for element in self.content:
-            try:
-                element.render(f)
-            except AttributeError:
-                f.write((ind * self.indent) + str(element))
-        end_tag = "\n</{}>".format(self.tag)
-        f.write(end_tag)
 
 
 class Head(Element):
+    """Renders head (<head>) element. This is NOT for text headers. 
+    This is a container for all the head elements."""
 
-    indent = 4
     tag = "head"
-
-    def render(self, f, ind=" "):
-        start_tag = '\n<{}>'.format(self.tag)
-        f.write(start_tag)
-        for element in self.content:
-            try:
-                element.render(f)
-            except AttributeError:
-                f.write((ind * self.indent) + str(element))
-        end_tag = "\n</{}>".format(self.tag)
-        f.write(end_tag)
 
 
 class Html(Element):
+    """Renders the document type and html (<html>) elements."""
 
     indent = 0
     tag = "html"
@@ -88,11 +67,12 @@ class Html(Element):
                 element.render(f)
             except AttributeError:
                 f.write((ind * self.indent) + str(element))
-        end_tag = "</{}>\n ".format(self.tag)
+        end_tag = "\n</{}>".format(self.tag)
         f.write(end_tag)
 
 
 class Link(Element):
+    """Renders link (anchors) element."""
 
     indent = 0
     tag = "a"
@@ -119,42 +99,58 @@ class Link(Element):
             try:
                 element.render(f)
             except AttributeError:
-                f.write((ind * self.indent) + str(element))
-        end_tag = "</{}>".format(self.tag)
-        f.write(end_tag)
-
-
-class ListItem(Element):
-
-    tag = "li"
-
-
-class Paragraph(Element):
-
-    tag = "p"
-
-
-class UnordList(Element):
-
-    tag = "ul"
-
-
-class OneLineTag(Element):
-
-    def render(self, f, ind=" "):
-        start_tag = "\n<{}>".format(self.tag)
-        f.write(start_tag)
-        for element in self.content:
-            try:
-                element.render(f)
-            except AttributeError:
                 f.write(str(element))
         end_tag = "</{}>".format(self.tag)
         f.write(end_tag)
 
 
-class Header(OneLineTag):
+class ListItem(Element):
+    """Renders list item (<li>) element."""
 
+    indent = 12
+    tag = "li"
+
+
+class Paragraph(Element):
+    """Renders paragraph (<p>) element."""
+
+    indent = 8
+    tag = "p"
+
+
+class UnordList(Element):
+    """Renders unordered list (<ul>) element."""
+
+    indent = 8
+    tag = "ul"
+
+
+class OneLineTag(Element):
+    """For tags that should always render on a single line."""
+
+    def render(self, f, ind=" "):
+        start_tag = ("\n{}<{}".format((ind * self.indent), self.tag))
+        if self.kwargs:
+            f.write(start_tag)
+            for k, v in self.kwargs.items():
+                attribute = '{}="{}"'.format(k, v)
+                f.write(" " + attribute)
+            f.write(">")
+        else:
+            f.write(start_tag + ">")
+        for element in self.content:
+            try:
+                element.render(f)
+            except AttributeError:
+                f.write(str(element))
+        end_tag = '</{}>'.format(self.tag)
+        f.write(end_tag)
+
+
+class Header(OneLineTag):
+    """Renders header (<hn>) element, where n is the header level."""
+
+    indent = 8
     tag = "h"
 
     def __init__(self, level=None, content=None, **kwargs):
@@ -166,7 +162,8 @@ class Header(OneLineTag):
         self.kwargs = kwargs
 
     def render(self, f, ind=" "):
-        start_tag = '\n<{}{:d}'.format(self.tag, self.level)
+        start_tag = '{}<{}{:d}'.format(
+            (ind * self.indent), self.tag, self.level)
         if self.kwargs:
             f.write(start_tag)
             for k, v in self.kwargs.items():
@@ -185,14 +182,19 @@ class Header(OneLineTag):
 
 
 class Title(OneLineTag):
+    """Renders page title (<title>) element."""
 
+    indent = 8
     tag = "title"
 
 
 class SelfClosingTag(Element):
+    """Renders html elements that do not take a closing tag."""
+
+    indent = 8
 
     def render(self, f, ind=" "):
-        start_tag = "\n<{}".format(self.tag)
+        start_tag = ("\n{}<{}".format((ind * self.indent), self.tag))
         if self.kwargs:
             f.write(start_tag)
             for k, v in self.kwargs.items():
@@ -204,16 +206,19 @@ class SelfClosingTag(Element):
 
 
 class HRule(SelfClosingTag):
+    """Renders horizontal rule (<hr />) element."""
 
     tag = "hr"
 
 
 class LineBreak(SelfClosingTag):
+    """Renders line break (<br />) element."""
 
     tag = "br"
 
 
 class Meta(SelfClosingTag):
+    """Renders meta (<meta>) element."""
 
     tag = "meta"
 
@@ -226,7 +231,7 @@ class Meta(SelfClosingTag):
         self.kwargs = kwargs
 
     def render(self, f, ind=" "):
-        start_tag = '\n<{} charset="{}"'.format(self.tag, self.charset)
+        start_tag = '{}<{} charset="{}"'.format((ind * self.indent), self.tag, self.charset)
         if self.kwargs:
             f.write(start_tag)
             for k, v in self.kwargs.items():
