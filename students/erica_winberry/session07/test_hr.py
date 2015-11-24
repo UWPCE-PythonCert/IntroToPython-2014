@@ -112,6 +112,17 @@ def test_Head():
     assert "this" in text
 
 
+def test_Link():
+    e = hr.Link(link="link URL", content="link content")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith("<a href")
+    assert text.endswith("</a>")
+    assert "link content" in text
+
+
 def test_OneLine_Title():
     e = hr.Title("this")
     f = StringIO()
@@ -123,18 +134,29 @@ def test_OneLine_Title():
     assert "this" in text
 
 
+def test_SelfClosing_HRule():
+    e = hr.HRule()
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith("<hr />")
+
+
 def test_nest():
     e = hr.Html()
-    h = hr.Head()
-    e.append(h)
-    t = hr.Title("Your title goes here")
-    h.append(t)
-    b = hr.Body()
-    e.append(b)
+    head = hr.Head()
+    e.append(head)
+    title = hr.Title("Your title goes here")
+    head.append(title)
+    body = hr.Body()
+    e.append(body)
     p = hr.Paragraph("A paragraph of text", style="testy")
-    b.append(p)
+    body.append(p)
+    br = hr.LineBreak()
+    body.append(br)
     p = hr.Paragraph("Another paragraph of text")
-    b.append(p)
+    body.append(p)
     f = StringIO()
     e.render(f)
     f.seek(0)

@@ -82,22 +82,22 @@ def render_page(page, filename):
 # # Step 4
 # ##########
 
-page = hr.Html()
+# page = hr.Html()
 
-head = hr.Head()
-head.append(hr.Title("PythonClass = Revision 1087:"))
+# head = hr.Head()
+# head.append(hr.Title("PythonClass = Revision 1087:"))
 
-page.append(head)
+# page.append(head)
 
-body = hr.Body()
+# body = hr.Body()
 
-body.append(hr.Paragraph("Here is a paragraph of text -- there could be \
-more of them, but this is enough to show that we can do some text",
-              style="text-align: center; font-style: oblique;"))
+# body.append(hr.Paragraph("Here is a paragraph of text -- there could be \
+# more of them, but this is enough to show that we can do some text",
+# style="text-align: center; font-style: oblique;"))
 
-page.append(body)
+# page.append(body)
 
-render_page(page, "test_html_output4.html")
+# render_page(page, "test_html_output4.html")
 
 # # Step 5
 # #########
@@ -114,7 +114,7 @@ render_page(page, "test_html_output4.html")
 # body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #               style="text-align: center; font-style: oblique;"))
 
-# body.append(hr.Hr())
+# body.append(hr.HRule())
 
 # page.append(body)
 
@@ -123,27 +123,27 @@ render_page(page, "test_html_output4.html")
 # # Step 6
 # #########
 
-# page = hr.Html()
+page = hr.Html()
 
-# head = hr.Head()
-# head.append(hr.Title("PythonClass = Revision 1087:"))
+head = hr.Head()
+head.append(hr.Title("PythonClass = Revision 1087:"))
 
-# page.append(head)
+page.append(head)
 
-# body = hr.Body()
+body = hr.Body()
 
-# body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
-#               style="text-align: center; font-style: oblique;"))
+body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+              style="text-align: center; font-style: oblique;"))
 
-# body.append(hr.Hr())
+body.append(hr.HRule())
 
-# body.append("And this is a ")
-# body.append( hr.A("http://google.com", "link") )
-# body.append("to google")
+body.append("And this is a ")
+body.append( hr.Link("http://google.com", "link") )
+body.append("to google")
 
-# page.append(body)
+page.append(body)
 
-# render_page(page, "test_html_output6.html")
+render_page(page, "test_html_output6.html")
 
 # # Step 7
 # #########
@@ -162,7 +162,7 @@ render_page(page, "test_html_output4.html")
 # body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #               style="text-align: center; font-style: oblique;"))
 
-# body.append(hr.Hr())
+# body.append(hr.HRule())
 
 # list = hr.Ul(id="TheList", style="line-height:200%")
 
@@ -171,7 +171,7 @@ render_page(page, "test_html_output4.html")
 
 # item = hr.Li()
 # item.append("And this is a ")
-# item.append( hr.A("http://google.com", "link") )
+# item.append( hr.Link("http://google.com", "link") )
 # item.append("to google")
 
 # list.append(item)
@@ -201,7 +201,7 @@ render_page(page, "test_html_output4.html")
 # body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
 #                  style="text-align: center; font-style: oblique;"))
 
-# body.append(hr.Hr())
+# body.append(hr.HRule())
 
 # list = hr.Ul(id="TheList", style="line-height:200%")
 
@@ -210,7 +210,7 @@ render_page(page, "test_html_output4.html")
 
 # item = hr.Li()
 # item.append("And this is a ")
-# item.append( hr.A("http://google.com", "link") )
+# item.append( hr.Link("http://google.com", "link") )
 # item.append("to google")
 
 # list.append(item)
