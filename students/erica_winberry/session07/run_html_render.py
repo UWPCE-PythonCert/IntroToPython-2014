@@ -148,48 +148,9 @@ def render_page(page, filename):
 # # Step 7
 # #########
 
-page = hr.Html()
-
-head = hr.Head()
-head.append(hr.Title("PythonClass = Revision 1087:"))
-
-page.append(head)
-
-body = hr.Body()
-
-body.append( hr.Header(2, "PythonClass - Class 6 example") )
-
-body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
-              style="text-align: center; font-style: oblique;"))
-
-body.append(hr.HRule())
-
-list = hr.UnordList(id="TheList", style="line-height:200%")
-
-list.append( hr.ListItem("The first item in a list") )
-list.append( hr.ListItem("This is the second item", style="color: red") )
-
-item = hr.ListItem()
-item.append("And this is a ")
-item.append(hr.Link("http://google.com", "link"))
-item.append("to google")
-
-list.append(item)
-
-body.append(list)
-
-page.append(body)
-
-render_page(page, "test_html_output7.html")
-
-# # Step 8
-# ########
-
 # page = hr.Html()
 
-
 # head = hr.Head()
-# head.append( hr.Meta(charset="UTF-8") )
 # head.append(hr.Title("PythonClass = Revision 1087:"))
 
 # page.append(head)
@@ -199,7 +160,7 @@ render_page(page, "test_html_output7.html")
 # body.append( hr.Header(2, "PythonClass - Class 6 example") )
 
 # body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
-#                  style="text-align: center; font-style: oblique;"))
+#               style="text-align: center; font-style: oblique;"))
 
 # body.append(hr.HRule())
 
@@ -210,7 +171,7 @@ render_page(page, "test_html_output7.html")
 
 # item = hr.ListItem()
 # item.append("And this is a ")
-# item.append( hr.Link("http://google.com", "link") )
+# item.append(hr.Link("http://google.com", "link"))
 # item.append("to google")
 
 # list.append(item)
@@ -219,4 +180,43 @@ render_page(page, "test_html_output7.html")
 
 # page.append(body)
 
-# render_page(page, "test_html_output8.html")
+# render_page(page, "test_html_output7.html")
+
+# # Step 8
+# ########
+
+page = hr.Html()
+
+
+head = hr.Head()
+head.append( hr.Meta(charset="UTF-8") )
+head.append(hr.Title("PythonClass = Revision 1087:"))
+
+page.append(head)
+
+body = hr.Body()
+
+body.append( hr.Header(2, "PythonClass - Class 6 example") )
+
+body.append(hr.Paragraph("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
+                 style="text-align: center; font-style: oblique;"))
+
+body.append(hr.HRule())
+
+list = hr.UnordList(id="TheList", style="line-height:200%")
+
+list.append( hr.ListItem("The first item in a list") )
+list.append( hr.ListItem("This is the second item", style="color: red") )
+
+item = hr.ListItem()
+item.append("And this is a ")
+item.append( hr.Link("http://google.com", "link") )
+item.append("to google")
+
+list.append(item)
+
+body.append(list)
+
+page.append(body)
+
+render_page(page, "test_html_output8.html")

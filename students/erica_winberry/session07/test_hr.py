@@ -57,14 +57,14 @@ def test_render():
 
 
 def test_render_keywords():
-    e = hr.Html("this", style='test')
+    e = hr.Paragraph("this", style='test')
     e.append("that")
     f = StringIO()
     e.render(f)
     f.seek(0)
     text = f.read().strip()
-    assert text.startswith('<html style="test">')
-    assert text.endswith('</html>')
+    assert text.startswith('<p style="test">')
+    assert text.endswith('</p>')
     assert "this" in text
 
 
@@ -74,7 +74,7 @@ def test_Html():
     e.render(f)
     f.seek(0)
     text = f.read().strip()
-    assert text.startswith("<html>")
+    assert text.startswith("<!DOCTYPE html>")
     assert text.endswith("</html>")
     assert "this" in text
 
@@ -174,6 +174,15 @@ def test_OneLine_Header():
     assert text.startswith("<h3>")
     assert text.endswith("</h3>")
     assert "this" in text
+
+
+def test_SelfClosing_Meta():
+    e = hr.Meta()
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith('<meta charset="UTF-8" />')
 
 
 def test_nest():
