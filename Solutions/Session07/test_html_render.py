@@ -6,7 +6,8 @@ unit tests for html rendering code
 
 from io import StringIO
 
-import html_render as hr
+# import html_render as hr
+import html_render_wrap as hr
 
 
 # # utility function for tests:

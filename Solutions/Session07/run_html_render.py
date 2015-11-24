@@ -192,14 +192,14 @@ page = hr.Html()
 
 
 head = hr.Head()
-head.append(hr.Meta(charset="UTF-8"))
+head.append(hr.Meta())
 head.append(hr.Title("PythonClass = Revision 1087:"))
 
 page.append(head)
 
 body = hr.Body()
 
-body.append(hr.H(2, "PythonClass - Class 6 example"))
+body.append(hr.H(2, "PythonClass - Class 7 example"))
 
 body.append(hr.P("Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text",
                  style="text-align: center; font-style: oblique;"))
