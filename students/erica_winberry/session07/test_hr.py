@@ -143,6 +143,39 @@ def test_SelfClosing_HRule():
     assert text.startswith("<hr />")
 
 
+def test_UnorderedList():
+    e = hr.UnordList("this")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith("<ul>")
+    assert text.endswith("</ul>")
+    assert "this" in text
+
+
+def test_ListItem():
+    e = hr.ListItem("this")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith("<li>")
+    assert text.endswith("</li>")
+    assert "this" in text
+
+
+def test_OneLine_Header():
+    e = hr.Header(3, "this")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith("<h3>")
+    assert text.endswith("</h3>")
+    assert "this" in text
+
+
 def test_nest():
     e = hr.Html()
     head = hr.Head()
