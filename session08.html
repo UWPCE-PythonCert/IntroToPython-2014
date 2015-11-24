@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Eight: Callable classes, Iterators, Generators &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Eight: More OO: Multiple inheritance, Properties, Special methods. &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -89,14 +89,26 @@
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session07.html">Object Oriented Programming</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Eight: Callable classes, Iterators, Generators</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Eight: More OO: Multiple inheritance, Properties, Special methods.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#personal-project">Personal Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homework-notes">Homework Notes:</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getter-and-setters">Getter and Setters?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#deleters">deleters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-only-attributes">&#8220;Read Only&#8221; Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleters">Deleters</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning talks:</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#static-and-class-methods">Static and Class Methods</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#static-methods">Static Methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#class-methods">Class Methods</a></li>
@@ -110,14 +122,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#personal-project">Personal Project</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#emulating-standard-types">Emulating Standard types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#callable-classes">Callable classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#callables">&#8220;Callables&#8221;</a></li>
@@ -130,7 +134,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#id3">LAB</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id4">Callables:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sparse-array">Sparse Array:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#iterators-and-generators">Iterators and Generators</a><ul>
@@ -143,14 +146,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#itertools">Itertools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">LAB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lab2">LAB2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Lightning Talks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generators">Generators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#yield">yield</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generator-comprehension">generator comprehension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">LAB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">LAB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Homework</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
@@ -189,7 +192,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Session Eight: Callable classes, Iterators, Generators</li>
+    <li>Session Eight: More OO: Multiple inheritance, Properties, Special methods.</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -203,8 +206,74 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="session-eight-callable-classes-iterators-generators">
-<h1>Session Eight: Callable classes, Iterators, Generators<a class="headerlink" href="#session-eight-callable-classes-iterators-generators" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="session-eight-more-oo-multiple-inheritance-properties-special-methods">
+<h1>Session Eight: More OO: Multiple inheritance, Properties, Special methods.<a class="headerlink" href="#session-eight-more-oo-multiple-inheritance-properties-special-methods" title="Permalink to this headline">¶</a></h1>
+<p class="large centered">The tools of Pythonicity</p>
+<div class="section" id="review-questions">
+<h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="review-of-previous-class">
+<h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Basic OO Concepts<ul>
+<li>Classes</li>
+<li>class vs. instance attributes</li>
+<li>subclassing</li>
+<li>overriding methods / attributes</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="lightning-talks-today">
+<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
+<p class="medium">Robert Ryan Leslie</p>
+<p class="medium">Ryan Morin</p>
+</div>
+<div class="section" id="personal-project">
+<h3>Personal Project<a class="headerlink" href="#personal-project" title="Permalink to this headline">¶</a></h3>
+<p>The bulk of the homework for the rest of the class will be a personal project:</p>
+<ul class="simple">
+<li>It can be for fun, or something you need for your job.</li>
+<li>It should be large enough to take a few weeks homework time to do.</li>
+<li><strong>It should demostrate that you can do something useful with python.</strong></li>
+<li>It should follow PEP8 (<a class="reference external" href="https://www.python.org/dev/peps/pep-0008">https://www.python.org/dev/peps/pep-0008</a>)</li>
+<li>It should have unit tests!</li>
+<li>Ideally, it will be in version control (gitHub)</li>
+<li>I don&#8217;t require any specific python features (i.e. classes): use
+what is appropriate for your project</li>
+<li>Due the Friday after the last class (December 11)</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">By next week, send me a project proposal: short and sweet.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="homework-review">
+<h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>html renderer</li>
+<li>Test-driven development</li>
+</ul>
+</div>
+<div class="section" id="homework-notes">
+<h3>Homework Notes:<a class="headerlink" href="#homework-notes" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">**kwargs</span></code> will always define a <code class="docutils literal"><span class="pre">kwargs</span></code> dict: it just may be empty.</p>
+<p>And there is no need to check if it&#8217;s empty before trying to loop through it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">!=</span> <span class="p">{}:</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atts</span> <span class="o">+=</span> <span class="s">&#39; {}=&quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>no need for <code class="docutils literal"><span class="pre">!=</span> <span class="pre">{}</span></code> &#8211; an empty dict is &#8220;Falsey&#8221;</p>
+<p><strong>but</strong> no need for that check at all. If the dict (or ist, or tuple) is
+empty, then the loop is a do-nothing operation:</p>
+<ul class="simple">
+<li>notes on Duck Typing: <a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span>HTML Renderer Exercise</span></a> and  code review</li>
+</ul>
+</div>
+</div>
 <div class="section" id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <div class="left container">
@@ -279,6 +348,9 @@
 </pre></div>
 </div>
 <p>means: make the &#8220;setter&#8221; of the &#8216;x&#8217; property this new function</p>
+</div>
+<div class="section" id="read-only-attributes">
+<h3>&#8220;Read Only&#8221; Attributes<a class="headerlink" href="#read-only-attributes" title="Permalink to this headline">¶</a></h3>
 <p>You do not need to define a setter. If you don&#8217;t, you get a &#8220;read only&#8221; attribute:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
@@ -301,7 +373,7 @@
 </div>
 </div>
 <div class="section" id="deleters">
-<h3>deleters<a class="headerlink" href="#deleters" title="Permalink to this headline">¶</a></h3>
+<h3>Deleters<a class="headerlink" href="#deleters" title="Permalink to this headline">¶</a></h3>
 <p>If you want to do something special when a property is deleted, you can define
 a deleter is well:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
@@ -325,6 +397,11 @@ what you want.</p>
 <p>Let&#8217;s use some of this to build a nice class to represent a Circle.</p>
 <p>For now, Let&#8217;s do steps 1-4 of:</p>
 <p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span>Circle Class Excercise</span></a></p>
+<div class="section" id="lightning-talks">
+<h3>Lightning talks:<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
+<p class="medium">Robert Ryan Leslie</p>
+<p class="medium">Ryan Morin</p>
+</div>
 </div>
 <div class="section" id="static-and-class-methods">
 <h2>Static and Class Methods<a class="headerlink" href="#static-and-class-methods" title="Permalink to this headline">¶</a></h2>
@@ -335,12 +412,15 @@ created.</p>
 the method when it is called.</p>
 <p>And you&#8217;ve seen how you can call <em>unbound</em> methods on a class object so
 long as you pass an instance of that class as the first argument.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p class="centered"><strong>But what if you don&#8217;t want or need an instance?</strong></p>
 </div>
 <div class="section" id="static-methods">
 <h3>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h3>
 <p>A <em>static method</em> is a method that doesn&#8217;t get self:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="k">class</span> <span class="nc">StaticAdder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="k">class</span> <span class="nc">StaticAdder</span><span class="p">:</span>
 
 <span class="gp">   ....: </span>    <span class="nd">@staticmethod</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -357,7 +437,7 @@ long as you pass an instance of that class as the first argument.</p>
 <p>Usually they aren&#8217;t</p>
 <p>99% of the time, it&#8217;s better just to write a module-level function</p>
 <p>An example from the Standard Library (tarfile.py):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">TarInfo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">TarInfo</span><span class="p">:</span>
     <span class="c"># ...</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_create_payload</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
@@ -376,7 +456,7 @@ long as you pass an instance of that class as the first argument.</p>
 <h3>Class Methods<a class="headerlink" href="#class-methods" title="Permalink to this headline">¶</a></h3>
 <p>A class method gets the class object, rather than an instance, as the first
 argument</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="k">class</span> <span class="nc">Classy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="k">class</span> <span class="nc">Classy</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">   ....: </span>    <span class="nd">@classmethod</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">a_class_method</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -437,13 +517,13 @@ implements an alternate constructor that <em>can</em>.</p>
 </div>
 <p>(this is actually from the OrderedDict implementation in <code class="docutils literal"><span class="pre">collections.py</span></code>)</p>
 <p>See also datetime.datetime.now(), etc....</p>
-<p>Properties, Static Methods and Class Methods are powerful features of Pythons
+<p>Properties, Static Methods and Class Methods are powerful features of Python&#8217;s
 OO model.</p>
 <p>They are implemented using an underlying structure called <em>descriptors</em></p>
 <p><a class="reference external" href="https://docs.python.org/2/howto/descriptor.html">Here is a low level look</a> at how the descriptor protocol works.</p>
 <p>The cool part is that this mechanism is available to you, the programmer, as
 well.</p>
-<p>Extra Credit: use a class method to make an alternate constructor that takes
+<p>For the Circle Lab: use a class method to make an alternate constructor that takes
 the diameter instead.</p>
 </div>
 </div>
@@ -464,28 +544,22 @@ class act like standard classes.</p>
 <p>It&#8217;s all in the double underscores...</p>
 <p>Pronounced &#8220;dunder&#8221; (or &#8220;under-under&#8221;)</p>
 <p>try: <code class="docutils literal"><span class="pre">dir(2)</span></code>  or <code class="docutils literal"><span class="pre">dir(list)</span></code></p>
-<p>Most classes should at lest have these special methods:</p>
+<p>Most classes should at least have these special methods:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">object.__str__</span></code>:</dt>
 <dd>Called by the str() built-in function and by the print function to compute
 the <em>informal</em> string representation of an object.</dd>
-<dt><code class="docutils literal"><span class="pre">object.__unicode__</span></code>:</dt>
-<dd><p class="first">Called by the unicode() built-in function.  This converts an object to an
-<em>informal</em> unicode representation.</p>
-<p class="last">(more on Unicode later....)</p>
-</dd>
 <dt><code class="docutils literal"><span class="pre">object.__repr__</span></code>:</dt>
-<dd><p class="first">Called by the repr() built-in function and by string conversions (reverse
-quotes) to compute the <em>official</em> string representation of an object.</p>
+<dd><p class="first">Called by the repr() built-in function to compute the <em>official</em> string representation of an object.</p>
 <p class="last">(ideally: <code class="docutils literal"><span class="pre">eval(</span> <span class="pre">repr(something)</span> <span class="pre">)</span> <span class="pre">==</span> <span class="pre">something</span></code>)</p>
 </dd>
 </dl>
+<p>(demo)</p>
 </div>
 <div class="section" id="protocols">
 <h3>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h3>
 <div class="build container">
-<p>The set of special methods needed to emulate a particular type of Python object
-is called a <em>protocol</em>.</p>
+<p>The set of special methods needed to emulate a particular type of Python object is called a <em>protocol</em>.</p>
 <p>Your classes can &#8220;become&#8221; like Python built-in classes by implementing the
 methods in a given protocol.</p>
 <p>Remember, these are more <em>guidelines</em> than laws.  Implement what you need.</p>
@@ -545,62 +619,6 @@ some way.</p>
 <p>Steps 5-8 of:</p>
 <p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span>Circle Class Excercise</span></a></p>
 </div>
-<div class="section" id="homework">
-<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<p>Complete your html renderer.</p>
-<p>Complete the Circle class</p>
-<p>Decide what you are going to do for your proejct, and send me a simple proposal.</p>
-<p class="large centered">The tools of Pythonicity</p>
-</div>
-<div class="section" id="review-questions">
-<h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="review-of-previous-class">
-<h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Advanced OO Concepts<ul>
-<li>Properties</li>
-<li>Special Methods</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="homework-review">
-<h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Circle Class</li>
-<li>Writing Tests using the <code class="docutils literal"><span class="pre">pytest</span></code> module</li>
-</ul>
-</div>
-<div class="section" id="lightning-talks-today">
-<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
-<p class="medium">Alireza Hashemloo</p>
-<p>Arielle R Simmons</p>
-<p>Eric W Westman</p>
-<p>Ryan J Albright</p>
-</div>
-<div class="section" id="personal-project">
-<h3>Personal Project<a class="headerlink" href="#personal-project" title="Permalink to this headline">¶</a></h3>
-<p>The bulk of the homework for the rest of the class will be a personal project:</p>
-<ul class="simple">
-<li>It can be for fun, or something you need for your job.</li>
-<li>It should be large enough to take a few weeks homework time to do.</li>
-<li>It should demostrate that you can do something useful with python.</li>
-<li>It should follow PEP8 (<a class="reference external" href="https://www.python.org/dev/peps/pep-0008">https://www.python.org/dev/peps/pep-0008</a>)</li>
-<li>It should have unit tests!</li>
-<li>Ideally, it will be in version control (gitHub)</li>
-<li>I don&#8217;t require an specific python features (i.e. classes): use
-what is appropriate for your project</li>
-<li>Due the Friday after the last class (December 11)</li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line-block">
-<div class="line">By next week, send me a project proposal: can be short and sweet.</div>
-<div class="line"><br /></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="emulating-standard-types">
 <h2>Emulating Standard types<a class="headerlink" href="#emulating-standard-types" title="Permalink to this headline">¶</a></h2>
 <p class="medium">Making your classes behave like the built-ins</p>
@@ -650,7 +668,7 @@ function object?</p>
 </div>
 <p>If you define a <code class="docutils literal"><span class="pre">__call__</span></code> method in your class, it will be used when
 code &#8220;calls&#8221; an instance of your class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Callable</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Callable</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">.....</span><span class="p">)</span>
         <span class="n">some_initilization</span>
     <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">some_parameters</span><span class="p">)</span>
@@ -755,16 +773,6 @@ the set of special methods you need:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="lightning-talks">
-<h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
-<div class="medium line-block">
-<div class="line"><br /></div>
-<div class="line">Alireza Hashemloo</div>
-<div class="line"><br /></div>
-<div class="line">Arielle R Simmons</div>
-<div class="line"><br /></div>
-</div>
-</div>
 </div>
 <div class="section" id="iterators-and-generators">
 <h2>Iterators and Generators<a class="headerlink" href="#iterators-and-generators" title="Permalink to this headline">¶</a></h2>
@@ -821,7 +829,7 @@ raises the <code class="docutils literal"><span class="pre">StopIteration</span>
 <div class="section" id="making-an-iterator">
 <h3>Making an Iterator<a class="headerlink" href="#making-an-iterator" title="Permalink to this headline">¶</a></h3>
 <p>A simple version of <code class="docutils literal"><span class="pre">xrange()</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">IterateMe_1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">IterateMe_1</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
@@ -887,7 +895,7 @@ build an iterator that iterates over sequences in various common ways</p>
 </div>
 <div class="section" id="id5">
 <h3>LAB<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal"><span class="pre">Examples/session08</span></code> dir, you will find:
+<p>In the <code class="docutils literal"><span class="pre">Examples/session09</span></code> dir, you will find:
 <a class="reference download internal" href="_downloads/iterator_1.py"><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a></p>
 <ul class="simple">
 <li>Extend (<code class="docutils literal"><span class="pre">iterator_1.py</span></code> ) to be more like <code class="docutils literal"><span class="pre">xrange()</span></code> &#8211; add three input parameters: <code class="docutils literal"><span class="pre">iterator_2(start,</span> <span class="pre">stop,</span> <span class="pre">step=1)</span></code></li>
@@ -917,16 +925,6 @@ build an iterator that iterates over sequences in various common ways</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_sparse_array</span><span class="p">:</span>
     <span class="n">do_something_with</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="id6">
-<h3>Lightning Talks<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<div class="medium line-block">
-<div class="line"><br /></div>
-<div class="line">Eric W Westman</div>
-<div class="line"><br /></div>
-<div class="line">Ryan J Albright</div>
-<div class="line"><br /></div>
 </div>
 </div>
 <div class="section" id="generators">
@@ -1002,8 +1000,8 @@ build an iterator that iterates over sequences in various common ways</p>
 </div>
 <p>More interesting if [1, 2, 3] is also a generator</p>
 </div>
-<div class="section" id="id7">
-<h3>LAB<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>LAB<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>Write a few generators:</p>
 <ul class="simple">
 <li>Sum of integers</li>
@@ -1041,8 +1039,13 @@ build an iterator that iterates over sequences in various common ways</p>
 </dl>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>Homework<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="homework">
+<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<p>Complete the Circle class</p>
+<p>Decide what you are going to do for your proejct, and send me a simple proposal.</p>
+</div>
+<div class="section" id="id7">
+<h2>Homework<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p class="left medium">Finish up the Labs from class</p>
 <p class="left medium">Get started on your project!</p>
 <p class="left medium">(Send me a proposal if you haven&#8217;t already)</p>
