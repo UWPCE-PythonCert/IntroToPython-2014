@@ -26,9 +26,7 @@ Other abilities of a Circle instance:
 
 .. nextslide::
 
-This exercise should use "new style classes" i.e. inherit from ``object``
-
-You will also use:
+You will use:
 
   - properties
   - a classmethod

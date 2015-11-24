@@ -5,6 +5,9 @@ slides_sources/build
 *.pyc
 *junk*
 
+# testing detritus
+.cache
+
 #ignore sublime workspace files
 *.sublime*
 

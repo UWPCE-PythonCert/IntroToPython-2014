@@ -242,6 +242,14 @@ For now, Let's do steps 1-4 of:
 
 :ref:`exercise_circle_class`
 
+Lightning talks:
+-----------------
+
+.. rst-class:: medium
+
+  Robert Ryan Leslie
+
+  Ryan Morin
 
 ========================
 Static and Class Methods
@@ -258,6 +266,8 @@ Static and Class Methods
 
     And you've seen how you can call *unbound* methods on a class object so
     long as you pass an instance of that class as the first argument.
+
+    |
 
     .. rst-class:: centered
 
@@ -283,7 +293,7 @@ A *static method* is a method that doesn't get self:
 
 .. rst-class:: centered
 
-[demo: :download:`static_method.py <../../Examples/Session07/static_method.py>`]
+[demo: :download:`static_method.py <../../Examples/Session08/static_method.py>`]
 
 
 .. nextslide:: Why?
@@ -335,7 +345,7 @@ argument
 
 .. rst-class:: centered
 
-[demo: :download:`class_method.py <../../Examples/Session07/class_method.py>`]
+[demo: :download:`class_method.py <../../Examples/Session08/class_method.py>`]
 
 
 Why?
@@ -403,7 +413,7 @@ See also datetime.datetime.now(), etc....
 
 .. nextslide:: Curious?
 
-Properties, Static Methods and Class Methods are powerful features of Pythons
+Properties, Static Methods and Class Methods are powerful features of Python's
 OO model.
 
 They are implemented using an underlying structure called *descriptors*
@@ -416,7 +426,7 @@ well.
 .. _Here is a low level look: https://docs.python.org/2/howto/descriptor.html
 
 
-Extra Credit: use a class method to make an alternate constructor that takes
+For the Circle Lab: use a class method to make an alternate constructor that takes
 the diameter instead.
 
 ===============
@@ -447,18 +457,18 @@ try: ``dir(2)``  or ``dir(list)``
 
 .. nextslide:: Generally Useful Special Methods
 
-Most classes should at lest have these special methods:
+Most classes should at least have these special methods:
 
 ``object.__str__``:
   Called by the str() built-in function and by the print function to compute
   the *informal* string representation of an object.
 
 ``object.__repr__``:
-  Called by the repr() built-in function and by string conversions (reverse
-  quotes) to compute the *official* string representation of an object.
+  Called by the repr() built-in function to compute the *official* string representation of an object.
 
   (ideally: ``eval( repr(something) ) == something``)
 
+(demo)
 
 Protocols
 ----------
@@ -466,8 +476,7 @@ Protocols
 .. rst-class:: build
 .. container::
 
-    The set of special methods needed to emulate a particular type of Python object
-    is called a *protocol*.
+    The set of special methods needed to emulate a particular type of Python object is called a *protocol*.
 
     Your classes can "become" like Python built-in classes by implementing the
     methods in a given protocol.
@@ -529,7 +538,7 @@ implement ``__add__``:
 
 .. rst-class:: centered
 
-[a more complete example may be seen :download:`here <./supplements/vector.py>`]
+[a more complete example may be seen :download:`here <../../Examples/Session08/vector.py>`]
 
 
 
@@ -759,16 +768,6 @@ Write a class for a sparse array
     In [12]: my_array[2]
     Out[12]: 0
 
-Lightning Talks
-----------------
-
-.. rst-class:: medium
-
-|
-| Alireza Hashemloo
-|
-| Arielle R Simmons
-|
 
 
 =========================
@@ -859,7 +858,7 @@ A simple version of ``xrange()``
             else:
                 raise StopIteration
 
-(demo: :download:`iterator_1.py <../../Examples/Session08/iterator_1.py>`)
+(demo: :download:`iterator_1.py <../../Examples/Session09/iterator_1.py>`)
 
 ``iter()``
 -----------
@@ -888,7 +887,7 @@ What does ``for`` do?
 Now that we know the iterator protocol, we can write something like a for loop:
 
 
-:download:`my_for.py <../../Examples/Session08/my_for.py>`
+:download:`my_for.py <../../Examples/Session09/my_for.py>`
 
 .. code-block:: python
 
@@ -929,8 +928,8 @@ For example.
 LAB
 -----
 
-In the ``Examples/session08`` dir, you will find:
-:download:`iterator_1.py <../../Examples/Session08/iterator_1.py>`
+In the ``Examples/session09`` dir, you will find:
+:download:`iterator_1.py <../../Examples/Session09/iterator_1.py>`
 
 * Extend (``iterator_1.py`` ) to be more like ``xrange()`` -- add three input parameters: ``iterator_2(start, stop, step=1)``
 
@@ -1057,7 +1056,7 @@ Note: A generator function can also be a method in a class
 
 .. http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/
 
-:download:`yield_example.py <../../Examples/Session08/yield_example.py>`
+:download:`yield_example.py <../../Examples/Session09/yield_example.py>`
 
 generator comprehension
 -----------------------
@@ -1088,7 +1087,7 @@ Write a few generators:
 * Prime numbers
 
 (test code in
-:download:`test_generator.py <../../Examples/Session08/test_generator.py>`)
+:download:`test_generator.py <../../Examples/Session09/test_generator.py>`)
 
 Descriptions:
 
