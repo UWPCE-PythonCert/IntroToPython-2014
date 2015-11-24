@@ -11,6 +11,10 @@ def test_init2():
     hr.Element("test string")
 
 
+def test_init_keywords():
+    hr.Element("test string", test="more tag text here")
+
+
 def test_content():
     e = hr.Element("some text")
     assert e.content is not None
@@ -28,10 +32,10 @@ def test_content_not_None():
     assert "this" in e.content
 
 
-def test_tag():
-    e = hr.Element("this")
-    assert hr.Element.tag == "html"
-    assert e.tag == "html"
+# def test_tag():
+#     e = hr.Element("this")
+#     assert hr.Element.tag == "html"
+#     assert e.tag == "html"
 
 
 def test_append():
@@ -50,6 +54,18 @@ def test_render():
     text = f.read().strip()
     assert "this" in text
     assert "that" in text
+
+
+def test_render_keywords():
+    e = hr.Html("this", style='test')
+    e.append("that")
+    f = StringIO()
+    e.render(f)
+    f.seek(0)
+    text = f.read().strip()
+    assert text.startswith('<html style="test">')
+    assert text.endswith('</html>')
+    assert "this" in text
 
 
 def test_Html():
@@ -115,7 +131,7 @@ def test_nest():
     h.append(t)
     b = hr.Body()
     e.append(b)
-    p = hr.Paragraph("A paragraph of text")
+    p = hr.Paragraph("A paragraph of text", style="testy")
     b.append(p)
     p = hr.Paragraph("Another paragraph of text")
     b.append(p)

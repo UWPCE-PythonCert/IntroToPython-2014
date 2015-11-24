@@ -1,19 +1,27 @@
 class Element:
 
     indent = 0
-    tag = "html"
+    tag = ""
 
-    def __init__(self, content=None):
+    def __init__(self, content=None, **kwargs):
         self.content = []
         if content is not None:
             self.content.append(content)
+        self.kwargs = kwargs
 
     def append(self, content):
         self.content.append(content)
 
     def render(self, f, ind=" "):
-        start_tag = "\n<{}>".format(self.tag)
-        f.write(start_tag)
+        start_tag = "\n<{}".format(self.tag)
+        if self.kwargs:
+            f.write(start_tag)
+            for k, v in self.kwargs.items():
+                attribute = '{}="{}"'.format(k, v)
+                f.write(" " + attribute)
+            f.write(">")
+        else:
+            f.write(start_tag + ">")
         for element in self.content:
             try:
                 element.render(f)
@@ -42,7 +50,7 @@ class Head(Element):
 
 class Html(Element):
 
-    indent = 2
+    indent = 0
     tag = "html"
 
 
