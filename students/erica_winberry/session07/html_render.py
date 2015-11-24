@@ -1,6 +1,7 @@
+
 class Element:
 
-    indent = 2
+    indent = 4
     tag = ""
 
     def __init__(self, content=None, **kwargs):
@@ -13,32 +14,58 @@ class Element:
         self.content.append(content)
 
     def render(self, f, ind=" "):
-        start_tag = "\n<{}".format(self.tag)
+        spacing = self.indent * ind
+        start_tag = ("\n<{}".format(self.tag))
         if self.kwargs:
+            f.write(spacing)
             f.write(start_tag)
             for k, v in self.kwargs.items():
                 attribute = '{}="{}"'.format(k, v)
                 f.write(" " + attribute)
-            f.write(">")
+            f.write(">\n")
         else:
-            f.write(start_tag + ">")
+            f.write(start_tag + ">\n")
         for element in self.content:
             try:
                 element.render(f)
             except AttributeError:
-                f.write(str(element))
+                f.write((ind * self.indent) + str(element))
         end_tag = "\n</{}>".format(self.tag)
         f.write(end_tag)
 
 
 class Body(Element):
 
+    indent = 4
     tag = "body"
+
+    def render(self, f, ind=" "):
+        start_tag = '\n<{}>'.format(self.tag)
+        f.write(start_tag)
+        for element in self.content:
+            try:
+                element.render(f)
+            except AttributeError:
+                f.write((ind * self.indent) + str(element))
+        end_tag = "\n</{}>".format(self.tag)
+        f.write(end_tag)
 
 
 class Head(Element):
 
+    indent = 4
     tag = "head"
+
+    def render(self, f, ind=" "):
+        start_tag = '\n<{}>'.format(self.tag)
+        f.write(start_tag)
+        for element in self.content:
+            try:
+                element.render(f)
+            except AttributeError:
+                f.write((ind * self.indent) + str(element))
+        end_tag = "\n</{}>".format(self.tag)
+        f.write(end_tag)
 
 
 class Html(Element):
@@ -60,14 +87,15 @@ class Html(Element):
             try:
                 element.render(f)
             except AttributeError:
-                f.write(str(element))
-        end_tag = "</{}> ".format(self.tag)
+                f.write((ind * self.indent) + str(element))
+        end_tag = "</{}>\n ".format(self.tag)
         f.write(end_tag)
 
 
 class Link(Element):
 
-    tag="a"
+    indent = 0
+    tag = "a"
 
     def __init__(self, link=None, content=None, **kwargs):
         Element.__init__(self, content=None)
@@ -91,8 +119,8 @@ class Link(Element):
             try:
                 element.render(f)
             except AttributeError:
-                f.write(str(element))
-        end_tag = "</{}> ".format(self.tag)
+                f.write((ind * self.indent) + str(element))
+        end_tag = "</{}>".format(self.tag)
         f.write(end_tag)
 
 
@@ -163,8 +191,6 @@ class Title(OneLineTag):
 
 class SelfClosingTag(Element):
 
-    indent = 0
-
     def render(self, f, ind=" "):
         start_tag = "\n<{}".format(self.tag)
         if self.kwargs:
@@ -189,7 +215,6 @@ class LineBreak(SelfClosingTag):
 
 class Meta(SelfClosingTag):
 
-    indent = 2
     tag = "meta"
 
     def __init__(self, content=None, charset="UTF-8", **kwargs):
