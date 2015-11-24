@@ -91,7 +91,7 @@ It should have a ``render(file_out, ind = "")`` method that renders the tag and 
 
  - This is a little tricky: ``ind`` will be the amount that this element should be indented already. It will be from zero (an empty string) to a lot of spaces, depending on how deep it is in the tree.
 
-The amount of indentation should be set by the class attribute: ``indent``
+The amount of each level of indentation should be set by the class attribute: ``indent``
 
 NOTE: don't worry too much about indentation at this stage -- the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you've got that working.
 
@@ -116,12 +116,11 @@ Now you can render a few different types of element.
 
 Extend the ``Element.render()`` method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the ``render()`` method of the elements it contains. You'll need to be smart about setting the ``ind`` optional parameter -- so that the nested elements get indented correctly. (again, this is a secondary concern...)
 
-Figure out a way to deal with the fact that the contained elements could be either simple strings or ``Element`` s with render methods (there are a few ways to handle that...). Think about "Duck Typing" and EAFP.
+Figure out a way to deal with the fact that the contained elements could be either simple strings or ``Element`` s with render methods (there are a few ways to handle that...). Think about "Duck Typing" and EAFP. See the section 'Notes on handling "duck typing"' and the end of the Exercise for more.
 
 .. nextslide::
 
-You should now be able to render a basic web page with an ``<html>`` tag around
-the whole thing, a ``<body>`` tag inside, and multiple ``<p>`` tags inside that, with text inside that. And all indented nicely.
+You should now be able to render a basic web page with an ``<html>`` tag around the whole thing, a ``<body>`` tag inside, and multiple ``<p>`` tags inside that, with text inside that. And all indented nicely.
 
 See ``test_html_output2.html``
 
@@ -149,13 +148,13 @@ Step 4:
 --------
 
 Extend the ``Element`` class to accept a set of attributes as keywords to the
-constructor, ie. (``run_html_render.py``)
+constructor, e.g. ``run_html_render.py``
 
 .. code-block:: python
 
     Element("some text content", id="TheList", style="line-height:200%")
 
-html elements can take essentially any attributes -- so you can't hard-cody thes particular ones. ( remember ``**kwargs``? )
+html elements can take essentially any attributes -- so you can't hard-code these particular ones. ( remember ``**kwargs``? )
 
 The render method will need to be extended to render the attributes properly.
 
@@ -174,6 +173,10 @@ You will need to override the render method to render just the one tag and
 attributes, if any.
 
 Create a couple subclasses of ``SelfClosingTag`` for and <hr /> and <br />
+
+Note that you now have a couple render methods -- is there repeated code in them?
+
+Can you refactor the common parts into a separate method that all the render methods can call?
 
 See ``test_html_output5.html``
 
@@ -232,6 +235,153 @@ new tags, etc....
 
 See ``test_html_output8.html``
 
+Notes on handling "duck typing"
+===============================
+
+.. rst-class:: left
+
+  In this exercise, we need to deal with the fact that XML (and thus HTML) allows *either* plain text *or* other tags to be the content of a tag. Our code also needs to handle the fact that there are two possible types that we need to be able to render.
+
+  There are two primary ways to address this (and multiple ways to actually write the code for each of these).
+
+  1) Make sure that the content only has renderable objects in it.
+
+  2) Make sure the render() method can handle either type on the fly
+
+  The difference is where you handle the multiple types -- in the render method itself, or ahead of time.
+
+The ahead of time option:
+-------------------------
+
+You can handle it ahead of time by creating a simple object that wraps a string and gives it a render method. As simple as:
+
+.. code-block:: python
+
+  class TextWrapper:
+      """
+      A simple wrapper that creates a class with a render method
+      for simple text
+      """
+      def __init__(self, text):
+          self.text = text
+
+      def render(self, file_out, current_ind=""):
+          file_out.write(current_ind + self.text)
+
+.. nextslide::
+
+You could require your users to use the wrapper, so instead of just appending a string, they would do:
+
+.. code-block:: python
+
+    an_element.append(TextWRapper("the string they want to add"))
+
+But this is not very Pythonic style -- it's OO heavy. Strings for text are so common you want to be able to simply use them:
+
+.. code-block:: python
+
+    an_element.append("the string they want to add")
+
+So much easier.
+
+To accomplish this, you can update the ``append()`` method to put this wrapper around plain strings when somethign new is added.
+
+
+Checking if it's the right type
+-------------------------------
+
+How do you decide if the wrapper is required?
+
+**Checking it it's an instance of Element:**
+
+You could check and see if the object being appended is an Element:
+
+.. code-block:: python
+
+    if isinstance(content, Element):
+        self.content.append(content)
+    else:
+        self.content.append(TextWrapper(content))
+
+This would work well, but closes the door to using any other type that may not be a strict subclsss of Element, but can render itself. Not too bad in this case, but in general, frowned upon in Python.
+
+.. nextslide::
+
+Alternatively, you could check for the string type:
+
+.. code-block:: python
+
+    if isinstance(content, str):
+        self.content.append(TextWrapper(content))
+    else:
+        self.content.append(content)
+
+I think this is a little better -- strings are a pretty core type in python, it's not likely that anyone is going to need to use a "string-like" object.
+
+Duck Typing
+-----------
+
+The Python model of duck typing is if quacks like a duck, then treat it like a duck.
+
+But in this case, we're not actually rendering the object at this stage, so calling the method isn't appropriate.
+
+**Checking for an attribute**
+
+Instead of calling the method, see if it's there:
+
+You can check if the passed-in object has a ``render()`` attribute:
+
+.. code-block:: python
+
+    if hasattr(content, 'render'):
+        self.content.append(content)
+    else:
+        self.content.append(TextWrapper(content))
+
+This is my favorite. ``html_render_wrap.py`` in Solutions demonstrates with method.
+
+Duck Typing on the Fly
+----------------------
+
+The other option is to simply put both elements and text in the content list, and figure out what to do in the ``render()`` method.
+
+Again, you could type check -- but I prefer the duck typing approach, and EAFP:
+
+.. code-block:: python
+
+    try:
+        content.render(out_file)
+    except AttributeError:
+        outfile.write(content)
+
+If content is a simple string then it won't have a render method, and an ``AttributeError`` will be raised.
+
+You can catch that, and simply write the content.
+
+.. nextslide::
+
+You may want to turn it into a string, first::
+
+    outfile.write(str(content))
+
+Then you could write just about anything -- numbers, etc.
+
+
+Where did the Exception come from?
+----------------------------------
+
+**Caution**
+
+If the object doesn't have a ``render`` method, then an AttributeError will be raised. But what if it does have a render method, but that method is broken?
+
+Depending on what's broken, it could raise any number of exceptions. Most will not get caught by the except clause, and will halt the program.
+
+But if, just by bad luck, it has an bug that raises an ``AttributeError`` -- then this could with catch it, and try to simply write it out instead. So you may get somethign like: ``<html_render.H object at 0x103604400>`` in the middle of your html.
+
+**The beauty of testing**
+
+If you have a unit test that calls every render method in your code -- then it should catch that error, and it wil be clear where it is coming from.
+
 
 HTML Primer
 ============
@@ -240,13 +390,11 @@ HTML Primer
 
     The very least you need to know about html to do this assigment.
 
-If you are familar with html, then this will all make sense to you. If you have
-never seen html before, this might be a bit intimidating, but you really don't
-need to know much to do this assignment.
+.. rst-class:: left
 
-First of all, sample output from each step is provided. So all you really need
-to do is look at that, and make your code do the same thing. But it does help to
-know a little bit about what you are doing.
+  If you are familar with html, then this will all make sense to you. If you have never seen html before, this might be a bit intimidating, but you really don't need to know much to do this assignment.
+
+  First of all, sample output from each step is provided. So all you really need to do is look at that, and make your code do the same thing. But it does help to know a little bit about what you are doing.
 
 HTML
 ----
@@ -261,15 +409,19 @@ http://www.w3schools.com/html/html_basic.asp
 
 And there are countless others online.
 
+As html is XML -- the XML intro is a good source of the XML syntax, too:
+
+http://www.w3schools.com/xml/default.asp
+
 But here is a tiny intro of just what you need to know for this project.
 
 Elements
 --------
 
-Modern HTML is a particular dialect of XML (eXrensible Markup Language),
+Modern HTML is a particular dialect of XML (eXtensible Markup Language),
 which is itself a special case of SGML (Standard Generalized Markup Language)
 
-It inherits from SGML a basic structure: each piece of the document is an element. each element is described by a "tag". each tag has a different meaning, but they all have the same structure::
+It inherits from SGML a basic structure: each piece of the document is an element. each element is described by a "tag". Each tag has a different meaning, but they all have the same structure::
 
     <some_tag> some content </some_tag>
 
@@ -305,19 +457,19 @@ There can be all sorts of stuff stored in attributes -- some required for specif
 Special Elements
 ----------------
 
-The general structure is everything is between and opening and closing tag. But some elements don't really have content -- just attributes. So the slash goes at the end of the tag, after the attributes. We can call these self-closing tags:
+The general structure is everything in between the opening and closing tag. But some elements don't really have content -- just attributes. So the slash goes at the end of the tag, after the attributes. We can call these self-closing tags:
 
 .. code-block:: html
 
    <meta charset="UTF-8" />
 
-To make a link, you use an "anchor" tag: ``<a>``. It required attributes to indicate what the link is:
+To make a link, you use an "anchor" tag: ``<a>``. It requires attributes to indicate what the link is:
 
 .. code-block:: html
 
-    <a href="http://google.com">link</a>
+    <a href="http://google.com"> link </a>
 
-the ``href`` attribute is the link (hyper reference).
+The ``href`` attribute is the link (hyper reference).
 
 To make a bulleted list, you use a <ul> tag (unordered list), and inside that, you put individual list elements <li>:
 
@@ -334,13 +486,22 @@ To make a bulleted list, you use a <ul> tag (unordered list), and inside that, y
 
 Note that the list itself, and the list items can both take various attributes (all tags can...)
 
-Section Headers are created with "h" tags: <h1> is the biggest (highest level), and there is <h2>, <h3>, etc. for sections, sub sections, subsub sections.
+Section Headers are created with "h" tags: <h1> is the biggest (highest level), and there is <h2>, <h3>, etc. for sections, sub sections, subsub sections...
 
 .. code-block:: html
 
-    <h2>PythonClass - Class 6 example</h2>
+    <h2>PythonClass - Class 7 example</h2>
 
 I think that's all you need to know!
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,82 @@
-******************************************************
-Session Eight: Callable classes, Iterators, Generators
-******************************************************
+**************************************************************************
+Session Eight: More OO: Multiple inheritance, Properties, Special methods.
+**************************************************************************
 
+.. rst-class:: large centered
+
+The tools of Pythonicity
+
+
+================
+Review/Questions
+================
+
+Review of Previous Class
+------------------------
+
+* Basic OO Concepts
+
+  * Classes
+  * class vs. instance attributes
+  * subclassing
+  * overriding methods / attributes
+
+
+Lightning Talks Today:
+-----------------------
+
+.. rst-class:: medium
+
+  Robert Ryan Leslie
+
+  Ryan Morin
+
+
+Personal Project
+-----------------
+
+The bulk of the homework for the rest of the class will be a personal project:
+
+* It can be for fun, or something you need for your job.
+* It should be large enough to take a few weeks homework time to do.
+* **It should demostrate that you can do something useful with python.**
+* It should follow PEP8 (https://www.python.org/dev/peps/pep-0008)
+* It should have unit tests!
+* Ideally, it will be in version control (gitHub)
+* I don't require any specific python features (i.e. classes): use
+  what is appropriate for your project
+
+* Due the Friday after the last class (December 11)
+
+|
+|  By next week, send me a project proposal: short and sweet.
+|
+
+Homework review
+---------------
+
+* html renderer
+* Test-driven development
+
+Homework Notes:
+---------------
+
+``**kwargs`` will always define a ``kwargs`` dict: it just may be empty.
+
+And there is no need to check if it's empty before trying to loop through it.
+
+.. code-block:: python
+
+    if self.attributes != {}:
+        for key, value in self.attributes.items():
+            self.atts += ' {}="{}"'.format(key, value)
+
+no need for ``!= {}`` -- an empty dict is "Falsey"
+
+**but** no need for that check at all. If the dict (or ist, or tuple) is
+empty, then the loop is a do-nothing operation:
+
+* notes on Duck Typing: :ref:`exercise_html_renderer` and  code review
 
 ==========
 Properties
@@ -106,7 +181,8 @@ means: make a property called x with this as the "getter".
 
 means: make the "setter" of the 'x' property this new function
 
-.. nextslide:: "Read Only" Attributes
+"Read Only" Attributes
+----------------------
 
 You do not need to define a setter. If you don't, you get a "read only" attribute:
 
@@ -130,7 +206,7 @@ You do not need to define a setter. If you don't, you get a "read only" attribut
     ----> 1 d.x = 6
     AttributeError: can't set attribute
 
-deleters
+Deleters
 ---------
 
 If you want to do something special when a property is deleted, you can define
@@ -153,7 +229,7 @@ what you want.
 
 .. rst-class:: centered
 
-[demo: :download:`properties_example.py <../../Examples/Session07/properties_example.py>`]
+[demo: :download:`properties_example.py <../../Examples/Session08/properties_example.py>`]
 
 
 ===
@@ -195,7 +271,7 @@ A *static method* is a method that doesn't get self:
 
 .. code-block:: ipython
 
-    In [36]: class StaticAdder(object):
+    In [36]: class StaticAdder:
 
        ....:     @staticmethod
        ....:     def add(a, b):
@@ -225,7 +301,7 @@ A *static method* is a method that doesn't get self:
 
     .. code-block:: python
 
-        class TarInfo(object):
+        class TarInfo:
             # ...
             @staticmethod
             def _create_payload(payload):
@@ -246,7 +322,7 @@ argument
 
 .. code-block:: ipython
 
-    In [41]: class Classy(object):
+    In [41]: class Classy:
        ....:     x = 2
        ....:     @classmethod
        ....:     def a_class_method(cls, y):
@@ -377,12 +453,6 @@ Most classes should at lest have these special methods:
   Called by the str() built-in function and by the print function to compute
   the *informal* string representation of an object.
 
-``object.__unicode__``:
-  Called by the unicode() built-in function.  This converts an object to an
-  *informal* unicode representation.
-
-  (more on Unicode later....)
-
 ``object.__repr__``:
   Called by the repr() built-in function and by string conversions (reverse
   quotes) to compute the *official* string representation of an object.
@@ -486,72 +556,8 @@ Steps 5-8 of:
 :ref:`exercise_circle_class`
 
 
-========
-Homework
-========
-
-Complete your html renderer.
-
-Complete the Circle class
-
-Decide what you are going to do for your proejct, and send me a simple proposal.
 
 
-.. rst-class:: large centered
-
-The tools of Pythonicity
-
-
-================
-Review/Questions
-================
-
-Review of Previous Class
-------------------------
-
-* Advanced OO Concepts
-
-  * Properties
-  * Special Methods
-
-Homework review
----------------
-
-* Circle Class
-* Writing Tests using the ``pytest`` module
-
-Lightning Talks Today:
------------------------
-
-.. rst-class:: medium
-
-Alireza Hashemloo
-
-Arielle R Simmons
-
-Eric W Westman
-
-Ryan J Albright
-
-Personal Project
------------------
-
-The bulk of the homework for the rest of the class will be a personal project:
-
-* It can be for fun, or something you need for your job.
-* It should be large enough to take a few weeks homework time to do.
-* It should demostrate that you can do something useful with python.
-* It should follow PEP8 (https://www.python.org/dev/peps/pep-0008)
-* It should have unit tests!
-* Ideally, it will be in version control (gitHub)
-* I don't require an specific python features (i.e. classes): use
-  what is appropriate for your project
-
-* Due the Friday after the last class (December 11)
-
-|
-|  By next week, send me a project proposal: can be short and sweet.
-|
 
 
 =========================
@@ -633,7 +639,7 @@ code "calls" an instance of your class:
 
 .. code-block:: python
 
-    class Callable(object):
+    class Callable:
         def __init__(self, .....)
             some_initilization
         def __call__(self, some_parameters)
@@ -840,7 +846,7 @@ A simple version of ``xrange()``
 
 .. code-block:: python
 
-    class IterateMe_1(object):
+    class IterateMe_1:
         def __init__(self, stop=5):
             self.current = 0
             self.stop = stop
@@ -958,17 +964,6 @@ Make the SparseArray class from the previous lab an iterator, so you can do:
     for i in my_sparse_array:
         do_something_with(i)
 
-
-Lightning Talks
-----------------
-
-.. rst-class:: medium
-
-|
-| Eric W Westman
-|
-| Ryan J Albright
-|
 
 
 
@@ -1127,6 +1122,15 @@ Prime numbers:
 
 Others to try:
   Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...
+
+
+========
+Homework
+========
+
+Complete the Circle class
+
+Decide what you are going to do for your proejct, and send me a simple proposal.
 
 
 ========
