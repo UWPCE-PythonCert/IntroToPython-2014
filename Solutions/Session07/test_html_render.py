@@ -4,23 +4,23 @@
 unit tests for html rendering code
 """
 
-from cStringIO import StringIO
+from io import StringIO
 
 import html_render as hr
 
 
-## utility function for tests:
+# # utility function for tests:
 def render_element(element, ind=""):
     """
     call the render method of an element and return the results as a string
     """
     f = StringIO()
     element.render(f, ind)
-    f.reset()
+    f.seek(0)
     output = f.read()
-    return output # we don't care about leading/trailing whitespace
+    return output
 
-## these should all pass with my framework code.
+# these should all pass with my framework code.
 
 
 def test_init():
@@ -42,7 +42,7 @@ def test_element_content():
     hr.Element("some content")
 
 
-## these should pass after part 1
+# these should pass after part 1
 
 
 def test_render_content1():
@@ -67,7 +67,7 @@ def test_render_content2():
     assert output.endswith('</html>\n')
     assert "this is some content" in output
     assert "and this is some more" in output
-    print output
+    print(output)
 
 
 def test_render_content_indent():
@@ -77,11 +77,11 @@ def test_render_content_indent():
 
     output = render_element(e)
     lines = output.split('\n')
-    print lines
-    assert lines[1].startswith("    ")
+    print(lines)
+    assert(lines[1].startswith("    "))
 
 
-## this one no longer currect with step 8 added
+# this one no longer currect with step 8 added
 # def test_render_html():
 #     """ the html element """
 
@@ -105,7 +105,7 @@ def test_render_body():
 
     output = render_element(e)
 
-    print output
+    print(output)
     assert output.startswith('<body>')
     assert output.endswith('</body>\n')
     assert "this is some content" in output
@@ -116,7 +116,7 @@ def test_render_p_indent():
     p = hr.P("a simple paragraph")
     output = render_element(p, "        ")
 
-    print output
+    print(output)
     lines = output.split('\n')
 
     assert lines[0].startswith("        ")
@@ -133,7 +133,8 @@ def test_render_sub_elements():
 
     output = render_element(e)
 
-    print output
+    print(output)
+
     lines = output.split('\n')
     lines[0].startswith('<html>')
     lines[1].startswith('    ')
@@ -146,7 +147,7 @@ def test_one_line_tag():
     e = hr.OneLineTag('something')
     output = render_element(e, ind="    ")
 
-    print output
+    print(output)
 
     assert output == "    <html>something</html>\n"
 
@@ -156,11 +157,27 @@ def test_attributes():
 
     output = render_element(e, ind="    ")
 
-    print output
+    print(output)
 
     lines = output.split('\n')
     assert 'id="TheList"' in lines[0]
     assert 'style="line-height:200%"' in lines[0]
+
+
+def test_meta1():
+    # should defalut to charset = UTF-8
+    m = hr.Meta()
+    output = render_element(m)
+    print(output)
+    assert 'charset="UTF-8"' in output
+
+
+def test_meta2():
+    # should be abel to override charset
+    m = hr.Meta(charset="ascii")
+    output = render_element(m)
+    print(output)
+    assert 'charset="ascii"' in output
 
 
 def test_attributes_one_line():
@@ -168,7 +185,7 @@ def test_attributes_one_line():
 
     output = render_element(e, ind="    ")
 
-    print output
+    print(output)
 
     lines = output.split('\n')
     assert 'id="TheList"' in lines[0]
@@ -179,7 +196,7 @@ def test_self_closing():
     e = hr.Hr()
     output = render_element(e, ind="    ")
 
-    print output
+    print(output)
     assert output == "    <hr />\n"
 
 
@@ -187,8 +204,11 @@ def test_self_closing_attr():
     e = hr.Hr(id='fred', style='box')
     output = render_element(e, ind="    ")
 
-    print output
-    assert output == '    <hr style="box" id="fred" />\n'
+    print(output)
+    assert output.strip().startswith("<hr ")
+    assert output.strip().endswith("/>")
+    assert 'style="box"' in output
+    assert 'id="fred"' in output
 
 
 def test_anchor():
@@ -196,7 +216,7 @@ def test_anchor():
 
     output = render_element(e, ind="    ")
 
-    print output
+    print(output)
     assert output == '    <a href="http://google.com">link to google</a>\n'
 
 
@@ -205,7 +225,7 @@ def test_header():
 
     output = render_element(e, ind="    ")
 
-    print output
+    print(output)
     assert output == '    <h2>The text of the header</h2>\n'
 
 
@@ -214,7 +234,7 @@ def test_header3():
 
     output = render_element(e, ind="    ")
 
-    print output
+    print(output)
     assert output == '    <h3>The text of the header</h3>\n'
 
 
@@ -225,10 +245,9 @@ def test_doctype():
 
     e = hr.Html("Just a tiny bit of content")
 
-    output = render_element( e )
+    output = render_element(e)
 
-    print output
+    print(output)
     assert output.startswith("<!DOCTYPE html>")
     assert "<html>" in output
     assert output.endswith("</html>\n")
-

@@ -7,7 +7,7 @@ html render code
 
 class Element(object):
 
-    tag = 'html'
+    tag = 'html'  # shouldn't really be usable without properly subclassing
     indent = '    '
 
     def __init__(self, content=None, **attributes):
@@ -22,22 +22,19 @@ class Element(object):
         self.content.append(content)
 
     def render_tag(self, current_ind):
-        attrs = "".join([' {}="{}"'.format(key,val) for key, val in self.attributes.items()])
+        attrs = "".join([' {}="{}"'.format(key, val) for key, val in self.attributes.items()])
         tag_str = "{}<{}{}>".format(current_ind, self.tag, attrs)
         return tag_str
 
     def render(self, file_out, current_ind=""):
         file_out.write(self.render_tag(current_ind))
         file_out.write('\n')
-        #print "in render:"
-        #print self.content
         for con in self.content:
-            #print "trying to render:", con
             try:
-                file_out.write( current_ind + self.indent + con+"\n")
+                file_out.write(current_ind + self.indent + con+"\n")
             except TypeError:
                 con.render(file_out, current_ind+self.indent)
-        file_out.write("{}</{}>\n".format(current_ind,self.tag))
+        file_out.write("{}</{}>\n".format(current_ind, self.tag))
 
 
 class OneLineTag(Element):
@@ -58,12 +55,23 @@ class SelfClosingTag(Element):
         file_out.write(" />\n")
 
 
+class Meta(SelfClosingTag):
+    tag = "meta"
+
+    def __init__(self, content=None, **attributes):
+        # give it a default value for charset
+        if "charset" not in attributes:
+            attributes['charset'] = "UTF-8"
+        SelfClosingTag.__init__(self, content, **attributes)
+
+
 class Hr(SelfClosingTag):
     tag = 'hr'
 
 
 class A(OneLineTag):
     tag = 'a'
+
     def __init__(self, link, content=None, **attributes):
         OneLineTag.__init__(self, content, **attributes)
         self.attributes["href"] = link
@@ -72,9 +80,7 @@ class A(OneLineTag):
 class H(OneLineTag):
     def __init__(self, level, content=None, **attributes):
         OneLineTag.__init__(self, content, **attributes)
-        self.tag = "h%i"%(level)
-
-# H(2, "The text of the header")
+        self.tag = "h{:d}".format(level)
 
 
 class Ul(Element):
@@ -87,6 +93,7 @@ class Li(Element):
 
 class Html(Element):
     tag = 'html'
+
     def render(self, file_out, current_ind=""):
         file_out.write("<!DOCTYPE html>\n")
         Element.render(self, file_out, current_ind=current_ind)
@@ -102,5 +109,3 @@ class P(Element):
 
 class Head(Element):
     tag = 'head'
-
-
