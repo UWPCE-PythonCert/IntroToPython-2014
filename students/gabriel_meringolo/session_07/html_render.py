@@ -79,6 +79,10 @@ class P(Element):
 class Html(Element):
     tag = "html"
 
+    def render(self, f, ind="    "):
+        f.write("<!DOCTYPE {}>\n".format(self.tag))
+        Element.render(self, f, ind="    ")
+
 
 class Head(Element):
     tag = "head"
