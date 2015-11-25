@@ -16,14 +16,11 @@ class Element:
 
     def render(self, f, ind=" "):
         start_tag = ("\n{:>}<{}".format((ind * self.indent), self.tag))
-        if self.kwargs:
-            f.write(start_tag)
-            for k, v in self.kwargs.items():
-                attribute = '{}="{}"'.format(k, v)
-                f.write(" " + attribute)
-            f.write(">\n")
-        else:
-            f.write(start_tag + ">\n")
+        f.write(start_tag)
+        for k, v in self.kwargs.items():
+            attribute = '{}="{}"'.format(k, v)
+            f.write(" " + attribute)
+        f.write(">\n")
         for element in self.content:
             try:
                 element.render(f)
@@ -87,14 +84,11 @@ class Link(Element):
 
     def render(self, f, ind=" "):
         start_tag = '<{} href="{}"'.format(self.tag, self.link)
-        if self.kwargs:
-            f.write(start_tag)
-            for k, v in self.kwargs.items():
-                attribute = '{}="{}"'.format(k, v)
-                f.write(" " + attribute)
-            f.write(">")
-        else:
-            f.write(start_tag + ">")
+        f.write(start_tag)
+        for k, v in self.kwargs.items():
+            attribute = '{}="{}"'.format(k, v)
+            f.write(" " + attribute)
+        f.write(">")
         for element in self.content:
             try:
                 element.render(f)
@@ -130,14 +124,11 @@ class OneLineTag(Element):
 
     def render(self, f, ind=" "):
         start_tag = ("\n{}<{}".format((ind * self.indent), self.tag))
-        if self.kwargs:
-            f.write(start_tag)
-            for k, v in self.kwargs.items():
-                attribute = '{}="{}"'.format(k, v)
-                f.write(" " + attribute)
-            f.write(">")
-        else:
-            f.write(start_tag + ">")
+        f.write(start_tag)
+        for k, v in self.kwargs.items():
+            attribute = '{}="{}"'.format(k, v)
+            f.write(" " + attribute)
+        f.write(">")
         for element in self.content:
             try:
                 element.render(f)
@@ -164,14 +155,11 @@ class Header(OneLineTag):
     def render(self, f, ind=" "):
         start_tag = '{}<{}{:d}'.format(
             (ind * self.indent), self.tag, self.level)
-        if self.kwargs:
-            f.write(start_tag)
-            for k, v in self.kwargs.items():
-                attribute = '{}="{}"'.format(k, v)
-                f.write(" " + attribute)
-            f.write(">")
-        else:
-            f.write(start_tag + ">")
+        f.write(start_tag)
+        for k, v in self.kwargs.items():
+            attribute = '{}="{}"'.format(k, v)
+            f.write(" " + attribute)
+        f.write(">")
         for element in self.content:
             try:
                 element.render(f)
@@ -195,14 +183,11 @@ class SelfClosingTag(Element):
 
     def render(self, f, ind=" "):
         start_tag = ("\n{}<{}".format((ind * self.indent), self.tag))
-        if self.kwargs:
-            f.write(start_tag)
-            for k, v in self.kwargs.items():
-                attribute = '{}="{}"'.format(k, v)
-                f.write(" " + attribute)
-            f.write(" />")
-        else:
-            f.write(start_tag + " />")
+        f.write(start_tag)
+        for k, v in self.kwargs.items():
+            attribute = '{}="{}"'.format(k, v)
+            f.write(" " + attribute)
+        f.write(" />")
 
 
 class HRule(SelfClosingTag):
@@ -232,11 +217,9 @@ class Meta(SelfClosingTag):
 
     def render(self, f, ind=" "):
         start_tag = '{}<{} charset="{}"'.format((ind * self.indent), self.tag, self.charset)
-        if self.kwargs:
-            f.write(start_tag)
-            for k, v in self.kwargs.items():
-                attribute = '{}="{}"'.format(k, v)
-                f.write(" " + attribute)
-            f.write(" />")
-        else:
-            f.write(start_tag + " />")
+        f.write(start_tag)
+        for k, v in self.kwargs.items():
+            attribute = '{}="{}"'.format(k, v)
+            f.write(" " + attribute)
+        f.write(" />")
+
