@@ -1,6 +1,6 @@
-*****************************
-Session Ten: Unicode, Wrap Up
-*****************************
+*******************************************************
+Session Ten: Decorators and Context Managers -- Wrap Up
+*******************************************************
 
 =====================
 Web Development Class
@@ -36,558 +36,16 @@ Due Dec Friday, Dec 11th, 11:59pm PST
 
 Push to github or email them to me.
 
-Lightning Talks Today
----------------------
+======================
+Lightning Talks Today:
+======================
 
 .. rst-class:: medium
 
-  | The folks that have not done it yet.
-  |
-  | Someone
-  |
+    Austin Scara
 
-========
-Unicode
-========
+    Marty Pitts
 
-.. rst-class:: left
-
-    I hope you all read this:
-
-    The Absolute Minimum Every Software Developer Absolutely,
-    Positively Must Know About Unicode and Character Sets (No Excuses!)
-
-    http://www.joelonsoftware.com/articles/Unicode.html
-
-    If not -- go read it!
-
-Fact number 1:
---------------
-
-.. rst-class:: centered medium
-
-    Everything is made up of bytes
-
-If it's on disk or transmitted over a network, it's bytes
-
-Python provides some abstractions to make it easier to deal with bytes
-
-Unicode is a biggie
-
-Actually, dealing with numbers rather than bytes is big -- but we take that for granted
-
-
-What the heck is Unicode anyway?
----------------------------------
-
-* First there was chaos...
-
-  * Different machines used different encodings
-
-* Then there was ASCII -- and all was good (7 bit), 127 characters
-
-  * (for English speakers, anyway)
-
-* But each vendor used the top half (127-255) for different things.
-
-  * macroman, Windows 1252, etc...
-
-  * There is now "latin-1", but still a lot of old files around
-
-* Non Western-European languages required totally incompatible 1-byte
-  encodings
-
-* No way to mix languages with different alphabets.
-
-Fact number 2:
---------------
-
-.. rst-class:: centered medium
-
-    The world needs more than 255 charactors.
-
-.. rst-class:: centered
-
-  Hello, world!   •   Здравствуй, мир!
-
-  Բարեւ, աշխարհի!   •   !مرحبا ، العالم
-
-  !שלום, עולם   •   여보세요 세계!
-
-  नमस्ते, दुनिया!   •   你好，世界！
-
-
-Enter Unicode
---------------
-
-The Unicode idea is pretty simple:
-
-  * one "code point" for all characters in all languages
-
-But how do you express that in bytes?
-  * Early days: we can fit all the code points in a two byte integer (65536 characters)
-
-  * Turns out that didn't work -- we now need 32 bit integer to hold all of unicode
-    "raw" (UTC-4) -- well we dopnt need that many, but common machines don't have
-    24 bit integers.
-
-Enter "encodings":
-  * An encoding is a way to map specific bytes to a code point.
-
-  * Each code point can have one or more bytes.
-
-
-=========
-Mechanics
-=========
-
-What are strings?
------------------
-
-Py2 strings are sequences of bytes
-
-Unicode strings are sequences of platonic characters
-
-It's almost one code point per character -- but there are complications
-with combined characters: accents, etc. (we can ignore those most of the time)
-
-Platonic characters cannot be written to disk or network!
-
-(ANSI: one character == one byte -- so easy!)
-
-
-str vs unicode
--------------------
-
-Python 2 has two types that let you work with text:
-
-* ``str``
-
-* ``unicode``
-
-And two ways to work with binary data:
-
-* ``str``
-
-* ``bytes()``  (and ``bytearray``)
-
-**but:**
-
-.. code-block:: ipython
-
-   In [86]: str is bytes
-   Out[86]: True
-
-``bytes`` is there for py3 compatibility -- but it's good for making your
-intentions clear, too.
-
-
-Unicode
---------
-
-The ``unicode`` object lets you work with characters
-
-It has all the same methods as the string object.
-
-"encoding" is converting from a unicode object to bytes
-
-"decoding" is converting from bytes to a unicode object
-
-(sometimes this feels backwards...)
-
-Using unicode in Py2
----------------------
-
-Built in functions
-
-.. code-block:: python
-
-  ord()
-  chr()
-  unichr()
-  str()
-  unicode()
-
-The codecs module
-
-.. code-block:: python
-
-  import codecs
-  codecs.encode()
-  codecs.decode()
-  codecs.open() # better to use ``io.open``
-
-
-Encoding and Decoding
-----------------------
-
-Encoding
-
-.. code-block:: ipython
-
-  In [17]: u"this".encode('utf-8')
-  Out[17]: 'this'
-
-  In [18]: u"this".encode('utf-16')
-  Out[18]: '\xff\xfet\x00h\x00i\x00s\x00'
-
-Decoding
-
-.. code-block:: ipython
-
-    In [99]: print '\xff\xfe."+"x\x00\xb2\x00'.decode('utf-16')
-    ∮∫x²
-
-
-
-Unicode Literals
-------------------
-
-1) Use unicode in your source files:
-
-.. code-block:: python
-
-    # -*- coding: utf-8 -*-
-
-2) escape the unicode characters:
-
-.. code-block:: python
-
-  print u"The integral sign: \u222B"
-  print u"The integral sign: \N{integral}"
-
-Lots of tables of code points online:
-
-One example:
-  http://inamidst.com/stuff/unidata/
-
-:download:`hello_unicode.py  <../../Examples/Session10/hello_unicode.py>`.
-
-
-Using Unicode
---------------
-
-Use ``unicode`` objects in all your code
-
-Decode on input
-
-Encode on output
-
-Many packages do this for you: *XML processing, databases, ...*
-
-**Gotcha:**
-
-Python has a default encoding (usually ascii)
-
-.. code-block:: ipython
-
-  In [2]: sys.getdefaultencoding()
-  Out[2]: 'ascii'
-
-The default encoding will get used in unexpected places!
-
-Using unicode everywhere
--------------------------
-
-Python 2.6 and above have a nice feature to make it easier to use unicode everywhere
-
-.. code-block:: python
-
-    from __future__ import unicode_literals
-
-After running that line, the ``u''`` is assumed
-
-.. code-block:: ipython
-
-    In [1]: s = "this is a regular py2 string"
-    In [2]: print type(s)
-    <type 'str'>
-
-    In [3]: from __future__ import unicode_literals
-    In [4]: s = "this is now a unicode string"
-    In [5]: type(s)
-    Out[5]: unicode
-
-NOTE: You can still get py2 strings from other sources!
-
-
-Encodings
-----------
-
-What encoding should I use???
-
-There are a lot:
-
-http://en.wikipedia.org/wiki/Comparison_of_Unicode_encodings
-
-But only a couple you are likely to need:
-
-* utf-8  (``*nix``)
-* utf-16  (Windows)
-
-And of course, still the one-bytes ones.
-
-* ASCII
-* Latin-1
-
-UTF-8
--------
-
-Probably the one you'll use most -- most common in Internet protocols (xml, JSON, etc.)
-
-Nice properties:
-
-* ASCII compatible: first 127 characters are the same
-
-* Any ascii string is a utf-8 string
-
-* compact for mostly-english text.
-
-Gotchas:
-
-* "higher" code points may use more than one byte: up to 4 for one character
-
-* ASCII compatible means in may work with default encoding in tests -- but then blow up with real data...
-
-UTF-16
---------
-
-Kind of like UTF-8, except it uses at least 16bits (2 bytes) for each character: not ASCII compatible.
-
-But it still needs more than two bytes for some code points, so you still can't assume two byte per character.
-
-In C/C++ held in a "wide char" or "wide string".
-
-MS Windows uses UTF-16, as does (I think) Java.
-
-UTF-16 criticism
------------------
-
-There is a lot of criticism on the net about UTF-16 -- it's kind of the worst of both worlds:
-
-* You can't assume every character is the same number of bytes
-* It takes up more memory than UTF-8
-
-`UTF-16 Considered Harmful <http://programmers.stackexchange.com/questions/102205/should-utf-16-be-considered-harmful>`_
-
-But to be fair:
-
-Early versions of Unicode: everything fit into two bytes (65536 code points).
-
-MS and Java were fairly early adopters, and it seemed simple enough to just use 2 bytes per character.
-
-When it turned out that 4 bytes were really needed, they were kind of stuck in the middle.
-
-Latin-1
---------
-
-**NOT Unicode**:
-
-a 1-byte per char encoding.
-
-* Superset of ASCII suitable for Western European languages.
-
-* The most common one-byte per char encoding for European text.
-
-* Nice property -- every byte value from 0 to 255 is a valid character ( at least in Python )
-
-.. nextslide::
-
-* You will never get an UnicodeDecodeError if you try to decode arbitrary bytes with latin-1.
-
-* And it can "round-trip" through a unicode object.
-
-* Useful if you don't know the encoding -- at least it won't raise an Exception
-
-* Useful if you need to work with combined text+binary data.
-
-:download:`latin1_test.py  <../../Examples/Session10/latin1_test.py>`.
-
-
-Unicode Docs
---------------
-
-Python Docs Unicode HowTo:
-
-http://docs.python.org/howto/unicode.html
-
-"Reading Unicode from a file is therefore simple"
-
-.. code-block:: python
-
-  import io
-  f = io.open('hello_unicode.py', encoding='utf-8')
-  for line in f:
-      print repr(line)
-
-
-Encodings Built-in to Python:
-  http://docs.python.org/2/library/codecs.html#standard-encodings
-
-
-Gotchas in Python 2
---------------------
-
-file names, etc:
-
-If you pass in unicode, you get unicode
-
-.. code-block:: ipython
-
-  In [9]: os.listdir('./')
-  Out[9]: ['hello_unicode.py', 'text.utf16', 'text.utf32']
-
-  In [10]: os.listdir(u'./')
-  Out[10]: [u'hello_unicode.py', u'text.utf16', u'text.utf32']
-
-Python deals with the file system encoding for you...
-
-But: some more obscure calls don't support unicode filenames:
-
-``os.statvfs()`` (http://bugs.python.org/issue18695)
-
-
-.. nextslide::
-
-Exception messages:
-
- * Py2 Exceptions use str when they print messages.
-
- * But what if you pass in a unicode object?
-
-   * It is encoded with the default encoding.
-
- * ``UnicodeDecodeError`` Inside an Exception????
-
- NOPE: it swallows it instead.
-
-:download:`unicode_exception_test.py  <../../Examples/Session10/unicode_exception_test.py>`.
-
-Unicode in Python 3
-----------------------
-
-The "string" object is unicode.
-
-Py3 has two distinct concepts:
-
-* "text" -- uses the str object (which is always unicode!)
-* "binary data" -- uses bytes or bytearray
-
-Everything that's about text is unicode.
-
-Everything that requires binary data uses bytes.
-
-It's all much cleaner.
-
-(by the way, the recent implementations are very efficient...)
-
-
-=================
-Basic Unicode LAB
-=================
-
-.. rst-class left
-
-* Find some nifty non-ascii characters you might use.
-
-  - Create a unicode object with them in two different ways.
-  - :download:`here  <../../Examples/Session10/hello_unicode.py>` is one example
-
-* Read the contents into unicode objects:
-
- - :download:`ICanEatGlass.utf8.txt <../../Examples/Session10/ICanEatGlass.utf8.txt>`
- - :download:`ICanEatGlass.utf16.txt <../../Examples/Session10/ICanEatGlass.utf16.txt>`
-
-and/ or
-
- - :download:`text.utf8 <../../Examples/Session10/text.utf8>`
- - :download:`text.utf16 <../../Examples/Session10/text.utf16>`
- - :download:`text.utf32 <../../Examples/Session10/text.utf32>`
-
-* write some of the text from the first exercise to file -- read that
-  file back in.
-
-.. nextslide:: Some Help
-
-.. rst-class:: left
-
-Reference: http://inamidst.com/stuff/unidata/
-
-NOTE: if your terminal does not support unicode -- you'll get an error trying
-to print. Try a different terminal or IDE, or google for a solution.
-
-Challenge Unicode LAB
-----------------------
-
-We saw this earlier
-
-.. code-block:: ipython
-
-  In [38]: u'to \N{INFINITY} and beyond!'.decode('utf-8')
-  ---------------------------------------------------------------------------
-  UnicodeEncodeError                        Traceback (most recent call last)
-  <ipython-input-38-7f87d44dfcfa> in <module>()
-  ----> 1 u'to \N{INFINITY} and beyond!'.decode('utf-8')
-
-  /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.pyc in decode(input, errors)
-       14
-       15 def decode(input, errors='strict'):
-  ---> 16     return codecs.utf_8_decode(input, errors, True)
-       17
-       18 class IncrementalEncoder(codecs.IncrementalEncoder):
-
-  UnicodeEncodeError: 'ascii' codec can't encode character u'\u221e' in position 3: ordinal not in range(128)
-
-.. nextslide::
-
-But why would you **decode** a unicode object?
-
-And it should be a no-op -- why the exception?
-
-And why 'ascii'? I specified 'utf-8'!
-
-It's there for backward compatibility
-
-What's happening under the hood:
-
-.. code-block:: python
-
-    u'to \N{INFINITY} and beyond!'.encode().decode('utf-8')
-
-It encodes with the default encoding (ascii), then decodes
-
-In this case, it barfs on attempting to encode to 'ascii'
-
-.. nextslide::
-
-So never call decode on a unicode object!
-
-But what if someone passes one into a function of yours that's expecting
-a py2 string?
-
-Type checking and converting -- yeach!
-
-Read:
-
-http://axialcorps.com/2014/03/20/unicode-str/
-
-See if you can figure out the decorators:
-
-:download:`unicodify.py  <../../Examples/Session10/unicodify.py>`.
-
-
-(This is advanced Python JuJu: Aren't you glad I didn't ask you to write
-that yourself?)
-
-Lightning Talks
------------------
-.. rst-class:: medium
-
-|
-| more...
-|
-|
-|
 
 ============
 Code Review?
@@ -598,4 +56,745 @@ Code Review?
   Options:
 
     1) Look at someone's code.
+
+    2) look at some of my code.
+
+
+==========
+Decorators
+==========
+
+**A Short Reminder**
+
+.. rst-class:: left
+.. container::
+
+    Functions are things that generate values based on input (arguments).
+
+    In Python, functions are first-class objects.
+
+    This means that you can bind symbols to them, pass them around, just like
+    other objects.
+
+    Because of this fact, you can write functions that take functions as
+    arguments and/or return functions as values:
+
+    .. code-block:: python
+
+        def substitute(a_function):
+            def new_function(*args, **kwargs):
+                return "I'm not that other function"
+            return new_function
+
+A Definition
+------------
+
+There are many things you can do with a simple pattern like this one.
+So many, that we give it a special name:
+
+.. rst-class:: centered medium
+
+**Decorator**
+
+.. rst-class:: build centered
+.. container::
+
+    "A decorator is a function that takes a function as an argument and
+    returns a function as a return value.""
+
+    That's nice and all, but why is that useful?
+
+An Example
+----------
+
+Imagine you are trying to debug a module with a number of functions like this
+one:
+
+.. code-block:: python
+
+    def add(a, b):
+        return a + b
+
+.. rst-class:: build
+.. container::
+
+    You want to see when each function is called, with what arguments and
+    with what result. So you rewrite each function as follows:
+
+    .. code-block:: python
+
+        def add(a, b):
+            print "Function 'add' called with args: %r, %r"%(a, b)
+            result = a + b
+            print "\tResult --> %r" % result
+            return result
+
+.. nextslide::
+
+That's not particularly nice, especially if you have lots of functions
+in your module.
+
+Now imagine we defined the following, more generic *decorator*:
+
+.. code-block:: python
+
+    def logged_func(func):
+        def logged(*args, **kwargs):
+            print "Function %r called" % func.__name__
+            if args:
+                print "\twith args: %r" % args
+            if kwargs:
+                print "\twith kwargs: %r" % kwargs
+            result = func(*args, **kwargs)
+            print "\t Result --> %r" % result
+            return result
+        return logged
+
+.. nextslide::
+
+We could then make logging versions of our module functions:
+
+.. code-block:: python
+
+    logging_add = logged_func(add)
+
+Then, where we want to see the results, we can use the logged version:
+
+.. code-block:: ipython
+
+    In [37]: logging_add(3, 4)
+    Function 'add' called
+        with args: (3, 4)
+         Result --> 7
+    Out[37]: 7
+
+.. rst-class:: build
+.. container::
+
+    This is nice, but we have to call the new function wherever we originally
+    had the old one.
+
+    It'd be nicer if we could just call the old function and have it log.
+
+.. nextslide::
+
+Remembering that you can easily rebind symbols in Python using *assignment
+statements* leads you to this form:
+
+.. code-block:: python
+
+    def logged_func(func):
+        # implemented above
+
+    def add(a, b):
+        return a + b
+    add = logged_func(add)
+
+.. rst-class:: build
+.. container::
+
+    And now you can simply use the code you've already written and calls to
+    ``add`` will be logged:
+
+    .. code-block:: ipython
+
+        In [41]: add(3, 4)
+        Function 'add' called
+            with args: (3, 4)
+             Result --> 7
+        Out[41]: 7
+
+Syntax
+------
+
+Rebinding the name of a function to the result of calling a decorator on that
+function is called **decoration**.
+
+Because this is so common, Python provides a special operator to perform it
+more *declaratively*: the ``@`` operator:
+
+(I told you I'd eventually explain what was going on under the hood
+with that wierd `@` symbol)
+
+.. code-block:: python
+
+    # this is the imperative version:
+    def add(a, b):
+        return a + b
+    add = logged_func(add)
+
+    # and this declarative form is exactly equal:
+    @logged_func
+    def add(a, b):
+        return a + b
+
+.. rst-class:: build
+.. container::
+
+    The declarative form (called a decorator expression) is far more common,
+    but both have the identical result, and can be used interchangeably.
+
+Callables
+---------
+
+Our original definition of a *decorator* was nice and simple, but a tiny bit
+incomplete.
+
+In reality, decorators can be used with anything that is *callable*.
+
+Remember from last week, a *callable* is a function, a method on a class,
+or a class that implements the ``__call__`` special method.
+
+So in fact the definition should be updated as follows:
+
+.. rst-class:: centered
+
+A decorator is a callable that takes a callable as an argument and
+returns a callable as a return value.
+
+An Example
+----------
+
+Consider a decorator that would save the results of calling an expensive
+function with given arguments:
+
+.. code-block:: python
+
+    class Memoize:
+    """
+    memoize decorator from avinash.vora
+    http://avinashv.net/2008/04/python-decorators-syntactic-sugar/
+    """
+    def __init__(self, function):  # runs when memoize class is called
+        self.function = function
+        self.memoized = {}
+
+    def __call__(self, *args):  # runs when memoize instance is called
+        try:
+            return self.memoized[args]
+        except KeyError:
+            self.memoized[args] = self.function(*args)
+            return self.memoized[args]
+
+.. nextslide::
+
+Let's try that out with a potentially expensive function:
+
+.. code-block:: ipython
+
+    In [56]: @Memoize
+       ....: def sum2x(n):
+       ....:     return sum(2 * i for i in xrange(n))
+       ....:
+
+    In [57]: sum2x(10000000)
+    Out[57]: 99999990000000
+
+    In [58]: sum2x(10000000)
+    Out[58]: 99999990000000
+
+It's nice to see that in action, but what if we want to know *exactly* how much
+difference it made?
+
+Nested Decorators
+-----------------
+
+You can stack decorator expressions.  The result is like calling each decorator
+in order, from bottom to top:
+
+.. code-block:: python
+
+    @decorator_two
+    @decorator_one
+    def func(x):
+        pass
+
+    # is exactly equal to:
+    def func(x):
+        pass
+    func = decorator_two(decorator_one(func))
+
+.. nextslide::
+
+Let's define another decorator that will time how long a given call takes:
+
+.. code-block:: python
+
+    import time
+    def timed_func(func):
+        def timed(*args, **kwargs):
+            start = time.time()
+            result = func(*args, **kwargs)
+            elapsed = time.time() - start
+            print "time expired: %s" % elapsed
+            return result
+        return timed
+
+.. nextslide::
+
+And now we can use this new decorator stacked along with our memoizing
+decorator:
+
+.. code-block:: ipython
+
+    In [71]: @timed_func
+       ....: @Memoize
+       ....: def sum2x(n):
+       ....:     return sum(2 * i for i in xrange(n))
+    In [72]: sum2x(10000000)
+    time expired: 0.997071027756
+    Out[72]: 99999990000000
+    In [73]: sum2x(10000000)
+    time expired: 4.05311584473e-06
+    Out[73]: 99999990000000
+
+
+Examples from the Standard Library
+----------------------------------
+
+It's going to be a lot more common for you to use pre-defined decorators than
+for you to be writing your own.
+
+We've seen a few already:
+
+.. nextslide::
+
+For example, ``@staticmethod`` and ``@classmethod`` can also be used as simple
+callables, without the nifty decorator expression:
+
+.. code-block:: python
+
+    # the way we saw last week:
+    class C(object):
+        @staticmethod
+        def add(a, b):
+            return a + b
+
+Is exactly the same as:
+
+.. code-block:: python
+
+    class C(object):
+        def add(a, b):
+            return a + b
+        add = staticmethod(add)
+
+Note that the "``def``" binds the name ``add``, then the next line
+rebinds it.
+
+
+.. nextslide::
+
+The ``classmethod()`` builtin can do the same thing:
+
+.. code-block:: python
+
+    # in declarative style
+    class C(object):
+        @classmethod
+        def from_iterable(cls, seq):
+            # method body
+
+    # in imperative style:
+    class C(object):
+        def from_iterable(cls, seq):
+            # method body
+        from_iterable = classmethod(from_iterable)
+
+
+property()
+-----------
+
+Remember the property() built in?
+
+Perhaps most commonly, you'll see the ``property()`` builtin used this way.
+
+Last week we saw this code:
+
+.. code-block:: python
+
+    class C(object):
+        def __init__(self):
+            self._x = None
+        @property
+        def x(self):
+            return self._x
+        @x.setter
+        def x(self, value):
+            self._x = value
+        @x.deleter
+        def x(self):
+            del self._x
+
+.. nextslide::
+
+But this could also be accomplished like so:
+
+.. code-block:: python
+
+    class C(object):
+        def __init__(self):
+            self._x = None
+        def getx(self):
+            return self._x
+        def setx(self, value):
+            self._x = value
+        def delx(self):
+            del self._x
+        x = property(getx, setx, delx,
+                     "I'm the 'x' property.")
+
+.. nextslide::
+
+Note that in this case, the decorator object returned by the property decorator
+itself implements additional decorators as attributes on the returned method
+object. So you could actually do this:
+
+
+
+.. code-block:: python
+
+    class C(object):
+        def __init__(self):
+            self._x = None
+        def x(self):
+            return self._x
+        x = property(x)
+        def _set_x(self, value):
+            self._x = value
+        x = x.setter(_set_x)
+        def _del_x(self):
+            del self._x
+        x = x.deleter(_del_x)
+
+But that's getting really ugly!
+
+LAB
+----
+
+**p_wrapper Decorator**
+
+Write a simple decorator you can apply to a function that returns a string.
+
+Decorating such a function should result in the original output, wrapped by an
+HTML 'p' tag:
+
+.. code-block:: ipython
+
+    In [4]: @p_wrapper
+       ...: def return_a_string(string):
+       ...:     return string
+       ...:
+
+    In [5]: return_a_string("this is a string")
+    Out[5]: '<p> this is a string </p>'
+
+simple test code in
+:download:`Examples/Session09/test_p_wrapper.py <../../Examples/Session09/test_p_wrapper.py>`
+
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+|  Lou Ascoli
+|
+|  Ralph  Brand
+|
+
+
+=================
+Context Managers
+=================
+
+**A Short Digression**
+
+.. rst-class:: left build
+.. container::
+
+    Repetition in code stinks (DRY!)
+
+    A large source of repetition in code deals with the handling of external
+    resources.
+
+    As an example, how many times do you think you might type the following
+    code:
+
+    .. code-block:: python
+
+        file_handle = open('filename.txt', 'r')
+        file_content = file_handle.read()
+        file_handle.close()
+        # do some stuff with the contents
+
+    What happens if you forget to call ``.close()``?
+
+    What happens if reading the file raises an exception?
+
+
+Resource Handling
+-----------------
+
+Leaving an open file handle laying around is bad enough. What if the resource
+is a network connection, or a database cursor?
+
+You can write more robust code for handling your resources:
+
+.. code-block:: python
+
+    try:
+        file_handle = open('filename.txt', 'r')
+        file_content = file_handle.read()
+    finally:
+        file_handle.close()
+    # do something with file_content here
+
+But what exceptions do you want to catch?  And do you really want to have to
+remember to type all that **every** time you open a resource?
+
+.. nextslide:: It Gets Better
+
+Starting in version 2.5, Python provides a structure for reducing the
+repetition needed to handle resources like this.
+
+.. rst-class:: centered
+
+**Context Managers**
+
+You can encapsulate the setup, error handling and teardown of resources in a
+few simple steps.
+
+The key is to use the ``with`` statement.
+
+.. nextslide:: ``with`` a little help
+
+Since the introduction of the ``with`` statement in `pep343`_, the above six
+lines of defensive code have been replaced with this simple form:
+
+.. code-block:: python
+
+    with open('filename', 'r') as file_handle:
+        file_content = file_handle.read()
+    # do something with file_content
+
+``open`` builtin is defined as a *context manager*.
+
+The resource it returnes (``file_handle``) is automatically and reliably closed
+when the code block ends.
+
+.. _pep343: http://legacy.python.org/dev/peps/pep-0343/
+
+.. nextslide:: A Growing Trend
+
+At this point in Python history, many functions you might expect to behave this
+way do:
+
+* ``open`` and ``io.open`` both work as context managers.
+  (``io.open`` is good for working with unicode)
+* networks connections via ``socket`` do as well.
+* most implementations of database wrappers can open connections or cursors as
+  context managers.
+* ...
+
+* But what if you are working with a library that doesn't support this
+  (``urllib``)?
+
+.. nextslide:: Close It Automatically
+
+There are a couple of ways you can go.
+
+If the resource in questions has a ``.close()`` method, then you can simply use
+the ``closing`` context manager from ``contextlib`` to handle the issue:
+
+.. code-block:: python
+
+    import urllib
+    from contextlib import closing
+
+    with closing(urllib.urlopen('http://google.com')) as web_connection:
+        # do something with the open resource
+    # and here, it will be closed automatically
+
+But what if the thing doesn't have a ``close()`` method, or you're creating
+the thing and it shouldn't have a close() method?
+
+Do It Yourself
+----------------
+
+You can also define a context manager of your own.
+
+The interface is simple.  It must be a class that implements two
+more of the nifty python *special methods*
+
+**__enter__(self)**  Called when the ``with`` statement is run, it should return something to work with in the created context.
+
+**__exit__(self, e_type, e_val, e_traceback)**  Clean-up that needs to happen is implemented here.
+
+The arguments will be the exception raised in the context.
+
+If the exception will be handled here, return True. If not, return False.
+
+Let's see this in action to get a sense of what happens.
+
+An Example
+----------
+
+Consider this code:
+
+.. code-block:: python
+
+    class Context(object):
+    """from Doug Hellmann, PyMOTW
+    http://pymotw.com/2/contextlib/#module-contextlib
+    """
+    def __init__(self, handle_error):
+        print '__init__(%s)' % handle_error
+        self.handle_error = handle_error
+    def __enter__(self):
+        print '__enter__()'
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print '__exit__(%r, %r, %r)' % (exc_type, exc_val, exc_tb)
+        return self.handle_error
+
+:download:`Examples/Session09/context_managers.py <../../Examples/Session09/context_managers.py>`
+
+
+.. nextslide::
+
+This class doesn't do much of anything, but playing with it can help
+clarify the order in which things happen:
+
+.. code-block:: ipython
+
+    In [46]: with Context(True) as foo:
+       ....:     print 'This is in the context'
+       ....:     raise RuntimeError('this is the error message')
+    __init__(True)
+    __enter__()
+    This is in the context
+    __exit__(<type 'exceptions.RuntimeError'>, this is the error message, <traceback object at 0x1049cca28>)
+
+.. rst-class:: build
+.. container::
+
+    Because the exit method returns True, the raised error is 'handled'.
+
+.. nextslide::
+
+What if we try with ``False``?
+
+.. code-block:: ipython
+
+    In [47]: with Context(False) as foo:
+       ....:     print 'This is in the context'
+       ....:     raise RuntimeError('this is the error message')
+    __init__(False)
+    __enter__()
+    This is in the context
+    __exit__(<type 'exceptions.RuntimeError'>, this is the error message, <traceback object at 0x1049ccb90>)
+    ---------------------------------------------------------------------------
+    RuntimeError                              Traceback (most recent call last)
+    <ipython-input-47-de2c0c873dfc> in <module>()
+          1 with Context(False) as foo:
+          2     print 'This is in the context'
+    ----> 3     raise RuntimeError('this is the error message')
+          4
+    RuntimeError: this is the error message
+
+.. nextslide:: ``contextmanager`` decorator
+
+``contextlib.contextmanager`` turns generator functions into context managers.
+Consider this code:
+
+.. code-block:: python
+
+    from contextlib import contextmanager
+
+    @contextmanager
+    def context(boolean):
+        print "__init__ code here"
+        try:
+            print "__enter__ code goes here"
+            yield object()
+        except Exception as e:
+            print "errors handled here"
+            if not boolean:
+                raise
+        finally:
+            print "__exit__ cleanup goes here"
+
+.. nextslide::
+
+The code is similar to the class defined previously.
+
+And using it has similar results.  We can handle errors:
+
+.. code-block:: ipython
+
+    In [50]: with context(True):
+       ....:     print "in the context"
+       ....:     raise RuntimeError("error raised")
+    __init__ code here
+    __enter__ code goes here
+    in the context
+    errors handled here
+    __exit__ cleanup goes here
+
+.. nextslide::
+
+Or, we can allow them to propagate:
+
+.. code-block:: ipython
+
+    In [51]: with context(False):
+       ....: print "in the context"
+       ....: raise RuntimeError("error raised")
+    __init__ code here
+    __enter__ code goes here
+    in the context
+    errors handled here
+    __exit__ cleanup goes here
+    ---------------------------------------------------------------------------
+    RuntimeError                              Traceback (most recent call last)
+    <ipython-input-51-641528ffa695> in <module>()
+          1 with context(False):
+          2     print "in the context"
+    ----> 3     raise RuntimeError("error raised")
+          4
+    RuntimeError: error raised
+
+
+LAB
+----
+**Timing Context Manager**
+
+Create a context manager that will print the elapsed time taken to
+run all the code inside the context:
+
+.. code-block:: ipython
+
+    In [3]: with Timer() as t:
+       ...:     for i in range(100000):
+       ...:         i = i ** 20
+       ...:
+    this code took 0.206805 seconds
+
+**Extra Credit**: allow the ``Timer`` context manager to take a file-like
+object as an argument (the default should be sys.stdout). The results of the
+timing should be printed to the file-like object.
+
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+|
+|
+|
+|
 

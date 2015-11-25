@@ -1,3 +1,4 @@
+======================
 Supplemental Materials
 ======================
 
@@ -14,3 +15,4 @@ Supplemental Materials
     git_overview
     install_nano_win
     unicode
+    packaging
