@@ -13,11 +13,8 @@ class Element:
         self.content.append(content)
 
     def render(self, f, ind="    "):
-        if self.attributes != {}:
-            for key, value in self.attributes.items():
-                self.atts += ' {}="{}"'.format(key, value)
-        else:
-            self.atts = ""
+        for key, value in self.attributes.items():
+            self.atts += ' {}="{}"'.format(key, value)
         start_tag = "<{}{}>".format(self.tag, self.atts)
         f.write(start_tag + "\n")
         for el in self.content:
@@ -55,11 +52,8 @@ class OneLineTag(Element):
 class SelfClosingTag(Element):
 
     def render(self, f, ind="    "):
-        if self.attributes != {}:
-            for key, value in self.attributes.items():
-                self.atts += ' {}="{}"'.format(key, value)
-        else:
-            self.atts = ""
+        for key, value in self.attributes.items():
+            self.atts += ' {}="{}"'.format(key, value)
         for el in self.content:
             try:
                 el.render(f)
@@ -118,8 +112,3 @@ class Hr(SelfClosingTag):
 
 class Br(SelfClosingTag):
     tag = "br"
-
-
-
-
-
