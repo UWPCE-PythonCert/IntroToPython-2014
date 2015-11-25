@@ -2,10 +2,6 @@
 Session Eight: More OO: Properties, Special methods.
 **************************************************************************
 
-.. rst-class:: large centered
-
-The tools of Pythonicity
-
 
 ================
 Review/Questions
@@ -77,6 +73,8 @@ no need for ``!= {}`` -- an empty dict is "Falsey"
 empty, then the loop is a do-nothing operation:
 
 * notes on Duck Typing: :ref:`exercise_html_renderer` and  code review
+
+* anyone stuck that wants to work through your code?
 
 ==========
 Properties
@@ -250,6 +248,7 @@ Lightning talks:
   Robert Ryan Leslie
 
   Ryan Morin
+
 
 ========================
 Static and Class Methods
@@ -436,11 +435,9 @@ Special Methods
 .. rst-class:: left
 .. container::
 
-    Special methods (also called *magic* methods) are the secret sauce to Python's
-    Duck typing.
+    Special methods (also called *magic* methods) are the secret sauce to Python's Duck typing.
 
-    Defining the appropriate special methods in your classes is how you make your
-    class act like standard classes.
+    Defining the appropriate special methods in your classes is how you make your class act like standard classes.
 
 What's in a Name?
 -----------------
@@ -541,7 +538,6 @@ implement ``__add__``:
 [a more complete example may be seen :download:`here <../../Examples/Session08/vector.py>`]
 
 
-
 .. nextslide:: Summary
 
 Use special methods when you want your class to act like a "standard" class in
@@ -563,10 +559,6 @@ Let's complete our nifty Circle class:
 Steps 5-8 of:
 
 :ref:`exercise_circle_class`
-
-
-
-
 
 
 =========================
@@ -742,44 +734,25 @@ Write a class for a quadratic equation.
 Sparse Array:
 -------------
 
-Write a class for a sparse array
+Write a class for a sparse array:
 
-* Internally, it can store the values in a dict, with the index as the keys)
+:ref:`exercise_sparse_array`
 
-* It should take a sequence of values as an initializer
-
-* you should be able to tell how long it is: ``len(my_array)``
-
-* It should support getting and setting particular elements via indexing.
-
-* It should support deleting an element by index.
-
-* It should raise an ``IndexError`` if you try to access an index beyond the end.
-
-* Can you make it support slicing?
-
-* How else can you  make it like a list?
-
-.. code-block:: ipython
-
-    In [10]: my_array = SparseArray( (1,0,0,0,2,0,0,0,5) )
-    In [11]: my_array[4]
-    Out[11]: 2
-    In [12]: my_array[2]
-    Out[12]: 0
 
 ========
 Homework
 ========
 
-Complete the Circle class
+.. rst-class:: left
 
-Complete the sparse array class
+  Complete the Circle class
 
-Decide what you are going to do for your project, and send me a simple proposal. Get started if you can.
+  Complete the Sparse Array class
 
-Good book:
+  Decide what you are going to do for your project, and send me a simple proposal. Get started if you can.
 
-Python 3 Object Oriented Programming: *Dusty Phillips*
+  Good book:
 
-Dusty is a local boy and co-founder of PuPPy
+  Python 3 Object Oriented Programming: *Dusty Phillips*
+
+  (Dusty is a local boy and co-founder of PuPPy)
