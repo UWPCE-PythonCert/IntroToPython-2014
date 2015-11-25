@@ -65,3 +65,5 @@ Session 8:
     :maxdepth: 1
 
     circle_class
+
+    sparse_array

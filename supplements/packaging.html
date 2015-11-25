@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Packages and Packaging &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
+        <link rel="up" title="Supplemental Materials" href="index.html"/>
+        <link rel="prev" title="Unicode in Python 2" href="unicode.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Exercises</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_overview.html">git Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Packages and Packaging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules-and-packages">Modules and Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Modules and Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-python">Installing Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Installing Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distributions">Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-packages">Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-packages">Finding Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-state-of-packaging">Current State of Packaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiled-packages">Compiled Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-recommendations">Final Recommendations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtualenv">virtualenv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#distributing">Distributing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Distributing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts">Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distutils">distutils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distutils-basics">distutils basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">distutils basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wheels">wheels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-complex-packaging">More complex packaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#develop-mode">develop mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bundles">Bundles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lab">LAB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
+      
+    <li>Packages and Packaging</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/supplements/packaging.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="packages-and-packaging">
+<h1>Packages and Packaging<a class="headerlink" href="#packages-and-packaging" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modules-and-packages">
+<h2>Modules and Packages<a class="headerlink" href="#modules-and-packages" title="Permalink to this headline">¶</a></h2>
+<p>A module is a file (<code class="docutils literal"><span class="pre">something.py</span></code>) with python code in it</p>
+<p>A package is a directory with an <code class="docutils literal"><span class="pre">__init__.py</span></code>  file in it</p>
+<p>And usually other modules, packages, etc...</p>
+<div class="highlight-python"><div class="highlight"><pre>my_package
+    __init__.py
+    module_a.py
+    module_b.py
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">my_package</span>
+</pre></div>
+</div>
+<p>runs the code <code class="docutils literal"><span class="pre">my_package/__init__.py</span></code> (if there is any)</p>
+</div>
+<div class="section" id="id1">
+<h2>Modules and Packages<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">p</span>
+</pre></div>
+</div>
+<p>(demo)</p>
+</div>
+<div class="section" id="installing-python">
+<h2>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h2>
+<p>Linux:</p>
+<p>Usually part of the system &#8211; just use it.</p>
+<p>Windows:</p>
+<p>Use the python.org version:</p>
+<ul class="simple">
+<li>System Wide</li>
+<li>Can install multiple versions if need be</li>
+<li>Third party binaries for it.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Installing Python<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>OS-X:</p>
+<p>Comes with the system, but:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Apple has never upgraded within a release</li>
+<li>There are non-open source components</li>
+<li>Third party packages may or may not support it</li>
+<li>Apple does use it &#8211; so don&#8217;t mess with it</li>
+<li>I usually recommend the <code class="docutils literal"><span class="pre">python.org</span></code> version</li>
+</ul>
+</div></blockquote>
+<p>(Also Macports, Fink, Home Brew...)</p>
+</div>
+<div class="section" id="distributions">
+<h2>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h2>
+<p>There are also a few &#8220;curated&#8221; distributions:</p>
+<p>These provide python and a package management system for hard-to-buid packages.</p>
+<p>Widely used by the scipy community
+(lots of hard to build stuff that needs to work together...)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Anaconda (<a class="reference external" href="https://store.continuum.io/cshop/anaconda/">https://store.continuum.io/cshop/anaconda/</a>)</li>
+<li>Canopy (<a class="reference external" href="https://www.enthought.com/products/canopy/">https://www.enthought.com/products/canopy/</a>)</li>
+<li>ActivePython (<a class="reference external" href="http://www.activestate.com/activepython">http://www.activestate.com/activepython</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="installing-packages">
+<h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h2>
+<p>Every Python installation has its own stdlib and <code class="docutils literal"><span class="pre">site-packages</span></code> folder</p>
+<p><code class="docutils literal"><span class="pre">site-packages</span></code>  is the default place for third-party packages</p>
+</div>
+<div class="section" id="finding-packages">
+<h2>Finding Packages<a class="headerlink" href="#finding-packages" title="Permalink to this headline">¶</a></h2>
+<p>The Python Package Index:</p>
+<p><strong>PyPi</strong></p>
+<p><a class="reference external" href="http://pypi.python.org/pypi">http://pypi.python.org/pypi</a></p>
+</div>
+<div class="section" id="id3">
+<h2>Installing Packages<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p class="medium"><strong>From source</strong></p>
+<ul class="simple">
+<li>(<code class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></code> )</li>
+<li>With the system installer (apt-get, yum, etc...)</li>
+</ul>
+<p class="medium"><strong>From binaries:</strong></p>
+<ul class="simple">
+<li>Windows: MSI installers</li>
+<li>OS-X: dmg installers (make sure to get compatible packages)</li>
+<li>And now: binary wheels &#8211; (More and more of those available)</li>
+<li><code class="docutils literal"><span class="pre">pip</span></code> should find appropriate binary wheels if they are there.</li>
+</ul>
+<p>In the beginning, there was the <code class="docutils literal"><span class="pre">distutils</span></code>:</p>
+<p>But <code class="docutils literal"><span class="pre">distutils</span></code>  is missing some key features:</p>
+<ul class="simple">
+<li>package versioning</li>
+<li>package discovery</li>
+<li>auto-install</li>
+</ul>
+<ul class="simple">
+<li>And then came <code class="docutils literal"><span class="pre">PyPi</span></code></li>
+<li>And then came <code class="docutils literal"><span class="pre">setuptools</span></code></li>
+<li>But that wasn&#8217;t well maintained...</li>
+<li>Then there was <code class="docutils literal"><span class="pre">distribute/pip</span></code></li>
+<li>Which has now been merged back into <code class="docutils literal"><span class="pre">setuptools</span></code></li>
+</ul>
+<p>Now it&#8217;s pretty stable: pip+setuptools: use them.</p>
+</div>
+<div class="section" id="id4">
+<h2>Installing Packages<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Actually, it&#8217;s still a bit of a mess</p>
+<p>But getting better, and the mess is <em>almost</em> cleaned up.</p>
+</div>
+<div class="section" id="current-state-of-packaging">
+<h2>Current State of Packaging<a class="headerlink" href="#current-state-of-packaging" title="Permalink to this headline">¶</a></h2>
+<p>To build packages: distutils</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/2/distutils/">http://docs.python.org/2/distutils/</a></li>
+</ul>
+</div></blockquote>
+<p>For more features: setuptools</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://pythonhosted.org/setuptools/">https://pythonhosted.org/setuptools/</a></li>
+</ul>
+</div></blockquote>
+<p>To install packages: pip</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">https://pip.pypa.io/en/latest/installing.html</a></li>
+</ul>
+</div></blockquote>
+<p>For binary packages: wheels</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://www.python.org/dev/peps/pep-0427/">http://www.python.org/dev/peps/pep-0427/</a></li>
+</ul>
+</div></blockquote>
+<p>(installable by pip)</p>
+</div>
+<div class="section" id="compiled-packages">
+<h2>Compiled Packages<a class="headerlink" href="#compiled-packages" title="Permalink to this headline">¶</a></h2>
+<p>Biggest issue is with compiled extensions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>(C/C++, Fortran, etc.)</li>
+<li>You need the right compiler set up</li>
+</ul>
+</div></blockquote>
+<p>Dependencies:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Here&#8217;s were it gets really ugly</li>
+<li>Particularly on Windows</li>
+</ul>
+</div></blockquote>
+<p><strong>Linux</strong></p>
+<p>Pretty straightforward:</p>
+<ol class="arabic simple">
+<li>Is there a system package?</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>use it (apt-get install the_package)</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">Try <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code>: it may just work!</p>
+</li>
+<li><p class="first">Install the dependencies, build from source:</p>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py build
+
+python setup.py install
+</pre></div>
+</div>
+</li>
+</ol>
+<p>(may need &#8220;something-devel&#8221; packages)</p>
+<p><strong>Windows</strong></p>
+<p>Sometimes simpler:</p>
+<ol class="arabic simple">
+<li>A lot of packages have Windows binaries:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Usually for python.org builds</li>
+<li>Excellent source: <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a></li>
+<li>Make sure you get 32 or 64 bit consistent</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>But if no binaries:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Hope the dependencies are available!</li>
+<li>Set up the compiler</li>
+</ul>
+</div></blockquote>
+<p>MS now has a compiler just for python!</p>
+<p><a class="reference external" href="http://www.microsoft.com/en-us/download/details.aspx?id=44266">http://www.microsoft.com/en-us/download/details.aspx?id=44266</a></p>
+<p><strong>OS-X</strong></p>
+<dl class="docutils">
+<dt>Lots of Python versions:</dt>
+<dd><ul class="first last simple">
+<li>Apple&#8217;s built-in (different for each version of OS)</li>
+<li>python.org builds</li>
+<li>32+64 bit Intel (and even PPC still kicking around)</li>
+<li>Macports</li>
+<li>Homebrew</li>
+</ul>
+</dd>
+</dl>
+<p>Binary Installers (dmg or wheel) have to match python version</p>
+<p><strong>OS-X</strong></p>
+<p>If you have to build it yourself</p>
+<p>Xcode compiler (the right version)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Version 3.* for 32 bit PPC+Intel</li>
+<li>Version &gt; 4.* for 32+64 bit Intel</li>
+</ul>
+</div></blockquote>
+<p>(make sure to get the SDKs for older versions)</p>
+<p>If extra dependencies:</p>
+<blockquote>
+<div><ul class="simple">
+<li>macports or homebrew often easiest way to build them</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="final-recommendations">
+<h2>Final Recommendations<a class="headerlink" href="#final-recommendations" title="Permalink to this headline">¶</a></h2>
+<p>First try: <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code></p>
+<p>If that doesn&#8217;t work:</p>
+<p>Read the docs of the package you want to install</p>
+<p>Do what they say</p>
+<p>(Or use Anaconda or Canopy)</p>
+</div>
+<div class="section" id="virtualenv">
+<h2>virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">virtualenv</span></code> is a tool to create isolated Python environments.</p>
+<p>Very useful for developing multiple apps</p>
+<p>Or deploying more than one app on one system</p>
+<p><a class="reference external" href="http://www.virtualenv.org/en/latest/index.html">http://www.virtualenv.org/en/latest/index.html</a>}</p>
+<p>Remember the notes from the beginning of class? <a class="reference internal" href="virtualenv.html#virtualenv-section"><span>Working with Virtualenv</span></a></p>
+<p>(Cris will probably make you do this next class)</p>
+</div>
+</div>
+<div class="section" id="distributing">
+<h1>Distributing<a class="headerlink" href="#distributing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h2>Distributing<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>What if you need to distribute you own:</p>
+<p>Scripts</p>
+<p>Libraries</p>
+<p>Applications</p>
+</div>
+<div class="section" id="scripts">
+<h2>Scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h2>
+<p>Often you can just copy, share, or check in the script to source
+control and call it good.</p>
+<p>But only if it&#8217;s a single file, and doesn&#8217;t need anything non-standard</p>
+<p>When the script needs more than just the stdlib</p>
+<p>(or your company standard environment)</p>
+<p>You have an application, not a script</p>
+</div>
+<div class="section" id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
+<p>When you read the distutils docs, it&#8217;s usually libraries they&#8217;re talking about</p>
+<p>Scripts + library is the same...</p>
+<p>(<a class="reference external" href="http://docs.python.org/distutils/">http://docs.python.org/distutils/</a>)</p>
+</div>
+<div class="section" id="distutils">
+<h2>distutils<a class="headerlink" href="#distutils" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">distutils</span></code>  makes it easy to do the easy stuff:</p>
+<p>Distribute and install to multiple platforms, etc.</p>
+<p>Even binaries, installers and compiled packages</p>
+<p>(Except dependencies)</p>
+<p>(<a class="reference external" href="http://docs.python.org/distutils/">http://docs.python.org/distutils/</a>)</p>
+</div>
+<div class="section" id="distutils-basics">
+<h2>distutils basics<a class="headerlink" href="#distutils-basics" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s all in the <code class="docutils literal"><span class="pre">setup.py</span> <span class="pre">file</span></code>:</p>
+<p>(<a class="reference external" href="http://docs.python.org/distutils/">http://docs.python.org/distutils/</a>)</p>
+</div>
+<div class="section" id="id6">
+<h2>distutils basics<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Once your setup.py is written, you can:</p>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py ...
+build         build everything needed to install
+install       install everything from build directory
+sdist         create a source distribution
+              (tarball, zip file, etc.)
+bdist         create a built (binary) distribution
+bdist_rpm     create an RPM distribution
+bdist_wininst create an executable installer for MS Windows
+upload        upload binary package to PyPI
+</pre></div>
+</div>
+</div>
+<div class="section" id="wheels">
+<h2>wheels<a class="headerlink" href="#wheels" title="Permalink to this headline">¶</a></h2>
+<p>&#8220;wheels&#8221; are the &#8220;new&#8221; package format for python.</p>
+<p>A wheel is essentially a zip file of the entire package, ready to be
+unpacked in the right place on installation.</p>
+<p><code class="docutils literal"><span class="pre">pip</span></code> will look for wheels for OS-X and Windows on PyPi, and auto-install
+them if they exist</p>
+<p>This is particularly nice for packages with non-python dependencies.</p>
+</div>
+<div class="section" id="more-complex-packaging">
+<h2>More complex packaging<a class="headerlink" href="#more-complex-packaging" title="Permalink to this headline">¶</a></h2>
+<p>For a complex package:</p>
+<p>You want to use a well structured setup:</p>
+<p><a class="reference external" href="http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/">http://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/</a></p>
+</div>
+<div class="section" id="develop-mode">
+<h2>develop mode<a class="headerlink" href="#develop-mode" title="Permalink to this headline">¶</a></h2>
+<p>While you are developing your package, Installing it is a pain.</p>
+<p>But you want your code to be able to import, etc. as though it were installed</p>
+<p><code class="docutils literal"><span class="pre">setup.py</span> <span class="pre">develop</span></code>  installs links to your code, rather than copies
+&#8211; so it looks like it&#8217;s installed, but it&#8217;s using the original source</p>
+<p><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code></p>
+<p>You need <code class="docutils literal"><span class="pre">setuptools</span></code> and a setup.py  to use it.</p>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<p>For a complete application:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Web apps</li>
+<li>GUI apps</li>
+</ul>
+</div></blockquote>
+<p>Multiple options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Virtualenv + VCS</li>
+<li>zc.buildout ( <a class="reference external" href="http://www.buildout.org/">http://www.buildout.org/</a>}</li>
+<li>System packages (rpm, deb, ...)</li>
+<li>Bundles...</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="bundles">
+<h2>Bundles<a class="headerlink" href="#bundles" title="Permalink to this headline">¶</a></h2>
+<p>Bundles are Python + all your code + plus all the dependencies &#8211;
+all in one single &#8220;bundle&#8221;</p>
+<p>Most popular on Windows and OS-X</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">py2exe</span>
+<span class="n">py2app</span>
+<span class="n">pyinstaller</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>User doesn&#8217;t even have to know it&#8217;s python</p>
+<p>Examples:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://www.bitpim.org/">http://www.bitpim.org/</a></p>
+<p><a class="reference external" href="http://response.restoration.noaa.gov/nucos">http://response.restoration.noaa.gov/nucos</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="lab">
+<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
+<p>Write a setup.py for a script of yours</p>
+<blockquote>
+<div><ul class="simple">
+<li>Ideally, your script relies on at least one other module</li>
+<li>At a minimum, you&#8217;ll need to specify <code class="docutils literal"><span class="pre">scripts</span></code></li>
+<li>and probably <code class="docutils literal"><span class="pre">py_modules</span></code></li>
+<li>try:<ul>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build</span></code></li>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></li>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code></li>
+</ul>
+</li>
+<li>EXTRA: install <code class="docutils literal"><span class="pre">setuptools</span></code><ul>
+<li>use: <code class="docutils literal"><span class="pre">from</span> <span class="pre">setuptools</span> <span class="pre">import</span> <span class="pre">setup</span></code></li>
+<li>try: `` python setup.py develop``</li>
+</ul>
+</li>
+<li>EXTRA2: install <code class="docutils literal"><span class="pre">wheel</span></code><ul>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wheel</span></code></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>(my example: <code class="docutils literal"><span class="pre">Examples/Session09/capitalize</span></code>)</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="unicode.html" class="btn btn-neutral" title="Unicode in Python 2" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
