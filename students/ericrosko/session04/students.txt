@@ -1,0 +1,26 @@
+name: languages
+Alford, Robert Stevens: javascript php
+Bauman, Bruce: chemstation macro fortran, java
+Cardenas, Joseph: python C html CSS lisp javascript
+Cimino, Michael: C  C++ Java SQL
+Cote, Ian: bash ruby perl python
+Devlin, Kathleen: 4D
+Fogarty, Brendan: SQL
+Gusev, Andrey: perl java bash
+Jenkins, Robert: assm pascal
+Ku, Tiffany: python SQL
+Leslie, Robert Ryan: python
+Lin, Pei: SQL java R
+MacCamy, Maxwell: C C++ C# assm java
+Meringolo, Gabriel: python
+Morin, Ryan: python sql
+Ohashi, Cheryl:
+Pitts, Marty: python, similink and matlab
+Rosko, Eric: C C++
+Scara, Austin: VBA SQL
+Teale, Marc: perl bash
+Tebbetts, Masako: SQL
+Vegors, Eric Starr: bash perl
+Waddle, Michael:
+Winberry, Erica: python
+Yu, Michelle: ruby objectiveC
