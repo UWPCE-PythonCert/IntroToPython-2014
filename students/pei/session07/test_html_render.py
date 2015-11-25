@@ -2,6 +2,12 @@ from io import StringIO
 
 import html_render as hr
 
+def render_me(el):
+    f = StringIO()
+    el.render(f)
+    f.seek(0)
+    return f.read()
+
 def test_init():
     hr.Element()
 
@@ -108,5 +114,12 @@ def test_onelineTag():
     f.seek(0)
     text = f.read().strip()
     print (text)
-    assert False
+
+def test_attributes():
+    e = hr.Element(id="this", style="text-color:blue")
+    result = render_me(e)
+    print(result)
+    assert result.startswith("<html")
+    assert 'id="this"' in result
+    assert 'style="text-color:blue"' in result
 
