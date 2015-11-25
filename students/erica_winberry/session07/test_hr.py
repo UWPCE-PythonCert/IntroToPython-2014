@@ -2,6 +2,13 @@ from io import StringIO
 
 import html_render as hr
 
+# def render_an_element(element):
+#     e = hr.Element("this")
+#     f = StringIO()
+#     e.render(f)
+#     f.seek(0)
+#     return f.read()
+
 
 def test_init():
     hr.Element()

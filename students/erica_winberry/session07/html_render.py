@@ -18,17 +18,22 @@ class Element:
         start_tag = ("\n{:>}<{}".format((ind * self.indent), self.tag))
         f.write(start_tag)
         for k, v in self.kwargs.items():
-            attribute = '{}="{}"'.format(k, v)
-            f.write(" " + attribute)
+            f.write(' {}="{}"'.format(k, v))
         f.write(">\n")
         for element in self.content:
             try:
                 element.render(f)
             except AttributeError:
-                f.write("{:>}    {}".format((ind * self.indent), (str(element))))
+                f.write("{:>}    {}".format((ind * self.indent),
+                        (str(element))))
         end_tag = "\n{}</{}>".format((ind * self.indent), self.tag)
         f.write(end_tag)
 
+    def render_tag(self, ind=" "):
+        pass
+        # use to shortcut rendering tags (use in render function!)
+        # look at how Chris did this in the example as a way to get rid
+        # of repetitious code!
 
 class Body(Element):
     """Renders body (<body>) element."""
@@ -49,15 +54,15 @@ class Html(Element):
     indent = 0
     tag = "html"
 
-    def __init__(self, content=None, document_type="html"):
+    def __init__(self, content=None):
         Element.__init__(self, content=None)
-        self.document_type = document_type
         self.content = []
         if content is not None:
             self.content.append(content)
 
     def render(self, f, ind=" "):
-        start_tag = '<!DOCTYPE {}>\n<{}>'.format(self.document_type, self.tag)
+        f.write('<!DOCTYPE html>')
+        start_tag = ("\n{:>}<{}".format((ind * self.indent), self.tag))
         f.write(start_tag)
         for element in self.content:
             try:
@@ -86,8 +91,7 @@ class Link(Element):
         start_tag = '<{} href="{}"'.format(self.tag, self.link)
         f.write(start_tag)
         for k, v in self.kwargs.items():
-            attribute = '{}="{}"'.format(k, v)
-            f.write(" " + attribute)
+            f.write(' {}="{}"'.format(k, v))
         f.write(">")
         for element in self.content:
             try:
@@ -126,8 +130,7 @@ class OneLineTag(Element):
         start_tag = ("\n{}<{}".format((ind * self.indent), self.tag))
         f.write(start_tag)
         for k, v in self.kwargs.items():
-            attribute = '{}="{}"'.format(k, v)
-            f.write(" " + attribute)
+            f.write(' {}="{}"'.format(k, v))
         f.write(">")
         for element in self.content:
             try:
@@ -157,8 +160,7 @@ class Header(OneLineTag):
             (ind * self.indent), self.tag, self.level)
         f.write(start_tag)
         for k, v in self.kwargs.items():
-            attribute = '{}="{}"'.format(k, v)
-            f.write(" " + attribute)
+            f.write(' {}="{}"'.format(k, v))
         f.write(">")
         for element in self.content:
             try:
@@ -216,10 +218,10 @@ class Meta(SelfClosingTag):
         self.kwargs = kwargs
 
     def render(self, f, ind=" "):
-        start_tag = '{}<{} charset="{}"'.format((ind * self.indent), self.tag, self.charset)
+        start_tag = '{}<{} charset="{}"'.format((ind * self.indent),
+                                                self.tag, self.charset)
         f.write(start_tag)
         for k, v in self.kwargs.items():
-            attribute = '{}="{}"'.format(k, v)
-            f.write(" " + attribute)
+            f.write(' {}="{}"'.format(k, v))
         f.write(" />")
 
