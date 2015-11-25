@@ -20,6 +20,15 @@ class Circle:
         new_rad = self.radius * other
         return "Circle({})".format(new_rad)
 
+    def __eq__(self, other):
+        return self.radius == other.radius
+
+    def __gt__(self, other):
+        return self.radius > other.radius
+
+    def __lt__(self, other):
+        return self.radius < other.radius
+
     @property
     def diameter(self):
         return self.radius * 2
