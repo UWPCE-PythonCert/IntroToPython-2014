@@ -1,17 +1,38 @@
-import math
-from trapezoidal2 import trapz, line, squared, quadratic, quad_curry
+from math import isclose, pi
+import circle_lab as cl
 
 
-def test_trapz_line():
-    assert math.isclose(float((trapz(line, 1, 10))), 50.0, rel_tol=.1)
-    assert math.isclose(float((trapz(squared, 1, 10))), 333.0, rel_tol=.001)
-    assert math.isclose(float((trapz(quadratic, 1, 10, a=1, b=3, c=2))), 500.0, rel_tol=.1)
-    assert math.isclose(float((trapz(quad_curry, 1, 10, a=1, b=3, c=2))), 500.0, rel_tol=.1)
+def test_init():
+    c = cl.Circle(4)
 
 
-def test_trapz_sin():
-    assert math.isclose(trapz(math.sin, 0, 2*math.pi), 0.0, abs_tol=1e-8)
+def test_radius():
+    c = cl.Circle(4)
+    assert c.radius == 4
 
+
+def test_diameter():
+    c = cl.Circle(4)
+    assert c.diameter == 8
+
+
+def test_diameter2():
+    c = cl.Circle(4)
+    c.radius = 2
+    assert c.diameter == 4
+
+
+def test_diameter_setter():
+    c = cl.Circle(4)
+    c.diameter = 4
+    assert c.diameter == 4
+    assert c.radius == 2
+
+
+def test_area():
+    c = cl.Circle(2)
+    assert isclose.area(c.area, 12.56673, rel_tol=1e-05)
+    assert c.area == pi*4
 
 '''
 FOR REFERENCE: math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)
