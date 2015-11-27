@@ -2,14 +2,31 @@ from sparse_array import SparseArray
 
 
 def test_init():
-    assert SparseArray(1,2,3)
+    assert SparseArray(1, 2, 3)
 
 
-#def test_array():
-#    sa = SparseArray(1,2,3,4,5,0,0,8,0,0,0,0)
-#    assert sa == {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 7: 8, 'len': 12}
+def test_sparse():
+    sa = SparseArray(1, 2, 3)
+    assert sa.sparse == (1, 2, 3)
+
+
+def test_array():
+    sa = SparseArray(1, 2, 3, 0, 4, 0, 0, 0, 9)
+    assert sa.array == {0: 1, 1: 2, 2: 3, 4: 4, 8: 9}
+
+
+def test_repr():
+    sa = SparseArray(1, 2, 3, 4, 5)
+    assert repr(sa) == "SparseArray(1, 2, 3, 4, 5)"
+
+
+def test_str():
+    sa = SparseArray(1, 2, 3, 4, 5)
+    assert str(sa) == "{0: 1, 1: 2, 2: 3, 3: 4, 4: 5}"
 
 
 def test_len():
-    sa = sa = SparseArray(1,2,3,4,5,0,0,8,0,0,0,0)
-    assert len(sa) == 12
+    sa = SparseArray(1, 2, 3, 0, 4, 0, 0, 0, 9)
+    assert len(sa) == 9
+
+
