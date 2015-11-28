@@ -30,3 +30,14 @@ def test_len():
     assert len(sa) == 9
 
 
+def test_get():
+    sa = SparseArray(1, 2, 3, 4, 5)
+    assert sa[1] == 2
+
+
+def test_set():
+    sa = SparseArray(1, 2, 3, 4, 5)
+    sa[0] = 2
+    assert sa[0] == 2
+
+
