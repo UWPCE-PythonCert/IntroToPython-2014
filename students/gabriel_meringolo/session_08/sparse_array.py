@@ -19,4 +19,8 @@ class SparseArray:
     def __len__(self):
         return self.length
 
+    def __getitem__(self, item):
+        return self.array[item]
 
+    def __setitem__(self, key, value):
+        self.array[key] = value
