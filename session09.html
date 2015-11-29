@@ -94,8 +94,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#iterators-and-generators">Iterators and Generators</a><ul>
+<<<<<<< HEAD
 <li class="toctree-l3"><a class="reference internal" href="#iterators-and-iterables">Iterators and Iterables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#iterables">Iterables</a></li>
+=======
+<li class="toctree-l3"><a class="reference internal" href="#iterators">Iterators</a></li>
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 <li class="toctree-l3"><a class="reference internal" href="#the-iterator-protocol">The Iterator Protocol</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list-as-an-iterator">List as an Iterator:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#making-an-iterator">Making an Iterator</a></li>
@@ -181,6 +185,7 @@
 <div class="section" id="iterators-and-generators">
 <h2>Iterators and Generators<a class="headerlink" href="#iterators-and-generators" title="Permalink to this headline">¶</a></h2>
 <p class="medium">What goes on in those for loops?</p>
+<<<<<<< HEAD
 <div class="section" id="iterators-and-iterables">
 <h3>Iterators and Iterables<a class="headerlink" href="#iterators-and-iterables" title="Permalink to this headline">¶</a></h3>
 <p>Iteration is one of the main reasons Python code is so readable:</p>
@@ -224,10 +229,37 @@ not all sequences are iterators. To make a sequence an iterator, you can call it
 raises the <code class="docutils literal"><span class="pre">StopIteration</span></code> exception.</p>
 <p>The iter function will make any iterable an iterator. It first looks for the __iter__
 method, and if none is found, uses get_item to create the iterator.</p>
+=======
+<div class="section" id="iterators">
+<h3>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h3>
+<p>Iterators are one of the main reasons Python code is so readable:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">just_about_anything</span><span class="p">:</span>
+    <span class="n">do_stuff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It does not have to be a &#8220;sequence&#8221;: list, tuple, etc.</p>
+<p>Rather: you can loop through anything that satisfies the &#8220;iterator protocol&#8221;</p>
+<p><a class="reference external" href="http://docs.python.org/library/stdtypes.html#iterator-types">http://docs.python.org/library/stdtypes.html#iterator-types</a></p>
+</div>
+<div class="section" id="the-iterator-protocol">
+<h3>The Iterator Protocol<a class="headerlink" href="#the-iterator-protocol" title="Permalink to this headline">¶</a></h3>
+<p>An iterator must have the following methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">an_iterator</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns the iterator object itself. This is required to allow both containers
+and iterators to be used with the <code class="docutils literal"><span class="pre">for</span></code> and <code class="docutils literal"><span class="pre">in</span></code> statements.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">an_iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns the next item from the container. If there are no further items,
+raises the <code class="docutils literal"><span class="pre">StopIteration</span></code> exception.</p>
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 </div>
 <div class="section" id="list-as-an-iterator">
 <h3>List as an Iterator:<a class="headerlink" href="#list-as-an-iterator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<<<<<<< HEAD
 
 <span class="gp">In [11]: </span><span class="n">list_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
 
@@ -241,11 +273,27 @@ method, and if none is found, uses get_item to create the iterator.</p>
 <span class="gh">Out[14]: </span><span class="go">3</span>
 
 <span class="gp">In [15]: </span><span class="nb">next</span><span class="p">(</span><span class="n">list_iter</span><span class="p">)</span>
+=======
+
+<span class="gp">In [11]: </span><span class="n">list_iter</span> <span class="o">=</span> <span class="n">a_list</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
+
+<span class="gp">In [12]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gh">Out[12]: </span><span class="go">1</span>
+
+<span class="gp">In [13]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gh">Out[13]: </span><span class="go">2</span>
+
+<span class="gp">In [14]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gh">Out[14]: </span><span class="go">3</span>
+
+<span class="gp">In [15]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 <span class="gt">--------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g-Whitespace">     </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-15-1a7db9b70878&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="ne">StopIteration</span>:
+<<<<<<< HEAD
 </pre></div>
 </div>
 </div>
@@ -268,6 +316,30 @@ method, and if none is found, uses get_item to create the iterator.</p>
 </div>
 <p>(demo: <a class="reference download internal" href="_downloads/iterator_1.py"><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a>)</p>
 </div>
+=======
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-an-iterator">
+<h3>Making an Iterator<a class="headerlink" href="#making-an-iterator" title="Permalink to this headline">¶</a></h3>
+<p>A simple version of <code class="docutils literal"><span class="pre">xrange()</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">IterateMe_1</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+</pre></div>
+</div>
+<p>(demo: <a class="reference download internal" href="_downloads/iterator_1.py"><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a>)</p>
+</div>
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 <div class="section" id="iter">
 <h3><code class="docutils literal"><span class="pre">iter()</span></code><a class="headerlink" href="#iter" title="Permalink to this headline">¶</a></h3>
 <p>How do you get the iterator object (the thing with the next() method) from an &#8220;iterable&#8221;?</p>
@@ -282,6 +354,7 @@ method, and if none is found, uses get_item to create the iterator.</p>
 <span class="gh">Out[22]: </span><span class="go">&lt;tupleiterator at 0x101e01710&gt;</span>
 </pre></div>
 </div>
+<p>for an arbitrary object, <code class="docutils literal"><span class="pre">iter()</span></code> calls the <code class="docutils literal"><span class="pre">__iter__</span></code> method. But it knows about some objects (<code class="docutils literal"><span class="pre">str</span></code>, for instance) that don&#8217;t have a <code class="docutils literal"><span class="pre">__iter__</span></code> method.</p>
 </div>
 <div class="section" id="what-does-for-do">
 <h3>What does <code class="docutils literal"><span class="pre">for</span></code> do?<a class="headerlink" href="#what-does-for-do" title="Permalink to this headline">¶</a></h3>

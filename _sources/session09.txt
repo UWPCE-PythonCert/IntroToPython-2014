@@ -34,6 +34,7 @@ Review of complete sparse array class
 =========================
 Iterators and Generators
 =========================
+<<<<<<< HEAD
 
 .. rst-class:: medium
 
@@ -81,6 +82,31 @@ The Iterator Protocol
 ----------------------
 
 The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.
+=======
+
+.. rst-class:: medium
+
+    What goes on in those for loops?
+
+Iterators
+---------
+
+Iterators are one of the main reasons Python code is so readable:
+
+.. code-block:: python
+
+    for x in just_about_anything:
+        do_stuff(x)
+
+It does not have to be a "sequence": list, tuple, etc.
+
+Rather: you can loop through anything that satisfies the "iterator protocol"
+
+http://docs.python.org/library/stdtypes.html#iterator-types
+
+The Iterator Protocol
+----------------------
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 
 An iterator must have the following methods:
 
@@ -88,15 +114,30 @@ An iterator must have the following methods:
 
     an_iterator.__iter__()
 
+<<<<<<< HEAD
 Returns the iterator object itself. 
+=======
+Returns the iterator object itself. This is required to allow both containers
+and iterators to be used with the ``for`` and ``in`` statements.
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 
 .. code-block:: python
 
     an_iterator.next()
+<<<<<<< HEAD
+=======
 
 Returns the next item from the container. If there are no further items,
 raises the ``StopIteration`` exception.
 
+List as an Iterator:
+--------------------
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
+
+Returns the next item from the container. If there are no further items,
+raises the ``StopIteration`` exception.
+
+<<<<<<< HEAD
 The iter function will make any iterable an iterator. It first looks for the __iter__
 method, and if none is found, uses get_item to create the iterator.
 
@@ -119,6 +160,22 @@ List as an Iterator:
     Out[14]: 3
 
     In [15]: next(list_iter)
+=======
+    In [10]: a_list = [1,2,3]
+
+    In [11]: list_iter = a_list.__iter__()
+
+    In [12]: list_iter.next()
+    Out[12]: 1
+
+    In [13]: list_iter.next()
+    Out[13]: 2
+
+    In [14]: list_iter.next()
+    Out[14]: 3
+
+    In [15]: list_iter.next()
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
     --------------------------------------------------
     StopIteration     Traceback (most recent call last)
     <ipython-input-15-1a7db9b70878> in <module>()
@@ -165,6 +222,7 @@ The ``iter()`` function:
     In [22]: iter( ('a', 'tuple') )
     Out[22]: <tupleiterator at 0x101e01710>
 
+<<<<<<< HEAD
 
 What does ``for`` do?
 ----------------------
@@ -172,6 +230,17 @@ What does ``for`` do?
 Now that we know the iterator protocol, we can write something like a for loop:
 
 
+=======
+for an arbitrary object, ``iter()`` calls the ``__iter__`` method. But it knows about some objects (``str``, for instance) that don't have a ``__iter__`` method.
+
+
+What does ``for`` do?
+----------------------
+
+Now that we know the iterator protocol, we can write something like a for loop:
+
+
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 :download:`my_for.py <../../Examples/Session09/my_for.py>`
 
 .. code-block:: python
@@ -311,16 +380,49 @@ An example: like ``xrange()``
             i += step
 
 Real World Example from FloatCanvas:
+<<<<<<< HEAD
 
 https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100
 
+=======
+
+https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100
+
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 
 .. nextslide::
 
 Note:
+<<<<<<< HEAD
 
 .. code-block:: ipython
 
+    In [164]: gen = y_xrange(2,6)
+    In [165]: type(gen)
+    Out[165]: generator
+    In [166]: dir(gen)
+    Out[166]:
+    ...
+     '__iter__',
+    ...
+     'next',
+
+
+So the generator **is** an iterator
+
+Note: A generator function can also be a method in a class
+=======
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
+
+
+<<<<<<< HEAD
+.. More about iterators and generators:
+
+.. http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/
+
+:download:`yield_example.py <../../Examples/Session09/yield_example.py>`
+
+=======
     In [164]: gen = y_xrange(2,6)
     In [165]: type(gen)
     Out[165]: generator
@@ -343,6 +445,7 @@ Note: A generator function can also be a method in a class
 
 :download:`yield_example.py <../../Examples/Session09/yield_example.py>`
 
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 generator comprehension
 -----------------------
 
@@ -389,6 +492,7 @@ Sum of the integers:
 
 Doubler:
   Each value is double the previous value:
+<<<<<<< HEAD
 
   1, 2, 4, 8, 16, 32,
 
@@ -407,6 +511,26 @@ Prime numbers:
 Others to try:
   Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...
 
+=======
+
+  1, 2, 4, 8, 16, 32,
+
+Fibonacci sequence:
+  The fibonacci sequence as a generator:
+
+  f(n) = f(n-1) + f(n-2)
+
+  1, 1, 2, 3, 5, 8, 13, 21, 34...
+
+Prime numbers:
+  Generate the prime numbers (numbers only divisible by them self and 1):
+
+  2, 3, 5, 7, 11, 13, 17, 19, 23...
+
+Others to try:
+  Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...
+
+>>>>>>> 16f773020816ae8d7040f246b4425d3f0ccbcb20
 
 ==========
 Next Week
