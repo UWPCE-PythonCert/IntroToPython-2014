@@ -41,6 +41,18 @@ def test_from_diameter():
     assert c.diameter == 8
     assert c.radius == 4
 
+
+def test_str():
+    c = cl.Circle(4)
+    text = print(c)
+    assert "Circle with radius: 4.000000" in text
+
+
+def test_repr():
+    c = cl.Circle(4)
+    text = repr(c)
+    assert "Circle(4)" in text
+
 '''
 FOR REFERENCE: math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)
 
