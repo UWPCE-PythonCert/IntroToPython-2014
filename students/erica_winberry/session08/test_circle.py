@@ -24,15 +24,60 @@ def test_diameter2():
 
 def test_diameter_setter():
     c = cl.Circle(4)
-    c.diameter = 4
-    assert c.diameter == 4
-    assert c.radius == 2
+    c.diameter = 2
+    assert c.diameter == 2
+    assert c.radius == 1
 
 
 def test_area():
     c = cl.Circle(2)
-    assert isclose.area(c.area, 12.56673, rel_tol=1e-05)
+    print(c.area)
+    assert isclose(c.area, 12.56637, rel_tol=1e-06)
     assert c.area == pi*4
+
+
+def test_from_diameter():
+    c = cl.Circle.from_diameter(8)
+    assert c.diameter == 8
+    assert c.radius == 4
+
+
+def test_str():
+    c = cl.Circle(4)
+    text = print(c)
+    assert "Circle with radius: 4.000000" in text
+
+
+def test_repr():
+    c = cl.Circle(4)
+    text = repr(c)
+    assert "Circle(4)" in text
+
+
+def test_addition():
+    c1 = cl.Circle(2)
+    c2 = cl.Circle(4)
+    assert c1 + c2 == "Circle(6)"
+
+
+def test_multiply():
+    c1 = cl.Circle(2)
+    assert c1 * 3 == "Circle(6)"
+
+
+def test_comparisons():
+    c1 = cl.Circle(2)
+    c2 = cl.Circle(4)
+    c3 = cl.Circle(4)
+    assert c1 < c2
+    assert c2 > c1
+    assert c2 == c3
+
+
+def test_subtraction():
+    c1 = cl.Circle(2)
+    c2 = cl.Circle(4)
+    assert c2 - c1 == "Circle(2)"
 
 '''
 FOR REFERENCE: math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)
