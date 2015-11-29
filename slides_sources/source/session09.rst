@@ -128,7 +128,7 @@ List as an Iterator:
 Making an Iterator
 -------------------
 
-A simple version of ``xrange()``
+A simple version of ``range()``
 
 .. code-block:: python
 
@@ -138,7 +138,7 @@ A simple version of ``xrange()``
             self.stop = stop
         def __iter__(self):
             return self
-        def next(self):
+        def __next__(self):
             if self.current < self.stop:
                 self.current += 1
                 return self.current
@@ -186,7 +186,7 @@ Now that we know the iterator protocol, we can write something like a for loop:
         iterator = iter(an_iterable)
         while True:
             try:
-                i = iterator.next()
+                i = next(iterator)
             except StopIteration:
                 break
             func(i)

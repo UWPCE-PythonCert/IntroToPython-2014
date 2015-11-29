@@ -26,7 +26,7 @@ def my_for(an_iterable, func):
     iterator = iter(an_iterable)
     while True:
         try:
-            i = iterator.next()
+            i = next(iterator)
         except StopIteration:
             break
         func(i)
