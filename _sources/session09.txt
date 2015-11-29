@@ -39,24 +39,48 @@ Iterators and Generators
 
     What goes on in those for loops?
 
-Iterators
----------
+Iterators and Iterables
+-----------------------
 
-Iterators are one of the main reasons Python code is so readable:
+Iteration is one of the main reasons Python code is so readable:
 
 .. code-block:: python
 
     for x in just_about_anything:
         do_stuff(x)
 
-It does not have to be a "sequence": list, tuple, etc.
+It does not have to be a "sequence": list, tuple, etc. But, all sequences are iterable.
 
-Rather: you can loop through anything that satisfies the "iterator protocol"
+An iterable is anything you can loop over sequentially. All sequences are iterable, but
+not all sequences are iterators. To make a sequence an iterator, you can call it with iter:
 
-http://docs.python.org/library/stdtypes.html#iterator-types
+.. code-block:: python
+
+   my_iter = iter(my_sequence) 
+
+Demo
+
+Iterator Types:
+
+https://docs.python.org/3/library/stdtypes.html#iterator-types
+
+Iterables
+---------
+
+To make an iterable (aka sequence), you simply have to implement the __getitem__ method.
+
+.. code-block:: python
+
+    class T:
+        def __getitem__(self, position):
+	    if position > 5:
+	        raise IndexError
+	    return position
 
 The Iterator Protocol
 ----------------------
+
+The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.
 
 An iterator must have the following methods:
 
@@ -64,8 +88,7 @@ An iterator must have the following methods:
 
     an_iterator.__iter__()
 
-Returns the iterator object itself. This is required to allow both containers
-and iterators to be used with the ``for`` and ``in`` statements.
+Returns the iterator object itself. 
 
 .. code-block:: python
 
@@ -74,6 +97,9 @@ and iterators to be used with the ``for`` and ``in`` statements.
 Returns the next item from the container. If there are no further items,
 raises the ``StopIteration`` exception.
 
+The iter function will make any iterable an iterator. It first looks for the __iter__
+method, and if none is found, uses get_item to create the iterator.
+
 List as an Iterator:
 --------------------
 
@@ -81,18 +107,18 @@ List as an Iterator:
 
     In [10]: a_list = [1,2,3]
 
-    In [11]: list_iter = a_list.__iter__()
+    In [11]: list_iter = iter(a_list)
 
-    In [12]: list_iter.next()
+    In [12]: next(list_iter)
     Out[12]: 1
 
-    In [13]: list_iter.next()
+    In [13]: next(list_iter)
     Out[13]: 2
 
-    In [14]: list_iter.next()
+    In [14]: next(list_iter)
     Out[14]: 3
 
-    In [15]: list_iter.next()
+    In [15]: next(list_iter)
     --------------------------------------------------
     StopIteration     Traceback (most recent call last)
     <ipython-input-15-1a7db9b70878> in <module>()
@@ -138,8 +164,6 @@ The ``iter()`` function:
 
     In [22]: iter( ('a', 'tuple') )
     Out[22]: <tupleiterator at 0x101e01710>
-
-for an arbitrary object, ``iter()`` calls the ``__iter__`` method. But it knows about some objects (``str``, for instance) that don't have a ``__iter__`` method.
 
 
 What does ``for`` do?

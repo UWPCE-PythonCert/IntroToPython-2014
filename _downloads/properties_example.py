@@ -13,9 +13,11 @@ class C:
         self._x = None
     @property
     def x(self):
+        print("in getter")
         return self._x
     @x.setter
     def x(self, value):
+        print("in setter", value)
         self._x = value
     @x.deleter
     def x(self):

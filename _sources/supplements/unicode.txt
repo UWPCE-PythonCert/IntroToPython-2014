@@ -1,17 +1,36 @@
+Antoher verison os the Unicode discussion -- I htink there is a bit in here that we'll want to use.
 
-.. _unicode_supplement:
 
 
-===================
-Unicode in Python 2
-===================
+========
+Unicode
+========
 
-A quick run-down of Unicode, its use in Python 2, and some of the gotchas that arise.
+.. rst-class:: left
 
- - Chris Barker
+    I hope you all read this:
 
-History
-=======
+    The Absolute Minimum Every Software Developer Absolutely,
+    Positively Must Know About Unicode and Character Sets (No Excuses!)
+
+    http://www.joelonsoftware.com/articles/Unicode.html
+
+    If not -- go read it!
+
+Fact number 1:
+--------------
+
+.. rst-class:: centered medium
+
+    Everything is made up of bytes
+
+If it's on disk or transmitted over a network, it's bytes
+
+Python provides some abstractions to make it easier to deal with bytes
+
+Unicode is a biggie
+
+Actually, dealing with numbers rather than bytes is big -- but we take that for granted
 
 
 What the heck is Unicode anyway?
@@ -27,25 +46,46 @@ What the heck is Unicode anyway?
 
 * But each vendor used the top half (127-255) for different things.
 
-  * MacRoman, Windows 1252, etc... 
+  * macroman, Windows 1252, etc...
 
   * There is now "latin-1", but still a lot of old files around
 
-* Non-Western European languages required totally incompatible 1-byte encodings
+* Non Western-European languages required totally incompatible 1-byte
+  encodings
 
 * No way to mix languages with different alphabets.
+
+Fact number 2:
+--------------
+
+.. rst-class:: centered medium
+
+    The world needs more than 255 charactors.
+
+.. rst-class:: centered
+
+  Hello, world!   •   Здравствуй, мир!
+
+  Բարեւ, աշխարհի!   •   !مرحبا ، العالم
+
+  !שלום, עולם   •   여보세요 세계!
+
+  नमस्ते, दुनिया!   •   你好，世界！
 
 
 Enter Unicode
 --------------
 
 The Unicode idea is pretty simple:
-* one "code point" for all characters in all languages
+
+  * one "code point" for all characters in all languages
 
 But how do you express that in bytes?
   * Early days: we can fit all the code points in a two byte integer (65536 characters)
 
-  * Turns out that didn't work -- now need 32 bit integer to hold all of unicode "raw" (UTC-4)
+  * Turns out that didn't work -- we now need 32 bit integer to hold all of unicode
+    "raw" (UTC-4) -- well we dopnt need that many, but common machines don't have
+    24 bit integers.
 
 Enter "encodings":
   * An encoding is a way to map specific bytes to a code point.
@@ -53,31 +93,7 @@ Enter "encodings":
   * Each code point can have one or more bytes.
 
 
-Unicode
---------
-
-A good start:
-
-The Absolute Minimum Every Software Developer Absolutely,
-Positively Must Know About Unicode and Character Sets (No Excuses!)
-
-http://www.joelonsoftware.com/articles/Unicode.html
-
-
-.. nextslide::
-
-**Everything is Bytes**
-
-* If it's on disk or on a network, it's bytes
-
-* Python provides some abstractions to make it easier to deal with bytes
-
-Unicode is a biggie
-
-(actually, dealing with numbers rather than bytes is big -- but we take that
-for granted)
-
-
+=========
 Mechanics
 =========
 
@@ -89,14 +105,14 @@ Py2 strings are sequences of bytes
 Unicode strings are sequences of platonic characters
 
 It's almost one code point per character -- but there are complications
-with combined characters: accents, etc.
+with combined characters: accents, etc. (we can ignore those most of the time)
 
 Platonic characters cannot be written to disk or network!
 
 (ANSI: one character == one byte -- so easy!)
 
 
-Strings vs unicode
+str vs unicode
 -------------------
 
 Python 2 has two types that let you work with text:
@@ -118,7 +134,7 @@ And two ways to work with binary data:
    In [86]: str is bytes
    Out[86]: True
 
-``bytes`` is there for py3 compatibility - -but it's good for making your
+``bytes`` is there for py3 compatibility -- but it's good for making your
 intentions clear, too.
 
 
@@ -236,7 +252,7 @@ Python 2.6 and above have a nice feature to make it easier to use unicode everyw
     from __future__ import unicode_literals
 
 After running that line, the ``u''`` is assumed
-    
+
 .. code-block:: ipython
 
     In [1]: s = "this is a regular py2 string"
@@ -265,7 +281,7 @@ But only a couple you are likely to need:
 * utf-8  (``*nix``)
 * utf-16  (Windows)
 
-and of course, still the one-bytes ones.
+And of course, still the one-bytes ones.
 
 * ASCII
 * Latin-1
@@ -294,7 +310,7 @@ UTF-16
 
 Kind of like UTF-8, except it uses at least 16bits (2 bytes) for each character: not ASCII compatible.
 
-But is still needs more than two bytes for some code points, so you still can't process
+But it still needs more than two bytes for some code points, so you still can't assume two byte per character.
 
 In C/C++ held in a "wide char" or "wide string".
 
@@ -308,11 +324,13 @@ There is a lot of criticism on the net about UTF-16 -- it's kind of the worst of
 * You can't assume every character is the same number of bytes
 * It takes up more memory than UTF-8
 
-`UTF Considered Harmful <http://programmers.stackexchange.com/questions/102205/should-utf-16-be-considered-harmful>`_
+`UTF-16 Considered Harmful <http://programmers.stackexchange.com/questions/102205/should-utf-16-be-considered-harmful>`_
 
 But to be fair:
 
-Early versions of Unicode: everything fit into two bytes (65536 code points). MS and Java were fairly early adopters, and it seemed simple enough to just use 2 bytes per character.
+Early versions of Unicode: everything fit into two bytes (65536 code points).
+
+MS and Java were fairly early adopters, and it seemed simple enough to just use 2 bytes per character.
 
 When it turned out that 4 bytes were really needed, they were kind of stuck in the middle.
 
@@ -353,8 +371,8 @@ http://docs.python.org/howto/unicode.html
 
 .. code-block:: python
 
-  import codecs
-  f = codecs.open('unicode.rst', encoding='utf-8')
+  import io
+  f = io.open('hello_unicode.py', encoding='utf-8')
   for line in f:
       print repr(line)
 
@@ -388,9 +406,9 @@ But: some more obscure calls don't support unicode filenames:
 .. nextslide::
 
 Exception messages:
- 
+
  * Py2 Exceptions use str when they print messages.
- 
+
  * But what if you pass in a unicode object?
 
    * It is encoded with the default encoding.
@@ -399,7 +417,7 @@ Exception messages:
 
  NOPE: it swallows it instead.
 
-:download:`exception_test.py  <./exception_test.py>`.
+:download:`unicode_exception_test.py  <./unicode_exception_test.py>`.
 
 Unicode in Python 3
 ----------------------
@@ -420,11 +438,11 @@ It's all much cleaner.
 (by the way, the recent implementations are very efficient...)
 
 
-Exercises
-=========
-
+=================
 Basic Unicode LAB
--------------------
+=================
+
+.. rst-class left
 
 * Find some nifty non-ascii characters you might use.
 
@@ -442,11 +460,14 @@ and/ or
  - :download:`text.utf16 <./text.utf16>`
  - :download:`text.utf32 <./text.utf32>`
 
-* write some of the text from the first exercise to file -- read that file back in.
+* write some of the text from the first exercise to file -- read that
+  file back in.
 
 .. nextslide:: Some Help
 
-reference: http://inamidst.com/stuff/unidata/
+.. rst-class:: left
+
+Reference: http://inamidst.com/stuff/unidata/
 
 NOTE: if your terminal does not support unicode -- you'll get an error trying
 to print. Try a different terminal or IDE, or google for a solution.
@@ -465,10 +486,10 @@ We saw this earlier
   ----> 1 u'to \N{INFINITY} and beyond!'.decode('utf-8')
 
   /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/encodings/utf_8.pyc in decode(input, errors)
-       14 
+       14
        15 def decode(input, errors='strict'):
   ---> 16     return codecs.utf_8_decode(input, errors, True)
-       17 
+       17
        18 class IncrementalEncoder(codecs.IncrementalEncoder):
 
   UnicodeEncodeError: 'ascii' codec can't encode character u'\u221e' in position 3: ordinal not in range(128)
@@ -483,7 +504,7 @@ And why 'ascii'? I specified 'utf-8'!
 
 It's there for backward compatibility
 
-What's happening under the hood
+What's happening under the hood:
 
 .. code-block:: python
 
@@ -497,7 +518,8 @@ In this case, it barfs on attempting to encode to 'ascii'
 
 So never call decode on a unicode object!
 
-But what if someone passes one into a function of yours that's expecting a py2 string?
+But what if someone passes one into a function of yours that's expecting
+a py2 string?
 
 Type checking and converting -- yeach!
 
@@ -510,5 +532,6 @@ See if you can figure out the decorators:
 :download:`unicodify.py  <./unicodify.py>`.
 
 
-(This is advanced Python JuJu: Aren't you glad I didn't ask you to write that yourself?)
+(This is advanced Python JuJu: Aren't you glad I didn't ask you to write
+that yourself?)
 
