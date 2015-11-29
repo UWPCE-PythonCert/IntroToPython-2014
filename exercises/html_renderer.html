@@ -33,7 +33,7 @@
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
         <link rel="up" title="Exercises" href="index.html"/>
         <link rel="next" title="Circle Class Excercise" href="circle_class.html"/>
-        <link rel="prev" title="Kata Fourteen: Tom Swift Under Milk Wood" href="kata_fourteen.html"/> 
+        <link rel="prev" title="Trapezoidal Rule" href="trapezoid.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -86,32 +86,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: More OO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Callable classes, Iterators, Generators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercises</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents:</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="grid_printer.html">Grid Printer Exercise</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fizz_buzz.html">Fizz Buzz Exercise</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fib_and_lucas.html">Fibonacci Series Exercise</a></li>
-<li class="toctree-l3"><a class="reference internal" href="slicing.html">Slicing Lab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="list_lab.html">List Lab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="string_formatting.html">String Formatting Lab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rot13.html">ROT13</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mailroom.html">Mailroom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">HTML Renderer Exercise</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#html-renderer">HTML Renderer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#html-primer">HTML Primer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-2">Session 2:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-3">Session 3:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-4">Session 4:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-5">Session 5:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-6">Session 6:</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#session-7">Session 7:</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="">HTML Renderer Exercise</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="circle_class.html">Circle Class Excercise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-8">Session 8:</a></li>
 </ul>
 </li>
 </ul>
@@ -167,32 +162,54 @@
 <span id="exercise-html-renderer"></span><h1>HTML Renderer Exercise<a class="headerlink" href="#html-renderer-exercise" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="html-renderer">
 <h2>HTML Renderer<a class="headerlink" href="#html-renderer" title="Permalink to this headline">¶</a></h2>
+<p>Ever need to generate some HTML?</p>
+<p>And not want to write all those tags yourself?</p>
 <div class="section" id="goal">
 <h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
-<p>The goal is to create a set of classes to render html pages &#8211; in a &#8220;pretty printed&#8221; way. i.e nicely indented and human readable. We&#8217;ll try to get to all the features required to render:</p>
+<p>The goal is to create a set of classes to render html pages &#8211; in a &#8220;pretty printed&#8221; way.</p>
+<p>i.e. nicely indented and human readable.</p>
+<p>We&#8217;ll try to get to all the features required to render:</p>
 <p><a class="reference download internal" href="../_downloads/sample_html.html"><code class="xref download docutils literal"><span class="pre">sample_html.html</span></code></a></p>
+<p>Take a look at it with &#8220;view source&#8221; in your browser &#8211; or open in a text editor &#8211; it&#8217;s also in the Examples dir.</p>
+<p>If you don&#8217;t know html &#8211; just look at the example and copy that....</p>
 <p>The exercise is broken down into a number of steps &#8211; each requiring a few more OO concepts in Python.</p>
 </div>
 <div class="section" id="general-instructions">
 <h3>General Instructions:<a class="headerlink" href="#general-instructions" title="Permalink to this headline">¶</a></h3>
-<p>For each step, add the required functionality. There is example code to run your code for each step in: <code class="docutils literal"><span class="pre">code\session06\run_html_render.py</span></code></p>
-<p>name your file: <code class="docutils literal"><span class="pre">html_render.py</span></code> &#8211; so it can be imported by <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
+<p>For each step, add the required functionality. There is example code to run your code for each step in: <code class="docutils literal"><span class="pre">Examples\session07\run_html_render.py</span></code></p>
+<p>Name your file: <code class="docutils literal"><span class="pre">html_render.py</span></code> &#8211; so it can be imported by <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
 <p>You should be able to run that code at each step, uncommenting each new step in <code class="docutils literal"><span class="pre">run_html_render.py</span></code> as you go.</p>
-<p>It builds up a html tree, and then calls the <code class="docutils literal"><span class="pre">render()</span></code> method of your element to render the page.</p>
+<p>It builds up an html tree, and then calls the <code class="docutils literal"><span class="pre">render()</span></code> method of your element to render the page.</p>
 <p>It uses a <code class="docutils literal"><span class="pre">cStringIO</span></code> object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.</p>
-<p>The html generated at each step is in the files: <code class="docutils literal"><span class="pre">test_html_ouput?.html</span></code></p>
+<p>The html generated at each step will be in the files: <code class="docutils literal"><span class="pre">test_html_ouput?.html</span></code></p>
 <p>At each step, your results should look similar that those (maybe not identical...)</p>
+</div>
+<div class="section" id="unit-tests">
+<h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
+<p>Use &#8220;test driven development&#8221;:</p>
+<p>In addition to checking if the output is what you expect with the running script &#8211; you should also write unit tests as you go.</p>
+<p>Each new line of code should have a test that will run it &#8211; <em>before</em> you write that code.</p>
+<p>That is:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>write a test that exercises the next step in your process</li>
+<li>run the tests &#8211; the new test will fail</li>
+<li>write your code...</li>
+<li>run the tests. If it still fails, go back to step 3...</li>
+</ol>
+</div></blockquote>
 </div>
 <div class="section" id="step-1">
 <h3>Step 1:<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h3>
 <p>Create an <code class="docutils literal"><span class="pre">Element</span></code> class for rendering an html element (xml element).</p>
 <p>It should have class attributes for the tag name (&#8220;html&#8221; first) and the indentation (spaces to indent for pretty printing)</p>
-<p>The constructor signature should look like</p>
+<p>The initializer signature should look like</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal"><span class="pre">content</span></code> is a string</p>
+<p>where <code class="docutils literal"><span class="pre">content</span></code> is expected to be a string</p>
 <p>It should have an <code class="docutils literal"><span class="pre">append</span></code> method that can add another string to the content.</p>
+<p>So your class will need a way to store the content in a way that you can keep adding more to it.</p>
 <p>It should have a <code class="docutils literal"><span class="pre">render(file_out,</span> <span class="pre">ind</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code> method that renders the tag and the strings in the content.</p>
 <p><code class="docutils literal"><span class="pre">file_out</span></code> could be any file-like object ( i.e. have a <code class="docutils literal"><span class="pre">write()</span></code> method ).</p>
 <p><code class="docutils literal"><span class="pre">ind</span></code> is a string with the indentation level in it: the amount that the tag should be indented for pretty printing.</p>
@@ -201,25 +218,30 @@
 <li>This is a little tricky: <code class="docutils literal"><span class="pre">ind</span></code> will be the amount that this element should be indented already. It will be from zero (an empty string) to a lot of spaces, depending on how deep it is in the tree.</li>
 </ul>
 </div></blockquote>
-<p>The amount of indentation should be set by the class attribute: <code class="docutils literal"><span class="pre">indent</span></code></p>
+<p>The amount of each level of indentation should be set by the class attribute: <code class="docutils literal"><span class="pre">indent</span></code></p>
 <p>NOTE: don&#8217;t worry too much about indentation at this stage &#8211; the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you&#8217;ve got that working.</p>
+<p>So this <code class="docutils literal"><span class="pre">render()</span></code> method takes a file-like object, and calls its <code class="docutils literal"><span class="pre">write()</span></code> method, writing the html for a tag. Something like:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;html&gt;
+    Some content. Some more content.
+&lt;\html&gt;
+</pre></div>
+</div>
 <p>You should now be able to render an html tag with text in it as contents.</p>
 <p>See: step 1. in <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
 </div>
 <div class="section" id="step-2">
 <h3>Step 2:<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h3>
-<p>Create a couple subclasses of <code class="docutils literal"><span class="pre">Element</span></code>, for a <code class="docutils literal"><span class="pre">html</span></code>, <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code>, and <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tag. All you should have to do is override the <code class="docutils literal"><span class="pre">tag</span></code> class attribute (you may need to add a <code class="docutils literal"><span class="pre">tag</span></code> class attribute to the Element class first...).</p>
+<p>Create a couple subclasses of <code class="docutils literal"><span class="pre">Element</span></code>, for each of <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code>, <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code>, and <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags. All you should have to do is override the <code class="docutils literal"><span class="pre">tag</span></code> class attribute (you may need to add a <code class="docutils literal"><span class="pre">tag</span></code> class attribute to the <code class="docutils literal"><span class="pre">Element</span></code> class first, if you haven&#8217;t already).</p>
 <p>Now you can render a few different types of element.</p>
-<p>Extend the <code class="docutils literal"><span class="pre">Element.render()</span></code> method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the <code class="docutils literal"><span class="pre">render()</span></code> method of the elements it contains. You&#8217;ll need to be smart about setting the <code class="docutils literal"><span class="pre">ind</span></code> optional parameter &#8211; so that the nested elements get indented correctly.</p>
-<p>Figure out a way to deal with the fact that the contained elements could be either simple strings or <code class="docutils literal"><span class="pre">Element</span></code> s with render methods (there are a few ways to handle that...).</p>
-<p>You should now be able to render a basic web page with an html tag around
-the whole thing, a <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code> tag inside, and multiple <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags inside that, with text inside that. And all indented nicely.</p>
+<p>Extend the <code class="docutils literal"><span class="pre">Element.render()</span></code> method so that it can render other elements inside the tag in addition to strings. Simple recursion should do it. i.e. it can call the <code class="docutils literal"><span class="pre">render()</span></code> method of the elements it contains. You&#8217;ll need to be smart about setting the <code class="docutils literal"><span class="pre">ind</span></code> optional parameter &#8211; so that the nested elements get indented correctly. (again, this is a secondary concern...)</p>
+<p>Figure out a way to deal with the fact that the contained elements could be either simple strings or <code class="docutils literal"><span class="pre">Element</span></code> s with render methods (there are a few ways to handle that...). Think about &#8220;Duck Typing&#8221; and EAFP. See the section &#8216;Notes on handling &#8220;duck typing&#8221;&#8217; and the end of the Exercise for more.</p>
+<p>You should now be able to render a basic web page with an <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code> tag around the whole thing, a <code class="docutils literal"><span class="pre">&lt;body&gt;</span></code> tag inside, and multiple <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags inside that, with text inside that. And all indented nicely.</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output2.html</span></code></p>
-<p>NOTE: when you run step 2 in <code class="docutils literal"><span class="pre">run_html_render.py</span></code>, you will want o comment out step 1 &#8211; that way you&#8217;ll only get one set of output.</p>
+<p>NOTE: when you run step 2 in <code class="docutils literal"><span class="pre">run_html_render.py</span></code>, you will want to comment out step 1 &#8211; that way you&#8217;ll only get one set of output.</p>
 </div>
 <div class="section" id="step-3">
 <h3>Step 3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h3>
-<p>Create a <code class="docutils literal"><span class="pre">&lt;head&gt;</span></code> element &#8211; simple subclass.</p>
+<p>Create a <code class="docutils literal"><span class="pre">&lt;head&gt;</span></code> element &#8211; a simple subclass.</p>
 <p>Create a <code class="docutils literal"><span class="pre">OneLineTag</span></code> subclass of <code class="docutils literal"><span class="pre">Element</span></code>:</p>
 <ul>
 <li><p class="first">It should override the render method, to render everything on one line &#8211; for the simple tags, like:</p>
@@ -236,11 +258,11 @@ title element in that, and a body element with some <code class="docutils litera
 <div class="section" id="step-4">
 <h3>Step 4:<a class="headerlink" href="#step-4" title="Permalink to this headline">¶</a></h3>
 <p>Extend the <code class="docutils literal"><span class="pre">Element</span></code> class to accept a set of attributes as keywords to the
-constructor, ie. (<code class="docutils literal"><span class="pre">run_html_render.py</span></code>)</p>
+constructor, e.g. <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">Element</span><span class="p">(</span><span class="s">&quot;some text content&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;TheList&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;line-height:200%&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>( remember <code class="docutils literal"><span class="pre">**kwargs</span></code>? )</p>
+<p>html elements can take essentially any attributes &#8211; so you can&#8217;t hard-code these particular ones. ( remember <code class="docutils literal"><span class="pre">**kwargs</span></code>? )</p>
 <p>The render method will need to be extended to render the attributes properly.</p>
 <p>You can now render some <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags (and others) with attributes</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output4.html</span></code></p>
@@ -254,16 +276,18 @@ constructor, ie. (<code class="docutils literal"><span class="pre">run_html_rend
 <p>You will need to override the render method to render just the one tag and
 attributes, if any.</p>
 <p>Create a couple subclasses of <code class="docutils literal"><span class="pre">SelfClosingTag</span></code> for and &lt;hr /&gt; and &lt;br /&gt;</p>
+<p>Note that you now have a couple render methods &#8211; is there repeated code in them?</p>
+<p>Can you refactor the common parts into a separate method that all the render methods can call?</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output5.html</span></code></p>
 </div>
 <div class="section" id="step-6">
 <h3>Step 6:<a class="headerlink" href="#step-6" title="Permalink to this headline">¶</a></h3>
-<p>Create a <code class="docutils literal"><span class="pre">A</span></code> class for an anchor (link) element. Its constructor should look like:</p>
+<p>Create an <code class="docutils literal"><span class="pre">A</span></code> class for an anchor (link) element. Its constructor should look like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where link is the link, and content is what you see. It can be called like so:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="s">u&quot;http://google.com&quot;</span><span class="p">,</span> <span class="s">u&quot;link to google&quot;</span><span class="p">)</span>
+<p>where <code class="docutils literal"><span class="pre">link</span></code> is the link, and <code class="docutils literal"><span class="pre">content</span></code> is what you see. It can be called like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">A</span><span class="p">(</span><span class="s">&quot;http://google.com&quot;</span><span class="p">,</span> <span class="s">&quot;link to google&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You should be able to subclass from <code class="docutils literal"><span class="pre">Element</span></code>, and only override the <code class="docutils literal"><span class="pre">__init__</span></code> &#8212; Calling the <code class="docutils literal"><span class="pre">Element</span></code> <code class="docutils literal"><span class="pre">__init__</span></code> from the  <code class="docutils literal"><span class="pre">A</span> <span class="pre">__init__</span></code></p>
@@ -295,15 +319,110 @@ new tags, etc....</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output8.html</span></code></p>
 </div>
 </div>
+<div class="section" id="notes-on-handling-duck-typing">
+<h2>Notes on handling &#8220;duck typing&#8221;<a class="headerlink" href="#notes-on-handling-duck-typing" title="Permalink to this headline">¶</a></h2>
+<p class="left">In this exercise, we need to deal with the fact that XML (and thus HTML) allows <em>either</em> plain text <em>or</em> other tags to be the content of a tag. Our code also needs to handle the fact that there are two possible types that we need to be able to render.</p>
+<p class="left">There are two primary ways to address this (and multiple ways to actually write the code for each of these).</p>
+<ol class="left arabic simple">
+<li>Make sure that the content only has renderable objects in it.</li>
+<li>Make sure the render() method can handle either type on the fly</li>
+</ol>
+<p class="left">The difference is where you handle the multiple types &#8211; in the render method itself, or ahead of time.</p>
+<div class="section" id="the-ahead-of-time-option">
+<h3>The ahead of time option:<a class="headerlink" href="#the-ahead-of-time-option" title="Permalink to this headline">¶</a></h3>
+<p>You can handle it ahead of time by creating a simple object that wraps a string and gives it a render method. As simple as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">TextWrapper</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A simple wrapper that creates a class with a render method</span>
+<span class="sd">    for simple text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_out</span><span class="p">,</span> <span class="n">current_ind</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
+        <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">current_ind</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You could require your users to use the wrapper, so instead of just appending a string, they would do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">an_element</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextWRapper</span><span class="p">(</span><span class="s">&quot;the string they want to add&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>But this is not very Pythonic style &#8211; it&#8217;s OO heavy. Strings for text are so common you want to be able to simply use them:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">an_element</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;the string they want to add&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So much easier.</p>
+<p>To accomplish this, you can update the <code class="docutils literal"><span class="pre">append()</span></code> method to put this wrapper around plain strings when somethign new is added.</p>
+</div>
+<div class="section" id="checking-if-it-s-the-right-type">
+<h3>Checking if it&#8217;s the right type<a class="headerlink" href="#checking-if-it-s-the-right-type" title="Permalink to this headline">¶</a></h3>
+<p>How do you decide if the wrapper is required?</p>
+<p><strong>Checking it it&#8217;s an instance of Element:</strong></p>
+<p>You could check and see if the object being appended is an Element:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">Element</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextWrapper</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This would work well, but closes the door to using any other type that may not be a strict subclsss of Element, but can render itself. Not too bad in this case, but in general, frowned upon in Python.</p>
+<p>Alternatively, you could check for the string type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextWrapper</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I think this is a little better &#8211; strings are a pretty core type in python, it&#8217;s not likely that anyone is going to need to use a &#8220;string-like&#8221; object.</p>
+</div>
+<div class="section" id="duck-typing">
+<h3>Duck Typing<a class="headerlink" href="#duck-typing" title="Permalink to this headline">¶</a></h3>
+<p>The Python model of duck typing is if quacks like a duck, then treat it like a duck.</p>
+<p>But in this case, we&#8217;re not actually rendering the object at this stage, so calling the method isn&#8217;t appropriate.</p>
+<p><strong>Checking for an attribute</strong></p>
+<p>Instead of calling the method, see if it&#8217;s there:</p>
+<p>You can check if the passed-in object has a <code class="docutils literal"><span class="pre">render()</span></code> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="s">&#39;render&#39;</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextWrapper</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This is my favorite. <code class="docutils literal"><span class="pre">html_render_wrap.py</span></code> in Solutions demonstrates with method.</p>
+</div>
+<div class="section" id="duck-typing-on-the-fly">
+<h3>Duck Typing on the Fly<a class="headerlink" href="#duck-typing-on-the-fly" title="Permalink to this headline">¶</a></h3>
+<p>The other option is to simply put both elements and text in the content list, and figure out what to do in the <code class="docutils literal"><span class="pre">render()</span></code> method.</p>
+<p>Again, you could type check &#8211; but I prefer the duck typing approach, and EAFP:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="n">content</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If content is a simple string then it won&#8217;t have a render method, and an <code class="docutils literal"><span class="pre">AttributeError</span></code> will be raised.</p>
+<p>You can catch that, and simply write the content.</p>
+<p>You may want to turn it into a string, first:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Then you could write just about anything &#8211; numbers, etc.</p>
+</div>
+<div class="section" id="where-did-the-exception-come-from">
+<h3>Where did the Exception come from?<a class="headerlink" href="#where-did-the-exception-come-from" title="Permalink to this headline">¶</a></h3>
+<p><strong>Caution</strong></p>
+<p>If the object doesn&#8217;t have a <code class="docutils literal"><span class="pre">render</span></code> method, then an AttributeError will be raised. But what if it does have a render method, but that method is broken?</p>
+<p>Depending on what&#8217;s broken, it could raise any number of exceptions. Most will not get caught by the except clause, and will halt the program.</p>
+<p>But if, just by bad luck, it has an bug that raises an <code class="docutils literal"><span class="pre">AttributeError</span></code> &#8211; then this could with catch it, and try to simply write it out instead. So you may get somethign like: <code class="docutils literal"><span class="pre">&lt;html_render.H</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x103604400&gt;</span></code> in the middle of your html.</p>
+<p><strong>The beauty of testing</strong></p>
+<p>If you have a unit test that calls every render method in your code &#8211; then it should catch that error, and it wil be clear where it is coming from.</p>
+</div>
+</div>
 <div class="section" id="html-primer">
 <h2>HTML Primer<a class="headerlink" href="#html-primer" title="Permalink to this headline">¶</a></h2>
 <p class="medium">The very least you need to know about html to do this assigment.</p>
-<p>If you are familar with html, then this will all make sense to you. If you have
-never seen html before, this might be a bit intimidating, but you really don&#8217;t
-need to know much to do this assignment.</p>
-<p>First of all, sample output from each step is provided. So all you really need
-to do is look at that, and make your code do the same thing. But it does help to
-know a little bit about what you are doing.</p>
+<p class="left">If you are familar with html, then this will all make sense to you. If you have never seen html before, this might be a bit intimidating, but you really don&#8217;t need to know much to do this assignment.</p>
+<p class="left">First of all, sample output from each step is provided. So all you really need to do is look at that, and make your code do the same thing. But it does help to know a little bit about what you are doing.</p>
 <div class="section" id="html">
 <h3>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
 <p>HTML is &#8220;Hyper Text Markup Language&#8221;. Hypertext, because it can contain links
@@ -312,13 +431,15 @@ instructions about how to format the text, etc.</p>
 <p>Here is a good basic intro:</p>
 <p><a class="reference external" href="http://www.w3schools.com/html/html_basic.asp">http://www.w3schools.com/html/html_basic.asp</a></p>
 <p>And there are countless others online.</p>
+<p>As html is XML &#8211; the XML intro is a good source of the XML syntax, too:</p>
+<p><a class="reference external" href="http://www.w3schools.com/xml/default.asp">http://www.w3schools.com/xml/default.asp</a></p>
 <p>But here is a tiny intro of just what you need to know for this project.</p>
 </div>
 <div class="section" id="elements">
 <h3>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h3>
-<p>Modern HTML is a particular dialect of XML (eXrensible Markup Language),
+<p>Modern HTML is a particular dialect of XML (eXtensible Markup Language),
 which is itself a special case of SGML (Standard Generalized Markup Language)</p>
-<p>It inherits from SGML a basic structure: each piece of the document is an element. each element is described by a &#8220;tag&#8221;. each tag has a different meaning, but they all have the same structure:</p>
+<p>It inherits from SGML a basic structure: each piece of the document is an element. each element is described by a &#8220;tag&#8221;. Each tag has a different meaning, but they all have the same structure:</p>
 <div class="highlight-python"><div class="highlight"><pre>&lt;some_tag&gt; some content &lt;/some_tag&gt;
 </pre></div>
 </div>
@@ -348,15 +469,15 @@ the element, and the end of the element is indicated by the same tag with a slas
 </div>
 <div class="section" id="special-elements">
 <h3>Special Elements<a class="headerlink" href="#special-elements" title="Permalink to this headline">¶</a></h3>
-<p>The general structure is everything is between and opening and closing tag. But some elements don&#8217;t really have content &#8211; just attributes. So the slash goes at the end of the tag, after the attributes. We can call these self-closing tags:</p>
+<p>The general structure is everything in between the opening and closing tag. But some elements don&#8217;t really have content &#8211; just attributes. So the slash goes at the end of the tag, after the attributes. We can call these self-closing tags:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>To make a link, you use an &#8220;anchor&#8221; tag: <code class="docutils literal"><span class="pre">&lt;a&gt;</span></code>. It required attributes to indicate what the link is:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://google.com&quot;</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<p>To make a link, you use an &#8220;anchor&#8221; tag: <code class="docutils literal"><span class="pre">&lt;a&gt;</span></code>. It requires attributes to indicate what the link is:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://google.com&quot;</span><span class="nt">&gt;</span> link <span class="nt">&lt;/a&gt;</span>
 </pre></div>
 </div>
-<p>the <code class="docutils literal"><span class="pre">href</span></code> attribute is the link (hyper reference).</p>
+<p>The <code class="docutils literal"><span class="pre">href</span></code> attribute is the link (hyper reference).</p>
 <p>To make a bulleted list, you use a &lt;ul&gt; tag (unordered list), and inside that, you put individual list elements &lt;li&gt;:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">style=</span><span class="s">&quot;line-height:200%&quot;</span> <span class="na">id=</span><span class="s">&quot;TheList&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;li&gt;</span>
@@ -369,8 +490,8 @@ the element, and the end of the element is indicated by the same tag with a slas
 </pre></div>
 </div>
 <p>Note that the list itself, and the list items can both take various attributes (all tags can...)</p>
-<p>Section Headers are created with &#8220;h&#8221; tags: &lt;h1&gt; is the biggest (highest level), and there is &lt;h2&gt;, &lt;h3&gt;, etc. for sections, sub sections, subsub sections.</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h2&gt;</span>PythonClass - Class 6 example<span class="nt">&lt;/h2&gt;</span>
+<p>Section Headers are created with &#8220;h&#8221; tags: &lt;h1&gt; is the biggest (highest level), and there is &lt;h2&gt;, &lt;h3&gt;, etc. for sections, sub sections, subsub sections...</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h2&gt;</span>PythonClass - Class 7 example<span class="nt">&lt;/h2&gt;</span>
 </pre></div>
 </div>
 <p>I think that&#8217;s all you need to know!</p>
@@ -388,7 +509,7 @@ the element, and the end of the element is indicated by the same tag with a slas
         <a href="circle_class.html" class="btn btn-neutral float-right" title="Circle Class Excercise" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="kata_fourteen.html" class="btn btn-neutral" title="Kata Fourteen: Tom Swift Under Milk Wood" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trapezoid.html" class="btn btn-neutral" title="Trapezoidal Rule" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -428,6 +549,7 @@ the element, and the end of the element is indicated by the same tag with a slas
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

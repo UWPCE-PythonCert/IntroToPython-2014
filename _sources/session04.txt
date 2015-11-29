@@ -1,9 +1,9 @@
 .. Foundations 2: Python slides file, created by
    Chris Barker: May 12, 2014.
 
-*******************************************************
-Session Four: Dictionaries, Sets, Exceptions, and Files
-*******************************************************
+*******************************************
+Session Four: Dictionaries, Sets, and Files
+*******************************************
 
 
 ================
@@ -37,9 +37,10 @@ Lightning Talks Today:
 .. rst-class:: mlarge
 
  Andrey Gusev
- Cheryl Ohashi
- Maxwell MacCamy
 
+ Cheryl Ohashi
+
+ Maxwell MacCamy
 
 
 ==============================
@@ -175,7 +176,7 @@ in operational code should be::
     if m < 0:
         raise ValueError
 
-I'll cover Exceptions later this class...
+I'll cover next week ...
 
 (Asserts get ignored if optimization is turned on!)
 
@@ -396,7 +397,7 @@ Other dict operations:
 
 See them all here:
 
-https://docs.python.org/2/library/stdtypes.html#mapping-types-dict
+https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
 Is it in there?
 
@@ -650,246 +651,9 @@ Have some fun with dictionaries and sets!
 :ref:`exercise_dict_lab`
 
 
-Lightning Talks
-----------------
-
-|
-| Andrey Gusev
-|
-|
-| Cheryl Ohashi
-|
-
-==========
-Exceptions
-==========
-
-Exceptions
-----------
-
-Another Branching structure:
-
-.. code-block:: python
-
-    try:
-        do_something()
-        f = open('missing.txt')
-        process(f)   # never called if file missing
-    except IOError:
-        print("couldn't open missing.txt")
-
-Exceptions
-----------
-Never Do this:
-
-.. code-block:: python
-
-    try:
-        do_something()
-        f = open('missing.txt')
-        process(f)   # never called if file missing
-    except:
-        print "couldn't open missing.txt"
-
-
-Exceptions
-----------
-
-Use Exceptions, rather than your own tests:
-
-Don't do this:
-
-.. code-block:: python
-
-    do_something()
-    if os.path.exists('missing.txt'):
-        f = open('missing.txt')
-        process(f)   # never called if file missing
-
-It will almost always work -- but the almost will drive you crazy
-
-.. nextslide::
-
-Example from homework
-
-.. code-block:: python
-
-    if num_in.isdigit():
-        num_in = int(num_in)
-
-but -- ``int(num_in)`` will only work if the string can be converted to an integer.
-
-So you can do
-
-.. code-block:: python
-
-    try:
-        num_in = int(num_in)
-    except ValueError:
-        print("Input must be an integer, try again.")
-
-Or let the Exception be raised....
-
-
-.. nextslide:: EAFP
-
-
-"it's Easier to Ask Forgiveness than Permission"
-
- -- Grace Hopper
-
-
-http://www.youtube.com/watch?v=AZDWveIdqjY
-
-(Pycon talk by Alex Martelli)
-
-.. nextslide:: Do you catch all Exceptions?
-
-For simple scripts, let exceptions happen.
-
-Only handle the exception if the code can and will do something about it.
-
-(much better debugging info when an error does occur)
-
-
-Exceptions -- finally
----------------------
-
-.. code-block:: python
-
-    try:
-        do_something()
-        f = open('missing.txt')
-        process(f)   # never called if file missing
-    except IOError:
-        print("couldn't open missing.txt")
-    finally:
-        do_some_clean-up
-
-The ``finally:``  clause will always run
-
-
-Exceptions -- else
--------------------
-
-.. code-block:: python
-
-    try:
-        do_something()
-        f = open('missing.txt')
-    except IOError:
-        print("couldn't open missing.txt")
-    else:
-        process(f) # only called if there was no exception
-
-Advantage:
-
-you know where the Exception came from
-
-Exceptions -- using them
-------------------------
-
-.. code-block:: python
-
-    try:
-        do_something()
-        f = open('missing.txt')
-    except IOError as the_error:
-        print(the_error)
-        the_error.extra_info = "some more information"
-        raise
-
-
-Particularly useful if you catch more than one exception:
-
-.. code-block:: python
-
-    except (IOError, BufferError, OSError) as the_error:
-        do_something_with (the_error)
-
-
-Raising Exceptions
--------------------
-
-.. code-block:: python
-
-    def divide(a,b):
-        if b == 0:
-            raise ZeroDivisionError("b can not be zero")
-        else:
-            return a / b
-
-
-when you call it:
-
-.. code-block:: ipython
-
-    In [515]: divide (12,0)
-    ZeroDivisionError: b can not be zero
-
-
-Built in Exceptions
--------------------
-
-You can create your own custom exceptions
-
-But...
-
-.. code-block:: python
-
-    exp = \
-     [name for name in dir(__builtin__) if "Error" in name]
-    len(exp)
-    32
-
-
-For the most part, you can/should use a built in one
-
-.. nextslide::
-
-Choose the best match you can for the built in Exception you raise.
-
-Example (from last week's exercises)::
-
-  if (not isinstance(m, int)) or (not isinstance(n, int)):
-      raise ValueError
-
-Is it the *value* or the input the problem here?
-
-Nope: the *type* is the problem::
-
-  if (not isinstance(m, int)) or (not isinstance(n, int)):
-      raise TypeError
-
-but should you be checking type anyway? (EAFP)
-
-===
-LAB
-===
-
-Exceptions Lab
-
-
-Exceptions Lab
----------------
-
-Improving ``raw_input``
-
-* The ``raw_input()``  function can generate two exceptions: ``EOFError``
-  or ``KeyboardInterrupt``  on end-of-file(EOF) or canceled input.
-
-* Create a wrapper function, perhaps ``safe_input()``  that returns ``None``
-  rather rather than raising these exceptions, when the user enters ``^C``  for Keyboard Interrupt, or ``^D`` (``^Z``  on Windows) for End Of File.
-
-* Update your mailroom program to use exceptions (and IBAFP) to handle
-  malformed numeric input
-
 Lightning Talk
-----------------
+--------------
 
-|
-| Lesley D Reece
-|
 |
 | Maxwell MacCamy
 |
@@ -1003,7 +767,7 @@ Common Idioms
 
 .. nextslide::
 
-We will learn more about the keyword with later, but for now, just understand 
+We will learn more about the keyword with later, but for now, just understand
 the syntax and the advantage over the try-finally block:
 
 .. code-block:: python
@@ -1143,7 +907,7 @@ All the stuff in os.path and more:
     In [66]: pth.is_dir()
     Out[66]: True
     In [67]: pth.absolute()
-    Out[67]: PosixPath('/Users/Chris/PythonStuff/CodeFellowsClass/sea-f2-python-sept14/Examples/Session04')
+    Out[67]: PosixPath('/Users/Chris/PythonStuff/UWPCE/IntroPython2015')
     In [68]: for f in pth.iterdir():
                  print(f)
     junk2.txt
@@ -1184,7 +948,6 @@ Homework
 Recommended Reading:
 ---------------------
   * Dive Into Python: Chapt. 13,14
-  * Unicode: http://www.joelonsoftware.com/articles/Unicode.html
 
 Assignments:
 -------------
@@ -1238,11 +1001,14 @@ Paths and File Processing
   - advanced: make it work for any size file: i.e. don't read the entire
     contents of the file into memory at once.
 
+  - Note that if you want it to do any kind of file, you need to open the files in binary mode:
+    ``open(filename, 'rb')`` (or ``'wb'`` for writing.)
+
 * update mailroom from last week to:
 
-  - use dicts where appropriate
-  - write a full set of letters to everyone to individual files on disk
-  - see if you can use a dict to switch between the users selections
+  - Use dicts where appropriate
+  - Write a full set of letters to everyone to individual files on disk
+  - See if you can use a dict to switch between the users selections
   - Try to use a dict and the .format() method to do the letter as one
     big template -- rather than building up a big string in parts.
 

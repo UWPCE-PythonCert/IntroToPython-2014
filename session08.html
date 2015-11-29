@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Eight: Callable classes, Iterators, Generators &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Eight: More OO: Properties, Special methods. &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
-        <link rel="next" title="Session Nine: Decorators, Context Managers, Packages and packaging" href="session09.html"/>
-        <link rel="prev" title="Session Seven: More OO" href="session07.html"/> 
+        <link rel="next" title="Session Nine: Iterators, Iterables, and Generators" href="session09.html"/>
+        <link rel="prev" title="Object Oriented Programming" href="session07.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -85,17 +85,43 @@
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Functional and Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session07.html">Session Seven: More OO</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Eight: Callable classes, Iterators, Generators</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Session Eight: More OO: Properties, Special methods.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#personal-project">Personal Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homework-notes">Homework Notes:</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#properties">Properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getter-and-setters">Getter and Setters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-only-attributes">&#8220;Read Only&#8221; Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleters">Deleters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning talks:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#static-and-class-methods">Static and Class Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#static-methods">Static Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-methods">Class Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why">Why?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alternate-constructors">Alternate Constructors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#special-methods">Special Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-in-a-name">What&#8217;s in a Name?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocols">Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#emulating-standard-types">Emulating Standard types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#callable-classes">Callable classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#callables">&#8220;Callables&#8221;</a></li>
@@ -105,34 +131,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#the-sequence-protocol">The Sequence protocol</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Callables:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">LAB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Callables:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sparse-array">Sparse Array:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#iterators-and-generators">Iterators and Generators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#iterators">Iterators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-iterator-protocol">The Iterator Protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#list-as-an-iterator">List as an Iterator:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#making-an-iterator">Making an Iterator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#iter"><code class="docutils literal"><span class="pre">iter()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-does-for-do">What does <code class="docutils literal"><span class="pre">for</span></code> do?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#itertools">Itertools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">LAB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lab2">LAB2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Lightning Talks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generators">Generators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#yield">yield</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generator-comprehension">generator comprehension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">LAB</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#homework">Homework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Unicode, Wrap Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Exercises</a></li>
@@ -167,7 +175,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Session Eight: Callable classes, Iterators, Generators</li>
+    <li>Session Eight: More OO: Properties, Special methods.</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -181,35 +189,416 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="session-eight-callable-classes-iterators-generators">
-<h1>Session Eight: Callable classes, Iterators, Generators<a class="headerlink" href="#session-eight-callable-classes-iterators-generators" title="Permalink to this headline">¶</a></h1>
-<p class="large centered">The tools of Pythonicity</p>
+  <div class="section" id="session-eight-more-oo-properties-special-methods">
+<h1>Session Eight: More OO: Properties, Special methods.<a class="headerlink" href="#session-eight-more-oo-properties-special-methods" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="review-questions">
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-class">
 <h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Advanced OO Concepts<ul>
-<li>Properties</li>
-<li>Special Methods</li>
+<li>Basic OO Concepts<ul>
+<li>Classes</li>
+<li>class vs. instance attributes</li>
+<li>subclassing</li>
+<li>overriding methods / attributes</li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="lightning-talks-today">
+<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
+<p class="medium">Robert Ryan Leslie</p>
+<p class="medium">Ryan Morin</p>
+</div>
+<div class="section" id="personal-project">
+<h3>Personal Project<a class="headerlink" href="#personal-project" title="Permalink to this headline">¶</a></h3>
+<p>The bulk of the homework for the rest of the class will be a personal project:</p>
+<ul class="simple">
+<li>It can be for fun, or something you need for your job.</li>
+<li>It should be large enough to take a few weeks homework time to do.</li>
+<li><strong>It should demostrate that you can do something useful with python.</strong></li>
+<li>It should follow PEP8 (<a class="reference external" href="https://www.python.org/dev/peps/pep-0008">https://www.python.org/dev/peps/pep-0008</a>)</li>
+<li>It should have unit tests!</li>
+<li>Ideally, it will be in version control (gitHub)</li>
+<li>I don&#8217;t require any specific python features (i.e. classes): use
+what is appropriate for your project</li>
+<li>Due the Friday after the last class (December 11)</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">By next week, send me a project proposal: short and sweet.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
 <div class="section" id="homework-review">
 <h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Circle Class</li>
-<li>Writing Tests using the <code class="docutils literal"><span class="pre">pytest</span></code> module</li>
+<li>html renderer</li>
+<li>Test-driven development</li>
 </ul>
 </div>
-<div class="section" id="lightning-talks-today">
-<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
-<p class="medium">Alireza Hashemloo</p>
-<p>Arielle R Simmons</p>
-<p>Eric W Westman</p>
-<p>Ryan J Albright</p>
+<div class="section" id="homework-notes">
+<h3>Homework Notes:<a class="headerlink" href="#homework-notes" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">**kwargs</span></code> will always define a <code class="docutils literal"><span class="pre">kwargs</span></code> dict: it just may be empty.</p>
+<p>And there is no need to check if it&#8217;s empty before trying to loop through it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">!=</span> <span class="p">{}:</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atts</span> <span class="o">+=</span> <span class="s">&#39; {}=&quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
 </div>
+<p>no need for <code class="docutils literal"><span class="pre">!=</span> <span class="pre">{}</span></code> &#8211; an empty dict is &#8220;Falsey&#8221;</p>
+<p><strong>but</strong> no need for that check at all. If the dict (or ist, or tuple) is
+empty, then the loop is a do-nothing operation:</p>
+<ul class="simple">
+<li>notes on Duck Typing: <a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span>HTML Renderer Exercise</span></a> and  code review</li>
+<li>anyone stuck that wants to work through your code?</li>
+</ul>
+</div>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<div class="left container">
+<p>One of the strengths of Python is lack of clutter.</p>
+<p>Attributes are simple and concise:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+<span class="go">        def __init__(self):</span>
+<span class="go">                self.x = 5</span>
+<span class="gp">In [6]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">In [7]: </span><span class="n">c</span><span class="o">.</span><span class="n">x</span>
+<span class="gh">Out[7]: </span><span class="go">5</span>
+<span class="gp">In [8]: </span><span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="gp">In [9]: </span><span class="n">c</span><span class="o">.</span><span class="n">x</span>
+<span class="gh">Out[9]: </span><span class="go">8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getter-and-setters">
+<h3>Getter and Setters?<a class="headerlink" href="#getter-and-setters" title="Permalink to this headline">¶</a></h3>
+<p>But what if you need to add behavior later?</p>
+<ul class="build simple">
+<li>do some calculation</li>
+<li>check data validity</li>
+<li>keep things in sync</li>
+</ul>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ...: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">get_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ...: </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+<span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">set_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="gp">   ...: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">   ...:</span>
+<span class="gp">In [6]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">In [7]: </span><span class="n">c</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span>
+<span class="gh">Out[7]: </span><span class="go">5</span>
+<span class="gp">In [8]: </span><span class="n">c</span><span class="o">.</span><span class="n">set_x</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">In [9]: </span><span class="n">c</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span>
+<span class="gh">Out[9]: </span><span class="go">8</span>
+</pre></div>
+</div>
+<p>&lt;shudder&gt; This is ugly and verbose &#8211; <a class="reference external" href="http://dirtsimple.org/2004/12/python-is-not-java.html">Java</a>?</p>
+</div>
+<div class="section" id="id1">
+<h3>properties<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go">class C:</span>
+<span class="go">    _x = None</span>
+<span class="go">    @property</span>
+<span class="go">    def x(self):</span>
+<span class="go">        return self._x</span>
+<span class="go">    @x.setter</span>
+<span class="go">    def x(self, value):</span>
+<span class="go">        self._x = value</span>
+
+<span class="gp">In [28]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">In [30]: </span><span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">In [31]: </span><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>Now the interface is like simple attribute access!</p>
+<p>What&#8217;s up with the &#8220;&#64;&#8221; symbols?</p>
+<p>Those are &#8220;decorations&#8221; it&#8217;s a syntax for wrapping functions up with something special.</p>
+<p>We&#8217;ll cover that in detail in a couple weeks, but for now &#8211; just copy the syntax.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>means: make a property called x with this as the &#8220;getter&#8221;.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@x.setter</span>
+<span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>means: make the &#8220;setter&#8221; of the &#8216;x&#8217; property this new function</p>
+</div>
+<div class="section" id="read-only-attributes">
+<h3>&#8220;Read Only&#8221; Attributes<a class="headerlink" href="#read-only-attributes" title="Permalink to this headline">¶</a></h3>
+<p>You do not need to define a setter. If you don&#8217;t, you get a &#8220;read only&#8221; attribute:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">   ....: </span>    <span class="nd">@property</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="sd">&quot;&quot;&quot;I am read only&quot;&quot;&quot;</span>
+<span class="gp">   ....: </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+<span class="gp">   ....:</span>
+<span class="gp">In [12]: </span><span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+<span class="gp">In [13]: </span><span class="n">d</span><span class="o">.</span><span class="n">x</span>
+<span class="gh">Out[13]: </span><span class="go">5</span>
+<span class="gp">In [14]: </span><span class="n">d</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-14-c83386d97be3&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="ne">AttributeError</span>: can&#39;t set attribute
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleters">
+<h3>Deleters<a class="headerlink" href="#deleters" title="Permalink to this headline">¶</a></h3>
+<p>If you want to do something special when a property is deleted, you can define
+a deleter is well:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">   ....: </span>    <span class="nd">@property</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+<span class="gp">   ....: </span>    <span class="nd">@x.deleter</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+</pre></div>
+</div>
+<p>If you leave this out, the property can&#8217;t be deleted, which is usually
+what you want.</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/properties_example.py"><code class="xref download docutils literal"><span class="pre">properties_example.py</span></code></a>]</p>
+</div>
+</div>
+<div class="section" id="lab">
+<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s use some of this to build a nice class to represent a Circle.</p>
+<p>For now, Let&#8217;s do steps 1-4 of:</p>
+<p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span>Circle Class Excercise</span></a></p>
+<div class="section" id="lightning-talks">
+<h3>Lightning talks:<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
+<p class="medium">Robert Ryan Leslie</p>
+<p class="medium">Ryan Morin</p>
+</div>
+</div>
+<div class="section" id="static-and-class-methods">
+<h2>Static and Class Methods<a class="headerlink" href="#static-and-class-methods" title="Permalink to this headline">¶</a></h2>
+<div class="left build container">
+<p>You&#8217;ve seen how methods of a class are <em>bound</em> to an instance when it is
+created.</p>
+<p>And you&#8217;ve seen how the argument <code class="docutils literal"><span class="pre">self</span></code> is then automatically passed to
+the method when it is called.</p>
+<p>And you&#8217;ve seen how you can call <em>unbound</em> methods on a class object so
+long as you pass an instance of that class as the first argument.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p class="centered"><strong>But what if you don&#8217;t want or need an instance?</strong></p>
+</div>
+<div class="section" id="static-methods">
+<h3>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h3>
+<p>A <em>static method</em> is a method that doesn&#8217;t get self:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="k">class</span> <span class="nc">StaticAdder</span><span class="p">:</span>
+
+<span class="gp">   ....: </span>    <span class="nd">@staticmethod</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="gp">   ....:</span>
+
+<span class="gp">In [37]: </span><span class="n">StaticAdder</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gh">Out[37]: </span><span class="go">9</span>
+</pre></div>
+</div>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/static_method.py"><code class="xref download docutils literal"><span class="pre">static_method.py</span></code></a>]</p>
+<div class="build container">
+<p>Where are static methods useful?</p>
+<p>Usually they aren&#8217;t</p>
+<p>99% of the time, it&#8217;s better just to write a module-level function</p>
+<p>An example from the Standard Library (tarfile.py):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">TarInfo</span><span class="p">:</span>
+    <span class="c"># ...</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_create_payload</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the string payload filled with zero bytes</span>
+<span class="sd">           up to the next 512 byte border.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">blocks</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">BLOCKSIZE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">remainder</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">payload</span> <span class="o">+=</span> <span class="p">(</span><span class="n">BLOCKSIZE</span> <span class="o">-</span> <span class="n">remainder</span><span class="p">)</span> <span class="o">*</span> <span class="n">NUL</span>
+        <span class="k">return</span> <span class="n">payload</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="class-methods">
+<h3>Class Methods<a class="headerlink" href="#class-methods" title="Permalink to this headline">¶</a></h3>
+<p>A class method gets the class object, rather than an instance, as the first
+argument</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="k">class</span> <span class="nc">Classy</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">   ....: </span>    <span class="nd">@classmethod</span>
+<span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">a_class_method</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="gp">   ....: </span>        <span class="k">print</span><span class="p">(</span><span class="s">&quot;in a class method: &quot;</span><span class="p">,</span> <span class="n">cls</span><span class="p">)</span>
+<span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">y</span> <span class="o">**</span> <span class="n">cls</span><span class="o">.</span><span class="n">x</span>
+<span class="gp">   ....:</span>
+<span class="gp">In [42]: </span><span class="n">Classy</span><span class="o">.</span><span class="n">a_class_method</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">in a class method:  &lt;class &#39;__main__.Classy&#39;&gt;</span>
+<span class="gh">Out[42]: </span><span class="go">16</span>
+</pre></div>
+</div>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/class_method.py"><code class="xref download docutils literal"><span class="pre">class_method.py</span></code></a>]</p>
+</div>
+<div class="section" id="why">
+<h3>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h3>
+<div class="build container">
+<p>Unlike static methods, class methods are quite common.</p>
+<p>They have the advantage of being friendly to subclassing.</p>
+<p>Consider this:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="k">class</span> <span class="nc">SubClassy</span><span class="p">(</span><span class="n">Classy</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">   ....:</span>
+
+<span class="gp">In [45]: </span><span class="n">SubClassy</span><span class="o">.</span><span class="n">a_class_method</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">in a class method:  &lt;class &#39;__main__.SubClassy&#39;&gt;</span>
+<span class="gh">Out[45]: </span><span class="go">64</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="alternate-constructors">
+<h3>Alternate Constructors<a class="headerlink" href="#alternate-constructors" title="Permalink to this headline">¶</a></h3>
+<p>Because of this friendliness to subclassing, class methods are often used to
+build alternate constructors.</p>
+<p>Consider the case of wanting to build a dictionary with a given iterable of
+keys:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [57]: </span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-57-50c56a77d95f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="ne">TypeError</span>: cannot convert dictionary update sequence element #0 to a sequence
+</pre></div>
+</div>
+<p>The stock constructor for a dictionary won&#8217;t work this way. So the dict object
+implements an alternate constructor that <em>can</em>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;OD.fromkeys(S[, v]) -&gt; New ordered dictionary with keys from S.</span>
+<span class="sd">    If not specified, the value defaults to None.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span> <span class="o">=</span> <span class="n">cls</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="bp">self</span>
+</pre></div>
+</div>
+<p>(this is actually from the OrderedDict implementation in <code class="docutils literal"><span class="pre">collections.py</span></code>)</p>
+<p>See also datetime.datetime.now(), etc....</p>
+<p>Properties, Static Methods and Class Methods are powerful features of Python&#8217;s
+OO model.</p>
+<p>They are implemented using an underlying structure called <em>descriptors</em></p>
+<p><a class="reference external" href="https://docs.python.org/2/howto/descriptor.html">Here is a low level look</a> at how the descriptor protocol works.</p>
+<p>The cool part is that this mechanism is available to you, the programmer, as
+well.</p>
+<p>For the Circle Lab: use a class method to make an alternate constructor that takes
+the diameter instead.</p>
+</div>
+</div>
+<div class="section" id="special-methods">
+<h2>Special Methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
+<div class="left container">
+<p>Special methods (also called <em>magic</em> methods) are the secret sauce to Python&#8217;s Duck typing.</p>
+<p>Defining the appropriate special methods in your classes is how you make your class act like standard classes.</p>
+</div>
+<div class="section" id="what-s-in-a-name">
+<h3>What&#8217;s in a Name?<a class="headerlink" href="#what-s-in-a-name" title="Permalink to this headline">¶</a></h3>
+<p>We&#8217;ve seen at least one special method so far:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__init__</span>
+</pre></div>
+</div>
+<p>It&#8217;s all in the double underscores...</p>
+<p>Pronounced &#8220;dunder&#8221; (or &#8220;under-under&#8221;)</p>
+<p>try: <code class="docutils literal"><span class="pre">dir(2)</span></code>  or <code class="docutils literal"><span class="pre">dir(list)</span></code></p>
+<p>Most classes should at least have these special methods:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">object.__str__</span></code>:</dt>
+<dd>Called by the str() built-in function and by the print function to compute
+the <em>informal</em> string representation of an object.</dd>
+<dt><code class="docutils literal"><span class="pre">object.__repr__</span></code>:</dt>
+<dd><p class="first">Called by the repr() built-in function to compute the <em>official</em> string representation of an object.</p>
+<p class="last">(ideally: <code class="docutils literal"><span class="pre">eval(</span> <span class="pre">repr(something)</span> <span class="pre">)</span> <span class="pre">==</span> <span class="pre">something</span></code>)</p>
+</dd>
+</dl>
+<p>(demo)</p>
+</div>
+<div class="section" id="protocols">
+<h3>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h3>
+<div class="build container">
+<p>The set of special methods needed to emulate a particular type of Python object is called a <em>protocol</em>.</p>
+<p>Your classes can &#8220;become&#8221; like Python built-in classes by implementing the
+methods in a given protocol.</p>
+<p>Remember, these are more <em>guidelines</em> than laws.  Implement what you need.</p>
+</div>
+<p>Do you want your class to behave like a number? Implement these methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">object</span><span class="o">.</span><span class="n">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__floordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__mod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__divmod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__pow__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">[,</span> <span class="n">modulo</span><span class="p">])</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__lshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__rshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__xor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Want to make a container type? Here&#8217;s what you need:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">object</span><span class="o">.</span><span class="n">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__reversed__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__getslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__setslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">sequence</span><span class="p">)</span>
+<span class="nb">object</span><span class="o">.</span><span class="n">__delslice__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each of these methods supports a common Python operation.</p>
+<p>For example, to make &#8216;+&#8217; work with a sequence type in a vector-like fashion,
+implement <code class="docutils literal"><span class="pre">__add__</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;return the element-wise vector sum of self and v</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vector</span><span class="p">([</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="k">for</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p class="centered">[a more complete example may be seen <a class="reference download internal" href="_downloads/vector.py"><code class="xref download docutils literal"><span class="pre">here</span></code></a>]</p>
+<p>Use special methods when you want your class to act like a &#8220;standard&#8221; class in
+some way.</p>
+<p>Look up the special methods you need and define them.</p>
+<p>There&#8217;s more to read about the details of implementing these methods:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3.5/reference/datamodel.html#special-method-names">https://docs.python.org/3.5/reference/datamodel.html#special-method-names</a></li>
+<li><a class="reference external" href="http://www.rafekettler.com/magicmethods.html">http://www.rafekettler.com/magicmethods.html</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>LAB<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s complete our nifty Circle class:</p>
+<p>Steps 5-8 of:</p>
+<p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span>Circle Class Excercise</span></a></p>
 </div>
 <div class="section" id="emulating-standard-types">
 <h2>Emulating Standard types<a class="headerlink" href="#emulating-standard-types" title="Permalink to this headline">¶</a></h2>
@@ -229,6 +618,8 @@
 </div>
 <p>But what if we need to store some data to know how to evaluate that function?</p>
 <p>Example: a function that computes a quadratic function:</p>
+<div class="math">
+\[y = a x^2 + bx + c\]</div>
 <p>You could pass in a, b and c each time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
@@ -258,7 +649,7 @@ function object?</p>
 </div>
 <p>If you define a <code class="docutils literal"><span class="pre">__call__</span></code> method in your class, it will be used when
 code &#8220;calls&#8221; an instance of your class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Callable</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Callable</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">.....</span><span class="p">)</span>
         <span class="n">some_initilization</span>
     <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">some_parameters</span><span class="p">)</span>
@@ -296,7 +687,7 @@ code &#8220;calls&#8221; an instance of your class:</p>
 <h3>The Sequence protocol<a class="headerlink" href="#the-sequence-protocol" title="Permalink to this headline">¶</a></h3>
 <p>You can make your class look like a regular python sequence by defining
 the set of special methods you need:</p>
-<p><a class="reference external" href="https://docs.python.org/2/reference/datamodel.html#emulating-container-types">https://docs.python.org/2/reference/datamodel.html#emulating-container-types</a></p>
+<p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-container-types">https://docs.python.org/3/reference/datamodel.html#emulating-container-types</a></p>
 <p>and</p>
 <p><a class="reference external" href="http://www.rafekettler.com/magicmethods.html#sequence">http://www.rafekettler.com/magicmethods.html#sequence</a></p>
 <p>The key ones are:</p>
@@ -325,11 +716,11 @@ the set of special methods you need:</p>
 </table>
 </div>
 </div>
-<div class="section" id="lab">
-<h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p class="medium">Let&#8217;s do the previous motivating examples.</p>
-<div class="section" id="id1">
-<h3>Callables:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Callables:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Write a class for a quadratic equation.</p>
 <ul class="simple">
 <li>The initializer for that class should take the parameters: <code class="docutils literal"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c</span></code></li>
@@ -344,316 +735,18 @@ the set of special methods you need:</p>
 </div>
 <div class="section" id="sparse-array">
 <h3>Sparse Array:<a class="headerlink" href="#sparse-array" title="Permalink to this headline">¶</a></h3>
-<p>Write a class for a sparse array</p>
-<ul class="simple">
-<li>Internally, it can store the values in a dict, with the index as the keys)</li>
-<li>It should take a sequence of values as an initializer</li>
-<li>you should be able to tell how long it is: <code class="docutils literal"><span class="pre">len(my_array)</span></code></li>
-<li>It should support getting and setting particular elements via indexing.</li>
-<li>It should support deleting an element by index.</li>
-<li>It should raise an <code class="docutils literal"><span class="pre">IndexError</span></code> if you try to access an index beyond the end.</li>
-<li>Can you make it support slicing?</li>
-<li>How else can you  make it like a list?</li>
-</ul>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">my_array</span> <span class="o">=</span> <span class="n">SparseArray</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
-<span class="gp">In [11]: </span><span class="n">my_array</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-<span class="gh">Out[11]: </span><span class="go">2</span>
-<span class="gp">In [12]: </span><span class="n">my_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="gh">Out[12]: </span><span class="go">0</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="lightning-talks">
-<h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
-<div class="medium line-block">
-<div class="line"><br /></div>
-<div class="line">Alireza Hashemloo</div>
-<div class="line"><br /></div>
-<div class="line">Arielle R Simmons</div>
-<div class="line"><br /></div>
-</div>
-</div>
-</div>
-<div class="section" id="iterators-and-generators">
-<h2>Iterators and Generators<a class="headerlink" href="#iterators-and-generators" title="Permalink to this headline">¶</a></h2>
-<p class="medium">What goes on in those for loops?</p>
-<div class="section" id="iterators">
-<h3>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h3>
-<p>Iterators are one of the main reasons Python code is so readable:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">just_about_anything</span><span class="p">:</span>
-    <span class="n">do_stuff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>It does not have to be a &#8220;sequence&#8221;: list, tuple, etc.</p>
-<p>Rather: you can loop through anything that satisfies the &#8220;iterator protocol&#8221;</p>
-<p><a class="reference external" href="http://docs.python.org/library/stdtypes.html#iterator-types">http://docs.python.org/library/stdtypes.html#iterator-types</a></p>
-</div>
-<div class="section" id="the-iterator-protocol">
-<h3>The Iterator Protocol<a class="headerlink" href="#the-iterator-protocol" title="Permalink to this headline">¶</a></h3>
-<p>An iterator must have the following methods:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">an_iterator</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Returns the iterator object itself. This is required to allow both containers
-and iterators to be used with the <code class="docutils literal"><span class="pre">for</span></code> and <code class="docutils literal"><span class="pre">in</span></code> statements.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">an_iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Returns the next item from the container. If there are no further items,
-raises the <code class="docutils literal"><span class="pre">StopIteration</span></code> exception.</p>
-</div>
-<div class="section" id="list-as-an-iterator">
-<h3>List as an Iterator:<a class="headerlink" href="#list-as-an-iterator" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-
-<span class="gp">In [11]: </span><span class="n">list_iter</span> <span class="o">=</span> <span class="n">a_list</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
-
-<span class="gp">In [12]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="gh">Out[12]: </span><span class="go">1</span>
-
-<span class="gp">In [13]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="gh">Out[13]: </span><span class="go">2</span>
-
-<span class="gp">In [14]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="gh">Out[14]: </span><span class="go">3</span>
-
-<span class="gp">In [15]: </span><span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="gt">--------------------------------------------------</span>
-<span class="ne">StopIteration</span><span class="g-Whitespace">     </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-15-1a7db9b70878&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">list_iter</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="ne">StopIteration</span>:
-</pre></div>
-</div>
-</div>
-<div class="section" id="making-an-iterator">
-<h3>Making an Iterator<a class="headerlink" href="#making-an-iterator" title="Permalink to this headline">¶</a></h3>
-<p>A simple version of <code class="docutils literal"><span class="pre">xrange()</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">IterateMe_1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span>
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">StopIteration</span>
-</pre></div>
-</div>
-<p>(demo: <a class="reference download internal" href="_downloads/iterator_1.py"><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a>)</p>
-</div>
-<div class="section" id="iter">
-<h3><code class="docutils literal"><span class="pre">iter()</span></code><a class="headerlink" href="#iter" title="Permalink to this headline">¶</a></h3>
-<p>How do you get the iterator object (the thing with the next() method) from an &#8220;iterable&#8221;?</p>
-<p>The <code class="docutils literal"><span class="pre">iter()</span></code> function:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="nb">iter</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
-<span class="gh">Out[20]: </span><span class="go">&lt;listiterator at 0x101e01350&gt;</span>
-
-<span class="gp">In [21]: </span><span class="nb">iter</span><span class="p">(</span><span class="s">&quot;a string&quot;</span><span class="p">)</span>
-<span class="gh">Out[21]: </span><span class="go">&lt;iterator at 0x101e01090&gt;</span>
-
-<span class="gp">In [22]: </span><span class="nb">iter</span><span class="p">(</span> <span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;tuple&#39;</span><span class="p">)</span> <span class="p">)</span>
-<span class="gh">Out[22]: </span><span class="go">&lt;tupleiterator at 0x101e01710&gt;</span>
-</pre></div>
-</div>
-<p>for an arbitrary object, <code class="docutils literal"><span class="pre">iter()</span></code> calls the <code class="docutils literal"><span class="pre">__iter__</span></code> method. But it knows about some objects (<code class="docutils literal"><span class="pre">str</span></code>, for instance) that don&#8217;t have a <code class="docutils literal"><span class="pre">__iter__</span></code> method.</p>
-</div>
-<div class="section" id="what-does-for-do">
-<h3>What does <code class="docutils literal"><span class="pre">for</span></code> do?<a class="headerlink" href="#what-does-for-do" title="Permalink to this headline">¶</a></h3>
-<p>Now that we know the iterator protocol, we can write something like a for loop:</p>
-<p><a class="reference download internal" href="_downloads/my_for.py"><code class="xref download docutils literal"><span class="pre">my_for.py</span></code></a></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">my_for</span><span class="p">(</span><span class="n">an_iterable</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Emulation of a for loop.</span>
-
-<span class="sd">    func() will be called with each item in an_iterable</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c"># equiv of &quot;for i in l:&quot;</span>
-    <span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">an_iterable</span><span class="p">)</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-            <span class="k">break</span>
-        <span class="n">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="itertools">
-<h3>Itertools<a class="headerlink" href="#itertools" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">itertools</span></code>  is a collection of utilities that make it easy to
-build an iterator that iterates over sequences in various common ways</p>
-<p><a class="reference external" href="http://docs.python.org/library/itertools.html">http://docs.python.org/library/itertools.html</a></p>
-<p>NOTE:</p>
-<p>iterators are not <em>only</em> for <code class="docutils literal"><span class="pre">for</span></code></p>
-<p>They can be used with anything that expects an iterator:</p>
-<p><code class="docutils literal"><span class="pre">sum</span></code>, <code class="docutils literal"><span class="pre">tuple</span></code>, <code class="docutils literal"><span class="pre">sorted</span></code>, and <code class="docutils literal"><span class="pre">list</span></code></p>
-<p>For example.</p>
-</div>
-<div class="section" id="id2">
-<h3>LAB<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal"><span class="pre">Examples/session08</span></code> dir, you will find:
-<a class="reference download internal" href="_downloads/iterator_1.py"><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a></p>
-<ul class="simple">
-<li>Extend (<code class="docutils literal"><span class="pre">iterator_1.py</span></code> ) to be more like <code class="docutils literal"><span class="pre">xrange()</span></code> &#8211; add three input parameters: <code class="docutils literal"><span class="pre">iterator_2(start,</span> <span class="pre">stop,</span> <span class="pre">step=1)</span></code></li>
-<li>See what happens if you break out in the middle of the loop:</li>
-</ul>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">it</span> <span class="o">=</span> <span class="n">IterateMe_2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>  <span class="k">break</span>
-    <span class="k">print</span> <span class="n">i</span>
-</pre></div>
-</div>
-<p>And then pick up again:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">i</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>Does <code class="docutils literal"><span class="pre">xrange()</span></code>  behave the same?<ul>
-<li>make yours match <code class="docutils literal"><span class="pre">xrange()</span></code></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="lab2">
-<h3>LAB2<a class="headerlink" href="#lab2" title="Permalink to this headline">¶</a></h3>
-<p>Make the SparseArray class from the previous lab an iterator, so you can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_sparse_array</span><span class="p">:</span>
-    <span class="n">do_something_with</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id3">
-<h3>Lightning Talks<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="medium line-block">
-<div class="line"><br /></div>
-<div class="line">Eric W Westman</div>
-<div class="line"><br /></div>
-<div class="line">Ryan J Albright</div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="generators">
-<h3>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h3>
-<p>Generators give you the iterator immediately:</p>
-<ul class="simple">
-<li>no access to the underlying data ... if it even exists</li>
-</ul>
-<dl class="docutils">
-<dt>Conceptually:</dt>
-<dd>Iterators are about various ways to loop over data, generators generate the data on the fly.</dd>
-<dt>Practically:</dt>
-<dd><p class="first">You can use either one either way (and a generator is one type of iterator)</p>
-<p class="last">Generators do some of the book-keeping for you &#8211; simpler syntax.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="yield">
-<h3>yield<a class="headerlink" href="#yield" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">yield</span></code>  is a way to make a quickie generator with a function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">a_generator_function</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
-    <span class="n">some_stuff</span>
-    <span class="k">yield</span> <span class="n">something</span>
-</pre></div>
-</div>
-<p>Generator functions &#8220;yield&#8221; a value, rather than returning a value.</p>
-<p>State is preserved in between yields.</p>
-<p>A function with <code class="docutils literal"><span class="pre">yield</span></code>  in it is a &#8220;factory&#8221; for a generator</p>
-<p>Each time you call it, you get a new generator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">gen_a</span> <span class="o">=</span> <span class="n">a_generator</span><span class="p">()</span>
-<span class="n">gen_b</span> <span class="o">=</span> <span class="n">a_generator</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Each instance keeps its own state.</p>
-<p>Really just a shorthand for an iterator class that does the book keeping for you.</p>
-<p>An example: like <code class="docutils literal"><span class="pre">xrange()</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">y_xrange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">start</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">i</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="n">step</span>
-</pre></div>
-</div>
-<p>Real World Example from FloatCanvas:</p>
-<p><a class="reference external" href="https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100">https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100</a></p>
-<p>Note:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [164]: </span><span class="n">gen</span> <span class="o">=</span> <span class="n">y_xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="gp">In [165]: </span><span class="nb">type</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="gh">Out[165]: </span><span class="go">generator</span>
-<span class="gp">In [166]: </span><span class="nb">dir</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="gh">Out[166]:</span>
-<span class="go">...</span>
-<span class="go"> &#39;__iter__&#39;,</span>
-<span class="go">...</span>
-<span class="go"> &#39;next&#39;,</span>
-</pre></div>
-</div>
-<p>So the generator <strong>is</strong> an iterator</p>
-<p>Note: A generator function can also be a method in a class</p>
-<p><a class="reference download internal" href="_downloads/yield_example.py"><code class="xref download docutils literal"><span class="pre">yield_example.py</span></code></a></p>
-</div>
-<div class="section" id="generator-comprehension">
-<h3>generator comprehension<a class="headerlink" href="#generator-comprehension" title="Permalink to this headline">¶</a></h3>
-<p>yet another way to make a generator:</p>
-<div class="highlight-python"><div class="highlight"><pre>￼&gt;&gt;&gt; [x * 2 for x in [1, 2, 3]]
-[2, 4, 6]
-&gt;&gt;&gt; (x * 2 for x in [1, 2, 3])
-&lt;generator object &lt;genexpr&gt; at 0x10911bf50&gt;
-&gt;&gt;&gt; for n in (x * 2 for x in [1, 2, 3]):
-...   print n
-... 2 4 6
-</pre></div>
-</div>
-<p>More interesting if [1, 2, 3] is also a generator</p>
-</div>
-<div class="section" id="id4">
-<h3>LAB<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>Write a few generators:</p>
-<ul class="simple">
-<li>Sum of integers</li>
-<li>Doubler</li>
-<li>Fibonacci sequence</li>
-<li>Prime numbers</li>
-</ul>
-<p>(test code in
-<a class="reference download internal" href="_downloads/test_generator.py"><code class="xref download docutils literal"><span class="pre">test_generator.py</span></code></a>)</p>
-<p>Descriptions:</p>
-<dl class="docutils">
-<dt>Sum of the integers:</dt>
-<dd><p class="first">keep adding the next integer</p>
-<p>0 + 1 + 2 + 3 + 4 + 5 + ...</p>
-<p>so the sequence is:</p>
-<p class="last">0, 1, 3, 6, 10, 15 .....</p>
-</dd>
-</dl>
-<dl class="docutils">
-<dt>Doubler:</dt>
-<dd><p class="first">Each value is double the previous value:</p>
-<p class="last">1, 2, 4, 8, 16, 32,</p>
-</dd>
-<dt>Fibonacci sequence:</dt>
-<dd><p class="first">The fibonacci sequence as a generator:</p>
-<p>f(n) = f(n-1) + f(n-2)</p>
-<p class="last">1, 1, 2, 3, 5, 8, 13, 21, 34...</p>
-</dd>
-<dt>Prime numbers:</dt>
-<dd><p class="first">Generate the prime numbers (numbers only divisible by them self and 1):</p>
-<p class="last">2, 3, 5, 7, 11, 13, 17, 19, 23...</p>
-</dd>
-<dt>Others to try:</dt>
-<dd>Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...</dd>
-</dl>
+<p>Write a class for a sparse array:</p>
+<p><a class="reference internal" href="exercises/sparse_array.html#exercise-sparse-array"><span>Sparse Array Exercise</span></a></p>
 </div>
 </div>
 <div class="section" id="homework">
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<p class="left medium">Finish up the Labs from class</p>
-<p class="left medium">Get started on your project!</p>
-<p class="left medium">(Send me a proposal if you haven&#8217;t already)</p>
+<p class="left">Complete the Circle class</p>
+<p class="left">Complete the Sparse Array class</p>
+<p class="left">Decide what you are going to do for your project, and send me a simple proposal. Get started if you can.</p>
+<p class="left">Good book:</p>
+<p class="left">Python 3 Object Oriented Programming: <em>Dusty Phillips</em></p>
+<p class="left">(Dusty is a local boy and co-founder of PuPPy)</p>
 </div>
 </div>
 
@@ -664,10 +757,10 @@ build an iterator that iterates over sequences in various common ways</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="session09.html" class="btn btn-neutral float-right" title="Session Nine: Decorators, Context Managers, Packages and packaging" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="session09.html" class="btn btn-neutral float-right" title="Session Nine: Iterators, Iterables, and Generators" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="session07.html" class="btn btn-neutral" title="Session Seven: More OO" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="session07.html" class="btn btn-neutral" title="Object Oriented Programming" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -707,6 +800,7 @@ build an iterator that iterates over sequences in various common ways</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

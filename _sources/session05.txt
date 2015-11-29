@@ -1,11 +1,7 @@
 
-.. Foundations 2: Python slides file, created by
-   hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
-
-
-*********************************************************************
-Session Five: Advanced Argument passing, List and Dict Comprehensions
-*********************************************************************
+*************************************************
+Session Five: Exceptions, Testing, Comprehensions
+*************************************************
 
 ======================
 Lightning Talks Today:
@@ -13,14 +9,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-  Darcy Balcarce
+    Michael Cimino
 
-  Eric Buer
+    Pei Lin
 
-  Henry B Fischer
-
-  Kyle R Hart
-
+    Tiffany Ku
 
 ================
 Review/Questions
@@ -30,8 +23,8 @@ Review of Previous Class
 ------------------------
 
   * Dictionaries
-  * Exceptions
-  * Files, etc.
+  * Sets
+  * File processing, etc.
 
 .. nextslide::
 
@@ -57,9 +50,7 @@ Review of Previous Class
 
     * But it's all good stuff.
 
-    * I want time to go over it in class.
-
-    * So I'm ditching Unicode -- we'll hit it in the last class
+    * I'll take time to go over it in class.
 
 
 Homework review
@@ -67,23 +58,22 @@ Homework review
 
 Homework Questions?
 
-My Solutions to ALL the excercises in the class repo in:
+My Solutions to all the exercises in the class repo in:
 
 ``Solutions/Session04``
 
 A few tidbits ....
 
-.. nextslide:: Sorting stuff in dictionaries:
+Sorting stuff in dictionaries:
+-------------------------------
 
 dicts aren't sorted, so what if you want to do something in a sorted way?
 
-The "old" way:
+The "standard" way:
 
 .. code-block:: python
 
-  keys = d.keys()
-  keys.sort()
-  for key in keys:
+  for key in sorted(d.keys()):
       ...
 
 Other options:
@@ -92,9 +82,83 @@ Other options:
 
     collections.OrderedDict
 
-    sorted()
+Also other nifty stuff in the ``collections`` module:
+
+https://docs.python.org/3.5/library/collections.html
+
+
+PEP 8 reminder
+--------------
+
+PEP 8 (Python Enhancement Proposal 8): https://www.python.org/dev/peps/pep-0008/
+
+Is the "official" style guide for Python code.
+
+Strictly speaking, you only need to follow it for code in the standard library.
+
+But style matters -- consistent style makes your code easier to read and understand.
+
+So **follow PEP 8**
+
+*Exception* -- if you have a company style guide follow that instead.
+
+try the "pep8" module on your code::
+
+  $ python3 -m pip install pep8
+  $ pep8 my_python_file
 
 (demo)
+
+Naming things...
+----------------
+
+It matters what names you give your variables.
+
+Python has rules about what it *allows*
+
+PEP8 has rules for style: capitalization, and underscores and all that.
+
+But you still get to decide within those rules.
+
+So use names that make sense to the reader.
+
+Naming Guidelines
+-----------------
+
+Only use single-letter names for things with limited scope: indexes and teh like:
+
+.. code-block:: python
+
+    for i, item in enumerate(a_sequence):
+        do_something(i, item)
+
+**Don't** use a name like "item", when there is a meaning to what the item is:
+
+.. code-block:: python
+
+    for name in all_the_names:
+        do_something_with(name)
+
+Use plurals for collections of things:
+
+.. code-block:: python
+
+    names = ['Fred', 'George', ...]
+
+.. nextslide::
+
+**Do** re-use names when the use is essentially the same, and you don't need the old one:
+
+.. code-block:: python
+
+    line = line.strip()
+    line = line.replace(",", " ")
+    ....
+
+Here's a nice talk about naming:
+
+http://pyvideo.org/video/3792/name-things-once-0
+
 
 Code Review
 ------------
@@ -112,335 +176,221 @@ Anyone look at my solutions?
 
 Anything in particular you'd like me to go over?
 
-=========================
-Advanced Argument Passing
-=========================
+==========
+Exceptions
+==========
 
-Keyword arguments
------------------
+A really nifty python feature -- really handy!
 
-When defining a function, you can specify only what you need -- in any order
+Exceptions
+----------
 
-.. code-block:: ipython
-
-    In [151]: def fun(x,y=0,z=0):
-            print x,y,z
-       .....:
-    In [152]: fun(1,2,3)
-    1 2 3
-    In [153]: fun(1, z=3)
-    1 0 3
-    In [154]: fun(1, z=3, y=2)
-    1 2 3
-
-
-.. nextslide::
-
-
-A Common Idiom:
+Another Branching structure:
 
 .. code-block:: python
 
-    def fun(x, y=None):
-        if y is None:
-            do_something_different
-        go_on_here
+    try:
+        do_something()
+        f = open('missing.txt')
+        process(f)   # never called if file missing
+    except IOError:
+        print("couldn't open missing.txt")
 
-
-
-.. nextslide::
-
-Can set defaults to variables
-
-.. code-block:: ipython
-
-    In [156]: y = 4
-    In [157]: def fun(x=y):
-        print "x is:", x
-       .....:
-    In [158]: fun()
-    x is: 4
-
-
-.. nextslide::
-
-Defaults are evaluated when the function is defined
-
-.. code-block:: ipython
-
-    In [156]: y = 4
-    In [157]: def fun(x=y):
-        print "x is:", x
-       .....:
-    In [158]: fun()
-    x is: 4
-    In [159]: y = 6
-    In [160]: fun()
-    x is: 4
-
-
-
-Function arguments in variables
--------------------------------
-
-function arguments are really just
-
-* a tuple (positional arguments)
-* a dict (keyword arguments)
+Exceptions
+----------
+Never Do this:
 
 .. code-block:: python
 
-    def f(x, y, w=0, h=0):
-        print "position: %s, %s -- shape: %s, %s"%(x, y, w, h)
-
-    position = (3,4)
-    size = {'h': 10, 'w': 20}
-
-    >>> f( *position, **size)
-    position: 3, 4 -- shape: 20, 10
+    try:
+        do_something()
+        f = open('missing.txt')
+        process(f)   # never called if file missing
+    except:
+        print "couldn't open missing.txt"
 
 
+Exceptions
+----------
 
-Function parameters in variables
---------------------------------
+Use Exceptions, rather than your own tests:
 
-You can also pull the parameters out in the function as a tuple and a dict:
+Don't do this:
 
-.. code-block:: ipython
+.. code-block:: python
 
-    def f(*args, **kwargs):
-        print "the positional arguments are:", args
-        print "the keyword arguments are:", kwargs
+    do_something()
+    if os.path.exists('missing.txt'):
+        f = open('missing.txt')
+        process(f)   # never called if file missing
 
-    In [389]: f(2, 3, this=5, that=7)
-    the positional arguments are: (2, 3)
-    the keyword arguments are: {'this': 5, 'that': 7}
-
-This can be very powerful...
-
-Passing a dict to str.format()
--------------------------------
-
-Now that you know that keyword args are really a dict,
-you can do this nifty trick:
-
-The ``format`` method takes keyword arguments:
-
-.. code-block:: ipython
-
-    In [24]: u"My name is {first} {last}".format(last=u"Barker", first=u"Chris")
-    Out[24]: u'My name is Chris Barker'
-
-Build a dict of the keys and values:
-
-.. code-block:: ipython
-
-    In [25]: d = {u"last":u"Barker", u"first":u"Chris"}
-
-And pass to ``format()``with ``**``
-
-.. code-block:: ipython
-
-    In [26]: u"My name is {first} {last}".format(**d)
-    Out[26]: u'My name is Chris Barker'
-
-=====================================
-A bit more on mutability (and copies)
-=====================================
-
-mutable objects
-----------------
-
-We've talked about this: mutable objects can have their contents changed in place.
-
-Immutable objects can not.
-
-This has implications when you have a container with mutable objects in it:
-
-.. code-block:: ipython
-
-    In [28]: list1 = [ [1,2,3], ['a','b'] ]
-
-one way to make a copy of a list:
-
-.. code-block:: ipython
-
-    In [29]: list2 = list1[:]
-
-    In [30]: list2 is list1
-    Out[30]: False
-
-they are different lists.
+It will almost always work -- but the almost will drive you crazy
 
 .. nextslide::
 
-What if we set an element to a new value?
+Example from homework
+
+.. code-block:: python
+
+    if num_in.isdigit():
+        num_in = int(num_in)
+
+but -- ``int(num_in)`` will only work if the string can be converted to an integer.
+
+So you can do
+
+.. code-block:: python
+
+    try:
+        num_in = int(num_in)
+    except ValueError:
+        print("Input must be an integer, try again.")
+
+Or let the Exception be raised....
+
+
+.. nextslide:: EAFP
+
+
+"it's Easier to Ask Forgiveness than Permission"
+
+ -- Grace Hopper
+
+
+http://www.youtube.com/watch?v=AZDWveIdqjY
+
+(PyCon talk by Alex Martelli)
+
+.. nextslide:: Do you catch all Exceptions?
+
+For simple scripts, let exceptions happen.
+
+Only handle the exception if the code can and will do something about it.
+
+(much better debugging info when an error does occur)
+
+
+Exceptions -- finally
+---------------------
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+        process(f)   # never called if file missing
+    except IOError:
+        print("couldn't open missing.txt")
+    finally:
+        do_some_clean-up
+
+The ``finally:``  clause will always run
+
+
+Exceptions -- else
+-------------------
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+    except IOError:
+        print("couldn't open missing.txt")
+    else:
+        process(f) # only called if there was no exception
+
+Advantage:
+
+you know where the Exception came from
+
+Exceptions -- using them
+------------------------
+
+.. code-block:: python
+
+    try:
+        do_something()
+        f = open('missing.txt')
+    except IOError as the_error:
+        print(the_error)
+        the_error.extra_info = "some more information"
+        raise
+
+
+Particularly useful if you catch more than one exception:
+
+.. code-block:: python
+
+    except (IOError, BufferError, OSError) as the_error:
+        do_something_with (the_error)
+
+
+Raising Exceptions
+-------------------
+
+.. code-block:: python
+
+    def divide(a,b):
+        if b == 0:
+            raise ZeroDivisionError("b can not be zero")
+        else:
+            return a / b
+
+
+when you call it:
 
 .. code-block:: ipython
 
-    In [31]: list1[0] = [5,6,7]
+    In [515]: divide (12,0)
+    ZeroDivisionError: b can not be zero
 
-    In [32]: list1
-    Out[32]: [[5, 6, 7], ['a', 'b']]
 
-    In [33]: list2
-    Out[33]: [[1, 2, 3], ['a', 'b']]
+Built in Exceptions
+-------------------
 
-So they are independent.
+You can create your own custom exceptions
+
+But...
+
+.. code-block:: python
+
+    exp = \
+     [name for name in dir(__builtin__) if "Error" in name]
+    len(exp)
+    32
+
+
+For the most part, you can/should use a built in one
 
 .. nextslide::
 
-But what if we mutate an element?
+Choose the best match you can for the built in Exception you raise.
 
-.. code-block:: ipython
+Example (from last week's exercises)::
 
-    In [34]: list1[1].append('c')
+  if (not isinstance(m, int)) or (not isinstance(n, int)):
+      raise ValueError
 
-    In [35]: list1
-    Out[35]: [[5, 6, 7], ['a', 'b', 'c']]
+Is it the *value* or the input the problem here?
 
-    In [36]: list2
-    Out[36]: [[1, 2, 3], ['a', 'b', 'c']]
+Nope: the *type* is the problem::
 
-uuh oh! mutating an element in one list mutated the one in the other list.
+  if (not isinstance(m, int)) or (not isinstance(n, int)):
+      raise TypeError
 
-.. nextslide::
+but should you be checking type anyway? (EAFP)
 
-Why is that?
-
-.. code-block:: ipython
-
-    In [38]: list1[1] is list2[1]
-    Out[38]: True
-
-The elements are the same object!
-
-This is known as a "shallow" copy -- Python doesn't want to copy more than it needs to, so in this case, it makes a new list, but does not make copies of the contents.
-
-Same for dicts (and any container type)
-
-If the elements are immutable, it doesn't really make a differnce -- but be very careful with mutable elements.
-
-
-The copy module
-----------------
-
-most objects have a way to make copies (``dict.copy()`` for instance).
-
-but if not, you can use the ``copy`` module to make a copy:
-
-.. code-block:: ipython
-
-    In [39]: import copy
-
-    In [40]: list3 = copy.copy(list2)
-
-    In [41]: list3
-    Out[41]: [[1, 2, 3], ['a', 'b', 'c']]
-
-This is also a shallow copy.
-
-.. nextslide::
-
-But there is another option:
-
-.. code-block:: ipython
-
-    In [3]: list1
-    Out[3]: [[1, 2, 3], ['a', 'b', 'c']]
-
-    In [4]: list2 = copy.deepcopy(list1)
-
-    In [5]: list1[0].append(4)
-
-    In [6]: list1
-    Out[6]: [[1, 2, 3, 4], ['a', 'b', 'c']]
-
-    In [7]: list2
-    Out[7]: [[1, 2, 3], ['a', 'b', 'c']]
-
-``deepcopy`` recurses through the object, making copies of everything as it goes.
-
-.. nextslide::
-
-
-I happened on this thread on stack overflow:
-
-http://stackoverflow.com/questions/3975376/understanding-dict-copy-shallow-or-deep
-
-
-The OP is pretty confused -- can you sort it out?
-
-Make sure you understand the difference between a reference, a shallow copy, and a deep copy.
-
-Mutables as default arguments:
-------------------------------
-
-Another "gotcha" is using mutables as default arguments:
-
-.. code-block:: ipython
-
-    In [11]: def fun(x, a=[]):
-       ....:     a.append(x)
-       ....:     print a
-       ....:
-
-This makes sense: maybe you'd pass in a list, but the default is an empty list.
-
-But:
-
-.. code-block:: ipython
-
-    In [12]: fun(3)
-    [3]
-
-    In [13]: fun(4)
-    [3, 4]
-
-Huh?!
-
-.. nextslide::
-
-Remember that that default argument is defined when the function is created: there will be only one list, and every time the function is called, that same list is used.
-
-
-The solution:
-
-The standard practice for such a mutable default argument:
-
-.. code-block:: ipython
-
-    In [15]: def fun(x, a=None):
-       ....:     if a is None:
-       ....:         a = []
-       ....:     a.append(x)
-       ....:     print a
-    In [16]: fun(3)
-    [3]
-    In [17]: fun(4)
-    [4]
-
-You get a new list every time the function is called
-
-
-
+===
 LAB
-----
+===
 
-.. rst-class:: medium
+Exceptions Lab:
 
-  keyword arguments:
+A number of you already did this -- so do it at home if you haven't
 
-* Write a function that has four optional parameters (with defaults):
+:ref:`exercise_exceptions_lab`
 
-  - fore_color
-  - back_color
-  - link_color
-  - visited_color
-
-* Have it print the colors (use strings for the colors)
-* Call it with a couple different parameters set
-* Have it pull the parameters out with ``*args, **kwargs``
 
 Lightning Talks
 ----------------
@@ -448,13 +398,11 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-| Darcy Balcarce
+| Michael Cimino
 |
 |
-| Eric Buer
+| Pei Lin
 |
-
-
 
 
 ============================
@@ -463,8 +411,8 @@ List and Dict Comprehensions
 
 List comprehensions
 -------------------
-A bit of functional programming
 
+A bit of functional programming
 
 consider this common ``for`` loop structure:
 
@@ -482,7 +430,6 @@ This can be expressed with a single line using a "list comprehension"
 
 
 .. nextslide::
-
 
 What about nested for loops?
 
@@ -521,7 +468,6 @@ You can add a conditional to the comprehension:
     new_list = [expr for var in a_list if something_is_true]
 
 
-
 (demo)
 
 .. nextslide::
@@ -543,7 +489,7 @@ Examples:
 
 .. nextslide::
 
-Remember this from last week?
+Remember this from earlier today?
 
 .. code-block:: python
 
@@ -554,7 +500,6 @@ Remember this from last week?
      'BufferError',
      'EOFError',
      ....
-
 
 
 Set Comprehensions
@@ -586,7 +531,7 @@ Example: finding all the vowels in a string...
 
     In [20]: vowels = set('aeiou')
 
-    In [21]: { let for let in s if let in vowels }
+    In [21]: { l for l in s if l in vowels }
     Out[21]: {'a', 'e', 'i', 'o'}
 
 Side note: why did I do ``set('aeiou')`` rather than just `aeiou` ?
@@ -629,18 +574,19 @@ Example
 LAB
 ===
 
-See the list comps exercises...
+List comps exercises:
 
-Lightning Talks
+:ref:`exercise_comprehensions`
+
+
+
+Lightning Talk
 ----------------
 
 .. rst-class:: medium
 
 |
-| Some person
-|
-|
-| Some other person
+| Tiffany Ku
 |
 
 
@@ -685,12 +631,11 @@ block.
 Standard Library: ``unittest``
 -------------------------------
 
-
 The original testing system in Python.
 
 ``import unittest``
 
-More or less a port of Junit from Java
+More or less a port of ``Junit`` from Java
 
 A bit verbose: you have to write classes & methods
 
@@ -755,8 +700,7 @@ This way, you can write your code in one file and test it from another:
 
     It provides a wide variety of assertions for testing all sorts of situations.
 
-    It allows for a setup and tear down workflow both before and after all tests
-    and before and after each test.
+    It allows for a setup and tear down workflow both before and after all tests and before and after each test.
 
     It's well known and well understood.
 
@@ -777,28 +721,29 @@ This way, you can write your code in one file and test it from another:
 
     Test discovery is both inflexible and brittle.
 
-.. nextslide:: Other Options
+    And there is no built-in parameterized testing.
+
+Other Options
+-------------
 
 There are several other options for running tests in Python.
 
+* `Nose`: https://nose.readthedocs.org/
 
-* `Nose`_
-* `pytest`_
+* `pytest`: http://pytest.org/latest/
+
 * ... (many frameworks supply their own test runners)
 
-We are going to play today with pytest
+Both are very capable and widely used. I have a personal preference for pytest -- so we'll use it for this class
 
-.. _Nose: https://nose.readthedocs.org/
-.. _pytest: http://pytest.org/latest/
-
-
-.. nextslide:: Installing ``pytest``
+Installing ``pytest``
+---------------------
 
 The first step is to install the package:
 
 .. code-block:: bash
 
-    (cff2py)$ pip install pytest
+    $ python3 -m pip install pytest
 
 Once this is complete, you should have a ``py.test`` command you can run
 at the command line:
@@ -814,11 +759,12 @@ If you have any tests in your repository, that will find and run them.
 
     **Do you?**
 
-.. nextslide:: Pre-existing Tests
+Pre-existing Tests
+------------------
 
 Let's take a look at some examples.
 
-``\Examples\Session05``
+``IntroToPython\Examples\Session05``
 
 `` $ py.test``
 
@@ -844,8 +790,7 @@ It follows some simple rules:
 
 * Any python file that starts with ``test_`` or ``_test`` is imported.
 * Any functions in them that start with ``test_`` are run as tests.
-* Any classes that start with ``Test`` are treated similarly, with methods that
-  begin with ``test_`` treated as tests.
+* Any classes that start with ``Test`` are treated similarly, with methods that begin with ``test_`` treated as tests.
 
 
 .. nextslide:: pytest
@@ -878,10 +823,11 @@ Pick an example from codingbat:
 
 Do a bit of test-driven development on it:
 
- * run somethign on the web site.
+ * run something on the web site.
  * write a few tests using the examples from the site.
  * then write the function, and fix it 'till it passes the tests.
 
+Do at least two of these...
 
 =========
 Homework
@@ -891,240 +837,37 @@ Catch up!
 ---------
 
 
-* First task -- catch up from last week.
+* Finish the LABs from today
+  - Exceptions lab
 
+* Catch up from last week.
+
+  - Add Exception handling to mailroom
   - and add some tests
   - and list (and dict, and set) comprehensions...
 
-* Then on to some exercises....
+* If you've done all that -- check out the collections module:
 
+  - https://docs.python.org/3.5/library/collections.html
+  - here's a good overview: https://pymotw.com/3/collections/
 
-List comprehensions
---------------------
+====================================
+Material to review before next week:
+====================================
 
-Note: this is a bit of a "backwards" exercise --
-we show you code, you figure out what it does.
+ * Dive into Python3: 7.2 -- 7.3
+   http://www.diveintopython3.net/iterators.html#defining-classes
 
-As a result, not much to submit -- but so we can give you credit, submit
-a file with a solution to the final problem.
+ * Think Pyhton: 15 -- 18
+   http://www.greenteapress.com/thinkpython/html/thinkpython016.html
 
-.. code-block:: python
+ * LPTHW: 40 -- 44
+   http://learnpythonthehardway.org/book/ex40.html
 
-    >>> feast = ['lambs', 'sloths', 'orangutans', 'breakfast cereals', 'fruit bats']
+[note that in py3 you dont need to inherit from object]
 
-    >>> comprehension = [delicacy.capitalize() for delicacy in feast]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> comprehension[0]
-    ???
-
-    >>> comprehension[2]
-    ???
-
-(figure it out before you try it)
-
-.. nextslide:: 2. Filtering lists with list comprehensions
-
-
-.. code-block:: python
-
-    >>> feast = ['spam', 'sloths', 'orangutans', 'breakfast cereals',
-                'fruit bats']
-
-    >>> comprehension = [delicacy for delicacy in feast if len(delicacy) > 6]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> len(feast)
-    ???
-
-    >>> len(comprehension)
-    ???
-
-(figure it out first!)
-
-.. nextslide:: 3. Unpacking tuples in list comprehensions
-
-
-.. code-block:: python
-
-    >>> list_of_tuples = [(1, 'lumberjack'), (2, 'inquisition'), (4, 'spam')]
-
-    >>> comprehension = [ skit * number for number, skit in list_of_tuples ]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> comprehension[0]
-    ???
-
-    >>> len(comprehension[2])
-    ???
-
-.. nextslide::  4. Double list comprehensions
-
-.. code-block:: python
-
-    >>> list_of_eggs = ['poached egg', 'fried egg']
-
-    >>> list_of_meats = ['lite spam', 'ham spam', 'fried spam']
-
-    >>> comprehension = [ '{0} and {1}'.format(egg, meat) for egg in list_of_eggs for meat in list_of_meats]
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> len(comprehension)
-    ???
-
-    >>> comprehension[0]
-    ???
-
-.. nextslide::  5. Set comprehensions
-
-
-.. code-block:: python
-
-    >>> comprehension = { x for x in 'aabbbcccc'}
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> comprehension
-    ???
-
-.. nextslide::  6. Dictionary comprehensions
-
-
-.. code-block:: python
-
-    >>> dict_of_weapons = {'first': 'fear',
-                           'second': 'surprise',
-                           'third':'ruthless efficiency',
-                           'forth':'fanatical devotion',
-                           'fifth': None}
-    >>> dict_comprehension = \
-    { k.upper(): weapon for k, weapon in dict_of_weapons.iteritems() if weapon}
-
-What is the output of:
-
-.. code-block:: python
-
-    >>> 'first' in dict_comprehension
-    ???
-    >>> 'FIRST' in dict_comprehension
-    ???
-    >>> len(dict_of_weapons)
-    ???
-    >>> len(dict_comprehension)
-    ???
-
-.. nextslide:: Other resources
-
-
-See also:
-
-https://github.com/gregmalcolm/python_koans
-
-https://github.com/gregmalcolm/python_koans/blob/master/python2/koans/about_comprehension.py
-
-
-.. nextslide:: 7. Count even numbers
-
-
-Use test-driven development!
-
-This is from CodingBat "count_evens" (http://codingbat.com/prob/p189616)
-
-*Using a list comprehension*, return the number of even ints in the given array.
-
-Note: the % "mod" operator computes the remainder, e.g. ``5 % 2`` is 1.
-
-.. code-block:: python
-
-    count_evens([2, 1, 2, 3, 4]) == 3
-
-    count_evens([2, 2, 0]) == 3
-
-    count_evens([1, 3, 5]) == 0
-
-
-.. code-block:: python
-
-    def count_evens(nums):
-       one_line_comprehension_here
-
-
-``dict`` and ``set`` comprehensions
-------------------------------------
-
-Let's revisiting the dict/set lab -- see how much you can do with
-comprehensions instead.
-
-Specifically,  look at these:
-
-First a slightly bigger, more interesting (or at least bigger..) dict:
-
-.. code-block:: python
-
-    food_prefs = {"name": u"Chris",
-                  u"city": u"Seattle",
-                  u"cake": u"chocolate",
-                  u"fruit": u"mango",
-                  u"salad": u"greek",
-                  u"pasta": u"lasagna"}
-
-.. nextslide:: Working with this dict:
-
-1. Print the dict by passing it to a string format method, so that you
-get something like:
-
-    "Chris is from Seattle, and he likes chocolate cake, mango fruit,
-     greek salad, and lasagna pasta"
-
-2. Using a list comprehension, build a dictionary of numbers from zero
-to fifteen and the hexadecimal equivalent (string is fine).
-
-3. Do the previous entirely with a dict comprehension -- should be a one-liner
-
-4. Using the dictionary from item 1: Make a dictionary using the same
-keys but with the number of 'a's in each value. You can do this either
-by editing the dict in place, or making a new one. If you edit in place,
-make a copy first!
-
-.. nextslide::
-
-5. Create sets s2, s3 and s4 that contain numbers from zero through twenty,
-divisible 2, 3 and 4.
-
-    a. Do this with one set comprehension for each set.
-
-    b. What if you had a lot more than 3? -- Don't Repeat Yourself (DRY)
-
-       - create a sequence that holds all three sets
-
-       - loop through that sequence to build the sets up -- so no repeated code.
-
-    c. Extra credit:  do it all as a one-liner by nesting a set comprehension inside a list comprehension. (OK, that may be getting carried away!)
-
-================================
-Material to review for Homework:
-================================
-
-Raymond Hettinger:
+Talk by Raymond Hettinger:
 
 https://youtu.be/HTLu2DFOdTg
 
 https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger
-
-
-
-

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>A Picture of git &mdash; Introduction To Python 1.3 documentation</title>
+  <title>git Overview &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -86,13 +86,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, Exceptions, and Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Advanced Argument passing, List and Dict Comprehensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Functional and Object Oriented Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session07.html">Session Seven: More OO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: Callable classes, Iterators, Generators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Decorators, Context Managers, Packages and packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Unicode, Wrap Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Exercises</a></li>
@@ -104,9 +104,18 @@
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">A Picture of git</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">git Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-graphical-tutorial">A Graphical Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-picture-of-git">A Picture of git</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other-resources">Other Resources</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging.html">Packages and Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging.html#distributing">Distributing</a></li>
 </ul>
 </li>
 </ul>
@@ -141,7 +150,7 @@
       
           <li><a href="index.html">Supplemental Materials</a> &raquo;</li>
       
-    <li>A Picture of git</li>
+    <li>git Overview</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -155,8 +164,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="a-picture-of-git">
-<span id="supplement-git-states"></span><h1>A Picture of git<a class="headerlink" href="#a-picture-of-git" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="git-overview">
+<span id="supplement-git-states"></span><h1>git Overview<a class="headerlink" href="#git-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-graphical-tutorial">
+<h2>A Graphical Tutorial<a class="headerlink" href="#a-graphical-tutorial" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-picture-of-git">
+<h3>A Picture of git<a class="headerlink" href="#a-picture-of-git" title="Permalink to this headline">¶</a></h3>
 <div class="figure">
 <a class="center reference internal image-reference" href="../_images/git_simple_timeline.png"><img alt="../_images/git_simple_timeline.png" class="center" src="../_images/git_simple_timeline.png" style="width: 80%;" /></a>
 </div>
@@ -233,7 +246,7 @@ time.</p>
 </div>
 <div class="build container">
 <p>Branching allows you to keep related sets of work separate from each-other.</p>
-<p>In class here, you can use it to do your excercises for each session.</p>
+<p>In class here, you can use it to do your exercises for each session.</p>
 <p>Simply create a new branch for each session from your repository master
 branch.</p>
 <p>Do your work on that branch, and then you can issue a <strong>pull request</strong> in
@@ -274,6 +287,17 @@ conflict.</p>
 code in any language and will cause errors.</p>
 <p>Once a conflict is resolved, you can <code class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></code> the file back and then commit
 the merge.</p>
+</div>
+</div>
+<div class="section" id="other-resources">
+<h2>Other Resources<a class="headerlink" href="#other-resources" title="Permalink to this headline">¶</a></h2>
+<p class="left here are few good places to look for more info about using git"><strong>Pro git</strong></p>
+<p class="left here are few good places to look for more info about using git">The semi-offical documentation &#8211; the first few chapters are worth going through:</p>
+<p class="left here are few good places to look for more info about using git"><a class="reference external" href="https://git-scm.com/book/en">https://git-scm.com/book/en</a></p>
+<p class="left here are few good places to look for more info about using git">** git Branching**</p>
+<p class="left here are few good places to look for more info about using git">Interactive tutorial about branching &#8211; try it right in the browser!</p>
+<p class="left here are few good places to look for more info about using git"><a class="reference external" href="http://pcottle.github.io/learnGitBranching/">http://pcottle.github.io/learnGitBranching/</a></p>
+</div>
 </div>
 
 
@@ -326,6 +350,7 @@ the merge.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

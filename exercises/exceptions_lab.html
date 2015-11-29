@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Supplemental Materials &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Exceptions Lab &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -31,8 +31,9 @@
 
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
-        <link rel="next" title="Useful Python Learning Resources" href="python_learning_resources.html"/>
-        <link rel="prev" title="Sparse Array Exercise" href="../exercises/sparse_array.html"/> 
+        <link rel="up" title="Exercises" href="index.html"/>
+        <link rel="next" title="Comprehensions Lab" href="comprehensions_lab.html"/>
+        <link rel="prev" title="Kata Fourteen: Tom Swift Under Milk Wood" href="kata_fourteen.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -94,22 +95,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Exercises</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Supplemental Materials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_overview.html">git Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging.html">Packages and Packaging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging.html#distributing">Distributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercises</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents:</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-2">Session 2:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-3">Session 3:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-4">Session 4:</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#session-5">Session 5:</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="">Exceptions Lab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="comprehensions_lab.html">Comprehensions Lab</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-6">Session 6:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-7">Session 7:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-8">Session 8:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a></li>
 </ul>
 
             
@@ -140,11 +143,13 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Supplemental Materials</li>
+          <li><a href="index.html">Exercises</a> &raquo;</li>
+      
+    <li>Exceptions Lab</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/supplements/index.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/exercises/exceptions_lab.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -154,23 +159,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="supplemental-materials">
-<h1>Supplemental Materials<a class="headerlink" href="#supplemental-materials" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_for_mac.html">Setting up your Mac for Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git_overview.html">git Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packages and Packaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packaging.html#distributing">Distributing</a></li>
+  <div class="section" id="exceptions-lab">
+<span id="exercise-exceptions-lab"></span><h1>Exceptions Lab<a class="headerlink" href="#exceptions-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="learning-exceptions">
+<h2>Learning Exceptions<a class="headerlink" href="#learning-exceptions" title="Permalink to this headline">¶</a></h2>
+<p>Just a little bit for the basics.</p>
+<div class="section" id="id1">
+<h3>Exceptions Lab<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Improving <code class="docutils literal"><span class="pre">input</span></code></p>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">input()</span></code>  function can generate two exceptions: <code class="docutils literal"><span class="pre">EOFError</span></code>
+or <code class="docutils literal"><span class="pre">KeyboardInterrupt</span></code>  on end-of-file(EOF) or canceled input.</li>
+<li>Create a wrapper function, perhaps <code class="docutils literal"><span class="pre">safe_input()</span></code>  that returns <code class="docutils literal"><span class="pre">None</span></code>
+rather rather than raising these exceptions, when the user enters <code class="docutils literal"><span class="pre">^C</span></code>  for Keyboard Interrupt, or <code class="docutils literal"><span class="pre">^D</span></code> (<code class="docutils literal"><span class="pre">^Z</span></code>  on Windows) for End Of File.</li>
+<li>Update your mailroom program to use exceptions (and IBAFP) to handle
+malformed numeric input</li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -181,10 +186,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="python_learning_resources.html" class="btn btn-neutral float-right" title="Useful Python Learning Resources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="comprehensions_lab.html" class="btn btn-neutral float-right" title="Comprehensions Lab" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../exercises/sparse_array.html" class="btn btn-neutral" title="Sparse Array Exercise" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="kata_fourteen.html" class="btn btn-neutral" title="Kata Fourteen: Tom Swift Under Milk Wood" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
