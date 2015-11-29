@@ -53,6 +53,19 @@ def test_repr():
     text = repr(c)
     assert "Circle(4)" in text
 
+
+def test_addition():
+    c1 = cl.Circle(2)
+    c2 = cl.Circle(4)
+    assert c1 + c2 == "Circle(6)"
+
+
+def test_multiply():
+    c1 = cl.Circle(2)
+    assert c1 * 3 == "Circle(6)"
+
+
+
 '''
 FOR REFERENCE: math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)
 

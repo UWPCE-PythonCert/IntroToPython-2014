@@ -28,3 +28,14 @@ class Circle:
 
     def __repr__(self):
         return "Circle({:.0f})".format(self.radius)
+
+    def __add__(self, other):
+        new_radius = self.radius + other.radius
+        return Circle(new_radius)
+
+    def __mul__(self, other):
+        new_radius = self.radius * other
+        return Circle(new_radius)
+
+    def __rmul__(self, other):
+        return self.__mul__(other)
