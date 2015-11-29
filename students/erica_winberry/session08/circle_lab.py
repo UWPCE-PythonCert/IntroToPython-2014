@@ -33,9 +33,22 @@ class Circle:
         new_radius = self.radius + other.radius
         return Circle(new_radius)
 
+    def __sub__(self, other):
+        new_radius = self.radius - other.radius
+        return Circle(new_radius)
+
     def __mul__(self, other):
         new_radius = self.radius * other
         return Circle(new_radius)
 
     def __rmul__(self, other):
         return self.__mul__(other)
+
+    def __eq__(self, other):
+        return self.radius == other.radius
+
+    def __lt__(self, other):
+        return self.radius < other.radius
+
+    def __gt__(self, other):
+        return self.radius > other.radius

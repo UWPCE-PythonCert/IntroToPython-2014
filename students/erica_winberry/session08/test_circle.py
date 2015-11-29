@@ -65,6 +65,19 @@ def test_multiply():
     assert c1 * 3 == "Circle(6)"
 
 
+def test_comparisons():
+    c1 = cl.Circle(2)
+    c2 = cl.Circle(4)
+    c3 = cl.Circle(4)
+    assert c1 < c2
+    assert c2 > c1
+    assert c2 == c3
+
+
+def test_subtraction():
+    c1 = cl.Circle(2)
+    c2 = cl.Circle(4)
+    assert c2 - c1 == "Circle(2)"
 
 '''
 FOR REFERENCE: math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)
