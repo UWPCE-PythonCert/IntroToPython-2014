@@ -40,7 +40,7 @@ Iterators and Generators
     What goes on in those for loops?
 
 Iterators and Iterables
----------
+-----------------------
 
 Iteration is one of the main reasons Python code is so readable:
 
