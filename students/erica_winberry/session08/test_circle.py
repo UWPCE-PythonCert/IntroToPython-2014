@@ -35,6 +35,12 @@ def test_area():
     assert isclose(c.area, 12.56637, rel_tol=1e-06)
     assert c.area == pi*4
 
+
+def test_from_diameter():
+    c = cl.Circle.from_diameter(8)
+    assert c.diameter == 8
+    assert c.radius == 4
+
 '''
 FOR REFERENCE: math.isclose(a, b, *, rel_tol=1e-09, abs_tol=0.0)
 
