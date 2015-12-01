@@ -128,7 +128,7 @@ List as an Iterator:
 Making an Iterator
 -------------------
 
-A simple version of ``xrange()``
+A simple version of ``range()``
 
 .. code-block:: python
 
@@ -138,7 +138,7 @@ A simple version of ``xrange()``
             self.stop = stop
         def __iter__(self):
             return self
-        def next(self):
+        def __next__(self):
             if self.current < self.stop:
                 self.current += 1
                 return self.current
@@ -186,7 +186,7 @@ Now that we know the iterator protocol, we can write something like a for loop:
         iterator = iter(an_iterable)
         while True:
             try:
-                i = iterator.next()
+                i = next(iterator)
             except StopIteration:
                 break
             func(i)
@@ -198,7 +198,7 @@ Itertools
 ``itertools``  is a collection of utilities that make it easy to
 build an iterator that iterates over sequences in various common ways
 
-http://docs.python.org/library/itertools.html
+http://docs.python.org/3/library/itertools.html
 
 NOTE:
 
@@ -216,7 +216,7 @@ LAB
 In the ``Examples/session09`` dir, you will find:
 :download:`iterator_1.py <../../Examples/Session09/iterator_1.py>`
 
-* Extend (``iterator_1.py`` ) to be more like ``xrange()`` -- add three input parameters: ``iterator_2(start, stop, step=1)``
+* Extend (``iterator_1.py`` ) to be more like ``range()`` -- add three input parameters: ``iterator_2(start, stop, step=1)``
 
 * See what happens if you break out in the middle of the loop:
 
@@ -225,18 +225,20 @@ In the ``Examples/session09`` dir, you will find:
     it = IterateMe_2(2, 20, 2)
     for i in it:
         if i > 10:  break
-        print i
+        print(i)
 
 And then pick up again:
 
 .. code-block:: python
 
     for i in it:
-        print i
+        print(i)
 
-* Does ``xrange()``  behave the same?
+* Does ``range()``  behave the same?
 
-  - make yours match ``xrange()``
+  - make yours match ``range()``
+
+Is range an iterator or an iteratable?
 
 LAB2
 -----
@@ -300,11 +302,11 @@ Really just a shorthand for an iterator class that does the book keeping for you
 
 .. nextslide::
 
-An example: like ``xrange()``
+An example: like ``range()``
 
 .. code-block:: python
 
-    def y_xrange(start, stop, step=1):
+    def y_range(start, stop, step=1):
         i = start
         while i < stop:
             yield i
@@ -321,7 +323,7 @@ Note:
 
 .. code-block:: ipython
 
-    In [164]: gen = y_xrange(2,6)
+    In [164]: gen = y_range(2,6)
     In [165]: type(gen)
     Out[165]: generator
     In [166]: dir(gen)
@@ -329,7 +331,7 @@ Note:
     ...
      '__iter__',
     ...
-     'next',
+     '__next__',
 
 
 So the generator **is** an iterator

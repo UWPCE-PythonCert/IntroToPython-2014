@@ -251,14 +251,14 @@ method, and if none is found, uses get_item to create the iterator.</p>
 </div>
 <div class="section" id="making-an-iterator">
 <h3>Making an Iterator<a class="headerlink" href="#making-an-iterator" title="Permalink to this headline">¶</a></h3>
-<p>A simple version of <code class="docutils literal"><span class="pre">xrange()</span></code></p>
+<p>A simple version of <code class="docutils literal"><span class="pre">range()</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">IterateMe_1</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
     <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span>
-    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span>
@@ -297,7 +297,7 @@ method, and if none is found, uses get_item to create the iterator.</p>
     <span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">an_iterable</span><span class="p">)</span>
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
             <span class="k">break</span>
         <span class="n">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -308,7 +308,7 @@ method, and if none is found, uses get_item to create the iterator.</p>
 <h3>Itertools<a class="headerlink" href="#itertools" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">itertools</span></code>  is a collection of utilities that make it easy to
 build an iterator that iterates over sequences in various common ways</p>
-<p><a class="reference external" href="http://docs.python.org/library/itertools.html">http://docs.python.org/library/itertools.html</a></p>
+<p><a class="reference external" href="http://docs.python.org/3/library/itertools.html">http://docs.python.org/3/library/itertools.html</a></p>
 <p>NOTE:</p>
 <p>iterators are not <em>only</em> for <code class="docutils literal"><span class="pre">for</span></code></p>
 <p>They can be used with anything that expects an iterator:</p>
@@ -320,26 +320,27 @@ build an iterator that iterates over sequences in various common ways</p>
 <p>In the <code class="docutils literal"><span class="pre">Examples/session09</span></code> dir, you will find:
 <a class="reference download internal" href="_downloads/iterator_1.py"><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a></p>
 <ul class="simple">
-<li>Extend (<code class="docutils literal"><span class="pre">iterator_1.py</span></code> ) to be more like <code class="docutils literal"><span class="pre">xrange()</span></code> &#8211; add three input parameters: <code class="docutils literal"><span class="pre">iterator_2(start,</span> <span class="pre">stop,</span> <span class="pre">step=1)</span></code></li>
+<li>Extend (<code class="docutils literal"><span class="pre">iterator_1.py</span></code> ) to be more like <code class="docutils literal"><span class="pre">range()</span></code> &#8211; add three input parameters: <code class="docutils literal"><span class="pre">iterator_2(start,</span> <span class="pre">stop,</span> <span class="pre">step=1)</span></code></li>
 <li>See what happens if you break out in the middle of the loop:</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">it</span> <span class="o">=</span> <span class="n">IterateMe_2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>  <span class="k">break</span>
-    <span class="k">print</span> <span class="n">i</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>And then pick up again:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">i</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Does <code class="docutils literal"><span class="pre">xrange()</span></code>  behave the same?<ul>
-<li>make yours match <code class="docutils literal"><span class="pre">xrange()</span></code></li>
+<li>Does <code class="docutils literal"><span class="pre">range()</span></code>  behave the same?<ul>
+<li>make yours match <code class="docutils literal"><span class="pre">range()</span></code></li>
 </ul>
 </li>
 </ul>
+<p>Is range an iterator or an iteratable?</p>
 </div>
 <div class="section" id="lab2">
 <h3>LAB2<a class="headerlink" href="#lab2" title="Permalink to this headline">¶</a></h3>
@@ -382,8 +383,8 @@ build an iterator that iterates over sequences in various common ways</p>
 </div>
 <p>Each instance keeps its own state.</p>
 <p>Really just a shorthand for an iterator class that does the book keeping for you.</p>
-<p>An example: like <code class="docutils literal"><span class="pre">xrange()</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">y_xrange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<p>An example: like <code class="docutils literal"><span class="pre">range()</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">y_range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">start</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">i</span>
@@ -393,7 +394,7 @@ build an iterator that iterates over sequences in various common ways</p>
 <p>Real World Example from FloatCanvas:</p>
 <p><a class="reference external" href="https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100">https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100</a></p>
 <p>Note:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [164]: </span><span class="n">gen</span> <span class="o">=</span> <span class="n">y_xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [164]: </span><span class="n">gen</span> <span class="o">=</span> <span class="n">y_range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="gp">In [165]: </span><span class="nb">type</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
 <span class="gh">Out[165]: </span><span class="go">generator</span>
 <span class="gp">In [166]: </span><span class="nb">dir</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
@@ -401,7 +402,7 @@ build an iterator that iterates over sequences in various common ways</p>
 <span class="go">...</span>
 <span class="go"> &#39;__iter__&#39;,</span>
 <span class="go">...</span>
-<span class="go"> &#39;next&#39;,</span>
+<span class="go"> &#39;__next__&#39;,</span>
 </pre></div>
 </div>
 <p>So the generator <strong>is</strong> an iterator</p>
