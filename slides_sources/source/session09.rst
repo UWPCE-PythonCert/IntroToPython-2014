@@ -49,16 +49,15 @@ Iteration is one of the main reasons Python code is so readable:
     for x in just_about_anything:
         do_stuff(x)
 
-It does not have to be a "sequence": list, tuple, etc. But, all sequences are iterable.
+An iterable is anything that can be looped over sequentially, so it does not have to be 
+a "sequence": list, tuple, etc.  For example, a string is iterable.
 
-An iterable is anything you can loop over sequentially. All sequences are iterable, but
+An iterator is an iterable that remembers state. All sequences are iterable, but
 not all sequences are iterators. To make a sequence an iterator, you can call it with iter:
 
 .. code-block:: python
 
    my_iter = iter(my_sequence) 
-
-Demo
 
 Iterator Types:
 
@@ -67,7 +66,7 @@ https://docs.python.org/3/library/stdtypes.html#iterator-types
 Iterables
 ---------
 
-To make an iterable (aka sequence), you simply have to implement the __getitem__ method.
+To make an object iterable, you simply have to implement the __getitem__ method.
 
 .. code-block:: python
 
@@ -77,28 +76,30 @@ To make an iterable (aka sequence), you simply have to implement the __getitem__
 	        raise IndexError
 	    return position
 
-The Iterator Protocol
-----------------------
+Demo
 
-The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.
 
-An iterator must have the following methods:
+``iter()``
+-----------
 
-.. code-block:: python
-
-    an_iterator.__iter__()
-
-Returns the iterator object itself. 
-
-.. code-block:: python
-
-    an_iterator.next()
-
-Returns the next item from the container. If there are no further items,
-raises the ``StopIteration`` exception.
+How do you get the iterator object from an "iterable"?
 
 The iter function will make any iterable an iterator. It first looks for the __iter__
 method, and if none is found, uses get_item to create the iterator.
+
+The ``iter()`` function:
+
+.. code-block:: ipython
+
+    In [20]: iter([2,3,4])
+    Out[20]: <listiterator at 0x101e01350>
+
+    In [21]: iter("a string")
+    Out[21]: <iterator at 0x101e01090>
+
+    In [22]: iter( ('a', 'tuple') )
+    Out[22]: <tupleiterator at 0x101e01710>
+
 
 List as an Iterator:
 --------------------
@@ -122,8 +123,30 @@ List as an Iterator:
     --------------------------------------------------
     StopIteration     Traceback (most recent call last)
     <ipython-input-15-1a7db9b70878> in <module>()
-    ----> 1 list_iter.next()
+    ----> 1 next(list_iter)
     StopIteration:
+
+
+The Iterator Protocol
+----------------------
+
+The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.
+
+An iterator must have the following methods:
+
+.. code-block:: python
+
+    an_iterator.__iter__()
+
+Returns the iterator object itself. 
+
+.. code-block:: python
+ 
+    an_iterator.__next__()
+
+Returns the next item from the container. If there are no further items,
+raises the ``StopIteration`` exception.
+
 
 Making an Iterator
 -------------------
@@ -146,25 +169,6 @@ A simple version of ``range()``
                 raise StopIteration
 
 (demo: :download:`iterator_1.py <../../Examples/Session09/iterator_1.py>`)
-
-``iter()``
------------
-
-How do you get the iterator object (the thing with the next() method) from an "iterable"?
-
-The ``iter()`` function:
-
-.. code-block:: ipython
-
-    In [20]: iter([2,3,4])
-    Out[20]: <listiterator at 0x101e01350>
-
-    In [21]: iter("a string")
-    Out[21]: <iterator at 0x101e01090>
-
-    In [22]: iter( ('a', 'tuple') )
-    Out[22]: <tupleiterator at 0x101e01710>
-
 
 What does ``for`` do?
 ----------------------
@@ -198,17 +202,16 @@ Itertools
 ``itertools``  is a collection of utilities that make it easy to
 build an iterator that iterates over sequences in various common ways
 
-http://docs.python.org/library/itertools.html
+http://docs.python.org/3/library/itertools.html
 
 NOTE:
 
-iterators are not *only* for ``for``
+iteratables are not *only* for ``for``
 
-They can be used with anything that expects an iterator:
+They can be used with anything that expects an iterable:
 
 ``sum``, ``tuple``, ``sorted``, and ``list``
 
-For example.
 
 LAB
 -----
@@ -216,54 +219,45 @@ LAB
 In the ``Examples/session09`` dir, you will find:
 :download:`iterator_1.py <../../Examples/Session09/iterator_1.py>`
 
-* Extend (``iterator_1.py`` ) to be more like ``xrange()`` -- add three input parameters: ``iterator_2(start, stop, step=1)``
+* Extend (``iterator_1.py`` ) to be more like ``range()`` -- add three input parameters: ``iterator_2(start, stop, step=1)``
 
-* See what happens if you break out in the middle of the loop:
+* What happens if you break from a loop and try to pick it up again:
 
 .. code-block:: python
 
     it = IterateMe_2(2, 20, 2)
     for i in it:
         if i > 10:  break
-        print i
-
-And then pick up again:
+        print(i)
 
 .. code-block:: python
 
     for i in it:
-        print i
+        print(i)
 
-* Does ``xrange()``  behave the same?
+* Does ``range()``  behave the same?
 
-  - make yours match ``xrange()``
+  - make yours match ``range()``
 
-LAB2
------
-
-Make the SparseArray class from the previous lab an iterator, so you can do:
-
-.. code-block:: python
-
-    for i in my_sparse_array:
-        do_something_with(i)
-
-
+  - is range an iterator or an iteratable?
 
 
 Generators
 ----------
 
-Generators give you the iterator immediately:
+Generators
 
+* give you an iterator object
 * no access to the underlying data ... if it even exists
 
 
 Conceptually:
-  Iterators are about various ways to loop over data, generators generate the data on the fly.
+  Iterators are about various ways to loop over data. 
+
+  Generators can generate the data on the fly.
 
 Practically:
-  You can use either one either way (and a generator is one type of iterator)
+  You can use either one either way (and a generator is one type of iterator).
 
   Generators do some of the book-keeping for you -- simpler syntax.
 
@@ -300,11 +294,11 @@ Really just a shorthand for an iterator class that does the book keeping for you
 
 .. nextslide::
 
-An example: like ``xrange()``
+An example: like ``range()``
 
 .. code-block:: python
 
-    def y_xrange(start, stop, step=1):
+    def y_range(start, stop, step=1):
         i = start
         while i < stop:
             yield i
@@ -321,7 +315,7 @@ Note:
 
 .. code-block:: ipython
 
-    In [164]: gen = y_xrange(2,6)
+    In [164]: gen = y_range(2,6)
     In [165]: type(gen)
     Out[165]: generator
     In [166]: dir(gen)
@@ -329,7 +323,7 @@ Note:
     ...
      '__iter__',
     ...
-     'next',
+     '__next__',
 
 
 So the generator **is** an iterator

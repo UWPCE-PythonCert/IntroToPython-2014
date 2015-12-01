@@ -35,7 +35,7 @@ def my_for(an_iterable, func):
 if __name__ == "__main__":
 
     def print_func(x):
-        print x
+        print(x)
 
     l = [1,2,3,4,5,]
     my_for(l, print_func)
