@@ -26,7 +26,7 @@ class IterateMe_1(object):
 
 if __name__ == "__main__":
 
-    print "Testing the iterator"
+    print("Testing the iterator")
     for i in IterateMe_1():
-        print i
+        print(i)
 

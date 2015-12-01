@@ -1,9 +1,9 @@
 def counter():
-    print 'counter: starting counter'
+    print('counter: starting counter')
     i = -3
     while i < 3:
         i = i + 1
-        print 'counter: yield', i
+        print('counter: yield', i)
         yield i
     return None
 
