@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 slides_sources/build
 .idea
 .DS_Store
@@ -13,3 +14,14 @@ slides_sources/build
 
 # editor back-up files
 *.*~
+=======
+.gitignore
+
+.DS_Store
+
+.cache
+__pycache__
+
+*.pyc
+
+>>>>>>> 1a7c611eb7d871e2ea669da8e34808b7b72d6ae5
