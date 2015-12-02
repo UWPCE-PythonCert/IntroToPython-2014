@@ -1,11 +1,16 @@
 import math
-from trapezoidal2 import trapz, line, squared, quadratic
+from trapezoidal2 import trapz, line, squared, quadratic, quad_curry
 
 
 def test_trapz_line():
     assert math.isclose(float((trapz(line, 1, 10))), 50.0, rel_tol=.1)
     assert math.isclose(float((trapz(squared, 1, 10))), 333.0, rel_tol=.001)
     assert math.isclose(float((trapz(quadratic, 1, 10, a=1, b=3, c=2))), 500.0, rel_tol=.1)
+    assert math.isclose(float((trapz(quad_curry, 1, 10, a=1, b=3, c=2))), 500.0, rel_tol=.1)
+
+
+def test_trapz_sin():
+    assert math.isclose(trapz(math.sin, 0, 2*math.pi), 0.0, abs_tol=1e-8)
 
 
 '''

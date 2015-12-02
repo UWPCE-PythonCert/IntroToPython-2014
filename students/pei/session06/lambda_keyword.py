@@ -1,5 +1,3 @@
-#n = 3
-
 def function_builder(n):
     func_list = []
     for i in range(n):
