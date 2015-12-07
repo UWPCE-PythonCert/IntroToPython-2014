@@ -51,7 +51,7 @@ class Memoize(object):
 
 # @Memoize
 def sum2x(n):
-    return sum(2 * i for i in xrange(n))
+    return sum(2 * i for i in range(n))
 sum2x = Memoize(sum2x)
 
 
@@ -71,4 +71,4 @@ def timed_func(func):
 @timed_func
 @Memoize
 def sum2x(n):
-    return sum(2 * i for i in xrange(n))
+    return sum(2 * i for i in range(n))
