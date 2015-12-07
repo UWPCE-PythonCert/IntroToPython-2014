@@ -144,11 +144,11 @@ Now imagine we defined the following, more generic *decorator*:
         def logged(*args, **kwargs):
             print("Function {} called".format(func.__name__))
             if args:
-                print("\twith args: {}".fromat(args))
+                print("\twith args: {}".format(args))
             if kwargs:
                 print("\twith kwargs: {}".format(kwargs))
             result = func(*args, **kwargs)
-            print("\t Result --> {}".format(result)
+            print("\t Result --> {}".format(result))
             return result
         return logged
 
@@ -411,7 +411,7 @@ Remember the property() built in?
 
 Perhaps most commonly, you'll see the ``property()`` builtin used this way.
 
-Last week we saw this code:
+TWo weeks ago we saw this code:
 
 .. code-block:: python
 
@@ -492,7 +492,7 @@ HTML 'p' tag:
     Out[5]: '<p> this is a string </p>'
 
 simple test code in
-:download:`Examples/Session09/test_p_wrapper.py <../../Examples/Session09/test_p_wrapper.py>`
+:download:`Examples/Session10/test_p_wrapper.py <../../Examples/Session10/test_p_wrapper.py>`
 
 
 Lightning Talks
@@ -501,9 +501,9 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-|  Lou Ascoli
+|    Austin Scara
 |
-|  Ralph  Brand
+|    Marty Pitts
 |
 
 
@@ -511,12 +511,11 @@ Lightning Talks
 Context Managers
 =================
 
-**A Short Digression**
+**Repetition in code stinks (DRY!)**
 
 .. rst-class:: left build
 .. container::
 
-    Repetition in code stinks (DRY!)
 
     A large source of repetition in code deals with the handling of external
     resources.
@@ -570,7 +569,8 @@ few simple steps.
 
 The key is to use the ``with`` statement.
 
-.. nextslide:: ``with`` a little help
+``with`` a little help
+----------------------
 
 Since the introduction of the ``with`` statement in `pep343`_, the above six
 lines of defensive code have been replaced with this simple form:
@@ -593,8 +593,7 @@ when the code block ends.
 At this point in Python history, many functions you might expect to behave this
 way do:
 
-* ``open`` and ``io.open`` both work as context managers.
-  (``io.open`` is good for working with unicode)
+* ``open`` and works as a context manager.
 * networks connections via ``socket`` do as well.
 * most implementations of database wrappers can open connections or cursors as
   context managers.
@@ -603,12 +602,15 @@ way do:
 * But what if you are working with a library that doesn't support this
   (``urllib``)?
 
-.. nextslide:: Close It Automatically
+Close It Automatically
+----------------------
 
 There are a couple of ways you can go.
 
 If the resource in questions has a ``.close()`` method, then you can simply use
 the ``closing`` context manager from ``contextlib`` to handle the issue:
+
+** check example for py3 -- urlib depricated!
 
 .. code-block:: python
 
@@ -623,7 +625,7 @@ But what if the thing doesn't have a ``close()`` method, or you're creating
 the thing and it shouldn't have a close() method?
 
 Do It Yourself
-----------------
+--------------
 
 You can also define a context manager of your own.
 
@@ -648,20 +650,22 @@ Consider this code:
 .. code-block:: python
 
     class Context(object):
-    """from Doug Hellmann, PyMOTW
-    http://pymotw.com/2/contextlib/#module-contextlib
-    """
-    def __init__(self, handle_error):
-        print '__init__(%s)' % handle_error
-        self.handle_error = handle_error
-    def __enter__(self):
-        print '__enter__()'
-        return self
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        print '__exit__(%r, %r, %r)' % (exc_type, exc_val, exc_tb)
-        return self.handle_error
+        """from Doug Hellmann, PyMOTW
+        http://pymotw.com/2/contextlib/#module-contextlib
+        """
+        def __init__(self, handle_error):
+            print('__init__({})'.format(handle_error))
+            self.handle_error = handle_error
 
-:download:`Examples/Session09/context_managers.py <../../Examples/Session09/context_managers.py>`
+        def __enter__(self):
+            print('__enter__()')
+            return self
+
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            print('__exit__({}, {}, {})'.format(exc_type, exc_val, exc_tb))
+            return self.handle_error
+
+:download:`Examples/Session10/context_managers.py <../../Examples/Session10/context_managers.py>`
 
 
 .. nextslide::
@@ -672,7 +676,7 @@ clarify the order in which things happen:
 .. code-block:: ipython
 
     In [46]: with Context(True) as foo:
-       ....:     print 'This is in the context'
+       ....:     print('This is in the context')
        ....:     raise RuntimeError('this is the error message')
     __init__(True)
     __enter__()
@@ -691,7 +695,7 @@ What if we try with ``False``?
 .. code-block:: ipython
 
     In [47]: with Context(False) as foo:
-       ....:     print 'This is in the context'
+       ....:     print('This is in the context')
        ....:     raise RuntimeError('this is the error message')
     __init__(False)
     __enter__()
@@ -706,9 +710,11 @@ What if we try with ``False``?
           4
     RuntimeError: this is the error message
 
-.. nextslide:: ``contextmanager`` decorator
+The ``contextmanager`` decorator
+----------------------------
 
 ``contextlib.contextmanager`` turns generator functions into context managers.
+
 Consider this code:
 
 .. code-block:: python
@@ -717,16 +723,16 @@ Consider this code:
 
     @contextmanager
     def context(boolean):
-        print "__init__ code here"
+        print("__init__ code here")
         try:
-            print "__enter__ code goes here"
+            print("__enter__ code goes here")
             yield object()
         except Exception as e:
-            print "errors handled here"
+            print("errors handled here")
             if not boolean:
-                raise
+                raise e
         finally:
-            print "__exit__ cleanup goes here"
+            print("__exit__ cleanup goes here")
 
 .. nextslide::
 
@@ -736,9 +742,10 @@ And using it has similar results.  We can handle errors:
 
 .. code-block:: ipython
 
-    In [50]: with context(True):
-       ....:     print "in the context"
+    In [96]: with context(True):
+       ....:     print("in the context")
        ....:     raise RuntimeError("error raised")
+       ....:
     __init__ code here
     __enter__ code goes here
     in the context
@@ -752,7 +759,7 @@ Or, we can allow them to propagate:
 .. code-block:: ipython
 
     In [51]: with context(False):
-       ....: print "in the context"
+       ....: print("in the context")
        ....: raise RuntimeError("error raised")
     __init__ code here
     __enter__ code goes here
