@@ -16,3 +16,6 @@ slides_sources/build
 
 # editor back-up files
 *.*~
+
+# pycache
+__pycache__/*
