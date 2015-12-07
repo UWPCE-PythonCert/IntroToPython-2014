@@ -20,9 +20,9 @@ Review of Previous Class
 ------------------------
 
 
-  * Decorators
-  * Context Managers
-  * Packaging
+Iterators
+
+Generators
 
 
 Projects

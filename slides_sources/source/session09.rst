@@ -56,7 +56,7 @@ not all sequences are iterators. To make a sequence an iterator, you can call it
 
 .. code-block:: python
 
-   my_iter = iter(my_sequence) 
+   my_iter = iter(my_sequence)
 
 Demo
 
@@ -73,9 +73,9 @@ To make an iterable (aka sequence), you simply have to implement the __getitem__
 
     class T:
         def __getitem__(self, position):
-	    if position > 5:
-	        raise IndexError
-	    return position
+        if position > 5:
+            raise IndexError
+        return position
 
 The Iterator Protocol
 ----------------------
@@ -88,7 +88,7 @@ An iterator must have the following methods:
 
     an_iterator.__iter__()
 
-Returns the iterator object itself. 
+Returns the iterator object itself.
 
 .. code-block:: python
 
