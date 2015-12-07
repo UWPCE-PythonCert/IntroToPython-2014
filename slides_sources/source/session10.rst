@@ -795,15 +795,3 @@ run all the code inside the context:
 object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.
 
-
-Lightning Talks
-----------------
-
-.. rst-class:: medium
-
-|
-|
-|
-|
-|
-

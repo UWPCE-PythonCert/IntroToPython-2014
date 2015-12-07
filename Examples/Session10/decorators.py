@@ -54,9 +54,7 @@ def sum2x(n):
     return sum(2 * i for i in range(n))
 sum2x = Memoize(sum2x)
 
-
 import time
-
 
 def timed_func(func):
     def timed(*args, **kwargs):
