@@ -53,11 +53,14 @@ Code Review?
 
 .. rst-class:: left
 
+  Do you think you've "got" iterators, iterables, and generators?
+
   Options:
 
     1) Look at someone's code.
 
     2) look at some of my code.
+
 
 
 ==========
@@ -67,13 +70,12 @@ Decorators
 **A Short Reminder**
 
 .. rst-class:: left
-.. container::
 
     Functions are things that generate values based on input (arguments).
 
     In Python, functions are first-class objects.
 
-    This means that you can bind symbols to them, pass them around, just like
+    This means that you can bind names to them, pass them around, etc, just like
     other objects.
 
     Because of this fact, you can write functions that take functions as
@@ -86,6 +88,7 @@ Decorators
                 return "I'm not that other function"
             return new_function
 
+
 A Definition
 ------------
 
@@ -97,10 +100,9 @@ So many, that we give it a special name:
 **Decorator**
 
 .. rst-class:: build centered
-.. container::
 
     "A decorator is a function that takes a function as an argument and
-    returns a function as a return value.""
+    returns a function as a return value."
 
     That's nice and all, but why is that useful?
 
@@ -124,9 +126,9 @@ one:
     .. code-block:: python
 
         def add(a, b):
-            print "Function 'add' called with args: %r, %r"%(a, b)
+            print("Function 'add' called with args: {}, {}".format(a, b) )
             result = a + b
-            print "\tResult --> %r" % result
+            print("\tResult --> {}".format(result))
             return result
 
 .. nextslide::
@@ -140,13 +142,13 @@ Now imagine we defined the following, more generic *decorator*:
 
     def logged_func(func):
         def logged(*args, **kwargs):
-            print "Function %r called" % func.__name__
+            print("Function {} called".format(func.__name__))
             if args:
-                print "\twith args: %r" % args
+                print("\twith args: {}".fromat(args))
             if kwargs:
-                print "\twith kwargs: %r" % kwargs
+                print("\twith kwargs: {}".format(kwargs))
             result = func(*args, **kwargs)
-            print "\t Result --> %r" % result
+            print("\t Result --> {}".format(result)
             return result
         return logged
 

@@ -9,21 +9,21 @@ def substitute(a_function):
 
 
 def add(a, b):
-#    print "Function 'add' called with args: %r" % locals()
+    # print("Function 'add' called with args: {}, {}".format(a, b) )
     result = a + b
-#    print "\tResult --> %r" % result
+    # print("\tResult --> {}".format(result))
     return result
 
 
 def logged_func(func):
     def logged(*args, **kwargs):
-        print "Function %r called" % func.__name__
+        print("Function {} called".format(func.__name__))
         if args:
-            print "\twith args: %r" % (args, )
+            print("\twith args: {}".format(args))
         if kwargs:
-            print "\twith kwargs: %r" % kwargs
+            print("\twith kwargs: {}".format(kwargs))
         result = func(*args, **kwargs)
-        print "\t Result --> %r" % result
+        print("\t Result --> {}".format(result))
         return result
     return logged
 
@@ -49,12 +49,10 @@ class Memoize(object):
             return self.memoized[args]
 
 
-#@Memoize
+# @Memoize
 def sum2x(n):
     return sum(2 * i for i in xrange(n))
 sum2x = Memoize(sum2x)
-
-
 
 
 import time
@@ -65,13 +63,12 @@ def timed_func(func):
         start = time.time()
         result = func(*args, **kwargs)
         elapsed = time.time() - start
-        print "time expired: %s" % elapsed
+        print("time expired: {}".format(elapsed))
         return result
     return timed
+
 
 @timed_func
 @Memoize
 def sum2x(n):
     return sum(2 * i for i in xrange(n))
-
-
