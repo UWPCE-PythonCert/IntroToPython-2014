@@ -214,28 +214,19 @@ Rebinding the name of a function to the result of calling a decorator on that
 function is called **decoration**.
 
 Because this is so common, Python provides a special operator to perform it
-more *declaratively*: the ``@`` operator:
-
-(I told you I'd eventually explain what was going on under the hood
-with that wierd `@` symbol)
+more *declaratively*: the ``@`` operator -- I told you I'd eventually explain what was going on under the hood with that wierd `@` symbol:
 
 .. code-block:: python
 
-    # this is the imperative version:
     def add(a, b):
         return a + b
     add = logged_func(add)
 
-    # and this declarative form is exactly equal:
     @logged_func
     def add(a, b):
         return a + b
 
-.. rst-class:: build
-.. container::
-
-    The declarative form (called a decorator expression) is far more common,
-    but both have the identical result, and can be used interchangeably.
+The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.
 
 Callables
 ---------
@@ -245,12 +236,12 @@ incomplete.
 
 In reality, decorators can be used with anything that is *callable*.
 
-Remember from last week, a *callable* is a function, a method on a class,
+Remember from two weeks ago, a *callable* is a function, a method on a class,
 or a class that implements the ``__call__`` special method.
 
 So in fact the definition should be updated as follows:
 
-.. rst-class:: centered
+.. rst-class:: centered medium
 
 A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.
@@ -296,14 +287,12 @@ Let's try that out with a potentially expensive function:
     In [58]: sum2x(10000000)
     Out[58]: 99999990000000
 
-It's nice to see that in action, but what if we want to know *exactly* how much
-difference it made?
+It's nice to see that in action, but what if we want to know *exactly* how much difference it made?
 
 Nested Decorators
 -----------------
 
-You can stack decorator expressions.  The result is like calling each decorator
-in order, from bottom to top:
+You can stack decorator expressions.  The result is like calling each decorator in order, from bottom to top:
 
 .. code-block:: python
 
@@ -329,7 +318,7 @@ Let's define another decorator that will time how long a given call takes:
             start = time.time()
             result = func(*args, **kwargs)
             elapsed = time.time() - start
-            print "time expired: %s" % elapsed
+            print("time expired: {}".format(elapsed))
             return result
         return timed
 
