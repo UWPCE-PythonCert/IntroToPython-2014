@@ -315,33 +315,27 @@ statements</em> leads you to this form:</p>
 <p>Rebinding the name of a function to the result of calling a decorator on that
 function is called <strong>decoration</strong>.</p>
 <p>Because this is so common, Python provides a special operator to perform it
-more <em>declaratively</em>: the <code class="docutils literal"><span class="pre">&#64;</span></code> operator:</p>
-<p>(I told you I&#8217;d eventually explain what was going on under the hood
-with that wierd <cite>&#64;</cite> symbol)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># this is the imperative version:</span>
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+more <em>declaratively</em>: the <code class="docutils literal"><span class="pre">&#64;</span></code> operator &#8211; I told you I&#8217;d eventually explain what was going on under the hood with that wierd <cite>&#64;</cite> symbol:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="n">add</span> <span class="o">=</span> <span class="n">logged_func</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 
-<span class="c"># and this declarative form is exactly equal:</span>
 <span class="nd">@logged_func</span>
 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
-<div class="build container">
-The declarative form (called a decorator expression) is far more common,
-but both have the identical result, and can be used interchangeably.</div>
+<p>The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.</p>
 </div>
 <div class="section" id="callables">
 <h3>Callables<a class="headerlink" href="#callables" title="Permalink to this headline">¶</a></h3>
 <p>Our original definition of a <em>decorator</em> was nice and simple, but a tiny bit
 incomplete.</p>
 <p>In reality, decorators can be used with anything that is <em>callable</em>.</p>
-<p>Remember from last week, a <em>callable</em> is a function, a method on a class,
+<p>Remember from two weeks ago, a <em>callable</em> is a function, a method on a class,
 or a class that implements the <code class="docutils literal"><span class="pre">__call__</span></code> special method.</p>
 <p>So in fact the definition should be updated as follows:</p>
-<p class="centered">A decorator is a callable that takes a callable as an argument and
+<p class="centered medium">A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.</p>
 </div>
 <div class="section" id="id1">
@@ -378,13 +372,11 @@ function with given arguments:</p>
 <span class="gh">Out[58]: </span><span class="go">99999990000000</span>
 </pre></div>
 </div>
-<p>It&#8217;s nice to see that in action, but what if we want to know <em>exactly</em> how much
-difference it made?</p>
+<p>It&#8217;s nice to see that in action, but what if we want to know <em>exactly</em> how much difference it made?</p>
 </div>
 <div class="section" id="nested-decorators">
 <h3>Nested Decorators<a class="headerlink" href="#nested-decorators" title="Permalink to this headline">¶</a></h3>
-<p>You can stack decorator expressions.  The result is like calling each decorator
-in order, from bottom to top:</p>
+<p>You can stack decorator expressions.  The result is like calling each decorator in order, from bottom to top:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="nd">@decorator_two</span>
 <span class="nd">@decorator_one</span>
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -403,7 +395,7 @@ in order, from bottom to top:</p>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="k">print</span> <span class="s">&quot;time expired: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">elapsed</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;time expired: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elapsed</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">timed</span>
 </pre></div>
