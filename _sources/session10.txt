@@ -30,7 +30,7 @@ Projects
 
 Due Dec Friday, Dec 11th, 11:59pm PST
 
-.. rst-class:: centered medium
+.. rst-class:: medium
 
   (that's three days!)
 
@@ -61,6 +61,7 @@ Code Review?
 
     2) look at some of my code.
 
+    3) Go over someone's project code -- anyone stuck on something?
 
 
 ==========
@@ -794,4 +795,21 @@ run all the code inside the context:
 **Extra Credit**: allow the ``Timer`` context manager to take a file-like
 object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.
+
+Projects
+--------
+
+Projects due this Friday. We'll review them over the weekend.
+
+To turn in:
+ * Put up it up gitHub, and do a pull request
+ * Put it in its own gitHub repository and point me to it.
+ * zip up the code an email it to me.
+
+Please do the online course evaluation
+
+Anyone want office hours Thursday evening?
+
+Keep writing Python!
+
 
