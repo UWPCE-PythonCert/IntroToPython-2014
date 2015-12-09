@@ -271,6 +271,7 @@ in your module.</p>
     <span class="k">return</span> <span class="n">logged</span>
 </pre></div>
 </div>
+<p>(demo)</p>
 <p>We could then make logging versions of our module functions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">logging_add</span> <span class="o">=</span> <span class="n">logged_func</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 </pre></div>
@@ -326,6 +327,7 @@ more <em>declaratively</em>: the <code class="docutils literal"><span class="pre
 </pre></div>
 </div>
 <p>The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.</p>
+<p>(demo)</p>
 </div>
 <div class="section" id="callables">
 <h3>Callables<a class="headerlink" href="#callables" title="Permalink to this headline">¶</a></h3>
@@ -457,7 +459,7 @@ rebinds it.</p>
 <h3>property()<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
 <p>Remember the property() built in?</p>
 <p>Perhaps most commonly, you&#8217;ll see the <code class="docutils literal"><span class="pre">property()</span></code> builtin used this way.</p>
-<p>TWo weeks ago we saw this code:</p>
+<p>Two weeks ago we saw this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
@@ -486,6 +488,7 @@ rebinds it.</p>
                  <span class="s">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><code class="docutils literal"><span class="pre">Examples/Session10/</span></code></p>
 <p>Note that in this case, the decorator object returned by the property decorator
 itself implements additional decorators as attributes on the returned method
 object. So you could actually do this:</p>

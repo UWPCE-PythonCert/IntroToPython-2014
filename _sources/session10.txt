@@ -153,6 +153,8 @@ Now imagine we defined the following, more generic *decorator*:
             return result
         return logged
 
+(demo)
+
 .. nextslide::
 
 We could then make logging versions of our module functions:
@@ -227,6 +229,8 @@ more *declaratively*: the ``@`` operator -- I told you I'd eventually explain wh
         return a + b
 
 The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.
+
+(demo)
 
 Callables
 ---------
@@ -401,7 +405,7 @@ Remember the property() built in?
 
 Perhaps most commonly, you'll see the ``property()`` builtin used this way.
 
-TWo weeks ago we saw this code:
+Two weeks ago we saw this code:
 
 .. code-block:: python
 
@@ -435,13 +439,13 @@ But this could also be accomplished like so:
             del self._x
         x = property(getx, setx, delx,
                      "I'm the 'x' property.")
+``Examples/Session10/``
 
 .. nextslide::
 
 Note that in this case, the decorator object returned by the property decorator
 itself implements additional decorators as attributes on the returned method
 object. So you could actually do this:
-
 
 
 .. code-block:: python
