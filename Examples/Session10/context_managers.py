@@ -18,8 +18,12 @@ class Context(object):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         print('__exit__({}, {}, {})'.format(exc_type, exc_val, exc_tb))
-        return self.handle_error
+        if exc_type == ZeroDivisionError:
+            return True
+        else:
+            return False
 
+#            return self.handle_error
 
 @contextmanager
 def context(boolean):

@@ -9,9 +9,9 @@ def substitute(a_function):
 
 
 def add(a, b):
-    # print("Function 'add' called with args: {}, {}".format(a, b) )
+    print("Function 'add' called with args: {}, {}".format(a, b) )
     result = a + b
-    # print("\tResult --> {}".format(result))
+    print("\tResult --> {}".format(result))
     return result
 
 
@@ -49,10 +49,14 @@ class Memoize(object):
             return self.memoized[args]
 
 
-# @Memoize
+@Memoize
 def sum2x(n):
     return sum(2 * i for i in range(n))
-sum2x = Memoize(sum2x)
+# sum2x = Memoize(sum2x)
+
+@Memoize
+def prod2(a,b):
+    return sum( a * b**2 for a,b in zip(range(a), range(b)))
 
 import time
 
