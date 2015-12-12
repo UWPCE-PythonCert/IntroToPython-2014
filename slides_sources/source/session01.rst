@@ -271,7 +271,7 @@ Python 3.x ("py3k")
 
 .. nextslide::
 
-This class uses Python 3.4 -- not Python 2.*
+This class uses Python 3 -- not Python 2
 
 .. rst-class:: build
 
@@ -511,7 +511,7 @@ We will take the time here in class to get this going.
 This helps to ensure that you will be able to work.
 
 
-Step 1: Python 3.4
+Step 1: Python 3
 ------------------
 
 .. rst-class:: large
@@ -529,11 +529,11 @@ Do you already have this??
 
 If not:
 
- * `For the mac  <./supplements/python_for_mac.html>`_
+ * `For OS X  <./supplements/python_for_mac.html>`_
 
- * `For linux  <./supplements/python_for_linux.html>`_
+ * `For Linux  <./supplements/python_for_linux.html>`_
 
- * `For windows  <./supplements/python_for_windows.html>`_
+ * `For Windows  <./supplements/python_for_windows.html>`_
 
 Step 2: Pip
 -----------
