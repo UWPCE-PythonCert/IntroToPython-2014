@@ -342,7 +342,7 @@ This is where you type code.
 LAB: Getting set up
 -------------------
 
-Before we move on -- we need to get all of us on tehsame page, with teh tools we need for class.
+Before we move on -- we need to get all of us on the same page, with the tools we need for class.
 
 You will find instructions for how to get python, etc, up and running on your machine here:
 
