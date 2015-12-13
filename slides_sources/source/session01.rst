@@ -1593,7 +1593,7 @@ if you don't explicilty put ``return``  there, Python will:
     In [12]: print(result)
     None
 
-note that the interpreter eats ``None`` -- ou need to call ``print()`` to see it.
+note that the interpreter eats ``None`` -- you need to call ``print()`` to see it.
 
 
 .. nextslide::
@@ -1762,14 +1762,14 @@ In python 3, the divsion operator is "smart" when you divide integers::
   In [17]: 1 / 2
   Out[17]: 0.5
 
-However in python2, if you use integers, is will give you an integer result::
+However in python2, integer division, will give you an integer result::
 
   In [1]: 1/2
   Out[1]: 0
 
 In both versions, you can get "integer division" if you want it with a double slash::
 
-  In [1]: 1/2
+  In [1]: 1//2
   Out[1]: 0
 
 And in python2, you can get the behavior of py3 with "true division"::
@@ -1921,13 +1921,11 @@ Next week, we'll:
 Office Hours
 ------------
 
-I'll do office hours on either Saturday or Sunday from 12:00 -- 3:00
+We will have office hours on either Saturday or Sunday from 10:00 to noon.
 
-Probably in Wallingford or Fremont
- - is a coffeeshop OK?
+Preferences?  
 
-Do you have a preference?
+Locations?
 
-Maria's office hours??
 
 
