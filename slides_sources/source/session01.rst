@@ -1875,7 +1875,7 @@ Every one of you has a different backgrond and learning style.
 
 So take a bit of time to figure out which resource works for you.
 
-::ref:`python_learning_resources` provides some options. Do look it over.
+:ref:`python_learning_resources` provides some options. Do look it over.
 
 But here are few to get you started this week:
 
