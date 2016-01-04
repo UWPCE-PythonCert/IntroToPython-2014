@@ -115,10 +115,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#context-managers">Context Managers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#resource-handling">Resource Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#with-a-little-help"><code class="docutils literal"><span class="pre">with</span></code> a little help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#close-it-automatically">Close It Automatically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#do-it-yourself">Do It Yourself</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">An Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-contextmanager-decorator">The <code class="docutils literal"><span class="pre">contextmanager</span></code> decorator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">LAB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Lightning Talks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Projects</a></li>
 </ul>
 </li>
 </ul>
@@ -182,18 +185,13 @@
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-class">
 <h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ul class="simple">
-<li>Decorators</li>
-<li>Context Managers</li>
-<li>Packaging</li>
-</ul>
-</div></blockquote>
+<p>Iterators</p>
+<p>Generators</p>
 </div>
 <div class="section" id="projects">
 <h3>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h3>
 <p>Due Dec Friday, Dec 11th, 11:59pm PST</p>
-<p class="centered medium">(that&#8217;s three days!)</p>
+<p class="medium">(that&#8217;s three days!)</p>
 <p>Push to github or email them to me.</p>
 </div>
 </div>
@@ -204,41 +202,39 @@
 </div>
 <div class="section" id="code-review">
 <h2>Code Review?<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h2>
+<p class="left">Do you think you&#8217;ve &#8220;got&#8221; iterators, iterables, and generators?</p>
 <p class="left">Options:</p>
 <blockquote class="left">
 <div><ol class="arabic simple">
 <li>Look at someone&#8217;s code.</li>
 <li>look at some of my code.</li>
+<li>Go over someone&#8217;s project code &#8211; anyone stuck on something?</li>
 </ol>
 </div></blockquote>
 </div>
 <div class="section" id="decorators">
 <h2>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
 <p><strong>A Short Reminder</strong></p>
-<div class="left container">
-<p>Functions are things that generate values based on input (arguments).</p>
-<p>In Python, functions are first-class objects.</p>
-<p>This means that you can bind symbols to them, pass them around, just like
+<p class="left">Functions are things that generate values based on input (arguments).</p>
+<p class="left">In Python, functions are first-class objects.</p>
+<p class="left">This means that you can bind names to them, pass them around, etc, just like
 other objects.</p>
-<p>Because of this fact, you can write functions that take functions as
+<p class="left">Because of this fact, you can write functions that take functions as
 arguments and/or return functions as values:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">substitute</span><span class="p">(</span><span class="n">a_function</span><span class="p">):</span>
+<div class="left highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">substitute</span><span class="p">(</span><span class="n">a_function</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">new_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="s">&quot;I&#39;m not that other function&quot;</span>
     <span class="k">return</span> <span class="n">new_function</span>
 </pre></div>
-</div>
 </div>
 <div class="section" id="a-definition">
 <h3>A Definition<a class="headerlink" href="#a-definition" title="Permalink to this headline">¶</a></h3>
 <p>There are many things you can do with a simple pattern like this one.
 So many, that we give it a special name:</p>
 <p class="centered medium"><strong>Decorator</strong></p>
-<div class="build centered container">
-<p>&#8220;A decorator is a function that takes a function as an argument and
-returns a function as a return value.&#8221;&#8220;</p>
-<p>That&#8217;s nice and all, but why is that useful?</p>
-</div>
+<p class="build centered">&#8220;A decorator is a function that takes a function as an argument and
+returns a function as a return value.&#8221;</p>
+<p class="build centered">That&#8217;s nice and all, but why is that useful?</p>
 </div>
 <div class="section" id="an-example">
 <h3>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h3>
@@ -252,9 +248,9 @@ one:</p>
 <p>You want to see when each function is called, with what arguments and
 with what result. So you rewrite each function as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&quot;Function &#39;add&#39; called with args: </span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Function &#39;add&#39; called with args: {}, {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-    <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">Result --&gt; </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">result</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">Result --&gt; {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -264,17 +260,18 @@ in your module.</p>
 <p>Now imagine we defined the following, more generic <em>decorator</em>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">logged_func</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">logged</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&quot;Function </span><span class="si">%r</span><span class="s"> called&quot;</span> <span class="o">%</span> <span class="n">func</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Function {} called&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">with args: </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">args</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">with args: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">with kwargs: </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">kwargs</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">with kwargs: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s"> Result --&gt; </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">result</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s"> Result --&gt; {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">logged</span>
 </pre></div>
 </div>
+<p>(demo)</p>
 <p>We could then make logging versions of our module functions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">logging_add</span> <span class="o">=</span> <span class="n">logged_func</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 </pre></div>
@@ -319,33 +316,28 @@ statements</em> leads you to this form:</p>
 <p>Rebinding the name of a function to the result of calling a decorator on that
 function is called <strong>decoration</strong>.</p>
 <p>Because this is so common, Python provides a special operator to perform it
-more <em>declaratively</em>: the <code class="docutils literal"><span class="pre">&#64;</span></code> operator:</p>
-<p>(I told you I&#8217;d eventually explain what was going on under the hood
-with that wierd <cite>&#64;</cite> symbol)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># this is the imperative version:</span>
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+more <em>declaratively</em>: the <code class="docutils literal"><span class="pre">&#64;</span></code> operator &#8211; I told you I&#8217;d eventually explain what was going on under the hood with that wierd <cite>&#64;</cite> symbol:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="n">add</span> <span class="o">=</span> <span class="n">logged_func</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
 
-<span class="c"># and this declarative form is exactly equal:</span>
 <span class="nd">@logged_func</span>
 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
-<div class="build container">
-The declarative form (called a decorator expression) is far more common,
-but both have the identical result, and can be used interchangeably.</div>
+<p>The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.</p>
+<p>(demo)</p>
 </div>
 <div class="section" id="callables">
 <h3>Callables<a class="headerlink" href="#callables" title="Permalink to this headline">¶</a></h3>
 <p>Our original definition of a <em>decorator</em> was nice and simple, but a tiny bit
 incomplete.</p>
 <p>In reality, decorators can be used with anything that is <em>callable</em>.</p>
-<p>Remember from last week, a <em>callable</em> is a function, a method on a class,
+<p>Remember from two weeks ago, a <em>callable</em> is a function, a method on a class,
 or a class that implements the <code class="docutils literal"><span class="pre">__call__</span></code> special method.</p>
 <p>So in fact the definition should be updated as follows:</p>
-<p class="centered">A decorator is a callable that takes a callable as an argument and
+<p class="centered medium">A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.</p>
 </div>
 <div class="section" id="id1">
@@ -382,13 +374,11 @@ function with given arguments:</p>
 <span class="gh">Out[58]: </span><span class="go">99999990000000</span>
 </pre></div>
 </div>
-<p>It&#8217;s nice to see that in action, but what if we want to know <em>exactly</em> how much
-difference it made?</p>
+<p>It&#8217;s nice to see that in action, but what if we want to know <em>exactly</em> how much difference it made?</p>
 </div>
 <div class="section" id="nested-decorators">
 <h3>Nested Decorators<a class="headerlink" href="#nested-decorators" title="Permalink to this headline">¶</a></h3>
-<p>You can stack decorator expressions.  The result is like calling each decorator
-in order, from bottom to top:</p>
+<p>You can stack decorator expressions.  The result is like calling each decorator in order, from bottom to top:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="nd">@decorator_two</span>
 <span class="nd">@decorator_one</span>
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -407,7 +397,7 @@ in order, from bottom to top:</p>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="k">print</span> <span class="s">&quot;time expired: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">elapsed</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;time expired: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elapsed</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">timed</span>
 </pre></div>
@@ -469,7 +459,7 @@ rebinds it.</p>
 <h3>property()<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
 <p>Remember the property() built in?</p>
 <p>Perhaps most commonly, you&#8217;ll see the <code class="docutils literal"><span class="pre">property()</span></code> builtin used this way.</p>
-<p>Last week we saw this code:</p>
+<p>Two weeks ago we saw this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
@@ -498,6 +488,7 @@ rebinds it.</p>
                  <span class="s">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><a class="reference download internal" href="_downloads/property_ugly.py"><code class="xref download docutils literal"><span class="pre">Examples/Session10/property_ugly.py</span></code></a></p>
 <p>Note that in this case, the decorator object returned by the property decorator
 itself implements additional decorators as attributes on the returned method
 object. So you could actually do this:</p>
@@ -533,16 +524,16 @@ HTML &#8216;p&#8217; tag:</p>
 </pre></div>
 </div>
 <p>simple test code in
-<a class="reference download internal" href="_downloads/test_p_wrapper.py"><code class="xref download docutils literal"><span class="pre">Examples/Session09/test_p_wrapper.py</span></code></a></p>
+<a class="reference download internal" href="_downloads/test_p_wrapper.py"><code class="xref download docutils literal"><span class="pre">Examples/Session10/test_p_wrapper.py</span></code></a></p>
 </div>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
 <div class="line"><br /></div>
 <div class="line-block">
-<div class="line">Lou Ascoli</div>
+<div class="line">Austin Scara</div>
 <div class="line"><br /></div>
-<div class="line">Ralph  Brand</div>
+<div class="line">Marty Pitts</div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -550,9 +541,8 @@ HTML &#8216;p&#8217; tag:</p>
 </div>
 <div class="section" id="context-managers">
 <h2>Context Managers<a class="headerlink" href="#context-managers" title="Permalink to this headline">¶</a></h2>
-<p><strong>A Short Digression</strong></p>
+<p><strong>Repetition in code stinks (DRY!)</strong></p>
 <div class="left build container">
-<p>Repetition in code stinks (DRY!)</p>
 <p>A large source of repetition in code deals with the handling of external
 resources.</p>
 <p>As an example, how many times do you think you might type the following
@@ -587,6 +577,9 @@ repetition needed to handle resources like this.</p>
 <p>You can encapsulate the setup, error handling and teardown of resources in a
 few simple steps.</p>
 <p>The key is to use the <code class="docutils literal"><span class="pre">with</span></code> statement.</p>
+</div>
+<div class="section" id="with-a-little-help">
+<h3><code class="docutils literal"><span class="pre">with</span></code> a little help<a class="headerlink" href="#with-a-little-help" title="Permalink to this headline">¶</a></h3>
 <p>Since the introduction of the <code class="docutils literal"><span class="pre">with</span></code> statement in <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0343/">pep343</a>, the above six
 lines of defensive code have been replaced with this simple form:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
@@ -600,8 +593,7 @@ when the code block ends.</p>
 <p>At this point in Python history, many functions you might expect to behave this
 way do:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">open</span></code> and <code class="docutils literal"><span class="pre">io.open</span></code> both work as context managers.
-(<code class="docutils literal"><span class="pre">io.open</span></code> is good for working with unicode)</li>
+<li><code class="docutils literal"><span class="pre">open</span></code> and works as a context manager.</li>
 <li>networks connections via <code class="docutils literal"><span class="pre">socket</span></code> do as well.</li>
 <li>most implementations of database wrappers can open connections or cursors as
 context managers.</li>
@@ -609,9 +601,13 @@ context managers.</li>
 <li>But what if you are working with a library that doesn&#8217;t support this
 (<code class="docutils literal"><span class="pre">urllib</span></code>)?</li>
 </ul>
+</div>
+<div class="section" id="close-it-automatically">
+<h3>Close It Automatically<a class="headerlink" href="#close-it-automatically" title="Permalink to this headline">¶</a></h3>
 <p>There are a couple of ways you can go.</p>
 <p>If the resource in questions has a <code class="docutils literal"><span class="pre">.close()</span></code> method, then you can simply use
 the <code class="docutils literal"><span class="pre">closing</span></code> context manager from <code class="docutils literal"><span class="pre">contextlib</span></code> to handle the issue:</p>
+<p>** check example for py3 &#8211; urlib depricated!</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib</span>
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">closing</span>
 
@@ -638,25 +634,27 @@ more of the nifty python <em>special methods</em></p>
 <h3>An Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="sd">&quot;&quot;&quot;from Doug Hellmann, PyMOTW</span>
-<span class="sd">http://pymotw.com/2/contextlib/#module-contextlib</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle_error</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&#39;__init__(</span><span class="si">%s</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="n">handle_error</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span> <span class="o">=</span> <span class="n">handle_error</span>
-<span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&#39;__enter__()&#39;</span>
-    <span class="k">return</span> <span class="bp">self</span>
-<span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&#39;__exit__(</span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span>
+    <span class="sd">&quot;&quot;&quot;from Doug Hellmann, PyMOTW</span>
+<span class="sd">    http://pymotw.com/2/contextlib/#module-contextlib</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle_error</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;__init__({})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handle_error</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span> <span class="o">=</span> <span class="n">handle_error</span>
+
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;__enter__()&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;__exit__({}, {}, {})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span>
 </pre></div>
 </div>
-<p><a class="reference download internal" href="_downloads/context_managers.py"><code class="xref download docutils literal"><span class="pre">Examples/Session09/context_managers.py</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/context_managers.py"><code class="xref download docutils literal"><span class="pre">Examples/Session10/context_managers.py</span></code></a></p>
 <p>This class doesn&#8217;t do much of anything, but playing with it can help
 clarify the order in which things happen:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [46]: </span><span class="k">with</span> <span class="n">Context</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">foo</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="k">print</span> <span class="s">&#39;This is in the context&#39;</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="s">&#39;This is in the context&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;this is the error message&#39;</span><span class="p">)</span>
 <span class="go">__init__(True)</span>
 <span class="go">__enter__()</span>
@@ -668,7 +666,7 @@ clarify the order in which things happen:</p>
 Because the exit method returns True, the raised error is &#8216;handled&#8217;.</div>
 <p>What if we try with <code class="docutils literal"><span class="pre">False</span></code>?</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="k">with</span> <span class="n">Context</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">foo</span><span class="p">:</span>
-<span class="gp">   ....: </span>    <span class="k">print</span> <span class="s">&#39;This is in the context&#39;</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="s">&#39;This is in the context&#39;</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&#39;this is the error message&#39;</span><span class="p">)</span>
 <span class="go">__init__(False)</span>
 <span class="go">__enter__()</span>
@@ -684,29 +682,33 @@ Because the exit method returns True, the raised error is &#8216;handled&#8217;.
 <span class="ne">RuntimeError</span>: this is the error message
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">contextlib.contextmanager</span></code> turns generator functions into context managers.
-Consider this code:</p>
+</div>
+<div class="section" id="the-contextmanager-decorator">
+<h3>The <code class="docutils literal"><span class="pre">contextmanager</span></code> decorator<a class="headerlink" href="#the-contextmanager-decorator" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">contextlib.contextmanager</span></code> turns generator functions into context managers.</p>
+<p>Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 
 <span class="nd">@contextmanager</span>
 <span class="k">def</span> <span class="nf">context</span><span class="p">(</span><span class="n">boolean</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&quot;__init__ code here&quot;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;__init__ code here&quot;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&quot;__enter__ code goes here&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;__enter__ code goes here&quot;</span><span class="p">)</span>
         <span class="k">yield</span> <span class="nb">object</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&quot;errors handled here&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;errors handled here&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">boolean</span><span class="p">:</span>
-            <span class="k">raise</span>
+            <span class="k">raise</span> <span class="n">e</span>
     <span class="k">finally</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&quot;__exit__ cleanup goes here&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;__exit__ cleanup goes here&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The code is similar to the class defined previously.</p>
 <p>And using it has similar results.  We can handle errors:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [50]: </span><span class="k">with</span> <span class="n">context</span><span class="p">(</span><span class="bp">True</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="k">print</span> <span class="s">&quot;in the context&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [96]: </span><span class="k">with</span> <span class="n">context</span><span class="p">(</span><span class="bp">True</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;in the context&quot;</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&quot;error raised&quot;</span><span class="p">)</span>
+<span class="gp">   ....:</span>
 <span class="go">__init__ code here</span>
 <span class="go">__enter__ code goes here</span>
 <span class="go">in the context</span>
@@ -716,7 +718,7 @@ Consider this code:</p>
 </div>
 <p>Or, we can allow them to propagate:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [51]: </span><span class="k">with</span> <span class="n">context</span><span class="p">(</span><span class="bp">False</span><span class="p">):</span>
-<span class="gp">   ....: </span><span class="k">print</span> <span class="s">&quot;in the context&quot;</span>
+<span class="gp">   ....: </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;in the context&quot;</span><span class="p">)</span>
 <span class="gp">   ....: </span><span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&quot;error raised&quot;</span><span class="p">)</span>
 <span class="go">__init__ code here</span>
 <span class="go">__enter__ code goes here</span>
@@ -751,14 +753,20 @@ object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.</p>
 </div>
 <div class="section" id="id4">
-<h3>Lightning Talks<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<div class="medium line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
+<h3>Projects<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Projects due this Friday. We&#8217;ll review them over the weekend.</p>
+<dl class="docutils">
+<dt>To turn in:</dt>
+<dd><ul class="first last simple">
+<li>Put up it up gitHub, and do a pull request</li>
+<li>Put it in its own gitHub repository and point me to it.</li>
+<li>zip up the code an email it to me.</li>
+</ul>
+</dd>
+</dl>
+<p>Please do the online course evaluation</p>
+<p>Anyone want office hours Thursday evening?</p>
+<p>Keep writing Python!</p>
 </div>
 </div>
 </div>

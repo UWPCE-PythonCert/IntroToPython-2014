@@ -4,7 +4,7 @@
 test code for the p_wrapper assignment
 """
 
-from p_wrapper import p_wrapper, tag_wrapper
+from p_wrapper import p_wrapper #, tag_wrapper
 
 
 def test_p_wrapper():
@@ -13,6 +13,14 @@ def test_p_wrapper():
         return string
 
     assert return_a_string('this is a string') == '<p> this is a string </p>'
+
+def test_with_args():
+    @p_wrapper
+    def f_string(a, b, this=45 ):
+        return "the numbers are: {}, {}, {}".format(a,b,this)
+
+    assert f_string(2, 3, this=54) == "<p> the numbers are: 2, 3, 54 </p>"
+
 
 #Extra credit:
 

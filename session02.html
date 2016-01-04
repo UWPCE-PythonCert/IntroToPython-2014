@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#lab-grid-printer">LAB: Grid Printer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#committing-your-code">Committing your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Committing your code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talk">Lightning Talk:</a></li>
 </ul>
 </li>
@@ -115,7 +116,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lab-fizz-buzz">LAB: Fizz Buzz</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Lightning Talk:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Lightning Talk:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#more-on-functions">More on Functions</a><ul>
@@ -130,7 +131,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lab-fibonacci">LAB: Fibonacci</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Lightning Talk:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Lightning Talk:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#boolean-expressions">Boolean Expressions</a><ul>
@@ -289,8 +290,9 @@
 </div>
 <div class="section" id="editor">
 <h3>Editor<a class="headerlink" href="#editor" title="Permalink to this headline">¶</a></h3>
-<p>You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, let&#8217;s set up a different editor, before you find yourself accidentally stuck in VI land.
-Nano is a very straight-forward, simple editor, available without installing anything on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown below). To install nano on Windows: <a class="reference internal" href="supplements/install_nano_win.html#supplement-install-nano-win"><span>Installing Nano on Windows</span></a></p>
+<p>You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, unless you already know vi, you should set up a different editor.
+Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown in link below). To install nano on Windows: <a class="reference internal" href="supplements/install_nano_win.html#supplement-install-nano-win"><span>Installing Nano on Windows</span></a></p>
+<p>Once you have chosen/installed an editor, configure git to use it:</p>
 <p>nano
 <code class="docutils literal"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;nano</span> <span class="pre">-w&quot;</span></code></p>
 <p>sublime (mac)
@@ -330,13 +332,14 @@ the UWPCE-PythonCert gitHub account (don&#8217;t worry that it shows it twice, t
 <div class="figure">
 <a class="center reference internal image-reference" href="_images/remotes_start.png"><img alt="_images/remotes_start.png" class="center" src="_images/remotes_start.png" style="width: 50%;" /></a>
 </div>
+<p>We will do a live demo of setting up a machine. Please follow along.</p>
 <p>We will now create a fork of the class repository from the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code>
-account on GitHub into your personal account:</p>
+account on GitHub into your personal account. This is done on the GitHub website.</p>
 <div class="figure">
 <a class="center reference internal image-reference" href="_images/remotes_fork.png"><img alt="_images/remotes_fork.png" class="center" src="_images/remotes_fork.png" style="width: 50%;" /></a>
 </div>
 <p>The next step is to make a <em>clone</em> of your fork on your own computer, which means that
-<strong>your fork</strong> in github is the <em>origin</em>:</p>
+<strong>your fork</strong> in github is the <em>origin</em> (Demo):</p>
 <div class="figure">
 <a class="center reference internal image-reference" href="_images/remotes_clone.png"><img alt="_images/remotes_clone.png" class="center" src="_images/remotes_clone.png" style="width: 50%;" /></a>
 </div>
@@ -428,7 +431,7 @@ Fetching upstream
 </pre></div>
 </div>
 <p>This is <strong>really really</strong> important.  Take the time to ensure you are where you
-think you are.</p>
+think you are, iow, not on a remote. Use git status to find out where you are, if necesary.</p>
 <p>Then, fetch the upstream master branch and merge it into your master:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch upstream master
 From https://github.com/UWPCE-PythonCert/IntroPython2015
@@ -447,7 +450,8 @@ Fast-forward
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git pull upstream master
 </pre></div>
 </div>
-<p>Now all the changes from <em>upstream</em> are present in your local clone.</p>
+<p>Now all the changes from <em>upstream</em> are present in your local clone.
+You should do this pull everytime you start to work on code.</p>
 <p>In order to preserve them in your fork on GitHub, you&#8217;ll have to push:</p>
 <div class="highlight-bash"><div class="highlight"><pre>$ git status
 On branch master
@@ -465,12 +469,20 @@ $
 $ git pull upstream master
 $ git push
 [do some work]
-$ git commit -a
+$ git commit -a &#39;I wrote some Python.&#39;
 [add a good commit message]
 $ git push
-[make a pull request]
+[make a pull request on the GitHub website]
 </pre></div>
 </div>
+<p>Because of the way we have set up the class, you will be able
+to see all work submitted to us from everyone in the class in
+the students directory on your machine. This is not a bad thing.
+And the files tend to be small.</p>
+<p>We encourage sharing of knowledge in this class. Helping your
+fellow students will also help you to better understand. Share
+your code, and get use to giving/receiving feedback on how to
+improve your code, if you are not already.</p>
 </div>
 </div>
 <div class="section" id="lab-grid-printer">
@@ -493,20 +505,22 @@ able to do this little project:</p>
 </div>
 <div class="section" id="committing-your-code">
 <h3>Committing your code<a class="headerlink" href="#committing-your-code" title="Permalink to this headline">¶</a></h3>
-<p>When it does something useful, you can commit it.</p>
+<p>When your code does something useful, you can commit it.</p>
 <p>First check the status:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git status
 </pre></div>
 </div>
-<p>If it&#8217;s what you expect, you can push:</p>
+<p>If it&#8217;s what you expect, you can commit and push:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git commit -a -m <span class="s2">&quot;first version&quot;</span>
+<span class="nv">$ </span>git push
 </pre></div>
 </div>
-<p>And when you want us to take a look, push it to gitHub:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push
-</pre></div>
+<p>And when you want us to take a look, you can go to gitHub and do a &#8220;Pull Request&#8221;
+(make sure you commit and push first)</p>
 </div>
-<p>Then you can go to gitHub and do a &#8220;Pull Request&#8221;</p>
+<div class="section" id="id1">
+<h3>Committing your code<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Commit early and often.</p>
 </div>
 <div class="section" id="lightning-talk">
 <h3>Lightning Talk:<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
@@ -609,8 +623,8 @@ conditionals, looping, and a container type...</p>
 <p class="left">We now have the tools to do a implementation of the classic &#8220;Fizz Buzz&#8221; problem:</p>
 <p class="left"><a class="reference internal" href="exercises/fizz_buzz.html#exercise-fizz-buzz"><span>Fizz Buzz Exercise</span></a></p>
 <p class="left">Do the same git / gitHub dance with this, too!</p>
-<div class="section" id="id1">
-<h3>Lightning Talk:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Lightning Talk:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p class="center medium">Bruce Bauman</p>
 </div>
 </div>
@@ -855,8 +869,8 @@ for your code.</p>
 <h2>LAB: Fibonacci<a class="headerlink" href="#lab-fibonacci" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s write a few functions in class:</p>
 <p><a class="reference internal" href="exercises/fib_and_lucas.html#exercise-fibonacci"><span>Fibonacci Series Exercise</span></a></p>
-<div class="section" id="id2">
-<h3>Lightning Talk:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Lightning Talk:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p class="center medium">Michelle Yu</p>
 </div>
 </div>

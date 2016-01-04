@@ -20,9 +20,9 @@ Review of Previous Class
 ------------------------
 
 
-  * Decorators
-  * Context Managers
-  * Packaging
+Iterators
+
+Generators
 
 
 Projects
@@ -30,7 +30,7 @@ Projects
 
 Due Dec Friday, Dec 11th, 11:59pm PST
 
-.. rst-class:: centered medium
+.. rst-class:: medium
 
   (that's three days!)
 
@@ -53,11 +53,15 @@ Code Review?
 
 .. rst-class:: left
 
+  Do you think you've "got" iterators, iterables, and generators?
+
   Options:
 
     1) Look at someone's code.
 
     2) look at some of my code.
+
+    3) Go over someone's project code -- anyone stuck on something?
 
 
 ==========
@@ -67,13 +71,12 @@ Decorators
 **A Short Reminder**
 
 .. rst-class:: left
-.. container::
 
     Functions are things that generate values based on input (arguments).
 
     In Python, functions are first-class objects.
 
-    This means that you can bind symbols to them, pass them around, just like
+    This means that you can bind names to them, pass them around, etc, just like
     other objects.
 
     Because of this fact, you can write functions that take functions as
@@ -86,6 +89,7 @@ Decorators
                 return "I'm not that other function"
             return new_function
 
+
 A Definition
 ------------
 
@@ -97,10 +101,9 @@ So many, that we give it a special name:
 **Decorator**
 
 .. rst-class:: build centered
-.. container::
 
     "A decorator is a function that takes a function as an argument and
-    returns a function as a return value.""
+    returns a function as a return value."
 
     That's nice and all, but why is that useful?
 
@@ -124,9 +127,9 @@ one:
     .. code-block:: python
 
         def add(a, b):
-            print "Function 'add' called with args: %r, %r"%(a, b)
+            print("Function 'add' called with args: {}, {}".format(a, b) )
             result = a + b
-            print "\tResult --> %r" % result
+            print("\tResult --> {}".format(result))
             return result
 
 .. nextslide::
@@ -140,15 +143,17 @@ Now imagine we defined the following, more generic *decorator*:
 
     def logged_func(func):
         def logged(*args, **kwargs):
-            print "Function %r called" % func.__name__
+            print("Function {} called".format(func.__name__))
             if args:
-                print "\twith args: %r" % args
+                print("\twith args: {}".format(args))
             if kwargs:
-                print "\twith kwargs: %r" % kwargs
+                print("\twith kwargs: {}".format(kwargs))
             result = func(*args, **kwargs)
-            print "\t Result --> %r" % result
+            print("\t Result --> {}".format(result))
             return result
         return logged
+
+(demo)
 
 .. nextslide::
 
@@ -211,28 +216,21 @@ Rebinding the name of a function to the result of calling a decorator on that
 function is called **decoration**.
 
 Because this is so common, Python provides a special operator to perform it
-more *declaratively*: the ``@`` operator:
-
-(I told you I'd eventually explain what was going on under the hood
-with that wierd `@` symbol)
+more *declaratively*: the ``@`` operator -- I told you I'd eventually explain what was going on under the hood with that wierd `@` symbol:
 
 .. code-block:: python
 
-    # this is the imperative version:
     def add(a, b):
         return a + b
     add = logged_func(add)
 
-    # and this declarative form is exactly equal:
     @logged_func
     def add(a, b):
         return a + b
 
-.. rst-class:: build
-.. container::
+The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.
 
-    The declarative form (called a decorator expression) is far more common,
-    but both have the identical result, and can be used interchangeably.
+(demo)
 
 Callables
 ---------
@@ -242,12 +240,12 @@ incomplete.
 
 In reality, decorators can be used with anything that is *callable*.
 
-Remember from last week, a *callable* is a function, a method on a class,
+Remember from two weeks ago, a *callable* is a function, a method on a class,
 or a class that implements the ``__call__`` special method.
 
 So in fact the definition should be updated as follows:
 
-.. rst-class:: centered
+.. rst-class:: centered medium
 
 A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.
@@ -293,14 +291,12 @@ Let's try that out with a potentially expensive function:
     In [58]: sum2x(10000000)
     Out[58]: 99999990000000
 
-It's nice to see that in action, but what if we want to know *exactly* how much
-difference it made?
+It's nice to see that in action, but what if we want to know *exactly* how much difference it made?
 
 Nested Decorators
 -----------------
 
-You can stack decorator expressions.  The result is like calling each decorator
-in order, from bottom to top:
+You can stack decorator expressions.  The result is like calling each decorator in order, from bottom to top:
 
 .. code-block:: python
 
@@ -326,7 +322,7 @@ Let's define another decorator that will time how long a given call takes:
             start = time.time()
             result = func(*args, **kwargs)
             elapsed = time.time() - start
-            print "time expired: %s" % elapsed
+            print("time expired: {}".format(elapsed))
             return result
         return timed
 
@@ -409,7 +405,7 @@ Remember the property() built in?
 
 Perhaps most commonly, you'll see the ``property()`` builtin used this way.
 
-Last week we saw this code:
+Two weeks ago we saw this code:
 
 .. code-block:: python
 
@@ -444,12 +440,13 @@ But this could also be accomplished like so:
         x = property(getx, setx, delx,
                      "I'm the 'x' property.")
 
+:download:`Examples/Session10/property_ugly.py <../../Examples/Session10/property_ugly.py>`
+
 .. nextslide::
 
 Note that in this case, the decorator object returned by the property decorator
 itself implements additional decorators as attributes on the returned method
 object. So you could actually do this:
-
 
 
 .. code-block:: python
@@ -490,7 +487,7 @@ HTML 'p' tag:
     Out[5]: '<p> this is a string </p>'
 
 simple test code in
-:download:`Examples/Session09/test_p_wrapper.py <../../Examples/Session09/test_p_wrapper.py>`
+:download:`Examples/Session10/test_p_wrapper.py <../../Examples/Session10/test_p_wrapper.py>`
 
 
 Lightning Talks
@@ -499,9 +496,9 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-|  Lou Ascoli
+|    Austin Scara
 |
-|  Ralph  Brand
+|    Marty Pitts
 |
 
 
@@ -509,12 +506,11 @@ Lightning Talks
 Context Managers
 =================
 
-**A Short Digression**
+**Repetition in code stinks (DRY!)**
 
 .. rst-class:: left build
 .. container::
 
-    Repetition in code stinks (DRY!)
 
     A large source of repetition in code deals with the handling of external
     resources.
@@ -568,7 +564,8 @@ few simple steps.
 
 The key is to use the ``with`` statement.
 
-.. nextslide:: ``with`` a little help
+``with`` a little help
+----------------------
 
 Since the introduction of the ``with`` statement in `pep343`_, the above six
 lines of defensive code have been replaced with this simple form:
@@ -591,8 +588,7 @@ when the code block ends.
 At this point in Python history, many functions you might expect to behave this
 way do:
 
-* ``open`` and ``io.open`` both work as context managers.
-  (``io.open`` is good for working with unicode)
+* ``open`` and works as a context manager.
 * networks connections via ``socket`` do as well.
 * most implementations of database wrappers can open connections or cursors as
   context managers.
@@ -601,12 +597,15 @@ way do:
 * But what if you are working with a library that doesn't support this
   (``urllib``)?
 
-.. nextslide:: Close It Automatically
+Close It Automatically
+----------------------
 
 There are a couple of ways you can go.
 
 If the resource in questions has a ``.close()`` method, then you can simply use
 the ``closing`` context manager from ``contextlib`` to handle the issue:
+
+** check example for py3 -- urlib depricated!
 
 .. code-block:: python
 
@@ -621,7 +620,7 @@ But what if the thing doesn't have a ``close()`` method, or you're creating
 the thing and it shouldn't have a close() method?
 
 Do It Yourself
-----------------
+--------------
 
 You can also define a context manager of your own.
 
@@ -646,20 +645,22 @@ Consider this code:
 .. code-block:: python
 
     class Context(object):
-    """from Doug Hellmann, PyMOTW
-    http://pymotw.com/2/contextlib/#module-contextlib
-    """
-    def __init__(self, handle_error):
-        print '__init__(%s)' % handle_error
-        self.handle_error = handle_error
-    def __enter__(self):
-        print '__enter__()'
-        return self
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        print '__exit__(%r, %r, %r)' % (exc_type, exc_val, exc_tb)
-        return self.handle_error
+        """from Doug Hellmann, PyMOTW
+        http://pymotw.com/2/contextlib/#module-contextlib
+        """
+        def __init__(self, handle_error):
+            print('__init__({})'.format(handle_error))
+            self.handle_error = handle_error
 
-:download:`Examples/Session09/context_managers.py <../../Examples/Session09/context_managers.py>`
+        def __enter__(self):
+            print('__enter__()')
+            return self
+
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            print('__exit__({}, {}, {})'.format(exc_type, exc_val, exc_tb))
+            return self.handle_error
+
+:download:`Examples/Session10/context_managers.py <../../Examples/Session10/context_managers.py>`
 
 
 .. nextslide::
@@ -670,7 +671,7 @@ clarify the order in which things happen:
 .. code-block:: ipython
 
     In [46]: with Context(True) as foo:
-       ....:     print 'This is in the context'
+       ....:     print('This is in the context')
        ....:     raise RuntimeError('this is the error message')
     __init__(True)
     __enter__()
@@ -689,7 +690,7 @@ What if we try with ``False``?
 .. code-block:: ipython
 
     In [47]: with Context(False) as foo:
-       ....:     print 'This is in the context'
+       ....:     print('This is in the context')
        ....:     raise RuntimeError('this is the error message')
     __init__(False)
     __enter__()
@@ -704,9 +705,11 @@ What if we try with ``False``?
           4
     RuntimeError: this is the error message
 
-.. nextslide:: ``contextmanager`` decorator
+The ``contextmanager`` decorator
+--------------------------------
 
 ``contextlib.contextmanager`` turns generator functions into context managers.
+
 Consider this code:
 
 .. code-block:: python
@@ -715,16 +718,16 @@ Consider this code:
 
     @contextmanager
     def context(boolean):
-        print "__init__ code here"
+        print("__init__ code here")
         try:
-            print "__enter__ code goes here"
+            print("__enter__ code goes here")
             yield object()
         except Exception as e:
-            print "errors handled here"
+            print("errors handled here")
             if not boolean:
-                raise
+                raise e
         finally:
-            print "__exit__ cleanup goes here"
+            print("__exit__ cleanup goes here")
 
 .. nextslide::
 
@@ -734,9 +737,10 @@ And using it has similar results.  We can handle errors:
 
 .. code-block:: ipython
 
-    In [50]: with context(True):
-       ....:     print "in the context"
+    In [96]: with context(True):
+       ....:     print("in the context")
        ....:     raise RuntimeError("error raised")
+       ....:
     __init__ code here
     __enter__ code goes here
     in the context
@@ -750,7 +754,7 @@ Or, we can allow them to propagate:
 .. code-block:: ipython
 
     In [51]: with context(False):
-       ....: print "in the context"
+       ....: print("in the context")
        ....: raise RuntimeError("error raised")
     __init__ code here
     __enter__ code goes here
@@ -786,15 +790,20 @@ run all the code inside the context:
 object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.
 
+Projects
+--------
 
-Lightning Talks
-----------------
+Projects due this Friday. We'll review them over the weekend.
 
-.. rst-class:: medium
+To turn in:
+ * Put up it up gitHub, and do a pull request
+ * Put it in its own gitHub repository and point me to it.
+ * zip up the code an email it to me.
 
-|
-|
-|
-|
-|
+Please do the online course evaluation
+
+Anyone want office hours Thursday evening?
+
+Keep writing Python!
+
 
