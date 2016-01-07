@@ -441,8 +441,10 @@ But this could also be accomplished like so:
             del self._x
         x = property(getx, setx, delx,
                      "I'm the 'x' property.")
-                     
-``Examples/Session10/``
+
+
+:download:`Examples/Session10/property_ugly.py <../../Examples/Session10/property_ugly.py>`
+
 
 .. nextslide::
 

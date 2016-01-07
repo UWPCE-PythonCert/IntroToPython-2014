@@ -95,8 +95,10 @@ You should have git installed on your machine and accessible from the command li
 Editor
 ------
 
-You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, let's set up a different editor, before you find yourself accidentally stuck in VI land.
-Nano is a very straight-forward, simple editor, available without installing anything on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown below). To install nano on Windows: :ref:`supplement_install_nano_win`
+You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, unless you already know vi, you should set up a different editor.
+Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown in link below). To install nano on Windows: :ref:`supplement_install_nano_win`
+
+Once you have chosen/installed an editor, configure git to use it:
 
 nano
 ``$ git config --global core.editor "nano -w"``
@@ -161,10 +163,12 @@ Our class materials reside in a repository on *Github* in the *UWPCE-PythonCert*
     :width: 50%
     :class: center
 
+We will do a live demo of setting up a machine. Please follow along.
+
 .. nextslide::
 
 We will now create a fork of the class repository from the ``UWPCE-PythonCert``
-account on GitHub into your personal account:
+account on GitHub into your personal account. This is done on the GitHub website.
 
 .. figure:: /_static/remotes_fork.png
     :width: 50%
@@ -173,7 +177,7 @@ account on GitHub into your personal account:
 .. nextslide::
 
 The next step is to make a *clone* of your fork on your own computer, which means that
-**your fork** in github is the *origin*:
+**your fork** in github is the *origin* (Demo):
 
 .. figure:: /_static/remotes_clone.png
     :width: 50%
@@ -318,7 +322,7 @@ Start by making sure you are on your own master branch:
     $ git checkout master
 
 This is **really really** important.  Take the time to ensure you are where you
-think you are.
+think you are, iow, not on a remote. Use git status to find out where you are, if necesary.
 
 .. nextslide:: Merging Upstream Changes
 
@@ -346,7 +350,8 @@ NOTE: you can do that in one step with:
 
 .. nextslide:: Pushing to Origin
 
-Now all the changes from *upstream* are present in your local clone.
+Now all the changes from *upstream* are present in your local clone. 
+You should do this pull everytime you start to work on code.
 
 In order to preserve them in your fork on GitHub, you'll have to push:
 
@@ -371,10 +376,23 @@ You can incorporate this into your daily workflow: ::
     $ git pull upstream master
     $ git push
     [do some work]
-    $ git commit -a
+    $ git commit -a 'I wrote some Python.'
     [add a good commit message]
     $ git push
-    [make a pull request]
+    [make a pull request on the GitHub website]
+
+
+.. nextslide:: Note
+
+Because of the way we have set up the class, you will be able
+to see all work submitted to us from everyone in the class in 
+the students directory on your machine. This is not a bad thing.
+And the files tend to be small. 
+
+We encourage sharing of knowledge in this class. Helping your
+fellow students will also help you to better understand. Share 
+your code, and get use to giving/receiving feedback on how to 
+improve your code, if you are not already.
 
 
 LAB: Grid Printer
@@ -407,7 +425,7 @@ Then put your code in grid_printer.py
 Committing your code
 --------------------
 
-When it does something useful, you can commit it.
+When your code does something useful, you can commit it.
 
 First check the status:
 
@@ -415,19 +433,21 @@ First check the status:
 
   $ git status
 
-If it's what you expect, you can push:
+If it's what you expect, you can commit and push:
 
 .. code-block:: bash
 
   $ git commit -a -m "first version"
-
-And when you want us to take a look, push it to gitHub:
-
-.. code-block:: bash
-
   $ git push
 
-Then you can go to gitHub and do a "Pull Request"
+And when you want us to take a look, you can go to gitHub and do a "Pull Request"
+(make sure you commit and push first)
+
+
+Committing your code
+--------------------
+
+Commit early and often. 
 
 
 Lightning Talk:
