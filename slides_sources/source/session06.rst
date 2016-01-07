@@ -1,3 +1,4 @@
+.. include:: include.rst
 
 ********************************************************************
 Session Six: Advanced Argument Passing, lambda, functions as objects

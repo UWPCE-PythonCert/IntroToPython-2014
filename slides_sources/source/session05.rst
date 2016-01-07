@@ -1,3 +1,4 @@
+.. include:: include.rst
 
 *************************************************
 Session Five: Exceptions, Testing, Comprehensions

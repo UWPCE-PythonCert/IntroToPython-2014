@@ -1,3 +1,5 @@
+.. include:: include.rst
+
 ****************************************************
 Session Two: gitHub, Functions, Booleans and Modules
 ****************************************************
@@ -395,8 +397,8 @@ Start by putting a python file in your clone of the class gitHub project:
 .. code-block:: bash
 
   $ cd my_personal_directory
-  $ mkdir session_01
-  $ cd session_01
+  $ mkdir session_02
+  $ cd session_02
   $ touch grid_printer.py
   $ git add grid_printer.py
 

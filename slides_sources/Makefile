@@ -7,7 +7,7 @@ SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = build
 SASSBUILD     = sassc
-SASSOPTS      = --load-path './scss_sources'
+SASSOPTS      = --include-path './scss_sources'
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)

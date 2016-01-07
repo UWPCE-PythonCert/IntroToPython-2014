@@ -1,3 +1,5 @@
+.. include:: include.rst
+
 **************************
 Session One: Introductions
 **************************
@@ -44,16 +46,16 @@ Your instructors
 
 .. rst-class:: center medium
 
-| Christopher Barker
-| (PythonCHB at gmail dot com)
+| |instructor_1_name|
+| |instructor_1_email|
 |
 
 .. nextslide::
 
 .. rst-class:: center medium
 
-| Maria McKinley
-| (maria at mariakathryn dot net)
+| |instructor_2_name|
+| |instructor_2_email|
 |
 
 Who are you?

@@ -1,3 +1,5 @@
+.. include:: include.rst
+
 *********************************************************
 Session Three: Sequences, Iteration and String Formatting
 *********************************************************

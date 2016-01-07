@@ -1,3 +1,5 @@
+.. include:: include.rst
+
 *******************************************************
 Session Ten: Decorators and Context Managers -- Wrap Up
 *******************************************************
@@ -439,6 +441,7 @@ But this could also be accomplished like so:
             del self._x
         x = property(getx, setx, delx,
                      "I'm the 'x' property.")
+                     
 ``Examples/Session10/``
 
 .. nextslide::
@@ -804,5 +807,3 @@ Please do the online course evaluation
 Anyone want office hours Thursday evening?
 
 Keep writing Python!
-
-
