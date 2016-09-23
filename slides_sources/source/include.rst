@@ -1,7 +1,6 @@
 
-.. |instructor_1_name| replace:: Rick Riehle
-.. |instructor_1_email| replace:: rriehle (at) uw (dot) edu
+.. |instructor_1_name| replace:: Christopher Barker
+.. |instructor_1_email| replace:: PythonCHB (at) gmail (dot) com
 
-.. |instructor_2_name| replace:: Kai Yang
-.. |instructor_2_email| replace:: hky2 (at) uw (dot) edu
-
+.. |instructor_2_name| replace:: Maria McKinley
+.. |instructor_2_email| replace:: maria (at) mariakathryn (dot) net
