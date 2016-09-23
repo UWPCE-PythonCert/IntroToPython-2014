@@ -28,4 +28,4 @@ for line in f:
         if lang:  # don't want empty strings
             all_langs[lang] += 1
 for lang, count in all_langs.items():
-    print("{10:}: {:d} students".format(lang, count))
+    print("{:25}: {:d} students".format(lang, count))
