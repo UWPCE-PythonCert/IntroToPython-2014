@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
 """
-test code for the quadratic function evaluator
+Test code for the quadratic function evaluator
+
+This one uses a callable class, rather than curring functions
 """
 
 import pytest

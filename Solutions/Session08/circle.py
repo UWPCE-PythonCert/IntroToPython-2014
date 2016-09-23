@@ -2,12 +2,16 @@
 
 """
 nifty Circle class
+
+Used to demo propeties and "magic methods"
 """
 
 from math import pi
 import functools
 
 
+# this is a trick to make all the greater than, less than, etc work.
+# see: https://docs.python.org/3.5/library/functools.html#functools.total_ordering
 @functools.total_ordering
 class Circle(object):
 
@@ -16,7 +20,7 @@ class Circle(object):
 
     @classmethod
     def from_diameter(cls, diameter):
-        return cls(diameter/2.0)
+        return cls(diameter / 2.0)
 
     @property
     def diameter(self):
@@ -30,10 +34,10 @@ class Circle(object):
         return self.radius**2 * pi
 
     def __repr__(self):
-        return "Circle(%s)"%self.radius
+        return "Circle({})".format(repr(self.radius))
 
     def __str__(self):
-        return "Circle with radius: %.4f"%self.radius
+        return "Circle with radius: {:.4f}".format(self.radius)
 
     def __add__(self, other):
         return Circle(self.radius + other.radius)
@@ -42,8 +46,8 @@ class Circle(object):
         """
         for "augmented assignment" -- can be used for in-place addition
 
-        generally used that way for mutable types. This approach returns
-        self, so that the object is changed in place.
+        Generally used that way for mutable types. This approach returns
+        self, so that the object is changed in place -- i.e. mutated
         """
         self.radius += other.radius
         return self
@@ -52,20 +56,16 @@ class Circle(object):
         return Circle(self.radius * factor)
 
     def __imul__(self, factor):
+        """see __iadd__"""
         self.radius *= factor
         return self
 
     def __rmul__(self, factor):
         return Circle(self.radius * factor)
 
-    # def __cmp__(self, other):
-    #     """
-    #     This is the easy way to support comparing all in one shot
-    #     """
-    #     return cmp(self.radius, other.radius)
 
-    ## Or you can define them all
-    ##  So can support odd situations
+    # You can define them all:
+    #  Might be useful for odd situations
     # def __eq__(self, other):
     #     return self.radius == other.radius
     # def __ne__(self, other):
@@ -79,14 +79,14 @@ class Circle(object):
     # def __le__(self, other):
     #     return self.radius <= other.radius
 
-    ## or you can put the @total_ordering decorator on the class definiton and do this:
+    # Or you can put the @total_ordering decorator on the class definition
+    # and do only thesethis:
     def __eq__(self, other):
         return self.radius == other.radius
     def __gt__(self, other):
         return self.radius > other.radius
 
 
-
-class SubCircle(Circle):
-    pass
+# class SubCircle(Circle):
+#     pass
 
