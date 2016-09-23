@@ -1881,12 +1881,13 @@ So take a bit of time to figure out which resource works for you.
 
 But here are few to get you started this week:
 
-*Think Python:* Chapters 1–7 (http://greenteapress.com/thinkpython/)
+*Think Python:* Chapters 1–7 (http://greenteapress.com/wp/think-python-2e/)
 
 *Dive Into Python:* Chapters 1–2 (http://www.diveintopython3.net/)
 
 *LPTHW:* ex. 1–10, 18-21 (http://learnpythonthehardway.org/book/)
-  **NOTE:** LPTHW is python 2 -- you will need to add parentheses to all yoru print calls!
+
+*NOTE:* LPTHW is python 2 -- you will need to add parentheses to all your print calls!
 
 Or follow this excellent introductory tutorial:
 
@@ -1925,7 +1926,7 @@ Office Hours
 
 We will have office hours on either Saturday or Sunday from 10:00 to noon.
 
-Preferences?  
+Preferences?
 
 Locations?
 
