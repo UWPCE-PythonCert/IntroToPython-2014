@@ -336,7 +336,7 @@ Python comes with a built-in interpreter.
 
 You see it when you type ``python`` at the command line:
 
-.. code-block:: python
+.. code-block:: bash
 
   $ python
   Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
@@ -1462,8 +1462,8 @@ Minimal Function does nothing
 
 .. code-block:: python
 
-    def <name>():
-        <statement>
+    def a_name():
+        a_statement
 
 .. nextslide::
 
@@ -1689,7 +1689,7 @@ In order to do anything interesting at all, you need to be able to make a decisi
 
 .. nextslide::
 
-.. code-block:: python
+.. code-block:: ipython
 
     In [12]: def test(a):
        ....:     if a == 5:

@@ -341,7 +341,7 @@ yet another way to make a generator:
 
 .. code-block:: python
 
-    ￼>>> [x * 2 for x in [1, 2, 3]]
+    >>> [x * 2 for x in [1, 2, 3]]
     [2, 4, 6]
     >>> (x * 2 for x in [1, 2, 3])
     <generator object <genexpr> at 0x10911bf50>
