@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kata Fourteen: Tom Swift Under Milk Wood &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
+        <link rel="up" title="Exercises" href="index.html"/>
+        <link rel="next" title="Exceptions Lab" href="exceptions_lab.html"/>
+        <link rel="prev" title="Dictionary and Set Lab" href="dict_lab.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../session01.html">Session One: Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercises</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents:</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-2">Session 2:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-3">Session 3:</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#session-4">Session 4:</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="dict_lab.html">Dictionary and Set Lab</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-5">Session 5:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-6">Session 6:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-7">Session 7:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-8">Session 8:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../supplements/index.html">Supplemental Materials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Exercises</a> &raquo;</li>
+      
+    <li>Kata Fourteen: Tom Swift Under Milk Wood</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/exercises/kata_fourteen.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kata-fourteen-tom-swift-under-milk-wood">
+<span id="exercise-trigrams"></span><h1>Kata Fourteen: Tom Swift Under Milk Wood<a class="headerlink" href="#kata-fourteen-tom-swift-under-milk-wood" title="Permalink to this headline">¶</a></h1>
+<p>Adapted from Dave Thomas&#8217;s work:</p>
+<p><a class="reference external" href="http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/">http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/</a></p>
+<div class="section" id="trigrams">
+<h2>Trigrams<a class="headerlink" href="#trigrams" title="Permalink to this headline">¶</a></h2>
+<p>Trigrams can be used to mutate text into new, surreal, forms. But what
+heuristics do we apply to get a reasonable result?</p>
+<div class="section" id="the-problem">
+<h3>The Problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">¶</a></h3>
+<p>As a boy, one of my treats was go to the shops on a Saturday and spend part
+of my allowance on books; for a nine-year old, I had quite a collection of
+Tom Swift and Hardy Boys. Wouldn’t it be great to be able to create
+more and more of these classic books, to be able to generate a new Tom
+Swift adventure on demand?</p>
+<p>OK, perhaps not. But that won’t stop us trying. I coded up a quick
+program to generate some swash-buckling scientific adventure on demand. It
+came up with:</p>
+<blockquote>
+<div><p>... it was in the wind that was what he thought was his companion. I
+think would be a good one and accordingly the ship their situation
+improved. Slowly so slowly that it beat the band! You’d think no one
+was a low voice. &#8220;Don’t take any of the elements and the
+inventors of the little Frenchman in the enclosed car or cabin completely
+fitted up in front of the gas in the house and wringing her hands.
+&#8220;I’m sure they’ll fall!&#8221;</p>
+<p>She looked up at them. He dug a mass of black vapor which it had
+refused to accept any. As for Mr. Swift as if it goes too high I’ll
+warn you and you can and swallow frequently. That will make the airship was
+shooting upward again and just before the raid wouldn’t have been
+instrumental in capturing the scoundrels right out of jail.&#8221;</p>
+</div></blockquote>
+<p>Stylistically, it’s Victor Appleton meets Dylan Thomas. Technically,
+it’s all done with trigrams.</p>
+<p>Trigram analysis is very simple. Look at each set of three adjacent words
+in a document. Use the first two words of the set as a key, and remember
+the fact that the third word followed that key. Once you’ve finished,
+you know the list of individual words that can follow each two word
+sequence in the document. For example, given the input:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">might</span>
+</pre></div>
+</div>
+<p>You might generate:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;I wish&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">]</span>
+<span class="s2">&quot;wish I&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;may&quot;</span><span class="p">,</span> <span class="s2">&quot;might&quot;</span><span class="p">]</span>
+<span class="s2">&quot;may I&quot;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;wish&quot;</span><span class="p">]</span>
+<span class="s2">&quot;I may&quot;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This says that the words &#8220;I wish&#8221; are twice followed by the word
+&#8220;I&#8221;, the words &#8220;wish I&#8221; are followed once by
+&#8220;may&#8221; and once by &#8220;might&#8221; and so on.</p>
+<p>To generate new text from this analysis, choose an arbitrary word pair as a
+starting point. Use these to look up a random next word (using the table
+above) and append this new word to the text so far. This now gives you a
+new word pair at the end of the text, so look up a potential next word
+based on these. Add this to the list, and so on. In the previous example,
+we could start with &#8220;I may&#8221;. The only possible next word is
+&#8220;I&#8221;, so now we have:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span>
+</pre></div>
+</div>
+<p>The last two words are &#8220;may I&#8221;, so the next word is
+&#8220;wish&#8221;. We then look up &#8220;I wish&#8221;, and find our choice
+is constrained to another &#8220;I&#8221;.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span>
+</pre></div>
+</div>
+<p>Now we look up &#8220;wish I&#8221;, and find we have a choice. Let’s
+choose &#8220;may&#8221;:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">may</span>
+</pre></div>
+</div>
+<p>Now we’re back where we started from, with &#8220;I may.&#8221;
+Following the same sequence, but choosing &#8220;might&#8221; this time, we
+get:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">might</span>
+</pre></div>
+</div>
+<p>At this point we stop, as no sequence starts &#8220;I might.&#8221;</p>
+<p>Given a short input text, the algorithm isn’t too interesting. Feed
+it a book, however, and you give it more options, so the resulting output
+can be surprising.</p>
+<p>For this kata, try implementing a trigram algorithm that generates a couple
+of hundred words of text using a book-sized file as input.
+<a class="reference external" href="http://www.gutenberg.org/">Project Gutenberg</a> is a good source of online
+books (Tom Swift and His Airship is <a class="reference external" href="http://sailor.gutenberg.org/etext02/03tom10.txt">here</a>.)</p>
+<p>Be warned that these files have DOS line endings (carriage return followed by
+newline).</p>
+<p>There is a copy of sherlock holmes right here:</p>
+<p><a class="reference download internal" href="../_downloads/sherlock.txt" download=""><code class="xref download docutils literal"><span class="pre">sherlock.txt</span></code></a>.</p>
+<p>And a shorter copy for testing:</p>
+<p><a class="reference download internal" href="../_downloads/sherlock_small.txt" download=""><code class="xref download docutils literal"><span class="pre">sherlock_small.txt</span></code></a>.</p>
+</div>
+<div class="section" id="objectives">
+<h3>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h3>
+<p>Kata’s are about trying something many times. In this one, what
+we’re experimenting with is not just the code, but the heuristics of
+processing the text. What do we do with punctuation? Paragraphs? Do we have
+to implement backtracking if we chose a next word that turns out to be a
+dead end?</p>
+<p>I’ll fire the signal and the fun will commence...</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exceptions_lab.html" class="btn btn-neutral float-right" title="Exceptions Lab" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dict_lab.html" class="btn btn-neutral" title="Dictionary and Set Lab" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
