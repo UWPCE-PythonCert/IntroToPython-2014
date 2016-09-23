@@ -105,7 +105,7 @@
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-7">Session 7:</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#session-8">Session 8:</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="circle_class.html">Circle Class Excercise</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">Sparse Array Exercise</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Sparse Array Exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -135,7 +135,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -182,29 +182,29 @@
 <li>Internally, it can store the values in a dict, with the index as the keys. So that only the indexes with non-zero values will be stored.</li>
 <li>It should take a sequence of values as an initializer:</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">sa</span> <span class="o">=</span> <span class="n">SparseArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sa</span> <span class="o">=</span> <span class="n">SparseArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>you should be able to tell how long it is:</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre>  <span class="nb">len</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>  <span class="nb">len</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
 
-<span class="n">This</span> <span class="n">will</span> <span class="n">give</span> <span class="n">its</span> <span class="s">&quot;virtual&quot;</span> <span class="n">length</span> <span class="o">--</span>  <span class="k">with</span> <span class="n">the</span> <span class="n">zeros</span>
+<span class="n">This</span> <span class="n">will</span> <span class="n">give</span> <span class="n">its</span> <span class="s2">&quot;virtual&quot;</span> <span class="n">length</span> <span class="o">--</span>  <span class="k">with</span> <span class="n">the</span> <span class="n">zeros</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>It should support getting and setting particular elements via indexing:</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">sa</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">sa</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># the zero won&#39;t get stored!</span>
-<span class="n">val</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="c"># it should get a zero if not set</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">sa</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">sa</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the zero won&#39;t get stored!</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="c1"># it should get a zero if not set</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>It should support deleting an element by index:</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">del</span> <span class="n">sa</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">sa</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -215,7 +215,7 @@
 <li>Can you make it support slicing?</li>
 <li>How else can you  make it like a list?</li>
 </ul>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">my_array</span> <span class="o">=</span> <span class="n">SparseArray</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">my_array</span> <span class="o">=</span> <span class="n">SparseArray</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
 <span class="gp">In [11]: </span><span class="n">my_array</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 <span class="gh">Out[11]: </span><span class="go">2</span>
 <span class="gp">In [12]: </span><span class="n">my_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>

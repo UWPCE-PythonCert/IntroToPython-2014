@@ -101,7 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-3">Session 3:</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#session-4">Session 4:</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="dict_lab.html">Dictionary and Set Lab</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-5">Session 5:</a></li>
@@ -135,7 +135,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -198,14 +198,14 @@ in a document. Use the first two words of the set as a key, and remember
 the fact that the third word followed that key. Once you’ve finished,
 you know the list of individual words that can follow each two word
 sequence in the document. For example, given the input:</p>
-<div class="highlight-python"><div class="highlight"><pre>I wish I may I wish I might
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">might</span>
 </pre></div>
 </div>
 <p>You might generate:</p>
-<div class="highlight-python"><div class="highlight"><pre>&quot;I wish&quot; =&gt; [&quot;I&quot;, &quot;I&quot;]
-&quot;wish I&quot; =&gt; [&quot;may&quot;, &quot;might&quot;]
-&quot;may I&quot;  =&gt; [&quot;wish&quot;]
-&quot;I may&quot;  =&gt; [&quot;I&quot;]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;I wish&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">]</span>
+<span class="s2">&quot;wish I&quot;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;may&quot;</span><span class="p">,</span> <span class="s2">&quot;might&quot;</span><span class="p">]</span>
+<span class="s2">&quot;may I&quot;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;wish&quot;</span><span class="p">]</span>
+<span class="s2">&quot;I may&quot;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>This says that the words &#8220;I wish&#8221; are twice followed by the word
@@ -218,24 +218,24 @@ new word pair at the end of the text, so look up a potential next word
 based on these. Add this to the list, and so on. In the previous example,
 we could start with &#8220;I may&#8221;. The only possible next word is
 &#8220;I&#8221;, so now we have:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span>
 </pre></div>
 </div>
 <p>The last two words are &#8220;may I&#8221;, so the next word is
 &#8220;wish&#8221;. We then look up &#8220;I wish&#8221;, and find our choice
 is constrained to another &#8220;I&#8221;.:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I wish I
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span>
 </pre></div>
 </div>
 <p>Now we look up &#8220;wish I&#8221;, and find we have a choice. Let’s
 choose &#8220;may&#8221;:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I wish I may
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">may</span>
 </pre></div>
 </div>
 <p>Now we’re back where we started from, with &#8220;I may.&#8221;
 Following the same sequence, but choosing &#8220;might&#8221; this time, we
 get:</p>
-<div class="highlight-python"><div class="highlight"><pre>I may I wish I may I wish I might
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">may</span> <span class="n">I</span> <span class="n">wish</span> <span class="n">I</span> <span class="n">might</span>
 </pre></div>
 </div>
 <p>At this point we stop, as no sequence starts &#8220;I might.&#8221;</p>
@@ -249,9 +249,9 @@ books (Tom Swift and His Airship is <a class="reference external" href="http://s
 <p>Be warned that these files have DOS line endings (carriage return followed by
 newline).</p>
 <p>There is a copy of sherlock holmes right here:</p>
-<p><a class="reference download internal" href="../_downloads/sherlock.txt"><code class="xref download docutils literal"><span class="pre">sherlock.txt</span></code></a>.</p>
+<p><a class="reference download internal" href="../_downloads/sherlock.txt" download=""><code class="xref download docutils literal"><span class="pre">sherlock.txt</span></code></a>.</p>
 <p>And a shorter copy for testing:</p>
-<p><a class="reference download internal" href="../_downloads/sherlock_small.txt"><code class="xref download docutils literal"><span class="pre">sherlock_small.txt</span></code></a>.</p>
+<p><a class="reference download internal" href="../_downloads/sherlock_small.txt" download=""><code class="xref download docutils literal"><span class="pre">sherlock_small.txt</span></code></a>.</p>
 </div>
 <div class="section" id="objectives">
 <h3>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h3>

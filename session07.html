@@ -88,7 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Object Oriented Programming</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Object Oriented Programming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
@@ -163,7 +163,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -213,7 +213,7 @@
 <p>Did anyone look at the isclose() function?</p>
 <p>How to make a range of numbers in floating point?</p>
 <p>Anyone do something like this?:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
 <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">:</span>
     <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -336,7 +336,7 @@ as a variable, or single object, as opposed to a ...</dd>
 <h2>Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h2>
 <p class="left">The <code class="docutils literal"><span class="pre">class</span></code>  statement</p>
 <p class="left"><code class="docutils literal"><span class="pre">class</span></code>  creates a new type object:</p>
-<div class="left highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+<div class="left highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
 <span class="go">    pass</span>
 <span class="gp">   ...:</span>
 <span class="gp">In [5]: </span><span class="nb">type</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
@@ -348,7 +348,7 @@ as a variable, or single object, as opposed to a ...</dd>
 <div class="section" id="id3">
 <h3>Python Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>About the simplest class you can write</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">... </span>    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span>
@@ -363,39 +363,39 @@ as a variable, or single object, as opposed to a ...</dd>
 </pre></div>
 </div>
 <p>Basic Structure of a real class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-<span class="c"># everything defined in here is in the class namespace</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<span class="c1"># everything defined in here is in the class namespace</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 
-<span class="c">## create an instance of the class</span>
+<span class="c1">## create an instance of the class</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="c">## access the attributes</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;p.x is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;p.y is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="c1">## access the attributes</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;p.x is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;p.y is:&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>see: <code class="docutils literal"><span class="pre">Examples/Session07/simple_classes.py</span></code></p>
 <p>The Initializer</p>
 <p>The <code class="docutils literal"><span class="pre">__init__</span></code>  special method is called when a new instance of a class is created.</p>
 <p>You can use it to do any set-up you need</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 </pre></div>
 </div>
 <p>It gets the arguments passed when you call the class object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>What is this <code class="docutils literal"><span class="pre">self</span></code> thing?</p>
 <p>The instance of the class is passed as the first parameter for every method.</p>
 <p>&#8220;<code class="docutils literal"><span class="pre">self</span></code>&#8221; is only a convention &#8211; but you DO want to use it.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">a_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="o">...</span>
 </pre></div>
@@ -404,9 +404,9 @@ as a variable, or single object, as opposed to a ...</dd>
 <p>Anything assigned to a <code class="docutils literal"><span class="pre">self.</span></code>  attribute is kept in the instance
 name space &#8211; <code class="docutils literal"><span class="pre">self</span></code> <em>is</em> the instance.</p>
 <p>That&#8217;s where all the instance-specific data is.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
-    <span class="n">color</span><span class="o">=</span> <span class="s">&quot;red&quot;</span>
+    <span class="n">color</span><span class="o">=</span> <span class="s2">&quot;red&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
@@ -416,20 +416,20 @@ name space &#8211; <code class="docutils literal"><span class="pre">self</span><
 instance of the class shares the same one.</p>
 <p>Note: the methods defined by <code class="docutils literal"><span class="pre">def</span></code> are class attributes as well.</p>
 <p>The class is one namespace, the instance is another.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
-    <span class="n">color</span><span class="o">=</span> <span class="s">&quot;red&quot;</span>
+    <span class="n">color</span><span class="o">=</span> <span class="s2">&quot;red&quot;</span>
 <span class="o">...</span>
     <span class="k">def</span> <span class="nf">get_color</span><span class="p">():</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">()</span>
- <span class="s">&#39;red&#39;</span>
+ <span class="s1">&#39;red&#39;</span>
 </pre></div>
 </div>
 <p>class attributes are accessed with <code class="docutils literal"><span class="pre">self</span></code>  also.</p>
 <p>Typical methods:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diameter</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">diameter</span> <span class="o">=</span> <span class="n">diameter</span>
@@ -441,7 +441,7 @@ instance of the class shares the same one.</p>
 <p>Methods take some parameters, manipulate the attributes in <code class="docutils literal"><span class="pre">self</span></code>.</p>
 <p>They may or may not return something useful.</p>
 <p>Gotcha!</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="o">...</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">...</span>
     <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">diameter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">diameter</span> <span class="o">*</span> <span class="n">factor</span>
 <span class="o">...</span>
@@ -463,7 +463,7 @@ page.</p>
 <p>We&#8217;ll start with a single class, then add some sub-classes
 to specialize the behavior</p>
 <p>Details in:</p>
-<p><a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span>HTML Renderer Exercise</span></a></p>
+<p><a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span class="std std-ref">HTML Renderer Exercise</span></a></p>
 <p>Let&#8217;s get a start with step 1. in class.</p>
 <p>I&#8217;ll give you a few minutes to think about it &#8211; then we&#8217;ll get started as a group.</p>
 </div>
@@ -496,7 +496,7 @@ from pre-existing classes called base classes or super classes.</p>
 <p>You can then change (&#8220;override&#8221;) some or all of the attributes to change the behavior.</p>
 <p>You can also add new attributes to extend the behavior.</p>
 <p>The simplest subclass in Python:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">A_subclass</span><span class="p">(</span><span class="n">The_superclass</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A_subclass</span><span class="p">(</span><span class="n">The_superclass</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
@@ -505,13 +505,13 @@ from pre-existing classes called base classes or super classes.</p>
 <div class="section" id="overriding-attributes">
 <h3>Overriding attributes<a class="headerlink" href="#overriding-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Overriding is as simple as creating a new attribute with the same name:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
 
 <span class="o">...</span>
 
 <span class="k">class</span> <span class="nc">NewCircle</span><span class="p">(</span><span class="n">Circle</span><span class="p">):</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">NewCircle</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">nc</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
 <span class="n">blue</span>
@@ -522,7 +522,7 @@ from pre-existing classes called base classes or super classes.</p>
 <div class="section" id="overriding-methods">
 <h3>Overriding methods<a class="headerlink" href="#overriding-methods" title="Permalink to this headline">¶</a></h3>
 <p>Same thing, but with methods (remember, a method <em>is</em> an attribute in python)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
 <span class="o">...</span>
     <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;grows the circle&#39;s diameter by factor&quot;&quot;&quot;</span>
@@ -556,8 +556,8 @@ from pre-existing classes called base classes or super classes.</p>
 <h3>Overriding __init__<a class="headerlink" href="#overriding-init" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">__init__</span></code> common method to override</p>
 <p>You often need to call the super class <code class="docutils literal"><span class="pre">__init__</span></code>  as well</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diameter</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">diameter</span> <span class="o">=</span> <span class="n">diameter</span>
 <span class="o">...</span>
@@ -572,7 +572,7 @@ from pre-existing classes called base classes or super classes.</p>
 <div class="section" id="more-subclassing">
 <h3>More subclassing<a class="headerlink" href="#more-subclassing" title="Permalink to this headline">¶</a></h3>
 <p>You can also call the superclass&#8217; other methods:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
 <span class="o">...</span>
     <span class="k">def</span> <span class="nf">get_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diameter</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">diameter</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
@@ -638,7 +638,7 @@ automatically when you instantiate an instance.</p>
 <div class="section" id="type-based-dispatch">
 <h3>Type-Based dispatch<a class="headerlink" href="#type-based-dispatch" title="Permalink to this headline">¶</a></h3>
 <p>You&#8217;ll see code that looks like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">A_Class</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">A_Class</span><span class="p">):</span>
     <span class="n">Do_something_with_other</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">Do_something_else</span>
@@ -683,7 +683,7 @@ automatically when you instantiate an instance.</p>
 <ul class="left medium simple">
 <li>html renderer: let&#8217;s see how much more we can do!</li>
 </ul>
-<p><a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span>HTML Renderer Exercise</span></a></p>
+<p><a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span class="std std-ref">HTML Renderer Exercise</span></a></p>
 <p>Now we have a base class, and we can:</p>
 <ul class="simple">
 <li>Subclass overriding class attributes</li>
@@ -711,17 +711,17 @@ automatically when you instantiate an instance.</p>
 <h3>Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permalink to this headline">¶</a></h3>
 <p>Multiple inheritance: Inheriting from more than one class</p>
 <p>Simply provide more than one parent.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Combined</span><span class="p">(</span><span class="n">Super1</span><span class="p">,</span> <span class="n">Super2</span><span class="p">,</span> <span class="n">Super3</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Combined</span><span class="p">(</span><span class="n">Super1</span><span class="p">,</span> <span class="n">Super2</span><span class="p">,</span> <span class="n">Super3</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">something</span><span class="p">,</span> <span class="n">something</span> <span class="k">else</span><span class="p">):</span>
-        <span class="c"># some custom initialization here.</span>
+        <span class="c1"># some custom initialization here.</span>
         <span class="n">Super1</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">......</span><span class="p">)</span>
         <span class="n">Super2</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">......</span><span class="p">)</span>
         <span class="n">Super3</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">......</span><span class="p">)</span>
-        <span class="c"># possibly more custom initialization</span>
+        <span class="c1"># possibly more custom initialization</span>
 </pre></div>
 </div>
 <p>(calls to the super class <code class="docutils literal"><span class="pre">__init__</span></code>  are optional &#8211; case dependent)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Combined</span><span class="p">(</span><span class="n">Super1</span><span class="p">,</span> <span class="n">Super2</span><span class="p">,</span> <span class="n">Super3</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Combined</span><span class="p">(</span><span class="n">Super1</span><span class="p">,</span> <span class="n">Super2</span><span class="p">,</span> <span class="n">Super3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Attributes are located bottom-to-top, left-to-right</p>
@@ -763,14 +763,14 @@ automatically when you instantiate an instance.</p>
 <p><code class="docutils literal"><span class="pre">super()</span></code>: use it to call a superclass method, rather than explicitly calling
 the unbound method on the superclass.</p>
 <p>instead of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">B</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">argw</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="o">...</span>
 </pre></div>
 </div>
 <p>You can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">argw</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="o">...</span>

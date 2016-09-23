@@ -98,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../exercises/index.html">Exercises</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Supplemental Materials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="python_learning_resources.html">Useful Python Learning Resources</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Setting up your Mac for Python</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up your Mac for Python</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-the-tools">Getting The Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#terminal">Terminal</a></li>
@@ -116,7 +116,9 @@
 <li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="git_overview.html">git Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html#mechanics">Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging.html">Packages and Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging.html#distributing">Distributing</a></li>
 </ul>
@@ -143,7 +145,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -186,7 +188,7 @@ installation. So I recommend installing an independent installation from
 <p>(you can probably use 3.5.0, too, but it&#8217;s brand new, and there are a number of third party pacakges that are not yet available for it)</p>
 <p>Simple as that.</p>
 <p>Oddly, this does NOT install a <code class="docutils literal"><span class="pre">python</span></code> command, but rather a <code class="docutils literal"><span class="pre">python3</span></code> command. If you want to be able to simply type <code class="docutils literal"><span class="pre">python</span></code> and get python3, then you can add a symlink to the install:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ cd /Library/Frameworks/Python.framework/Versions/3.5/bin
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd /Library/Frameworks/Python.framework/Versions/3.5/bin
 $ ln -s python3.5 python
 </pre></div>
 </div>
@@ -195,7 +197,7 @@ $ ln -s python3.5 python
 <div class="section" id="terminal">
 <h3>Terminal<a class="headerlink" href="#terminal" title="Permalink to this headline">¶</a></h3>
 <p>The built-in &#8220;terminal&#8221; application works fine. Find it in:</p>
-<div class="highlight-python"><div class="highlight"><pre>/Applications/Utilities/Terminal
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">Utilities</span><span class="o">/</span><span class="n">Terminal</span>
 </pre></div>
 </div>
 <p>Drag it to the dock to easy access.</p>
@@ -219,7 +221,7 @@ $ ln -s python3.5 python
 <p>(If you try running &#8220;git&#8221; on the command line after installing, it should send you there).</p>
 <p>Warning: XCode is a BIG download. Once installed, run it so it can initialize itself.</p>
 <p>After either of these is installed, the <code class="docutils literal"><span class="pre">git</span></code> command should work:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git --version
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git --version
 git version 1.8.5.2 <span class="o">(</span>Apple Git-48<span class="o">)</span>
 </pre></div>
 </div>
@@ -227,7 +229,7 @@ git version 1.8.5.2 <span class="o">(</span>Apple Git-48<span class="o">)</span>
 <div class="section" id="pip">
 <h3>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">pip</span></code> is the Python package installer. It is updated faster than python itself, so once you have python, you want to get the latest version of pip working:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python -m ensurepip --upgrade
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m ensurepip --upgrade
 </pre></div>
 </div>
 <p>[first make sure that <code class="docutils literal"><span class="pre">python</span></code> gives you the one you want. You may need to call <code class="docutils literal"><span class="pre">python3</span></code> instead]</p>
@@ -237,11 +239,11 @@ git version 1.8.5.2 <span class="o">(</span>Apple Git-48<span class="o">)</span>
 <div class="section" id="ipython">
 <h3>iPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
 <p>One we are going to use in class is <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python3 -m pip install ipython[all]
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python3 -m pip install ipython[all]
 </pre></div>
 </div>
 <p>You should now be able to run <code class="docutils literal"><span class="pre">iPython</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
+<div class="highlight-default"><div class="highlight"><pre><span></span>Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
 Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 
 IPython 4.0.0 -- An enhanced Interactive Python.

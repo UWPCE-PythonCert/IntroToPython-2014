@@ -89,7 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session07.html">Object Oriented Programming</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Eight: More OO: Properties, Special methods.</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session Eight: More OO: Properties, Special methods.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
@@ -167,7 +167,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -243,16 +243,16 @@ what is appropriate for your project</li>
 <h3>Homework Notes:<a class="headerlink" href="#homework-notes" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">**kwargs</span></code> will always define a <code class="docutils literal"><span class="pre">kwargs</span></code> dict: it just may be empty.</p>
 <p>And there is no need to check if it&#8217;s empty before trying to loop through it.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">!=</span> <span class="p">{}:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">!=</span> <span class="p">{}:</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">atts</span> <span class="o">+=</span> <span class="s">&#39; {}=&quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atts</span> <span class="o">+=</span> <span class="s1">&#39; {}=&quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>no need for <code class="docutils literal"><span class="pre">!=</span> <span class="pre">{}</span></code> &#8211; an empty dict is &#8220;Falsey&#8221;</p>
 <p><strong>but</strong> no need for that check at all. If the dict (or ist, or tuple) is
 empty, then the loop is a do-nothing operation:</p>
 <ul class="simple">
-<li>notes on Duck Typing: <a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span>HTML Renderer Exercise</span></a> and  code review</li>
+<li>notes on Duck Typing: <a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span class="std std-ref">HTML Renderer Exercise</span></a> and  code review</li>
 <li>anyone stuck that wants to work through your code?</li>
 </ul>
 </div>
@@ -262,7 +262,7 @@ empty, then the loop is a do-nothing operation:</p>
 <div class="left container">
 <p>One of the strengths of Python is lack of clutter.</p>
 <p>Attributes are simple and concise:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
 <span class="go">        def __init__(self):</span>
 <span class="go">                self.x = 5</span>
 <span class="gp">In [6]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
@@ -282,7 +282,7 @@ empty, then the loop is a do-nothing operation:</p>
 <li>check data validity</li>
 <li>keep things in sync</li>
 </ul>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
 <span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">   ...: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">get_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -302,7 +302,7 @@ empty, then the loop is a do-nothing operation:</p>
 </div>
 <div class="section" id="id1">
 <h3>properties<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="go">class C:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="go">class C:</span>
 <span class="go">    _x = None</span>
 <span class="go">    @property</span>
 <span class="go">    def x(self):</span>
@@ -321,12 +321,12 @@ empty, then the loop is a do-nothing operation:</p>
 <p>What&#8217;s up with the &#8220;&#64;&#8221; symbols?</p>
 <p>Those are &#8220;decorations&#8221; it&#8217;s a syntax for wrapping functions up with something special.</p>
 <p>We&#8217;ll cover that in detail in a couple weeks, but for now &#8211; just copy the syntax.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nd">@property</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@property</span>
 <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>means: make a property called x with this as the &#8220;getter&#8221;.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nd">@x.setter</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@x.setter</span>
 <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 </pre></div>
 </div>
@@ -335,7 +335,7 @@ empty, then the loop is a do-nothing operation:</p>
 <div class="section" id="read-only-attributes">
 <h3>&#8220;Read Only&#8221; Attributes<a class="headerlink" href="#read-only-attributes" title="Permalink to this headline">¶</a></h3>
 <p>You do not need to define a setter. If you don&#8217;t, you get a &#8220;read only&#8221; attribute:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">   ....: </span>    <span class="nd">@property</span>
@@ -348,7 +348,7 @@ empty, then the loop is a do-nothing operation:</p>
 <span class="gh">Out[13]: </span><span class="go">5</span>
 <span class="gp">In [14]: </span><span class="n">d</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-14-c83386d97be3&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="ne">AttributeError</span>: can&#39;t set attribute
@@ -359,7 +359,7 @@ empty, then the loop is a do-nothing operation:</p>
 <h3>Deleters<a class="headerlink" href="#deleters" title="Permalink to this headline">¶</a></h3>
 <p>If you want to do something special when a property is deleted, you can define
 a deleter is well:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="k">class</span> <span class="nc">D</span><span class="p">():</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">   ....: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">   ....: </span>    <span class="nd">@property</span>
@@ -372,14 +372,14 @@ a deleter is well:</p>
 </div>
 <p>If you leave this out, the property can&#8217;t be deleted, which is usually
 what you want.</p>
-<p class="centered">[demo: <a class="reference download internal" href="_downloads/properties_example.py"><code class="xref download docutils literal"><span class="pre">properties_example.py</span></code></a>]</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/properties_example.py" download=""><code class="xref download docutils literal"><span class="pre">properties_example.py</span></code></a>]</p>
 </div>
 </div>
 <div class="section" id="lab">
 <h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s use some of this to build a nice class to represent a Circle.</p>
 <p>For now, Let&#8217;s do steps 1-4 of:</p>
-<p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span>Circle Class Excercise</span></a></p>
+<p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span class="std std-ref">Circle Class Excercise</span></a></p>
 <div class="section" id="lightning-talks">
 <h3>Lightning talks:<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <p class="medium">Robert Ryan Leslie</p>
@@ -403,7 +403,7 @@ long as you pass an instance of that class as the first argument.</p>
 <div class="section" id="static-methods">
 <h3>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h3>
 <p>A <em>static method</em> is a method that doesn&#8217;t get self:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="k">class</span> <span class="nc">StaticAdder</span><span class="p">:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="k">class</span> <span class="nc">StaticAdder</span><span class="p">:</span>
 
 <span class="gp">   ....: </span>    <span class="nd">@staticmethod</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -414,14 +414,14 @@ long as you pass an instance of that class as the first argument.</p>
 <span class="gh">Out[37]: </span><span class="go">9</span>
 </pre></div>
 </div>
-<p class="centered">[demo: <a class="reference download internal" href="_downloads/static_method.py"><code class="xref download docutils literal"><span class="pre">static_method.py</span></code></a>]</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/static_method.py" download=""><code class="xref download docutils literal"><span class="pre">static_method.py</span></code></a>]</p>
 <div class="build container">
 <p>Where are static methods useful?</p>
 <p>Usually they aren&#8217;t</p>
 <p>99% of the time, it&#8217;s better just to write a module-level function</p>
 <p>An example from the Standard Library (tarfile.py):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">TarInfo</span><span class="p">:</span>
-    <span class="c"># ...</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TarInfo</span><span class="p">:</span>
+    <span class="c1"># ...</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_create_payload</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the string payload filled with zero bytes</span>
@@ -439,11 +439,11 @@ long as you pass an instance of that class as the first argument.</p>
 <h3>Class Methods<a class="headerlink" href="#class-methods" title="Permalink to this headline">¶</a></h3>
 <p>A class method gets the class object, rather than an instance, as the first
 argument</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="k">class</span> <span class="nc">Classy</span><span class="p">:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="k">class</span> <span class="nc">Classy</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">   ....: </span>    <span class="nd">@classmethod</span>
 <span class="gp">   ....: </span>    <span class="k">def</span> <span class="nf">a_class_method</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="gp">   ....: </span>        <span class="k">print</span><span class="p">(</span><span class="s">&quot;in a class method: &quot;</span><span class="p">,</span> <span class="n">cls</span><span class="p">)</span>
+<span class="gp">   ....: </span>        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;in a class method: &quot;</span><span class="p">,</span> <span class="n">cls</span><span class="p">)</span>
 <span class="gp">   ....: </span>        <span class="k">return</span> <span class="n">y</span> <span class="o">**</span> <span class="n">cls</span><span class="o">.</span><span class="n">x</span>
 <span class="gp">   ....:</span>
 <span class="gp">In [42]: </span><span class="n">Classy</span><span class="o">.</span><span class="n">a_class_method</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -451,7 +451,7 @@ argument</p>
 <span class="gh">Out[42]: </span><span class="go">16</span>
 </pre></div>
 </div>
-<p class="centered">[demo: <a class="reference download internal" href="_downloads/class_method.py"><code class="xref download docutils literal"><span class="pre">class_method.py</span></code></a>]</p>
+<p class="centered">[demo: <a class="reference download internal" href="_downloads/class_method.py" download=""><code class="xref download docutils literal"><span class="pre">class_method.py</span></code></a>]</p>
 </div>
 <div class="section" id="why">
 <h3>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h3>
@@ -459,7 +459,7 @@ argument</p>
 <p>Unlike static methods, class methods are quite common.</p>
 <p>They have the advantage of being friendly to subclassing.</p>
 <p>Consider this:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="k">class</span> <span class="nc">SubClassy</span><span class="p">(</span><span class="n">Classy</span><span class="p">):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [44]: </span><span class="k">class</span> <span class="nc">SubClassy</span><span class="p">(</span><span class="n">Classy</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">   ....:</span>
 
@@ -476,9 +476,9 @@ argument</p>
 build alternate constructors.</p>
 <p>Consider the case of wanting to build a dictionary with a given iterable of
 keys:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [57]: </span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [57]: </span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-57-50c56a77d95f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 
@@ -487,7 +487,7 @@ keys:</p>
 </div>
 <p>The stock constructor for a dictionary won&#8217;t work this way. So the dict object
 implements an alternate constructor that <em>can</em>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nd">@classmethod</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;OD.fromkeys(S[, v]) -&gt; New ordered dictionary with keys from S.</span>
 <span class="sd">    If not specified, the value defaults to None.</span>
@@ -519,7 +519,7 @@ the diameter instead.</p>
 <div class="section" id="what-s-in-a-name">
 <h3>What&#8217;s in a Name?<a class="headerlink" href="#what-s-in-a-name" title="Permalink to this headline">¶</a></h3>
 <p>We&#8217;ve seen at least one special method so far:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">__init__</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">__init__</span>
 </pre></div>
 </div>
 <p>It&#8217;s all in the double underscores...</p>
@@ -546,7 +546,7 @@ methods in a given protocol.</p>
 <p>Remember, these are more <em>guidelines</em> than laws.  Implement what you need.</p>
 </div>
 <p>Do you want your class to behave like a number? Implement these methods:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nb">object</span><span class="o">.</span><span class="n">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="n">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
 <span class="nb">object</span><span class="o">.</span><span class="n">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
 <span class="nb">object</span><span class="o">.</span><span class="n">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
 <span class="nb">object</span><span class="o">.</span><span class="n">__floordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
@@ -561,7 +561,7 @@ methods in a given protocol.</p>
 </pre></div>
 </div>
 <p>Want to make a container type? Here&#8217;s what you need:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nb">object</span><span class="o">.</span><span class="n">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="n">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 <span class="nb">object</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 <span class="nb">object</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="nb">object</span><span class="o">.</span><span class="n">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
@@ -576,14 +576,14 @@ methods in a given protocol.</p>
 <p>Each of these methods supports a common Python operation.</p>
 <p>For example, to make &#8216;+&#8217; work with a sequence type in a vector-like fashion,
 implement <code class="docutils literal"><span class="pre">__add__</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;return the element-wise vector sum of self and v</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">vector</span><span class="p">([</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="k">for</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">)])</span>
 </pre></div>
 </div>
-<p class="centered">[a more complete example may be seen <a class="reference download internal" href="_downloads/vector.py"><code class="xref download docutils literal"><span class="pre">here</span></code></a>]</p>
+<p class="centered">[a more complete example may be seen <a class="reference download internal" href="_downloads/vector.py" download=""><code class="xref download docutils literal"><span class="pre">here</span></code></a>]</p>
 <p>Use special methods when you want your class to act like a &#8220;standard&#8221; class in
 some way.</p>
 <p>Look up the special methods you need and define them.</p>
@@ -598,7 +598,7 @@ some way.</p>
 <h2>LAB<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s complete our nifty Circle class:</p>
 <p>Steps 5-8 of:</p>
-<p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span>Circle Class Excercise</span></a></p>
+<p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span class="std std-ref">Circle Class Excercise</span></a></p>
 </div>
 <div class="section" id="emulating-standard-types">
 <h2>Emulating Standard types<a class="headerlink" href="#emulating-standard-types" title="Permalink to this headline">¶</a></h2>
@@ -606,14 +606,14 @@ some way.</p>
 <div class="section" id="callable-classes">
 <h3>Callable classes<a class="headerlink" href="#callable-classes" title="Permalink to this headline">¶</a></h3>
 <p>We&#8217;ve been using functions a lot:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">my_fun</span><span class="p">(</span><span class="n">something</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_fun</span><span class="p">(</span><span class="n">something</span><span class="p">):</span>
     <span class="n">do_something</span>
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">something</span>
 </pre></div>
 </div>
 <p>And then we can call it:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">my_fun</span><span class="p">(</span><span class="n">some_arguments</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">my_fun</span><span class="p">(</span><span class="n">some_arguments</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>But what if we need to store some data to know how to evaluate that function?</p>
@@ -621,7 +621,7 @@ some way.</p>
 <div class="math">
 \[y = a x^2 + bx + c\]</div>
 <p>You could pass in a, b and c each time:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
 </pre></div>
 </div>
@@ -633,7 +633,7 @@ some way.</p>
 <h3>&#8220;Callables&#8221;<a class="headerlink" href="#callables" title="Permalink to this headline">¶</a></h3>
 <p>Various places in python expect a &#8220;callable&#8221; &#8211; something that you can
 call like a function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">a_result</span> <span class="o">=</span> <span class="n">something</span><span class="p">(</span><span class="n">some_arguments</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a_result</span> <span class="o">=</span> <span class="n">something</span><span class="p">(</span><span class="n">some_arguments</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>&#8220;something&#8221; in this case is often a function, but can be anything else
@@ -644,19 +644,19 @@ function object?</p>
 <div class="section" id="custom-callable-objects">
 <h3>Custom callable objects<a class="headerlink" href="#custom-callable-objects" title="Permalink to this headline">¶</a></h3>
 <p>The trick is one of Python&#8217;s &#8220;magic methods&#8221;</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you define a <code class="docutils literal"><span class="pre">__call__</span></code> method in your class, it will be used when
 code &#8220;calls&#8221; an instance of your class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Callable</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Callable</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">.....</span><span class="p">)</span>
         <span class="n">some_initilization</span>
     <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">some_parameters</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Then you can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">callable_instance</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">(</span><span class="n">some_arguments</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">callable_instance</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">(</span><span class="n">some_arguments</span><span class="p">)</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">callable_instance</span><span class="p">(</span><span class="n">some_arguments</span><span class="p">)</span>
 </pre></div>
@@ -727,7 +727,7 @@ the set of special methods you need:</p>
 <li>It should store those parameters as attributes.</li>
 <li>The resulting instance should evaluate the function when called, and return the result:</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">my_quad</span> <span class="o">=</span> <span class="n">Quadratic</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_quad</span> <span class="o">=</span> <span class="n">Quadratic</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">my_quad</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -736,7 +736,7 @@ the set of special methods you need:</p>
 <div class="section" id="sparse-array">
 <h3>Sparse Array:<a class="headerlink" href="#sparse-array" title="Permalink to this headline">¶</a></h3>
 <p>Write a class for a sparse array:</p>
-<p><a class="reference internal" href="exercises/sparse_array.html#exercise-sparse-array"><span>Sparse Array Exercise</span></a></p>
+<p><a class="reference internal" href="exercises/sparse_array.html#exercise-sparse-array"><span class="std std-ref">Sparse Array Exercise</span></a></p>
 </div>
 </div>
 <div class="section" id="homework">

@@ -102,7 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="python_for_windows.html">Setting up Windows for Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Turning Sublime Text Into a Lightweight Python IDE</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Turning Sublime Text Into a Lightweight Python IDE</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#which-version">Which Version?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#basic-settings">Basic Settings</a></li>
@@ -119,7 +119,9 @@
 <li class="toctree-l2"><a class="reference internal" href="shell.html">Shell Customizations for Python Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="git_overview.html">git Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html#mechanics">Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging.html">Packages and Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging.html#distributing">Distributing</a></li>
 </ul>
@@ -146,7 +148,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -211,7 +213,7 @@ and choose which to override.</p>
 to override from the default set into your personal settings.</p>
 <p>Here&#8217;s a reasonable set of preliminary settings (theme, color scheme and font
 are quite personal, find ones that suit you.):</p>
-<div class="highlight-json"><div class="highlight"><pre>source
+<div class="highlight-json"><div class="highlight"><pre><span></span>source
 
 {
     &quot;color_scheme&quot;: &quot;Packages/User/Cobalt (SL).tmTheme&quot;,
@@ -288,7 +290,7 @@ own.</li>
 </ol>
 <p>I&#8217;ve installed <code class="docutils literal"><span class="pre">SublimeJedi</span></code>, and used the following settings <em>per project</em> to
 ensure that all relevant code is found:</p>
-<div class="highlight-json"><div class="highlight"><pre>{
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
     &quot;folders&quot;:
     [
         // ...
@@ -333,17 +335,17 @@ tools it needs installed.</p>
 <p>Make sure that the python packages you need are installed in your main
 python install, rather than a virtualenv.</p>
 <p>Use Python packaging tools to install the required packages:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ pip install flake8
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install flake8
 Downloading/unpacking flake8
-[...]
-Downloading/unpacking pyflakes&gt;=0.7.3 (from flake8)
-[...]
-Downloading/unpacking pep8&gt;=1.4.6 (from flake8)
-[...]
-Downloading/unpacking mccabe&gt;=0.2.1 (from flake8)
-[...]
+<span class="o">[</span>...<span class="o">]</span>
+Downloading/unpacking pyflakes&gt;<span class="o">=</span>0.7.3 <span class="o">(</span>from flake8<span class="o">)</span>
+<span class="o">[</span>...<span class="o">]</span>
+Downloading/unpacking pep8&gt;<span class="o">=</span>1.4.6 <span class="o">(</span>from flake8<span class="o">)</span>
+<span class="o">[</span>...<span class="o">]</span>
+Downloading/unpacking mccabe&gt;<span class="o">=</span>0.2.1 <span class="o">(</span>from flake8<span class="o">)</span>
+<span class="o">[</span>...<span class="o">]</span>
 Installing collected packages: flake8, pyflakes, pep8, mccabe
-[...]
+<span class="o">[</span>...<span class="o">]</span>
 Successfully installed flake8 pyflakes pep8 mccabe
 Cleaning up...
 $
@@ -351,7 +353,7 @@ $
 </div>
 <p>Your Python install now has the required packages installed.</p>
 <p>try typeing these command to make sure:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ flake8
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ flake8
 Usage: flake8 [options] input ...
 
 flake8: error: input not specified
@@ -360,7 +362,7 @@ flake8: error: input not specified
 <p>Now install SublimeLinter and then SublimeLinter-flake8 using Package Control.</p>
 <p>Here are the settings you can add to <code class="docutils literal"><span class="pre">Preferences</span></code> -&gt; <code class="docutils literal"><span class="pre">Package</span> <span class="pre">Settings</span></code> -&gt;
 <code class="docutils literal"><span class="pre">SublimeLinter</span></code> -&gt; <code class="docutils literal"><span class="pre">Settings</span> <span class="pre">-</span> <span class="pre">User</span></code>:</p>
-<div class="highlight-json"><div class="highlight"><pre>{
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
     //...
     &quot;linters&quot;: {
         &quot;flake8&quot;: {
@@ -405,7 +407,7 @@ linter. <a class="reference external" href="https://github.com/SublimeLinter/Sub
 <h3>White Space Management<a class="headerlink" href="#white-space-management" title="Permalink to this headline">¶</a></h3>
 <p>One of the issues highlighted by <code class="docutils literal"><span class="pre">flake8</span></code> is trailing spaces.  Sublime text
 provides a setting that allows you to remove them every time you save a file:</p>
-<div class="highlight-json"><div class="highlight"><pre>source
+<div class="highlight-json"><div class="highlight"><pre><span></span>source
 
 {
     &quot;trim_trailing_whitespace_on_save&quot;: true
@@ -418,7 +420,7 @@ provides a setting that allows you to remove them every time you save a file:</p
 changes to code.</p>
 <p>The <a class="reference external" href="https://github.com/SublimeText/TrailingSpaces">TrailingSpaces</a> SublimeText plugin can help with this.</p>
 <p>Here are the settings you can use:</p>
-<div class="highlight-json"><div class="highlight"><pre>{
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
     //...
     &quot;trailing_spaces_modified_lines_only&quot;: true,
     &quot;trailing_spaces_trim_on_save&quot;: true,
@@ -438,7 +440,7 @@ debugging session in the file where the code exists.</p>
 package you can install into the virtualenv for each of your projects that does
 it.</p>
 <p>The package is called <a class="reference external" href="https://pypi.python.org/pypi/PdbSublimeTextSupport">PDBSublimeTextSupport</a> and its simple to install with <code class="docutils literal"><span class="pre">pip</span></code>:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>projectenv<span class="o">)</span><span class="nv">$ </span>pip install PDBSublimeTextSupport
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">(</span>projectenv<span class="o">)</span>$ pip install PDBSublimeTextSupport
 </pre></div>
 </div>
 <p>With that package installed in the Python that is used for your project, any

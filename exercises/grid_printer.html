@@ -98,7 +98,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercises</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents:</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#session-2">Session 2:</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="">Grid Printer Exercise</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Grid Printer Exercise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fizz_buzz.html">Fizz Buzz Exercise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fib_and_lucas.html">Fibonacci Series Exercise</a></li>
 </ul>
@@ -136,7 +136,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -168,17 +168,17 @@
 <div class="section" id="goal">
 <h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
 <p>Write a function that draws a grid like the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>+ - - - - + - - - - +
-|         |         |
-|         |         |
-|         |         |
-|         |         |
-+ - - - - + - - - - +
-|         |         |
-|         |         |
-|         |         |
-|         |         |
-+ - - - - + - - - - +
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
 </pre></div>
 </div>
 </div>
@@ -189,32 +189,32 @@
 <div class="section" id="printing">
 <h3>printing<a class="headerlink" href="#printing" title="Permalink to this headline">¶</a></h3>
 <p>To print more than one value on a line, you can pass multiple names into the print function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you don&#8217;t want a newline after something is printed, you tell python what you want the print to end with like so:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output of these statements is <code class="docutils literal"><span class="pre">'+</span> <span class="pre">-'</span></code>.</p>
 <p>(that end parameter defaults to a newline...)</p>
 <p>A print function with no arguments ends the current line and goes to the next line:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="simple-string-manipulation">
 <h3>Simple string manipulation:<a class="headerlink" href="#simple-string-manipulation" title="Permalink to this headline">¶</a></h3>
 <p>You can put two strings together with the plus operator:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="s">&quot;this&quot;</span> <span class="o">+</span> <span class="s">&quot;that&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="s2">&quot;this&quot;</span> <span class="o">+</span> <span class="s2">&quot;that&quot;</span>
 <span class="gh">Out[20]: </span><span class="go">&#39;thisthat</span>
 </pre></div>
 </div>
 <p>Particularly useful if they have been assigned names:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="n">plus</span> <span class="o">=</span> <span class="s">&#39;+&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">plus</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span>
 
-<span class="gp">In [22]: </span><span class="n">minus</span> <span class="o">=</span> <span class="s">&#39;-&#39;</span>
+<span class="gp">In [22]: </span><span class="n">minus</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
 
 <span class="gp">In [23]: </span><span class="n">plus</span><span class="o">+</span><span class="n">minus</span><span class="o">+</span><span class="n">plus</span>
 <span class="gh">Out[23]: </span><span class="go">&#39;+-+&#39;</span>
@@ -222,16 +222,16 @@
 </div>
 <p>Note that you can string any number of operations together in an expression.</p>
 <p>You can also multiply strings:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="s">&#39;+&#39;</span> <span class="o">*</span> <span class="mi">10</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="s1">&#39;+&#39;</span> <span class="o">*</span> <span class="mi">10</span>
 <span class="gh">Out[24]: </span><span class="go">&#39;++++++++++&#39;</span>
 </pre></div>
 </div>
 <p>And combine that with plus in a complex expression:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">first_name</span> <span class="o">=</span> <span class="s">&#39;Chris&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;Chris&#39;</span>
 
-<span class="gp">In [30]: </span><span class="n">last_name</span> <span class="o">=</span> <span class="s">&#39;Barker&#39;</span>
+<span class="gp">In [30]: </span><span class="n">last_name</span> <span class="o">=</span> <span class="s1">&#39;Barker&#39;</span>
 
-<span class="gp">In [31]: </span><span class="mi">5</span> <span class="o">*</span> <span class="s">&#39;*&#39;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span><span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="n">last_name</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="s">&#39;*&#39;</span>
+<span class="gp">In [31]: </span><span class="mi">5</span> <span class="o">*</span> <span class="s1">&#39;*&#39;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span><span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">last_name</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="s1">&#39;*&#39;</span>
 <span class="gh">Out[31]: </span><span class="go">&#39;*****Chris Barker*****&#39;</span>
 </pre></div>
 </div>
@@ -250,31 +250,31 @@ and prints a grid just like before, BUT the size of the
 grid is given by the argument.</p>
 <p>For example, <code class="docutils literal"><span class="pre">print_grid(11)</span></code> prints the grid in the above picture.</p>
 <p><code class="docutils literal"><span class="pre">print_grid(3)</span></code> would print a smaller grid:</p>
-<div class="highlight-python"><div class="highlight"><pre>+ - + - +
-|   |   |
-+ - + - +
-|   |   |
-+ - + - +
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">+</span>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">print_grid(15)</span></code> prints a larger grid:</p>
-<div class="highlight-python"><div class="highlight"><pre>+ - - - - - - - + - - - - - - - +
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-+ - - - - - - - + - - - - - - - +
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-|               |               |
-+ - - - - - - - + - - - - - - - +
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">|</span>               <span class="o">|</span>               <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
 </pre></div>
 </div>
 <p>This problem is underspecified.  Do something reasonable.</p>
@@ -287,47 +287,47 @@ grid is given by the argument.</p>
 <h3>A function with two parameters<a class="headerlink" href="#a-function-with-two-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Write a function that draws a similar grid with a specified number of rows and three columns.</p>
 <p>for example,  <code class="docutils literal"><span class="pre">print_grid2(3,4)</span></code> results in:</p>
-<div class="highlight-python"><div class="highlight"><pre>+ - - - - + - - - - + - - - - +
-|         |         |         |
-|         |         |         |
-|         |         |         |
-|         |         |         |
-+ - - - - + - - - - + - - - - +
-|         |         |         |
-|         |         |         |
-|         |         |         |
-|         |         |         |
-+ - - - - + - - - - + - - - - +
-|         |         |         |
-|         |         |         |
-|         |         |         |
-|         |         |         |
-+ - - - - + - - - - + - - - - +
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>         <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
 </pre></div>
 </div>
 <p>What to do about rounding? &#8211; you decide.</p>
 <p>Another example: <code class="docutils literal"><span class="pre">print_grid2(5,3)</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>+ - - - + - - - + - - - + - - - + - - - +
-|       |       |       |       |       |
-|       |       |       |       |       |
-|       |       |       |       |       |
-+ - - - + - - - + - - - + - - - + - - - +
-|       |       |       |       |       |
-|       |       |       |       |       |
-|       |       |       |       |       |
-+ - - - + - - - + - - - + - - - + - - - +
-|       |       |       |       |       |
-|       |       |       |       |       |
-|       |       |       |       |       |
-+ - - - + - - - + - - - + - - - + - - - +
-|       |       |       |       |       |
-|       |       |       |       |       |
-|       |       |       |       |       |
-+ - - - + - - - + - - - + - - - + - - - +
-|       |       |       |       |       |
-|       |       |       |       |       |
-|       |       |       |       |       |
-+ - - - + - - - + - - - + - - - + - - - +
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>       <span class="o">|</span>
+<span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">+</span>
 </pre></div>
 </div>
 </div>
