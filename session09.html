@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Session Nine: Iterators, Iterables, and Generators &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
+        <link rel="next" title="Session Ten: Decorators and Context Managers – Wrap Up" href="session10.html"/>
+        <link rel="prev" title="Session Eight: More OO: Properties, Special methods." href="session08.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session Nine: Iterators, Iterables, and Generators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iterators-and-generators">Iterators and Generators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iterators-and-iterables">Iterators and Iterables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterables">Iterables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iter"><code class="docutils literal"><span class="pre">iter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-as-an-iterator">List as an Iterator:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-iterator-protocol">The Iterator Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-an-iterator">Making an Iterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-does-for-do">What does <code class="docutils literal"><span class="pre">for</span></code> do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#itertools">Itertools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lab">LAB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generators">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yield">yield</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-comprehension">generator comprehension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">LAB</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#next-week">Next Week</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#homework">Homework</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Session Nine: Iterators, Iterables, and Generators</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/session09.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="session-nine-iterators-iterables-and-generators">
+<h1>Session Nine: Iterators, Iterables, and Generators<a class="headerlink" href="#session-nine-iterators-iterables-and-generators" title="Permalink to this headline">¶</a></h1>
+<p class="large centered">The tools of Pythonicity</p>
+<div class="section" id="lightning-talks-today">
+<h2>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h2>
+<p class="medium">Erica Winberry</p>
+<p class="medium">Robert Jenkins</p>
+<p class="medium">Kathleen Devlin</p>
+</div>
+<div class="section" id="review-questions">
+<h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
+<p>Review of complete sparse array class</p>
+</div>
+<div class="section" id="iterators-and-generators">
+<h2>Iterators and Generators<a class="headerlink" href="#iterators-and-generators" title="Permalink to this headline">¶</a></h2>
+<p class="medium">What goes on in those for loops?</p>
+<div class="section" id="iterators-and-iterables">
+<h3>Iterators and Iterables<a class="headerlink" href="#iterators-and-iterables" title="Permalink to this headline">¶</a></h3>
+<p>Iteration is one of the main reasons Python code is so readable:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">just_about_anything</span><span class="p">:</span>
+    <span class="n">do_stuff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An iterable is anything that can be looped over sequentially, so it does not have to be
+a &#8220;sequence&#8221;: list, tuple, etc.  For example, a string is iterable.</p>
+<p>An iterator is an iterable that remembers state. All sequences are iterable, but
+not all sequences are iterators. To make a sequence an iterator, you can call it with iter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">my_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">my_sequence</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Iterator Types:</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#iterator-types">https://docs.python.org/3/library/stdtypes.html#iterator-types</a></p>
+</div>
+<div class="section" id="iterables">
+<h3>Iterables<a class="headerlink" href="#iterables" title="Permalink to this headline">¶</a></h3>
+<p>To make an object iterable, you simply have to implement the __getitem__ method.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">T</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">position</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span>
+    <span class="k">return</span> <span class="n">position</span>
+</pre></div>
+</div>
+<p>Demo</p>
+</div>
+<div class="section" id="iter">
+<h3><code class="docutils literal"><span class="pre">iter()</span></code><a class="headerlink" href="#iter" title="Permalink to this headline">¶</a></h3>
+<p>How do you get the iterator object from an &#8220;iterable&#8221;?</p>
+<p>The iter function will make any iterable an iterator. It first looks for the __iter__
+method, and if none is found, uses get_item to create the iterator.</p>
+<p>The <code class="docutils literal"><span class="pre">iter()</span></code> function:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="nb">iter</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gh">Out[20]: </span><span class="go">&lt;listiterator at 0x101e01350&gt;</span>
+
+<span class="gp">In [21]: </span><span class="nb">iter</span><span class="p">(</span><span class="s2">&quot;a string&quot;</span><span class="p">)</span>
+<span class="gh">Out[21]: </span><span class="go">&lt;iterator at 0x101e01090&gt;</span>
+
+<span class="gp">In [22]: </span><span class="nb">iter</span><span class="p">(</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;tuple&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="gh">Out[22]: </span><span class="go">&lt;tupleiterator at 0x101e01710&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-as-an-iterator">
+<h3>List as an Iterator:<a class="headerlink" href="#list-as-an-iterator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="gp">In [11]: </span><span class="n">list_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+
+<span class="gp">In [12]: </span><span class="nb">next</span><span class="p">(</span><span class="n">list_iter</span><span class="p">)</span>
+<span class="gh">Out[12]: </span><span class="go">1</span>
+
+<span class="gp">In [13]: </span><span class="nb">next</span><span class="p">(</span><span class="n">list_iter</span><span class="p">)</span>
+<span class="gh">Out[13]: </span><span class="go">2</span>
+
+<span class="gp">In [14]: </span><span class="nb">next</span><span class="p">(</span><span class="n">list_iter</span><span class="p">)</span>
+<span class="gh">Out[14]: </span><span class="go">3</span>
+
+<span class="gp">In [15]: </span><span class="nb">next</span><span class="p">(</span><span class="n">list_iter</span><span class="p">)</span>
+<span class="gt">--------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">     </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-15-1a7db9b70878&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">list_iter</span><span class="p">)</span>
+<span class="ne">StopIteration</span>:
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-iterator-protocol">
+<h3>The Iterator Protocol<a class="headerlink" href="#the-iterator-protocol" title="Permalink to this headline">¶</a></h3>
+<p>The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.</p>
+<p>An iterator must have the following methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">an_iterator</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns the iterator object itself.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">an_iterator</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns the next item from the container. If there are no further items,
+raises the <code class="docutils literal"><span class="pre">StopIteration</span></code> exception.</p>
+</div>
+<div class="section" id="making-an-iterator">
+<h3>Making an Iterator<a class="headerlink" href="#making-an-iterator" title="Permalink to this headline">¶</a></h3>
+<p>A simple version of <code class="docutils literal"><span class="pre">range()</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">IterateMe_1</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+</pre></div>
+</div>
+<p>(demo: <a class="reference download internal" href="_downloads/iterator_1.py" download=""><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a>)</p>
+</div>
+<div class="section" id="what-does-for-do">
+<h3>What does <code class="docutils literal"><span class="pre">for</span></code> do?<a class="headerlink" href="#what-does-for-do" title="Permalink to this headline">¶</a></h3>
+<p>Now that we know the iterator protocol, we can write something like a for loop:</p>
+<p><a class="reference download internal" href="_downloads/my_for.py" download=""><code class="xref download docutils literal"><span class="pre">my_for.py</span></code></a></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_for</span><span class="p">(</span><span class="n">an_iterable</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Emulation of a for loop.</span>
+
+<span class="sd">    func() will be called with each item in an_iterable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># equiv of &quot;for i in l:&quot;</span>
+    <span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">an_iterable</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">func</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="itertools">
+<h3>Itertools<a class="headerlink" href="#itertools" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">itertools</span></code>  is a collection of utilities that make it easy to
+build an iterator that iterates over sequences in various common ways</p>
+<p><a class="reference external" href="http://docs.python.org/3/library/itertools.html">http://docs.python.org/3/library/itertools.html</a></p>
+<p>NOTE:</p>
+<p>iteratables are not <em>only</em> for <code class="docutils literal"><span class="pre">for</span></code></p>
+<p>They can be used with anything that expects an iterable:</p>
+<p><code class="docutils literal"><span class="pre">sum</span></code>, <code class="docutils literal"><span class="pre">tuple</span></code>, <code class="docutils literal"><span class="pre">sorted</span></code>, and <code class="docutils literal"><span class="pre">list</span></code></p>
+</div>
+<div class="section" id="lab">
+<h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal"><span class="pre">Examples/session09</span></code> dir, you will find:
+<a class="reference download internal" href="_downloads/iterator_1.py" download=""><code class="xref download docutils literal"><span class="pre">iterator_1.py</span></code></a></p>
+<ul class="simple">
+<li>Extend (<code class="docutils literal"><span class="pre">iterator_1.py</span></code> ) to be more like <code class="docutils literal"><span class="pre">range()</span></code> &#8211; add three input parameters: <code class="docutils literal"><span class="pre">iterator_2(start,</span> <span class="pre">stop,</span> <span class="pre">step=1)</span></code></li>
+<li>What happens if you break from a loop and try to pick it up again:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="n">IterateMe_2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>  <span class="k">break</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Does <code class="docutils literal"><span class="pre">range()</span></code>  behave the same?<ul>
+<li>make yours match <code class="docutils literal"><span class="pre">range()</span></code></li>
+<li>is range an iterator or an iteratable?</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="generators">
+<h3>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h3>
+<p>Generators</p>
+<ul class="simple">
+<li>give you an iterator object</li>
+<li>no access to the underlying data ... if it even exists</li>
+</ul>
+<dl class="docutils">
+<dt>Conceptually:</dt>
+<dd><p class="first">Iterators are about various ways to loop over data.</p>
+<p class="last">Generators can generate the data on the fly.</p>
+</dd>
+<dt>Practically:</dt>
+<dd><p class="first">You can use either one either way (and a generator is one type of iterator).</p>
+<p class="last">Generators do some of the book-keeping for you &#8211; simpler syntax.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="yield">
+<h3>yield<a class="headerlink" href="#yield" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">yield</span></code>  is a way to make a quickie generator with a function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">a_generator_function</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+    <span class="n">some_stuff</span>
+    <span class="k">yield</span> <span class="n">something</span>
+</pre></div>
+</div>
+<p>Generator functions &#8220;yield&#8221; a value, rather than returning a value.</p>
+<p>State is preserved in between yields.</p>
+<p>A function with <code class="docutils literal"><span class="pre">yield</span></code>  in it is a &#8220;factory&#8221; for a generator</p>
+<p>Each time you call it, you get a new generator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">gen_a</span> <span class="o">=</span> <span class="n">a_generator</span><span class="p">()</span>
+<span class="n">gen_b</span> <span class="o">=</span> <span class="n">a_generator</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Each instance keeps its own state.</p>
+<p>Really just a shorthand for an iterator class that does the book keeping for you.</p>
+<p>An example: like <code class="docutils literal"><span class="pre">range()</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">y_range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="n">step</span>
+</pre></div>
+</div>
+<p>Real World Example from FloatCanvas:</p>
+<p><a class="reference external" href="https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100">https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L100</a></p>
+<p>Note:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [164]: </span><span class="n">gen</span> <span class="o">=</span> <span class="n">y_range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">In [165]: </span><span class="nb">type</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="gh">Out[165]: </span><span class="go">generator</span>
+<span class="gp">In [166]: </span><span class="nb">dir</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="gh">Out[166]:</span>
+<span class="go">...</span>
+<span class="go"> &#39;__iter__&#39;,</span>
+<span class="go">...</span>
+<span class="go"> &#39;__next__&#39;,</span>
+</pre></div>
+</div>
+<p>So the generator <strong>is</strong> an iterator</p>
+<p>Note: A generator function can also be a method in a class</p>
+<p><a class="reference download internal" href="_downloads/yield_example.py" download=""><code class="xref download docutils literal"><span class="pre">yield_example.py</span></code></a></p>
+</div>
+<div class="section" id="generator-comprehension">
+<h3>generator comprehension<a class="headerlink" href="#generator-comprehension" title="Permalink to this headline">¶</a></h3>
+<p>yet another way to make a generator:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>￼&gt;&gt;&gt; [x * 2 for x in [1, 2, 3]]
+[2, 4, 6]
+&gt;&gt;&gt; (x * 2 for x in [1, 2, 3])
+&lt;generator object &lt;genexpr&gt; at 0x10911bf50&gt;
+&gt;&gt;&gt; for n in (x * 2 for x in [1, 2, 3]):
+...   print n
+... 2 4 6
+</pre></div>
+</div>
+<p>More interesting if [1, 2, 3] is also a generator</p>
+</div>
+<div class="section" id="id1">
+<h3>LAB<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Write a few generators:</p>
+<ul class="simple">
+<li>Sum of integers</li>
+<li>Doubler</li>
+<li>Fibonacci sequence</li>
+<li>Prime numbers</li>
+</ul>
+<p>(test code in
+<a class="reference download internal" href="_downloads/test_generator.py" download=""><code class="xref download docutils literal"><span class="pre">test_generator.py</span></code></a>)</p>
+<p>Descriptions:</p>
+<dl class="docutils">
+<dt>Sum of the integers:</dt>
+<dd><p class="first">keep adding the next integer</p>
+<p>0 + 1 + 2 + 3 + 4 + 5 + ...</p>
+<p>so the sequence is:</p>
+<p class="last">0, 1, 3, 6, 10, 15 .....</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt>Doubler:</dt>
+<dd><p class="first">Each value is double the previous value:</p>
+<p class="last">1, 2, 4, 8, 16, 32,</p>
+</dd>
+<dt>Fibonacci sequence:</dt>
+<dd><p class="first">The fibonacci sequence as a generator:</p>
+<p>f(n) = f(n-1) + f(n-2)</p>
+<p class="last">1, 1, 2, 3, 5, 8, 13, 21, 34...</p>
+</dd>
+<dt>Prime numbers:</dt>
+<dd><p class="first">Generate the prime numbers (numbers only divisible by them self and 1):</p>
+<p class="last">2, 3, 5, 7, 11, 13, 17, 19, 23...</p>
+</dd>
+<dt>Others to try:</dt>
+<dd>Try x^2, x^3, counting by threes, x^e, counting by minus seven, ...</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="next-week">
+<h2>Next Week<a class="headerlink" href="#next-week" title="Permalink to this headline">¶</a></h2>
+<p>Decorators and Context managers &#8211; fun stuff!</p>
+<p>Cris Ewing will come by to talk about the second quarter
+web development class</p>
+<div class="section" id="homework">
+<h3>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h3>
+<p>Finish up the labs</p>
+<p>Work on your project &#8211; not much time left!</p>
+<p>And <em>do</em> let me know what you&#8217;re doing if you haven&#8217;t yet!</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="session10.html" class="btn btn-neutral float-right" title="Session Ten: Decorators and Context Managers – Wrap Up" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="session08.html" class="btn btn-neutral" title="Session Eight: More OO: Properties, Special methods." accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
