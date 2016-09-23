@@ -108,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unicode.html#mechanics">Mechanics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unicode.html#basic-unicode-lab">Basic Unicode LAB</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Packages and Packaging</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Packages and Packaging</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modules-and-packages">Modules and Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Modules and Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-python">Installing Python</a></li>
@@ -163,7 +163,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -194,20 +194,20 @@
 <p>A module is a file (<code class="docutils literal"><span class="pre">something.py</span></code>) with python code in it</p>
 <p>A package is a directory with an <code class="docutils literal"><span class="pre">__init__.py</span></code>  file in it</p>
 <p>And usually other modules, packages, etc...</p>
-<div class="highlight-python"><div class="highlight"><pre>my_package
-    __init__.py
-    module_a.py
-    module_b.py
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">my_package</span>
+    <span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">module_a</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">module_b</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">my_package</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">my_package</span>
 </pre></div>
 </div>
 <p>runs the code <code class="docutils literal"><span class="pre">my_package/__init__.py</span></code> (if there is any)</p>
 </div>
 <div class="section" id="id1">
 <h2>Modules and Packages<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">p</span>
 </pre></div>
@@ -359,9 +359,9 @@
 <li><p class="first">Try <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code>: it may just work!</p>
 </li>
 <li><p class="first">Install the dependencies, build from source:</p>
-<div class="highlight-python"><div class="highlight"><pre>python setup.py build
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build</span>
 
-python setup.py install
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 </div>
 </li>
@@ -434,7 +434,7 @@ python setup.py install
 <p>Very useful for developing multiple apps</p>
 <p>Or deploying more than one app on one system</p>
 <p><a class="reference external" href="http://www.virtualenv.org/en/latest/index.html">http://www.virtualenv.org/en/latest/index.html</a>}</p>
-<p>Remember the notes from the beginning of class? <a class="reference internal" href="virtualenv.html#virtualenv-section"><span>Working with Virtualenv</span></a></p>
+<p>Remember the notes from the beginning of class? <a class="reference internal" href="virtualenv.html#virtualenv-section"><span class="std std-ref">Working with Virtualenv</span></a></p>
 <p>(Cris will probably make you do this next class)</p>
 </div>
 </div>
@@ -478,15 +478,15 @@ control and call it good.</p>
 <div class="section" id="id6">
 <h2>distutils basics<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>Once your setup.py is written, you can:</p>
-<div class="highlight-python"><div class="highlight"><pre>python setup.py ...
-build         build everything needed to install
-install       install everything from build directory
-sdist         create a source distribution
-              (tarball, zip file, etc.)
-bdist         create a built (binary) distribution
-bdist_rpm     create an RPM distribution
-bdist_wininst create an executable installer for MS Windows
-upload        upload binary package to PyPI
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="o">...</span>
+<span class="n">build</span>         <span class="n">build</span> <span class="n">everything</span> <span class="n">needed</span> <span class="n">to</span> <span class="n">install</span>
+<span class="n">install</span>       <span class="n">install</span> <span class="n">everything</span> <span class="kn">from</span> <span class="nn">build</span> <span class="n">directory</span>
+<span class="n">sdist</span>         <span class="n">create</span> <span class="n">a</span> <span class="n">source</span> <span class="n">distribution</span>
+              <span class="p">(</span><span class="n">tarball</span><span class="p">,</span> <span class="nb">zip</span> <span class="n">file</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span>
+<span class="n">bdist</span>         <span class="n">create</span> <span class="n">a</span> <span class="n">built</span> <span class="p">(</span><span class="n">binary</span><span class="p">)</span> <span class="n">distribution</span>
+<span class="n">bdist_rpm</span>     <span class="n">create</span> <span class="n">an</span> <span class="n">RPM</span> <span class="n">distribution</span>
+<span class="n">bdist_wininst</span> <span class="n">create</span> <span class="n">an</span> <span class="n">executable</span> <span class="n">installer</span> <span class="k">for</span> <span class="n">MS</span> <span class="n">Windows</span>
+<span class="n">upload</span>        <span class="n">upload</span> <span class="n">binary</span> <span class="n">package</span> <span class="n">to</span> <span class="n">PyPI</span>
 </pre></div>
 </div>
 </div>
@@ -538,7 +538,7 @@ them if they exist</p>
 <p>Bundles are Python + all your code + plus all the dependencies &#8211;
 all in one single &#8220;bundle&#8221;</p>
 <p>Most popular on Windows and OS-X</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">py2exe</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">py2exe</span>
 <span class="n">py2app</span>
 <span class="n">pyinstaller</span>
 <span class="o">...</span>

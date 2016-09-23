@@ -1,7 +1,4 @@
-
-.. Foundations 2: Python slides file, created by
-   hieroglyph-quickstart on Wed Apr  2 18:42:06 2014.
-
+.. include:: include.rst
 
 **************************************************
 Session Nine: Iterators, Iterables, and Generators
@@ -344,7 +341,7 @@ yet another way to make a generator:
 
 .. code-block:: python
 
-    ￼>>> [x * 2 for x in [1, 2, 3]]
+    >>> [x * 2 for x in [1, 2, 3]]
     [2, 4, 6]
     >>> (x * 2 for x in [1, 2, 3])
     <generator object <genexpr> at 0x10911bf50>

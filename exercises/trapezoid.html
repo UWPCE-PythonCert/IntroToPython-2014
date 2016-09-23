@@ -103,7 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-5">Session 5:</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#session-6">Session 6:</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="lambda_magic.html">lambda and keyword Magic</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">Trapezoidal Rule</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Trapezoidal Rule</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-7">Session 7:</a></li>
@@ -135,7 +135,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -180,7 +180,7 @@
 </div>
 <div class="section" id="example">
 <h3>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;a very simple straight horizontal line at y = 5&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="mi">5</span>
 
@@ -197,7 +197,7 @@
 <div class="section" id="the-solution">
 <h3>The Solution:<a class="headerlink" href="#the-solution" title="Permalink to this headline">¶</a></h3>
 <p>Your function definition should look like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">trapz</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">trapz</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the area under the curve defined by</span>
 <span class="sd">    y = fun(x), for x between a and b</span>
@@ -266,13 +266,13 @@
 \[y = A x^2 + Bx + C\]</div>
 <p>Requires values for A, B, and C in order to compute y from an given x.</p>
 <p>You could write a specialized version of this function for each A, B, and C:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quad1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quad1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
 </pre></div>
 </div>
 <p>But then you need to write a new function for any value of these parameters you might need.</p>
 <p>Instead, you can pass in A, B and C each time:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">C</span>
 </pre></div>
 </div>
@@ -284,15 +284,15 @@
 <h3>Passing arguments through:<a class="headerlink" href="#passing-arguments-through" title="Permalink to this headline">¶</a></h3>
 <p>Update your trapz() function so that you can give it a function that takes arbitrary extra arguments, either positional or keyword, after the x.</p>
 <p>So you can do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">coef</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;A&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">coef</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="n">trapz</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">**</span><span class="n">coef</span><span class="p">)</span>
 </pre></div>
 </div>

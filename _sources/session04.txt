@@ -1,5 +1,4 @@
-.. Foundations 2: Python slides file, created by
-   Chris Barker: May 12, 2014.
+.. include:: include.rst
 
 *******************************************
 Session Four: Dictionaries, Sets, and Files

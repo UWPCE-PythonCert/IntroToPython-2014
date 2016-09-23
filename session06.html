@@ -87,7 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Six: Advanced Argument Passing, lambda, functions as objects</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session Six: Advanced Argument Passing, lambda, functions as objects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
@@ -176,7 +176,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -231,8 +231,8 @@
 <p>rich comparisons: numpy</p>
 <p>(demo)</p>
 <p>Binary mode for files:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">infilename</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
-<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfilename</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">infilename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfilename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -240,18 +240,18 @@
 <div class="line"><br /></div>
 </div>
 <p>You don&#8217;t actually need to use the result of a list comp:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">st</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span> <span class="n">divisors</span><span class="p">,</span> <span class="n">sets</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">st</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span> <span class="n">divisors</span><span class="p">,</span> <span class="n">sets</span><span class="p">):</span>
     <span class="p">[</span> <span class="n">st</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">j</span><span class="o">%</span><span class="n">i</span> <span class="p">]</span>
 </pre></div>
 </div>
 <p>Apropos of today&#8217;s topics:</p>
 <p>Python functions are objects, so if you dont call them, you do&#8217;nt get an error, you jsut get the function object, ususally not what you want:</p>
-<div class="highlight-python"><div class="highlight"><pre>elif donor_name.lower == &quot;exit&quot;:
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">elif</span> <span class="n">donor_name</span><span class="o">.</span><span class="n">lower</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>
 </pre></div>
 </div>
 <p>this is comparing the string <code class="docutils literal"><span class="pre">lower</span></code> method to the string &#8220;exit&#8221; and theyare never going to be equal!</p>
 <p>That should be:</p>
-<div class="highlight-python"><div class="highlight"><pre>elif donor_name.lower() == &quot;exit&quot;:
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">elif</span> <span class="n">donor_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>
 </pre></div>
 </div>
 <p>This is actually a pretty common typo &#8211; keep an eye out for it when you get strange errors, or something just doesn&#8217;t seem to be getting triggered.</p>
@@ -268,7 +268,7 @@
 <div class="section" id="keyword-arguments">
 <h3>Keyword arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">¶</a></h3>
 <p>When defining a function, you can specify only what you need &#8211; in any order</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [151]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [151]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="go">        print(x,y,z)</span>
 <span class="gp">   .....:</span>
 <span class="gp">In [152]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -280,14 +280,14 @@
 </pre></div>
 </div>
 <p>A Common Idiom:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">do_something_different</span>
     <span class="n">go_on_here</span>
 </pre></div>
 </div>
 <p>Can set defaults to variables</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
 <span class="go">    print(&quot;x is:&quot;, x)</span>
 <span class="gp">   .....:</span>
@@ -296,7 +296,7 @@
 </pre></div>
 </div>
 <p>Defaults are evaluated when the function is defined</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [156]: </span><span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">In [157]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
 <span class="go">    print(&quot;x is:&quot;, x)</span>
 <span class="gp">   .....:</span>
@@ -316,11 +316,11 @@
 <li>a tuple (positional arguments)</li>
 <li>a dict (keyword arguments)</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;position: {}, {} -- shape: {}, {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;position: {}, {} -- shape: {}, {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
 
 <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">size</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;h&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">position</span><span class="p">,</span> <span class="o">**</span><span class="n">size</span><span class="p">)</span>
 <span class="n">position</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="o">--</span> <span class="n">shape</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span>
@@ -330,7 +330,7 @@
 <div class="section" id="function-parameters-in-variables">
 <h3>Function parameters in variables<a class="headerlink" href="#function-parameters-in-variables" title="Permalink to this headline">¶</a></h3>
 <p>You can also pull the parameters out in the function as a tuple and a dict:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="go">def f(*args, **kwargs):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="go">def f(*args, **kwargs):</span>
 <span class="go">    print(&quot;the positional arguments are:&quot;, args)</span>
 <span class="go">    print(&quot;the keyword arguments are:&quot;, kwargs)</span>
 
@@ -346,16 +346,16 @@
 <p>Now that you know that keyword args are really a dict,
 you know how this nifty trick works:</p>
 <p>The string <code class="docutils literal"><span class="pre">format()</span></code> method takes keyword arguments:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="s">&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">last</span><span class="o">=</span><span class="s">&quot;Barker&quot;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="s">&quot;Chris&quot;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="s2">&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">last</span><span class="o">=</span><span class="s2">&quot;Barker&quot;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="s2">&quot;Chris&quot;</span><span class="p">)</span>
 <span class="gh">Out[24]: </span><span class="go">&#39;My name is Chris Barker&#39;</span>
 </pre></div>
 </div>
 <p>Build a dict of the keys and values:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;last&quot;</span><span class="p">:</span><span class="s">&quot;Barker&quot;</span><span class="p">,</span> <span class="s">&quot;first&quot;</span><span class="p">:</span><span class="s">&quot;Chris&quot;</span><span class="p">}</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;last&quot;</span><span class="p">:</span><span class="s2">&quot;Barker&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">:</span><span class="s2">&quot;Chris&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>And pass to <code class="docutils literal"><span class="pre">format()``with</span> <span class="pre">``**</span></code></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="s">&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="s2">&quot;My name is {first} {last}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
 <span class="gh">Out[26]: </span><span class="go">&#39;My name is Chris Barker&#39;</span>
 </pre></div>
 </div>
@@ -395,11 +395,11 @@ you know how this nifty trick works:</p>
 <p>We&#8217;ve talked about this: mutable objects can have their contents changed in place.</p>
 <p>Immutable objects can not.</p>
 <p>This has implications when you have a container with mutable objects in it:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="p">]</span>
 </pre></div>
 </div>
 <p>one way to make a copy of a list:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span><span class="p">[:]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [29]: </span><span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span><span class="p">[:]</span>
 
 <span class="gp">In [30]: </span><span class="n">list2</span> <span class="ow">is</span> <span class="n">list1</span>
 <span class="gh">Out[30]: </span><span class="go">False</span>
@@ -407,7 +407,7 @@ you know how this nifty trick works:</p>
 </div>
 <p>they are different lists.</p>
 <p>What if we set an element to a new value?</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
 
 <span class="gp">In [32]: </span><span class="n">list1</span>
 <span class="gh">Out[32]: </span><span class="go">[[5, 6, 7], [&#39;a&#39;, &#39;b&#39;]]</span>
@@ -418,7 +418,7 @@ you know how this nifty trick works:</p>
 </div>
 <p>So they are independent.</p>
 <p>But what if we mutate an element?</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [34]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;c&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [34]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 
 <span class="gp">In [35]: </span><span class="n">list1</span>
 <span class="gh">Out[35]: </span><span class="go">[[5, 6, 7], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
@@ -429,7 +429,7 @@ you know how this nifty trick works:</p>
 </div>
 <p>uuh oh! mutating an element in one list mutated the one in the other list.</p>
 <p>Why is that?</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [38]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="n">list2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="n">list2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="gh">Out[38]: </span><span class="go">True</span>
 </pre></div>
 </div>
@@ -442,7 +442,7 @@ you know how this nifty trick works:</p>
 <h3>The copy module<a class="headerlink" href="#the-copy-module" title="Permalink to this headline">¶</a></h3>
 <p>most objects have a way to make copies (<code class="docutils literal"><span class="pre">dict.copy()</span></code> for instance).</p>
 <p>but if not, you can use the <code class="docutils literal"><span class="pre">copy</span></code> module to make a copy:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [39]: </span><span class="kn">import</span> <span class="nn">copy</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="gp">In [40]: </span><span class="n">list3</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
 
@@ -452,7 +452,7 @@ you know how this nifty trick works:</p>
 </div>
 <p>This is also a shallow copy.</p>
 <p>But there is another option:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">list1</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">list1</span>
 <span class="gh">Out[3]: </span><span class="go">[[1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]</span>
 
 <span class="gp">In [4]: </span><span class="n">list2</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
@@ -475,7 +475,7 @@ you know how this nifty trick works:</p>
 <div class="section" id="mutables-as-default-arguments">
 <h3>Mutables as default arguments:<a class="headerlink" href="#mutables-as-default-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Another &#8220;gotcha&#8221; is using mutables as default arguments:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">[]):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">[]):</span>
 <span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">   ....:</span>
@@ -483,7 +483,7 @@ you know how this nifty trick works:</p>
 </div>
 <p>This makes sense: maybe you&#8217;d pass in a specific list, but if not, the default is an empty list.</p>
 <p>But:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">[3]</span>
 
 <span class="gp">In [13]: </span><span class="n">fun</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -494,7 +494,7 @@ you know how this nifty trick works:</p>
 <p>Remember that that default argument is defined when the function is created: there will be only one list, and every time the function is called, that same list is used.</p>
 <p>The solution:</p>
 <p>The standard practice for such a mutable default argument:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
 <span class="gp">   ....: </span>        <span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">   ....: </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -512,7 +512,7 @@ you know how this nifty trick works:</p>
 <h2>Anonymous functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lambda">
 <h3>lambda<a class="headerlink" href="#lambda" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [171]: </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [171]: </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 <span class="gp">In [172]: </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="gh">Out[172]: </span><span class="go">5</span>
 </pre></div>
@@ -521,13 +521,13 @@ you know how this nifty trick works:</p>
 <p>Anyone remember what the difference is?</p>
 <p>Called &#8220;Anonymous&#8221;: it doesn&#8217;t get a name.</p>
 <p>It&#8217;s a python object, it can be stored in a list or other container</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">]</span>
 <span class="gp">In [8]: </span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="gh">Out[8]: </span><span class="go">function</span>
 </pre></div>
 </div>
 <p>And you can call it:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="gh">Out[9]: </span><span class="go">7</span>
 </pre></div>
 </div>
@@ -535,7 +535,7 @@ you know how this nifty trick works:</p>
 <div class="section" id="functions-as-first-class-objects">
 <h3>Functions as first class objects<a class="headerlink" href="#functions-as-first-class-objects" title="Permalink to this headline">¶</a></h3>
 <p>You can do that with &#8220;regular&#8221; functions too:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 <span class="gp">   ....:</span>
 <span class="gp">In [13]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">fun</span><span class="p">]</span>
@@ -554,7 +554,7 @@ you know how this nifty trick works:</p>
 <div class="section" id="map">
 <h3>map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">map</span></code>  &#8220;maps&#8221; a function onto a sequence of objects &#8211; It applies the function to each item in the list, returning another list</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="gp">In [24]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="go">             return x*2 + 10</span>
 <span class="gp">In [25]: </span><span class="nb">map</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
@@ -562,7 +562,7 @@ you know how this nifty trick works:</p>
 </pre></div>
 </div>
 <p>But if it&#8217;s a small function, and you only need it once:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 <span class="gh">Out[26]: </span><span class="go">[14, 20, 24, 34, 22, 18]</span>
 </pre></div>
 </div>
@@ -572,13 +572,13 @@ you know how this nifty trick works:</p>
 <p><code class="docutils literal"><span class="pre">filter</span></code>  &#8220;filters&#8221; a sequence of objects with a boolean function &#8211;
 It keeps only those for which the function is True &#8211; filtering our the rest.</p>
 <p>To get only the even numbers:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="gp">In [28]: </span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>, l)
 <span class="gh">Out[28]: </span><span class="go">[2, 12, 6, 4]</span>
 </pre></div>
 </div>
 <p>If you pass <code class="docutils literal"><span class="pre">None</span></code> to <code class="docutils literal"><span class="pre">filter()</span></code>, you get only items that evaluate to true:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s">&#39;text&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[],</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">None</span> <span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[],</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">None</span> <span class="p">]</span>
 
 <span class="gp">In [2]: </span><span class="nb">filter</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 <span class="gh">Out[2]: </span><span class="go">[1, 2.3, &#39;text&#39;, [1, 2], True]</span>
@@ -589,18 +589,18 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <h3>reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">reduce</span></code>  &#8220;reduces&#8221; a sequence of objects to a single object with a function that combines two arguments</p>
 <p>To get the sum:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [30]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [30]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="gp">In [31]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 <span class="gh">Out[31]: </span><span class="go">36</span>
 </pre></div>
 </div>
 <p>To get the product:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [32]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 <span class="gh">Out[32]: </span><span class="go">20160</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="kn">import</span> <span class="nn">operator</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="kn">import</span> <span class="nn">operator</span>
 <span class="gp">In [14]: </span><span class="nb">reduce</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 <span class="gh">Out[14]: </span><span class="go">20160</span>
 </pre></div>
@@ -610,7 +610,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <h3>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
 <p>Couldn&#8217;t you do all this with comprehensions?</p>
 <p>Yes:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [33]: </span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
 <span class="gh">Out[33]: </span><span class="go">[14, 17, 19, 24, 18, 16]</span>
 
 <span class="gp">In [34]: </span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>]
@@ -636,7 +636,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <div class="section" id="a-bit-more-about-lambda">
 <h3>A bit more about lambda<a class="headerlink" href="#a-bit-more-about-lambda" title="Permalink to this headline">¶</a></h3>
 <p>It is very useful for specifying sorting as well:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [55]: </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&quot;Chris&quot;</span><span class="p">,</span><span class="s">&quot;Barker&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;Fred&quot;</span><span class="p">,</span> <span class="s">&quot;Jones&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;Zola&quot;</span><span class="p">,</span> <span class="s">&quot;Adams&quot;</span><span class="p">)]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Chris&quot;</span><span class="p">,</span><span class="s2">&quot;Barker&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Fred&quot;</span><span class="p">,</span> <span class="s2">&quot;Jones&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Zola&quot;</span><span class="p">,</span> <span class="s2">&quot;Adams&quot;</span><span class="p">)]</span>
 
 <span class="gp">In [56]: </span><span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 
@@ -652,7 +652,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 </div>
 <div class="section" id="lambda-in-keyword-arguments">
 <h3>lambda in keyword arguments<a class="headerlink" href="#lambda-in-keyword-arguments" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [186]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [186]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">In [187]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
 <span class="go">    l.append(lambda x, e=i: x**e)</span>
 <span class="gp">   .....:</span>
@@ -669,7 +669,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <div class="section" id="id2">
 <h2>LAB<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Here&#8217;s an exercise to try out some of this:</p>
-<p><a class="reference internal" href="exercises/lambda_magic.html#exercise-lambda-magic"><span>lambda and keyword Magic</span></a></p>
+<p><a class="reference internal" href="exercises/lambda_magic.html#exercise-lambda-magic"><span class="std std-ref">lambda and keyword Magic</span></a></p>
 <div class="section" id="lightning-talk">
 <h3>Lightning Talk<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
@@ -687,16 +687,16 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <div class="section" id="switch-case">
 <h3>switch-case<a class="headerlink" href="#switch-case" title="Permalink to this headline">¶</a></h3>
 <p>A number of languages have a &#8220;switch-case&#8221; construct:</p>
-<div class="highlight-python"><div class="highlight"><pre>switch(argument) {
-    case 0:
-        return &quot;zero&quot;;
-    case 1:
-        return &quot;one&quot;;
-    case 2:
-        return &quot;two&quot;;
-    default:
-        return &quot;nothing&quot;;
-};
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">case</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;zero&quot;</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;one&quot;</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;two&quot;</span><span class="p">;</span>
+    <span class="n">default</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;nothing&quot;</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>How do you spell this in python?</p>
@@ -704,20 +704,20 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <div class="section" id="if-elif-chains">
 <h3><code class="docutils literal"><span class="pre">if-elif</span></code> chains<a class="headerlink" href="#if-elif-chains" title="Permalink to this headline">¶</a></h3>
 <p>The obvious way to spell it is a chain of <code class="docutils literal"><span class="pre">elif</span></code> statements:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">argument</span> <span class="o">==</span>  <span class="mi">0</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s">&quot;zero&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">argument</span> <span class="o">==</span>  <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;zero&quot;</span>
 <span class="k">elif</span> <span class="n">argument</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s">&quot;one&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;one&quot;</span>
 <span class="k">elif</span> <span class="n">argument</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s">&quot;two&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;two&quot;</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s">&quot;nothing&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;nothing&quot;</span>
 </pre></div>
 </div>
 <p>And there is nothing wrong with that, but....</p>
 <p>The <code class="docutils literal"><span class="pre">elif</span></code> chain is neither elegant nor efficient. There are a number of ways to spell it in python &#8211; but one elgant one is to use a dict:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">arg_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s">&quot;zero&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">&quot;two&quot;</span><span class="p">}</span>
-    <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="s">&quot;nothing&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">arg_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">}</span>
+    <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="s2">&quot;nothing&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Simple, elegant, and fast.</p>
@@ -735,7 +735,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming">https://en.wikipedia.org/wiki/Closure_(computer_programming</a>)</p>
 <p>but I even have trouble following that.</p>
 <p>So let&#8217;s go straight to an example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">start_at</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">start_at</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_at</span><span class="p">]</span>
     <span class="k">def</span> <span class="nf">incr</span><span class="p">():</span>
         <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -748,7 +748,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 <p>Then defined a function, <code class="docutils literal"><span class="pre">incr</span></code> that adds one to the value in the list, and returns that value.</p>
 <p>[ Quiz: why is it: <code class="docutils literal"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">[start_at]</span></code>, rather than just <code class="docutils literal"><span class="pre">count=start_at</span></code> ]</p>
 <p>So what type of object do you get when you call <code class="docutils literal"><span class="pre">counter()</span></code>?</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [37]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="n">start_at</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="n">start_at</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="gp">In [38]: </span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gh">Out[38]: </span><span class="go">function</span>
@@ -756,7 +756,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 </div>
 <p>So we get a function back &#8211; makes sense. The <code class="docutils literal"><span class="pre">def</span></code> defines a function, and that function is what&#8217;s getting returned.</p>
 <p>Being a function, we can, of course, call it:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [39]: </span><span class="n">c</span><span class="p">()</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">c</span><span class="p">()</span>
 <span class="gh">Out[39]: </span><span class="go">6</span>
 
 <span class="gp">In [40]: </span><span class="n">c</span><span class="p">()</span>
@@ -765,7 +765,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 </div>
 <p>Each time is it called, it increments the value by one.</p>
 <p>But what happens if we call <code class="docutils literal"><span class="pre">counter()</span></code> multiple times?</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [41]: </span><span class="n">c1</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">c1</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="gp">In [42]: </span><span class="n">c2</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
@@ -792,7 +792,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 </ul>
 </div></blockquote>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;returns based raised to the give exponent&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
 </pre></div>
@@ -806,7 +806,7 @@ cube = partial(power, exponent=3)</p>
 <div class="section" id="id3">
 <h2>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s use some of this ability to use functions a objects for something useful:</p>
-<p><a class="reference internal" href="exercises/trapezoid.html#exercise-trapezoidal-rule"><span>Trapezoidal Rule</span></a></p>
+<p><a class="reference internal" href="exercises/trapezoid.html#exercise-trapezoidal-rule"><span class="std std-ref">Trapezoidal Rule</span></a></p>
 <p>Some reading on these topics:</p>
 <p><a class="reference external" href="http://www.pydanny.com/python-partials-are-fun.html">http://www.pydanny.com/python-partials-are-fun.html</a></p>
 <p><a class="reference external" href="https://pymotw.com/2/functools/">https://pymotw.com/2/functools/</a></p>

@@ -21,7 +21,7 @@ But for core use, the installer from python.org is the way to go:
 
 https://www.python.org/downloads/
 
-You want the installer for Python 3.4.3 -- probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.
+You want the installer for Python 3.x -- probably 64 bit, though if you have a 32 bit sytem, you can get that. There is essentially no difference for the purposes of this course.
 
 Double click and install.
 
@@ -40,7 +40,7 @@ This is actually your best bet for running Python also -- If you use the Git Bas
 
 http://www.computerhope.com/issues/ch000549.htm
 
-You will want to add:
+Based on the subversion of Python you will want to add something like:
 
 ``C:\Python34``
 

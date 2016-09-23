@@ -1,3 +1,5 @@
+.. include:: include.rst
+
 **************************
 Session One: Introductions
 **************************
@@ -44,16 +46,16 @@ Your instructors
 
 .. rst-class:: center medium
 
-| Christopher Barker
-| (PythonCHB at gmail dot com)
+| |instructor_1_name|
+| |instructor_1_email|
 |
 
 .. nextslide::
 
 .. rst-class:: center medium
 
-| Maria McKinley
-| (maria at mariakathryn dot net)
+| |instructor_2_name|
+| |instructor_2_email|
 |
 
 Who are you?
@@ -65,7 +67,9 @@ Who are you?
 
 * name
 * programming background: what languages have you used?
-* what do you hope to get from this class
+* neighbor's name
+* neighbor's favorite coffee shop or bar
+
 
 Introduction to This Class
 ==========================
@@ -87,13 +91,6 @@ Also there are some excercise descriptions and supplemental materials.
 The source of these materials are in the class gitHub repo:
 
 https://github.com/UWPCE-PythonCert/IntroToPython
-
-Class email list: We will be using this list to communicate for this class:
-
-programming-in-python@googlegroups.com
-
-You should have (or will soon) received and email invitation to join
-the mailing list.
 
 
 Class Structure
@@ -122,24 +119,35 @@ Homework:
 
 * You can do a gitHub "pull request" if you want us to review your work.
 
-    - We'll review how to do that in the second Session
+    - We'll show you how to do that in the second Session
 
 
-Mailing list and Office Hours
-------------------------------
+Communication
+-------------
 
 **Mailing list:**
 
-We've set up a google group -- you will all be invited to join:
+We've set up a google group for this class:
 
-``programming-in-python@googlegroups.com``
+programming-in-python@googlegroups.com
+
+We will be using this list to communicate with you. You should have (or will soon)
+received an email invitation to join the mailing list.
+
+Slack: We have set up a slack channel for discussions. Anything python related is fair game.
+
+https://python2016fall.slack.com/
+
+We highly encourage you to work together. You will learn at a much deeper level if you work together,
+and it gets your ready to collaborate with colleagues.
 
 **Office Hours:**
 
 I generally will hold "office hours" at a coffee shop for a couple hours
-each weekend.
+each weekend. Please feel free to attend even if you do not have a specific question.
+It is an opportunity to work with the instructors and fellow students, and learn from each other.
 
-Maria can do some as well.
+Maria will do some as well.
 
 What are good times for you?
 
@@ -271,7 +279,7 @@ Python 3.x ("py3k")
 
 .. nextslide::
 
-This class uses Python 3.4 -- not Python 2.*
+This class uses Python 3 -- not Python 2
 
 .. rst-class:: build
 
@@ -307,9 +315,9 @@ Having some facility on the command line is important
 We won't cover this much in class, so if you are not comfortable,
 please bone up at home.
 
-I suggest running through the **cli** tutorial at "learn code the hard way":
+Software Carpentry has a decent intro to the command line:
+https://swcarpentry.github.io/shell-novice/01-intro/
 
-http://cli.learncodethehardway.org/book/
 
 **Windows:**
 
@@ -328,7 +336,7 @@ Python comes with a built-in interpreter.
 
 You see it when you type ``python`` at the command line:
 
-.. code-block:: python
+.. code-block:: bash
 
   $ python
   Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
@@ -342,7 +350,7 @@ This is where you type code.
 LAB: Getting set up
 -------------------
 
-BEfore we move on -- we need to get all of us on tehsame page, with teh tools we need for class.
+Before we move on -- we need to get all of us on the same page, with the tools we need for class.
 
 You will find instructions for how to get python, etc, up and running on your machine here:
 
@@ -511,7 +519,7 @@ We will take the time here in class to get this going.
 This helps to ensure that you will be able to work.
 
 
-Step 1: Python 3.4
+Step 1: Python 3
 ------------------
 
 .. rst-class:: large
@@ -529,11 +537,11 @@ Do you already have this??
 
 If not:
 
- * `For the mac  <./supplements/python_for_mac.html>`_
+ * `For OS X  <./supplements/python_for_mac.html>`_
 
- * `For linux  <./supplements/python_for_linux.html>`_
+ * `For Linux  <./supplements/python_for_linux.html>`_
 
- * `For windows  <./supplements/python_for_windows.html>`_
+ * `For Windows  <./supplements/python_for_windows.html>`_
 
 Step 2: Pip
 -----------
@@ -1454,8 +1462,8 @@ Minimal Function does nothing
 
 .. code-block:: python
 
-    def <name>():
-        <statement>
+    def a_name():
+        a_statement
 
 .. nextslide::
 
@@ -1593,7 +1601,7 @@ if you don't explicilty put ``return``  there, Python will:
     In [12]: print(result)
     None
 
-note that the interpreter eats ``None`` -- ou need to call ``print()`` to see it.
+note that the interpreter eats ``None`` -- you need to call ``print()`` to see it.
 
 
 .. nextslide::
@@ -1681,7 +1689,7 @@ In order to do anything interesting at all, you need to be able to make a decisi
 
 .. nextslide::
 
-.. code-block:: python
+.. code-block:: ipython
 
     In [12]: def test(a):
        ....:     if a == 5:
@@ -1762,14 +1770,14 @@ In python 3, the divsion operator is "smart" when you divide integers::
   In [17]: 1 / 2
   Out[17]: 0.5
 
-However in python2, if you use integers, is will give you an integer result::
+However in python2, integer division, will give you an integer result::
 
   In [1]: 1/2
   Out[1]: 0
 
 In both versions, you can get "integer division" if you want it with a double slash::
 
-  In [1]: 1/2
+  In [1]: 1//2
   Out[1]: 0
 
 And in python2, you can get the behavior of py3 with "true division"::
@@ -1875,16 +1883,17 @@ Every one of you has a different backgrond and learning style.
 
 So take a bit of time to figure out which resource works for you.
 
-::ref:`python_learning_resources` provides some options. Do look it over.
+:ref:`python_learning_resources` provides some options. Do look it over.
 
 But here are few to get you started this week:
 
-*Think Python:* Chapters 1–7 (http://greenteapress.com/thinkpython/)
+*Think Python:* Chapters 1–7 (http://greenteapress.com/wp/think-python-2e/)
 
 *Dive Into Python:* Chapters 1–2 (http://www.diveintopython3.net/)
 
 *LPTHW:* ex. 1–10, 18-21 (http://learnpythonthehardway.org/book/)
-  **NOTE:** LPTHW is python 2 -- you will need to add parentheses to all yoru print calls!
+
+*NOTE:* LPTHW is python 2 -- you will need to add parentheses to all your print calls!
 
 Or follow this excellent introductory tutorial:
 
@@ -1921,13 +1930,11 @@ Next week, we'll:
 Office Hours
 ------------
 
-I'll do office hours on either Saturday or Sunday from 12:00 -- 3:00
+We will have office hours on either Saturday or Sunday from 10:00 to noon.
 
-Probably in Wallingford or Fremont
- - is a coffeeshop OK?
+Preferences?
 
-Do you have a preference?
+Locations?
 
-Maria's office hours??
 
 

@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="python_for_linux.html">Setting Up Python For Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Working with Virtualenv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sublime_as_ide.html">Turning Sublime Text Into a Lightweight Python IDE</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Shell Customizations for Python Development</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Shell Customizations for Python Development</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#what-was-that-name-again">What was that name, again?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#where-am-i-what-am-i-doing">Where am I, what am I doing?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#but-wait-there-s-more">But wait, there&#8217;s more.</a></li>
@@ -112,7 +112,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="git_overview.html">git Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_nano_win.html">Installing Nano on Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode in Python 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html#mechanics">Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html#basic-unicode-lab">Basic Unicode LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging.html">Packages and Packaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging.html#distributing">Distributing</a></li>
 </ul>
@@ -139,7 +141,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -183,12 +185,12 @@ script that sets this up. And it&#8217;s not hard to install.</p>
 preferred shell from the tag of the git repo that corresponds to the version of
 git you are using. I&#8217;ve got git 1.8.4.2 installed on my machine, so
 <a class="reference external" href="https://raw.github.com/git/git/v1.8.4.2/contrib/completion/git-completion.bash">this is the version for me</a>. Put it in your home directory:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span>
-<span class="nv">$ </span>curl https://raw.github.com/git/git/v1.8.4.2/contrib/completion/git-completion.bash -o .git-completion.bash
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span>
+$ curl https://raw.github.com/git/git/v1.8.4.2/contrib/completion/git-completion.bash -o .git-completion.bash
 </pre></div>
 </div>
 <p>Then source it from your shell startup file:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">source</span> ~/.git-completion.bash
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.git-completion.bash
 </pre></div>
 </div>
 <p>There&#8217;s even a nifty gist that <a class="reference external" href="https://gist.github.com/johngibb/972430">does this automatically</a> for OS X.</p>
@@ -202,7 +204,7 @@ completion its a chore to remember which branch is checked out, how far ahead
 or behind the remote you are, and so on.</p>
 <p>Enter <a class="reference external" href="https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh">git-prompt</a>. Again, you place this code in your home directory, and
 then source it from your shell startup file:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">source</span> ~/.git-prompt.sh
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.git-prompt.sh
 </pre></div>
 </div>
 <p>Once you do this you can use the <code class="docutils literal"><span class="pre">__git_ps1</span></code> shell command and a number of
@@ -212,7 +214,7 @@ get information about the status of HEAD, modified files, stashes, untracked
 files and more.</p>
 <p>There&#8217;s two ways to do this.  The first is to use <code class="docutils literal"><span class="pre">__git_ps1</span></code> as a command
 directly in a <code class="docutils literal"><span class="pre">PS1</span></code> expression in your shell startup file:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">export </span><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
 </pre></div>
 </div>
 <p>The result looks like this:</p>
@@ -239,7 +241,7 @@ OS X command prompt can be expressed like so: <code class="docutils literal"><sp
 <span class="pre">expression</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">second</span> <span class="pre">argument,</span> <span class="pre">leave</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">empty</span> <span class="pre">and</span> <span class="pre">provide</span> <span class="pre">a</span> <span class="pre">simple</span> <span class="pre">format</span>
 <span class="pre">ending</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">newline</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">``__git_ps1</span></code> output, you get some nice results.</p>
 <p>Enter this in your shell startup file:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">&#39;__git_ps1 &quot;&quot; &quot;\h:\W \u\\\$ &quot; &quot;[%s]\n&quot;&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">&#39;__git_ps1 &quot;&quot; &quot;\h:\W \u\\\$ &quot; &quot;[%s]\n&quot;&#39;</span>
 </pre></div>
 </div>
 <p>That produces a nice two-line prompt that appears when you&#8217;re in a git repo, and
@@ -248,7 +250,7 @@ disappears when you&#8217;re not:</p>
 <p>You can also play with setting a few environment variables in your shell
 startup file to expand this further. For example, colorizing the output and
 providing information about the state of a repo:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">GIT_PS1_SHOWDIRTYSTATE</span><span class="o">=</span>1
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">GIT_PS1_SHOWDIRTYSTATE</span><span class="o">=</span>1
 <span class="nv">GIT_PS1_SHOWCOLORHINTS</span><span class="o">=</span>1
 <span class="nv">GIT_PS1_SHOWSTASHSTATE</span><span class="o">=</span>1
 <span class="nv">GIT_PS1_SHOWUPSTREAM</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
@@ -269,23 +271,23 @@ this nice feature of virtualenv is lost.</p>
 <p>Luckily, there is a way out. Bash shell scripting offers <a class="reference external" href="http://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion">parameter expansion</a>
 and a trick of the that syntax can help. Normally, a shell parameter is
 referenced like so:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ PARAM</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span>
-<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$PARAM</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">PARAM</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span>
+$ <span class="nb">echo</span> <span class="nv">$PARAM</span>
 foobar
 </pre></div>
 </div>
 <p>In complicated situations, you can wrap the name of the paramter in curly
 braces to avoid confusion with following characters:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="si">${</span><span class="nv">PARAM</span><span class="si">}</span>andthennotparam
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="si">${</span><span class="nv">PARAM</span><span class="si">}</span>andthennotparam
 foobarandthennotparam
 </pre></div>
 </div>
 <p>What is not as well known is that this curly-brace syntax has a lot of
 interesting variations. For example, you can use <code class="docutils literal"><span class="pre">PARAM</span></code> as a test and
 actually print something else entirely:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ echo ${PARAM:+&#39;foo&#39;}
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="si">${</span><span class="nv">PARAM</span><span class="p">:+</span><span class="s1">&#39;foo&#39;</span><span class="si">}</span>
 foo
-$ echo ${PARAM:+&#39;bar&#39;}
+$ <span class="nb">echo</span> <span class="si">${</span><span class="nv">PARAM</span><span class="p">:+</span><span class="s1">&#39;bar&#39;</span><span class="si">}</span>
 
 $
 </pre></div>
@@ -301,17 +303,17 @@ environment is active.</p>
 <p>Armed with this knowledge, you can construct a shell expression that will either
 print the name of the active virtualenv in square brackets, or print nothing if
 no virtualenv was active:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="si">${</span><span class="nv">VIRTUAL_ENV</span><span class="p">:+[</span><span class="sb">`</span>basename <span class="nv">$VIRTUAL_ENV</span><span class="sb">`</span><span class="p">]</span><span class="si">}</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="si">${</span><span class="nv">VIRTUAL_ENV</span><span class="p">:+[</span><span class="sb">`</span>basename <span class="nv">$VIRTUAL_ENV</span><span class="sb">`</span><span class="p">]</span><span class="si">}</span>
 
-<span class="nv">$ </span><span class="nb">source</span> /path/to/someenv/bin/activate
-<span class="nv">$ </span><span class="nb">echo</span> <span class="si">${</span><span class="nv">VIRTUAL_ENV</span><span class="p">:+[</span><span class="sb">`</span>basename <span class="nv">$VIRTUAL_ENV</span><span class="sb">`</span><span class="p">]</span><span class="si">}</span>
+$ <span class="nb">source</span> /path/to/someenv/bin/activate
+$ <span class="nb">echo</span> <span class="si">${</span><span class="nv">VIRTUAL_ENV</span><span class="p">:+[</span><span class="sb">`</span>basename <span class="nv">$VIRTUAL_ENV</span><span class="sb">`</span><span class="p">]</span><span class="si">}</span>
 someenv
 </pre></div>
 </div>
 <p>Roll that into your shell startup file. You&#8217;ll have everything you want.  You
 can even throw in a little more color for good measure:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">source</span> ~/.git-prompt.sh
-<span class="c"># PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.git-prompt.sh
+<span class="c1"># PS1=&#39;[\u@\h \W$(__git_ps1 &quot; (%s)&quot;)]\$ &#39;</span>
 <span class="nv">GIT_PS1_SHOWDIRTYSTATE</span><span class="o">=</span>1
 <span class="nv">GIT_PS1_SHOWCOLORHINTS</span><span class="o">=</span>1
 <span class="nv">GIT_PS1_SHOWSTASHSTATE</span><span class="o">=</span>1

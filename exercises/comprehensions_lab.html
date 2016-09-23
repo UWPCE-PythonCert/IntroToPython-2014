@@ -102,7 +102,7 @@
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-4">Session 4:</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#session-5">Session 5:</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="exceptions_lab.html">Exceptions Lab</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">Comprehensions Lab</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Comprehensions Lab</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-6">Session 6:</a></li>
@@ -135,7 +135,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -171,14 +171,14 @@
 we show you code, you figure out what it does.</p>
 <p>As a result, not much to submit &#8211; don&#8217;t worry about it &#8211; you&#8217;ll have
 a chance to use these in other exercises.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;lambs&#39;</span><span class="p">,</span> <span class="s">&#39;sloths&#39;</span><span class="p">,</span> <span class="s">&#39;orangutans&#39;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lambs&#39;</span><span class="p">,</span> <span class="s1">&#39;sloths&#39;</span><span class="p">,</span> <span class="s1">&#39;orangutans&#39;</span><span class="p">,</span>
 <span class="go">             &#39;breakfast cereals&#39;, &#39;fruit bats&#39;]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span><span class="n">delicacy</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">delicacy</span> <span class="ow">in</span> <span class="n">feast</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">???</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -189,14 +189,14 @@ a chance to use these in other exercises.</p>
 </div>
 <div class="section" id="filtering-lists-with-list-comprehensions">
 <h3>Filtering lists with list comprehensions<a class="headerlink" href="#filtering-lists-with-list-comprehensions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;sloths&#39;</span><span class="p">,</span> <span class="s">&#39;orangutans&#39;</span><span class="p">,</span> <span class="s">&#39;breakfast cereals&#39;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feast</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;sloths&#39;</span><span class="p">,</span> <span class="s1">&#39;orangutans&#39;</span><span class="p">,</span> <span class="s1">&#39;breakfast cereals&#39;</span><span class="p">,</span>
 <span class="go">            &#39;fruit bats&#39;]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">comp</span> <span class="o">=</span> <span class="p">[</span><span class="n">delicacy</span> <span class="k">for</span> <span class="n">delicacy</span> <span class="ow">in</span> <span class="n">feast</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">delicacy</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">feast</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">feast</span><span class="p">)</span>
 <span class="go">???</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
@@ -207,13 +207,13 @@ a chance to use these in other exercises.</p>
 </div>
 <div class="section" id="unpacking-tuples-in-list-comprehensions">
 <h3>Unpacking tuples in list comprehensions<a class="headerlink" href="#unpacking-tuples-in-list-comprehensions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;lumberjack&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;inquisition&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">)]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;lumberjack&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;inquisition&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">)]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">[</span> <span class="n">skit</span> <span class="o">*</span> <span class="n">number</span> <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">skit</span> <span class="ow">in</span> <span class="n">list_of_tuples</span> <span class="p">]</span>
 </pre></div>
 </div>
 <p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">???</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
@@ -223,16 +223,16 @@ a chance to use these in other exercises.</p>
 </div>
 <div class="section" id="double-list-comprehensions">
 <h3>Double list comprehensions<a class="headerlink" href="#double-list-comprehensions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">eggs</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;poached egg&#39;</span><span class="p">,</span> <span class="s">&#39;fried egg&#39;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eggs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;poached egg&#39;</span><span class="p">,</span> <span class="s1">&#39;fried egg&#39;</span><span class="p">]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">meats</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;lite spam&#39;</span><span class="p">,</span> <span class="s">&#39;ham spam&#39;</span><span class="p">,</span> <span class="s">&#39;fried spam&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">meats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lite spam&#39;</span><span class="p">,</span> <span class="s1">&#39;ham spam&#39;</span><span class="p">,</span> <span class="s1">&#39;fried spam&#39;</span><span class="p">]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> \
 <span class="go">[ &#39;{0} and {1}&#39;.format(egg, meat) for egg in eggs for meat in meats]</span>
 </pre></div>
 </div>
 <p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">comprehension</span><span class="p">)</span>
 <span class="go">???</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -242,18 +242,18 @@ a chance to use these in other exercises.</p>
 </div>
 <div class="section" id="set-comprehensions">
 <h3>Set comprehensions<a class="headerlink" href="#set-comprehensions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s">&#39;aabbbcccc&#39;</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;aabbbcccc&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comprehension</span>
 <span class="go">???</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="dictionary-comprehensions">
 <h3>Dictionary comprehensions<a class="headerlink" href="#dictionary-comprehensions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dict_of_weapons</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;first&#39;</span><span class="p">:</span> <span class="s">&#39;fear&#39;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dict_of_weapons</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="s1">&#39;fear&#39;</span><span class="p">,</span>
 <span class="go">                       &#39;second&#39;: &#39;surprise&#39;,</span>
 <span class="go">                       &#39;third&#39;:&#39;ruthless efficiency&#39;,</span>
 <span class="go">                       &#39;forth&#39;:&#39;fanatical devotion&#39;,</span>
@@ -263,9 +263,9 @@ a chance to use these in other exercises.</p>
 </pre></div>
 </div>
 <p>What is the output of:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;first&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;first&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
 <span class="go">???</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;FIRST&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;FIRST&#39;</span> <span class="ow">in</span> <span class="n">dict_comprehension</span>
 <span class="go">???</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">dict_of_weapons</span><span class="p">)</span>
 <span class="go">???</span>
@@ -287,14 +287,14 @@ a chance to use these in other exercises.</p>
 <p>This is from CodingBat &#8220;count_evens&#8221; (<a class="reference external" href="http://codingbat.com/prob/p189616">http://codingbat.com/prob/p189616</a>)</p>
 <p><em>Using a list comprehension</em>, return the number of even integers in the given array.</p>
 <p>Note: the % &#8220;mod&#8221; operator computes the remainder, e.g. <code class="docutils literal"><span class="pre">5</span> <span class="pre">%</span> <span class="pre">2</span></code> is 1.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">count_evens</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">count_evens</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span>
 
 <span class="n">count_evens</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span>
 
 <span class="n">count_evens</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">count_evens</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_evens</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
    <span class="n">one_line_comprehension_here</span>
 </pre></div>
 </div>
@@ -303,15 +303,15 @@ a chance to use these in other exercises.</p>
 <h3><code class="docutils literal"><span class="pre">dict</span></code> and <code class="docutils literal"><span class="pre">set</span></code> comprehensions<a class="headerlink" href="#dict-and-set-comprehensions" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s revisiting the dict/set lab &#8211; see how much you can do with
 comprehensions instead.</p>
-<p>(<a class="reference internal" href="dict_lab.html#exercise-dict-lab"><span>Dictionary and Set Lab</span></a>)</p>
+<p>(<a class="reference internal" href="dict_lab.html#exercise-dict-lab"><span class="std std-ref">Dictionary and Set Lab</span></a>)</p>
 <p>Specifically,  look at these:</p>
 <p>First a slightly bigger, more interesting (or at least bigger..) dict:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">food_prefs</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Chris&quot;</span><span class="p">,</span>
-              <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;Seattle&quot;</span><span class="p">,</span>
-              <span class="s">&quot;cake&quot;</span><span class="p">:</span> <span class="s">&quot;chocolate&quot;</span><span class="p">,</span>
-              <span class="s">&quot;fruit&quot;</span><span class="p">:</span> <span class="s">&quot;mango&quot;</span><span class="p">,</span>
-              <span class="s">&quot;salad&quot;</span><span class="p">:</span> <span class="s">&quot;greek&quot;</span><span class="p">,</span>
-              <span class="s">&quot;pasta&quot;</span><span class="p">:</span> <span class="s">&quot;lasagna&quot;</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">food_prefs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Chris&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Seattle&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;cake&quot;</span><span class="p">:</span> <span class="s2">&quot;chocolate&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;fruit&quot;</span><span class="p">:</span> <span class="s2">&quot;mango&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;salad&quot;</span><span class="p">:</span> <span class="s2">&quot;greek&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;pasta&quot;</span><span class="p">:</span> <span class="s2">&quot;lasagna&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>1. Print the dict by passing it to a string format method, so that you

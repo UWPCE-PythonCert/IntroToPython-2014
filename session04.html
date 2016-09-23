@@ -85,7 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Session Four: Dictionaries, Sets, and Files</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session Four: Dictionaries, Sets, and Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-classes">Review of Previous Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
@@ -181,7 +181,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -245,11 +245,11 @@
 <h3>nifty for loop tricks<a class="headerlink" href="#nifty-for-loop-tricks" title="Permalink to this headline">¶</a></h3>
 <p><strong>tuple unpacking:</strong></p>
 <p>remember this?</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
 </pre></div>
 </div>
 <p>You can do that in a for loop, also:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
 
 <span class="gp">In [5]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
 <span class="go">            print(&quot;i:%i, j:%i&quot;%(i, j))</span>
@@ -264,12 +264,12 @@
 <div class="section" id="looping-through-two-loops-at-once">
 <h3>Looping through two loops at once:<a class="headerlink" href="#looping-through-two-loops-at-once" title="Permalink to this headline">¶</a></h3>
 <p class="mlarge"><code class="docutils literal"><span class="pre">zip</span></code></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="gp">In [11]: </span><span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
 <span class="gp">In [12]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;i:</span><span class="si">%i</span><span class="s">, j:</span><span class="si">%i</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;i:</span><span class="si">%i</span><span class="s2">, j:</span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
 <span class="gp">   ....:</span>
 <span class="go">i:1, j:3</span>
 <span class="go">i:2, j:4</span>
@@ -277,17 +277,17 @@
 </pre></div>
 </div>
 <p>Can be more than two:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">,</span> <span class="n">l4</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">,</span> <span class="n">l4</span><span class="p">):</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="need-the-index-and-the-item">
 <h3>Need the index and the item?<a class="headerlink" href="#need-the-index-and-the-item" title="Permalink to this headline">¶</a></h3>
 <p class="mlarge"><code class="docutils literal"><span class="pre">enumerate</span></code></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;this&#39;</span><span class="p">,</span> <span class="s">&#39;that&#39;</span><span class="p">,</span> <span class="s">&#39;the other&#39;</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;this&#39;</span><span class="p">,</span> <span class="s1">&#39;that&#39;</span><span class="p">,</span> <span class="s1">&#39;the other&#39;</span><span class="p">]</span>
 
 <span class="gp">In [3]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;the </span><span class="si">%i</span><span class="s">th item is: </span><span class="si">%s</span><span class="s">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;the </span><span class="si">%i</span><span class="s2">th item is: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
 <span class="gp">   ...:</span>
 <span class="go">the 0th item is: this</span>
 <span class="go">the 1th item is: that</span>
@@ -299,16 +299,16 @@
 <h3>Homework Comments<a class="headerlink" href="#homework-comments" title="Permalink to this headline">¶</a></h3>
 <p>Building up a long string.</p>
 <p>The obvious thing to do is something like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="k">for</span> <span class="n">piece</span> <span class="ow">in</span> <span class="n">list_of_stuff</span><span class="p">:</span>
     <span class="n">msg</span> <span class="o">+=</span> <span class="n">piece</span>
 </pre></div>
 </div>
 <p>But: strings are immutable &#8211; python needs to create a new string each time you add a piece &#8211; not efficient:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">msg</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">piece</span> <span class="ow">in</span> <span class="n">list_of_stuff</span><span class="p">:</span>
     <span class="n">msg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">piece</span><span class="p">)</span>
-<span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>appending to lists is efficient &#8211; and so is the join() method of strings.</p>
@@ -325,11 +325,11 @@
 </div>
 <p>What is <code class="docutils literal"><span class="pre">assert</span></code> for?</p>
 <p>Testing &#8211; NOT for issues expected to happen operationally:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">assert</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>in operational code should be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span>
 </pre></div>
 </div>
@@ -371,18 +371,18 @@
 </div>
 <div class="section" id="dictionary-constructors">
 <h3>Dictionary Constructors<a class="headerlink" href="#dictionary-constructors" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s">&#39;key1&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
 <span class="go">{&#39;key1&#39;: 3, &#39;key2&#39;: 5}</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">([(</span><span class="s">&#39;key1&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),(</span><span class="s">&#39;key2&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span>
 <span class="go">{&#39;key1&#39;: 3, &#39;key2&#39;: 5}</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="go">{&#39;key1&#39;: 3, &#39;key2&#39;: 5}</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;key1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;key2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
 <span class="go">{&#39;key1&#39;: 3, &#39;key2&#39;: 5}</span>
 </pre></div>
@@ -390,17 +390,17 @@
 </div>
 <div class="section" id="dictionary-indexing">
 <h3>Dictionary Indexing<a class="headerlink" href="#dictionary-indexing" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Brian&#39;</span><span class="p">,</span> <span class="s">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Brian&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;score&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span>
 <span class="go">42</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s">&#39;zero&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;zero&#39;</span><span class="p">}</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">&#39;zero&#39;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;non-existing key&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;non-existing key&#39;</span><span class="p">]</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">KeyError</span>: <span class="n">&#39;non-existing key&#39;</span>
@@ -414,11 +414,11 @@
 <li>tuple</li>
 </ul>
 </div></blockquote>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [325]: </span><span class="n">d</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;string&#39;</span>
-<span class="gp">In [326]: </span><span class="n">d</span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;pi&#39;</span>
-<span class="gp">In [327]: </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;pi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.14</span>
-<span class="gp">In [328]: </span><span class="n">d</span><span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">]</span> <span class="o">=</span> <span class="s">&#39;a tuple key&#39;</span>
-<span class="gp">In [329]: </span><span class="n">d</span><span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="s">&#39;a list key&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [325]: </span><span class="n">d</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;string&#39;</span>
+<span class="gp">In [326]: </span><span class="n">d</span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pi&#39;</span>
+<span class="gp">In [327]: </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;pi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="gp">In [328]: </span><span class="n">d</span><span class="p">[</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a tuple key&#39;</span>
+<span class="gp">In [329]: </span><span class="n">d</span><span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a list key&#39;</span>
 <span class="go">   TypeError: unhashable type: &#39;list&#39;</span>
 </pre></div>
 </div>
@@ -451,7 +451,7 @@
 <div class="section" id="dictionary-ordering-not">
 <h3>Dictionary Ordering (not)<a class="headerlink" href="#dictionary-ordering-not" title="Permalink to this headline">¶</a></h3>
 <p>Dictionaries have no defined order</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [352]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;one&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;three&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [352]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
 <span class="gp">In [353]: </span><span class="n">d</span>
 <span class="gh">Out[353]: </span><span class="go">{&#39;one&#39;: 1, &#39;three&#39;: 3, &#39;two&#39;: 2}</span>
 <span class="gp">In [354]: </span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -462,7 +462,7 @@
 <div class="section" id="dictionary-iterating">
 <h3>Dictionary Iterating<a class="headerlink" href="#dictionary-iterating" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">for</span></code>  iterates over the keys</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Brian&#39;</span><span class="p">,</span> <span class="s">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Brian&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
 
 <span class="gp">In [16]: </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
 <span class="go">    print(x)</span>
@@ -475,7 +475,7 @@
 </div>
 <div class="section" id="dict-keys-and-values">
 <h3>dict keys and values<a class="headerlink" href="#dict-keys-and-values" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Brian&#39;</span><span class="p">,</span> <span class="s">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Brian&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
 
 <span class="gp">In [21]: </span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="gh">Out[21]: </span><span class="go">dict_keys([&#39;score&#39;, &#39;name&#39;])</span>
@@ -491,7 +491,7 @@
 <div class="section" id="id1">
 <h3>dict keys and values<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Iterating on everything</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Brian&#39;</span><span class="p">,</span> <span class="s">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Brian&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
 
 <span class="gp">In [27]: </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <span class="go">    print(&quot;%s: %s&quot; % (k,v))</span>
@@ -521,30 +521,30 @@
 <p>See them all here:</p>
 <p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">https://docs.python.org/3/library/stdtypes.html#mapping-types-dict</a></p>
 <p>Is it in there?</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">d</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">d</span>
 <span class="gh">Out[5]: </span><span class="go">{&#39;that&#39;: 7, &#39;this&#39;: 5}</span>
 
-<span class="gp">In [6]: </span><span class="s">&#39;that&#39;</span> <span class="ow">in</span> <span class="n">d</span>
+<span class="gp">In [6]: </span><span class="s1">&#39;that&#39;</span> <span class="ow">in</span> <span class="n">d</span>
 <span class="gh">Out[6]: </span><span class="go">True</span>
 
-<span class="gp">In [7]: </span><span class="s">&#39;this&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span>
+<span class="gp">In [7]: </span><span class="s1">&#39;this&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span>
 <span class="gh">Out[7]: </span><span class="go">False</span>
 </pre></div>
 </div>
 <p>Containment is on the keys.</p>
 <p>Getting something: (like indexing)</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;this&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;this&#39;</span><span class="p">)</span>
 <span class="gh">Out[9]: </span><span class="go">5</span>
 </pre></div>
 </div>
 <p>But you can specify a default</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;something&#39;</span><span class="p">,</span> <span class="s">&#39;a default&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">,</span> <span class="s1">&#39;a default&#39;</span><span class="p">)</span>
 <span class="gh">Out[11]: </span><span class="go">&#39;a default&#39;</span>
 </pre></div>
 </div>
 <p>Never raises an Exception (default default is None)</p>
 <p>iterating</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
 <span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 <span class="gp">   ....:</span>
 <span class="go">this</span>
@@ -552,7 +552,7 @@
 </pre></div>
 </div>
 <p>which is equivalent to, but faster than:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
 <span class="go">    print(key)</span>
 <span class="gp">   ....:</span>
 <span class="go">this</span>
@@ -560,7 +560,7 @@
 </pre></div>
 </div>
 <p>but to get values, must specify you want values:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
 <span class="go">    print(val)</span>
 <span class="gp">   ....:</span>
 <span class="go">5</span>
@@ -569,7 +569,7 @@
 </div>
 <p>&#8220;Popping&#8221;: getting the value while removing it</p>
 <p>pop out a particular key</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;this&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;this&#39;</span><span class="p">)</span>
 <span class="gh">Out[19]: </span><span class="go">5</span>
 
 <span class="gp">In [20]: </span><span class="n">d</span>
@@ -577,7 +577,7 @@
 </pre></div>
 </div>
 <p>pop out an arbitrary key, value pair</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">d</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">d</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
 <span class="gh">Out[23]: </span><span class="go">(&#39;that&#39;, 7)</span>
 
 <span class="gp">In [24]: </span><span class="n">d</span>
@@ -587,7 +587,7 @@
 <p>This one is handy:</p>
 <p><code class="docutils literal"><span class="pre">setdefault(key[,</span> <span class="pre">default])</span></code></p>
 <p>gets the value if it&#8217;s there, sets it if it&#8217;s not</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">&#39;something&#39;</span><span class="p">,</span> <span class="s">&#39;a value&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">,</span> <span class="s1">&#39;a value&#39;</span><span class="p">)</span>
 <span class="gh">Out[27]: </span><span class="go">&#39;a value&#39;</span>
 
 <span class="gp">In [28]: </span><span class="n">d</span>
@@ -595,21 +595,21 @@
 </pre></div>
 </div>
 <p>Assignment maintains link to the original dict</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="n">d</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">d</span>
 <span class="gh">Out[47]: </span><span class="go">{&#39;something&#39;: &#39;a value&#39;}</span>
 
 <span class="gp">In [48]: </span><span class="n">item_view</span> <span class="o">=</span> <span class="n">d</span>
 
-<span class="gp">In [49]: </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;something else&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;another value&#39;</span>
+<span class="gp">In [49]: </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;something else&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;another value&#39;</span>
 
 <span class="gp">In [50]: </span><span class="n">item_view</span>
 <span class="gh">Out[50]: </span><span class="go">{&#39;something&#39;: &#39;a value&#39;, &#39;something else&#39;: &#39;another value&#39;}</span>
 </pre></div>
 </div>
 <p>Use explicit copy method to get a copy</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="go">In [51] item_copy = d.copy()</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="go">In [51] item_copy = d.copy()</span>
 
-<span class="gp">In [52]: </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;another thing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;different value&#39;</span>
+<span class="gp">In [52]: </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;another thing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;different value&#39;</span>
 
 <span class="gp">In [53]: </span><span class="n">d</span>
 <span class="gh">Out[53]:</span>
@@ -627,7 +627,7 @@
 <p><code class="docutils literal"><span class="pre">set</span></code>  is an unordered collection of distinct values</p>
 <p>Essentially a dict with only keys</p>
 <p>Set Constructors</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">()</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">()</span>
 <span class="nb">set</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -649,32 +649,32 @@
 <p><code class="docutils literal"><span class="pre">Set</span></code>  members must be hashable</p>
 <p>Like dictionary keys &#8211; and for same reason (efficient lookup)</p>
 <p>No indexing (unordered)</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">TypeError</span><span class="p">:</span> <span class="s">&#39;set&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">indexing</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;set&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">indexing</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="set-methods">
 <h3>Set Methods<a class="headerlink" href="#set-methods" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c"># an arbitrary member</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1"># an arbitrary member</span>
 <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">KeyError</span><span class="p">:</span> <span class="s">&#39;pop from an empty set&#39;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;pop from an empty set&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">KeyError</span><span class="p">:</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>All the &#8220;set&#8221; operations from math class...</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
 <span class="n">s</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
@@ -693,7 +693,7 @@
 <p>Another kind of set: <code class="docutils literal"><span class="pre">frozenset</span></code></p>
 <p>immutable &#8211; for use as a key in a dict
 (or another set...)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
@@ -703,7 +703,7 @@
 <div class="section" id="lab-dictionaries-and-sets-lab">
 <h4>LAB: Dictionaries and Sets lab<a class="headerlink" href="#lab-dictionaries-and-sets-lab" title="Permalink to this headline">¶</a></h4>
 <p>Have some fun with dictionaries and sets!</p>
-<p><a class="reference internal" href="exercises/dict_lab.html#exercise-dict-lab"><span>Dictionary and Set Lab</span></a></p>
+<p><a class="reference internal" href="exercises/dict_lab.html#exercise-dict-lab"><span class="std std-ref">Dictionary and Set Lab</span></a></p>
 </div>
 </div>
 <div class="section" id="lightning-talk">
@@ -720,7 +720,7 @@
 <div class="section" id="files">
 <h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
 <p>Text Files</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;secrets.txt&#39;</span><span class="p">)</span>
 <span class="n">secret_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -728,7 +728,7 @@
 <p><code class="docutils literal"><span class="pre">secret_data</span></code> is a string</p>
 <p>NOTE: these days, you probably need to use Unicode for text &#8211; we&#8217;ll get to that next week</p>
 <p>Binary Files</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.bin&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;secrets.bin&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
 <span class="n">secret_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -737,9 +737,9 @@
 <p>(with arbitrary bytes in it &#8211; well, not arbitrary &#8211; whatever is in the file.)</p>
 <p>(See the <code class="docutils literal"><span class="pre">struct</span></code>  module to unpack binary data )</p>
 <p>File Opening Modes</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">mode</span><span class="p">])</span>
-<span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span>
-<span class="s">&#39;rb&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">,</span> <span class="s">&#39;ab&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;secrets.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">mode</span><span class="p">])</span>
+<span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span>
+<span class="s1">&#39;rb&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span>
 <span class="n">r</span><span class="o">+</span><span class="p">,</span> <span class="n">w</span><span class="o">+</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span>
 <span class="n">r</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">w</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
 </pre></div>
@@ -767,20 +767,20 @@ in the Python docs. But these BSD docs make it pretty clear:</p>
 <div class="section" id="file-reading">
 <h3>File Reading<a class="headerlink" href="#file-reading" title="Permalink to this headline">¶</a></h3>
 <p>Reading part of a file</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">header_size</span> <span class="o">=</span> <span class="mi">4096</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">header_size</span> <span class="o">=</span> <span class="mi">4096</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;secrets.txt&#39;</span><span class="p">)</span>
 <span class="n">secret_header</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">header_size</span><span class="p">)</span>
 <span class="n">secret_rest</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Common Idioms</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;secrets.txt&#39;</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(the file object is an iterator!)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;secrets.txt&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;secrets.txt&#39;</span><span class="p">)</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
@@ -790,7 +790,7 @@ in the Python docs. But these BSD docs make it pretty clear:</p>
 </div>
 <p>We will learn more about the keyword with later, but for now, just understand
 the syntax and the advantage over the try-finally block:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;workfile&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;workfile&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">closed</span>
 <span class="bp">True</span>
@@ -799,25 +799,25 @@ the syntax and the advantage over the try-finally block:</p>
 </div>
 <div class="section" id="file-writing">
 <h3>File Writing<a class="headerlink" href="#file-writing" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;this is line: </span><span class="si">%i</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;this is line: </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
 <span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">):</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-       <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;this is line: </span><span class="si">%i</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
+       <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;this is line: </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="file-methods">
 <h3>File Methods<a class="headerlink" href="#file-methods" title="Permalink to this headline">¶</a></h3>
 <p>Commonly Used Methods</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
 
-<span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>   <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="c"># for binary files, mostly</span>
+<span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>   <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span> <span class="c1"># for binary files, mostly</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -825,19 +825,19 @@ the syntax and the advantage over the try-finally block:</p>
 </div>
 <div class="section" id="stringio">
 <h3>StringIO<a class="headerlink" href="#stringio" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">417</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">io</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">417</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">io</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">420</span><span class="p">]:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-<span class="n">In</span> <span class="p">[</span><span class="mi">421</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;somestuff&quot;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">421</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;somestuff&quot;</span><span class="p">)</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">422</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">In</span> <span class="p">[</span><span class="mi">423</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">423</span><span class="p">]:</span> <span class="s">&#39;somestuff&#39;</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">423</span><span class="p">]:</span> <span class="s1">&#39;somestuff&#39;</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">424</span><span class="p">]:</span> <span class="n">stuff</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">425</span><span class="p">]:</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(handy for testing file handling code...)</p>
 <p>There is also cStringIO &#8211; a bit faster.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cStringIO</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cStringIO</span> <span class="kn">import</span> <span class="n">StringIO</span>
 </pre></div>
 </div>
 </div>
@@ -848,12 +848,12 @@ the syntax and the advantage over the try-finally block:</p>
 <h3>Paths<a class="headerlink" href="#paths" title="Permalink to this headline">¶</a></h3>
 <p>Paths are generally handled with simple strings (or Unicode strings)</p>
 <p>Relative paths:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;secret.txt&#39;</span>
-<span class="s">&#39;./secret.txt&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;secret.txt&#39;</span>
+<span class="s1">&#39;./secret.txt&#39;</span>
 </pre></div>
 </div>
 <p>Absolute paths:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;/home/chris/secret.txt&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="s1">&#39;/home/chris/secret.txt&#39;</span>
 </pre></div>
 </div>
 <p>Either work with <code class="docutils literal"><span class="pre">open()</span></code> , etc.</p>
@@ -861,13 +861,13 @@ the syntax and the advantage over the try-finally block:</p>
 </div>
 <div class="section" id="os-module">
 <h3>os module<a class="headerlink" href="#os-module" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">()</span>
@@ -875,7 +875,7 @@ the syntax and the advantage over the try-finally block:</p>
 </pre></div>
 </div>
 <p>(all platform independent)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">()</span>
 </pre></div>
@@ -887,8 +887,8 @@ the syntax and the advantage over the try-finally block:</p>
 <p><code class="docutils literal"><span class="pre">pathlib</span></code> is a package for handling paths in an OO way:</p>
 <p><a class="reference external" href="http://pathlib.readthedocs.org/en/pep428/">http://pathlib.readthedocs.org/en/pep428/</a></p>
 <p>All the stuff in os.path and more:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [64]: </span><span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="gp">In [65]: </span><span class="n">pth</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s">&#39;./&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="gp">In [65]: </span><span class="n">pth</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">)</span>
 <span class="gp">In [66]: </span><span class="n">pth</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
 <span class="gh">Out[66]: </span><span class="go">True</span>
 <span class="gp">In [67]: </span><span class="n">pth</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
@@ -948,7 +948,7 @@ your repo. Otherwise, you can get it from gitHub:</p>
 <blockquote>
 <div><p><a class="reference external" href="http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/">http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/</a></p>
 <p>and in this doc:</p>
-<p><a class="reference internal" href="exercises/kata_fourteen.html"><em>Kata Fourteen: Tom Swift Under Milk Wood</em></a></p>
+<p><a class="reference internal" href="exercises/kata_fourteen.html"><span class="doc">Kata Fourteen: Tom Swift Under Milk Wood</span></a></p>
 <p>and on github here</p>
 <p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/exercises/kata_fourteen.html">http://uwpce-pythoncert.github.io/IntroToPython/exercises/kata_fourteen.html</a></p>
 </div></blockquote>
@@ -957,7 +957,7 @@ your repo. Otherwise, you can get it from gitHub:</p>
 <ul>
 <li><p class="first">Use The Adventures of Sherlock Holmes as input:</p>
 <blockquote>
-<div><p><a class="reference download internal" href="_downloads/sherlock.txt"><code class="xref download docutils literal"><span class="pre">./exercises/sherlock.txt</span></code></a></p>
+<div><p><a class="reference download internal" href="_downloads/sherlock.txt" download=""><code class="xref download docutils literal"><span class="pre">./exercises/sherlock.txt</span></code></a></p>
 <p>and on github here:</p>
 <p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt">http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt</a></p>
 </div></blockquote>
