@@ -67,7 +67,9 @@ Who are you?
 
 * name
 * programming background: what languages have you used?
-* what do you hope to get from this class
+* neighbor's name
+* neighbor's favorite coffee shop or bar
+
 
 Introduction to This Class
 ==========================
@@ -89,13 +91,6 @@ Also there are some excercise descriptions and supplemental materials.
 The source of these materials are in the class gitHub repo:
 
 https://github.com/UWPCE-PythonCert/IntroToPython
-
-Class email list: We will be using this list to communicate for this class:
-
-programming-in-python@googlegroups.com
-
-You should have (or will soon) received and email invitation to join
-the mailing list.
 
 
 Class Structure
@@ -124,24 +119,35 @@ Homework:
 
 * You can do a gitHub "pull request" if you want us to review your work.
 
-    - We'll review how to do that in the second Session
+    - We'll show you how to do that in the second Session
 
 
-Mailing list and Office Hours
-------------------------------
+Communication
+-------------
 
 **Mailing list:**
 
-We've set up a google group -- you will all be invited to join:
+We've set up a google group for this class:
 
-``programming-in-python@googlegroups.com``
+programming-in-python@googlegroups.com
+
+We will be using this list to communicate with you. You should have (or will soon)
+received an email invitation to join the mailing list.
+
+Slack: We have set up a slack channel for discussions. Anything python related is fair game.
+
+https://python2016fall.slack.com/
+
+We highly encourage you to work together. You will learn at a much deeper level if you work together,
+and it gets your ready to collaborate with colleagues.
 
 **Office Hours:**
 
 I generally will hold "office hours" at a coffee shop for a couple hours
-each weekend.
+each weekend. Please feel free to attend even if you do not have a specific question.
+It is an opportunity to work with the instructors and fellow students, and learn from each other.
 
-Maria can do some as well.
+Maria will do some as well.
 
 What are good times for you?
 
@@ -309,9 +315,9 @@ Having some facility on the command line is important
 We won't cover this much in class, so if you are not comfortable,
 please bone up at home.
 
-I suggest running through the **cli** tutorial at "learn code the hard way":
+Software Carpentry has a decent intro to the command line:
+https://swcarpentry.github.io/shell-novice/01-intro/
 
-http://cli.learncodethehardway.org/book/
 
 **Windows:**
 
