@@ -141,17 +141,23 @@ https://python2016fall.slack.com/
 We highly encourage you to work together. You will learn at a much deeper level if you work together,
 and it gets your ready to collaborate with colleagues.
 
-**Office Hours:**
 
-I generally will hold "office hours" at a coffee shop for a couple hours
-each weekend. Please feel free to attend even if you do not have a specific question.
-It is an opportunity to work with the instructors and fellow students, and learn from each other.
+
+Office Hours
+------------
+
+We will generally will hold "office hours" at a coffee shop for a couple hours
+each weekend.
+
+Please feel free to attend even if you do not have a specific question.
+It is an opportunity to work with the instructors and fellow students,
+and learn from each other.
 
 Maria will do some as well.
 
 What are good times for you?
 
-
+And what locations?
 
 Lightning Talks
 ----------------
@@ -161,7 +167,7 @@ Lightning Talks
  * 5 minutes each (including setup) - no kidding!
  * Every student will give one
  * Purposes: introduce yourself, share interests, show Python applications
- * Any topic you like, that is related to Python -- according to you!
+ * Any topic you like that is related to Python -- according to you!
 
 
 
