@@ -3,6 +3,12 @@
 # simple script to build and push to gh-pages
 # designed to be run from master
 
+# To use this script you need another copy of the repo, right next this
+# one, but named "IntroToPython.gh-pages"
+# this script then builds the docs, then copies them to the other repo
+# then pushed to the gh-pages branch.
+
+
 # make the docs
 make html
 
