@@ -292,7 +292,7 @@ This class uses Python 3 -- not Python 2
 * Adoption of Python 3 is growing fast
 
   * Almost all key packages now supported (https://python3wos.appspot.com/)
-  * But most code in the wild is still 2.x
+  * But much code in the wild is still 2.x
 
 * If you find yourself needing to work with Python 2 and 3, there are ways to write compatible code: https://wiki.python.org/moin/PortingPythonToPy3k
 
