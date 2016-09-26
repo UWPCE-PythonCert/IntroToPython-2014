@@ -92,6 +92,13 @@ The source of these materials are in the class gitHub repo:
 
 https://github.com/UWPCE-PythonCert/IntroToPython
 
+We also have a bunch of supplimental resources for the program here:
+
+http://uwpce-pythoncert.github.io/PythonResources/index.html
+
+The source for those is here:
+
+https://github.com/UWPCE-PythonCert/PythonResources
 
 Class Structure
 ---------------
@@ -138,9 +145,7 @@ Slack: We have set up a slack channel for discussions. Anything python related i
 
 https://python2016fall.slack.com/
 
-We highly encourage you to work together. You will learn at a much deeper level if you work together,
-and it gets your ready to collaborate with colleagues.
-
+We highly encourage you to work together. You will learn at a much deeper level if you work together, and it gets your ready to collaborate with colleagues.
 
 
 Office Hours
@@ -152,8 +157,6 @@ each weekend.
 Please feel free to attend even if you do not have a specific question.
 It is an opportunity to work with the instructors and fellow students,
 and learn from each other.
-
-Maria will do some as well.
 
 What are good times for you?
 
@@ -170,10 +173,8 @@ Lightning Talks
  * Any topic you like that is related to Python -- according to you!
 
 
-
 Python Ecosystem
 ================
-
 
 What is Python?
 ---------------
@@ -321,9 +322,9 @@ Having some facility on the command line is important
 We won't cover this much in class, so if you are not comfortable,
 please bone up at home.
 
-Software Carpentry has a decent intro to the command line:
-https://swcarpentry.github.io/shell-novice/01-intro/
+We have some resources here:
 
+http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/command_line.html
 
 **Windows:**
 
@@ -345,7 +346,7 @@ You see it when you type ``python`` at the command line:
 .. code-block:: bash
 
   $ python
-  Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
+  Python 3.5.2 (v3.5.2:374f501f4567, Sep 12 2015, 11:00:19)
   [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
   Type "help", "copyright", "credits" or "license" for more information.
 
@@ -360,11 +361,12 @@ Before we move on -- we need to get all of us on the same page, with the tools w
 
 You will find instructions for how to get python, etc, up and running on your machine here:
 
-**Windows:** ::ref:`python_for_windows`
+**Windows:** http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_windows.html
 
-**OS-X:** ::ref:`python_for_mac`
+**OS-X:** http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_mac.html
 
-**Linux:** ::ref:`python_for_linux`
+**Linux:** http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html
+
 
 Python in the Interpreter
 -------------------------
@@ -441,8 +443,7 @@ Your Editor
 
 Typing code in an interpreter is great for exploring.
 
-But for anything "real", you'll want to save the work you are doing in a more permanent
-fashion.
+But for anything "real", you'll want to save the work you are doing in a more permanent fashion.
 
 This is where an Editor fits in.
 
@@ -462,7 +463,6 @@ A text editor saves only what it shows you, with no special formatting
 characters hidden behind the scenes.
 
 .. nextslide:: Minimum Requirements
-
 
 At a minimum, your editor should have:
 
@@ -533,7 +533,6 @@ Step 1: Python 3
 Do you already have this??
 
 .. code-block:: bash
-
 
   $ python
   Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
