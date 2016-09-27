@@ -109,18 +109,14 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#introduction-to-your-environment">Introduction to Your Environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#your-command-line-cli">Your Command Line (cli)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#your-interpreter">Your Interpreter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lab-getting-set-up">LAB: Getting set up</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#python-in-the-interpreter">Python in the Interpreter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#your-editor">Your Editor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#why-no-ide">Why No IDE?</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-environment">Setting Up Your Environment</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#our-class-environment">Our Class Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#step-1-python-3">Step 1: Python 3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#step-2-pip">Step 2: Pip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#step-3-install-ipython">Step 3: Install iPython</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-in-the-interpreter">Python in the Interpreter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#your-editor">Your Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-no-ide">Why No IDE?</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#introduction-to-ipython">Introduction to iPython</a><ul>
@@ -134,8 +130,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#literals-for-the-basic-value-types">Literals for the Basic Value types:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#code-structure">Code structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#expressions">Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#symbols">Symbols</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#symbols-and-type">Symbols and Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#names">Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#names-and-type">Names and Type</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assignment">Assignment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#in-place-assignment">In-Place Assignment</a></li>
@@ -290,15 +286,15 @@ and your new best friend, Python.</p>
 </div>
 <div class="section" id="introduction-to-this-class">
 <h2>Introduction to This Class<a class="headerlink" href="#introduction-to-this-class" title="Permalink to this headline">¶</a></h2>
-<p class="center large">Intro to Python</p>
+<p class="center large">Introduction to Python</p>
 <div class="section" id="course-materials-online">
 <h3>Course Materials Online<a class="headerlink" href="#course-materials-online" title="Permalink to this headline">¶</a></h3>
 <p>A rendered HTML copy of the slides for this course may be found online at:</p>
 <p><a class="reference external" href="http://uwpce-pythoncert.github.io/IntroToPython">http://uwpce-pythoncert.github.io/IntroToPython</a></p>
-<p>Also there are some excercise descriptions and supplemental materials.</p>
+<p>Also there are some exercise descriptions and supplemental materials.</p>
 <p>The source of these materials are in the class gitHub repo:</p>
 <p><a class="reference external" href="https://github.com/UWPCE-PythonCert/IntroToPython">https://github.com/UWPCE-PythonCert/IntroToPython</a></p>
-<p>We also have a bunch of supplimental resources for the program here:</p>
+<p>We also have a bunch of supplemental resources for the program here:</p>
 <p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/index.html">http://uwpce-pythoncert.github.io/PythonResources/index.html</a></p>
 <p>The source for those is here:</p>
 <p><a class="reference external" href="https://github.com/UWPCE-PythonCert/PythonResources">https://github.com/UWPCE-PythonCert/PythonResources</a></p>
@@ -321,7 +317,7 @@ and your new best friend, Python.</p>
 <div class="section" id="homework">
 <h3>Homework:<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p class="first">Most homework will be reading, and the occasional Video</p>
+<li><p class="first">Homework will be reading, exercises, and the occasional Video</p>
 </li>
 <li><p class="first">Exercises will be started in class &#8211; but you can finish them at home.</p>
 </li>
@@ -330,7 +326,7 @@ and your new best friend, Python.</p>
 <li><p class="first">You can do a gitHub &#8220;pull request&#8221; if you want us to review your work.</p>
 <blockquote>
 <div><ul class="simple">
-<li>We&#8217;ll show you how to do that in the second Session</li>
+<li>We&#8217;ll show you how to do that in the second session</li>
 </ul>
 </div></blockquote>
 </li>
@@ -339,10 +335,9 @@ and your new best friend, Python.</p>
 <div class="section" id="communication">
 <h3>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h3>
 <p><strong>Mailing list:</strong></p>
-<p>We&#8217;ve set up a google group for this class:</p>
+<p>We&#8217;ve set up a Google Group for this class:</p>
 <p><a class="reference external" href="mailto:programming-in-python&#37;&#52;&#48;googlegroups&#46;com">programming-in-python<span>&#64;</span>googlegroups<span>&#46;</span>com</a></p>
-<p>We will be using this list to communicate with you. You should have (or will soon)
-received an email invitation to join the mailing list.</p>
+<p>We will be using this list to communicate with you. You should have (or will soon) received an email invitation to join the mailing list.</p>
 <p>Slack: We have set up a slack channel for discussions. Anything python related is fair game.</p>
 <p><a class="reference external" href="https://python2016fall.slack.com/">https://python2016fall.slack.com/</a></p>
 <p>We highly encourage you to work together. You will learn at a much deeper level if you work together, and it gets your ready to collaborate with colleagues.</p>
@@ -448,13 +443,16 @@ simpler</li>
 <li>Allowed to break code</li>
 </ul>
 <p>This class uses Python 3 &#8211; not Python 2</p>
-<ul class="build simple">
+<ul class="simple">
 <li>Adoption of Python 3 is growing fast<ul>
 <li>Almost all key packages now supported (<a class="reference external" href="https://python3wos.appspot.com/">https://python3wos.appspot.com/</a>)</li>
 <li>But much code in the wild is still 2.x</li>
 </ul>
 </li>
-<li>If you find yourself needing to work with Python 2 and 3, there are ways to write compatible code: <a class="reference external" href="https://wiki.python.org/moin/PortingPythonToPy3k">https://wiki.python.org/moin/PortingPythonToPy3k</a></li>
+<li>If you find yourself needing to work with Python 2 and 3, there are ways to write compatible code:</li>
+</ul>
+<p><a class="reference external" href="https://wiki.python.org/moin/PortingPythonToPy3k">https://wiki.python.org/moin/PortingPythonToPy3k</a></p>
+<ul class="simple">
 <li>We will cover that more later in the program. Also: a short intro to the differences you really need to know about up front later this session.</li>
 </ul>
 </div>
@@ -472,34 +470,68 @@ simpler</li>
 <p>Having some facility on the command line is important</p>
 <p>We won&#8217;t cover this much in class, so if you are not comfortable,
 please bone up at home.</p>
-<p>We have some resources here:</p>
-<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/command_line.html">http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/command_line.html</a></p>
+<p>We have some resources here: <a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/command_line.html">PythonResources&#8211;command line</a></p>
 <p><strong>Windows:</strong></p>
 <p>Most of the demos in class, etc, will be done using the &#8220;bash&#8221; command line shell on OS-X. This is identical to the bash shell on Linux.</p>
 <p>Windows provides the &#8220;DOS&#8221; command line, which is OK, but pretty old and limited, or &#8220;Power Shell&#8221; &#8211; a more modern, powerful, flexible command shell.</p>
 <p>If you are comfortable with either of these &#8211; go for it.</p>
 <p>If not, you can use the &#8220;git Bash&#8221; shell &#8211; which is much like the bash shell on OS-X and Linux.</p>
 </div>
-<div class="section" id="your-interpreter">
-<h3>Your Interpreter<a class="headerlink" href="#your-interpreter" title="Permalink to this headline">¶</a></h3>
-<p>Python comes with a built-in interpreter.</p>
-<p>You see it when you type <code class="docutils literal"><span class="pre">python</span></code> at the command line:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python
-Python 3.5.2 <span class="o">(</span>v3.5.2:374f501f4567, Sep <span class="m">12</span> 2015, 11:00:19<span class="o">)</span>
-<span class="o">[</span>GCC 4.2.1 <span class="o">(</span>Apple Inc. build 5666<span class="o">)</span> <span class="o">(</span>dot 3<span class="o">)]</span> on darwin
-Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
-</pre></div>
-</div>
-<p>That last thing you see, <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code> is the &#8220;Python prompt&#8221;.</p>
-<p>This is where you type code.</p>
-</div>
 <div class="section" id="lab-getting-set-up">
 <h3>LAB: Getting set up<a class="headerlink" href="#lab-getting-set-up" title="Permalink to this headline">¶</a></h3>
 <p>Before we move on &#8211; we need to get all of us on the same page, with the tools we need for class.</p>
 <p>You will find instructions for how to get python, etc, up and running on your machine here:</p>
-<p><strong>Windows:</strong> <a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_windows.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_windows.html</a></p>
-<p><strong>OS-X:</strong> <a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_mac.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_mac.html</a></p>
-<p><strong>Linux:</strong> <a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html</a></p>
+<p><strong>Windows:</strong></p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_windows.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_windows.html</a></p>
+<p><strong>OS-X:</strong></p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_mac.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_mac.html</a></p>
+<p><strong>Linux:</strong></p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html</a></p>
+<p>We&#8217;ll run through some of that together.</p>
+</div>
+<div class="section" id="our-class-environment">
+<h3>Our Class Environment<a class="headerlink" href="#our-class-environment" title="Permalink to this headline">¶</a></h3>
+<p>We are going to work from a common environment in this class.</p>
+<p>We will take the time here in class to get this going.</p>
+<p>This helps to ensure that you will be able to work.</p>
+</div>
+<div class="section" id="step-1-python-3">
+<h3>Step 1: Python 3<a class="headerlink" href="#step-1-python-3" title="Permalink to this headline">¶</a></h3>
+<p class="medium">Do you already have this??</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python
+Python 3.5.2 <span class="o">(</span>v3.5.2:4def2a2901a5, Jun <span class="m">26</span> 2016, 10:47:25<span class="o">)</span>
+<span class="o">[</span>GCC 4.2.1 <span class="o">(</span>Apple Inc. build 5666<span class="o">)</span> <span class="o">(</span>dot 3<span class="o">)]</span> on darwin
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>If not, or you have an older version &#8211; let&#8217;s install it!</p>
+<p>If you&#8217;re all ready to go &#8211; take this time to get started on a tutorial:</p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/GeneralPython/learning.html#getting-started-tutorials">http://uwpce-pythoncert.github.io/PythonResources/GeneralPython/learning.html#getting-started-tutorials</a></p>
+</div>
+<div class="section" id="step-2-pip">
+<h3>Step 2: Pip<a class="headerlink" href="#step-2-pip" title="Permalink to this headline">¶</a></h3>
+<p>Python comes with quite a bit (&#8220;batteries included&#8221;).</p>
+<p>Sometimes you need a bit more.</p>
+<p>Pip allows you to install Python packages to expand your system.</p>
+<p>The previous instructions include pip as well - make sure it&#8217;s working.</p>
+<p>Once you&#8217;ve installed pip, you use it to install Python packages by name:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python -m pip install foobar
+...
+</pre></div>
+</div>
+<p>To find packages (and their proper names), you can search the python
+package index (PyPI):</p>
+<p><a class="reference external" href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a></p>
+</div>
+<div class="section" id="step-3-install-ipython">
+<h3>Step 3: Install iPython<a class="headerlink" href="#step-3-install-ipython" title="Permalink to this headline">¶</a></h3>
+<p>As this is an intro class, we are going to use almost entirely features
+of the standard library. But there are a couple things you may want:</p>
+<p><strong>iPython</strong> is an &#8220;enhanced python shell&#8221; &#8211; it make s it easier to work with python interactively.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python -m pip install ipython<span class="o">[</span>all<span class="o">]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="python-in-the-interpreter">
 <h3>Python in the Interpreter<a class="headerlink" href="#python-in-the-interpreter" title="Permalink to this headline">¶</a></h3>
@@ -571,12 +603,11 @@ characters hidden behind the scenes.</p>
 <ul class="build simple">
 <li>Tab completion</li>
 <li>Code linting</li>
-<li>Jump-to-definition</li>
 </ul>
 <p>Have an editor that does all this? Feel free to use it.</p>
-<p>If not, I suggest <code class="docutils literal"><span class="pre">SublimeText</span></code>:</p>
-<p><a class="reference external" href="http://www.sublimetext.com/">http://www.sublimetext.com/</a></p>
+<p>If not, I suggest <code class="docutils literal"><span class="pre">SublimeText</span></code>: <a class="reference external" href="http://www.sublimetext.com/">http://www.sublimetext.com/</a></p>
 <p>(Use version 3, even though it&#8217;s &#8220;beta&#8221;)</p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/sublime_as_ide.html">http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/sublime_as_ide.html</a></p>
 </div>
 <div class="section" id="why-no-ide">
 <h3>Why No IDE?<a class="headerlink" href="#why-no-ide" title="Permalink to this headline">¶</a></h3>
@@ -588,68 +619,15 @@ characters hidden behind the scenes.</p>
 <p class="center large">YAGNI</p>
 </div>
 </div>
-<div class="section" id="setting-up-your-environment">
-<h2>Setting Up Your Environment<a class="headerlink" href="#setting-up-your-environment" title="Permalink to this headline">¶</a></h2>
-<p class="centered large">Shared setup means reduced complications.</p>
-<div class="section" id="our-class-environment">
-<h3>Our Class Environment<a class="headerlink" href="#our-class-environment" title="Permalink to this headline">¶</a></h3>
-<p>We are going to work from a common environment in this class.</p>
-<p>We will take the time here in class to get this going.</p>
-<p>This helps to ensure that you will be able to work.</p>
-</div>
-<div class="section" id="step-1-python-3">
-<h3>Step 1: Python 3<a class="headerlink" href="#step-1-python-3" title="Permalink to this headline">¶</a></h3>
-<p class="large">Do you already have this??</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python
-Python 3.5.0 <span class="o">(</span>v3.5.0:374f501f4567, Sep <span class="m">12</span> 2015, 11:00:19<span class="o">)</span>
-<span class="o">[</span>GCC 4.2.1 <span class="o">(</span>Apple Inc. build 5666<span class="o">)</span> <span class="o">(</span>dot 3<span class="o">)]</span> on darwin
-Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
-&gt;&gt;&gt; ^D
-</pre></div>
-</div>
-<p>If not:</p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference external" href="./supplements/python_for_mac.html">For OS X</a></li>
-<li><a class="reference external" href="./supplements/python_for_linux.html">For Linux</a></li>
-<li><a class="reference external" href="./supplements/python_for_windows.html">For Windows</a></li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="step-2-pip">
-<h3>Step 2: Pip<a class="headerlink" href="#step-2-pip" title="Permalink to this headline">¶</a></h3>
-<p>Python comes with quite a bit (&#8220;batteries included&#8221;).</p>
-<p>Sometimes you need a bit more.</p>
-<p>Pip allows you to install Python packages to expand your system.</p>
-<p>The previous instructions include pip as well - make sure it&#8217;s working.</p>
-<p>Once you&#8217;ve installed pip, you use it to install Python packages by name:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python -m pip install foobar
-...
-</pre></div>
-</div>
-<p>To find packages (and their proper names), you can search the python
-package index (PyPI):</p>
-<p><a class="reference external" href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a></p>
-</div>
-<div class="section" id="step-3-install-ipython">
-<h3>Step 3: Install iPython<a class="headerlink" href="#step-3-install-ipython" title="Permalink to this headline">¶</a></h3>
-<p>As this is an intro class, we are going to use almost entirely features
-of standard library. But there are a couple things you may want:</p>
-<p><strong>iPython</strong> is an &#8220;enhanced python shell&#8221; &#8211; it make s it easier to work with python interatively.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python -m pip install ipython
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="introduction-to-ipython">
 <h2>Introduction to iPython<a class="headerlink" href="#introduction-to-ipython" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ipython-overview">
 <h3>iPython Overview<a class="headerlink" href="#ipython-overview" title="Permalink to this headline">¶</a></h3>
 <p>You have installed <a class="reference external" href="http://ipython.org">iPython</a>.</p>
 <p>iPython is an advanced Python interpreter that offers enhancements.</p>
-<p>You can read more about it in the <a class="reference external" href="http://ipython.org/ipython-doc/stable/index.html">official documentation</a>.</p>
+<p>You can read more about it in the <a class="reference external" href="http://ipython.readthedocs.io/en/stable/">official documentation</a>.</p>
 <p>Specifically, you&#8217;ll want to pay attention to the information about</p>
-<p><a class="reference external" href="http://ipython.org/ipython-doc/stable/interactive/index.html">Using iPython for Interactive Work</a>.</p>
+<p><a class="reference external" href="http://ipython.readthedocs.io/en/stable/interactive/index.html">Using iPython for Interactive Work</a>.</p>
 </div>
 <div class="section" id="the-very-basics-of-ipython">
 <h3>The very basics of iPython<a class="headerlink" href="#the-very-basics-of-ipython" title="Permalink to this headline">¶</a></h3>
@@ -738,7 +716,7 @@ object?   -&gt; Details about <span class="s1">&#39;object&#39;</span>, use <spa
 <div class="section" id="values">
 <h3>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h3>
 <p>All of programming is really about manipulating values.</p>
-<ul class="build simple">
+<ul class="simple">
 <li>Values are pieces of unnamed data: <code class="docutils literal"><span class="pre">42,</span> <span class="pre">'Hello,</span> <span class="pre">world',</span></code></li>
 <li>In Python, all values are objects<ul>
 <li>Try <code class="docutils literal"><span class="pre">dir(42)</span></code>  - lots going on behind the curtain!</li>
@@ -798,7 +776,7 @@ object?   -&gt; Details about <span class="s1">&#39;object&#39;</span>, use <spa
 </pre></div>
 </div>
 <p>It&#8217;s kind of obvious, but handy when playing with code:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;something&quot;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;something&quot;</span><span class="p">)</span>
 <span class="go">something</span>
 </pre></div>
 </div>
@@ -882,28 +860,28 @@ floored (integer) results</li>
 <li>Type errors - checked at run time only</li>
 </ul>
 </div>
-<div class="section" id="symbols">
-<h3>Symbols<a class="headerlink" href="#symbols" title="Permalink to this headline">¶</a></h3>
-<p>Symbols are how we give names to values (objects).</p>
+<div class="section" id="names">
+<h3>Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h3>
+<p>Names are how we give names to values (objects) &#8211; hence &#8220;names&#8221;</p>
 <ul class="build simple">
-<li>Symbols must begin with an underscore or letter</li>
-<li>Symbols can contain any number of underscores, letters and numbers<ul>
-<li>this_is_a_symbol</li>
+<li>Names must begin with an underscore or letter</li>
+<li>Names can contain any number of underscores, letters and numbers<ul>
+<li>this_is_a_name</li>
 <li>this_is_2</li>
 <li>_AsIsThis</li>
 <li>1butThisIsNot</li>
 <li>nor-is-this</li>
 </ul>
 </li>
-<li>Symbols don&#8217;t have a type; values do<ul>
+<li>Names don&#8217;t have a type; values do<ul>
 <li>This is why python is &#8220;Dynamic&#8221;</li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="symbols-and-type">
-<h3>Symbols and Type<a class="headerlink" href="#symbols-and-type" title="Permalink to this headline">¶</a></h3>
-<p>Evaluating the type of a <em>symbol</em> will return the type of the <em>value</em> to which
+<div class="section" id="names-and-type">
+<h3>Names and Type<a class="headerlink" href="#names-and-type" title="Permalink to this headline">¶</a></h3>
+<p>Evaluating the type of a <em>name</em> will return the type of the <em>value</em> to which
 it is bound.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="gh">Out[19]: </span><span class="go">int</span>
@@ -927,7 +905,7 @@ it is bound.</p>
 </div>
 <div class="section" id="assignment">
 <h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
-<p>A <em>symbol</em> is <strong>bound</strong> to a <em>value</em> with the assignment operator: <code class="docutils literal"><span class="pre">=</span></code></p>
+<p>A <em>name</em> is <strong>bound</strong> to a <em>value</em> with the assignment operator: <code class="docutils literal"><span class="pre">=</span></code></p>
 <ul class="build simple">
 <li>This attaches a name to a value</li>
 <li>A value can have many names (or none!)</li>
@@ -954,7 +932,7 @@ it is bound.</p>
 <div class="section" id="variables">
 <h3>Variables?<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <ul class="build simple">
-<li>In most languages, what I&#8217;m calling symbols, or names, are called &#8220;variables&#8221;.</li>
+<li>In most languages, what I&#8217;m calling names are called &#8220;variables&#8221;.</li>
 <li>In fact, I&#8217;ll probably call them variables in this class.</li>
 <li>That&#8217;s because they are used, for the most part, for the same purposes.</li>
 <li>But often a &#8220;variable&#8221; is defined as something like:
@@ -1069,7 +1047,7 @@ references to it.</p>
 <h3>Identity<a class="headerlink" href="#identity" title="Permalink to this headline">¶</a></h3>
 <p>Every value in Python is an object.</p>
 <p>Every object is unique and has a unique <em>identity</em>, which you can inspect with
-the <code class="docutils literal"><span class="pre">id</span></code> <em>builtin</em>:</p>
+the <code class="docutils literal"><span class="pre">id</span></code> <em>builtin</em> function:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [68]: </span><span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="gh">Out[68]: </span><span class="go">140553647890984</span>
 
@@ -1172,7 +1150,7 @@ object</strong> using the <code class="docutils literal"><span class="pre">is</s
 <div class="section" id="string-literals">
 <h3>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this headline">¶</a></h3>
 <p>A &#8220;string&#8221; is a chunk of text.</p>
-<p>You define a <code class="docutils literal"><span class="pre">string</span></code> value by writing a string <em>literal</em>:</p>
+<p>You define a &#8220;string&#8221; value by writing a string <em>literal</em>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="s1">&#39;a string&#39;</span>
 <span class="gh">Out[1]: </span><span class="go">&#39;a string&#39;</span>
 
@@ -1214,7 +1192,7 @@ object</strong> using the <code class="docutils literal"><span class="pre">is</s
 <span class="k">def</span>       <span class="nf">for</span>       <span class="k">lambda</span>    <span class="k">try</span>
 </pre></div>
 </div>
-<p>If you try to use any of the keywords as symbols, you will cause a
+<p>If you try to use any of the keywords as names, you will cause a
 <code class="docutils literal"><span class="pre">SyntaxError</span></code>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="k">del</span> <span class="o">=</span> <span class="s2">&quot;this will raise an error&quot;</span>
 <span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-13-c816927c2fb8&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
@@ -1235,7 +1213,7 @@ object</strong> using the <code class="docutils literal"><span class="pre">is</s
 </div>
 <div class="section" id="builtins">
 <h3>__builtins__<a class="headerlink" href="#builtins" title="Permalink to this headline">¶</a></h3>
-<p>Python also has a number of pre-bound symbols, called <strong>builtins</strong></p>
+<p>Python also has a number of pre-bound names, called <strong>builtins</strong></p>
 <p>Try this:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">)</span>
 <span class="gh">Out[6]:</span>
@@ -1393,7 +1371,7 @@ or in multiple parts of the program.</p>
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 </div>
-<p>if you don&#8217;t explicilty put <code class="docutils literal"><span class="pre">return</span></code>  there, Python will:</p>
+<p>if you don&#8217;t explicitly put <code class="docutils literal"><span class="pre">return</span></code>  there, Python will return None for you:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
 <span class="gp">   ...: </span>    <span class="k">pass</span>
 <span class="gp">   ...:</span>
@@ -1561,12 +1539,12 @@ exercises in Python programming</p>
 <p><strong>Set Up a Great Dev Environment</strong></p>
 <p>Make sure you have the basics of command line usage down:</p>
 <p>Work through the supplemental tutorials on setting up your
-Command Line (:<a class="reference internal" href="supplements/shell.html#shell-customization"><span class="std std-ref">Shell Customizations for Python Development</span></a>) for good development support.</p>
+Command Line (<a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/shell.html">http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/shell.html</a>) for good development support.</p>
 <p>Make sure you&#8217;ve got your editor set up productively &#8211; at the very very
 least, make sure it does Python indentation and syntax coloring well.</p>
 <p><strong>Advanced Editor Setup:</strong></p>
 <p>If you are using SublimeText, here are some notes to make it super-nifty:</p>
-<p>:<a class="reference internal" href="supplements/sublime_as_ide.html#sublime-as-ide"><span class="std std-ref">Turning Sublime Text Into a Lightweight Python IDE</span></a></p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/sublime_as_ide.html">http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/sublime_as_ide.html</a></p>
 <p>At the end, your editor should support tab completion and pep8 and pyflakes
 linting.</p>
 <p>If you are not using SublimeText, look for plugins that accomplish the same
@@ -1615,15 +1593,15 @@ get all the &#8220;Warmups&#8221; done.</p>
 <h3>Reading, etc.<a class="headerlink" href="#reading-etc" title="Permalink to this headline">¶</a></h3>
 <p>Every one of you has a different backgrond and learning style.</p>
 <p>So take a bit of time to figure out which resource works for you.</p>
-<p><a class="reference internal" href="supplements/python_learning_resources.html#python-learning-resources"><span class="std std-ref">Useful Python Learning Resources</span></a> provides some options. Do look it over.</p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/GeneralPython/learning.html">http://uwpce-pythoncert.github.io/PythonResources/GeneralPython/learning.html</a></p>
+<p>provides some options. Do look it over.</p>
 <p>But here are few to get you started this week:</p>
 <p><em>Think Python:</em> Chapters 1–7 (<a class="reference external" href="http://greenteapress.com/wp/think-python-2e/">http://greenteapress.com/wp/think-python-2e/</a>)</p>
 <p><em>Dive Into Python:</em> Chapters 1–2 (<a class="reference external" href="http://www.diveintopython3.net/">http://www.diveintopython3.net/</a>)</p>
 <p><em>LPTHW:</em> ex. 1–10, 18-21 (<a class="reference external" href="http://learnpythonthehardway.org/book/">http://learnpythonthehardway.org/book/</a>)</p>
 <p><em>NOTE:</em> LPTHW is python 2 &#8211; you will need to add parentheses to all your print calls!</p>
 <p>Or follow this excellent introductory tutorial:</p>
-<p><a class="reference external" href="http://pyvideo.org/video/1850/a-hands-on-introduction-to-python-for-beginning-p">http://pyvideo.org/video/1850/a-hands-on-introduction-to-python-for-beginning-p</a></p>
-<p>(also python2 &#8211; so same thing with the print function...)</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=MirG-vJOg04">https://www.youtube.com/watch?v=MirG-vJOg04</a></p>
 <p>You should be comfortable with working with variables, numbers, strings, and basic functions.</p>
 </div>
 <div class="section" id="git">
@@ -1639,7 +1617,7 @@ get all the &#8220;Warmups&#8221; done.</p>
 <p>Next week, we&#8217;ll:</p>
 <blockquote>
 <div><ul class="simple">
-<li>get set up with git</li>
+<li>get set up with git and gitHub</li>
 <li>Some more basic Python</li>
 <li>More on Functions</li>
 <li>Boolean Expressions</li>
