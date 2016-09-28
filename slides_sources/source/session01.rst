@@ -355,6 +355,10 @@ http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.ht
 
 We'll run through some of that together.
 
+If you already have a working environment, please feel free to help your neighbor
+or look at the Python Resources pages, particularly reviewing/learning the shell and git.
+
+http://uwpce-pythoncert.github.io/PythonResources
 
 Our Class Environment
 ---------------------
