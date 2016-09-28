@@ -27,7 +27,7 @@ random.shuffle(students)
 weeks = list(range(2, 11))
 
 # make three of them...
-weeks = weeks * 3
+weeks = weeks * 4
 
 # put the students together with the weeks
 schedule = zip(weeks, students)
