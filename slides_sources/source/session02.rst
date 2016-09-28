@@ -96,7 +96,9 @@ Editor
 ------
 
 You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, unless you already know vi, you should set up a different editor.
-Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown in link below). To install nano on Windows: :ref:`supplement_install_nano_win`
+Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown in link below). To install nano on Windows:
+
+http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html
 
 Once you have chosen/installed an editor, configure git to use it:
 
@@ -350,7 +352,7 @@ NOTE: you can do that in one step with:
 
 .. nextslide:: Pushing to Origin
 
-Now all the changes from *upstream* are present in your local clone. 
+Now all the changes from *upstream* are present in your local clone.
 You should do this pull everytime you start to work on code.
 
 In order to preserve them in your fork on GitHub, you'll have to push:
@@ -385,13 +387,13 @@ You can incorporate this into your daily workflow: ::
 .. nextslide:: Note
 
 Because of the way we have set up the class, you will be able
-to see all work submitted to us from everyone in the class in 
+to see all work submitted to us from everyone in the class in
 the students directory on your machine. This is not a bad thing.
-And the files tend to be small. 
+And the files tend to be small.
 
 We encourage sharing of knowledge in this class. Helping your
-fellow students will also help you to better understand. Share 
-your code, and get use to giving/receiving feedback on how to 
+fellow students will also help you to better understand. Share
+your code, and get use to giving/receiving feedback on how to
 improve your code, if you are not already.
 
 
@@ -447,7 +449,7 @@ And when you want us to take a look, you can go to gitHub and do a "Pull Request
 Committing your code
 --------------------
 
-Commit early and often. 
+Commit early and often.
 
 
 Lightning Talk:
