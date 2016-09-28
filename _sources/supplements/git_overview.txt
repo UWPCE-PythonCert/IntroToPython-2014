@@ -4,6 +4,35 @@
 git Overview
 ============
 
+
+Resources
+=========
+
+.. rst-class:: left
+    Here are few good places to look for more info about using git:
+
+
+    **Pro git**
+
+    The semi-offical documentation -- the first few chapters are worth going through:
+
+    https://git-scm.com/book/en
+
+    Reading suggested at the end of session 1:
+    
+    http://rogerdudler.github.io/git-guide/
+
+
+    https://try.github.io/levels/1/challenges/1
+    
+    
+    ** git Branching: getting fancy **
+    
+    Interactive tutorial about branching -- try it right in the browser!
+
+    http://pcottle.github.io/learnGitBranching/
+
+
 A Graphical Tutorial
 ====================
 
@@ -204,22 +233,3 @@ code in any language and will cause errors.
 
 Once a conflict is resolved, you can ``git add`` the file back and then commit
 the merge.
-
-Other Resources
-===============
-
-.. rst-class:: left
-    Here are few good places to look for more info about using git:
-
-
-    **Pro git**
-
-    The semi-offical documentation -- the first few chapters are worth going through:
-
-    https://git-scm.com/book/en
-
-    ** git Branching**
-
-    Interactive tutorial about branching -- try it right in the browser!
-
-    http://pcottle.github.io/learnGitBranching/

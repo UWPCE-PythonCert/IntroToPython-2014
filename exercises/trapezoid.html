@@ -216,7 +216,7 @@
 </div>
 <p>In the function, you want to compute the following equation:</p>
 <div class="math">
-\[area = \frac{b-a}{2N}(f(x_0) + 2f(x_1) + 2f(x_2) + \dotsb + 2f(x_{N-1}) + f(x_N))\]</div>
+area = \frac{b-a}{2N}(f(x_0) + 2f(x_1) + 2f(x_2) + \dotsb + 2f(x_{N-1}) + f(x_N))</div>
 <p>So you will need to:</p>
 <blockquote>
 <div><ul class="simple">
@@ -228,7 +228,7 @@
 </div></blockquote>
 <p>Note that the first and last values are not doubled, so it may be more efficient to rearrange it like this:</p>
 <div class="math">
-\[area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i) \right)\]</div>
+area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i) \right)</div>
 <p>Can you use comprehensions for this?</p>
 <p>NOTE: <code class="docutils literal"><span class="pre">range()</span></code> only works for integers &#8211; how can you deal with that?</p>
 <p>Once you have that, it should work for any function that can be evaluated between a and b.</p>
@@ -241,13 +241,13 @@
 <p>A simple horizontal line &#8211; see above.</p>
 <p>A sloped straight line:</p>
 <div class="math">
-\[\int_a^b  y = mx + B = \frac{1}{2} m (b^2-a^2) + B (b-a)\]</div>
+\int_a^b  y = mx + B = \frac{1}{2} m (b^2-a^2) + B (b-a)</div>
 <p>The quadratic:</p>
 <div class="math">
-\[\int_a^b  y = Ax^2 + Bx + C = \frac{A}{3} (b^3-a^3) + \frac{B}{2} (b^2-a^2) + C (b-a)\]</div>
+\int_a^b  y = Ax^2 + Bx + C = \frac{A}{3} (b^3-a^3) + \frac{B}{2} (b^2-a^2) + C (b-a)</div>
 <p>The sine function:</p>
 <div class="math">
-\[\int_a^b \sin(x) = \cos(a) - \cos(b)\]</div>
+\int_a^b \sin(x) = \cos(a) - \cos(b)</div>
 </div>
 <div class="section" id="computational-accuracy">
 <h3>Computational Accuracy<a class="headerlink" href="#computational-accuracy" title="Permalink to this headline">¶</a></h3>
@@ -263,7 +263,7 @@
 <h3>Stage two:<a class="headerlink" href="#stage-two" title="Permalink to this headline">¶</a></h3>
 <p>Some functions need extra parameters to do their thing. But the above will only handle a single parameter. For example, a quadratic function:</p>
 <div class="math">
-\[y = A x^2 + Bx + C\]</div>
+y = A x^2 + Bx + C</div>
 <p>Requires values for A, B, and C in order to compute y from an given x.</p>
 <p>You could write a specialized version of this function for each A, B, and C:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quad1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -302,10 +302,10 @@
 <p>You want your trapz function to take ANY function that can take ANY arbitrary extra arguments &#8211; not just the quadratic function, and not just <code class="docutils literal"><span class="pre">A,B,</span> <span class="pre">and</span> <span class="pre">C</span></code>. So good to test with another example.</p>
 <p>The generalized sine function is:</p>
 <div class="math">
-\[A \sin(\omega t)\]</div>
-<p>where <span class="math">\(A\)</span> is the amplitude, and <span class="math">\(\omega\)</span> is the frequency of the function. In this case, the area under the curve from a to b is:</p>
+A \sin(\omega t)</div>
+<p>where <span class="math">A</span> is the amplitude, and <span class="math">\omega</span> is the frequency of the function. In this case, the area under the curve from a to b is:</p>
 <div class="math">
-\[\frac{A}{\omega} \left( \cos(\omega a) - \cos(\omega b) \right)\]</div>
+\frac{A}{\omega} \left( \cos(\omega a) - \cos(\omega b) \right)</div>
 <p>The test code has a test for this one, too.</p>
 </div>
 <div class="section" id="currying">
@@ -378,7 +378,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../_static/../../../jsMath-3.6e/easy/load.js"></script>
 
   
 
