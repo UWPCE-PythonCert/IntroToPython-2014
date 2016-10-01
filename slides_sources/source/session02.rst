@@ -27,13 +27,13 @@ Lightning Talks Today:
 
 |
 |
-| Brendan Fogarty
+| David E Tobey
 |
-| Bruce Bauman
+| Sharmila Muralidharan
 |
-| Michelle Yu
+| Shu A Latif
 |
-|
+| Spencer G McGhin
 
 Class Outline
 -------------
@@ -80,7 +80,7 @@ What is git?
 
     That last one is a bit tricky, and is not necessary to understand right out of the gate. When you are ready, you can look at this supplement to gain a better understanding:
 
-    :ref:`supplement_git_states`
+    :ref: http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/git_overview.html
 
 Setting up git
 --------------
@@ -96,7 +96,9 @@ Editor
 ------
 
 You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, unless you already know vi, you should set up a different editor.
-Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown in link below). To install nano on Windows: :ref:`supplement_install_nano_win`
+Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but there no longer seems to be a Windows binary available. We recommend using sublime or Notepad++ as shown in link below.
+
+http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html
 
 Once you have chosen/installed an editor, configure git to use it:
 
@@ -163,6 +165,12 @@ Our class materials reside in a repository on *Github* in the *UWPCE-PythonCert*
     :width: 50%
     :class: center
 
+Note that this is not the same repository as the class materials. It will be a repository that is created just for this class, and will be called IntroPython*quarter*. We will create this repository now. In examples below it is called IntroToPython, so replace that in your head with the name of this year's repository. :)
+
+.. nextslide::
+
+This new repository will include examples and we will add relevant materials to it throughout the quarter. There will be a folder called students at the top level, and everyone will create there own directory within it. So, everyone will commit to this repository, and everyone will have access to everyone's code. This will make it easier to collaborate.
+
 We will do a live demo of setting up a machine. Please follow along.
 
 .. nextslide::
@@ -186,19 +194,24 @@ The next step is to make a *clone* of your fork on your own computer, which mean
 .. nextslide::
 
 We will now set up our individual folders and include a README in this folder. In your terminal, cd
-into the students directory in the directory created when we made the clone, which may or may not be called IntroPython2015.
+into the students directory in the directory created when we made the clone. IntroPythonXXXX, where XXXX 
+is whatever it is this quarter.
 
 .. rst-class:: build
 .. container::
 
     .. code-block:: bash
 
-        $ cd IntroPython2015/students
+        $ cd IntroPythonXXXX
         $ git status
 
     .. code-block:: bash
 
         $ git pull origin master
+
+    .. code-block:: bash
+
+        $ cd students
 
     .. code-block:: bash
 
@@ -241,7 +254,14 @@ into the students directory in the directory created when we made the clone, whi
 
         $ git push origin master
 
-    Go onto GitHub, and make a pull request!
+    origin is the default name given by git refering to the server you cloned
+                 (in this case your github repository)
+    master is the branch that you are currently pushing to that server 
+
+    Go onto GitHub, and make a pull request! 
+    (This will be a pull request from a fork rather than from a branch)
+    https://help.github.com/articles/creating-a-pull-request-from-a-fork/
+
 
 .. nextslide::
 
@@ -260,8 +280,6 @@ You've pushed your own changes to that fork, and then issued pull requests to ha
 You can add *remotes* at will, to connect your *local* repository to other
 copies of it in different remote locations.
 
-When you add a *remote* (existing git repository), it creates a directory with the name of the repository at the top level.
-
 .. rst-class:: build
 .. container::
 
@@ -269,7 +287,8 @@ When you add a *remote* (existing git repository), it creates a directory with t
     locations.
 
     For our class, we will add an *upstream* remote to our local copy that points
-    to the original copy of the material in the ``UWPCE-PythonCert`` account.
+    to the original copy of the material in the ``UWPCE-PythonCert`` account, and we 
+    will call it, appropriately, upstream
 
     .. code-block:: bash
 
@@ -372,12 +391,18 @@ In order to preserve them in your fork on GitHub, you'll have to push:
 
 You can incorporate this into your daily workflow: ::
 
+    [make sure you are on correct branch]
     $ git checkout master
+    [get any changes from class repository]
     $ git pull upstream master
-    $ git push
-    [do some work]
-    $ git commit -a 'I wrote some Python.'
+    [make sure you are in your student directory, do work]
+    [verify you are happy with changes]
+    $ git status
+    [add your changes to what will be committed]
+    $ git add .
     [add a good commit message]
+    $ git commit -m 'I wrote some Python.'
+    [push your changes to your remote github account]
     $ git push
     [make a pull request on the GitHub website]
 
@@ -455,7 +480,7 @@ Lightning Talk:
 
 .. rst-class:: center medium
 
-Brendan Fogarty
+David E Tobey
 
 
 Beyond Printing
@@ -606,7 +631,7 @@ Lightning Talk:
 
 .. rst-class:: center medium
 
-Bruce Bauman
+Sharmila Muralidharan
 
 
 More on Functions
@@ -963,7 +988,7 @@ Lightning Talk:
 
 .. rst-class:: center medium
 
-Michelle Yu
+Shu A Latif
 
 
 Boolean Expressions
@@ -1196,6 +1221,14 @@ And you can even do math with them (though it's a bit odd to do so):
     .. rst-class:: center
 
     (demo)
+
+
+Lightning Talk:
+---------------
+
+.. rst-class:: center medium
+
+Spencer G McGhin
 
 
 LAB: Booleans

@@ -139,7 +139,7 @@ Slack: We have set up a slack channel for discussions. Anything python related i
 https://python2016fall.slack.com/
 
 We highly encourage you to work together. You will learn at a much deeper level if you work together,
-and it gets your ready to collaborate with colleagues.
+and it gets you ready to collaborate with colleagues.
 
 **Office Hours:**
 
