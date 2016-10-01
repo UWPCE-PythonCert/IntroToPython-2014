@@ -95,10 +95,16 @@ You should have git installed on your machine and accessible from the command li
 Editor
 ------
 
-You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, unless you already know vi, you should set up a different editor.
-Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but there no longer seems to be a Windows binary available. We recommend using sublime or Notepad++ as shown in link below.
+* git needs an editor occasionally
+* default is VI, which is not intuitive
+* Nano is simple, easy solution for Macs and Linux
+* Nano no longer available for windows, use Sublime or Notepad++
 
-http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html
+
+For Windows users:
+ http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html
+
+.. nextslide::
 
 Once you have chosen/installed an editor, configure git to use it:
 
@@ -142,7 +148,8 @@ With git, you work with *local* repositories and *remotes* that they are connect
         origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git (push)
 
     This shows that the local repo on my machine *originated* from the one in
-    the UWPCE-PythonCert gitHub account (don't worry that it shows it twice, they should be the same)
+    the UWPCE-PythonCert gitHub account (it shows up twice, because I there is
+    a shortcut for both fetch from and push to this remote)
 
 .. nextslide::
 
@@ -165,13 +172,27 @@ Our class materials reside in a repository on *Github* in the *UWPCE-PythonCert*
     :width: 50%
     :class: center
 
-Note that this is not the same repository as the class materials. It will be a repository that is created just for this class, and will be called IntroPython*quarter*. We will create this repository now. In examples below it is called IntroToPython, so replace that in your head with the name of this year's repository. :)
+.. nextslide::
+
+Note that this is not the same repository as the class materials. 
+
+It will be a repository that is created just for this class, and will be called IntroPython*quarter*. 
+  
+In examples below it is called IntroToPython, so replace that in your head with the name of this year's repository. :)
+
+We will create this repository now. 
 
 .. nextslide::
 
-This new repository will include examples and we will add relevant materials to it throughout the quarter. There will be a folder called students at the top level, and everyone will create there own directory within it. So, everyone will commit to this repository, and everyone will have access to everyone's code. This will make it easier to collaborate.
+This new repository will include examples and we will add relevant materials to it throughout the quarter. 
 
-We will do a live demo of setting up a machine. Please follow along.
+There will be a folder called students at the top level, and everyone will create there own directory within it. 
+
+So, everyone will commit to this repository, and everyone will have access to everyone's code. 
+
+This will make it easier to collaborate.
+
+We will do a live demo of setting up a machine now.
 
 .. nextslide::
 
@@ -193,13 +214,12 @@ The next step is to make a *clone* of your fork on your own computer, which mean
 
 .. nextslide::
 
-We will now set up our individual folders and include a README in this folder. In your terminal, cd
-into the students directory in the directory created when we made the clone. IntroPythonXXXX, where XXXX 
-is whatever it is this quarter.
+We will now set up our individual folders and include a README in this folder. 
+
 
 .. rst-class:: build
 .. container::
-
+ 
     .. code-block:: bash
 
         $ cd IntroPythonXXXX
@@ -248,19 +268,25 @@ is whatever it is this quarter.
 
         $ git commit -m 'added a readme file'
 
-    Push your changes:
 
-    .. code-block:: bash
+.. nextslide::
 
-        $ git push origin master
+Push your changes:
 
-    origin is the default name given by git refering to the server you cloned
-                 (in this case your github repository)
-    master is the branch that you are currently pushing to that server 
+  .. code-block:: bash
 
-    Go onto GitHub, and make a pull request! 
-    (This will be a pull request from a fork rather than from a branch)
-    https://help.github.com/articles/creating-a-pull-request-from-a-fork/
+      $ git push origin master
+
+  origin is the default name given by git refering to the server you cloned
+  (in this case your github repository)
+  
+  master is the branch that you are currently pushing to that server 
+
+  Go onto GitHub, and make a pull request! 
+  
+  (This will be a pull request from a fork rather than from a branch)
+  
+  https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 
 
 .. nextslide::
