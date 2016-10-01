@@ -15,7 +15,7 @@ The Python Certificate program is a 9-month curriculum divided into three course
 First Course: Introduction to Python
 =====================================
 
-Tuesdays 6-9 pm: Oct 6 - Dec 8, 2015 (10 Sessions)
+Tuesdays 6-9 pm: Sept 27 - Dec 6, 2016 (10 Sessions)
 ---------------------------------------------------
 
 
@@ -233,7 +233,7 @@ Class Schedule:
 Topics of each week
 --------------------
 
-Week 1: Oct 6
+Week 1: September 27
 ................
 
 General Introduction to Python and the class. Using the command interpreter and development environment.
@@ -245,7 +245,7 @@ Finding and using the documentation. Getting help.
 Python 2/3 differences.
 
 
-Week 2: Oct 13
+Week 2: October 4
 ................
 
 Introduction to git and gitHub
@@ -259,7 +259,7 @@ Modules and import
 Conditionals and Boolean expressions
 
 
-Week 3: Oct 20
+Week 3: October 11
 .................
 
 Sequences: Strings, Tuples, Lists
@@ -269,7 +269,7 @@ Iteration, looping and control flow.
 String methods and formatting
 
 
-Week 4: Oct 27
+Week 4: October 18
 ................
 
 Dictionaries, Sets and Mutability.
@@ -277,7 +277,7 @@ Dictionaries, Sets and Mutability.
 Files and Text Processing
 
 
-Week 5: November 3
+Week 5: October 25
 ........................
 
 Exceptions
@@ -287,7 +287,7 @@ Testing
 List and Dict Comprehensions
 
 
-Week 6: November 10
+Week 6: November 1
 ....................
 
 Advanced Argument passing
@@ -297,27 +297,27 @@ Lambda
 Functions as Objects
 
 
-Week 7: November 17
+Week 7: November 8
 .......................
 
 Object Oriented Programming: classes, instances, and methods
 
 
-Week 8: November 24
+Week 8: November 15
 ....................
 More OO: Multiple inheritance, Properties, Special methods.
 
 Emulating built-in types
 
 
-Week 9: December 1
+Week 9: November 22
 ...................
 
 Iterators and Generators
 
 
-Week 10: December 8
-....................
+Week 10: November 29 / December 6
+.................................
 
 Decorators
 

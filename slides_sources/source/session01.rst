@@ -76,7 +76,7 @@ Introduction to This Class
 
 .. rst-class:: center large
 
-Intro to Python
+  Introduction to Python
 
 
 Course Materials Online
@@ -86,12 +86,19 @@ A rendered HTML copy of the slides for this course may be found online at:
 
 http://uwpce-pythoncert.github.io/IntroToPython
 
-Also there are some excercise descriptions and supplemental materials.
+Also there are some exercise descriptions and supplemental materials.
 
 The source of these materials are in the class gitHub repo:
 
 https://github.com/UWPCE-PythonCert/IntroToPython
 
+We also have a bunch of supplemental resources for the program here:
+
+http://uwpce-pythoncert.github.io/PythonResources/index.html
+
+The source for those is here:
+
+https://github.com/UWPCE-PythonCert/PythonResources
 
 Class Structure
 ---------------
@@ -111,7 +118,7 @@ Interrupt me with questions -- please!
 Homework:
 ---------
 
-* Most homework will be reading, and the occasional Video
+* Homework will be reading, exercises, and the occasional Video
 
 * Exercises will be started in class -- but you can finish them at home.
 
@@ -119,7 +126,7 @@ Homework:
 
 * You can do a gitHub "pull request" if you want us to review your work.
 
-    - We'll show you how to do that in the second Session
+    - We'll show you how to do that in the second session
 
 
 Communication
@@ -127,12 +134,11 @@ Communication
 
 **Mailing list:**
 
-We've set up a google group for this class:
+We've set up a Google Group for this class:
 
 programming-in-python@googlegroups.com
 
-We will be using this list to communicate with you. You should have (or will soon)
-received an email invitation to join the mailing list.
+We will be using this list to communicate with you. You should have (or will soon) received an email invitation to join the mailing list.
 
 Slack: We have set up a slack channel for discussions. Anything python related is fair game.
 
@@ -141,17 +147,20 @@ https://python2016fall.slack.com/
 We highly encourage you to work together. You will learn at a much deeper level if you work together,
 and it gets you ready to collaborate with colleagues.
 
-**Office Hours:**
 
-I generally will hold "office hours" at a coffee shop for a couple hours
-each weekend. Please feel free to attend even if you do not have a specific question.
-It is an opportunity to work with the instructors and fellow students, and learn from each other.
+Office Hours
+------------
 
-Maria will do some as well.
+We will generally will hold "office hours" at a coffee shop for a couple hours
+each weekend.
+
+Please feel free to attend even if you do not have a specific question.
+It is an opportunity to work with the instructors and fellow students,
+and learn from each other.
 
 What are good times for you?
 
-
+And what locations?
 
 Lightning Talks
 ----------------
@@ -161,13 +170,11 @@ Lightning Talks
  * 5 minutes each (including setup) - no kidding!
  * Every student will give one
  * Purposes: introduce yourself, share interests, show Python applications
- * Any topic you like, that is related to Python -- according to you!
-
+ * Any topic you like that is related to Python -- according to you!
 
 
 Python Ecosystem
 ================
-
 
 What is Python?
 ---------------
@@ -281,14 +288,14 @@ Python 3.x ("py3k")
 
 This class uses Python 3 -- not Python 2
 
-.. rst-class:: build
-
 * Adoption of Python 3 is growing fast
 
   * Almost all key packages now supported (https://python3wos.appspot.com/)
-  * But most code in the wild is still 2.x
+  * But much code in the wild is still 2.x
 
-* If you find yourself needing to work with Python 2 and 3, there are ways to write compatible code: https://wiki.python.org/moin/PortingPythonToPy3k
+* If you find yourself needing to work with Python 2 and 3, there are ways to write compatible code:
+
+https://wiki.python.org/moin/PortingPythonToPy3k
 
 * We will cover that more later in the program. Also: a short intro to the differences you really need to know about up front later this session.
 
@@ -315,9 +322,7 @@ Having some facility on the command line is important
 We won't cover this much in class, so if you are not comfortable,
 please bone up at home.
 
-Software Carpentry has a decent intro to the command line:
-https://swcarpentry.github.io/shell-novice/01-intro/
-
+We have some resources here: `PythonResources--command line <http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/command_line.html>`_
 
 **Windows:**
 
@@ -329,23 +334,6 @@ If you are comfortable with either of these -- go for it.
 
 If not, you can use the "git Bash" shell -- which is much like the bash shell on OS-X and Linux.
 
-Your Interpreter
-----------------
-
-Python comes with a built-in interpreter.
-
-You see it when you type ``python`` at the command line:
-
-.. code-block:: bash
-
-  $ python
-  Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
-  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
-  Type "help", "copyright", "credits" or "license" for more information.
-
-That last thing you see, ``>>>`` is the "Python prompt".
-
-This is where you type code.
 
 LAB: Getting set up
 -------------------
@@ -354,11 +342,93 @@ Before we move on -- we need to get all of us on the same page, with the tools w
 
 You will find instructions for how to get python, etc, up and running on your machine here:
 
-**Windows:** ::ref:`python_for_windows`
+**Windows:**
 
-**OS-X:** ::ref:`python_for_mac`
+http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_windows.html
 
-**Linux:** ::ref:`python_for_linux`
+**OS-X:**
+
+http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_mac.html
+
+**Linux:**
+
+http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html
+
+We'll run through some of that together.
+
+If you already have a working environment, please feel free to help your neighbor
+or look at the Python Resources pages, particularly reviewing/learning the shell and git.
+
+http://uwpce-pythoncert.github.io/PythonResources
+
+Our Class Environment
+---------------------
+
+We are going to work from a common environment in this class.
+
+We will take the time here in class to get this going.
+
+This helps to ensure that you will be able to work.
+
+
+Step 1: Python 3
+------------------
+
+.. rst-class:: medium
+
+  Do you already have this??
+
+.. code-block:: bash
+
+  $ python
+  Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 26 2016, 10:47:25)
+  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+  Type "help", "copyright", "credits" or "license" for more information.
+  >>>
+
+If not, or you have an older version -- let's install it!
+
+If you're all ready to go -- take this time to get started on a tutorial:
+
+http://uwpce-pythoncert.github.io/PythonResources/GeneralPython/learning.html#getting-started-tutorials
+
+
+Step 2: Pip
+-----------
+
+Python comes with quite a bit ("batteries included").
+
+Sometimes you need a bit more.
+
+Pip allows you to install Python packages to expand your system.
+
+The previous instructions include pip as well - make sure it's working.
+
+Once you've installed pip, you use it to install Python packages by name:
+
+.. code-block:: bash
+
+    $ python -m pip install foobar
+    ...
+
+To find packages (and their proper names), you can search the python
+package index (PyPI):
+
+https://pypi.python.org/pypi
+
+
+Step 3: Install iPython
+------------------------
+
+As this is an intro class, we are going to use almost entirely features
+of the standard library. But there are a couple things you may want:
+
+**iPython** is an "enhanced python shell" -- it make s it easier to work with python interactively.
+
+.. code-block:: bash
+
+  $ python -m pip install ipython[all]
+
 
 Python in the Interpreter
 -------------------------
@@ -435,8 +505,7 @@ Your Editor
 
 Typing code in an interpreter is great for exploring.
 
-But for anything "real", you'll want to save the work you are doing in a more permanent
-fashion.
+But for anything "real", you'll want to save the work you are doing in a more permanent fashion.
 
 This is where an Editor fits in.
 
@@ -457,7 +526,6 @@ characters hidden behind the scenes.
 
 .. nextslide:: Minimum Requirements
 
-
 At a minimum, your editor should have:
 
 .. rst-class:: build
@@ -471,15 +539,14 @@ In addition, great features to add include:
 
 * Tab completion
 * Code linting
-* Jump-to-definition
 
 Have an editor that does all this? Feel free to use it.
 
-If not, I suggest ``SublimeText``:
-
-http://www.sublimetext.com/
+If not, I suggest ``SublimeText``: http://www.sublimetext.com/
 
 (Use version 3, even though it's "beta")
+
+http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/sublime_as_ide.html
 
 Why No IDE?
 -----------
@@ -501,83 +568,6 @@ Particularly when you are first learning, you don't want too much done for you.
 YAGNI
 
 
-Setting Up Your Environment
-===========================
-
-.. rst-class:: centered large
-
-Shared setup means reduced complications.
-
-
-Our Class Environment
----------------------
-
-We are going to work from a common environment in this class.
-
-We will take the time here in class to get this going.
-
-This helps to ensure that you will be able to work.
-
-
-Step 1: Python 3
-------------------
-
-.. rst-class:: large
-
-Do you already have this??
-
-.. code-block:: bash
-
-
-  $ python
-  Python 3.5.0 (v3.5.0:374f501f4567, Sep 12 2015, 11:00:19)
-  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
-  Type "help", "copyright", "credits" or "license" for more information.
-  >>> ^D
-
-If not:
-
- * `For OS X  <./supplements/python_for_mac.html>`_
-
- * `For Linux  <./supplements/python_for_linux.html>`_
-
- * `For Windows  <./supplements/python_for_windows.html>`_
-
-Step 2: Pip
------------
-
-Python comes with quite a bit ("batteries included").
-
-Sometimes you need a bit more.
-
-Pip allows you to install Python packages to expand your system.
-
-The previous instructions include pip as well - make sure it's working.
-
-Once you've installed pip, you use it to install Python packages by name:
-
-.. code-block:: bash
-
-    $ python -m pip install foobar
-    ...
-
-To find packages (and their proper names), you can search the python
-package index (PyPI):
-
-https://pypi.python.org/pypi
-
-
-Step 3: Install iPython
-------------------------
-
-As this is an intro class, we are going to use almost entirely features
-of standard library. But there are a couple things you may want:
-
-**iPython** is an "enhanced python shell" -- it make s it easier to work with python interatively.
-
-.. code-block:: bash
-
-  $ python -m pip install ipython
 
 Introduction to iPython
 =======================
@@ -596,8 +586,8 @@ Specifically, you'll want to pay attention to the information about
 `Using iPython for Interactive Work`_.
 
 .. _iPython: http://ipython.org
-.. _official documentation: http://ipython.org/ipython-doc/stable/index.html
-.. _Using iPython for Interactive Work: http://ipython.org/ipython-doc/stable/interactive/index.html
+.. _official documentation: http://ipython.readthedocs.io/en/stable/
+.. _Using iPython for Interactive Work: http://ipython.readthedocs.io/en/stable/interactive/index.html
 
 .. ifslides::
 
@@ -716,8 +706,6 @@ Values
 
 All of programming is really about manipulating values.
 
-.. rst-class:: build
-
 * Values are pieces of unnamed data: ``42, 'Hello, world',``
 
 * In Python, all values are objects
@@ -793,7 +781,7 @@ It's kind of obvious, but handy when playing with code:
 
 .. code-block:: ipython
 
-    In [1]: print ("something")
+    In [1]: print("something")
     something
 
 You can print multiple things:
@@ -928,31 +916,31 @@ An *expression* is made up of values and operators.
         [demo]
 
 
-Symbols
+Names
 -------
 
-Symbols are how we give names to values (objects).
+Names are how we give names to values (objects) -- hence "names"
 
 .. rst-class:: build
 
-* Symbols must begin with an underscore or letter
-* Symbols can contain any number of underscores, letters and numbers
+* Names must begin with an underscore or letter
+* Names can contain any number of underscores, letters and numbers
 
-  * this_is_a_symbol
+  * this_is_a_name
   * this_is_2
   * _AsIsThis
   * 1butThisIsNot
   * nor-is-this
 
-* Symbols don't have a type; values do
+* Names don't have a type; values do
 
   * This is why python is "Dynamic"
 
 
-Symbols and Type
+Names and Type
 ----------------
 
-Evaluating the type of a *symbol* will return the type of the *value* to which
+Evaluating the type of a *name* will return the type of the *value* to which
 it is bound.
 
 .. code-block:: ipython
@@ -979,7 +967,7 @@ it is bound.
 Assignment
 ----------
 
-A *symbol* is **bound** to a *value* with the assignment operator: ``=``
+A *name* is **bound** to a *value* with the assignment operator: ``=``
 
 .. rst-class:: build
 
@@ -1014,7 +1002,7 @@ Variables?
 
 .. rst-class:: build
 
-* In most languages, what I'm calling symbols, or names, are called "variables".
+* In most languages, what I'm calling names are called "variables".
 
 * In fact, I'll probably call them variables in this class.
 
@@ -1156,7 +1144,7 @@ Identity
 Every value in Python is an object.
 
 Every object is unique and has a unique *identity*, which you can inspect with
-the ``id`` *builtin*:
+the ``id`` *builtin* function:
 
 .. code-block:: ipython
 
@@ -1297,7 +1285,7 @@ String Literals
 
 A "string" is a chunk of text.
 
-You define a ``string`` value by writing a string *literal*:
+You define a "string" value by writing a string *literal*:
 
 .. code-block:: ipython
 
@@ -1353,7 +1341,7 @@ You *cannot* use these words as symbols.
 .. nextslide::
 
 
-If you try to use any of the keywords as symbols, you will cause a
+If you try to use any of the keywords as names, you will cause a
 ``SyntaxError``:
 
 .. code-block:: ipython
@@ -1378,7 +1366,7 @@ If you try to use any of the keywords as symbols, you will cause a
 __builtins__
 ------------
 
-Python also has a number of pre-bound symbols, called **builtins**
+Python also has a number of pre-bound names, called **builtins**
 
 Try this:
 
@@ -1589,7 +1577,7 @@ This is actually the simplest possible function:
 
 .. nextslide::
 
-if you don't explicilty put ``return``  there, Python will:
+if you don't explicitly put ``return``  there, Python will return None for you:
 
 .. code-block:: ipython
 
@@ -1813,7 +1801,7 @@ Task 1
 Make sure you have the basics of command line usage down:
 
 Work through the supplemental tutorials on setting up your
-Command Line (::ref:`shell_customization`) for good development support.
+Command Line (http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/shell.html) for good development support.
 
 Make sure you've got your editor set up productively -- at the very very
 least, make sure it does Python indentation and syntax coloring well.
@@ -1824,7 +1812,7 @@ least, make sure it does Python indentation and syntax coloring well.
 
 If you are using SublimeText, here are some notes to make it super-nifty:
 
-::ref:`sublime_as_ide`
+http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/sublime_as_ide.html
 
 At the end, your editor should support tab completion and pep8 and pyflakes
 linting.
@@ -1883,7 +1871,9 @@ Every one of you has a different backgrond and learning style.
 
 So take a bit of time to figure out which resource works for you.
 
-:ref:`python_learning_resources` provides some options. Do look it over.
+http://uwpce-pythoncert.github.io/PythonResources/GeneralPython/learning.html
+
+provides some options. Do look it over.
 
 But here are few to get you started this week:
 
@@ -1897,9 +1887,7 @@ But here are few to get you started this week:
 
 Or follow this excellent introductory tutorial:
 
-http://pyvideo.org/video/1850/a-hands-on-introduction-to-python-for-beginning-p
-
-(also python2 -- so same thing with the print function...)
+https://www.youtube.com/watch?v=MirG-vJOg04
 
 You should be comfortable with working with variables, numbers, strings, and basic functions.
 
@@ -1920,7 +1908,7 @@ Next Class
 
 Next week, we'll:
 
- * get set up with git
+ * get set up with git and gitHub
  * Some more basic Python
  * More on Functions
  * Boolean Expressions

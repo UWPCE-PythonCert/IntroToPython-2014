@@ -24,5 +24,5 @@ pushd $GHPAGESDIR
 git add * # in case there are new files added
 git commit -a -m "updating presentation materials"
 git pull -s ours --no-edit
-# git push
+git push
 

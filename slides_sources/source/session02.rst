@@ -395,7 +395,7 @@ NOTE: you can do that in one step with:
 
 .. nextslide:: Pushing to Origin
 
-Now all the changes from *upstream* are present in your local clone. 
+Now all the changes from *upstream* are present in your local clone.
 You should do this pull everytime you start to work on code.
 
 In order to preserve them in your fork on GitHub, you'll have to push:
@@ -436,13 +436,13 @@ You can incorporate this into your daily workflow: ::
 .. nextslide:: Note
 
 Because of the way we have set up the class, you will be able
-to see all work submitted to us from everyone in the class in 
+to see all work submitted to us from everyone in the class in
 the students directory on your machine. This is not a bad thing.
-And the files tend to be small. 
+And the files tend to be small.
 
 We encourage sharing of knowledge in this class. Helping your
-fellow students will also help you to better understand. Share 
-your code, and get use to giving/receiving feedback on how to 
+fellow students will also help you to better understand. Share
+your code, and get use to giving/receiving feedback on how to
 improve your code, if you are not already.
 
 
@@ -498,7 +498,7 @@ And when you want us to take a look, you can go to gitHub and do a "Pull Request
 Committing your code
 --------------------
 
-Commit early and often. 
+Commit early and often.
 
 
 Lightning Talk:
@@ -533,13 +533,13 @@ Making a Decision
 .. code-block:: python
 
     if a:
-        print 'a'
+        print('a')
     elif b:
-        print 'b'
+        print('b')
     elif c:
-        print 'c'
+        print('c')
     else:
-        print 'that was unexpected'
+        print('that was unexpected')
 
 
 .. nextslide:: if
@@ -549,15 +549,15 @@ What's the difference between these two?
 .. code-block:: python
 
     if a:
-        print 'a'
+        print('a')
     elif b:
-        print 'b'
+        print('b')
 
     ## versus...
     if a:
-        print 'a'
+        print('a')
     if b:
-        print 'b'
+        print('b')
 
 
 
@@ -1268,7 +1268,7 @@ LAB: Booleans
 
     Experiment with ``locals`` by adding this statement one of the functions you wrote today::
 
-        print locals()
+        print(locals())
 
 
 Code Structure, Modules, and Namespaces
@@ -1304,7 +1304,7 @@ You can put a one-liner after the colon:
 .. code-block:: ipython
 
     In [167]: x = 12
-    In [168]: if x > 4: print x
+    In [168]: if x > 4: print(x)
     12
 
 But this should only be done if it makes your code **more** readable.
@@ -1551,9 +1551,9 @@ Experiment with importing different ways:
 .. code-block:: python
 
     import sys
-    print sys.path
+    print(sys.path)
     import os
-    print os.path
+    print(os.path)
 
 You wouldn't want to import * those!
 
@@ -1575,9 +1575,12 @@ Next Class
 * Strings and String Formatting
 
 * Lightning talks by:
-  - Eric Rosko
-  - Michael Waddle
-  - Robert Stevens Alford
+
+  - Beatrice He
+  - Bradley I Baumel
+  - Jerry Bearer
+  - Sheree Pena
+
 
 Office hours: Sunday 10:00 -- 12:00
 
