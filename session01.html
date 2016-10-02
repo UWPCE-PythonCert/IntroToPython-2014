@@ -340,7 +340,8 @@ and your new best friend, Python.</p>
 <p>We will be using this list to communicate with you. You should have (or will soon) received an email invitation to join the mailing list.</p>
 <p>Slack: We have set up a slack channel for discussions. Anything python related is fair game.</p>
 <p><a class="reference external" href="https://python2016fall.slack.com/">https://python2016fall.slack.com/</a></p>
-<p>We highly encourage you to work together. You will learn at a much deeper level if you work together, and it gets your ready to collaborate with colleagues.</p>
+<p>We highly encourage you to work together. You will learn at a much deeper level if you work together,
+and it gets you ready to collaborate with colleagues.</p>
 </div>
 <div class="section" id="office-hours">
 <h3>Office Hours<a class="headerlink" href="#office-hours" title="Permalink to this headline">¶</a></h3>
@@ -488,6 +489,9 @@ please bone up at home.</p>
 <p><strong>Linux:</strong></p>
 <p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.html</a></p>
 <p>We&#8217;ll run through some of that together.</p>
+<p>If you already have a working environment, please feel free to help your neighbor
+or look at the Python Resources pages, particularly reviewing/learning the shell and git.</p>
+<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources">http://uwpce-pythoncert.github.io/PythonResources</a></p>
 </div>
 <div class="section" id="our-class-environment">
 <h3>Our Class Environment<a class="headerlink" href="#our-class-environment" title="Permalink to this headline">¶</a></h3>
@@ -709,7 +713,7 @@ object?   -&gt; Details about <span class="s1">&#39;object&#39;</span>, use <spa
 <h2>Basic Python Syntax<a class="headerlink" href="#basic-python-syntax" title="Permalink to this headline">¶</a></h2>
 <p>(Follow along in the iPython interpreter...)</p>
 <div class="center mlarge line-block">
-<div class="line">Values, Types, and Symbols</div>
+<div class="line">Values, Types, and Names</div>
 <div class="line"><br /></div>
 <div class="line">Expressions and Statements</div>
 </div>
@@ -1001,7 +1005,7 @@ statement</p>
 <span class="gh">Out[55]: </span><span class="go">4</span>
 </pre></div>
 </div>
-<p>Multiple assignment and symbol swapping can be very useful in certain contexts</p>
+<p>Multiple assignment and name swapping can be very useful in certain contexts</p>
 </div>
 <div class="section" id="deleting">
 <h3>Deleting<a class="headerlink" href="#deleting" title="Permalink to this headline">¶</a></h3>
@@ -1063,7 +1067,7 @@ the <code class="docutils literal"><span class="pre">id</span></code> <em>builti
 </div>
 <div class="section" id="testing-identity">
 <h3>Testing Identity<a class="headerlink" href="#testing-identity" title="Permalink to this headline">¶</a></h3>
-<p>You can find out if the values bound to two different symbols are the <strong>same
+<p>You can find out if the values bound to two different names are the <strong>same
 object</strong> using the <code class="docutils literal"><span class="pre">is</span></code> operator:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [72]: </span><span class="n">count</span> <span class="o">=</span> <span class="mi">23</span>
 
@@ -1182,7 +1186,7 @@ object</strong> using the <code class="docutils literal"><span class="pre">is</s
 <h3>Keywords<a class="headerlink" href="#keywords" title="Permalink to this headline">¶</a></h3>
 <p>Python defines a number of <strong>keywords</strong></p>
 <p>These are language constructs.</p>
-<p>You <em>cannot</em> use these words as symbols.</p>
+<p>You <em>cannot</em> use these words as names.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="ow">and</span>       <span class="k">del</span>       <span class="kn">from</span>      <span class="nn">not</span>       <span class="k">while</span>
 <span class="k">as</span>        <span class="k">elif</span>      <span class="k">global</span>    <span class="ow">or</span>        <span class="k">with</span>
 <span class="k">assert</span>    <span class="k">else</span>      <span class="k">if</span>        <span class="k">pass</span>      <span class="k">yield</span>
@@ -1229,7 +1233,7 @@ object</strong> using the <code class="docutils literal"><span class="pre">is</s
 <span class="go"> &#39;zip&#39;]</span>
 </pre></div>
 </div>
-<p>You are free to rebind these symbols:</p>
+<p>You are free to rebind these names:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;a new and exciting string&#39;</span><span class="p">)</span>
 <span class="gh">Out[15]: </span><span class="go">str</span>
 
@@ -1252,7 +1256,7 @@ object</strong> using the <code class="docutils literal"><span class="pre">is</s
 <p>Exceptions are how Python tells you that something has gone wrong.</p>
 <p>There are several exceptions that you are likely to see a lot of:</p>
 <ul class="build simple">
-<li><code class="docutils literal"><span class="pre">NameError</span></code>: indicates that you have tried to use a symbol that is not bound to a value.</li>
+<li><code class="docutils literal"><span class="pre">NameError</span></code>: indicates that you have tried to use a name that is not bound to a value.</li>
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: indicates that you have tried to use the wrong kind of object for an operation.</li>
 <li><code class="docutils literal"><span class="pre">SyntaxError</span></code>: indicates that you have mis-typed something.</li>
 <li><code class="docutils literal"><span class="pre">AttributeError</span></code>: indicates that you have tried to access an attribute or
@@ -1434,7 +1438,7 @@ or in multiple parts of the program.</p>
 <span class="go">3 4 5 12</span>
 </pre></div>
 </div>
-<p>The values you pass in are <em>bound</em> to the symbols inside the function and used.</p>
+<p>The values you pass in are <em>bound</em> to the names inside the function and used.</p>
 </div>
 <div class="section" id="the-if-statement">
 <h3>The <code class="docutils literal"><span class="pre">if</span></code> Statement<a class="headerlink" href="#the-if-statement" title="Permalink to this headline">¶</a></h3>

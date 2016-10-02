@@ -142,6 +142,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#and-or-and-not"><code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code> and <code class="docutils literal"><span class="pre">not</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ternary-expressions">Ternary Expressions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#boolean-return-values">Boolean Return Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Lightning Talk:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lab-booleans">LAB: Booleans</a></li>
@@ -234,13 +235,13 @@
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
-<div class="line">Brendan Fogarty</div>
+<div class="line">David E Tobey</div>
 <div class="line"><br /></div>
-<div class="line">Bruce Bauman</div>
+<div class="line">Sharmila Muralidharan</div>
 <div class="line"><br /></div>
-<div class="line">Michelle Yu</div>
+<div class="line">Shu A Latif</div>
 <div class="line"><br /></div>
-<div class="line"><br /></div>
+<div class="line">Spencer G McGhin</div>
 </div>
 </div>
 <div class="section" id="class-outline">
@@ -277,7 +278,14 @@
 <p>A history of everything everyone does to &#8216;your&#8217; code</p>
 <p>A graph of &#8220;states&#8221; in which the code has existed</p>
 <p>That last one is a bit tricky, and is not necessary to understand right out of the gate. When you are ready, you can look at this supplement to gain a better understanding:</p>
-<p><a class="reference internal" href="supplements/git_overview.html#supplement-git-states"><span class="std std-ref">git Overview</span></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ref:</th><td class="field-body"><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/git_overview.html">http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/git_overview.html</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="setting-up-git">
@@ -290,9 +298,16 @@ $ git config --global user.email <span class="s2">&quot;marie@radioactive.com&qu
 </div>
 <div class="section" id="editor">
 <h3>Editor<a class="headerlink" href="#editor" title="Permalink to this headline">¶</a></h3>
-<p>You will never have to use an editor with git for anything extensive, so a simple editor is fine. Unfortunately, the default, VI, is not intuitive to new users. So, unless you already know vi, you should set up a different editor.
-Nano is a straight-forward, simple editor, available out of the box on Macs and Linux boxes, but needs to be installed on Windows (or you can use sublime or Notepad++ as shown in link below). To install nano on Windows:</p>
-<p><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html</a></p>
+<ul class="simple">
+<li>git needs an editor occasionally</li>
+<li>default is VI, which is not intuitive</li>
+<li>Nano is simple, easy solution for Macs and Linux</li>
+<li>Nano no longer available for windows, use Sublime or Notepad++</li>
+</ul>
+<dl class="docutils">
+<dt>For Windows users:</dt>
+<dd><a class="reference external" href="http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html">http://uwpce-pythoncert.github.io/PythonResources/Installing/git_editor_windows.html</a></dd>
+</dl>
 <p>Once you have chosen/installed an editor, configure git to use it:</p>
 <p>nano
 <code class="docutils literal"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">core.editor</span> <span class="pre">&quot;nano</span> <span class="pre">-w&quot;</span></code></p>
@@ -321,7 +336,8 @@ origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git <span class="o">
 </pre></div>
 </div>
 <p>This shows that the local repo on my machine <em>originated</em> from the one in
-the UWPCE-PythonCert gitHub account (don&#8217;t worry that it shows it twice, they should be the same)</p>
+the UWPCE-PythonCert gitHub account (it shows up twice, because I there is
+a shortcut for both fetch from and push to this remote)</p>
 </div>
 <div class="build container">
 <p>You can work on any project you wish to that has a public repository on Github. However, since you won&#8217;t have permission to edit most projects directly, there is such a thing as <em>forking</em> a project.</p>
@@ -333,7 +349,15 @@ the UWPCE-PythonCert gitHub account (don&#8217;t worry that it shows it twice, t
 <div class="figure">
 <a class="center reference internal image-reference" href="_images/remotes_start.png"><img alt="_images/remotes_start.png" class="center" src="_images/remotes_start.png" style="width: 50%;" /></a>
 </div>
-<p>We will do a live demo of setting up a machine. Please follow along.</p>
+<p>Note that this is not the same repository as the class materials.</p>
+<p>It will be a repository that is created just for this class, and will be called IntroPython*quarter*.</p>
+<p>In examples below it is called IntroToPython, so replace that in your head with the name of this year&#8217;s repository. :)</p>
+<p>We will create this repository now.</p>
+<p>This new repository will include examples and we will add relevant materials to it throughout the quarter.</p>
+<p>There will be a folder called students at the top level, and everyone will create there own directory within it.</p>
+<p>So, everyone will commit to this repository, and everyone will have access to everyone&#8217;s code.</p>
+<p>This will make it easier to collaborate.</p>
+<p>We will do a live demo of setting up a machine now.</p>
 <p>We will now create a fork of the class repository from the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code>
 account on GitHub into your personal account. This is done on the GitHub website.</p>
 <div class="figure">
@@ -344,14 +368,16 @@ account on GitHub into your personal account. This is done on the GitHub website
 <div class="figure">
 <a class="center reference internal image-reference" href="_images/remotes_clone.png"><img alt="_images/remotes_clone.png" class="center" src="_images/remotes_clone.png" style="width: 50%;" /></a>
 </div>
-<p>We will now set up our individual folders and include a README in this folder. In your terminal, cd
-into the students directory in the directory created when we made the clone, which may or may not be called IntroPython2015.</p>
+<p>We will now set up our individual folders and include a README in this folder.</p>
 <div class="build container">
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> IntroPython2015/students
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> IntroPythonXXXX
 $ git status
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git pull origin master
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> students
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ mkdir maria_mckinley
@@ -377,12 +403,19 @@ $ git status
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git commit -m <span class="s1">&#39;added a readme file&#39;</span>
 </pre></div>
 </div>
+</div>
 <p>Push your changes:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git push origin master
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>$ git push origin master
 </pre></div>
 </div>
+<p>origin is the default name given by git refering to the server you cloned
+(in this case your github repository)</p>
+<p>master is the branch that you are currently pushing to that server</p>
 <p>Go onto GitHub, and make a pull request!</p>
-</div>
+<p>(This will be a pull request from a fork rather than from a branch)</p>
+<p><a class="reference external" href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">https://help.github.com/articles/creating-a-pull-request-from-a-fork/</a></p>
+</div></blockquote>
 <p>You&#8217;ve pushed your own changes to that fork, and then issued pull requests to have that worked merged back to the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> original.</p>
 <div class="build container">
 <p>You want to keep your fork up-to-date with that original copy as the class
@@ -391,12 +424,12 @@ goes forward.</p>
 </div>
 <p>You can add <em>remotes</em> at will, to connect your <em>local</em> repository to other
 copies of it in different remote locations.</p>
-<p>When you add a <em>remote</em> (existing git repository), it creates a directory with the name of the repository at the top level.</p>
 <div class="build container">
 <p>This allows you to grab changes made to the repository in these other
 locations.</p>
 <p>For our class, we will add an <em>upstream</em> remote to our local copy that points
-to the original copy of the material in the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> account.</p>
+to the original copy of the material in the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> account, and we
+will call it, appropriately, upstream</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/UWPCE-PythonCert/IntroPython2015.git
 
 $ git remote -v
@@ -466,12 +499,18 @@ $
 </div>
 <p>(A simple <code class="docutils literal"><span class="pre">git</span> <span class="pre">push</span></code> will usually do the right thing)</p>
 <p>You can incorporate this into your daily workflow:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout master
+<div class="highlight-default"><div class="highlight"><pre><span></span>[make sure you are on correct branch]
+$ git checkout master
+[get any changes from class repository]
 $ git pull upstream master
-$ git push
-[do some work]
-$ git commit -a &#39;I wrote some Python.&#39;
+[make sure you are in your student directory, do work]
+[verify you are happy with changes]
+$ git status
+[add your changes to what will be committed]
+$ git add .
 [add a good commit message]
+$ git commit -m &#39;I wrote some Python.&#39;
+[push your changes to your remote github account]
 $ git push
 [make a pull request on the GitHub website]
 </pre></div>
@@ -525,7 +564,7 @@ $ git push
 </div>
 <div class="section" id="lightning-talk">
 <h3>Lightning Talk:<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
-<p class="center medium">Brendan Fogarty</p>
+<p class="center medium">David E Tobey</p>
 </div>
 </div>
 <div class="section" id="beyond-printing">
@@ -541,26 +580,26 @@ conditionals, looping, and a container type...</p>
 <p><strong>&#8220;Conditionals&#8221;</strong></p>
 <p><code class="docutils literal"><span class="pre">if</span></code> and <code class="docutils literal"><span class="pre">elif</span></code> (else if) allow you to make decisions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;a&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">b</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;b&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">c</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;c&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;that was unexpected&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;that was unexpected&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>What&#8217;s the difference between these two?</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;a&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">b</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;b&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
 <span class="c1">## versus...</span>
 <span class="k">if</span> <span class="n">a</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;a&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">b</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;b&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -626,7 +665,7 @@ conditionals, looping, and a container type...</p>
 <p class="left">Do the same git / gitHub dance with this, too!</p>
 <div class="section" id="id2">
 <h3>Lightning Talk:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p class="center medium">Bruce Bauman</p>
+<p class="center medium">Sharmila Muralidharan</p>
 </div>
 </div>
 <div class="section" id="more-on-functions">
@@ -872,7 +911,7 @@ for your code.</p>
 <p><a class="reference internal" href="exercises/fib_and_lucas.html#exercise-fibonacci"><span class="std std-ref">Fibonacci Series Exercise</span></a></p>
 <div class="section" id="id3">
 <h3>Lightning Talk:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p class="center medium">Michelle Yu</p>
+<p class="center medium">Shu A Latif</p>
 </div>
 </div>
 <div class="section" id="boolean-expressions">
@@ -1034,13 +1073,17 @@ statements:</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="id4">
+<h3>Lightning Talk:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p class="center medium">Spencer G McGhin</p>
+</div>
 </div>
 <div class="section" id="lab-booleans">
 <h2>LAB: Booleans<a class="headerlink" href="#lab-booleans" title="Permalink to this headline">¶</a></h2>
 <p class="left">Working with Booleans, Ternary Expressions, etc:</p>
 <p class="left">Re-write a couple CodingBat exercises, returning the direct boolean results, and/or using ternary expressions.</p>
 <p class="left">Experiment with <code class="docutils literal"><span class="pre">locals</span></code> by adding this statement one of the functions you wrote today:</p>
-<div class="left highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="nb">locals</span><span class="p">()</span>
+<div class="left highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1062,7 +1105,7 @@ statements:</p>
 <p>The colon that terminates a block statement is also important...</p>
 <p>You can put a one-liner after the colon:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [167]: </span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="gp">In [168]: </span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span> <span class="k">print</span> <span class="n">x</span>
+<span class="gp">In [168]: </span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">12</span>
 </pre></div>
 </div>
@@ -1199,9 +1242,9 @@ is the same as the filename.</p>
 </div>
 <p>Experiment with importing different ways:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="k">print</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span>
+<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You wouldn&#8217;t want to import * those!</p>
@@ -1219,10 +1262,13 @@ is the same as the filename.</p>
 <li>Sequences</li>
 <li>Iteration</li>
 <li>Strings and String Formatting</li>
-<li>Lightning talks by:
-- Eric Rosko
-- Michael Waddle
-- Robert Stevens Alford</li>
+<li>Lightning talks by:<ul>
+<li>Beatrice He</li>
+<li>Bradley I Baumel</li>
+<li>Jerry Bearer</li>
+<li>Sheree Pena</li>
+</ul>
+</li>
 </ul>
 <p>Office hours: Sunday 10:00 &#8211; 12:00</p>
 <div class="section" id="homework">

@@ -1,10 +1,9 @@
-Antoher verison os the Unicode discussion -- I htink there is a bit in here that we'll want to use.
+.. Another verison os the Unicode discussion
+..  -- I think there is a bit in here that we'll want to use.
 
 
-
-========
 Unicode
-========
+=======
 
 .. rst-class:: left
 
@@ -84,7 +83,7 @@ But how do you express that in bytes?
   * Early days: we can fit all the code points in a two byte integer (65536 characters)
 
   * Turns out that didn't work -- we now need 32 bit integer to hold all of unicode
-    "raw" (UTC-4) -- well we dopnt need that many, but common machines don't have
+    "raw" (UTC-4) -- well we don't need quite that many, but common machines don't have
     24 bit integers.
 
 Enter "encodings":
@@ -93,7 +92,6 @@ Enter "encodings":
   * Each code point can have one or more bytes.
 
 
-=========
 Mechanics
 =========
 
@@ -150,6 +148,7 @@ It has all the same methods as the string object.
 "decoding" is converting from bytes to a unicode object
 
 (sometimes this feels backwards...)
+
 
 Using unicode in Py2
 ---------------------
@@ -242,6 +241,7 @@ Python has a default encoding (usually ascii)
 
 The default encoding will get used in unexpected places!
 
+
 Using unicode everywhere
 -------------------------
 
@@ -268,7 +268,7 @@ NOTE: You can still get py2 strings from other sources!
 
 
 Encodings
-----------
+---------
 
 What encoding should I use???
 
@@ -287,7 +287,7 @@ And of course, still the one-bytes ones.
 * Latin-1
 
 UTF-8
--------
+-----
 
 Probably the one you'll use most -- most common in Internet protocols (xml, JSON, etc.)
 
@@ -306,7 +306,7 @@ Gotchas:
 * ASCII compatible means in may work with default encoding in tests -- but then blow up with real data...
 
 UTF-16
---------
+------
 
 Kind of like UTF-8, except it uses at least 16bits (2 bytes) for each character: not ASCII compatible.
 
@@ -317,7 +317,7 @@ In C/C++ held in a "wide char" or "wide string".
 MS Windows uses UTF-16, as does (I think) Java.
 
 UTF-16 criticism
------------------
+----------------
 
 There is a lot of criticism on the net about UTF-16 -- it's kind of the worst of both worlds:
 
@@ -343,7 +343,7 @@ a 1-byte per char encoding.
 
 * Superset of ASCII suitable for Western European languages.
 
-* The most common one-byte per char encoding for European text.
+* The most common one-byte-per-char encoding for European text.
 
 * Nice property -- every byte value from 0 to 255 is a valid character ( at least in Python )
 
@@ -361,7 +361,7 @@ a 1-byte per char encoding.
 
 
 Unicode Docs
---------------
+------------
 
 Python Docs Unicode HowTo:
 
@@ -382,7 +382,7 @@ Encodings Built-in to Python:
 
 
 Gotchas in Python 2
---------------------
+-------------------
 
 file names, etc:
 
@@ -438,7 +438,7 @@ It's all much cleaner.
 (by the way, the recent implementations are very efficient...)
 
 
-=================
+
 Basic Unicode LAB
 =================
 
