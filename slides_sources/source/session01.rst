@@ -695,7 +695,7 @@ Basic Python Syntax
 .. rst-class:: center mlarge
 
 
-| Values, Types, and Symbols
+| Values, Types, and Names
 |
 | Expressions and Statements
 
@@ -1087,7 +1087,7 @@ Using this feature, we can swap values between two names in one statement:
     In [55]: j
     Out[55]: 4
 
-Multiple assignment and symbol swapping can be very useful in certain contexts
+Multiple assignment and name swapping can be very useful in certain contexts
 
 Deleting
 --------
@@ -1162,7 +1162,7 @@ the ``id`` *builtin* function:
 Testing Identity
 ----------------
 
-You can find out if the values bound to two different symbols are the **same
+You can find out if the values bound to two different names are the **same
 object** using the ``is`` operator:
 
 .. code-block:: ipython
@@ -1325,7 +1325,7 @@ Python defines a number of **keywords**
 
 These are language constructs.
 
-You *cannot* use these words as symbols.
+You *cannot* use these words as names.
 
 ::
 
@@ -1386,7 +1386,7 @@ Try this:
 
 .. nextslide::
 
-You are free to rebind these symbols:
+You are free to rebind these names:
 
 .. code-block:: ipython
 
@@ -1417,7 +1417,7 @@ There are several exceptions that you are likely to see a lot of:
 
 .. rst-class:: build
 
-* ``NameError``: indicates that you have tried to use a symbol that is not bound to a value.
+* ``NameError``: indicates that you have tried to use a name that is not bound to a value.
 * ``TypeError``: indicates that you have tried to use the wrong kind of object for an operation.
 * ``SyntaxError``: indicates that you have mis-typed something.
 * ``AttributeError``: indicates that you have tried to access an attribute or
@@ -1667,7 +1667,7 @@ When you call a function, you pass values to the function parameters as
     In [23]: fun(3, 4, 5)
     3 4 5 12
 
-The values you pass in are *bound* to the symbols inside the function and used.
+The values you pass in are *bound* to the names inside the function and used.
 
 The ``if`` Statement
 ---------------------
