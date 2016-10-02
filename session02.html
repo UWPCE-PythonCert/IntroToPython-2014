@@ -234,7 +234,6 @@
 <h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><br /></div>
-<div class="line"><br /></div>
 <div class="line">David E Tobey</div>
 <div class="line"><br /></div>
 <div class="line">Sharmila Muralidharan</div>
@@ -300,7 +299,7 @@ $ git config --global user.email <span class="s2">&quot;marie@radioactive.com&qu
 <h3>Editor<a class="headerlink" href="#editor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>git needs an editor occasionally</li>
-<li>default is VI, which is not intuitive</li>
+<li>default is VI, which is not very intuitive to non-Unix Geeks</li>
 <li>Nano is simple, easy solution for Macs and Linux</li>
 <li>Nano no longer available for windows, use Sublime or Notepad++</li>
 </ul>
@@ -323,7 +322,7 @@ $ git config --global user.email <span class="s2">&quot;marie@radioactive.com&qu
 <p>A repository is just a collection of files that &#8216;belong together&#8217;.</p>
 <p>Since <code class="docutils literal"><span class="pre">git</span></code> is a <em>distributed</em> versioning system, there is no <strong>central</strong>
 repository that serves as the one to rule them all. This simply means that all repositories should look the same.</p>
-<p>However, to keep things sane, there is generally one repository chosen that users check with for changes, for us this is GitHub.</p>
+<p>However, to keep things sane, there is generally one &#8220;central&#8221; repository chosen that users check with for changes, for us this is GitHub.</p>
 </div>
 <div class="section" id="working-with-remotes">
 <h3>Working with Remotes<a class="headerlink" href="#working-with-remotes" title="Permalink to this headline">¶</a></h3>
@@ -353,18 +352,18 @@ a shortcut for both fetch from and push to this remote)</p>
 <p>It will be a repository that is created just for this class, and will be called IntroPython*quarter*.</p>
 <p>In examples below it is called IntroToPython, so replace that in your head with the name of this year&#8217;s repository. :)</p>
 <p>We will create this repository now.</p>
-<p>This new repository will include examples and we will add relevant materials to it throughout the quarter.</p>
-<p>There will be a folder called students at the top level, and everyone will create there own directory within it.</p>
+<p>This new repository will include examples and we will add relevant materials (and exercise solutions) to it throughout the quarter.</p>
+<p>There will be a folder called students at the top level, and everyone will create their own directory within it.</p>
 <p>So, everyone will commit to this repository, and everyone will have access to everyone&#8217;s code.</p>
 <p>This will make it easier to collaborate.</p>
 <p>We will do a live demo of setting up a machine now.</p>
 <p>We will now create a fork of the class repository from the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code>
 account on GitHub into your personal account. This is done on the GitHub website.</p>
+<p>Let&#8217;s pause now to let you all create a gitHub account if you don&#8217;t have one already.</p>
 <div class="figure">
 <a class="center reference internal image-reference" href="_images/remotes_fork.png"><img alt="_images/remotes_fork.png" class="center" src="_images/remotes_fork.png" style="width: 50%;" /></a>
 </div>
-<p>The next step is to make a <em>clone</em> of your fork on your own computer, which means that
-<strong>your fork</strong> in github is the <em>origin</em> (Demo):</p>
+<p>The next step is to make a <em>clone</em> of your fork on your own computer, which means that <strong>your fork</strong> in github is the <em>origin</em> (Demo):</p>
 <div class="figure">
 <a class="center reference internal image-reference" href="_images/remotes_clone.png"><img alt="_images/remotes_clone.png" class="center" src="_images/remotes_clone.png" style="width: 50%;" /></a>
 </div>
@@ -416,7 +415,7 @@ $ git status
 <p>(This will be a pull request from a fork rather than from a branch)</p>
 <p><a class="reference external" href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">https://help.github.com/articles/creating-a-pull-request-from-a-fork/</a></p>
 </div></blockquote>
-<p>You&#8217;ve pushed your own changes to that fork, and then issued pull requests to have that worked merged back to the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> original.</p>
+<p>You&#8217;ve pushed your own changes to that fork, and then issued pull requests to have that work merged back to the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> original.</p>
 <div class="build container">
 <p>You want to keep your fork up-to-date with that original copy as the class
 goes forward.</p>
@@ -427,9 +426,7 @@ copies of it in different remote locations.</p>
 <div class="build container">
 <p>This allows you to grab changes made to the repository in these other
 locations.</p>
-<p>For our class, we will add an <em>upstream</em> remote to our local copy that points
-to the original copy of the material in the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> account, and we
-will call it, appropriately, upstream</p>
+<p>For our class, we will add an <em>upstream</em> remote to our local copy that points to the original copy of the material in the <code class="docutils literal"><span class="pre">UWPCE-PythonCert</span></code> account, and we will call it, appropriately, &#8220;upstream&#8221;</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/UWPCE-PythonCert/IntroPython2015.git
 
 $ git remote -v
@@ -464,8 +461,7 @@ Fetching upstream
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git checkout master
 </pre></div>
 </div>
-<p>This is <strong>really really</strong> important.  Take the time to ensure you are where you
-think you are, iow, not on a remote. Use git status to find out where you are, if necesary.</p>
+<p>This is <strong>really really</strong> important.  Take the time to ensure you are where you think you are, iow, not on a remote. Use git status to find out where you are, if necesary.</p>
 <p>Then, fetch the upstream master branch and merge it into your master:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ git fetch upstream master
 From https://github.com/UWPCE-PythonCert/IntroPython2015

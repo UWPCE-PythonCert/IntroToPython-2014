@@ -169,7 +169,7 @@ Even more general...
 A function with two parameters
 -------------------------------
 
-Write a function that draws a similar grid with a specified number of rows and three columns.
+Write a function that draws a similar grid with a specified number of rows and columns, and each cell a given size.
 
 for example,  ``print_grid2(3,4)`` results in::
 
