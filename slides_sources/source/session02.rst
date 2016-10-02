@@ -25,7 +25,7 @@ Lightning Talks Today:
 
 .. rst-class: medium
 
-|
+
 |
 | David E Tobey
 |
@@ -96,7 +96,7 @@ Editor
 ------
 
 * git needs an editor occasionally
-* default is VI, which is not intuitive
+* default is VI, which is not very intuitive to non-Unix Geeks
 * Nano is simple, easy solution for Macs and Linux
 * Nano no longer available for windows, use Sublime or Notepad++
 
@@ -128,7 +128,7 @@ A repository is just a collection of files that 'belong together'.
 Since ``git`` is a *distributed* versioning system, there is no **central**
 repository that serves as the one to rule them all. This simply means that all repositories should look the same.
 
-However, to keep things sane, there is generally one repository chosen that users check with for changes, for us this is GitHub.
+However, to keep things sane, there is generally one "central" repository chosen that users check with for changes, for us this is GitHub.
 
 
 Working with Remotes
@@ -174,21 +174,21 @@ Our class materials reside in a repository on *Github* in the *UWPCE-PythonCert*
 
 .. nextslide::
 
-Note that this is not the same repository as the class materials. 
+Note that this is not the same repository as the class materials.
 
-It will be a repository that is created just for this class, and will be called IntroPython*quarter*. 
-  
+It will be a repository that is created just for this class, and will be called IntroPython*quarter*.
+
 In examples below it is called IntroToPython, so replace that in your head with the name of this year's repository. :)
 
-We will create this repository now. 
+We will create this repository now.
 
 .. nextslide::
 
-This new repository will include examples and we will add relevant materials to it throughout the quarter. 
+This new repository will include examples and we will add relevant materials (and exercise solutions) to it throughout the quarter.
 
-There will be a folder called students at the top level, and everyone will create there own directory within it. 
+There will be a folder called students at the top level, and everyone will create their own directory within it.
 
-So, everyone will commit to this repository, and everyone will have access to everyone's code. 
+So, everyone will commit to this repository, and everyone will have access to everyone's code.
 
 This will make it easier to collaborate.
 
@@ -199,14 +199,15 @@ We will do a live demo of setting up a machine now.
 We will now create a fork of the class repository from the ``UWPCE-PythonCert``
 account on GitHub into your personal account. This is done on the GitHub website.
 
+Let's pause now to let you all create a gitHub account if you don't have one already.
+
 .. figure:: /_static/remotes_fork.png
     :width: 50%
     :class: center
 
 .. nextslide::
 
-The next step is to make a *clone* of your fork on your own computer, which means that
-**your fork** in github is the *origin* (Demo):
+The next step is to make a *clone* of your fork on your own computer, which means that **your fork** in github is the *origin* (Demo):
 
 .. figure:: /_static/remotes_clone.png
     :width: 50%
@@ -214,12 +215,12 @@ The next step is to make a *clone* of your fork on your own computer, which mean
 
 .. nextslide::
 
-We will now set up our individual folders and include a README in this folder. 
+We will now set up our individual folders and include a README in this folder.
 
 
 .. rst-class:: build
 .. container::
- 
+
     .. code-block:: bash
 
         $ cd IntroPythonXXXX
@@ -279,19 +280,19 @@ Push your changes:
 
   origin is the default name given by git refering to the server you cloned
   (in this case your github repository)
-  
-  master is the branch that you are currently pushing to that server 
 
-  Go onto GitHub, and make a pull request! 
-  
+  master is the branch that you are currently pushing to that server
+
+  Go onto GitHub, and make a pull request!
+
   (This will be a pull request from a fork rather than from a branch)
-  
+
   https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 
 
 .. nextslide::
 
-You've pushed your own changes to that fork, and then issued pull requests to have that worked merged back to the ``UWPCE-PythonCert`` original.
+You've pushed your own changes to that fork, and then issued pull requests to have that work merged back to the ``UWPCE-PythonCert`` original.
 
 .. rst-class:: build
 .. container::
@@ -312,9 +313,7 @@ copies of it in different remote locations.
     This allows you to grab changes made to the repository in these other
     locations.
 
-    For our class, we will add an *upstream* remote to our local copy that points
-    to the original copy of the material in the ``UWPCE-PythonCert`` account, and we 
-    will call it, appropriately, upstream
+    For our class, we will add an *upstream* remote to our local copy that points to the original copy of the material in the ``UWPCE-PythonCert`` account, and we will call it, appropriately, "upstream"
 
     .. code-block:: bash
 
@@ -366,8 +365,7 @@ Start by making sure you are on your own master branch:
 
     $ git checkout master
 
-This is **really really** important.  Take the time to ensure you are where you
-think you are, iow, not on a remote. Use git status to find out where you are, if necesary.
+This is **really really** important.  Take the time to ensure you are where you think you are, iow, not on a remote. Use git status to find out where you are, if necesary.
 
 .. nextslide:: Merging Upstream Changes
 
