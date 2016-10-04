@@ -35,12 +35,12 @@ Hint:
 
 * Look up the ``%``  operator. What do these do?
 
-  * ``10 % 7 == 3``
-  * ``14 % 7 == 0``
+  * ``10 % 7``
+  * ``14 % 7``
 
 (try that in iPython)
 
-* Do try to write it without looking it up -- there are a million nifty solutions posted on the web.
+* **Do** try to write a solution *before* looking it up -- there are a million nifty solutions posted on the web, but you'll learn a lot more if you figure it out on your own first.
 
 Results:
 --------
