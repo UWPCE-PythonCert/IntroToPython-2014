@@ -611,7 +611,8 @@ When you need to do something to all the objects in a sequence
     5
 
 
-.. nextslide:: ``range()`` and for
+``range()`` and for
+-------------------
 
 ``range`` builds sequences of numbers automatically
 
@@ -958,8 +959,7 @@ Recursion is especially useful for a particular set of problems.
 
 For example, take the case of the *factorial* function.
 
-In mathematics, the *factorial* of an integer is the result of multiplying that
-integer by every integer smaller than it down to 1.
+In mathematics, the *factorial* of an integer is the result of multiplying that integer by every integer smaller than it down to 1.
 
 ::
 
@@ -1447,8 +1447,8 @@ It must be explicitly reloaded to be re-run
 
 .. code-block:: python
 
-    import modulename
-    reload(modulename)
+    import importlib
+    importlib.reload(modulename)
 
 .. ifslides::
 
@@ -1471,7 +1471,7 @@ There are a few ways to do this:
 * ``In [149]: run hello.py``     -- at the IPython prompt -- running a module brings its names into the interactive namespace
 
 
-.. nextslide:: Running a Module
+.. nextslide
 
 Like importing, running a module executes all statements at the module level.
 

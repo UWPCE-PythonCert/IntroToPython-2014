@@ -45,11 +45,7 @@ Lightning Talks Today:
 
 .. rst-class:: mlarge
 
-   Eric Rosko
-
-   Michael Waddle
-
-   Robert Alford
+   ....
 
 
 Sequences
