@@ -174,8 +174,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>Antoher verison os the Unicode discussion &#8211; I htink there is a bit in here that we&#8217;ll want to use.</p>
-<div class="section" id="unicode">
+  <div class="section" id="unicode">
 <h1>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h1>
 <p class="left">I hope you all read this:</p>
 <p class="left">The Absolute Minimum Every Software Developer Absolutely,
@@ -232,7 +231,7 @@ encodings</li>
 <dd><ul class="first last simple">
 <li>Early days: we can fit all the code points in a two byte integer (65536 characters)</li>
 <li>Turns out that didn&#8217;t work &#8211; we now need 32 bit integer to hold all of unicode
-&#8220;raw&#8221; (UTC-4) &#8211; well we dopnt need that many, but common machines don&#8217;t have
+&#8220;raw&#8221; (UTC-4) &#8211; well we don&#8217;t need quite that many, but common machines don&#8217;t have
 24 bit integers.</li>
 </ul>
 </dd>
@@ -430,7 +429,7 @@ intentions clear, too.</p>
 <p>a 1-byte per char encoding.</p>
 <ul class="simple">
 <li>Superset of ASCII suitable for Western European languages.</li>
-<li>The most common one-byte per char encoding for European text.</li>
+<li>The most common one-byte-per-char encoding for European text.</li>
 <li>Nice property &#8211; every byte value from 0 to 255 is a valid character ( at least in Python )</li>
 </ul>
 <ul class="simple">
