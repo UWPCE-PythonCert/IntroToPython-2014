@@ -45,7 +45,11 @@ Lightning Talks Today:
 
 .. rst-class:: mlarge
 
-   ....
+|
+| Beatrice He
+| Bradley I Baumel
+| Jerry Bearer
+| Sheree Pena
 
 
 Sequences
@@ -452,10 +456,10 @@ Lightning Talks
 ----------------
 
 |
-| Eric Rosko
+| Beatrice He
 |
 |
-| Michael Waddle
+| Bradley I Baumel
 |
 
 
@@ -1108,13 +1112,14 @@ Let's play a bit with Python lists...
 
 
 
-Lightning Talk
+Lightning Talks
 ---------------
 
 |
-| Robert Alford
+| Jerry Bearer
 |
-
+| Sheree Pena
+|
 
 Iteration
 =========
@@ -1708,11 +1713,13 @@ Next Week:
 
     **Lightning talks next week:**
 
-Andrey Gusev
+Abdishu Hagi
 
-Cheryl Ohashi
+Enrique R Silva
 
-Maxwell MacCamy
+Isaac Cowhey
+
+Paul G Anderson
 
 
 
