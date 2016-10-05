@@ -36,6 +36,25 @@ def fizzbuzz2(n):
 
 def fizzbuzz3(n):
     """
+    Or print on one line...
+    """
+    for i in range(1, n + 1):
+        num = True
+        if i % 3 == 0:
+            print("\nFizz", end='')
+            num = False
+        if i % 5 == 0:
+            if num:
+                print()
+            print("Buzz", end='')
+            num = False
+        else:
+            if num:
+                print("\n", i, end='')
+
+
+def fizzbuzz4(n):
+    """
     use conditional expressions:
     """
     for i in range(1, n + 1):
@@ -44,25 +63,11 @@ def fizzbuzz3(n):
         print(msg or i)
 
 
-def fizzbuzz4(n):
+def fizzbuzz5(n):
     """
-    the one liner
+    a one liner
     """
     for i in range(1, n + 1): print (("Fizz" * (not (i % 3)) + "Buzz" * (not (i % 5))) or i)
-
-
-# def fizzbuzz_ruby(n):
-#     """
-#     This is a one-liner version inspired by the Ruby one-liner
-#     found here:
-
-#     http://www.commandercoriander.net/blog/2013/02/03/fizzbuzz-in-one-line
-
-#     This uses list comprehensions, and slicing, and is, well, pretty darn ugly!
-
-#     """
-#     for word in [("".join(["Fizz", ][0:1 - i % 3] + ["Buzz", ][0:1 - i % 5]) or str(i) for i in range(1, n + 1)]: print(word)
-#     print("".join(["Fizz", ][0:1 - i % 3]))
 
 
 if __name__ == "__main__":
@@ -74,4 +79,5 @@ if __name__ == "__main__":
     print()
     fizzbuzz4(16)
     print()
-#    fizzbuzz_ruby(16)
+    fizzbuzz4(16)
+    print()
