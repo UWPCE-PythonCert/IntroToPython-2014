@@ -369,15 +369,12 @@ This is **really really** important.  Take the time to ensure you are where you 
 
 .. nextslide:: Merging Upstream Changes
 
-Then, fetch the upstream master branch and merge it into your master:
+Then, fetch the upstream master branch and merge it into your master.
+You can do this in one step with:
 
 .. code-block:: bash
 
-  $ git fetch upstream master
-  From https://github.com/UWPCE-PythonCert/IntroPython2015
-   * branch            master     -> FETCH_HEAD
-
-  $ git merge upstream/master
+  $ git pull upstream master
   Updating 3239de7..9ddbdbb
   Fast-forward
    Examples/README.rst              |  4 ++++
@@ -385,11 +382,6 @@ Then, fetch the upstream master branch and merge it into your master:
    create mode 100644 Examples/README.rst
   ...
 
-NOTE: you can do that in one step with:
-
-.. code-block:: bash
-
-  $ git pull upstream master
 
 .. nextslide:: Pushing to Origin
 
