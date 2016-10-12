@@ -21,10 +21,10 @@ https://pyformat.info/
 
 And a nice "Cookbook":
 
-https://mkaz.github.io/2012/10/10/python-string-format/
+https://mkaz.tech/python-string-format.html
 
 
-A couple Exercises
+A Couple Exercises
 ------------------
 
 * Write a format string that will take:

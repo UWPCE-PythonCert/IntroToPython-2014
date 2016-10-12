@@ -635,15 +635,14 @@ Ever.
 
 .. nextslide:: The Types We Know
 
-========= =======
+========= ===========
 Immutable Mutable
-========= =======
-Unicode   List
-String
-Integer
+========= ===========
+String    List
+Integer   Dictionary
 Float
 Tuple
-========= =======
+========= ===========
 
 
 .. nextslide:: Lists Are Mutable
@@ -1101,6 +1100,27 @@ https://docs.python.org/3.5/library/stdtypes.html#mutable-sequence-types
 
 (actually any mutable sequence....)
 
+One Last Trick
+---------------
+
+.. rst-class:: left
+
+For some of the exercises, you'll need to interact with a user at the
+command line.
+
+There's a nice built in function to do this - ``input``:
+
+.. code-block:: ipython
+
+    In [85]: fred = input('type something-->')
+    type something-->I've typed something
+
+    In [86]: print(fred)
+    I've typed something
+
+This will display a prompt to the user, allowing them to input text and
+allowing you to bind that input to a symbol.
+
 LAB
 ====
 
@@ -1463,7 +1483,7 @@ Common Escape Sequences::
     \ooo  Character with octal value ooo
     \xhh  Character with hex value hh
 
-for example -- for tab-separted values:
+for example -- for tab-separated values:
 
 .. code-block:: ipython
 
@@ -1639,28 +1659,6 @@ It's well worth your while to spend some time getting to know this
 `formatting language`_. You can accomplish a great deal just with this.
 
 .. _formatting language: https://docs.python.org/3/library/string.html#format-specification-mini-language
-
-
-One Last Trick
----------------
-
-.. rst-class:: left
-
-For some of the exercises, you'll need to interact with a user at the
-command line.
-
-There's a nice built in function to do this - ``input``:
-
-.. code-block:: ipython
-
-    In [85]: fred = input('type something-->')
-    type something-->I've typed something
-
-    In [86]: print(fred)
-    I've typed something
-
-This will display a prompt to the user, allowing them to input text and
-allowing you to bind that input to a symbol.
 
 
 String Formatting LAB
