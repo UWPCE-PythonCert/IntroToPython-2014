@@ -112,6 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#lists">Lists</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tuples">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#for-loops"><code class="docutils literal"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#range-and-for"><code class="docutils literal"><span class="pre">range()</span></code> and for</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#intricacies">Intricacies</a></li>
 </ul>
 </li>
@@ -462,22 +463,15 @@ Fetching upstream
 </pre></div>
 </div>
 <p>This is <strong>really really</strong> important.  Take the time to ensure you are where you think you are, iow, not on a remote. Use git status to find out where you are, if necesary.</p>
-<p>Then, fetch the upstream master branch and merge it into your master:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git fetch upstream master
-From https://github.com/UWPCE-PythonCert/IntroPython2015
- * branch            master     -&gt; FETCH_HEAD
-
-$ git merge upstream/master
+<p>Then, fetch the upstream master branch and merge it into your master.
+You can do this in one step with:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git pull upstream master
 Updating 3239de7..9ddbdbb
 Fast-forward
  Examples/README.rst              <span class="p">|</span>  <span class="m">4</span> ++++
 ...
  create mode <span class="m">100644</span> Examples/README.rst
 ...
-</pre></div>
-</div>
-<p>NOTE: you can do that in one step with:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git pull upstream master
 </pre></div>
 </div>
 <p>Now all the changes from <em>upstream</em> are present in your local clone.
@@ -636,6 +630,9 @@ conditionals, looping, and a container type...</p>
 <span class="go">5</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="range-and-for">
+<h3><code class="docutils literal"><span class="pre">range()</span></code> and for<a class="headerlink" href="#range-and-for" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">range</span></code> builds sequences of numbers automatically</p>
 <p>Use it when you need to do something a set number of times</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [31]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
@@ -871,8 +868,7 @@ add more lines below for enhancement.</li>
 save your machine from running out of RAM.</p>
 <p>Recursion is especially useful for a particular set of problems.</p>
 <p>For example, take the case of the <em>factorial</em> function.</p>
-<p>In mathematics, the <em>factorial</em> of an integer is the result of multiplying that
-integer by every integer smaller than it down to 1.</p>
+<p>In mathematics, the <em>factorial</em> of an integer is the result of multiplying that integer by every integer smaller than it down to 1.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>5! == 5 * 4 * 3 * 2 * 1
 </pre></div>
 </div>
@@ -1179,8 +1175,8 @@ side-effects.</p>
 <h3>Re-import<a class="headerlink" href="#re-import" title="Permalink to this headline">¶</a></h3>
 <p>The code in a module is NOT re-run when imported again</p>
 <p>It must be explicitly reloaded to be re-run</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">modulename</span>
-<span class="nb">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In addition to importing modules, you can run them.</p>

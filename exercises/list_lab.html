@@ -182,7 +182,7 @@
 </div>
 <div class="section" id="procedure">
 <h3>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h3>
-<p>In your student dir in the IntroPython2015 repo, create a <code class="docutils literal"><span class="pre">session02</span></code> dir and put in a new <code class="docutils literal"><span class="pre">list_lab.py</span></code> file.</p>
+<p>In your student dir in the IntroPython2015 repo, create a <code class="docutils literal"><span class="pre">session03</span></code> dir and put in a new <code class="docutils literal"><span class="pre">list_lab.py</span></code> file.</p>
 <p>The file should be an executable python script. That is to say that one
 should be able to run the script directly like so:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./list_lab.py
@@ -194,6 +194,12 @@ should be able to run the script directly like so:</p>
 </pre></div>
 </div>
 <p>(The +x means make this executable)</p>
+<p>The file will also need this on the first line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+</pre></div>
+</div>
+<p>This is known as the &#8220;she-bang&#8221; line &#8211; it tells the shell how to execute that file &#8211; in this case, with <code class="docutils literal"><span class="pre">python3</span></code></p>
+<p>NOTE: on Windows, there is a python launcher which, if everything is configured correctly look at that line to know you want python3 if there is more than one python on your system.</p>
 <p>Add the file to your clone of the repository and commit changes frequently
 while working on the following tasks. When you are done, push your changes to
 GitHub and issue a pull request.</p>

@@ -45,11 +45,11 @@ Lightning Talks Today:
 
 .. rst-class:: mlarge
 
-   Eric Rosko
-
-   Michael Waddle
-
-   Robert Alford
+|
+| Beatrice He
+| Bradley I Baumel
+| Jerry Bearer
+| Sheree Pena
 
 
 Sequences
@@ -92,7 +92,8 @@ There are eight builtin types in Python that are *sequences*:
 * array.array
 * range object (almost)
 
-For this class, you won't see much beyond string, lists, and tuples -- the rest are pretty special purpose.
+For this class, you won't see much beyond string, lists, and tuples --
+the rest are pretty special purpose.
 
 But what we learn today applies to all sequences (with minor caveats)
 
@@ -214,7 +215,7 @@ Why is the "first" item indexed with **zero**?
 
 Why is the last item in the slice **not** included?
 
-Because these lead to some nifty properties::
+*Because* these lead to some nifty properties::
 
     len(seq[a:b]) == b-a
 
@@ -269,7 +270,7 @@ Indexing past the end of a sequence will raise an error, slicing will not:
     In [131]: s[10:20]
     Out[131]: ' words'
     In [132]: s[20:30]
-    Out[132]: "
+    Out[132]: ''
 
 
 (demo)
@@ -456,10 +457,10 @@ Lightning Talks
 ----------------
 
 |
-| Eric Rosko
+| Beatrice He
 |
 |
-| Michael Waddle
+| Bradley Baumel
 |
 
 
@@ -634,15 +635,14 @@ Ever.
 
 .. nextslide:: The Types We Know
 
-========= =======
+========= ===========
 Immutable Mutable
-========= =======
-Unicode   List
-String
-Integer
+========= ===========
+String    List
+Integer   Dictionary
 Float
 Tuple
-========= =======
+========= ===========
 
 
 .. nextslide:: Lists Are Mutable
@@ -1100,6 +1100,27 @@ https://docs.python.org/3.5/library/stdtypes.html#mutable-sequence-types
 
 (actually any mutable sequence....)
 
+One Last Trick
+---------------
+
+.. rst-class:: left
+
+For some of the exercises, you'll need to interact with a user at the
+command line.
+
+There's a nice built in function to do this - ``input``:
+
+.. code-block:: ipython
+
+    In [85]: fred = input('type something-->')
+    type something-->I've typed something
+
+    In [86]: print(fred)
+    I've typed something
+
+This will display a prompt to the user, allowing them to input text and
+allowing you to bind that input to a symbol.
+
 LAB
 ====
 
@@ -1112,13 +1133,14 @@ Let's play a bit with Python lists...
 
 
 
-Lightning Talk
+Lightning Talks
 ---------------
 
 |
-| Robert Alford
+| Jerry Bearer
 |
-
+| Sheree Pena
+|
 
 Iteration
 =========
@@ -1461,7 +1483,7 @@ Common Escape Sequences::
     \ooo  Character with octal value ooo
     \xhh  Character with hex value hh
 
-for example -- for tab-separted values:
+for example -- for tab-separated values:
 
 .. code-block:: ipython
 
@@ -1639,28 +1661,6 @@ It's well worth your while to spend some time getting to know this
 .. _formatting language: https://docs.python.org/3/library/string.html#format-specification-mini-language
 
 
-One Last Trick
----------------
-
-.. rst-class:: left
-
-For some of the exercises, you'll need to interact with a user at the
-command line.
-
-There's a nice built in function to do this - ``input``:
-
-.. code-block:: ipython
-
-    In [85]: fred = input('type something-->')
-    type something-->I've typed something
-
-    In [86]: print(fred)
-    I've typed something
-
-This will display a prompt to the user, allowing them to input text and
-allowing you to bind that input to a symbol.
-
-
 String Formatting LAB
 =====================
 
@@ -1712,11 +1712,13 @@ Next Week:
 
     **Lightning talks next week:**
 
-Andrey Gusev
+Abdishu Hagi
 
-Cheryl Ohashi
+Enrique R Silva
 
-Maxwell MacCamy
+Isaac Cowhey
+
+Paul G Anderson
 
 
 

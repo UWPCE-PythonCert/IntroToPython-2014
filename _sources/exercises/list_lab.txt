@@ -31,7 +31,7 @@ to query the user for info at the command line, you use:
 Procedure
 ---------
 
-In your student dir in the IntroPython2015 repo, create a ``session02`` dir and put in a new ``list_lab.py`` file.
+In your student dir in the IntroPython2015 repo, create a ``session03`` dir and put in a new ``list_lab.py`` file.
 
 The file should be an executable python script. That is to say that one
 should be able to run the script directly like so:
@@ -49,6 +49,14 @@ should be able to run the script directly like so:
   $ chmod +x list_lab.py
 
 (The +x means make this executable)
+
+The file will also need this on the first line::
+
+    #!/usr/bin/env python3
+
+This is known as the "she-bang" line -- it tells the shell how to execute that file -- in this case, with ``python3``
+
+NOTE: on Windows, there is a python launcher which, if everything is configured correctly look at that line to know you want python3 if there is more than one python on your system.
 
 .. nextslide::
 

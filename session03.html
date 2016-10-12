@@ -129,14 +129,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#convention">Convention</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#other-considerations">Other Considerations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#more-documentation">More Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#one-last-trick">One Last Trick</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#list-lab">List Lab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lightning-talk">Lightning Talk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Lightning Talks</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Iteration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Iteration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#for-loops">For Loops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#range-and-for-loops"><code class="docutils literal"><span class="pre">range</span></code> and <code class="docutils literal"><span class="pre">for</span></code> Loops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#while-loops">While Loops</a></li>
@@ -159,7 +160,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#multiple-placeholders">Multiple placeholders:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#named-placeholders">Named placeholders:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#complex-formatting">Complex Formatting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#one-last-trick">One Last Trick</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#string-formatting-lab">String Formatting LAB</a></li>
@@ -261,9 +261,13 @@
 </div>
 <div class="section" id="lightning-talks-today">
 <h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
-<p class="mlarge">Eric Rosko</p>
-<p class="mlarge">Michael Waddle</p>
-<p class="mlarge">Robert Alford</p>
+<div class="mlarge line-block">
+<div class="line"><br /></div>
+<div class="line">Beatrice He</div>
+<div class="line">Bradley I Baumel</div>
+<div class="line">Jerry Bearer</div>
+<div class="line">Sheree Pena</div>
+</div>
 </div>
 </div>
 <div class="section" id="sequences">
@@ -296,7 +300,8 @@
 <li>array.array</li>
 <li>range object (almost)</li>
 </ul>
-<p>For this class, you won&#8217;t see much beyond string, lists, and tuples &#8211; the rest are pretty special purpose.</p>
+<p>For this class, you won&#8217;t see much beyond string, lists, and tuples &#8211;
+the rest are pretty special purpose.</p>
 <p>But what we learn today applies to all sequences (with minor caveats)</p>
 </div>
 <div class="section" id="indexing">
@@ -384,7 +389,7 @@ original sequence.</p>
 <p>Python indexing feels &#8216;weird&#8217; to some folks &#8211; particularly those that don&#8217;t come with a background in the C family of languages.</p>
 <p>Why is the &#8220;first&#8221; item indexed with <strong>zero</strong>?</p>
 <p>Why is the last item in the slice <strong>not</strong> included?</p>
-<p>Because these lead to some nifty properties:</p>
+<p><em>Because</em> these lead to some nifty properties:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="n">a</span><span class="p">:</span><span class="n">b</span><span class="p">])</span> <span class="o">==</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
 
 <span class="n">seq</span><span class="p">[:</span><span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="n">seq</span><span class="p">[</span><span class="n">b</span><span class="p">:]</span> <span class="o">==</span> <span class="n">seq</span>
@@ -425,7 +430,7 @@ objects.</p>
 <span class="gp">In [131]: </span><span class="n">s</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
 <span class="gh">Out[131]: </span><span class="go">&#39; words&#39;</span>
 <span class="gp">In [132]: </span><span class="n">s</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
-<span class="gh">Out[132]: </span><span class="go">&quot;</span>
+<span class="gh">Out[132]: </span><span class="go">&#39;&#39;</span>
 </pre></div>
 </div>
 <p>(demo)</p>
@@ -559,10 +564,10 @@ appears:</p>
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><br /></div>
-<div class="line">Eric Rosko</div>
+<div class="line">Beatrice He</div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
-<div class="line">Michael Waddle</div>
+<div class="line">Bradley Baumel</div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -682,8 +687,8 @@ multiple names (or no name)</p>
 <p>Ever.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="56%" />
-<col width="44%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Immutable</th>
@@ -691,19 +696,16 @@ multiple names (or no name)</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Unicode</td>
+<tr class="row-even"><td>String</td>
 <td>List</td>
 </tr>
-<tr class="row-odd"><td>String</td>
+<tr class="row-odd"><td>Integer</td>
+<td>Dictionary</td>
+</tr>
+<tr class="row-even"><td>Float</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>Integer</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>Float</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Tuple</td>
+<tr class="row-odd"><td>Tuple</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -1038,6 +1040,21 @@ used to change the list.</p>
 <p><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#mutable-sequence-types">https://docs.python.org/3.5/library/stdtypes.html#mutable-sequence-types</a></p>
 <p>(actually any mutable sequence....)</p>
 </div>
+<div class="section" id="one-last-trick">
+<h3>One Last Trick<a class="headerlink" href="#one-last-trick" title="Permalink to this headline">¶</a></h3>
+<p class="left">For some of the exercises, you&#8217;ll need to interact with a user at the
+command line.</p>
+<p>There&#8217;s a nice built in function to do this - <code class="docutils literal"><span class="pre">input</span></code>:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [85]: </span><span class="n">fred</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;type something--&gt;&#39;</span><span class="p">)</span>
+<span class="go">type something--&gt;I&#39;ve typed something</span>
+
+<span class="gp">In [86]: </span><span class="k">print</span><span class="p">(</span><span class="n">fred</span><span class="p">)</span>
+<span class="go">I&#39;ve typed something</span>
+</pre></div>
+</div>
+<p>This will display a prompt to the user, allowing them to input text and
+allowing you to bind that input to a symbol.</p>
+</div>
 </div>
 <div class="section" id="lab">
 <h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
@@ -1046,17 +1063,19 @@ used to change the list.</p>
 <p>Let&#8217;s play a bit with Python lists...</p>
 <p><a class="reference internal" href="exercises/list_lab.html#exercise-list-lab"><span class="std std-ref">List Lab</span></a></p>
 </div>
-<div class="section" id="lightning-talk">
-<h3>Lightning Talk<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Lightning Talks<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><br /></div>
-<div class="line">Robert Alford</div>
+<div class="line">Jerry Bearer</div>
+<div class="line"><br /></div>
+<div class="line">Sheree Pena</div>
 <div class="line"><br /></div>
 </div>
 </div>
 </div>
-<div class="section" id="id1">
-<h2>Iteration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>Iteration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p class="build">Repetition, Repetition, Repetition, Repe...</p>
 <div class="section" id="for-loops">
 <h3>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
@@ -1302,7 +1321,7 @@ loop terminates normally (no <code class="docutils literal"><span class="pre">br
 \<span class="n">xhh</span>  <span class="n">Character</span> <span class="k">with</span> <span class="nb">hex</span> <span class="n">value</span> <span class="n">hh</span>
 </pre></div>
 </div>
-<p>for example &#8211; for tab-separted values:</p>
+<p>for example &#8211; for tab-separated values:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;these</span><span class="se">\t</span><span class="s2">are</span><span class="se">\t</span><span class="s2">separated</span><span class="se">\t</span><span class="s2">by</span><span class="se">\t</span><span class="s2">tabs&quot;</span>
 
 <span class="gp">In [26]: </span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -1431,21 +1450,6 @@ loop terminates normally (no <code class="docutils literal"><span class="pre">br
 <p>It&#8217;s well worth your while to spend some time getting to know this
 <a class="reference external" href="https://docs.python.org/3/library/string.html#format-specification-mini-language">formatting language</a>. You can accomplish a great deal just with this.</p>
 </div>
-<div class="section" id="one-last-trick">
-<h3>One Last Trick<a class="headerlink" href="#one-last-trick" title="Permalink to this headline">¶</a></h3>
-<p class="left">For some of the exercises, you&#8217;ll need to interact with a user at the
-command line.</p>
-<p>There&#8217;s a nice built in function to do this - <code class="docutils literal"><span class="pre">input</span></code>:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [85]: </span><span class="n">fred</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;type something--&gt;&#39;</span><span class="p">)</span>
-<span class="go">type something--&gt;I&#39;ve typed something</span>
-
-<span class="gp">In [86]: </span><span class="k">print</span><span class="p">(</span><span class="n">fred</span><span class="p">)</span>
-<span class="go">I&#39;ve typed something</span>
-</pre></div>
-</div>
-<p>This will display a prompt to the user, allowing them to input text and
-allowing you to bind that input to a symbol.</p>
-</div>
 </div>
 <div class="section" id="string-formatting-lab">
 <h2>String Formatting LAB<a class="headerlink" href="#string-formatting-lab" title="Permalink to this headline">¶</a></h2>
@@ -1479,9 +1483,10 @@ allowing you to bind that input to a symbol.</p>
 <div class="section" id="next-week">
 <h2>Next Week:<a class="headerlink" href="#next-week" title="Permalink to this headline">¶</a></h2>
 <p class="mlarge"><strong>Lightning talks next week:</strong></p>
-<p>Andrey Gusev</p>
-<p>Cheryl Ohashi</p>
-<p>Maxwell MacCamy</p>
+<p>Abdishu Hagi</p>
+<p>Enrique R Silva</p>
+<p>Isaac Cowhey</p>
+<p>Paul G Anderson</p>
 </div>
 </div>
 
