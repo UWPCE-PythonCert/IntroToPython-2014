@@ -92,7 +92,8 @@ There are eight builtin types in Python that are *sequences*:
 * array.array
 * range object (almost)
 
-For this class, you won't see much beyond string, lists, and tuples -- the rest are pretty special purpose.
+For this class, you won't see much beyond string, lists, and tuples --
+the rest are pretty special purpose.
 
 But what we learn today applies to all sequences (with minor caveats)
 
@@ -214,7 +215,7 @@ Why is the "first" item indexed with **zero**?
 
 Why is the last item in the slice **not** included?
 
-Because these lead to some nifty properties::
+*Because* these lead to some nifty properties::
 
     len(seq[a:b]) == b-a
 
@@ -269,7 +270,7 @@ Indexing past the end of a sequence will raise an error, slicing will not:
     In [131]: s[10:20]
     Out[131]: ' words'
     In [132]: s[20:30]
-    Out[132]: "
+    Out[132]: ''
 
 
 (demo)
@@ -459,7 +460,7 @@ Lightning Talks
 | Beatrice He
 |
 |
-| Bradley I Baumel
+| Bradley Baumel
 |
 
 
