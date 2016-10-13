@@ -142,7 +142,7 @@ Reading:
 
 There is no assigned text book. However, you may find it beneficial to read other discussions of topics in addition to what I present in class or assign as reading: either to explore a topic more deeply, or to simple get another viewpoint. There are many good books on Python, and many more excellent discussions of individual topics on the web.
 
-Note that mamny books still cover primarily (or only) Python 2. THey can still be very, very useful, the syntax is only a little different, and the concepts the same.
+Note that many books still cover primarily (or only) Python 2. THey can still be very, very useful, the syntax is only a little different, and the concepts the same.
 
 A few you may want to consider:
 
@@ -288,7 +288,7 @@ List and Dict Comprehensions
 
 
 Week 6: November 1
-....................
+..................
 
 Advanced Argument passing
 
@@ -296,28 +296,29 @@ Lambda
 
 Functions as Objects
 
+**No class Nov 8th for election night**
 
-Week 7: November 8
-.......................
+Week 7: November 15
+...................
 
 Object Oriented Programming: classes, instances, and methods
 
 
-Week 8: November 15
-....................
+Week 8: November 22
+...................
 More OO: Multiple inheritance, Properties, Special methods.
 
 Emulating built-in types
 
 
-Week 9: November 22
+Week 9: November 29
 ...................
 
 Iterators and Generators
 
 
-Week 10: November 29 / December 6
-.................................
+Week 10: December 6
+...................
 
 Decorators
 
