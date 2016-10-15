@@ -183,19 +183,58 @@
 <p><code class="docutils literal"><span class="pre">'file_002</span> <span class="pre">:</span>&#160;&#160; <span class="pre">123.46,</span> <span class="pre">1e+04'</span></code></p>
 </div></blockquote>
 </li>
-<li><p class="first">Rewrite: <code class="docutils literal"><span class="pre">&quot;the</span> <span class="pre">first</span> <span class="pre">3</span> <span class="pre">numbers</span> <span class="pre">are:</span> <span class="pre">{:d},</span> <span class="pre">{:d},</span> <span class="pre">{:d}&quot;.format(1,2,3)</span></code>
-to take an arbitrary number of values</p>
-</li>
 </ul>
-<p>Trick: You can pass in a tuple of values to a function with a <code class="docutils literal"><span class="pre">*</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">ipython</span>
+<p><strong>Note:</strong> the idea behind the &#8220;file_002&#8221; is that if you have a bunch of files that you want to name with numbers that can be sorted, you need to &#8220;pad&#8221; the numbers with zeros to get the right sort order.</p>
+<p>For example:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="s1">&#39;file2&#39;</span><span class="p">,</span> <span class="s1">&#39;file10&#39;</span><span class="p">,</span> <span class="s1">&#39;file11&#39;</span><span class="p">]</span>
+<span class="gp">In [11]: </span><span class="n">fnames</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">In [12]: </span><span class="n">fnames</span>
+<span class="gh">Out[12]: </span><span class="go">[&#39;file1&#39;, &#39;file10&#39;, &#39;file11&#39;, &#39;file2&#39;]</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>In [52]: t = (1,2,3)</p>
-<p>In [53]: &#8220;the first 3 numbers are: {:d}, {:d}, {:d}&#8221;.format(* t)
-Out[53]: &#8216;the first 3 numbers are: 1, 2, 3&#8217;</p>
-</div></blockquote>
+<p>That is probably not what you want. However:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;file001&#39;</span><span class="p">,</span> <span class="s1">&#39;file002&#39;</span><span class="p">,</span> <span class="s1">&#39;file010&#39;</span><span class="p">,</span> <span class="s1">&#39;file011&#39;</span><span class="p">]</span>
+<span class="gp">In [3]: </span><span class="nb">sorted</span><span class="p">(</span><span class="n">fnames</span><span class="p">)</span>
+<span class="gh">Out[3]: </span><span class="go">[&#39;file001&#39;, &#39;file002&#39;, &#39;file010&#39;, &#39;file011&#39;]</span>
+</pre></div>
+</div>
+<p>That works!</p>
+<p>So you want to find a string formatting operator that will &#8220;pad&#8221; the number with zeros for you.</p>
+</div>
+<div class="section" id="dynamically-building-up-format-strings">
+<h3>Dynamically Building up format strings<a class="headerlink" href="#dynamically-building-up-format-strings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Rewrite:</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">&quot;the</span> <span class="pre">3</span> <span class="pre">numbers</span> <span class="pre">are:</span> <span class="pre">{:d},</span> <span class="pre">{:d},</span> <span class="pre">{:d}&quot;.format(1,2,3)</span></code></p>
+<p>to take an arbitrary number of values.</p>
+<p>Trick: You can pass in a tuple of values to a function with a <code class="docutils literal"><span class="pre">*</span></code>:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [53]: </span><span class="s2">&quot;the 3 numbers are: {:d}, {:d}, {:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="gh">Out[53]: </span><span class="go">&#39;the 3 numbers are: 1, 2, 3&#39;</span>
+</pre></div>
+</div>
+<p>The idea here is that you may have a tuple of three numbers, but might also have 4 or 5 or....</p>
+<p>So you can dynamically build up the format string to accommodate the length of the tuple.</p>
+<p>The string object has the <code class="docutils literal"><span class="pre">format()</span></code> method, so you can call it with a string that is bound to a name, not just a string literal. For example:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">fstring</span> <span class="o">=</span> <span class="s2">&quot;{:d}, {:d}&quot;</span>
+
+<span class="gp">In [17]: </span><span class="n">nums</span> <span class="o">=</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
+
+<span class="gp">In [18]: </span><span class="n">fstring</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">nums</span><span class="p">)</span>
+<span class="gh">Out[18]: </span><span class="go">&#39;34, 56&#39;</span>
+</pre></div>
+</div>
+<p>So how would you make an fstring that was the right length for an arbitrary tuple?</p>
+<p>Put your code in a function that will return the formatted string like so:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">formatter</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="gh">Out[20]: </span><span class="go">&#39;the 3 numbers are: 2, 3, 5&#39;</span>
+
+<span class="gp">In [21]: </span><span class="n">formatter</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="gh">Out[21]: </span><span class="go">&#39;the 5 numbers are: 2, 3, 5, 7, 9&#39;</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
