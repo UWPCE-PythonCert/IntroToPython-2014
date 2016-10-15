@@ -162,7 +162,19 @@ You can put a mutable item in an immutable object!
 | Deleting from list (list_lab)
 |
 
-.. nextslide::
+__main__
+--------
+
+What is this::
+
+  if __name__ == __main__
+
+about?
+
+(demo)
+
+assert
+--------
 
 What is ``assert`` for?
 
