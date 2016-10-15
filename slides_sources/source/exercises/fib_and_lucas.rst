@@ -73,6 +73,14 @@ Calling this function with no optional parameters will produce numbers from the
 produce values from the *lucas numbers*. Other values for the optional
 parameters will produce other series.
 
+**Note:** While you *could* check the input arguments, and then call one
+of the functions you wrote, the idea of this exercise is to make a general
+function, rather than one specialized. So you should re-impliment the code
+in this function.
+
+In fact, you could go back and re-impliment your fibonacci and lucas
+functions to call this one with particular arguments.
+
 Ensure that your function has a well-formed ``docstring``
 
 Tests...
