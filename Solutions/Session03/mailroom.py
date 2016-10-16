@@ -35,7 +35,7 @@ def find_donor(name):
     :returns: The donor data structure -- None if not in the donor_db
     """
     for donor in donor_db:
-        # do an non-capitalized compare
+        # do a case-insenstive compare
         if name.strip().lower() == donor[0].lower():
             return donor
     return None
@@ -48,9 +48,9 @@ def main_menu_selection():
     action = input(dedent('''
       Choose an action:
 
-      1 - Send a Thank You
-      2 - Create a Report
-      3 - Quit
+      't' - Send a Thank You
+      'r' - Create a Report
+      'q' - Quit
 
       > '''))
     return action.strip()
@@ -67,7 +67,7 @@ def gen_letter(donor):
     return dedent('''
           Dear {}
 
-          Thank you for your very kind donation of {:.2f}.
+          Thank you for your very kind donation of ${:.2f}.
           It will be put to very good use.
 
                          Sincerely,
@@ -82,7 +82,8 @@ def send_thank_you():
     # Read a valid donor to send a thank you from, handling special commands to
     # let the user navigate as defined.
     while True:
-        name = input("Enter a donor's name (or 'list' to see all donors or 'menu' to exit)> ").strip()
+        name = input("Enter a donor's name "
+                     "(or 'list' to see all donors or 'menu' to exit)> ").strip()
         if name == "list":
             print_donors()
         elif name == "menu":
@@ -90,17 +91,19 @@ def send_thank_you():
         else:
             break
 
-    # Now prompt the user for a donation amount to apply. Since this is also an exit
-    # point to the main menu, we want to make sure this is done before mutating the db
-    # list object.
+    # Now prompt the user for a donation amount to apply. Since this is
+    # also an exit point to the main menu, we want to make sure this is
+    # done before mutating the donors list object.
     while True:
-        amount_str = input("Enter a donation amount (or 'menu' to exit)> ").strip()
+        amount_str = input("Enter a donation amount (or 'menu' to exit) > ").strip()
         if amount_str == "menu":
             return
         # Make sure amount is a valid amount before leaving the input loop
         amount = float(amount_str)
+        # NOTE: this is getting a bit carried away...
         if math.isnan(amount) or math.isinf(amount) or round(amount, 2) == 0.00:
             print("error: donation amount is invalid\n")
+            continue  # not really needed, but makes it more clear
         else:
             break
 
@@ -111,7 +114,9 @@ def send_thank_you():
         donor_db.append(donor)
 
     # Record the donation
+    # Note how the donor object can be manipulated while it is in the donors list.
     donor[1].append(amount)
+
     print(gen_letter(donor))
 
 
@@ -133,8 +138,10 @@ def print_donor_report():
 
     # sort the report data
     report_rows.sort(key=sort_key)
-    print("{:25s} | {:11s} | {:9s} | {:12s}".format("Donor Name", "Total Given", "Num Gifts", "Average Gift"))
-    print("-"*66)
+    # print it out in with a nice format.
+    print("{:25s} | {:11s} | {:9s} | {:12s}".format(
+          "Donor Name", "Total Given", "Num Gifts", "Average Gift"))
+    print("-" * 66)
     for row in report_rows:
         print("{:25s}   {:11.2f}   {:9d}   {:12.2f}".format(*row))
 
@@ -142,11 +149,11 @@ if __name__ == "__main__":
     running = True
     while running:
         selection = main_menu_selection()
-        if selection is "1":
+        if selection == "t":
             send_thank_you()
-        elif selection is "2":
+        elif selection == "r":
             print_donor_report()
-        elif selection is "3":
+        elif selection == "q":
             running = False
         else:
             print("error: menu selection is invalid!")
