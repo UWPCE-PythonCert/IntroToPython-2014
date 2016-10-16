@@ -33,7 +33,7 @@ A Couple Exercises
 
     and produce:
 
-    ``'file_002 :   123.46, 1e+04'``
+    ``'file_002 :   123.46, 1.00e+04'``
 
 **Note:** the idea behind the "file_002" is that if you have a bunch of files that you want to name with numbers that can be sorted, you need to "pad" the numbers with zeros to get the right sort order.
 

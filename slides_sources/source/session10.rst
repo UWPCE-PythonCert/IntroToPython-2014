@@ -44,9 +44,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-    Austin Scara
+    Marcus D Williams
 
-    Marty Pitts
+    Minghao Yang
+
+    Sasi Mandava
 
 
 ============
@@ -500,9 +502,11 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-|    Austin Scara
+|    Marcus D Williams
 |
-|    Marty Pitts
+|    Minghao Yang
+|
+|    Sasi Mandava
 |
 
 

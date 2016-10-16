@@ -4,7 +4,6 @@
 Session Four: Dictionaries, Sets, and Files
 *******************************************
 
-
 ================
 Review/Questions
 ================
@@ -35,11 +34,13 @@ Lightning Talks Today:
 
 .. rst-class:: mlarge
 
- Andrey Gusev
+Abdishu Hagi
 
- Cheryl Ohashi
+Enrique R Silva
 
- Maxwell MacCamy
+Isaac Cowhey
+
+Paul G Anderson
 
 
 ==============================
@@ -68,7 +69,7 @@ You can do that in a for loop, also:
   In [4]: l = [(1, 2), (3, 4), (5, 6)]
 
   In [5]: for i, j in l:
-              print("i:%i, j:%i"%(i, j))
+              print("i:{}, j:{}".format(i, j))
 
   i:1, j:2
   i:3, j:4
@@ -77,8 +78,8 @@ You can do that in a for loop, also:
 (Mailroom example)
 
 
-Looping through two loops at once:
-----------------------------------
+Looping through two iterables at once:
+--------------------------------------
 
 .. rst-class:: mlarge
 
@@ -91,8 +92,8 @@ Looping through two loops at once:
     In [11]: l2 = [3, 4, 5]
 
     In [12]: for i, j in zip(l1, l2):
-       ....:     print("i:%i, j:%i"%(i, j))
-       ....:
+              print("i:{}, j:{}".format(i, j))
+
     i:1, j:3
     i:2, j:4
     i:3, j:5
@@ -116,7 +117,7 @@ Need the index and the item?
     In [2]: l = ['this', 'that', 'the other']
 
     In [3]: for i, item in enumerate(l):
-       ...:     print("the %ith item is: %s"%(i, item))
+       ...:     print("the {:d}th item is: {:s}".format(i, item))
        ...:
     the 0th item is: this
     the 1th item is: that
@@ -171,10 +172,25 @@ What is this::
 
 about?
 
+Every module has a __name__
+
+If the module is loaded by ``import`` then it's name is the filename.
+
+If the module is run at the command line, like:
+
+.. code-block:: bash
+
+    python3 the_module.py
+
+Then it's ``__name__`` will be "__main__"
+
+This can be used to run code only when a module is run as a command,
+but not when it is imported.
+
 (demo)
 
 assert
---------
+------
 
 What is ``assert`` for?
 
@@ -187,10 +203,33 @@ in operational code should be::
     if m < 0:
         raise ValueError
 
-I'll cover next week ...
+I'll cover more next week ...
 
 (Asserts get ignored if optimization is turned on!)
 
+what the heck is reversed()?
+----------------------------
+
+I had a question in a PR:
+
+"what is ``reversed(x)``'s resultant object? what good is it?""
+
+.. nextslide::
+
+try it:
+
+.. code-block:: ipython
+
+  In [14]: type(reversed(l))
+  Out[14]: list_reverseiterator
+
+so it's a ``list_reverseiterator`` object -- not helpful, is it :-)
+
+But what it means is that it's an "iterable" that you can then do things like loop through with a for loop, etc. but it hasn't made a copy of the list -- it returns the items one by one as they are asked for. this has performance benefits, as it doesn't have to make a copy of the whole thing.
+
+So you use it if you want to loop through something in reversed order, but dont actually need an actual list with the order reversed.
+
+we'll get more into the details of iterators and iterables later in the class.
 
 =================
 A little warm up
@@ -203,6 +242,15 @@ Fun with strings
 
     - for an arbitrary number of numbers...
 
+===============
+Lightning Talks
+===============
+
+|
+| Isaac Cowhey
+|
+| Paul G Anderson
+|
 
 =====================
 Dictionaries and Sets
@@ -662,13 +710,14 @@ Have some fun with dictionaries and sets!
 :ref:`exercise_dict_lab`
 
 
-Lightning Talk
---------------
+Lightning Talks
+---------------
 
 |
-| Maxwell MacCamy
+| Abdishu Hagi
 |
-
+| Enrique R Silva
+|
 
 ========================
 File Reading and Writing
