@@ -93,7 +93,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#handy-hints-for-from-homework">Handy hints for/from Homework</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#nifty-for-loop-tricks">nifty for loop tricks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#looping-through-two-loops-at-once">Looping through two loops at once:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#looping-through-two-iterables-at-once">Looping through two iterables at once:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#need-the-index-and-the-item">Need the index and the item?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-comments">Homework Comments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#main">__main__</a></li>
@@ -104,6 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#fun-with-strings">Fun with strings</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dictionaries-and-sets">Dictionaries and Sets</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dictionary">Dictionary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dictionary-constructors">Dictionary Constructors</a></li>
@@ -121,7 +122,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#lab-dictionaries-and-sets-lab">LAB: Dictionaries and Sets lab</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#lightning-talk">Lightning Talk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Lightning Talks</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#file-reading-and-writing">File Reading and Writing</a><ul>
@@ -235,9 +236,10 @@
 </div>
 <div class="section" id="lightning-talks-today">
 <h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
-<p class="mlarge">Andrey Gusev</p>
-<p class="mlarge">Cheryl Ohashi</p>
-<p class="mlarge">Maxwell MacCamy</p>
+<p class="mlarge">Abdishu Hagi</p>
+<p>Enrique R Silva</p>
+<p>Isaac Cowhey</p>
+<p>Paul G Anderson</p>
 </div>
 </div>
 <div class="section" id="handy-hints-for-from-homework">
@@ -254,7 +256,7 @@
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
 
 <span class="gp">In [5]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
-<span class="go">            print(&quot;i:%i, j:%i&quot;%(i, j))</span>
+<span class="go">            print(&quot;i:{}, j:{}&quot;.format(i, j))</span>
 
 <span class="go">i:1, j:2</span>
 <span class="go">i:3, j:4</span>
@@ -263,16 +265,16 @@
 </div>
 <p>(Mailroom example)</p>
 </div>
-<div class="section" id="looping-through-two-loops-at-once">
-<h3>Looping through two loops at once:<a class="headerlink" href="#looping-through-two-loops-at-once" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="looping-through-two-iterables-at-once">
+<h3>Looping through two iterables at once:<a class="headerlink" href="#looping-through-two-iterables-at-once" title="Permalink to this headline">¶</a></h3>
 <p class="mlarge"><code class="docutils literal"><span class="pre">zip</span></code></p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="gp">In [11]: </span><span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
 <span class="gp">In [12]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;i:</span><span class="si">%i</span><span class="s2">, j:</span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
-<span class="gp">   ....:</span>
+<span class="go">          print(&quot;i:{}, j:{}&quot;.format(i, j))</span>
+
 <span class="go">i:1, j:3</span>
 <span class="go">i:2, j:4</span>
 <span class="go">i:3, j:5</span>
@@ -289,7 +291,7 @@
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;this&#39;</span><span class="p">,</span> <span class="s1">&#39;that&#39;</span><span class="p">,</span> <span class="s1">&#39;the other&#39;</span><span class="p">]</span>
 
 <span class="gp">In [3]: </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;the </span><span class="si">%i</span><span class="s2">th item is: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+<span class="gp">   ...: </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;the {:d}th item is: {:s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
 <span class="gp">   ...:</span>
 <span class="go">the 0th item is: this</span>
 <span class="go">the 1th item is: that</span>
@@ -333,6 +335,15 @@
 </pre></div>
 </div>
 <p>about?</p>
+<p>Every module has a __name__</p>
+<p>If the module is loaded by <code class="docutils literal"><span class="pre">import</span></code> then it&#8217;s name is the filename.</p>
+<p>If the module is run at the command line, like:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python3 the_module.py
+</pre></div>
+</div>
+<p>Then it&#8217;s <code class="docutils literal"><span class="pre">__name__</span></code> will be &#8220;__main__&#8221;</p>
+<p>This can be used to run code only when a module is run as a command,
+but not when it is imported.</p>
 <p>(demo)</p>
 </div>
 <div class="section" id="assert">
@@ -347,7 +358,7 @@
     <span class="k">raise</span> <span class="ne">ValueError</span>
 </pre></div>
 </div>
-<p>I&#8217;ll cover next week ...</p>
+<p>I&#8217;ll cover more next week ...</p>
 <p>(Asserts get ignored if optimization is turned on!)</p>
 </div>
 </div>
@@ -364,6 +375,16 @@
 </div></blockquote>
 </li>
 </ul>
+</div>
+</div>
+<div class="section" id="lightning-talks">
+<h2>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Isaac Cowhey</div>
+<div class="line"><br /></div>
+<div class="line">Paul G Anderson</div>
+<div class="line"><br /></div>
 </div>
 </div>
 <div class="section" id="dictionaries-and-sets">
@@ -720,11 +741,13 @@
 <p><a class="reference internal" href="exercises/dict_lab.html#exercise-dict-lab"><span class="std std-ref">Dictionary and Set Lab</span></a></p>
 </div>
 </div>
-<div class="section" id="lightning-talk">
-<h3>Lightning Talk<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Lightning Talks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line"><br /></div>
-<div class="line">Maxwell MacCamy</div>
+<div class="line">Abdishu Hagi</div>
+<div class="line"><br /></div>
+<div class="line">Enrique R Silva</div>
 <div class="line"><br /></div>
 </div>
 </div>
