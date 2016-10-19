@@ -171,7 +171,7 @@
 <h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
 <p>You work in the mail room at a local charity. Part of your job is to write
 incredibly boring, repetitive emails thanking your donors for their generous
-gifts. You are tired of doing this over an over again, so yo&#8217;ve decided to
+gifts. You are tired of doing this over an over again, so you&#8217;ve decided to
 let Python help you out of a jam.</p>
 </div>
 <div class="section" id="the-program">
@@ -181,8 +181,8 @@ let Python help you out of a jam.</p>
 <li>It should have a data structure that holds a list of your donors and a
 history of the amounts they have donated. This structure should be populated
 at first with at least five donors, with between 1 and 3 donations each</li>
-<li>The script should prompt the user (you) to choose from a menu of 2 actions:
-&#8216;Send a Thank You&#8217; or &#8216;Create a Report&#8217;.</li>
+<li>The script should prompt the user (you) to choose from a menu of 3 actions:
+&#8216;Send a Thank You&#8217; or &#8216;Create a Report&#8217; or &#8216;quit&#8217;)</li>
 </ul>
 </div>
 <div class="section" id="sending-a-thank-you">
@@ -193,7 +193,7 @@ at first with at least five donors, with between 1 and 3 donations each</li>
 <li>If the user types a name not in the list, add that name to the data structure and use it.</li>
 <li>If the user types a name in the list, use it.</li>
 <li>Once a name has been selected, prompt for a donation amount.</li>
-<li>Verify that the amount is in fact a number, and re-prompt if it isn&#8217;t.</li>
+<li>Turn the amount into a number &#8211; it is OK at this point for the program to crash if someone types a bogus amount.</li>
 <li>Once an amount has been given, add that amount to the donation history of
 the selected user.</li>
 <li>Finally, use string formatting to compose an email thanking the donor for
@@ -207,9 +207,9 @@ original prompt.</li>
 <div class="section" id="creating-a-report">
 <h3>Creating a Report<a class="headerlink" href="#creating-a-report" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>If the user (you) selected &#8216;Create a Report&#8217; Print a list of your donors,
+<li>If the user (you) selected &#8216;Create a Report&#8217; print a list of your donors,
 sorted by total historical donation amount.<ul>
-<li>Include Donor Name, total donated, number of donations and average donation amount as values in each row.</li>
+<li>Include Donor Name, total donated, number of donations and average donation amount as values in each row. You do not need to print out all their donations, just the summary info.</li>
 <li>Using string formatting, format the output rows as nicely as possible.  The end result should be tabular (values in each column should align with those above and below)</li>
 <li>After printing this report, return to the original prompt.</li>
 </ul>
@@ -218,6 +218,15 @@ sorted by total historical donation amount.<ul>
 to the original prompt.</li>
 <li>From the original prompt, the user should be able to quit the script cleanly</li>
 </ul>
+<p>Your report should look somethign like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Donor Name                | Total Given | Num Gifts | Average Gift
+------------------------------------------------------------------
+William Gates, III         $  653784.49           2  $   326892.24
+Mark Zuckerberg            $   16396.10           3  $     5465.37
+Jeff Bezos                 $     877.33           1  $      877.33
+Paul Allen                 $     708.42           3  $      236.14
+</pre></div>
+</div>
 </div>
 <div class="section" id="guidelines">
 <h3>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h3>
@@ -238,6 +247,53 @@ about so far. There is no need to go any farther than that for this assignment.<
 directory, and add it to your clone early. Make frequent commits with
 good, clear messages about what you are doing and why.</p>
 <p>When you are done, push your changes and make a pull request.</p>
+</div>
+<div class="section" id="adding-dicts">
+<span id="exercise-mailroom-plus"></span><h3>Adding dicts...<a class="headerlink" href="#adding-dicts" title="Permalink to this headline">¶</a></h3>
+<p>For the next week (after Session04)</p>
+<p>You should have been able to do all that with the basic data types:</p>
+<p>numbers, strings, lists and tuples.</p>
+<p>But once you&#8217;ve learned about dictionaries (Session04) you may be able to re-write it a bit more simply and efficiently.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Update mailroom from last week to:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Use dicts where appropriate</li>
+<li>Write a full set of letters to everyone to individual files on disk</li>
+<li>See if you can use a dict to switch between the users selections</li>
+<li>Try to use a dict and the .format() method to do the letter as one
+big template &#8211; rather than building up a big string in parts.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">d</span>
+<span class="gh">Out[3]: </span><span class="go">{&#39;first_name&#39;: &#39;Chris&#39;, &#39;last_name&#39;: &#39;Barker&#39;}</span>
+
+
+<span class="gp">In [5]: </span><span class="s2">&quot;My name is {first_name} {last_name}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">&#39;My name is Chris Barker&#39;</span>
+</pre></div>
+</div>
+<p>Don&#8217;t worry too much about the &#8220;**&#8221; &#8211; we&#8217;ll get into the details later, but for now, it means, more or less &#8211; pass this whole dict in as a bunch of keyword arguments.</p>
+</div>
+<div class="section" id="adding-exceptions">
+<span id="exercise-mailroom-exeptions"></span><h3>Adding Exceptions<a class="headerlink" href="#adding-exceptions" title="Permalink to this headline">¶</a></h3>
+<p><strong>After Session05:</strong></p>
+<ul class="simple">
+<li>Exceptions:</li>
+</ul>
+<p>Now that you&#8217;ve learned about Exception handling, you can update your code to handle errors better &#8211; like when a user inputs bad data.</p>
+<ul class="simple">
+<li>Comprehensions:</li>
+</ul>
+<p>Can you use comprehensions to clean up your code a bit?</p>
+<ul class="simple">
+<li>Tests</li>
+</ul>
+<p>Add some tests..</p>
 </div>
 </div>
 </div>

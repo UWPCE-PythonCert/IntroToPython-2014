@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Dictionary and Set Lab &mdash; Introduction To Python 1.3 documentation</title>
+  <title>File LAB &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
         <link rel="up" title="Exercises" href="index.html"/>
-        <link rel="next" title="File LAB" href="file_lab.html"/>
-        <link rel="prev" title="Mailroom" href="mailroom.html"/> 
+        <link rel="next" title="Kata Fourteen: Tom Swift Under Milk Wood" href="kata_fourteen.html"/>
+        <link rel="prev" title="Dictionary and Set Lab" href="dict_lab.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -100,8 +100,8 @@
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-2">Session 2:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-3">Session 3:</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#session-4">Session 4:</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Dictionary and Set Lab</a></li>
-<li class="toctree-l4"><a class="reference internal" href="file_lab.html">File LAB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dict_lab.html">Dictionary and Set Lab</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">File LAB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="kata_fourteen.html">Kata Fourteen: Tom Swift Under Milk Wood</a></li>
 </ul>
 </li>
@@ -146,11 +146,11 @@
       
           <li><a href="index.html">Exercises</a> &raquo;</li>
       
-    <li>Dictionary and Set Lab</li>
+    <li>File LAB</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/exercises/dict_lab.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/exercises/file_lab.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -160,63 +160,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dictionary-and-set-lab">
-<span id="exercise-dict-lab"></span><h1>Dictionary and Set Lab<a class="headerlink" href="#dictionary-and-set-lab" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="learning-about-dictionaries-and-sets">
-<h2>Learning about dictionaries and sets<a class="headerlink" href="#learning-about-dictionaries-and-sets" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="file-lab">
+<span id="exercise-file-lab"></span><h1>File LAB<a class="headerlink" href="#file-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-bit-of-practice-with-files">
+<h2>A bit of practice with files<a class="headerlink" href="#a-bit-of-practice-with-files" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="goal">
 <h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
-<p>Learn the basic ins and outs of Python dictionaries and sets.</p>
+<p>Get a little bit of practice with handling files and parsing simple text.</p>
 </div>
-<div class="section" id="procedure">
-<h3>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h3>
-<p>In your student dir in the IntroPython2015 repo, create a <code class="docutils literal"><span class="pre">session04</span></code> dir and put in a new <code class="docutils literal"><span class="pre">dict_lab.py</span></code> file.</p>
-<p>The file should be an executable python script. That is to say that one
-should be able to run the script directly like so:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./dict_lab.py
-</pre></div>
-</div>
-<p>(At least on OS-X and Linux)</p>
-<p>&#8211; you do that with this command:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ chmod +x dict_lab.py
-</pre></div>
-</div>
-<p>(The +x means make this executable)</p>
-<p>Add the file to your clone of the repository and commit changes frequently
-while working on the following tasks. When you are done, push your changes to
-GitHub and issue a pull request.</p>
-<p>(if you are struggling with git &#8211; just write the code for now)</p>
-<p>When the script is run, it should accomplish the following four series of
-actions:</p>
+<div class="section" id="paths-and-file-processing">
+<h3>Paths and File Processing<a class="headerlink" href="#paths-and-file-processing" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Create a dictionary containing &#8220;name&#8221;, &#8220;city&#8221;, and &#8220;cake&#8221; for &#8220;Chris&#8221; from &#8220;Seattle&#8221; who likes &#8220;Chocolate&#8221;.</li>
-<li>Display the dictionary.</li>
-<li>Delete the entry for &#8220;cake&#8221;.</li>
-<li>Display the dictionary.</li>
-<li>Add an entry for &#8220;fruit&#8221; with &#8220;Mango&#8221; and display the dictionary.<ul>
-<li>Display the dictionary keys.</li>
-<li>Display the dictionary values.</li>
-<li>Display whether or not &#8220;cake&#8221; is a key in the dictionary (i.e. False) (now).</li>
-<li>Display whether or not &#8220;Mango&#8221; is a value in the dictionary (i.e. True).</li>
+<li>write a program which prints the full path to all files in the current
+directory, one per line</li>
+<li>write a program which copies a file from a source, to a destination
+(without using shutil, or the OS copy command)<ul>
+<li>advanced: make it work for any size file: i.e. don&#8217;t read the entire
+contents of the file into memory at once.</li>
+<li>Note that if you want it to do any kind of file, you need to open the files in binary mode:
+<code class="docutils literal"><span class="pre">open(filename,</span> <span class="pre">'rb')</span></code> (or <code class="docutils literal"><span class="pre">'wb'</span></code> for writing.)</li>
 </ul>
 </li>
 </ul>
-<ul class="simple">
-<li>Using the dictionary from item 1: Make a dictionary using the same keys but
-with the number of &#8216;t&#8217;s in each value.</li>
-</ul>
-<ul class="simple">
-<li>Create sets s2, s3 and s4 that contain numbers from zero through twenty,
-divisible 2, 3 and 4.</li>
-<li>Display the sets.</li>
-<li>Display if s3 is a subset of s2 (False)</li>
-<li>and if s4 is a subset of s2 (True).</li>
-</ul>
-<ul class="simple">
-<li>Create a set with the letters in &#8216;Python&#8217; and add &#8216;i&#8217; to the set.</li>
-<li>Create a frozenset with the letters in &#8216;marathon&#8217;</li>
-<li>display the union and intersection of the two sets.</li>
-</ul>
+</div>
+<div class="section" id="file-reading-and-parsing">
+<h3>File reading and parsing<a class="headerlink" href="#file-reading-and-parsing" title="Permalink to this headline">¶</a></h3>
+<p>In the class repo, in:</p>
+<p><code class="docutils literal"><span class="pre">Examples/Session01/students.txt</span></code></p>
+<p>You will find the list I generated in the first class of all the students in the class, and what programming languages they have used in the past.</p>
+<p>Write a little script that reads that file, and generates a list of all
+the languages that have been used.</p>
+<p>Extra credit: keep track of how many students specified each language.</p>
+<p>If you&#8217;ve got git set up right, <code class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">upstream</span> <span class="pre">master</span></code> should update
+your repo. Otherwise, you can get it from gitHub:</p>
+<p><a class="reference external" href="https://github.com/UWPCE-PythonCert/IntroPython2016/blob/master/Examples/Session01/students.txt">https://github.com/UWPCE-PythonCert/IntroPython2016/blob/master/Examples/Session01/students.txt</a></p>
 </div>
 </div>
 </div>
@@ -228,10 +205,10 @@ divisible 2, 3 and 4.</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="file_lab.html" class="btn btn-neutral float-right" title="File LAB" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kata_fourteen.html" class="btn btn-neutral float-right" title="Kata Fourteen: Tom Swift Under Milk Wood" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mailroom.html" class="btn btn-neutral" title="Mailroom" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dict_lab.html" class="btn btn-neutral" title="Dictionary and Set Lab" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

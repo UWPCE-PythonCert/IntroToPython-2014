@@ -144,8 +144,8 @@ With git, you work with *local* repositories and *remotes* that they are connect
     .. code-block:: bash
 
         $ git remote -v
-        origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git (fetch)
-        origin  https://github.com/UWPCE-PythonCert/IntroPython2015.git (push)
+        origin  https://github.com/UWPCE-PythonCert/IntroPython2016.git (fetch)
+        origin  https://github.com/UWPCE-PythonCert/IntroPython2016.git (push)
 
     This shows that the local repo on my machine *originated* from the one in
     the UWPCE-PythonCert gitHub account (it shows up twice, because I there is

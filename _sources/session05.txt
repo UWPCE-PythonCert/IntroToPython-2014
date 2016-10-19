@@ -128,7 +128,7 @@ So use names that make sense to the reader.
 Naming Guidelines
 -----------------
 
-Only use single-letter names for things with limited scope: indexes and teh like:
+Only use single-letter names for things with limited scope: indexes and the like:
 
 .. code-block:: python
 
@@ -201,6 +201,7 @@ Another Branching structure:
 
 Exceptions
 ----------
+
 Never Do this:
 
 .. code-block:: python
@@ -211,6 +212,8 @@ Never Do this:
         process(f)   # never called if file missing
     except:
         print "couldn't open missing.txt"
+
+**always** capture the particular Exception you know how to handle.
 
 
 Exceptions
@@ -225,7 +228,7 @@ Don't do this:
     do_something()
     if os.path.exists('missing.txt'):
         f = open('missing.txt')
-        process(f)   # never called if file missing
+        process(f)
 
 It will almost always work -- but the almost will drive you crazy
 
@@ -252,7 +255,8 @@ So you can do
 Or let the Exception be raised....
 
 
-.. nextslide:: EAFP
+EAFP
+----
 
 
 "it's Easier to Ask Forgiveness than Permission"
@@ -263,6 +267,7 @@ Or let the Exception be raised....
 http://www.youtube.com/watch?v=AZDWveIdqjY
 
 (PyCon talk by Alex Martelli)
+
 
 .. nextslide:: Do you catch all Exceptions?
 
@@ -390,7 +395,6 @@ LAB
 
 Exceptions Lab:
 
-A number of you already did this -- so do it at home if you haven't
 
 :ref:`exercise_exceptions_lab`
 

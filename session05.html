@@ -103,6 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id1">Exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eafp">EAFP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#exceptions-finally">Exceptions &#8211; finally</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#exceptions-else">Exceptions &#8211; else</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#exceptions-using-them">Exceptions &#8211; using them</a></li>
@@ -271,7 +272,7 @@ $ pep8 my_python_file
 </div>
 <div class="section" id="naming-guidelines">
 <h3>Naming Guidelines<a class="headerlink" href="#naming-guidelines" title="Permalink to this headline">¶</a></h3>
-<p>Only use single-letter names for things with limited scope: indexes and teh like:</p>
+<p>Only use single-letter names for things with limited scope: indexes and the like:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_sequence</span><span class="p">):</span>
     <span class="n">do_something</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
 </pre></div>
@@ -331,6 +332,7 @@ $ pep8 my_python_file
     <span class="k">print</span> <span class="s2">&quot;couldn&#39;t open missing.txt&quot;</span>
 </pre></div>
 </div>
+<p><strong>always</strong> capture the particular Exception you know how to handle.</p>
 </div>
 <div class="section" id="id3">
 <h3>Exceptions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
@@ -339,7 +341,7 @@ $ pep8 my_python_file
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">do_something</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;missing.txt&#39;</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;missing.txt&#39;</span><span class="p">)</span>
-    <span class="n">process</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>   <span class="c1"># never called if file missing</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>It will almost always work &#8211; but the almost will drive you crazy</p>
@@ -357,6 +359,9 @@ $ pep8 my_python_file
 </pre></div>
 </div>
 <p>Or let the Exception be raised....</p>
+</div>
+<div class="section" id="eafp">
+<h3>EAFP<a class="headerlink" href="#eafp" title="Permalink to this headline">¶</a></h3>
 <p>&#8220;it&#8217;s Easier to Ask Forgiveness than Permission&#8221;</p>
 <blockquote>
 <div>&#8211; Grace Hopper</div></blockquote>
@@ -455,7 +460,6 @@ $ pep8 my_python_file
 <div class="section" id="lab">
 <h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
 <p>Exceptions Lab:</p>
-<p>A number of you already did this &#8211; so do it at home if you haven&#8217;t</p>
 <p><a class="reference internal" href="exercises/exceptions_lab.html#exercise-exceptions-lab"><span class="std std-ref">Exceptions Lab</span></a></p>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>

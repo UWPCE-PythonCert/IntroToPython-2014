@@ -32,15 +32,15 @@ Any questions?
 Lightning Talks Today:
 ----------------------
 
-.. rst-class:: mlarge
+.. rst-class:: medium
 
-Abdishu Hagi
+  Abdishu Hagi
 
-Enrique R Silva
+  Enrique R Silva
 
-Isaac Cowhey
+  Isaac Cowhey
 
-Paul G Anderson
+  Paul G Anderson
 
 
 ==============================
@@ -980,25 +980,8 @@ LAB
 
 Files Lab: If there is time.
 
-Files Lab
----------
+:ref:`exercise_file_lab`
 
-In the class repo, in:
-
-``Examples\students.txt``
-
-You will find the list I generated of all the students in the class, and
-what programming languages they have used in the past.
-
-Write a little script that reads that file, and generates a list of all
-the languages that have been used.
-
-Extra credit: keep track of how many students specified each language.
-
-If you've got git set up right, ``git pull upstream master`` should update
-your repo. Otherwise, you can get it from gitHub:
-
-``https://github.com/UWPCE-PythonCert/IntroPython2015/blob/master/Examples/students.txt``
 
 
 =========
@@ -1007,68 +990,21 @@ Homework
 
 Recommended Reading:
 ---------------------
-  * Dive Into Python: Chapt. 13,14
+
+  * Dive Into Python 3: Chapt. 2.7 (and 4 if you haven't already)
+
+http://www.diveintopython3.net/native-datatypes.html#dictionaries
+
+  * Dive Into Python 3: Chapt. 11
+
+http://www.diveintopython3.net/files.html
+
 
 Assignments:
 -------------
 
- * Finish the dict/sets lab
- * Finish the Exceptions lab
- * Coding kata: trigrams
- * Paths and files
- * Update mailroom with dicts and exceptions
+ * Finish the dict/sets lab: :ref:`exercise_dict_lab`
+ * Finish the files lab: :ref:`exercise_file_lab`
+ * Coding kata: trigrams: :ref:`exercise_trigrams`
 
-
-Text and files and dicts, and...
----------------------------------
-
-* Coding Kata 14 - Dave Thomas
-
-    http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/
-
-    and in this doc:
-
-    :doc:`./exercises/kata_fourteen`
-
-    and on github here
-
-    http://uwpce-pythoncert.github.io/IntroToPython/exercises/kata_fourteen.html
-
-.. nextslide::
-
-* Use The Adventures of Sherlock Holmes as input:
-
-    :download:`./exercises/sherlock.txt`
-
-    and on github here:
-
-    http://uwpce-pythoncert.github.io/IntroToPython/_downloads/sherlock.txt
-
-* This is intentionally open-ended and underspecified. There are many interesting decisions to make.
-
-* Experiment with different lengths for the lookup key. (3 words, 4 words, 3 letters, etc)
-
-
-Paths and File Processing
---------------------------
-
-* write a program which prints the full path to all files in the current
-  directory, one per line
-
-* write a program which copies a file from a source, to a destination
-  (without using shutil, or the OS copy command)
-
-  - advanced: make it work for any size file: i.e. don't read the entire
-    contents of the file into memory at once.
-
-  - Note that if you want it to do any kind of file, you need to open the files in binary mode:
-    ``open(filename, 'rb')`` (or ``'wb'`` for writing.)
-
-* update mailroom from last week to:
-
-  - Use dicts where appropriate
-  - Write a full set of letters to everyone to individual files on disk
-  - See if you can use a dict to switch between the users selections
-  - Try to use a dict and the .format() method to do the letter as one
-    big template -- rather than building up a big string in parts.
-
+ * update mailroom with dicts :ref:`exercise_mailroom_plus`
