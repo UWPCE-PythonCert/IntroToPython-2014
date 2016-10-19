@@ -81,11 +81,12 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
- Eric Vegors
+Charles E Robison
 
- Ian Cote
+Paul S Briant
 
- Masako Tebbetts
+Paul Vosper
+
 
 ===========================
 Object Oriented Programming
@@ -446,11 +447,12 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-| Eric Vegors
+| Charles E Robison
 |
-| Ian Cote
+| Paul S Briant
 |
-| Masako Tebbetts
+| Paul Vosper
+|
 
 =======================
 Subclassing/Inheritance

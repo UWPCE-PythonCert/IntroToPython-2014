@@ -11,11 +11,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-    Gabriel Meringolo
+Adam Hollis
 
-    Joseph Cardenas
+Nachiket Galande
 
-    Marc Teale
+Paul A Casey
 
 ================
 Review/Questions
@@ -256,12 +256,11 @@ Lightning Talks
 
 .. rst-class:: medium
 
-    |
-    | Gabriel Meringolo
-    |
-    | Joseph Cardenas
-    |
-
+|
+| Adam Hollis
+|
+| Nachiket Galande
+|
 
 =====================================
 A bit more on mutability (and copies)
@@ -670,7 +669,7 @@ Lightning Talk
 .. rst-class:: medium
 
 |
-|  Marc Teale
+| Paul A Casey
 |
 
 ==============

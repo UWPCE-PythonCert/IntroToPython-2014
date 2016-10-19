@@ -10,11 +10,13 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-    Michael Cimino
+Alexander C Truong
 
-    Pei Lin
+Darryl Wong
 
-    Tiffany Ku
+Madhumita Acharya
+
+Matthew T Weidner
 
 ================
 Review/Questions
@@ -399,10 +401,10 @@ Lightning Talks
 .. rst-class:: medium
 
 |
-| Michael Cimino
+| Alexander C Truong
 |
 |
-| Pei Lin
+| Darryl Wong
 |
 
 
@@ -581,14 +583,15 @@ List comps exercises:
 
 
 
-Lightning Talk
-----------------
+Lightning Talks
+---------------
 
 .. rst-class:: medium
 
 |
-| Tiffany Ku
+| Madhumita Acharya
 |
+| Matthew T Weidner
 
 
 =======

@@ -98,6 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#homework-comments">Homework Comments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#main">__main__</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assert">assert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-the-heck-is-reversed">what the heck is reversed()?</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#a-little-warm-up">A little warm up</a><ul>
@@ -360,6 +361,20 @@ but not when it is imported.</p>
 </div>
 <p>I&#8217;ll cover more next week ...</p>
 <p>(Asserts get ignored if optimization is turned on!)</p>
+</div>
+<div class="section" id="what-the-heck-is-reversed">
+<h3>what the heck is reversed()?<a class="headerlink" href="#what-the-heck-is-reversed" title="Permalink to this headline">¶</a></h3>
+<p>I had a question in a PR:</p>
+<p>&#8220;what is <code class="docutils literal"><span class="pre">reversed(x)</span></code>&#8216;s resultant object? what good is it?&#8221;&#8220;</p>
+<p>try it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="nb">type</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="gh">Out[14]: </span><span class="go">list_reverseiterator</span>
+</pre></div>
+</div>
+<p>so it&#8217;s a <code class="docutils literal"><span class="pre">list_reverseiterator</span></code> object &#8211; not helpful, is it :-)</p>
+<p>But what it means is that it&#8217;s an &#8220;iterable&#8221; that you can then do things like loop through with a for loop, etc. but it hasn&#8217;t made a copy of the list &#8211; it returns the items one by one as they are asked for. this has performance benefits, as it doesn&#8217;t have to make a copy of the whole thing.</p>
+<p>So you use it if you want to loop through something in reversed order, but dont actually need an actual list with the order reversed.</p>
+<p>we&#8217;ll get more into the details of iterators and iterables later in the class.</p>
 </div>
 </div>
 <div class="section" id="a-little-warm-up">

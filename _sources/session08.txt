@@ -25,9 +25,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-  Robert Ryan Leslie
+Brandon Chavis
 
-  Ryan Morin
+Jay N Raina
+
+Josh Hicks
 
 
 Personal Project
@@ -247,10 +249,11 @@ Lightning talks:
 
 .. rst-class:: medium
 
-  Robert Ryan Leslie
+  Brandon Chavis
 
-  Ryan Morin
+  Jay N Raina
 
+  Josh Hicks
 
 ========================
 Static and Class Methods

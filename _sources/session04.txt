@@ -207,6 +207,29 @@ I'll cover more next week ...
 
 (Asserts get ignored if optimization is turned on!)
 
+what the heck is reversed()?
+----------------------------
+
+I had a question in a PR:
+
+"what is ``reversed(x)``'s resultant object? what good is it?""
+
+.. nextslide::
+
+try it:
+
+.. code-block:: ipython
+
+  In [14]: type(reversed(l))
+  Out[14]: list_reverseiterator
+
+so it's a ``list_reverseiterator`` object -- not helpful, is it :-)
+
+But what it means is that it's an "iterable" that you can then do things like loop through with a for loop, etc. but it hasn't made a copy of the list -- it returns the items one by one as they are asked for. this has performance benefits, as it doesn't have to make a copy of the whole thing.
+
+So you use it if you want to loop through something in reversed order, but dont actually need an actual list with the order reversed.
+
+we'll get more into the details of iterators and iterables later in the class.
 
 =================
 A little warm up

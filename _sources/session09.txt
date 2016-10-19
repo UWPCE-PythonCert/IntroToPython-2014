@@ -15,11 +15,11 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-    Erica Winberry
+    Jack M Hefner
 
-    Robert Jenkins
+    Ninad Naik
 
-    Kathleen Devlin
+    Simbarashe P Change
 
 ================
 Review/Questions
@@ -237,6 +237,19 @@ In the ``Examples/session09`` dir, you will find:
   - make yours match ``range()``
 
   - is range an iterator or an iteratable?
+
+
+===============
+Lightning Talks
+===============
+
+|
+| Jack M Hefner
+|
+| Ninad Naik
+|
+| Simbarashe P Change
+|
 
 
 Generators
