@@ -34,6 +34,7 @@ Session 4:
     :maxdepth: 1
 
     dict_lab
+    file_lab
     kata_fourteen
 
 Session 5:
