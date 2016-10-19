@@ -32,15 +32,15 @@ Any questions?
 Lightning Talks Today:
 ----------------------
 
-.. rst-class:: mlarge
+.. rst-class:: medium
 
-Abdishu Hagi
+  Abdishu Hagi
 
-Enrique R Silva
+  Enrique R Silva
 
-Isaac Cowhey
+  Isaac Cowhey
 
-Paul G Anderson
+  Paul G Anderson
 
 
 ==============================
@@ -1013,10 +1013,9 @@ Assignments:
 -------------
 
  * Finish the dict/sets lab
- * Finish the Exceptions lab
  * Coding kata: trigrams
  * Paths and files
- * Update mailroom with dicts and exceptions
+ * Update mailroom with dicts
 
 
 Text and files and dicts, and...

@@ -14,7 +14,7 @@ Goal:
 
 You work in the mail room at a local charity. Part of your job is to write
 incredibly boring, repetitive emails thanking your donors for their generous
-gifts. You are tired of doing this over an over again, so yo've decided to
+gifts. You are tired of doing this over an over again, so you've decided to
 let Python help you out of a jam.
 
 The program
@@ -26,8 +26,8 @@ Write a small command-line script called ``mailroom.py``. This script should be 
   history of the amounts they have donated. This structure should be populated
   at first with at least five donors, with between 1 and 3 donations each
 
-* The script should prompt the user (you) to choose from a menu of 2 actions:
-  'Send a Thank You' or 'Create a Report'.
+* The script should prompt the user (you) to choose from a menu of 3 actions:
+  'Send a Thank You' or 'Create a Report' or 'quit')
 
 Sending a Thank You
 -------------------
@@ -38,7 +38,7 @@ Sending a Thank You
   * If the user types a name not in the list, add that name to the data structure and use it.
   * If the user types a name in the list, use it.
   * Once a name has been selected, prompt for a donation amount.
-  * Verify that the amount is in fact a number, and re-prompt if it isn't.
+  * Turn the amount into a number -- it is OK at this point for the program to crash if someone types a bogus amount.
   * Once an amount has been given, add that amount to the donation history of
     the selected user.
   * Finally, use string formatting to compose an email thanking the donor for
@@ -50,10 +50,10 @@ Sending a Thank You
 Creating a Report
 ------------------
 
-* If the user (you) selected 'Create a Report' Print a list of your donors,
+* If the user (you) selected 'Create a Report' print a list of your donors,
   sorted by total historical donation amount.
 
-  - Include Donor Name, total donated, number of donations and average donation amount as values in each row.
+  - Include Donor Name, total donated, number of donations and average donation amount as values in each row. You do not need to print out all their donations, just the summary info.
   - Using string formatting, format the output rows as nicely as possible.  The end result should be tabular (values in each column should align with those above and below)
   - After printing this report, return to the original prompt.
 
@@ -61,6 +61,16 @@ Creating a Report
   to the original prompt.
 
 * From the original prompt, the user should be able to quit the script cleanly
+
+
+Your report should look somethign like this::
+
+    Donor Name                | Total Given | Num Gifts | Average Gift
+    ------------------------------------------------------------------
+    William Gates, III         $  653784.49           2  $   326892.24
+    Mark Zuckerberg            $   16396.10           3  $     5465.37
+    Jeff Bezos                 $     877.33           1  $      877.33
+    Paul Allen                 $     708.42           3  $      236.14
 
 Guidelines
 ----------
