@@ -17,6 +17,9 @@ from textwrap import dedent
 # using a tuple for each donor
 # -- kind of like a record in a database table
 # using a dict with a lower case version of the donor's name as the key
+# This makes it easier to have a 'normalized' key.
+#  you could get a bit fancier by having each "record" be a dict, with
+#   "name" and "donations" as keys.
 def get_donor_db():
     return {'william gates iii': ("William Gates III", [653772.32, 12.17]),
             'jeff bezos': ("Jeff Bezos", [877.33]),
@@ -52,7 +55,7 @@ def find_donor(name):
 
 def add_donor(name):
     """
-    add a new donor to the donor db
+    Add a new donor to the donor db
 
     :param: the name of the donor
 
@@ -87,8 +90,11 @@ def gen_letter(donor):
     :param: donor tuple
 
     :returns: string with letter
+
+    note: This doesn't actually write to a file -- that's a separate
+          function. This makes it more flexible and easier to test.
     """
-    return dedent('''Dear {0:s}
+    return dedent('''Dear {0:s},
 
           Thank you for your very kind donation of ${1:.2f}.
           It will be put to very good use.
@@ -115,7 +121,7 @@ def send_thank_you():
 
     # Now prompt the user for a donation amount to apply. Since this is
     # also an exit point to the main menu, we want to make sure this is
-    # done before mutating the db .
+    # done before mutating the db.
     while True:
         amount_str = input("Enter a donation amount (or 'menu' to exit)> ").strip()
         if amount_str == "menu":
@@ -167,10 +173,13 @@ def generate_donor_report():
     # sort the report data
     report_rows.sort(key=sort_key)
     report = []
-    report.append("{:25s} | {:11s} | {:9s} | {:12s}".format("Donor Name", "Total Given", "Num Gifts", "Average Gift"))
-    report.append("-"*66)
+    report.append("{:25s} | {:11s} | {:9s} | {:12s}".format("Donor Name",
+                                                            "Total Given",
+                                                            "Num Gifts",
+                                                            "Average Gift"))
+    report.append("-" * 66)
     for row in report_rows:
-        report.append("{:25s}   {:11.2f}   {:9d}   {:12.2f}".format(*row))
+        report.append("{:25s}   ${:10.2f}   {:9d}   ${:11.2f}".format(*row))
     return "\n".join(report)
 
 
