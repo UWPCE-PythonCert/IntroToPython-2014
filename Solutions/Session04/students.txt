@@ -1,26 +1,32 @@
 name: languages
-Alford, Robert Stevens: javascript php
-Bauman, Bruce: chemstation macro fortran, java
-Cardenas, Joseph: python C html CSS lisp javascript
-Cimino, Michael: C  C++ Java SQL
-Cote, Ian: bash ruby perl python
-Devlin, Kathleen: 4D
-Fogarty, Brendan: SQL
-Gusev, Andrey: perl java bash
-Jenkins, Robert: assm pascal
-Ku, Tiffany: python SQL
-Leslie, Robert Ryan: python
-Lin, Pei: SQL java R
-MacCamy, Maxwell: C C++ C# assm java
-Meringolo, Gabriel: python
-Morin, Ryan: python sql
-Ohashi, Cheryl:
-Pitts, Marty: python, similink and matlab
-Rosko, Eric: C C++
-Scara, Austin: VBA SQL
-Teale, Marc: perl bash
-Tebbetts, Masako: SQL
-Vegors, Eric Starr: bash perl
-Waddle, Michael:
-Winberry, Erica: python
-Yu, Michelle: ruby objectiveC
+Acharya, Madhumita: SQL, shell
+Anderson, Paul G: basic, python, C++
+Baumel, Bradley I: java, sql, python, html
+Bearer, Jerry: bash, sql, asp, html
+Briant, Paul S: python, html, php, sql, java
+Casey, Paul A: C++, python,
+Change, Simbarashe P: SQL
+Chavis, Brandon: ruby, python, bash
+Cowhey, Isaac: python, javascript, ruby, scala
+Galande, Nachiket: R, java, php
+He, Beatrice: SQL, R, SaS, C, shell
+Hefner, Jack M: python, perl, C++
+Hicks, Josh: C#, bash , perl
+Hollis, Adam: python, basic, html, actionscript, php
+Latif, Shu A: python, bash, html
+Mandava, Sasi: C, C++
+McGhin, Spencer G: python, sql, R, html
+Muralidharan, Sharmila: cobol, sql,
+Naik, Ninad: C++, python
+Pena, Sheree: swift
+Raina, Jay N: SQL, R, python
+Robison, Charles E: SQL, python,
+Silva, Enrique R: python, sql
+Tobey, David E: bash, qbasic, sql
+Truong, Alexander C: python , html, xml
+Vosper, Paul: C#, macscript, python
+Weidner, Matthew T: German, python, html
+Williams, Marcus D: python
+Wong, Darryl: perl, php
+Yang, Minghao:
+Hagi, Abdishu: python, bash

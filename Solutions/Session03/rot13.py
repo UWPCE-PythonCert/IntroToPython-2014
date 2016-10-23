@@ -10,7 +10,7 @@ characters and replacing each one by the letter 13 places further along in
 the alphabet, wrapping back to the beginning if necessary
 """
 
-# note: the string translate() method would be the high-performance solution
+# note: the string translate() method is the high-performance solution
 
 # the string module has some handy constants.
 import string
@@ -33,11 +33,11 @@ def rot13a(text):
         if c in string.ascii_lowercase:
             o = ord(c) + 13
             if o > z:
-                o = a-1 + o-z
+                o = a - 1 + o - z
         elif c in string.ascii_uppercase:
             o = ord(c) + 13
             if o > Z:
-                o = A-1 + o-Z
+                o = A - 1 + o - Z
         else:
             o = ord(c)
         new_text.append(chr(o))
@@ -51,7 +51,7 @@ def rot13b(text):
     And do a check on the ord value, rather than looking in
     string.ascii_lowercase
     """
-    # loop through the letters in teh input string
+    # loop through the letters in the input string
     new_text = []
     for c in text:
         o = ord(c)
@@ -70,7 +70,7 @@ def rot13b(text):
 # build a translation table:
 str_table = []
 # loop through all possible ascii values
-for c in range(z+1):  # only need up to z
+for c in range(z + 1):  # only need up to z
     # do upper and lower case separately
     if a <= c <= z:
         c = a + (c - a + 13) % 26
@@ -81,16 +81,16 @@ str_table = "".join(str_table)
 
 
 #   Unicode has a LOT of code points, so better to use a dict
-#   and only specifiy the ones that need changing -- in a dict
-# NOTE: we haven't covered dicts yet, but for completelness' sake,
+#   and only specify the ones that need changing -- in a dict
+# NOTE: we haven't covered dicts yet, but for completeness' sake,
 #       it's here.
 
 dict_table = {}
 # the lower-case letters
-for c in range(a, z+1):
+for c in range(a, z + 1):
     dict_table[c] = a + (c - a + 13) % 26
 # the lower-case letters
-for c in range(A, Z+1):
+for c in range(A, Z + 1):
     dict_table[c] = A + (c - A + 13) % 26
 
 # OR use the maketrans() method, and hard code the translation
@@ -136,7 +136,6 @@ if __name__ == "__main__":
     print (rot13e("Zntargvp sebz bhgfvqr arne pbeare"))
     print (rot13f("Zntargvp sebz bhgfvqr arne pbeare"))
 
-
     assert (rot13a("Zntargvp sebz bhgfvqr arne pbeare") ==
             "Magnetic from outside near corner")
 
@@ -156,7 +155,7 @@ if __name__ == "__main__":
     print ("All assertions pass")
 
 # # Some timings:
-# # Note that the translate tabel versions are MUCH faster
+# # Note that the translate table versions are MUCH faster
 
 # In [2]: timeit rot13a('This is a pretty short string, but maybe long enough to test')
 # 10000 loops, best of 3: 31.5 µs per loop
