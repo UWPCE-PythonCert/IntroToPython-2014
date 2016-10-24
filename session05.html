@@ -91,7 +91,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-count-method">The count() method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sorting-stuff-in-dictionaries">Sorting stuff in dictionaries:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary-files">Binary files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pep-8-reminder">PEP 8 reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#naming-things">Naming things...</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#naming-guidelines">Naming Guidelines</a></li>
@@ -223,6 +225,7 @@
 <ul class="build medium simple">
 <li>But it&#8217;s all good stuff.</li>
 <li>I&#8217;ll take time to go over it in class.</li>
+<li>And this week is a light load, so you can catch up.</li>
 </ul>
 </div>
 <div class="section" id="homework-review">
@@ -232,6 +235,21 @@
 <p><code class="docutils literal"><span class="pre">Solutions/Session04</span></code></p>
 <p>A few tidbits ....</p>
 </div>
+<div class="section" id="the-count-method">
+<h3>The count() method<a class="headerlink" href="#the-count-method" title="Permalink to this headline">¶</a></h3>
+<p>All Python sequences (includng strings) have a <code class="docutils literal"><span class="pre">count()</span></code> method:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;This is an arbitrary string&quot;</span>
+
+<span class="gp">In [2]: </span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="gh">Out[2]: </span><span class="go">2</span>
+</pre></div>
+</div>
+<p>What if you want a case-insensitive count?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="gh">Out[3]: </span><span class="go">3</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="sorting-stuff-in-dictionaries">
 <h3>Sorting stuff in dictionaries:<a class="headerlink" href="#sorting-stuff-in-dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>dicts aren&#8217;t sorted, so what if you want to do something in a sorted way?</p>
@@ -240,12 +258,44 @@
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>Other options:</p>
+<p>Another option:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span>
 </pre></div>
 </div>
 <p>Also other nifty stuff in the <code class="docutils literal"><span class="pre">collections</span></code> module:</p>
 <p><a class="reference external" href="https://docs.python.org/3.5/library/collections.html">https://docs.python.org/3.5/library/collections.html</a></p>
+</div>
+<div class="section" id="binary-files">
+<h3>Binary files<a class="headerlink" href="#binary-files" title="Permalink to this headline">¶</a></h3>
+<p>Python can open files in one of two modes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Text</li>
+<li>Binary</li>
+</ul>
+</div></blockquote>
+<p>This is just what you&#8217;d think &#8211; if the file contains text, you want text mode. If the file contains arbitrary binary data, you want binary mode.</p>
+<p>All data in all files is binary &#8211; that&#8217;s how computers work. So in Python3, &#8220;text&#8221; actually means Unicode &#8211; which is a particular system for matching character to binary data.</p>
+<p>But this is complicated &#8211; there are multiple ways that binary data can be mapped to Unicode text, known as &#8220;encodings&#8221;. In Python, text files are be default opened with the &#8220;utf-8&#8221; encoding. These days, that mostly &#8220;just works&#8221;.</p>
+<p>But if you read a binary file as text, then Python will try to interpret the bytes as utf-8 encoded text &#8211; and this will likely fail:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;a_photo.jpg&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnicodeDecodeError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-13-5c699bc20e80&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;PassportPhoto.JPG&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/codecs.py</span> in <span class="ni">decode</span><span class="nt">(self, input, final)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="c1"># decode input (taking the buffer into account)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">+</span> <span class="nb">input</span>
+<span class="ne">--&gt; </span><span class="mi">321</span>         <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">consumed</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_decode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">final</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>         <span class="c1"># keep undecoded input until the next call</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>         <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">consumed</span><span class="p">:]</span>
+
+<span class="ne">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0xff in position 0: invalid start byte
+</pre></div>
+</div>
+<p>In Python2, it&#8217;s less likely that you&#8217;ll get an error like this &#8211; it doesn&#8217;t try to decode the file as it&#8217;s read &#8211; even for text files, so it&#8217;s a bit tricky.</p>
+<p><strong>NOTE:</strong> If you want to actually DO anything with a binary file, other than passing it around, then you&#8217;ll need to know a lot about how the details of what the bytes in the file mean &#8211; and most likely, you&#8217;ll use a library for that &#8211; like an image processing library for the jpeg example above.</p>
 </div>
 <div class="section" id="pep-8-reminder">
 <h3>PEP 8 reminder<a class="headerlink" href="#pep-8-reminder" title="Permalink to this headline">¶</a></h3>
@@ -254,10 +304,10 @@
 <p>Strictly speaking, you only need to follow it for code in the standard library.</p>
 <p>But style matters &#8211; consistent style makes your code easier to read and understand.</p>
 <p>So <strong>follow PEP 8</strong></p>
-<p><em>Exception</em> &#8211; if you have a company style guide follow that instead.</p>
-<p>try the &#8220;pep8&#8221; module on your code:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python3 -m pip install pep8
-$ pep8 my_python_file
+<p><strong>Exception:</strong> if you have a company style guide &#8211; follow that instead.</p>
+<p>Try the &#8220;pycodestyle&#8221; module on your code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python3 -m pip install pycodestyle
+$ pycodestyle my_python_file
 </pre></div>
 </div>
 <p>(demo)</p>
@@ -332,7 +382,7 @@ $ pep8 my_python_file
     <span class="k">print</span> <span class="s2">&quot;couldn&#39;t open missing.txt&quot;</span>
 </pre></div>
 </div>
-<p><strong>always</strong> capture the particular Exception you know how to handle.</p>
+<p><strong>always</strong> capture the <em>particular</em> Exception you know how to handle.</p>
 </div>
 <div class="section" id="id3">
 <h3>Exceptions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
