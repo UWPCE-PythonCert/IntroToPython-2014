@@ -55,6 +55,8 @@ Review of Previous Class
 
     * I'll take time to go over it in class.
 
+    * And this week is a light load, so you can catch up.
+
 
 Homework review
 ---------------
@@ -66,6 +68,27 @@ My Solutions to all the exercises in the class repo in:
 ``Solutions/Session04``
 
 A few tidbits ....
+
+The count() method
+------------------
+
+All Python sequences (includng strings) have a ``count()`` method:
+
+.. code-block:: ipython
+
+    In [1]: s = "This is an arbitrary string"
+
+    In [2]: s.count('t')
+    Out[2]: 2
+
+What if you want a case-insensitive count?
+
+.. code-block:: ipython
+
+    In [3]: s.lower().count('t')
+    Out[3]: 3
+
+
 
 Sorting stuff in dictionaries:
 -------------------------------
@@ -79,7 +102,7 @@ The "standard" way:
   for key in sorted(d.keys()):
       ...
 
-Other options:
+Another option:
 
 .. code-block:: python
 
@@ -88,6 +111,45 @@ Other options:
 Also other nifty stuff in the ``collections`` module:
 
 https://docs.python.org/3.5/library/collections.html
+
+Binary files
+------------
+
+Python can open files in one of two modes:
+
+ * Text
+ * Binary
+
+This is just what you'd think -- if the file contains text, you want text mode. If the file contains arbitrary binary data, you want binary mode.
+
+All data in all files is binary -- that's how computers work. So in Python3, "text" actually means Unicode -- which is a particular system for matching character to binary data.
+
+But this is complicated -- there are multiple ways that binary data can be mapped to Unicode text, known as "encodings". In Python, text files are be default opened with the "utf-8" encoding. These days, that mostly "just works".
+
+.. nextslide::
+
+But if you read a binary file as text, then Python will try to interpret the bytes as utf-8 encoded text -- and this will likely fail:
+
+.. code-block:: ipython
+
+    In [13]: open("a_photo.jpg").read()
+    ---------------------------------------------------------------------------
+    UnicodeDecodeError                        Traceback (most recent call last)
+    <ipython-input-13-5c699bc20e80> in <module>()
+    ----> 1 open("PassportPhoto.JPG").read()
+
+    /Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/codecs.py in decode(self, input, final)
+        319         # decode input (taking the buffer into account)
+        320         data = self.buffer + input
+    --> 321         (result, consumed) = self._buffer_decode(data, self.errors, final)
+        322         # keep undecoded input until the next call
+        323         self.buffer = data[consumed:]
+
+    UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+
+In Python2, it's less likely that you'll get an error like this -- it doesn't try to decode the file as it's read -- even for text files, so it's a bit tricky.
+
+**NOTE:** If you want to actually DO anything with a binary file, other than passing it around, then you'll need to know a lot about how the details of what the bytes in the file mean -- and most likely, you'll use a library for that -- like an image processing library for the jpeg example above.
 
 
 PEP 8 reminder
@@ -103,12 +165,12 @@ But style matters -- consistent style makes your code easier to read and underst
 
 So **follow PEP 8**
 
-*Exception* -- if you have a company style guide follow that instead.
+**Exception:** if you have a company style guide -- follow that instead.
 
-try the "pep8" module on your code::
+Try the "pycodestyle" module on your code::
 
-  $ python3 -m pip install pep8
-  $ pep8 my_python_file
+  $ python3 -m pip install pycodestyle
+  $ pycodestyle my_python_file
 
 (demo)
 
@@ -213,7 +275,7 @@ Never Do this:
     except:
         print "couldn't open missing.txt"
 
-**always** capture the particular Exception you know how to handle.
+**always** capture the *particular* Exception you know how to handle.
 
 
 Exceptions
