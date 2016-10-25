@@ -14,9 +14,6 @@ This one is pretty straight forward -- really a quickie script
 There is lots of room to make it fancier of you want
 """
 
-# infilename = "sherlock_small.txt"
-infilename = "sherlock.txt"
-
 import sys
 import string
 import random
@@ -68,7 +65,7 @@ def make_words(text):
         if word != "'":  # remove quote by itself
             # "i" by itself should be capitalized
             words2.append("I" if word == 'i' else word)
-    # could be done with list comp too -- next week!
+    # could be done with list comprehension too -- next week!
     # words2 = [("I" if word == 'i' else word) for word in words if word != "'"]
     return words2
 
@@ -101,9 +98,9 @@ def build_trigram(words):
 
     # loop through the words
     # (rare case where using the index to loop is easiest)
-    for i in range(len(words) - 2):  # minus 2, 'cause you need a pair'
-        pair = tuple(words[i:i+2])  # a tuple so it can be a key in the dict
-        follower = words[i+2]
+    for i in range(len(words) - 2):  # minus 2, 'cause you need a pair
+        pair = tuple(words[i:i + 2])  # a tuple so it can be a key in the dict
+        follower = words[i + 2]
         word_pairs.setdefault(pair, []).append(follower)
 
         # setdefault() returns the value if pair is already in the dict
@@ -126,13 +123,13 @@ def build_text(word_pairs):
     """
 
     new_text = []
-    for i in range(30):  # do thirty sentences
+    for i in range(10):  # do ten sentences
         # pick a word pair to start the sentence
         # need to make dict.keys() a list to randomly select from it
         sentence = list(random.choice(list(word_pairs.keys())))
         # now add a random number of additional words to the sentence
         for j in range(random.randint(2, 10)):
-            pair = tuple(sentence[-2:])
+            pair = tuple(sentence[-2:])  # the next word pair is the last two words
             sentence.append(random.choice(word_pairs[pair]))
 
         # capitalize the first word:
