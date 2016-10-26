@@ -268,6 +268,20 @@ Anyone look at my solutions?
 
 Anything in particular you'd like me to go over?
 
+
+trigrams
+--------
+
+Let's take a close look at trigrams!
+
+Some of you have already done a nice solution to this.
+
+But some of you are not sure how to start.
+
+So let's start from the beginning...
+
+(demo)
+
 Lightning Talks
 ----------------
 
@@ -702,7 +716,7 @@ Catch up!
 * Catch up from last week.
 
   - Add Exception handling to mailroom
-  - and list (and dict, and set) comprehensions...
+  - And list (and dict, and set) comprehensions...
 
 * If you've done all that -- check out the collections module:
 
@@ -713,3 +727,17 @@ Catch up!
 Material to review before next week:
 ====================================
 
+**Unit Testing:**
+
+* Dive into Python: chapter 9:
+  http://www.diveintopython3.net/unit-testing.html
+
+NOTE: you will find that most introductions to unit testing with Python use  the builtin ``unitest`` module. However, it is a bit heavyweight, and requires some knowledge of OOP -- classes, etc. So we'll be using pytest in this class: http://doc.pytest.org/en/latest/. But the principles of testing are the same.
+
+* Ned Batchelder's into to testing presentation:
+  http://nedbatchelder.com/text/test0.html
+
+** Advanced Argument Passing
+
+* arguments and parameters:
+  http://stupidpythonideas.blogspot.com/2013/08/arguments-and-parameters.html
