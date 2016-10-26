@@ -727,6 +727,7 @@ Catch up!
 Material to review before next week:
 ====================================
 
+<<<<<<< HEAD
 **Unit Testing:**
 
 * Dive into Python: chapter 9:
@@ -741,3 +742,13 @@ NOTE: you will find that most introductions to unit testing with Python use  the
 
 * arguments and parameters:
   http://stupidpythonideas.blogspot.com/2013/08/arguments-and-parameters.html
+=======
+Advanced Argument Passing:
+
+https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
+
+Lambda:
+
+http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
+https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
+>>>>>>> 6c9ee7938fd092bce1f3fe304ebb95b7214bcfcc

@@ -1108,7 +1108,13 @@ Finish up the Labs
 Material to review for next week
 --------------------------------
 
-Object Oreiented Programming:
+Lambda:
+
+http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
+
+https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
+
+Object Oriented Programming:
 
  * Dive into Python3: 7.2 -- 7.3
    http://www.diveintopython3.net/iterators.html#defining-classes
@@ -1121,7 +1127,7 @@ Object Oreiented Programming:
 
 [note that in py3 you don't need to inherit from object]
 
-Talk by Raymond Hettinger:
+Talks by Raymond Hettinger:
 
 https://youtu.be/HTLu2DFOdTg
 
