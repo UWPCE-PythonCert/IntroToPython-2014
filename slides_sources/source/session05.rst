@@ -1,8 +1,8 @@
 .. include:: include.rst
 
-*************************************************
-Session Five: Exceptions, Testing, Comprehensions
-*************************************************
+****************************************
+Session Five: Exceptions, Comprehensions
+****************************************
 
 ======================
 Lightning Talks Today:
@@ -10,13 +10,13 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-Alexander C Truong
+    Alexander C Truong
 
-Darryl Wong
+    Darryl Wong
 
-Madhumita Acharya
+    Madhumita Acharya
 
-Matthew T Weidner
+    Matthew T Weidner
 
 ================
 Review/Questions
@@ -61,18 +61,17 @@ Review of Previous Class
 Homework review
 ---------------
 
-Homework Questions?
-
 My Solutions to all the exercises in the class repo in:
 
 ``Solutions/Session04``
 
-A few tidbits ....
+A few tidbits, then I'll take specific questions.
+
 
 The count() method
 ------------------
 
-All Python sequences (includng strings) have a ``count()`` method:
+All Python sequences (including strings) have a ``count()`` method:
 
 .. code-block:: ipython
 
@@ -112,6 +111,32 @@ Also other nifty stuff in the ``collections`` module:
 
 https://docs.python.org/3.5/library/collections.html
 
+Using files and "with"
+-----------------------
+
+Sorry for the confusion, but I'll be more clear now.
+
+When working with files, unless you have a good reason not to, use ``with``:
+
+.. code-block:: python
+
+  with open(the_filename, 'w') as outfile:
+      outfile.write(something)
+      do_some_more...
+  # now done with out file -- it will be closed, regardless of errors, etc.
+  do_other_stuff
+
+``with`` invokes a context manager -- which can be confusing, but for now,
+just follow this pattern -- it really is more robust.
+
+And you can even do two at once:
+
+.. code-block:: python
+
+    with open(source, 'rb') as infile, open(dest, 'wb') as outfile:
+        outfile.write(infile.read())
+
+
 Binary files
 ------------
 
@@ -122,9 +147,9 @@ Python can open files in one of two modes:
 
 This is just what you'd think -- if the file contains text, you want text mode. If the file contains arbitrary binary data, you want binary mode.
 
-All data in all files is binary -- that's how computers work. So in Python3, "text" actually means Unicode -- which is a particular system for matching character to binary data.
+All data in all files is binary -- that's how computers work. So in Python3, "text" actually means Unicode -- which is a particular system for matching characters to binary data.
 
-But this is complicated -- there are multiple ways that binary data can be mapped to Unicode text, known as "encodings". In Python, text files are be default opened with the "utf-8" encoding. These days, that mostly "just works".
+But this too is complicated -- there are multiple ways that binary data can be mapped to Unicode text, known as "encodings". In Python, text files are by default opened with the "utf-8" encoding. These days, that mostly "just works".
 
 .. nextslide::
 
@@ -147,7 +172,9 @@ But if you read a binary file as text, then Python will try to interpret the byt
 
     UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
 
-In Python2, it's less likely that you'll get an error like this -- it doesn't try to decode the file as it's read -- even for text files, so it's a bit tricky.
+.. nextslide::
+
+In Python2, it's less likely that you'll get an error like this -- it doesn't try to decode the file as it's read -- even for text files -- so it's a bit tricky and more error prone.
 
 **NOTE:** If you want to actually DO anything with a binary file, other than passing it around, then you'll need to know a lot about how the details of what the bytes in the file mean -- and most likely, you'll use a library for that -- like an image processing library for the jpeg example above.
 
@@ -240,6 +267,18 @@ Anyone look at my solutions?
 (yeah, not much time for that...)
 
 Anything in particular you'd like me to go over?
+
+Lightning Talks
+----------------
+
+.. rst-class:: medium
+
+|
+| Alexander C Truong
+|
+|
+| Darryl Wong
+|
 
 ==========
 Exceptions
@@ -462,16 +501,15 @@ Exceptions Lab:
 
 
 Lightning Talks
-----------------
+---------------
 
 .. rst-class:: medium
 
 |
-| Alexander C Truong
+| Madhumita Acharya
 |
-|
-| Darryl Wong
-|
+| Matthew T Weidner
+
 
 
 ============================
@@ -649,255 +687,7 @@ List comps exercises:
 
 
 
-Lightning Talks
----------------
 
-.. rst-class:: medium
-
-|
-| Madhumita Acharya
-|
-| Matthew T Weidner
-
-
-=======
-Testing
-=======
-
-.. rst-class:: build left
-.. container::
-
-    You've already seen some a very basic testing strategy.
-
-    You've written some tests using that strategy.
-
-    These tests were pretty basic, and a bit awkward in places (testing error
-    conditions in particular).
-
-    .. rst-class:: centered
-
-    **It gets better**
-
-Test Runners
-------------
-
-So far our tests have been limited to code in an ``if __name__ == "__main__":``
-block.
-
-.. rst-class:: build
-
-* They are run only when the file is executed
-* They are always run when the file is executed
-* You can't do anything else when the file is executed without running tests.
-
-.. rst-class:: build
-.. container::
-
-    This is not optimal.
-
-    Python provides testing systems to help.
-
-
-Standard Library: ``unittest``
--------------------------------
-
-The original testing system in Python.
-
-``import unittest``
-
-More or less a port of ``Junit`` from Java
-
-A bit verbose: you have to write classes & methods
-
-(And we haven't covered that yet!)
-
-
-Using ``unittest``
--------------------
-
-You write subclasses of the ``unittest.TestCase`` class:
-
-.. code-block:: python
-
-    # in test.py
-    import unittest
-
-    class MyTests(unittest.TestCase):
-        def test_tautology(self):
-            self.assertEquals(1, 1)
-
-Then you run the tests by using the ``main`` function from the ``unittest``
-module:
-
-.. code-block:: python
-
-    # in test.py
-    if __name__ == '__main__':
-        unittest.main()
-
-.. nextslide:: Testing Your Code
-
-This way, you can write your code in one file and test it from another:
-
-.. code-block:: python
-
-    # in my_mod.py
-    def my_func(val1, val2):
-        return val1 * val2
-
-    # in test_my_mod.py
-    import unittest
-    from my_mod import my_func
-
-    class MyFuncTestCase(unittest.TestCase):
-        def test_my_func(self):
-            test_vals = (2, 3)
-            expected = reduce(lambda x, y: x * y, test_vals)
-            actual = my_func(*test_vals)
-            self.assertEquals(expected, actual)
-
-    if __name__ == '__main__':
-        unittest.main()
-
-.. nextslide:: Advantages of ``unittest``
-
-.. rst-class:: build
-.. container::
-
-    The ``unittest`` module is pretty full featured
-
-    It comes with the standard Python distribution, no installation required.
-
-    It provides a wide variety of assertions for testing all sorts of situations.
-
-    It allows for a setup and tear down workflow both before and after all tests and before and after each test.
-
-    It's well known and well understood.
-
-.. nextslide:: Disadvantages:
-
-.. rst-class:: build
-.. container::
-
-
-    It's Object Oriented, and quite heavy.
-
-      - modeled after Java's ``junit`` and it shows...
-
-    It uses the framework design pattern, so knowing how to use the features
-    means learning what to override.
-
-    Needing to override means you have to be cautious.
-
-    Test discovery is both inflexible and brittle.
-
-    And there is no built-in parameterized testing.
-
-Other Options
--------------
-
-There are several other options for running tests in Python.
-
-* `Nose`: https://nose.readthedocs.org/
-
-* `pytest`: http://pytest.org/latest/
-
-* ... (many frameworks supply their own test runners)
-
-Both are very capable and widely used. I have a personal preference for pytest -- so we'll use it for this class
-
-Installing ``pytest``
----------------------
-
-The first step is to install the package:
-
-.. code-block:: bash
-
-    $ python3 -m pip install pytest
-
-Once this is complete, you should have a ``py.test`` command you can run
-at the command line:
-
-.. code-block:: bash
-
-    $ py.test
-
-If you have any tests in your repository, that will find and run them.
-
-.. rst-class:: build
-.. container::
-
-    **Do you?**
-
-Pre-existing Tests
-------------------
-
-Let's take a look at some examples.
-
-``IntroToPython\Examples\Session05``
-
-`` $ py.test``
-
-You can also run py.test on a particular test file:
-
-``py.test test_this.py``
-
-The results you should have seen when you ran ``py.test`` above come
-partly from these files.
-
-Let's take a few minutes to look these files over.
-
-[demo]
-
-.. nextslide:: What's Happening Here.
-
-When you run the ``py.test`` command, ``pytest`` starts in your current
-working directory and searches the filesystem for things that might be tests.
-
-It follows some simple rules:
-
-.. rst-class:: build
-
-* Any python file that starts with ``test_`` or ``_test`` is imported.
-* Any functions in them that start with ``test_`` are run as tests.
-* Any classes that start with ``Test`` are treated similarly, with methods that begin with ``test_`` treated as tests.
-
-
-.. nextslide:: pytest
-
-This test running framework is simple, flexible and configurable.
-
-`Read the documentation`_ for more information.
-
-.. _Read the documentation: http://pytest.org/latest/getting-started.html#getstarted
-
-.. nextslide:: Test Driven Development
-
-What we've just done here is the first step in what is called **Test Driven
-Development**.
-
-A bunch of tests exist, but the code to make them pass does not yet exist.
-
-The red you see in the terminal when we run our tests is a goad to us to write
-the code that fixes these tests.
-
-Let's do that next!
-
-===
-LAB
-===
-
-Pick an example from codingbat:
-
-``http://codingbat.com``
-
-Do a bit of test-driven development on it:
-
- * run something on the web site.
- * write a few tests using the examples from the site.
- * then write the function, and fix it 'till it passes the tests.
-
-Do at least two of these...
 
 =========
 Homework
@@ -906,14 +696,12 @@ Homework
 Catch up!
 ---------
 
-
 * Finish the LABs from today
   - Exceptions lab
 
 * Catch up from last week.
 
   - Add Exception handling to mailroom
-  - and add some tests
   - and list (and dict, and set) comprehensions...
 
 * If you've done all that -- check out the collections module:
@@ -925,19 +713,3 @@ Catch up!
 Material to review before next week:
 ====================================
 
- * Dive into Python3: 7.2 -- 7.3
-   http://www.diveintopython3.net/iterators.html#defining-classes
-
- * Think Pyhton: 15 -- 18
-   http://www.greenteapress.com/thinkpython/html/thinkpython016.html
-
- * LPTHW: 40 -- 44
-   http://learnpythonthehardway.org/book/ex40.html
-
-[note that in py3 you dont need to inherit from object]
-
-Talk by Raymond Hettinger:
-
-https://youtu.be/HTLu2DFOdTg
-
-https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger

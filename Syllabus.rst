@@ -282,13 +282,12 @@ Week 5: October 25
 
 Exceptions
 
-Testing
-
 List and Dict Comprehensions
-
 
 Week 6: November 1
 ..................
+
+Testing
 
 Advanced Argument passing
 
