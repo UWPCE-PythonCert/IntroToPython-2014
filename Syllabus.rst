@@ -291,14 +291,16 @@ Testing
 
 Advanced Argument passing
 
-Lambda
 
-Functions as Objects
 
 **No class Nov 8th for election night**
 
 Week 7: November 15
 ...................
+
+Lambda
+
+Functions as Objects
 
 Object Oriented Programming: classes, instances, and methods
 
