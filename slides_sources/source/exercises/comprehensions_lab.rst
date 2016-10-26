@@ -133,7 +133,7 @@ Dictionary comprehensions
                            'forth':'fanatical devotion',
                            'fifth': None}
     >>> dict_comprehension = \
-    { k.upper(): weapon for k, weapon in dict_of_weapons.iteritems() if weapon}
+    { k.upper(): weapon for k, weapon in dict_of_weapons.items() if weapon}
 
 What is the output of:
 
