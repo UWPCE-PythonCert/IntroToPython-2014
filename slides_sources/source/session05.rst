@@ -87,6 +87,30 @@ What if you want a case-insensitive count?
     In [3]: s.lower().count('t')
     Out[3]: 3
 
+set.update()
+------------
+
+If you want to add a bunch of stuff to a set, you can use update:
+
+.. code-block:: ipython
+
+    In [1]: s = set()
+
+In [2]: s.update
+Out[2]: <function set.update>
+
+In [3]: s.update(['this', 'that'])
+
+In [4]: s
+Out[4]: {'that', 'this'}
+
+In [5]: s.update(['this', 'thatthing'])
+
+In [6]: s
+Out[6]: {'that', 'thatthing', 'this'}
+
+**NOTE:** It's VERY often the case that when you find yourself writing a trivial loop -- there is a way to do it with a built in method!
+
 
 
 Sorting stuff in dictionaries:
@@ -279,6 +303,8 @@ Some of you have already done a nice solution to this.
 But some of you are not sure how to start.
 
 So let's start from the beginning...
+
+NOTE: think about set vs list.
 
 (demo)
 
@@ -727,7 +753,6 @@ Catch up!
 Material to review before next week:
 ====================================
 
-<<<<<<< HEAD
 **Unit Testing:**
 
 * Dive into Python: chapter 9:
@@ -736,19 +761,14 @@ Material to review before next week:
 NOTE: you will find that most introductions to unit testing with Python use  the builtin ``unitest`` module. However, it is a bit heavyweight, and requires some knowledge of OOP -- classes, etc. So we'll be using pytest in this class: http://doc.pytest.org/en/latest/. But the principles of testing are the same.
 
 * Ned Batchelder's into to testing presentation:
-  http://nedbatchelder.com/text/test0.html
+
+  - http://nedbatchelder.com/text/test0.html
 
 ** Advanced Argument Passing
 
 * arguments and parameters:
-  http://stupidpythonideas.blogspot.com/2013/08/arguments-and-parameters.html
-=======
-Advanced Argument Passing:
 
-https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
+  - http://stupidpythonideas.blogspot.com/2013/08/arguments-and-parameters.html
 
-Lambda:
+  - https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
 
-http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
-https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
->>>>>>> 6c9ee7938fd092bce1f3fe304ebb95b7214bcfcc
