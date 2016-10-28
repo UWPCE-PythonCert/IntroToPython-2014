@@ -133,7 +133,7 @@ Dictionary comprehensions
                            'forth':'fanatical devotion',
                            'fifth': None}
     >>> dict_comprehension = \
-    { k.upper(): weapon for k, weapon in dict_of_weapons.iteritems() if weapon}
+    { k.upper(): weapon for k, weapon in dict_of_weapons.items() if weapon}
 
 What is the output of:
 
@@ -164,8 +164,6 @@ https://github.com/gregmalcolm/python_koans/blob/master/python3/koans/about_comp
 Count Even Numbers
 ------------------
 
-Use test-driven development!
-
 This is from CodingBat "count_evens" (http://codingbat.com/prob/p189616)
 
 *Using a list comprehension*, return the number of even integers in the given array.
@@ -190,7 +188,7 @@ Note: the % "mod" operator computes the remainder, e.g. ``5 % 2`` is 1.
 ``dict`` and ``set`` comprehensions
 ------------------------------------
 
-Let's revisiting the dict/set lab -- see how much you can do with
+Revisiting the dict/set lab -- see how much you can do with
 comprehensions instead.
 
 (:ref:`exercise_dict_lab`)

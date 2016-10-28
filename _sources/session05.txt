@@ -87,6 +87,30 @@ What if you want a case-insensitive count?
     In [3]: s.lower().count('t')
     Out[3]: 3
 
+set.update()
+------------
+
+If you want to add a bunch of stuff to a set, you can use update:
+
+.. code-block:: ipython
+
+    In [1]: s = set()
+
+In [2]: s.update
+Out[2]: <function set.update>
+
+In [3]: s.update(['this', 'that'])
+
+In [4]: s
+Out[4]: {'that', 'this'}
+
+In [5]: s.update(['this', 'thatthing'])
+
+In [6]: s
+Out[6]: {'that', 'thatthing', 'this'}
+
+**NOTE:** It's VERY often the case that when you find yourself writing a trivial loop -- there is a way to do it with a built in method!
+
 
 
 Sorting stuff in dictionaries:
@@ -279,6 +303,8 @@ Some of you have already done a nice solution to this.
 But some of you are not sure how to start.
 
 So let's start from the beginning...
+
+NOTE: think about set vs list.
 
 (demo)
 
@@ -745,5 +771,4 @@ NOTE: you will find that most introductions to unit testing with Python use  the
   - http://stupidpythonideas.blogspot.com/2013/08/arguments-and-parameters.html
 
   - https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
-
 

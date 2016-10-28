@@ -92,6 +92,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-count-method">The count() method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-update">set.update()</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sorting-stuff-in-dictionaries">Sorting stuff in dictionaries:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-files-and-with">Using files and &#8220;with&#8221;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#binary-files">Binary files</a></li>
@@ -239,6 +240,22 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="set-update">
+<h3>set.update()<a class="headerlink" href="#set-update" title="Permalink to this headline">¶</a></h3>
+<p>If you want to add a bunch of stuff to a set, you can use update:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In [2]: s.update
+Out[2]: &lt;function set.update&gt;</p>
+<p>In [3]: s.update([&#8216;this&#8217;, &#8216;that&#8217;])</p>
+<p>In [4]: s
+Out[4]: {&#8216;that&#8217;, &#8216;this&#8217;}</p>
+<p>In [5]: s.update([&#8216;this&#8217;, &#8216;thatthing&#8217;])</p>
+<p>In [6]: s
+Out[6]: {&#8216;that&#8217;, &#8216;thatthing&#8217;, &#8216;this&#8217;}</p>
+<p><strong>NOTE:</strong> It&#8217;s VERY often the case that when you find yourself writing a trivial loop &#8211; there is a way to do it with a built in method!</p>
+</div>
 <div class="section" id="sorting-stuff-in-dictionaries">
 <h3>Sorting stuff in dictionaries:<a class="headerlink" href="#sorting-stuff-in-dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>dicts aren&#8217;t sorted, so what if you want to do something in a sorted way?</p>
@@ -369,6 +386,7 @@ $ pycodestyle my_python_file
 <p>Some of you have already done a nice solution to this.</p>
 <p>But some of you are not sure how to start.</p>
 <p>So let&#8217;s start from the beginning...</p>
+<p>NOTE: think about set vs list.</p>
 <p>(demo)</p>
 </div>
 <div class="section" id="lightning-talks">
