@@ -232,11 +232,19 @@ divisible 2, 3 and 4.
 
     a. Do this with one set comprehension for each set.
 
-    b. What if you had a lot more than 3? -- Don't Repeat Yourself (DRY)
+    b. What if you had a lot more than 3? -- Don't Repeat Yourself (DRY).
 
-       - create a sequence that holds all three sets
+       - create a sequence that holds all the divisors you might want --
+         could be 2,3,4, or could be any other arbitrary divisors.
 
        - loop through that sequence to build the sets up -- so no repeated code.
+         you will end up with a list of sets -- one set for each divisor in your
+         sequence.
+
+       - The idea here is that when you see three (Or more!) lines of code that
+         are almost identical, then you you want to find a way to generalize
+         that code and have it act on a set of inputs, so the actual code is
+         only written once.
 
     c. Extra credit:  do it all as a one-liner by nesting a set comprehension
        inside a list comprehension. (OK, that may be getting carried away!)
