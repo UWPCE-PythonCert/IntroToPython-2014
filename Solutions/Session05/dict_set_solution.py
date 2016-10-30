@@ -11,7 +11,6 @@ food_prefs = {"name": "Chris",
               "salad": "greek",
               "pasta": "lasagna"}
 
-
 # 1. Print the dict by passing it to a string format method, so that you
 # get something like:
 
@@ -43,6 +42,7 @@ s2 = {i for i in range(21) if not i % 2}
 s3 = {i for i in range(21) if not i % 3}
 s4 = {i for i in range(21) if not i % 4}
 
+print("\nHere are the three sets:")
 print(s2)
 print(s3)
 print(s4)
@@ -52,18 +52,20 @@ print(s4)
 #        - loop through that sequence to build the sets up -- so no repeated code.
 
 n = 5
-divisors = range(2, n+1)
+divisors = range(2, n + 1)
+# create a list of empty sets
 sets = [set() for i in divisors]
 
+# fill up the sets
 for i, st in zip(divisors, sets):
     [st.add(j) for j in range(21) if not j % i]
 
-print(sets)
+print("\nHere are all the sets:\n", sets)
 
 
 # c. Extra credit:  do it all as a one-liner by nesting a set comprehension
 #    inside a list comprehension. (OK, that may be getting carried away!)
 
-sets = [{i for i in range(21) if not i % j} for j in range(2, n+1)]
+sets = [{i for i in range(21) if not i % j} for j in range(2, n + 1)]
 
-print(sets)
+print("\nHere are all the sets from the one liner:\n", sets)
