@@ -336,9 +336,16 @@ divisible 2, 3 and 4.</p>
 <blockquote>
 <div><ol class="loweralpha simple">
 <li>Do this with one set comprehension for each set.</li>
-<li>What if you had a lot more than 3? &#8211; Don&#8217;t Repeat Yourself (DRY)<ul>
-<li>create a sequence that holds all three sets</li>
-<li>loop through that sequence to build the sets up &#8211; so no repeated code.</li>
+<li>What if you had a lot more than 3? &#8211; Don&#8217;t Repeat Yourself (DRY).<ul>
+<li>create a sequence that holds all the divisors you might want &#8211;
+could be 2,3,4, or could be any other arbitrary divisors.</li>
+<li>loop through that sequence to build the sets up &#8211; so no repeated code.
+you will end up with a list of sets &#8211; one set for each divisor in your
+sequence.</li>
+<li>The idea here is that when you see three (Or more!) lines of code that
+are almost identical, then you you want to find a way to generalize
+that code and have it act on a set of inputs, so the actual code is
+only written once.</li>
 </ul>
 </li>
 <li>Extra credit:  do it all as a one-liner by nesting a set comprehension
