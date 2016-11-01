@@ -1,5 +1,9 @@
 .. include:: include.rst
 
+***************************************************
+Anonymous functions and Object Oriented programming
+***************************************************
+
 ===================
 Anonymous functions
 ===================
@@ -420,9 +424,9 @@ https://www.clear.rice.edu/comp130/12spring/curry/
 
 
 
-***************************
+===========================
 Object Oriented Programming
-***************************
+===========================
 
 .. rst-class:: medium centered
 
