@@ -87,9 +87,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Exceptions, Testing, Comprehensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Advanced Argument Passing, lambda, functions as objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session05.html">Session Five: Exceptions, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session06.html">Session Six: Testing, Advanced Argument Passing, lambda, functions as objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html">Anonymous functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#functional-programming">Functional Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#lab">LAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#dict-as-switch">dict as switch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#closures-and-function-currying">Closures and function Currying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#id2">LAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#review-questions">Review/Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#object-oriented-programming">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#python-classes">Python Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#subclassing-inheritance">Subclassing/Inheritance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#more-on-subclassing">More on Subclassing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#id6">LAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#id7">More on Subclassing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session07.html#homework">Homework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
@@ -177,8 +190,11 @@ directory, one per line</li>
 (without using shutil, or the OS copy command)<ul>
 <li>advanced: make it work for any size file: i.e. don&#8217;t read the entire
 contents of the file into memory at once.</li>
-<li>Note that if you want it to do any kind of file, you need to open the files in binary mode:
-<code class="docutils literal"><span class="pre">open(filename,</span> <span class="pre">'rb')</span></code> (or <code class="docutils literal"><span class="pre">'wb'</span></code> for writing.)</li>
+<li>This should work for any kind of file, so you need to open
+the files in binary mode: <code class="docutils literal"><span class="pre">open(filename,</span> <span class="pre">'rb')</span></code> (or <code class="docutils literal"><span class="pre">'wb'</span></code> for
+writing). Note that for binary files, you can&#8217;t use <code class="docutils literal"><span class="pre">readline()</span></code> &#8211;
+lines don&#8217;t have any meaning for binary files.</li>
+<li>Test it with both text and binrary files (maybe jpeg or??)</li>
 </ul>
 </li>
 </ul>

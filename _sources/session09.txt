@@ -123,19 +123,52 @@ List as an Iterator:
     ----> 1 next(list_iter)
     StopIteration:
 
+Using iterators when you can
+----------------------------
+
+Example: trigrams:
+
+.. code-block:: ipython
+
+    triplets = zip(words, words[1:], words[2:])
+
+zip() returns an iterable -- it does not build up the whole list.
+So this is quite efficient.
+
+but slicing: ([1:]) produces a copy -- so this does use three copies of
+the list -- not so good if memory is tight. Note that they are shallow copies, so not **that** bad.
+
+Nevertheless, we can do better:
+
+.. code-block:: ipython
+
+    from itertools import islice
+
+    In [68]: triplets = zip(words, islice(words, 1, None), islice(words, 2, None))
+
+    In [69]: for triplet in triplets:
+        ...:     print(triplet)
+        ...:
+    ('this', 'that', 'the')
+    ('that', 'the', 'other')
+    ('the', 'other', 'and')
+    ('other', 'and', 'one')
+    ('and', 'one', 'more')
+
 
 The Iterator Protocol
 ----------------------
 
-The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.
+The main thing that differentiates an iterator from an iterable (sequence)
+is that an iterator saves state.
 
-An iterator must have the following methods:
+An iterable must have the following methods:
 
 .. code-block:: python
 
     an_iterator.__iter__()
 
-Returns the iterator object itself.
+Usually returns the iterator object itself.
 
 .. code-block:: python
 

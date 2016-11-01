@@ -88,7 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Testing, Advanced Argument Passing, lambda, functions as objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Anonymous functions and Object Oriented programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Session Nine: Iterators, Iterables, and Generators</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
@@ -98,6 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#iterables">Iterables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#iter"><code class="docutils literal"><span class="pre">iter()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list-as-an-iterator">List as an Iterator:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-iterators-when-you-can">Using iterators when you can</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-iterator-protocol">The Iterator Protocol</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#making-an-iterator">Making an Iterator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#what-does-for-do">What does <code class="docutils literal"><span class="pre">for</span></code> do?</a></li>
@@ -253,14 +254,41 @@ method, and if none is found, uses get_item to create the iterator.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="using-iterators-when-you-can">
+<h3>Using iterators when you can<a class="headerlink" href="#using-iterators-when-you-can" title="Permalink to this headline">¶</a></h3>
+<p>Example: trigrams:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="n">triplets</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+</pre></div>
+</div>
+<p>zip() returns an iterable &#8211; it does not build up the whole list.
+So this is quite efficient.</p>
+<p>but slicing: ([1:]) produces a copy &#8211; so this does use three copies of
+the list &#8211; not so good if memory is tight. Note that they are shallow copies, so not <strong>that</strong> bad.</p>
+<p>Nevertheless, we can do better:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="go">from itertools import islice</span>
+
+<span class="gp">In [68]: </span><span class="n">triplets</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">islice</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="n">islice</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+
+<span class="gp">In [69]: </span><span class="k">for</span> <span class="n">triplet</span> <span class="ow">in</span> <span class="n">triplets</span><span class="p">:</span>
+<span class="go">    ...:     print(triplet)</span>
+<span class="go">    ...:</span>
+<span class="go">(&#39;this&#39;, &#39;that&#39;, &#39;the&#39;)</span>
+<span class="go">(&#39;that&#39;, &#39;the&#39;, &#39;other&#39;)</span>
+<span class="go">(&#39;the&#39;, &#39;other&#39;, &#39;and&#39;)</span>
+<span class="go">(&#39;other&#39;, &#39;and&#39;, &#39;one&#39;)</span>
+<span class="go">(&#39;and&#39;, &#39;one&#39;, &#39;more&#39;)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="the-iterator-protocol">
 <h3>The Iterator Protocol<a class="headerlink" href="#the-iterator-protocol" title="Permalink to this headline">¶</a></h3>
-<p>The main thing that differentiates an iterator from an iterable (sequence) is that an iterator saves state.</p>
-<p>An iterator must have the following methods:</p>
+<p>The main thing that differentiates an iterator from an iterable (sequence)
+is that an iterator saves state.</p>
+<p>An iterable must have the following methods:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">an_iterator</span><span class="o">.</span><span class="n">__iter__</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the iterator object itself.</p>
+<p>Usually returns the iterator object itself.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">an_iterator</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
 </pre></div>
 </div>
