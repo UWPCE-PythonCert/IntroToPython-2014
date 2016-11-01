@@ -25,8 +25,12 @@ Paths and File Processing
   - advanced: make it work for any size file: i.e. don't read the entire
     contents of the file into memory at once.
 
-  - Note that if you want it to do any kind of file, you need to open the files in binary mode:
-    ``open(filename, 'rb')`` (or ``'wb'`` for writing.)
+  - This should work for any kind of file, so you need to open
+    the files in binary mode: ``open(filename, 'rb')`` (or ``'wb'`` for
+    writing). Note that for binary files, you can't use ``readline()`` --
+    lines don't have any meaning for binary files.
+
+  - Test it with both text and binrary files (maybe jpeg or??)
 
 
 File reading and parsing

@@ -721,11 +721,13 @@ Example
 LAB
 ===
 
+Here is a nice tutorial on list comprehensions:
+
+http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/
+
 List comps exercises:
 
 :ref:`exercise_comprehensions`
-
-
 
 
 
@@ -758,9 +760,9 @@ Material to review before next week:
 * Dive into Python: chapter 9:
   http://www.diveintopython3.net/unit-testing.html
 
-NOTE: you will find that most introductions to unit testing with Python use  the builtin ``unitest`` module. However, it is a bit heavyweight, and requires some knowledge of OOP -- classes, etc. So we'll be using pytest in this class: http://doc.pytest.org/en/latest/. But the principles of testing are the same.
+NOTE: you will find that most introductions to unit testing with Python use the builtin ``unitest`` module. However, it is a bit heavyweight, and requires some knowledge of OOP -- classes, etc. So we'll be using pytest in this class: http://doc.pytest.org/en/latest/. But the principles of testing are the same.
 
-* Ned Batchelder's into to testing presentation:
+* Ned Batchelder's intro to testing presentation:
 
   - http://nedbatchelder.com/text/test0.html
 
