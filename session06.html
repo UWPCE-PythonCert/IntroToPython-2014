@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Six: Testing, Advanced Argument Passing, lambda, functions as objects &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Session Six: Testing, Advanced Argument Passing &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Comprehensions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Session Six: Testing, Advanced Argument Passing, lambda, functions as objects</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session Six: Testing, Advanced Argument Passing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
@@ -97,6 +97,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#notes-from-homework">Notes from Homework:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#long-strings">long strings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pretty-print">pretty print</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#anything-else">Anything else?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
 </ul>
 </li>
@@ -107,10 +109,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#other-options">Other Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-pytest">Installing <code class="docutils literal"><span class="pre">pytest</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pre-existing-tests">Pre-existing Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-happening-here">What&#8217;s Happening Here.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest">pytest</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#test-driven-development">Test Driven Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-driven-development-demo">Test Driven development demo</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#test-driven-development-demo">Test Driven development demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talk">Lightning Talk</a></li>
 </ul>
@@ -173,7 +177,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Session Six: Testing, Advanced Argument Passing, lambda, functions as objects</li>
+    <li>Session Six: Testing, Advanced Argument Passing</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -187,8 +191,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="session-six-testing-advanced-argument-passing-lambda-functions-as-objects">
-<h1>Session Six: Testing, Advanced Argument Passing, lambda, functions as objects<a class="headerlink" href="#session-six-testing-advanced-argument-passing-lambda-functions-as-objects" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="session-six-testing-advanced-argument-passing">
+<h1>Session Six: Testing, Advanced Argument Passing<a class="headerlink" href="#session-six-testing-advanced-argument-passing" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lightning-talks-today">
 <h2>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h2>
 <p class="medium">Adam Hollis</p>
@@ -243,16 +247,14 @@
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>But yo don&#8217;t always want the line endings quite like that. And you may not want all that whitespace when fitting it into indented code.</p>
-<p>It turns out that when you put a multiple strings together with no commas or anythign in between &#8211; pyhton will join them:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">ipython</span>
+<p>But you don&#8217;t always want the line endings quite like that. And you may not want all that whitespace when fitting it into indented code.</p>
+<p>It turns out that when you put a multiple strings together with no commas or anythign in between &#8211; python will join them:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [81]: </span><span class="s2">&quot;this is &quot;</span> <span class="s2">&quot;a string &quot;</span> <span class="s2">&quot;built up of parts&quot;</span>
+<span class="gh">Out[81]: </span><span class="go">&#39;this is a string built up of parts&#39;</span>
 </pre></div>
 </div>
-<blockquote>
-<div>In [81]: &#8220;this is &#8221; &#8220;a string &#8221; &#8220;built up of parts&#8221;
-Out[81]: &#8216;this is a string built up of parts&#8217;</div></blockquote>
-<p>If it&#8217;s parentheses, you can put the next chunk on the next line:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} is from {}, and he likes &quot;</span>
+<p>If it&#8217;s in parentheses, you can put the next chunk on the next line:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} is from {}, and he likes &quot;</span>
       <span class="s2">&quot;{} cake, {} fruit, {} salad, &quot;</span>
       <span class="s2">&quot;and {} pasta.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">food_prefs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
                              <span class="n">food_prefs</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">],</span>
@@ -265,7 +267,7 @@ Out[81]: &#8216;this is a string built up of parts&#8217;</div></blockquote>
 </div>
 <div class="section" id="pretty-print">
 <h3>pretty print<a class="headerlink" href="#pretty-print" title="Permalink to this headline">¶</a></h3>
-<p>if you need to print our nested (or large) data structure in a more readable fashion, the &#8220;pretty print&#8221; module is handy:</p>
+<p>If you need to print our nested (or large) data structure in a more readable fashion, the &#8220;pretty print&#8221; module is handy:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="go">from pprint import pprint</span>
 
 <span class="go">  In [28]: print(food_prefs)</span>
@@ -281,6 +283,15 @@ Out[81]: &#8216;this is a string built up of parts&#8217;</div></blockquote>
 </pre></div>
 </div>
 </div>
+<div class="section" id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h3>
+<p>Adding stuff to an Exception:</p>
+<p>Example from slack</p>
+</div>
+<div class="section" id="anything-else">
+<h3>Anything else?<a class="headerlink" href="#anything-else" title="Permalink to this headline">¶</a></h3>
+<p class="center medium">Anything else you want me to go over?</p>
+</div>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
@@ -295,11 +306,11 @@ Out[81]: &#8216;this is a string built up of parts&#8217;</div></blockquote>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <div class="build left container">
-<p>You&#8217;ve already seen some a very basic testing strategy.</p>
+<p>You&#8217;ve already seen a very basic testing strategy.</p>
 <p>You&#8217;ve written some tests using that strategy.</p>
 <p>These tests were pretty basic, and a bit awkward in places (testing error
 conditions in particular).</p>
-<p class="centered"><strong>It gets better</strong></p>
+<p class="centered large"><strong>It gets better</strong></p>
 </div>
 <div class="section" id="test-runners">
 <h3>Test Runners<a class="headerlink" href="#test-runners" title="Permalink to this headline">¶</a></h3>
@@ -390,7 +401,8 @@ means learning what to override.</p>
 <li><cite>pytest</cite>: <a class="reference external" href="http://pytest.org/latest/">http://pytest.org/latest/</a></li>
 <li>... (many frameworks supply their own test runners: e.g. django)</li>
 </ul>
-<p>Both are very capable and widely used. I have a personal preference for pytest &#8211; so we&#8217;ll use it for this class</p>
+<p>Both are very capable and widely used. I have a personal preference for pytest</p>
+<p>&#8211; so we&#8217;ll use it for this class</p>
 </div>
 <div class="section" id="installing-pytest">
 <h3>Installing <code class="docutils literal"><span class="pre">pytest</span></code><a class="headerlink" href="#installing-pytest" title="Permalink to this headline">¶</a></h3>
@@ -410,26 +422,38 @@ at the command line:</p>
 <div class="section" id="pre-existing-tests">
 <h3>Pre-existing Tests<a class="headerlink" href="#pre-existing-tests" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s take a look at some examples.</p>
-<p><code class="docutils literal"><span class="pre">IntroPython2016\Examples\Session06</span></code></p>
-<p>`` $ py.test``</p>
+<p>in <code class="docutils literal"><span class="pre">IntroPython2016\Examples\Session06</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ py.test
+</pre></div>
+</div>
 <p>You can also run py.test on a particular test file:</p>
-<p><code class="docutils literal"><span class="pre">py.test</span> <span class="pre">test_cigar_party.py</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ py.test test_random_unitest.py
+</pre></div>
+</div>
 <p>The results you should have seen when you ran <code class="docutils literal"><span class="pre">py.test</span></code> above come
 partly from these files.</p>
 <p>Let&#8217;s take a few minutes to look these files over.</p>
 <p>[demo]</p>
+</div>
+<div class="section" id="what-s-happening-here">
+<h3>What&#8217;s Happening Here.<a class="headerlink" href="#what-s-happening-here" title="Permalink to this headline">¶</a></h3>
 <p>When you run the <code class="docutils literal"><span class="pre">py.test</span></code> command, <code class="docutils literal"><span class="pre">pytest</span></code> starts in your current
 working directory and searches the filesystem for things that might be tests.</p>
 <p>It follows some simple rules:</p>
-<ul class="build simple">
+<ul class="simple">
 <li>Any python file that starts with <code class="docutils literal"><span class="pre">test_</span></code> or <code class="docutils literal"><span class="pre">_test</span></code> is imported.</li>
 <li>Any functions in them that start with <code class="docutils literal"><span class="pre">test_</span></code> are run as tests.</li>
 <li>Any classes that start with <code class="docutils literal"><span class="pre">Test</span></code> are treated similarly, with methods that begin with <code class="docutils literal"><span class="pre">test_</span></code> treated as tests.</li>
 </ul>
-<p>( don&#8217;t worry about &#8220;classes&#8221; just yet ;-) )</p>
+<p>( don&#8217;t worry about &#8220;classes&#8221; part just yet ;-) )</p>
+</div>
+<div class="section" id="pytest">
+<h3>pytest<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h3>
 <p>This test running framework is simple, flexible and configurable.</p>
 <p>Read the documentation for more information:</p>
 <p><a class="reference external" href="http://pytest.org/latest/getting-started.html#getstarted">http://pytest.org/latest/getting-started.html#getstarted</a></p>
+<p>It will run <code class="docutils literal"><span class="pre">unittest</span></code> tests for you.</p>
+<p>But in addition to finding and running tests, it makes writting tests simple, and provides a bunch of nifty utilities to support more complex testing.</p>
 </div>
 <div class="section" id="test-driven-development">
 <h3>Test Driven Development<a class="headerlink" href="#test-driven-development" title="Permalink to this headline">¶</a></h3>
@@ -437,31 +461,39 @@ working directory and searches the filesystem for things that might be tests.</p
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ py.test test_cigar_party
 </pre></div>
 </div>
-<p>What we&#8217;ve just done here is the first step in what is called <strong>Test Driven
-Development</strong>.</p>
+<p>What we&#8217;ve just done here is the first step in what is called:</p>
+<p class="centered"><strong>Test Driven Development</strong>.</p>
 <p>A bunch of tests exist, but the code to make them pass does not yet exist.</p>
-<p>The red you see in the terminal when we run our tests is a goad to us to write
-the code that fixes these tests.</p>
+<p>The red you see in the terminal when we run our tests is a goad to us to write the code that fixes these tests.</p>
 <p>Let&#8217;s do that next!</p>
 </div>
-</div>
 <div class="section" id="test-driven-development-demo">
-<h2>Test Driven development demo<a class="headerlink" href="#test-driven-development-demo" title="Permalink to this headline">¶</a></h2>
-<p>In <code class="docutils literal"><span class="pre">Examples/Session06/test_cigar_party.py</span></code></p>
+<h3>Test Driven development demo<a class="headerlink" href="#test-driven-development-demo" title="Permalink to this headline">¶</a></h3>
+<p>Open up:</p>
+<p><code class="docutils literal"><span class="pre">Examples/Session06/test_cigar_party.py</span></code></p>
+<p>and:</p>
+<p><code class="docutils literal"><span class="pre">Examples/Session06/cigar_party.py</span></code></p>
+<p>and run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ py.teset test_cigar_party.py
+</pre></div>
+</div>
+<p>Now go in to <code class="docutils literal"><span class="pre">cigar_party.py</span></code> and let&#8217;s fix the tests.</p>
+<p>Let&#8217;s play with codingbat.py also...</p>
+</div>
 </div>
 <div class="section" id="lab">
 <h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
-<p>Pick an example from codingbat:</p>
-<p><code class="docutils literal"><span class="pre">http://codingbat.com</span></code></p>
-<p>Do a bit of test-driven development on it:</p>
-<blockquote>
+<p class="left">Pick an example from codingbat:</p>
+<p class="left"><code class="docutils literal"><span class="pre">http://codingbat.com</span></code></p>
+<p class="left">Do a bit of test-driven development on it:</p>
+<blockquote class="left">
 <div><ul class="simple">
 <li>run something on the web site.</li>
 <li>write a few tests using the examples from the site.</li>
 <li>then write the function, and fix it &#8216;till it passes the tests.</li>
 </ul>
 </div></blockquote>
-<p>Do at least two of these...</p>
+<p class="left">Do at least two of these...</p>
 <div class="section" id="lightning-talk">
 <h3>Lightning Talk<a class="headerlink" href="#lightning-talk" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
@@ -520,7 +552,7 @@ the code that fixes these tests.</p>
 </div>
 <div class="section" id="function-arguments-in-variables">
 <h3>Function arguments in variables<a class="headerlink" href="#function-arguments-in-variables" title="Permalink to this headline">¶</a></h3>
-<p>function arguments are really just</p>
+<p>When a function is called, its arguments are really just:</p>
 <ul class="simple">
 <li>a tuple (positional arguments)</li>
 <li>a dict (keyword arguments)</li>
@@ -727,14 +759,18 @@ you know how this nifty trick works:</p>
 </div>
 <div class="section" id="homework">
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<p>Finish up the Labs</p>
+<p class="left">Finish up the Labs</p>
+<p class="left">Write a complete set of unit tests for your mailroom program.</p>
+<blockquote class="left">
+<div><ul class="simple">
+<li>You will likely find that it is really hard to test without refactoring.</li>
+<li>This is Good!</li>
+<li>If code is hard to test &#8211; it probably should be refactored.</li>
+</ul>
+</div></blockquote>
 <div class="section" id="material-to-review-for-next-week">
 <h3>Material to review for next week<a class="headerlink" href="#material-to-review-for-next-week" title="Permalink to this headline">¶</a></h3>
-<p>Lambda:</p>
-<p><a class="reference external" href="http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/">http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/</a></p>
-<p><a class="reference external" href="https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/">https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/</a></p>
-<p>Functions as Objects.</p>
-<p>Object Oriented Programming:</p>
+<p>Next week, we&#8217;ll get started on Object Oriented Methods. It&#8217;s a good idea to read up on it first &#8211; so we can dive right in:</p>
 <blockquote>
 <div><ul class="simple">
 <li>Dive into Python3: 7.2 &#8211; 7.3
@@ -746,9 +782,9 @@ you know how this nifty trick works:</p>
 </ul>
 </div></blockquote>
 <p>[note that in py3 you don&#8217;t need to inherit from object]</p>
-<p>Talks by Raymond Hettinger:</p>
-<p><a class="reference external" href="https://youtu.be/HTLu2DFOdTg">https://youtu.be/HTLu2DFOdTg</a></p>
-<p><a class="reference external" href="https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger">https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger</a></p>
+<p>Talk by Raymond Hettinger:</p>
+<p>Video of talk: <a class="reference external" href="https://youtu.be/HTLu2DFOdTg">https://youtu.be/HTLu2DFOdTg</a></p>
+<p>Slides: <a class="reference external" href="https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger">https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger</a></p>
 </div>
 </div>
 </div>

@@ -748,6 +748,17 @@ Write a class for a sparse array:
 Homework
 ========
 
+reading:
+
+Lambda:
+
+http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
+
+https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
+
+Functions as Objects.
+
+
 .. rst-class:: left
 
   Complete the Circle class
