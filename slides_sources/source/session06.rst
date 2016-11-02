@@ -1,8 +1,8 @@
 .. include:: include.rst
 
-*****************************************************************************
-Session Six: Testing, Advanced Argument Passing, lambda, functions as objects
-*****************************************************************************
+***********************************************
+Session Six: Testing, Advanced Argument Passing
+***********************************************
 
 ======================
 Lightning Talks Today:
@@ -86,18 +86,20 @@ if you need to do along string literal, sometimes a triple quoted string is perf
   so having the line endings automatic is great.
   """
 
-But yo don't always want the line endings quite like that. And you may not want all that whitespace when fitting it into indented code.
+But you don't always want the line endings quite like that. And you may not want all that whitespace when fitting it into indented code.
 
-It turns out that when you put a multiple strings together with no commas or anythign in between -- pyhton will join them::
+It turns out that when you put a multiple strings together with no commas or anythign in between -- python will join them:
 
 .. code-block:: ipython
 
   In [81]: "this is " "a string " "built up of parts"
   Out[81]: 'this is a string built up of parts'
 
-If it's parentheses, you can put the next chunk on the next line:
+.. nextslide::
 
-.. code-block:: ipython
+If it's in parentheses, you can put the next chunk on the next line:
+
+.. code-block:: python
 
   print("{} is from {}, and he likes "
         "{} cake, {} fruit, {} salad, "
@@ -111,7 +113,7 @@ If it's parentheses, you can put the next chunk on the next line:
 pretty print
 ------------
 
-if you need to print our nested (or large) data structure in a more readable fashion, the "pretty print" module is handy:
+If you need to print our nested (or large) data structure in a more readable fashion, the "pretty print" module is handy:
 
 .. code-block:: ipython
 
@@ -127,6 +129,22 @@ if you need to print our nested (or large) data structure in a more readable fas
      'name': 'Chris',
      'pasta': 'lasagna',
      'salad': 'greek'}
+
+Exceptions
+----------
+
+Adding stuff to an Exception:
+
+Example from slack
+
+
+Anything else?
+--------------
+
+.. rst-class:: center medium
+
+   Anything else you want me to go over?
+
 
 Lightning Talks
 ----------------
@@ -146,14 +164,14 @@ Testing
 .. rst-class:: build left
 .. container::
 
-    You've already seen some a very basic testing strategy.
+    You've already seen a very basic testing strategy.
 
     You've written some tests using that strategy.
 
     These tests were pretty basic, and a bit awkward in places (testing error
     conditions in particular).
 
-    .. rst-class:: centered
+    .. rst-class:: centered large
 
     **It gets better**
 
@@ -283,7 +301,9 @@ There are several other options for running tests in Python.
 
 * ... (many frameworks supply their own test runners: e.g. django)
 
-Both are very capable and widely used. I have a personal preference for pytest -- so we'll use it for this class
+Both are very capable and widely used. I have a personal preference for pytest
+
+-- so we'll use it for this class
 
 Installing ``pytest``
 ---------------------
@@ -313,13 +333,17 @@ Pre-existing Tests
 
 Let's take a look at some examples.
 
-``IntroPython2016\Examples\Session06``
+in ``IntroPython2016\Examples\Session06``
 
-`` $ py.test``
+.. code-block:: bash
+
+  $ py.test
 
 You can also run py.test on a particular test file:
 
-``py.test test_cigar_party.py``
+.. code-block:: bash
+
+  $ py.test test_random_unitest.py
 
 The results you should have seen when you ran ``py.test`` above come
 partly from these files.
@@ -328,22 +352,24 @@ Let's take a few minutes to look these files over.
 
 [demo]
 
-.. nextslide:: What's Happening Here.
+What's Happening Here.
+----------------------
 
 When you run the ``py.test`` command, ``pytest`` starts in your current
 working directory and searches the filesystem for things that might be tests.
 
 It follows some simple rules:
 
-.. rst-class:: build
-
 * Any python file that starts with ``test_`` or ``_test`` is imported.
+
 * Any functions in them that start with ``test_`` are run as tests.
+
 * Any classes that start with ``Test`` are treated similarly, with methods that begin with ``test_`` treated as tests.
 
-( don't worry about "classes" just yet ;-) )
+( don't worry about "classes" part just yet ;-) )
 
-.. nextslide:: pytest
+pytest
+------
 
 This test running framework is simple, flexible and configurable.
 
@@ -351,45 +377,65 @@ Read the documentation for more information:
 
 http://pytest.org/latest/getting-started.html#getstarted
 
+It will run ``unittest`` tests for you.
+
+But in addition to finding and running tests, it makes writting tests simple, and provides a bunch of nifty utilities to support more complex testing.
+
+
 Test Driven Development
 -----------------------
 in the Examples dir, try::
 
   $ py.test test_cigar_party
 
-What we've just done here is the first step in what is called **Test Driven
-Development**.
+What we've just done here is the first step in what is called:
+
+.. rst-class:: centered
+
+  **Test Driven Development**.
 
 A bunch of tests exist, but the code to make them pass does not yet exist.
 
-The red you see in the terminal when we run our tests is a goad to us to write
-the code that fixes these tests.
+The red you see in the terminal when we run our tests is a goad to us to write the code that fixes these tests.
 
 Let's do that next!
 
-============================
 Test Driven development demo
-============================
+-----------------------------
 
+Open up:
 
-In ``Examples/Session06/test_cigar_party.py``
+``Examples/Session06/test_cigar_party.py``
 
+and:
+
+``Examples/Session06/cigar_party.py``
+
+and run::
+
+  $ py.teset test_cigar_party.py
+
+Now go in to ``cigar_party.py`` and let's fix the tests.
+
+Let's play with codingbat.py also...
 
 ===
 LAB
 ===
 
-Pick an example from codingbat:
+.. rst-class:: left
 
-``http://codingbat.com``
+  Pick an example from codingbat:
 
-Do a bit of test-driven development on it:
+  ``http://codingbat.com``
 
- * run something on the web site.
- * write a few tests using the examples from the site.
- * then write the function, and fix it 'till it passes the tests.
+  Do a bit of test-driven development on it:
 
-Do at least two of these...
+   * run something on the web site.
+   * write a few tests using the examples from the site.
+   * then write the function, and fix it 'till it passes the tests.
+
+  Do at least two of these...
 
 Lightning Talk
 --------------
@@ -473,7 +519,7 @@ This is a **very** important point -- I will repeat it!
 Function arguments in variables
 -------------------------------
 
-function arguments are really just
+When a function is called, its arguments are really just:
 
 * a tuple (positional arguments)
 * a dict (keyword arguments)
@@ -758,21 +804,24 @@ You get a new list every time the function is called
 Homework
 ========
 
-Finish up the Labs
+.. rst-class:: left
+
+  Finish up the Labs
+
+  Write a complete set of unit tests for your mailroom program.
+
+   * You will likely find that it is really hard to test without refactoring.
+
+   * This is Good!
+
+   * If code is hard to test -- it probably should be refactored.
+
+
 
 Material to review for next week
 --------------------------------
 
-Lambda:
-
-http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
-
-https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
-
-Functions as Objects.
-
-
-Object Oriented Programming:
+Next week, we'll get started on Object Oriented Methods. It's a good idea to read up on it first -- so we can dive right in:
 
  * Dive into Python3: 7.2 -- 7.3
    http://www.diveintopython3.net/iterators.html#defining-classes
@@ -785,9 +834,9 @@ Object Oriented Programming:
 
 [note that in py3 you don't need to inherit from object]
 
-Talks by Raymond Hettinger:
+Talk by Raymond Hettinger:
 
-https://youtu.be/HTLu2DFOdTg
+Video of talk: https://youtu.be/HTLu2DFOdTg
 
-https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger
+Slides: https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger
 

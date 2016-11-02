@@ -298,11 +298,9 @@ Advanced Argument passing
 Week 7: November 15
 ...................
 
-Lambda
+Object Oriented Programming:
 
-Functions as Objects
-
-Object Oriented Programming: classes, instances, and methods
+classes, instances, methods, inheritance
 
 
 Week 8: November 22
@@ -314,6 +312,9 @@ Emulating built-in types
 
 Week 9: November 29
 ...................
+Lambda
+
+Functions as Objects
 
 Iterators and Generators
 
