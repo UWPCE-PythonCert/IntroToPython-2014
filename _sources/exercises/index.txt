@@ -50,8 +50,8 @@ Session 6:
 .. toctree::
     :maxdepth: 1
 
-    lambda_magic
-    trapezoid
+    args_kwargs_lab
+
 
 Session 7:
 ----------
@@ -66,5 +66,12 @@ Session 8:
     :maxdepth: 1
 
     circle_class
-
     sparse_array
+
+Session 9:
+----------
+.. toctree::
+    :maxdepth: 1
+
+    lambda_magic
+    trapezoid

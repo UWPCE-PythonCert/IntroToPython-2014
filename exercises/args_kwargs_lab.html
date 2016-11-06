@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ROT13 &mdash; Introduction To Python 1.3 documentation</title>
+  <title>args and kwargs Lab &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="../index.html"/>
         <link rel="up" title="Exercises" href="index.html"/>
-        <link rel="next" title="Mailroom" href="mailroom.html"/>
-        <link rel="prev" title="String Formatting Lab" href="string_formatting.html"/> 
+        <link rel="next" title="HTML Renderer Exercise" href="html_renderer.html"/>
+        <link rel="prev" title="Comprehensions Lab" href="comprehensions_lab.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -98,17 +98,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Exercises</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#contents">Contents:</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-2">Session 2:</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html#session-3">Session 3:</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="slicing.html">Slicing Lab</a></li>
-<li class="toctree-l4"><a class="reference internal" href="list_lab.html">List Lab</a></li>
-<li class="toctree-l4"><a class="reference internal" href="string_formatting.html">String Formatting Lab</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">ROT13</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mailroom.html">Mailroom</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#session-3">Session 3:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-4">Session 4:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-5">Session 5:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#session-6">Session 6:</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#session-6">Session 6:</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">args and kwargs Lab</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-7">Session 7:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-8">Session 8:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#session-9">Session 9:</a></li>
@@ -149,11 +145,11 @@
       
           <li><a href="index.html">Exercises</a> &raquo;</li>
       
-    <li>ROT13</li>
+    <li>args and kwargs Lab</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/exercises/rot13.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/exercises/args_kwargs_lab.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,33 +159,62 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rot13">
-<span id="exercise-rot13"></span><h1>ROT13<a class="headerlink" href="#rot13" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="args-and-kwargs-lab">
+<span id="exercise-args-kwargs-lab"></span><h1>args and kwargs Lab<a class="headerlink" href="#args-and-kwargs-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="learning-about-args-and-kwargs">
+<h2>Learning about <code class="docutils literal"><span class="pre">args</span></code> and <code class="docutils literal"><span class="pre">kwargs</span></code><a class="headerlink" href="#learning-about-args-and-kwargs" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="goal">
-<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
-<p>Get used to working with the number values for characters</p>
-<p>Get a bit of practice with string methods and string processing</p>
+<h3>Goal:<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h3>
+<p>Develop an understanding of using advanced argument passing and parameter definitons.</p>
+<p>If this is all confusing &#8211; you may want to review this:</p>
+<p><a class="reference external" href="http://stupidpythonideas.blogspot.com/2013/08/arguments-and-parameters.html">http://stupidpythonideas.blogspot.com/2013/08/arguments-and-parameters.html</a></p>
 </div>
-<div class="section" id="rot13-encryption">
-<h2>ROT13 encryption<a class="headerlink" href="#rot13-encryption" title="Permalink to this headline">¶</a></h2>
-<p>The ROT13 encryption scheme is a simple substitution cypher where each letter
-in a text is replace by the letter 13 away from it (imagine the alphabet as a
-circle, so it wraps around).</p>
+<div class="section" id="procedure">
+<h3>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h3>
+<p><strong>Keyword arguments:</strong></p>
+<ul class="simple">
+<li>Write a function that has four optional parameters (with defaults):<ul>
+<li><cite>fore_color</cite></li>
+<li><cite>back_color</cite></li>
+<li><cite>link_color</cite></li>
+<li><cite>visited_color</cite></li>
+</ul>
+</li>
+<li>Have it print the colors (use strings for the colors)</li>
+<li>Call it with a couple different parameters set<ul>
+<li>using just positional arguments:<ul>
+<li><code class="docutils literal"><span class="pre">func('red',</span> <span class="pre">'blue',</span> <span class="pre">'yellow',</span> <span class="pre">'chartreuse')</span></code></li>
+</ul>
+</li>
+<li>using just keyword arguments:<ul>
+<li><code class="docutils literal"><span class="pre">func(link_color='red',</span> <span class="pre">back_color='blue')</span></code></li>
+</ul>
+</li>
+<li>using a combination of positional and keyword<ul>
+<li><code class="docutils literal"><span class="pre">``func('purple',</span> <span class="pre">link_color='red',</span> <span class="pre">back_color='blue')</span></code></li>
+</ul>
+</li>
+<li>using <code class="docutils literal"><span class="pre">*some_tuple</span></code> and/or <code class="docutils literal"><span class="pre">**some_dict</span></code><ul>
+<li><code class="docutils literal"><span class="pre">regular</span> <span class="pre">=</span> <span class="pre">('red',</span> <span class="pre">'blue')</span></code></li>
+<li><code class="docutils literal"><span class="pre">links</span> <span class="pre">=</span> <span class="pre">{'link_color':</span> <span class="pre">'chartreuse'}</span></code></li>
+<li><code class="docutils literal"><span class="pre">func(*regular,</span> <span class="pre">*links)</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Generic parameters:</strong></p>
+<ul class="simple">
+<li>Write a the same function with the parameters as:</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">*args</span></code> and <code class="docutils literal"><span class="pre">**kwags</span></code></p>
+<ul class="simple">
+<li>Have it print the colors (use strings for the colors)</li>
+<li>Call it with the same various combinations of arguments used above.</li>
+<li>Also have it print <cite>args</cite> and <cite>kwargs</cite> directly, so you can be sure you understand what&#8217;s going on.</li>
+<li>Note that in general, you can&#8217;t know what will get passed into <code class="docutils literal"><span class="pre">**kwargs</span></code> So maybe adapt your function to be able to do something reasonable with any keywords.</li>
+</ul>
 </div>
-<div class="section" id="the-task">
-<h2>The task<a class="headerlink" href="#the-task" title="Permalink to this headline">¶</a></h2>
-<p>Add a python module named <code class="docutils literal"><span class="pre">rot13.py</span></code> to the session03 dir in your student dir. This module should provide at least one function called <code class="docutils literal"><span class="pre">rot13</span></code> that takes any amount of text and returns that same text encrypted by ROT13.</p>
-<p>This function should preserve whitespace, punctuation and capitalization.</p>
-<p>Your module should include an <code class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> block with tests (asserts) that demonstrate that your <code class="docutils literal"><span class="pre">rot13</span></code> function and any helper functions you add work properly.</p>
-<p>There is a &#8220;short-cut&#8221; available that will help you accomplish this task. Some
-spelunking in <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">the documentation for strings</a> should help you to find it. If
-you do find it, using it is completely fair game.</p>
-<p>As usual, add your new file to your local clone right away.  Make commits
-early and often and include commit messages that are descriptive and concise.</p>
-<p>When you are done, if you want me to review it, push your changes to github
-and issue a pull request.</p>
-<p>try decrypting this:</p>
-<p>&#8220;Zntargvp sebz bhgfvqr arne pbeare&#8221;</p>
 </div>
 </div>
 
@@ -200,10 +225,10 @@ and issue a pull request.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mailroom.html" class="btn btn-neutral float-right" title="Mailroom" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="html_renderer.html" class="btn btn-neutral float-right" title="HTML Renderer Exercise" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="string_formatting.html" class="btn btn-neutral" title="String Formatting Lab" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="comprehensions_lab.html" class="btn btn-neutral" title="Comprehensions Lab" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
