@@ -605,21 +605,13 @@ Becomes:
 LAB
 ----
 
-.. rst-class:: medium
+Time to play with all this to get a feel for it.
 
-  keyword arguments:
+:ref:`exercise_args_kwargs_lab`
 
-* Write a function that has four optional parameters (with defaults):
-
-  - fore_color
-  - back_color
-  - link_color
-  - visited_color
-
-* Have it print the colors (use strings for the colors)
-* Call it with a couple different parameters set
-* Have it pull the parameters out with ``*args, **kwargs``
-  - and print those
+This is not all that clearly specified -- the goal is for you to
+experiment with various ways to define and call functions, so you
+can understand what's possible, and what happens with each call.
 
 
 =====================================

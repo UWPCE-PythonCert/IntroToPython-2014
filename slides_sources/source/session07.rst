@@ -1,8 +1,22 @@
 .. include:: include.rst
 
-***************************************************
-Anonymous functions and Object Oriented programming
-***************************************************
+***************************
+Object Oriented programming
+***************************
+
+================
+Review/Questions
+================
+
+Review of Previous Class
+------------------------
+
+.. rst-class:: medium
+
+  Advanced Argument passing
+
+  Testing
+
 
 ===================
 Anonymous functions
@@ -168,6 +182,7 @@ Yes:
 
 But Guido thinks almost all uses of reduce are really ``sum()``
 
+
 Functional Programming
 ----------------------
 
@@ -217,6 +232,9 @@ lambda in keyword arguments
     9
 
 Note when the keyword argument is evaluated: this turns out to be very handy!
+
+lambda in defaultdict
+---------------------
 
 ===
 LAB
@@ -443,73 +461,6 @@ Object Oriented Programming
   Overriding methods
 
 
-================
-Review/Questions
-================
-
-Review of Previous Class
-------------------------
-
-.. rst-class:: medium
-  Advanced Argument passing
-
-  Lambda
-
-  Functions as Objects
-
-Homework review
----------------
-
-Homework Questions?
-
-Did you all get a trapedzoidal rule function working?
-
-Anyone get the "passing through of arguments"?
-
-How about the adaptive solutions?
-
-
-Notes on Floating point
------------------------
-
-Did anyone look at the isclose() function?
-
-How to make a range of numbers in floating point?
-
-Anyone do something like this?:
-
-.. code-block:: python
-
-  s = []
-  x = a
-  while x <= b:
-      s.append(x)
-      x += delta_x
-
-  -- see my solution.
-
-Some notes about FP issues:
-
-https://docs.python.org/3.5/tutorial/floatingpoint.html
-
-Code Review
------------
-
-Anyone unsatisfied with their solution -- or stuck?
-
-Let's do a code review!
-
-
-Lightning Talks Today:
------------------------
-
-.. rst-class:: medium
-
-Charles E Robison
-
-Paul S Briant
-
-Paul Vosper
 
 
 ===========================
