@@ -21,6 +21,49 @@ Review/Questions
 Review of Previous Class
 ------------------------
 
+Homework review
+---------------
+
+Homework Questions?
+
+Did you all get a trapedzoidal rule function working?
+
+Anyone get the "passing through of arguments"?
+
+How about the adaptive solutions?
+
+
+Notes on Floating point
+-----------------------
+
+Did anyone look at the isclose() function?
+
+How to make a range of numbers in floating point?
+
+Anyone do something like this?:
+
+.. code-block:: python
+
+  s = []
+  x = a
+  while x <= b:
+      s.append(x)
+      x += delta_x
+
+  -- see my solution.
+
+Some notes about FP issues:
+
+https://docs.python.org/3.5/tutorial/floatingpoint.html
+
+Code Review
+-----------
+
+Anyone unsatisfied with their solution -- or stuck?
+
+Let's do a code review!
+
+
 
 Iterators
 

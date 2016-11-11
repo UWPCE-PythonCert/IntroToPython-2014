@@ -32,7 +32,7 @@
   
     <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
         <link rel="next" title="Exercises" href="exercises/index.html"/>
-        <link rel="prev" title="Session Nine: Iterators, Iterables, and Generators" href="session09.html"/> 
+        <link rel="prev" title="Anonymous Functions and Iterators, Iterables, and Generators" href="session09.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -88,24 +88,27 @@
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Testing, Advanced Argument Passing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session07.html">Anonymous functions and Object Oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Object Oriented programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session09.html">Anonymous Functions and Iterators, Iterables, and Generators</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#web-development-class">Web Development Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes-on-floating-point">Notes on Floating point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-review">Code Review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#projects">Projects</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#code-review">Code Review?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Code Review?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#decorators">Decorators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#a-definition">A Definition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#an-example">An Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#callables">Callables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">An Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">An Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nested-decorators">Nested Decorators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples-from-the-standard-library">Examples from the Standard Library</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#property">property()</a></li>
@@ -118,10 +121,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#with-a-little-help"><code class="docutils literal"><span class="pre">with</span></code> a little help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#close-it-automatically">Close It Automatically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#do-it-yourself">Do It Yourself</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">An Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">An Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-contextmanager-decorator">The <code class="docutils literal"><span class="pre">contextmanager</span></code> decorator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">LAB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">LAB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Projects</a></li>
 </ul>
 </li>
 </ul>
@@ -185,6 +188,35 @@
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-class">
 <h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="homework-review">
+<h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
+<p>Homework Questions?</p>
+<p>Did you all get a trapedzoidal rule function working?</p>
+<p>Anyone get the &#8220;passing through of arguments&#8221;?</p>
+<p>How about the adaptive solutions?</p>
+</div>
+<div class="section" id="notes-on-floating-point">
+<h3>Notes on Floating point<a class="headerlink" href="#notes-on-floating-point" title="Permalink to this headline">¶</a></h3>
+<p>Did anyone look at the isclose() function?</p>
+<p>How to make a range of numbers in floating point?</p>
+<p>Anyone do something like this?:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">:</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="n">delta_x</span>
+
+<span class="o">--</span> <span class="n">see</span> <span class="n">my</span> <span class="n">solution</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Some notes about FP issues:</p>
+<p><a class="reference external" href="https://docs.python.org/3.5/tutorial/floatingpoint.html">https://docs.python.org/3.5/tutorial/floatingpoint.html</a></p>
+</div>
+<div class="section" id="code-review">
+<h3>Code Review<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h3>
+<p>Anyone unsatisfied with their solution &#8211; or stuck?</p>
+<p>Let&#8217;s do a code review!</p>
 <p>Iterators</p>
 <p>Generators</p>
 </div>
@@ -201,8 +233,8 @@
 <p class="medium">Minghao Yang</p>
 <p class="medium">Sasi Mandava</p>
 </div>
-<div class="section" id="code-review">
-<h2>Code Review?<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>Code Review?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p class="left">Do you think you&#8217;ve &#8220;got&#8221; iterators, iterables, and generators?</p>
 <p class="left">Options:</p>
 <blockquote class="left">
@@ -341,8 +373,8 @@ or a class that implements the <code class="docutils literal"><span class="pre">
 <p class="centered medium">A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.</p>
 </div>
-<div class="section" id="id1">
-<h3>An Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>An Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Consider a decorator that would save the results of calling an expensive
 function with given arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Memoize</span><span class="p">:</span>
@@ -633,8 +665,8 @@ more of the nifty python <em>special methods</em></p>
 <p>If the exception will be handled here, return True. If not, return False.</p>
 <p>Let&#8217;s see this in action to get a sense of what happens.</p>
 </div>
-<div class="section" id="id2">
-<h3>An Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>An Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;from Doug Hellmann, PyMOTW</span>
@@ -739,8 +771,8 @@ Because the exit method returns True, the raised error is &#8216;handled&#8217;.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>LAB<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p><strong>Timing Context Manager</strong></p>
 <p>Create a context manager that will print the elapsed time taken to
 run all the code inside the context:</p>
@@ -755,8 +787,8 @@ run all the code inside the context:</p>
 object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.</p>
 </div>
-<div class="section" id="id4">
-<h3>Projects<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Projects<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>Projects due this Friday. We&#8217;ll review them over the weekend.</p>
 <dl class="docutils">
 <dt>To turn in:</dt>
@@ -784,7 +816,7 @@ timing should be printed to the file-like object.</p>
         <a href="exercises/index.html" class="btn btn-neutral float-right" title="Exercises" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="session09.html" class="btn btn-neutral" title="Session Nine: Iterators, Iterables, and Generators" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="session09.html" class="btn btn-neutral" title="Anonymous Functions and Iterators, Iterables, and Generators" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

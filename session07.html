@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Anonymous functions and Object Oriented programming &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Object Oriented programming &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -88,7 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Testing, Advanced Argument Passing</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Anonymous functions and Object Oriented programming</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Object Oriented programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#anonymous-functions">Anonymous functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lambda">lambda</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#functions-as-first-class-objects">Functions as first class objects</a></li>
@@ -102,6 +106,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id1">Functional Programming</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#a-bit-more-about-lambda">A bit more about lambda</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lambda-in-keyword-arguments">lambda in keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-in-defaultdict">lambda in defaultdict</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
@@ -119,22 +124,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#object-oriented-programming">Object Oriented Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#notes-on-floating-point">Notes on Floating point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#code-review">Code Review</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Object Oriented Programming</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Object Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Object Oriented Programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Object Oriented Programming</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#python-classes">Python Classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Python Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">LAB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Python Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">LAB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks</a></li>
 </ul>
 </li>
@@ -155,8 +152,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#wrap-up">Wrap Up</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">LAB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">More on Subclassing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id8">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">More on Subclassing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#what-s-a-subclass-for">What&#8217;s a Subclass For?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multiple-inheritance">Multiple Inheritance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#super"><code class="docutils literal"><span class="pre">super()</span></code></a></li>
@@ -166,7 +163,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session09.html">Session Nine: Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session09.html">Anonymous Functions and Iterators, Iterables, and Generators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
 </ul>
 <ul>
@@ -202,7 +199,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Anonymous functions and Object Oriented programming</li>
+    <li>Object Oriented programming</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -216,8 +213,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="anonymous-functions-and-object-oriented-programming">
-<h1>Anonymous functions and Object Oriented programming<a class="headerlink" href="#anonymous-functions-and-object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="object-oriented-programming">
+<h1>Object Oriented programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="review-questions">
+<h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="review-of-previous-class">
+<h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
+<p class="medium">Advanced Argument passing</p>
+<p class="medium">Testing</p>
+</div>
+</div>
 <div class="section" id="anonymous-functions">
 <h2>Anonymous functions<a class="headerlink" href="#anonymous-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lambda">
@@ -375,6 +380,9 @@ It keeps only those for which the function is True &#8211; filtering our the res
 </div>
 <p>Note when the keyword argument is evaluated: this turns out to be very handy!</p>
 </div>
+<div class="section" id="lambda-in-defaultdict">
+<h3>lambda in defaultdict<a class="headerlink" href="#lambda-in-defaultdict" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 <div class="section" id="lab">
 <h2>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h2>
@@ -521,8 +529,8 @@ cube = partial(power, exponent=3)</p>
 <p><a class="reference external" href="http://www.programiz.com/python-programming/closure">http://www.programiz.com/python-programming/closure</a></p>
 <p><a class="reference external" href="https://www.clear.rice.edu/comp130/12spring/curry/">https://www.clear.rice.edu/comp130/12spring/curry/</a></p>
 </div>
-<div class="section" id="object-oriented-programming">
-<h2>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>Object Oriented Programming<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="medium centered container">
 <p>Classes</p>
 <p>Instances</p>
@@ -531,56 +539,13 @@ cube = partial(power, exponent=3)</p>
 <p>Overriding methods</p>
 </div>
 </div>
-<div class="section" id="review-questions">
-<h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="review-of-previous-class">
-<h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
-<p class="medium advanced argument passing">Lambda</p>
-<p class="medium advanced argument passing">Functions as Objects</p>
-</div>
-<div class="section" id="homework-review">
-<h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
-<p>Homework Questions?</p>
-<p>Did you all get a trapedzoidal rule function working?</p>
-<p>Anyone get the &#8220;passing through of arguments&#8221;?</p>
-<p>How about the adaptive solutions?</p>
-</div>
-<div class="section" id="notes-on-floating-point">
-<h3>Notes on Floating point<a class="headerlink" href="#notes-on-floating-point" title="Permalink to this headline">¶</a></h3>
-<p>Did anyone look at the isclose() function?</p>
-<p>How to make a range of numbers in floating point?</p>
-<p>Anyone do something like this?:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
-<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">:</span>
-    <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="n">delta_x</span>
-
-<span class="o">--</span> <span class="n">see</span> <span class="n">my</span> <span class="n">solution</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>Some notes about FP issues:</p>
-<p><a class="reference external" href="https://docs.python.org/3.5/tutorial/floatingpoint.html">https://docs.python.org/3.5/tutorial/floatingpoint.html</a></p>
-</div>
-<div class="section" id="code-review">
-<h3>Code Review<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h3>
-<p>Anyone unsatisfied with their solution &#8211; or stuck?</p>
-<p>Let&#8217;s do a code review!</p>
-</div>
-<div class="section" id="lightning-talks-today">
-<h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
-<p class="medium">Charles E Robison</p>
-<p>Paul S Briant</p>
-<p>Paul Vosper</p>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>Object Oriented Programming<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>Object Oriented Programming<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>A Core approach to organizing code.</p>
 <p>I&#8217;m going to go through this fast.</p>
 <p>So we can get to the actual coding.</p>
-<div class="section" id="id4">
-<h3>Object Oriented Programming<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Object Oriented Programming<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>More about Python implementation than OO design/strengths/weaknesses</p>
 <p>One reason for this:</p>
 <p>Folks can&#8217;t even agree on what OO &#8220;really&#8221; means</p>
@@ -682,8 +647,8 @@ as a variable, or single object, as opposed to a ...</dd>
 </div>
 <p class="left">A class is a type &#8211; interesting!</p>
 <p class="left">It is created when the statement is run &#8211; much like <code class="docutils literal"><span class="pre">def</span></code></p>
-<div class="section" id="id5">
-<h3>Python Classes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Python Classes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>About the simplest class you can write</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
@@ -792,8 +757,8 @@ instance of the class shares the same one.</p>
 <p><code class="docutils literal"><span class="pre">self</span></code> is implicitly passed in for you by python.</p>
 <p>(demo of bound vs. unbound methods)</p>
 </div>
-<div class="section" id="id6">
-<h3>LAB<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>LAB<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>Let&#8217;s say you need to render some html...</p>
 <p>The goal is to build a set of classes that render an html
 page.</p>
@@ -1016,8 +981,8 @@ automatically when you instantiate an instance.</p>
 &#8211; you don&#8217;t need a class&#8221;</p>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>LAB<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>LAB<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <ul class="left medium simple">
 <li>html renderer: let&#8217;s see how much more we can do!</li>
 </ul>
@@ -1030,8 +995,8 @@ automatically when you instantiate an instance.</p>
 </ul>
 <p>These are the core OO approaches</p>
 </div>
-<div class="section" id="id8">
-<h2>More on Subclassing<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>More on Subclassing<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <p class="left">This is a great talk (yes, I&#8217;m repeating):</p>
 <p class="left">The Art of Subclassing: <em>Raymond Hettinger</em></p>
 <p class="left"><a class="reference external" href="http://pyvideo.org/video/879/the-art-of-subclassing">http://pyvideo.org/video/879/the-art-of-subclassing</a></p>
