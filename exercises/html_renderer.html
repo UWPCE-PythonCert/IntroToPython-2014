@@ -181,7 +181,7 @@
 <p>Name your file: <code class="docutils literal"><span class="pre">html_render.py</span></code> &#8211; so it can be imported by <code class="docutils literal"><span class="pre">run_html_render.py</span></code></p>
 <p>You should be able to run that code at each step, uncommenting each new step in <code class="docutils literal"><span class="pre">run_html_render.py</span></code> as you go.</p>
 <p>It builds up an html tree, and then calls the <code class="docutils literal"><span class="pre">render()</span></code> method of your element to render the page.</p>
-<p>It uses a <code class="docutils literal"><span class="pre">cStringIO</span></code> object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.</p>
+<p>It uses a <code class="docutils literal"><span class="pre">StringIO</span></code> object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.</p>
 <p>The html generated at each step will be in the files: <code class="docutils literal"><span class="pre">test_html_ouput?.html</span></code></p>
 <p>At each step, your results should look similar that those (maybe not identical...)</p>
 </div>
@@ -278,7 +278,7 @@ constructor, e.g. <code class="docutils literal"><span class="pre">run_html_rend
 attributes, if any.</p>
 <p>Create a couple subclasses of <code class="docutils literal"><span class="pre">SelfClosingTag</span></code> for and &lt;hr /&gt; and &lt;br /&gt;</p>
 <p>Note that you now have a couple render methods &#8211; is there repeated code in them?</p>
-<p>Can you refactor the common parts into a separate method that all the render methods can call?</p>
+<p>Can you refactor the common parts into a separate method that all the render methods can call? And do all your tests still pass (you do have tests for everything, don&#8217;t you?) after refactoring?</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output5.html</span></code></p>
 </div>
 <div class="section" id="step-6">
@@ -291,7 +291,7 @@ attributes, if any.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span> <span class="s2">&quot;link to google&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You should be able to subclass from <code class="docutils literal"><span class="pre">Element</span></code>, and only override the <code class="docutils literal"><span class="pre">__init__</span></code> &#8212; Calling the <code class="docutils literal"><span class="pre">Element</span></code> <code class="docutils literal"><span class="pre">__init__</span></code> from the  <code class="docutils literal"><span class="pre">A</span> <span class="pre">__init__</span></code></p>
+<p>You should be able to subclass from <code class="docutils literal"><span class="pre">Element</span></code>, and only override the <code class="docutils literal"><span class="pre">__init__</span></code> &#8212; calling the <code class="docutils literal"><span class="pre">Element</span></code> <code class="docutils literal"><span class="pre">__init__</span></code> from the  <code class="docutils literal"><span class="pre">A</span> <span class="pre">__init__</span></code></p>
 <p>You can now add a link to your web page.</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output6.html</span></code></p>
 </div>
@@ -341,7 +341,8 @@ new tags, etc....</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
 
     <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_out</span><span class="p">,</span> <span class="n">current_ind</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-        <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">current_ind</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">current_ind</span><span class="p">)</span>
+        <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You could require your users to use the wrapper, so instead of just appending a string, they would do:</p>
@@ -378,17 +379,18 @@ new tags, etc....</p>
 </div>
 <div class="section" id="duck-typing">
 <h3>Duck Typing<a class="headerlink" href="#duck-typing" title="Permalink to this headline">¶</a></h3>
-<p>The Python model of duck typing is if quacks like a duck, then treat it like a duck.</p>
+<p>The Python model of duck typing is: If quacks like a duck, then treat it like a duck.</p>
 <p>But in this case, we&#8217;re not actually rendering the object at this stage, so calling the method isn&#8217;t appropriate.</p>
 <p><strong>Checking for an attribute</strong></p>
-<p>Instead of calling the method, see if it&#8217;s there:</p>
-<p>You can check if the passed-in object has a <code class="docutils literal"><span class="pre">render()</span></code> attribute:</p>
+<p>Instead of calling the method, see if it&#8217;s there. You can do that with <code class="docutils literal"><span class="pre">hasattr()</span></code></p>
+<p>check if the passed-in object has a <code class="docutils literal"><span class="pre">render()</span></code> attribute:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextWrapper</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextWrapper</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
 </pre></div>
 </div>
+<p>Note that I added a <code class="docutils literal"><span class="pre">str()</span></code> call too &#8211; so you can pass in anything &#8211; it it will get string-ified &#8211; this will be ugly for many objects, but will work fine for numbers and other simple objects.</p>
 <p>This is my favorite. <code class="docutils literal"><span class="pre">html_render_wrap.py</span></code> in Solutions demonstrates with method.</p>
 </div>
 <div class="section" id="duck-typing-on-the-fly">
@@ -414,7 +416,7 @@ new tags, etc....</p>
 <p><strong>Caution</strong></p>
 <p>If the object doesn&#8217;t have a <code class="docutils literal"><span class="pre">render</span></code> method, then an AttributeError will be raised. But what if it does have a render method, but that method is broken?</p>
 <p>Depending on what&#8217;s broken, it could raise any number of exceptions. Most will not get caught by the except clause, and will halt the program.</p>
-<p>But if, just by bad luck, it has an bug that raises an <code class="docutils literal"><span class="pre">AttributeError</span></code> &#8211; then this could with catch it, and try to simply write it out instead. So you may get somethign like: <code class="docutils literal"><span class="pre">&lt;html_render.H</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x103604400&gt;</span></code> in the middle of your html.</p>
+<p>But if, just by bad luck, it has an bug that raises an <code class="docutils literal"><span class="pre">AttributeError</span></code> &#8211; then this could catch it, and try to simply write it out instead. So you may get somethign like: <code class="docutils literal"><span class="pre">&lt;html_render.H</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x103604400&gt;</span></code> in the middle of your html.</p>
 <p><strong>The beauty of testing</strong></p>
 <p>If you have a unit test that calls every render method in your code &#8211; then it should catch that error, and it wil be clear where it is coming from.</p>
 </div>

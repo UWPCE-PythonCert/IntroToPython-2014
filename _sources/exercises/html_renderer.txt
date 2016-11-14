@@ -39,7 +39,7 @@ You should be able to run that code at each step, uncommenting each new step in 
 
 It builds up an html tree, and then calls the ``render()`` method of your element to render the page.
 
-It uses a ``cStringIO`` object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.
+It uses a ``StringIO`` object (like a file, but in memory) to render to memory, then dumps it to the console, and writes a file. Take a look at the code at the end to make sure you understand it.
 
 The html generated at each step will be in the files: ``test_html_ouput?.html``
 
@@ -176,7 +176,7 @@ Create a couple subclasses of ``SelfClosingTag`` for and <hr /> and <br />
 
 Note that you now have a couple render methods -- is there repeated code in them?
 
-Can you refactor the common parts into a separate method that all the render methods can call?
+Can you refactor the common parts into a separate method that all the render methods can call? And do all your tests still pass (you do have tests for everything, don't you?) after refactoring?
 
 See ``test_html_output5.html``
 
@@ -191,7 +191,7 @@ where ``link`` is the link, and ``content`` is what you see. It can be called li
 
     A("http://google.com", "link to google")
 
-You should be able to subclass from ``Element``, and only override the ``__init__`` --- Calling the ``Element`` ``__init__`` from the  ``A __init__``
+You should be able to subclass from ``Element``, and only override the ``__init__`` --- calling the ``Element`` ``__init__`` from the  ``A __init__``
 
 You can now add a link to your web page.
 
@@ -266,7 +266,8 @@ You can handle it ahead of time by creating a simple object that wraps a string 
           self.text = text
 
       def render(self, file_out, current_ind=""):
-          file_out.write(current_ind + self.text)
+          file_out.write(current_ind)
+          file_out.write(self.text)
 
 .. nextslide::
 
@@ -321,22 +322,25 @@ I think this is a little better -- strings are a pretty core type in python, it'
 Duck Typing
 -----------
 
-The Python model of duck typing is if quacks like a duck, then treat it like a duck.
+The Python model of duck typing is: If quacks like a duck, then treat it like a duck.
 
 But in this case, we're not actually rendering the object at this stage, so calling the method isn't appropriate.
 
 **Checking for an attribute**
 
-Instead of calling the method, see if it's there:
+Instead of calling the method, see if it's there. You can do that with ``hasattr()``
 
-You can check if the passed-in object has a ``render()`` attribute:
+check if the passed-in object has a ``render()`` attribute:
 
 .. code-block:: python
 
     if hasattr(content, 'render'):
         self.content.append(content)
     else:
-        self.content.append(TextWrapper(content))
+        self.content.append(TextWrapper(str(content))
+
+
+Note that I added a ``str()`` call too -- so you can pass in anything -- it it will get string-ified -- this will be ugly for many objects, but will work fine for numbers and other simple objects.
 
 This is my favorite. ``html_render_wrap.py`` in Solutions demonstrates with method.
 
@@ -376,7 +380,7 @@ If the object doesn't have a ``render`` method, then an AttributeError will be r
 
 Depending on what's broken, it could raise any number of exceptions. Most will not get caught by the except clause, and will halt the program.
 
-But if, just by bad luck, it has an bug that raises an ``AttributeError`` -- then this could with catch it, and try to simply write it out instead. So you may get somethign like: ``<html_render.H object at 0x103604400>`` in the middle of your html.
+But if, just by bad luck, it has an bug that raises an ``AttributeError`` -- then this could catch it, and try to simply write it out instead. So you may get somethign like: ``<html_render.H object at 0x103604400>`` in the middle of your html.
 
 **The beauty of testing**
 
