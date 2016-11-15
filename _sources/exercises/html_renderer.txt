@@ -475,7 +475,7 @@ To make a link, you use an "anchor" tag: ``<a>``. It requires attributes to indi
 
 The ``href`` attribute is the link (hyper reference).
 
-To make a bulleted list, you use a <ul> tag (unordered list), and inside that, you put individual list elements <li>:
+To make a bulleted list, you use a <ul> tag (unordered list), and inside that, you put individual list items <li>:
 
 .. code-block:: html
 
@@ -488,7 +488,7 @@ To make a bulleted list, you use a <ul> tag (unordered list), and inside that, y
             </li>
         </ul>
 
-Note that the list itself, and the list items can both take various attributes (all tags can...)
+Note that the list itself *and* the list items can both take various attributes (all tags can...)
 
 Section Headers are created with "h" tags: <h1> is the biggest (highest level), and there is <h2>, <h3>, etc. for sections, sub sections, subsub sections...
 
