@@ -1,7 +1,7 @@
 .. include:: include.rst
 
 ***************************
-Object Oriented programming
+Object Oriented Programming
 ***************************
 
 ================
@@ -26,8 +26,6 @@ Lightning Talks today
 
     |
     | Charles E Robison
-    |
-    | Paul S Briant
     |
     | Paul Vosper
     |
@@ -110,7 +108,8 @@ Python is a Dynamic Language
 That clashes with "pure" OO
 
 Think in terms of what makes sense for your project
- -- not any one paradigm of software design.
+
+-- not any one paradigm of software design.
 
 
 .. nextslide::
@@ -309,8 +308,10 @@ Does this look familiar from C-style procedural programming?
 
 .. nextslide::
 
-Anything assigned to a ``self.``  attribute is kept in the instance
-name space -- ``self`` *is* the instance.
+Anything assigned to a ``self``  attribute is kept in the instance
+name space
+
+-- ``self`` *is* the instance.
 
 That's where all the instance-specific data is.
 
@@ -390,6 +391,9 @@ Huh???? I only gave 2
 
 LAB
 ----
+.. rst-class:: medium
+
+  We now know enough to do something useful.
 
 Let's say you need to render some html...
 
@@ -414,9 +418,7 @@ Lightning Talks
 .. rst-class:: medium
 
     |
-    | Charles E Robison
-    |
-    | Paul S Briant
+    | Charles E Robisons
     |
     | Paul Vosper
     |
@@ -506,7 +508,7 @@ Here's a program design suggestion:
 
 """
 
-Whenever you override a method, the interface of the new method should be the same as the old.  It should takethe same parameters, return the same type, and obey the same preconditions and postconditions.
+Whenever you override a method, the interface of the new method should be the same as the old.  It should take the same parameters, return the same type, and obey the same preconditions and postconditions.
 
 If you obey this rule, you will find that any function designed to work with an instance of a superclass, like a Deck, will also work with instances of subclasses like a Hand or PokerHand.  If you violate this rule, your code will collapse like (sorry) a house of cards.
 
@@ -574,7 +576,7 @@ When to Subclass
 
 .. nextslide::
 
-"Is a" vs "Has a"
+"**Is** a" vs "**Has** a"**
 
 You may have a class that needs to accumulate an arbitrary number of objects.
 
@@ -705,16 +707,17 @@ LAB
 
     * html renderer: let's see how much more we can do!
 
-:ref:`exercise_html_renderer`
+.. rst-class:: left
 
+    :ref:`exercise_html_renderer`
 
-Now we have a base class, and we can:
+    Now we have a base class, and we can:
 
-* Subclass overriding class attributes
-* Subclass overriding a method
-* Subclass overriding the ``__init__``
+    * Subclass overriding class attributes
+    * Subclass overriding a method
+    * Subclass overriding the ``__init__``
 
-These are the core OO approaches
+    These are the core OO approaches
 
 
 ===================
@@ -807,7 +810,7 @@ Where do you put a Platypus?
 
 Real World Example: `FloatCanvas`_
 
-.. _FloatCanvas: https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L485
+.. _FloatCanvas: https://github.com/wxWidgets/wxPython/blob/master/wx/lib/floatcanvas/FloatCanvas.py#L485
 
 
 ``super()``
@@ -862,7 +865,7 @@ Homework
 
 Complete your html renderer.
 
-Watch those videos:
+Watch these videos:
 
 Python class toolkit: *Raymond Hettinger* -- https://youtu.be/HTLu2DFOdTg
 

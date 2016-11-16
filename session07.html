@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Object Oriented programming &mdash; Introduction To Python 1.3 documentation</title>
+  <title>Object Oriented Programming &mdash; Introduction To Python 1.3 documentation</title>
   
 
   
@@ -88,7 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Comprehensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Testing, Advanced Argument Passing</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Object Oriented programming</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Object Oriented Programming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks-today">Lightning Talks today</a></li>
@@ -169,7 +169,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Object Oriented programming</li>
+    <li>Object Oriented Programming</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -184,7 +184,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="object-oriented-programming">
-<h1>Object Oriented programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+<h1>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="review-questions">
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-class">
@@ -197,8 +197,6 @@
 <div class="medium line-block">
 <div class="line"><br /></div>
 <div class="line">Charles E Robison</div>
-<div class="line"><br /></div>
-<div class="line">Paul S Briant</div>
 <div class="line"><br /></div>
 <div class="line">Paul Vosper</div>
 <div class="line"><br /></div>
@@ -248,10 +246,8 @@ refactorability, testability, etc...</p>
 </dl>
 <p>Python is a Dynamic Language</p>
 <p>That clashes with &#8220;pure&#8221; OO</p>
-<dl class="docutils">
-<dt>Think in terms of what makes sense for your project</dt>
-<dd>&#8211; not any one paradigm of software design.</dd>
-</dl>
+<p>Think in terms of what makes sense for your project</p>
+<p>&#8211; not any one paradigm of software design.</p>
 <p>So what is &#8220;object oriented programming&#8221;?</p>
 <div class="line-block">
 <div class="line">&#8220;Objects can be thought of as wrapping their data
@@ -379,8 +375,9 @@ as a variable, or single object, as opposed to a ...</dd>
 </pre></div>
 </div>
 <p>Does this look familiar from C-style procedural programming?</p>
-<p>Anything assigned to a <code class="docutils literal"><span class="pre">self.</span></code>  attribute is kept in the instance
-name space &#8211; <code class="docutils literal"><span class="pre">self</span></code> <em>is</em> the instance.</p>
+<p>Anything assigned to a <code class="docutils literal"><span class="pre">self</span></code>  attribute is kept in the instance
+name space</p>
+<p>&#8211; <code class="docutils literal"><span class="pre">self</span></code> <em>is</em> the instance.</p>
 <p>That&#8217;s where all the instance-specific data is.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
@@ -435,6 +432,7 @@ instance of the class shares the same one.</p>
 </div>
 <div class="section" id="lab">
 <h3>LAB<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h3>
+<p class="medium">We now know enough to do something useful.</p>
 <p>Let&#8217;s say you need to render some html...</p>
 <p>The goal is to build a set of classes that render an html
 page.</p>
@@ -449,9 +447,7 @@ to specialize the behavior</p>
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
 <div class="line"><br /></div>
-<div class="line">Charles E Robison</div>
-<div class="line"><br /></div>
-<div class="line">Paul S Briant</div>
+<div class="line">Charles E Robisons</div>
 <div class="line"><br /></div>
 <div class="line">Paul Vosper</div>
 <div class="line"><br /></div>
@@ -518,7 +514,7 @@ from pre-existing classes called base classes or super classes.</p>
 <p>all the instances will have the new method</p>
 <p>Here&#8217;s a program design suggestion:</p>
 <p>&#8220;&#8221;&#8220;</p>
-<p>Whenever you override a method, the interface of the new method should be the same as the old.  It should takethe same parameters, return the same type, and obey the same preconditions and postconditions.</p>
+<p>Whenever you override a method, the interface of the new method should be the same as the old.  It should take the same parameters, return the same type, and obey the same preconditions and postconditions.</p>
 <p>If you obey this rule, you will find that any function designed to work with an instance of a superclass, like a Deck, will also work with instances of subclasses like a Hand or PokerHand.  If you violate this rule, your code will collapse like (sorry) a house of cards.</p>
 <p>&#8220;&#8221;&#8220;</p>
 <div class="line-block">
@@ -570,7 +566,7 @@ automatically when you instantiate an instance.</p>
 <h3>When to Subclass<a class="headerlink" href="#when-to-subclass" title="Permalink to this headline">¶</a></h3>
 <p>&#8220;Is a&#8221; relationship: Subclass/inheritance</p>
 <p>&#8220;Has a&#8221; relationship: Composition</p>
-<p>&#8220;Is a&#8221; vs &#8220;Has a&#8221;</p>
+<p>&#8220;<strong>Is</strong> a&#8221; vs &#8220;<strong>Has</strong> a&#8221;**</p>
 <p>You may have a class that needs to accumulate an arbitrary number of objects.</p>
 <p>A list can do that &#8211; so should you subclass list?</p>
 <p>Ask yourself:</p>
@@ -662,14 +658,14 @@ automatically when you instantiate an instance.</p>
 <ul class="left medium simple">
 <li>html renderer: let&#8217;s see how much more we can do!</li>
 </ul>
-<p><a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span class="std std-ref">HTML Renderer Exercise</span></a></p>
-<p>Now we have a base class, and we can:</p>
-<ul class="simple">
+<p class="left"><a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span class="std std-ref">HTML Renderer Exercise</span></a></p>
+<p class="left">Now we have a base class, and we can:</p>
+<ul class="left simple">
 <li>Subclass overriding class attributes</li>
 <li>Subclass overriding a method</li>
 <li>Subclass overriding the <code class="docutils literal"><span class="pre">__init__</span></code></li>
 </ul>
-<p>These are the core OO approaches</p>
+<p class="left">These are the core OO approaches</p>
 </div>
 <div class="section" id="id6">
 <h2>More on Subclassing<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
@@ -735,7 +731,7 @@ automatically when you instantiate an instance.</p>
 </li>
 </ul>
 <p>Where do you put a Platypus?</p>
-<p>Real World Example: <a class="reference external" href="https://github.com/svn2github/wxPython/blob/master/3rdParty/FloatCanvas/floatcanvas/FloatCanvas.py#L485">FloatCanvas</a></p>
+<p>Real World Example: <a class="reference external" href="https://github.com/wxWidgets/wxPython/blob/master/wx/lib/floatcanvas/FloatCanvas.py#L485">FloatCanvas</a></p>
 </div>
 <div class="section" id="super">
 <h3><code class="docutils literal"><span class="pre">super()</span></code><a class="headerlink" href="#super" title="Permalink to this headline">¶</a></h3>
@@ -769,7 +765,7 @@ the unbound method on the superclass.</p>
 <div class="section" id="homework">
 <h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
 <p>Complete your html renderer.</p>
-<p>Watch those videos:</p>
+<p>Watch these videos:</p>
 <p>Python class toolkit: <em>Raymond Hettinger</em> &#8211; <a class="reference external" href="https://youtu.be/HTLu2DFOdTg">https://youtu.be/HTLu2DFOdTg</a></p>
 <p><a class="reference external" href="https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger">https://speakerdeck.com/pyconslides/pythons-class-development-toolkit-by-raymond-hettinger</a></p>
 <p>The Art of Subclassing: <em>Raymond Hettinger</em> &#8211; <a class="reference external" href="http://pyvideo.org/video/879/the-art-of-subclassing">http://pyvideo.org/video/879/the-art-of-subclassing</a></p>
