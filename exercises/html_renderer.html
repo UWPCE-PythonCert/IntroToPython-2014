@@ -220,7 +220,7 @@
 </ul>
 </div></blockquote>
 <p>The amount of each level of indentation should be set by the class attribute: <code class="docutils literal"><span class="pre">indent</span></code></p>
-<p>NOTE: don&#8217;t worry too much about indentation at this stage &#8211; the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you&#8217;ve got that working.</p>
+<p>NOTE: don&#8217;t worry too much about indentation at this stage &#8211; the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you&#8217;ve got that working. See &#8220;Note on indentation&#8221; below for more explaination.</p>
 <p>So this <code class="docutils literal"><span class="pre">render()</span></code> method takes a file-like object, and calls its <code class="docutils literal"><span class="pre">write()</span></code> method, writing the html for a tag. Something like:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
     <span class="n">Some</span> <span class="n">content</span><span class="o">.</span> <span class="n">Some</span> <span class="n">more</span> <span class="n">content</span><span class="o">.</span>
@@ -319,6 +319,24 @@ header level. i.e &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, called like</p>
 new tags, etc....</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output8.html</span></code></p>
 </div>
+</div>
+<div class="section" id="note-on-indentation">
+<h2>Note on indentation<a class="headerlink" href="#note-on-indentation" title="Permalink to this headline">¶</a></h2>
+<p>Indentation is not stricly required for html &#8211; html ignores most whitespace.</p>
+<p>But it can make it much easier to read for humans, and it&#8217;s a nice excercise to see how one might make it nice.</p>
+<p>There is also more than one way to indent html &#8211; so you have a bit of flexibility here.</p>
+<p>So:</p>
+<ul class="simple">
+<li>You probably  <code class="docutils literal"><span class="pre">ind</span></code> to be an optional argument to render &#8211; so it will not indent if nothing is passed in. And that lets you write the code without indentation first if you like.</li>
+<li>But ultimately, you want your code to USE the ind parameter &#8211; it is supposed to indicate how much this entire tag is already indented.</li>
+<li>When this one gets rendered, you don&#8217;t know where it is in a potentially deeply nested hierarchy &#8211; it could be at the top level or ten levels deep. passing <code class="docutils literal"><span class="pre">ind</span></code> into the render method is how this is communicated.</li>
+<li>You have (at least) two options for how to indicate level of indentation:<ul>
+<li>It could be a integer indicating number of levels of indentation</li>
+<li>It could, more simply, be a bunch of spaces.</li>
+</ul>
+</li>
+<li>You want to have the amount of spaces per indentation defined as a class attribute of the base class (the <code class="docutils literal"><span class="pre">Element</span></code> class). That way, you could change it in one place, and it would change everywhere an remain consistent.</li>
+</ul>
 </div>
 <div class="section" id="notes-on-handling-duck-typing">
 <h2>Notes on handling &#8220;duck typing&#8221;<a class="headerlink" href="#notes-on-handling-duck-typing" title="Permalink to this headline">¶</a></h2>
