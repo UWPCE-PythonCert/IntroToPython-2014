@@ -4,6 +4,17 @@
 Object Oriented Programming
 ***************************
 
+Lightning Talks today
+---------------------
+
+.. rst-class:: medium
+
+    |
+    | Charles E Robison
+    |
+    | Paul Vosper
+    |
+
 ================
 Review/Questions
 ================
@@ -17,19 +28,47 @@ Review of Previous Class
 
   Testing
 
+Any questions?
+
+Should I go over my solution(s)?
 
 
-Lightning Talks today
----------------------
+Notes from homework:
+--------------------
 
-.. rst-class:: medium
+**chaining or...**
 
-    |
-    | Charles E Robison
-    |
-    | Paul Vosper
-    |
+Consider this:
 
+``elif selection == '3' or 'exit':``
+
+Careful here: you want to check if selection is '3' or 'exit', but that is no quite what this means:
+
+You want:
+
+``(selection == '3') or (selection == 'exit')``
+
+== has higher precedence than or, so you don't need the parentheses.
+
+``selection == '3' or selection == 'exit'``
+
+That feels like more typing, but that's what you have to do.
+
+.. nextslide::
+
+So what does the first version mean?
+
+It would return true for '3', but would never fail. Due to operator precedence, it is:
+
+``(selection == '3') or 'exit'``
+
+so first it's checking if selection == '3', which will return True or False.
+
+Then it does the or: ``True or 'exit'`` or ``False or 'exit'``
+
+``or`` returns the first "truthy" value it finds, to it will return either True or 'exit', regardless of the value of selection. 'exit' is truthy, so this if clause will always run.
+
+(let's try this out in iPython)
 
 
 ===========================

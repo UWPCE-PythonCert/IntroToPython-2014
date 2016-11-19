@@ -93,7 +93,7 @@ It should have a ``render(file_out, ind = "")`` method that renders the tag and 
 
 The amount of each level of indentation should be set by the class attribute: ``indent``
 
-NOTE: don't worry too much about indentation at this stage -- the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you've got that working.
+NOTE: don't worry too much about indentation at this stage -- the primary goal is to get proper, compliant html. i.e. the opening and closing tags rendered correctly. Worry about cleaning up the indentation once you've got that working. See "Note on indentation" below for more explaination.
 
 .. nextslide::
 
@@ -234,6 +234,32 @@ You now have a pretty full-featured html renderer -- play with it, add some
 new tags, etc....
 
 See ``test_html_output8.html``
+
+Note on indentation
+===================
+
+Indentation is not stricly required for html -- html ignores most whitespace.
+
+But it can make it much easier to read for humans, and it's a nice excercise to see how one might make it nice.
+
+There is also more than one way to indent html -- so you have a bit of flexibility here.
+
+So:
+
+* You probably  ``ind`` to be an optional argument to render -- so it will not indent if nothing is passed in. And that lets you write the code without indentation first if you like.
+
+* But ultimately, you want your code to USE the ind parameter -- it is supposed to indicate how much this entire tag is already indented.
+
+* When this one gets rendered, you don't know where it is in a potentially deeply nested hierarchy -- it could be at the top level or ten levels deep. passing ``ind`` into the render method is how this is communicated.
+
+* You have (at least) two options for how to indicate level of indentation:
+
+  - It could be a integer indicating number of levels of indentation
+  - It could, more simply, be a bunch of spaces.
+
+* You want to have the amount of spaces per indentation defined as a class attribute of the base class (the ``Element`` class). That way, you could change it in one place, and it would change everywhere an remain consistent.
+
+
 
 Notes on handling "duck typing"
 ===============================
