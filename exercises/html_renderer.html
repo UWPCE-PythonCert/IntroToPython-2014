@@ -267,6 +267,31 @@ constructor, e.g. <code class="docutils literal"><span class="pre">run_html_rend
 <p>The render method will need to be extended to render the attributes properly.</p>
 <p>You can now render some <code class="docutils literal"><span class="pre">&lt;p&gt;</span></code> tags (and others) with attributes</p>
 <p>See <code class="docutils literal"><span class="pre">test_html_output4.html</span></code></p>
+<p>NOTE: if you do &#8220;proper&#8221; CSS+html, then you wouldn&#8217;t specify style directly in element attributes.</p>
+<p>Rather you would set the &#8220;class&#8221; attribute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;intro&quot;</span><span class="o">&gt;</span>
+  <span class="n">This</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">recipe</span> <span class="k">for</span> <span class="n">making</span> <span class="n">curry</span> <span class="n">purely</span> <span class="k">with</span> <span class="n">chocolate</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>However, if you try this as a keywork argument in Python:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;some content&quot;</span><span class="p">,</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;intro&quot;</span><span class="p">)</span>
+<span class="go">File &quot;&lt;ipython-input-1-7d9a6b30cd26&gt;&quot;, line 1</span>
+<span class="go">  P(&quot;some content&quot;, class=&quot;intro&quot;)</span>
+<span class="go">                       ^</span>
+<span class="go">SyntaxError: invalid syntax</span>
+</pre></div>
+</div>
+<p>Huh?</p>
+<p>&#8220;class&#8221; is a reserved work in Python &#8211; for making classes.
+So it can&#8217;t be used as a keywork argument.</p>
+<p>But it&#8217;s a fine key in a dict, so you can put it in a dict, and pass it in with <code class="docutils literal"><span class="pre">**</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;intro&#39;</span><span class="p">}</span>
+<span class="n">P</span><span class="p">(</span><span class="s2">&quot;some content&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You could also special-case this in your code &#8211; so your users could use &#8220;clas&#8221;
+with one s, and you could tranlate it in the generated html.</p>
 </div>
 <div class="section" id="step-5">
 <h3>Step 5:<a class="headerlink" href="#step-5" title="Permalink to this headline">¶</a></h3>

@@ -162,6 +162,42 @@ You can now render some ``<p>`` tags (and others) with attributes
 
 See ``test_html_output4.html``
 
+.. nextslide:: the "class" attribute.
+
+NOTE: if you do "proper" CSS+html, then you wouldn't specify style directly in element attributes.
+
+Rather you would set the "class" attribute::
+
+  <p class="intro">
+    This is my recipe for making curry purely with chocolate
+  </p>
+
+However, if you try this as a keywork argument in Python:
+
+.. code-block:: ipython
+
+   In [1]: P("some content", class="intro")
+   File "<ipython-input-1-7d9a6b30cd26>", line 1
+     P("some content", class="intro")
+                          ^
+   SyntaxError: invalid syntax
+
+Huh?
+
+"class" is a reserved work in Python -- for making classes.
+So it can't be used as a keywork argument.
+
+But it's a fine key in a dict, so you can put it in a dict, and pass it in with ``**``:
+
+.. code-block:: python
+
+    attrs = {'class': 'intro'}
+    P("some content", **attrs)
+
+You could also special-case this in your code -- so your users could use "clas"
+with one s, and you could tranlate it in the generated html.
+
+
 Step 5:
 --------
 
