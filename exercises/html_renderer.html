@@ -397,7 +397,7 @@ new tags, etc....</p>
 </pre></div>
 </div>
 <p>So much easier.</p>
-<p>To accomplish this, you can update the <code class="docutils literal"><span class="pre">append()</span></code> method to put this wrapper around plain strings when somethign new is added.</p>
+<p>To accomplish this, you can update the <code class="docutils literal"><span class="pre">append()</span></code> method to put this wrapper around plain strings when something new is added.</p>
 </div>
 <div class="section" id="checking-if-it-s-the-right-type">
 <h3>Checking if it&#8217;s the right type<a class="headerlink" href="#checking-if-it-s-the-right-type" title="Permalink to this headline">¶</a></h3>
@@ -433,8 +433,8 @@ new tags, etc....</p>
     <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TextWrapper</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Note that I added a <code class="docutils literal"><span class="pre">str()</span></code> call too &#8211; so you can pass in anything &#8211; it it will get string-ified &#8211; this will be ugly for many objects, but will work fine for numbers and other simple objects.</p>
-<p>This is my favorite. <code class="docutils literal"><span class="pre">html_render_wrap.py</span></code> in Solutions demonstrates with method.</p>
+<p>Note that I added a <code class="docutils literal"><span class="pre">str()</span></code> call too &#8211; so you can pass in anything &#8211; it will get stringified &#8211; this will be ugly for many objects, but will work fine for numbers and other simple objects.</p>
+<p>This is my favorite. <code class="docutils literal"><span class="pre">html_render_wrap.py</span></code> in Solutions demonstrates some core bits of this approach.</p>
 </div>
 <div class="section" id="duck-typing-on-the-fly">
 <h3>Duck Typing on the Fly<a class="headerlink" href="#duck-typing-on-the-fly" title="Permalink to this headline">¶</a></h3>
@@ -447,7 +447,7 @@ new tags, etc....</p>
 </pre></div>
 </div>
 <p>If content is a simple string then it won&#8217;t have a render method, and an <code class="docutils literal"><span class="pre">AttributeError</span></code> will be raised.</p>
-<p>You can catch that, and simply write the content.</p>
+<p>You can catch that, and simply write the content directly instead.</p>
 <p>You may want to turn it into a string, first:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
 </pre></div>
@@ -459,16 +459,16 @@ new tags, etc....</p>
 <p><strong>Caution</strong></p>
 <p>If the object doesn&#8217;t have a <code class="docutils literal"><span class="pre">render</span></code> method, then an AttributeError will be raised. But what if it does have a render method, but that method is broken?</p>
 <p>Depending on what&#8217;s broken, it could raise any number of exceptions. Most will not get caught by the except clause, and will halt the program.</p>
-<p>But if, just by bad luck, it has an bug that raises an <code class="docutils literal"><span class="pre">AttributeError</span></code> &#8211; then this could catch it, and try to simply write it out instead. So you may get somethign like: <code class="docutils literal"><span class="pre">&lt;html_render.H</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x103604400&gt;</span></code> in the middle of your html.</p>
+<p>But if, just by bad luck, it has an bug that raises an <code class="docutils literal"><span class="pre">AttributeError</span></code> &#8211; then this could catch it, and try to simply write it out instead. So you may get something like: <code class="docutils literal"><span class="pre">&lt;html_render.H</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x103604400&gt;</span></code> in the middle of your html.</p>
 <p><strong>The beauty of testing</strong></p>
-<p>If you have a unit test that calls every render method in your code &#8211; then it should catch that error, and it wil be clear where it is coming from.</p>
+<p>If you have a unit test that calls every render method in your code &#8211; then it should catch that error, and in the unit test it will be clear where it is coming from.</p>
 </div>
 </div>
 <div class="section" id="html-primer">
 <h2>HTML Primer<a class="headerlink" href="#html-primer" title="Permalink to this headline">¶</a></h2>
-<p class="medium">The very least you need to know about html to do this assigment.</p>
-<p class="left">If you are familar with html, then this will all make sense to you. If you have never seen html before, this might be a bit intimidating, but you really don&#8217;t need to know much to do this assignment.</p>
-<p class="left">First of all, sample output from each step is provided. So all you really need to do is look at that, and make your code do the same thing. But it does help to know a little bit about what you are doing.</p>
+<p class="medium">The very least you need to know about html to do this assignment.</p>
+<p class="left">If you are familiar with html, then this will all make sense to you. If you have never seen html before, this might be a bit intimidating, but you really don&#8217;t need to know much to do this assignment.</p>
+<p class="left">First of all, sample output from each step is provided. So all you really need to do is look at that, and make your code do the same thing. But it does help understand a little bit about what you trying to do.</p>
 <div class="section" id="html">
 <h3>HTML<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h3>
 <p>HTML is &#8220;Hyper Text Markup Language&#8221;. Hypertext, because it can contain links
@@ -485,11 +485,11 @@ instructions about how to format the text, etc.</p>
 <h3>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h3>
 <p>Modern HTML is a particular dialect of XML (eXtensible Markup Language),
 which is itself a special case of SGML (Standard Generalized Markup Language)</p>
-<p>It inherits from SGML a basic structure: each piece of the document is an element. each element is described by a &#8220;tag&#8221;. Each tag has a different meaning, but they all have the same structure:</p>
+<p>It inherits from SGML a basic structure: each piece of the document is an element. Each element is described by a &#8220;tag&#8221;. Each tag has a different meaning, but they all have the same structure:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">some_tag</span><span class="o">&gt;</span> <span class="n">some</span> <span class="n">content</span> <span class="o">&lt;/</span><span class="n">some_tag</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>that is, the tag name is surrounded by &lt; and &gt;, which marks the beginning of
+<p>That is, the tag name is surrounded by &lt; and &gt;, which marks the beginning of
 the element, and the end of the element is indicated by the same tag with a slash.</p>
 <p>The real power is that these elements can be nested arbitrarily deep. In order to keep that all readable, we often want to indent the content inside the tags, so it&#8217;s clear what belongs with what. That is one of the tricky bits of this assignment.</p>
 </div>
@@ -508,7 +508,7 @@ the element, and the end of the element is indicated by the same tag with a slas
 <div class="section" id="attributes">
 <h3>Attributes:<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
 <p>In addition to the tag name and the content, extra attributes can be attached to a tag. These are added to the &#8220;opening tag&#8221;, with name=&#8221;something&#8221;, another_name=&#8221;somethign else&#8221; format:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center; font-style: oblique;&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;intro&quot;</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>There can be all sorts of stuff stored in attributes &#8211; some required for specific tags, some extra, like font sizes and colors. Note that since tags can essentially have any attributes, your code will need to support that &#8211; doesn&#8217;t it kind of look like a dict? And keyword arguments?</p>
@@ -524,6 +524,9 @@ the element, and the end of the element is indicated by the same tag with a slas
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">href</span></code> attribute is the link (hyper reference).</p>
+</div>
+<div class="section" id="lists">
+<h3>lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p>To make a bulleted list, you use a &lt;ul&gt; tag (unordered list), and inside that, you put individual list items &lt;li&gt;:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;line-height:200%&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;TheList&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
