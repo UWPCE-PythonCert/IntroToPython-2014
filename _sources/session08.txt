@@ -25,11 +25,13 @@ Lightning Talks Today:
 
 .. rst-class:: medium
 
-Brandon Chavis
+  Paul Briant
 
-Jay N Raina
+  Brandon Chavis
 
-Josh Hicks
+  Jay Raina
+
+  Josh Hicks
 
 
 Personal Project
@@ -79,6 +81,20 @@ empty, then the loop is a do-nothing operation:
 * notes on Duck Typing: :ref:`exercise_html_renderer` and  code review
 
 * anyone stuck that wants to work through your code?
+
+* And/or go through mine...
+
+Lightning Talks:
+----------------
+
+.. rst-class:: medium
+
+  |
+  |  Paul Briant
+  |
+  |  Brandon Chavis
+  |
+
 
 ==========
 Properties
@@ -139,6 +155,7 @@ But what if you need to add behavior later?
 <shudder> This is ugly and verbose -- `Java`_?
 
 .. _Java: http://dirtsimple.org/2004/12/python-is-not-java.html
+
 
 properties
 -----------
@@ -249,11 +266,12 @@ Lightning talks:
 
 .. rst-class:: medium
 
-  Brandon Chavis
+  |
+  |  Jay N Raina
+  |
+  |  Josh Hicks
+  |
 
-  Jay N Raina
-
-  Josh Hicks
 
 ========================
 Static and Class Methods
