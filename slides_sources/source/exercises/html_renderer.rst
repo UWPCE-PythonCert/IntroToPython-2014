@@ -347,7 +347,7 @@ But this is not very Pythonic style -- it's OO heavy. Strings for text are so co
 
 So much easier.
 
-To accomplish this, you can update the ``append()`` method to put this wrapper around plain strings when somethign new is added.
+To accomplish this, you can update the ``append()`` method to put this wrapper around plain strings when something new is added.
 
 
 Checking if it's the right type
@@ -402,9 +402,10 @@ check if the passed-in object has a ``render()`` attribute:
         self.content.append(TextWrapper(str(content))
 
 
-Note that I added a ``str()`` call too -- so you can pass in anything -- it it will get string-ified -- this will be ugly for many objects, but will work fine for numbers and other simple objects.
+Note that I added a ``str()`` call too -- so you can pass in anything -- it will get stringified -- this will be ugly for many objects, but will work fine for numbers and other simple objects.
 
-This is my favorite. ``html_render_wrap.py`` in Solutions demonstrates with method.
+This is my favorite. ``html_render_wrap.py`` in Solutions demonstrates some core bits of this approach.
+
 
 Duck Typing on the Fly
 ----------------------
@@ -422,7 +423,7 @@ Again, you could type check -- but I prefer the duck typing approach, and EAFP:
 
 If content is a simple string then it won't have a render method, and an ``AttributeError`` will be raised.
 
-You can catch that, and simply write the content.
+You can catch that, and simply write the content directly instead.
 
 .. nextslide::
 
@@ -442,11 +443,11 @@ If the object doesn't have a ``render`` method, then an AttributeError will be r
 
 Depending on what's broken, it could raise any number of exceptions. Most will not get caught by the except clause, and will halt the program.
 
-But if, just by bad luck, it has an bug that raises an ``AttributeError`` -- then this could catch it, and try to simply write it out instead. So you may get somethign like: ``<html_render.H object at 0x103604400>`` in the middle of your html.
+But if, just by bad luck, it has an bug that raises an ``AttributeError`` -- then this could catch it, and try to simply write it out instead. So you may get something like: ``<html_render.H object at 0x103604400>`` in the middle of your html.
 
 **The beauty of testing**
 
-If you have a unit test that calls every render method in your code -- then it should catch that error, and it wil be clear where it is coming from.
+If you have a unit test that calls every render method in your code -- then it should catch that error, and in the unit test it will be clear where it is coming from.
 
 
 HTML Primer
@@ -454,13 +455,13 @@ HTML Primer
 
 .. rst-class:: medium
 
-    The very least you need to know about html to do this assigment.
+    The very least you need to know about html to do this assignment.
 
 .. rst-class:: left
 
-  If you are familar with html, then this will all make sense to you. If you have never seen html before, this might be a bit intimidating, but you really don't need to know much to do this assignment.
+  If you are familiar with html, then this will all make sense to you. If you have never seen html before, this might be a bit intimidating, but you really don't need to know much to do this assignment.
 
-  First of all, sample output from each step is provided. So all you really need to do is look at that, and make your code do the same thing. But it does help to know a little bit about what you are doing.
+  First of all, sample output from each step is provided. So all you really need to do is look at that, and make your code do the same thing. But it does help understand a little bit about what you trying to do.
 
 HTML
 ----
@@ -487,14 +488,15 @@ Elements
 Modern HTML is a particular dialect of XML (eXtensible Markup Language),
 which is itself a special case of SGML (Standard Generalized Markup Language)
 
-It inherits from SGML a basic structure: each piece of the document is an element. each element is described by a "tag". Each tag has a different meaning, but they all have the same structure::
+It inherits from SGML a basic structure: each piece of the document is an element. Each element is described by a "tag". Each tag has a different meaning, but they all have the same structure::
 
     <some_tag> some content </some_tag>
 
-that is, the tag name is surrounded by < and >, which marks the beginning of
+That is, the tag name is surrounded by < and >, which marks the beginning of
 the element, and the end of the element is indicated by the same tag with a slash.
 
 The real power is that these elements can be nested arbitrarily deep. In order to keep that all readable, we often want to indent the content inside the tags, so it's clear what belongs with what. That is one of the tricky bits of this assignment.
+
 
 Basic tags
 ----------
@@ -516,7 +518,7 @@ In addition to the tag name and the content, extra attributes can be attached to
 
 .. code-block:: html
 
-    <p style="text-align: center; font-style: oblique;">
+    <p style="text-align: center" id="intro">
 
 There can be all sorts of stuff stored in attributes -- some required for specific tags, some extra, like font sizes and colors. Note that since tags can essentially have any attributes, your code will need to support that -- doesn't it kind of look like a dict? And keyword arguments?
 
@@ -536,6 +538,9 @@ To make a link, you use an "anchor" tag: ``<a>``. It requires attributes to indi
     <a href="http://google.com"> link </a>
 
 The ``href`` attribute is the link (hyper reference).
+
+lists
+-----
 
 To make a bulleted list, you use a <ul> tag (unordered list), and inside that, you put individual list items <li>:
 
@@ -559,17 +564,3 @@ Section Headers are created with "h" tags: <h1> is the biggest (highest level), 
     <h2>PythonClass - Class 7 example</h2>
 
 I think that's all you need to know!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
