@@ -1,8 +1,8 @@
 .. include:: include.rst
 
-**************************************************************************
+****************************************************
 Session Eight: More OO: Properties, Special methods.
-**************************************************************************
+****************************************************
 
 
 ================
@@ -27,8 +27,6 @@ Lightning Talks Today:
 
   Paul Briant
 
-  Brandon Chavis
-
   Jay Raina
 
   Josh Hicks
@@ -48,7 +46,7 @@ The bulk of the homework for the rest of the class will be a personal project:
 * I don't require any specific python features (i.e. classes): use
   what is appropriate for your project
 
-* Due the Friday after the last class (December 11)
+* Due the Sunday after the last class (December 11)
 
 |
 |  By next week, send me a project proposal: short and sweet.
@@ -75,10 +73,164 @@ And there is no need to check if it's empty before trying to loop through it.
 
 no need for ``!= {}`` -- an empty dict is "Falsey"
 
-**but** no need for that check at all. If the dict (or ist, or tuple) is
+**but** no need for that check at all. If the dict (or list, or tuple) is
 empty, then the loop is a do-nothing operation:
 
-* notes on Duck Typing: :ref:`exercise_html_renderer` and  code review
+.. code-block:: python
+
+    for key, value in self.attributes.items():
+        self.atts += ' {}="{}"'.format(key, value)
+
+will not run if self.attributes is an empty dict.
+
+
+Dynamic typing and class attributes
+-----------------------------------
+
+* what happens if we change a class attribute after creating instances??
+
+  - let's try ``Element.indent`` ...
+
+* setting an instance attribute overwrites class attributes:
+
+``self.tag =`` overrights the class attribute (sort of!)
+
+Let's experiment with that.
+
+
+dict as switch
+--------------
+
+.. rst-class:: medium
+
+  What to use instead of "switch-case"?
+
+A number of languages have a "switch-case" construct::
+
+    switch(argument) {
+        case 0:
+            return "zero";
+        case 1:
+            return "one";
+        case 2:
+            return "two";
+        default:
+            return "nothing";
+    };
+
+How do you spell this in python?
+
+``if-elif`` chains
+-------------------
+
+The obvious way to spell it is a chain of ``elif`` statements:
+
+.. code-block:: python
+
+    if argument ==  0:
+        return "zero"
+    elif argument == 1:
+        return "one"
+    elif argument == 2:
+        return "two"
+    else:
+        return "nothing"
+
+And there is nothing wrong with that, but....
+
+.. nextslide::
+
+The ``elif`` chain is neither elegant nor efficient.
+
+There are a number of ways to spell it in python -- one elegant one is to use a dict:
+
+.. code-block:: python
+
+    arg_dict = {0:"zero", 1:"one", 2: "two"}
+        dict.get(argument, "nothing")
+
+Simple, elegant, and fast.
+
+You can do a dispatch table by putting functions as the value.
+
+Example: Chris' mailroom2 solution.
+
+Polymorphism as switch:
+-----------------------
+
+It turns out that a lot of uses of switch-case in non-OO languages is to
+change behaviour depending on teh type of object being worked on::
+
+    switch(object.tag) {
+        case 'html':
+            render_html_element;
+        case 'p':
+            render_p_element;
+    ...
+
+I saw some of this in the html renderer:
+
+.. nextslide::
+
+.. code-block:: python
+
+     def render(out_file, ind=""):
+         ....
+         if self.tag == 'html':
+             tag = "<html>"
+             end_tag = "</html>"
+         elif self.tag == 'p':
+             tag = "<p>"
+             end_tag = "</p>"
+
+This will work, of course, but:
+
+* it means you need to know every tag that you might render when you write this render method.
+
+* In a more complex system, you will need to go update all sorts of things all over teh place when you add a tag.
+
+* It means anyone extending the system with more tags needs to edit the core base class.
+
+Polymorphism
+------------
+
+The alternative is to use polymorphism:
+
+Your ``render()`` method doesn't need to know what all the objects are
+that it may need to render.
+
+All it needs to know is that they all will have a method
+that does the right thing.
+
+So the above becomes, simply:
+
+.. code-block:: python
+
+     def render(out_file, ind=""):
+         ....
+         tag, end_tag = self.make_tags()
+
+This is known as polymorphism, because many different objects are behave
+the same way.
+
+.. nextslide::
+
+This is usally handled by subclassing, so they all get all teh same
+methods by default, and you only need to specialize the ones that need it.
+
+But in Python -- it can be done with duck-typing instead, as the TextWrapper example.
+
+Duck typing and EAFP
+--------------------
+
+* notes on Duck Typing: :ref:`exercise_html_renderer`
+
+* put the ``except`` as close as you can to where you expect an exception to be raised!
+
+* Let's look at a couple ways to do that.
+
+Code Review
+-----------
 
 * anyone stuck that wants to work through your code?
 
@@ -90,10 +242,12 @@ Lightning Talks:
 .. rst-class:: medium
 
   |
-  |  Paul Briant
+  | Paul Briant
   |
-  |  Brandon Chavis
+  | Jay Raina
   |
+  |  Josh Hicks
+
 
 
 ==========
@@ -261,17 +415,6 @@ For now, Let's do steps 1-4 of:
 
 :ref:`exercise_circle_class`
 
-Lightning talks:
------------------
-
-.. rst-class:: medium
-
-  |
-  |  Jay N Raina
-  |
-  |  Josh Hicks
-  |
-
 
 ========================
 Static and Class Methods
@@ -289,7 +432,6 @@ Static and Class Methods
     And you've seen how you can call *unbound* methods on a class object so
     long as you pass an instance of that class as the first argument.
 
-    |
 
     .. rst-class:: centered
 
