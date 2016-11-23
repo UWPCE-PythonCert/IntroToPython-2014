@@ -96,6 +96,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#personal-project">Personal Project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-notes">Homework Notes:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-typing-and-class-attributes">Dynamic typing and class attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dict-as-switch">dict as switch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-elif-chains"><code class="docutils literal"><span class="pre">if-elif</span></code> chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polymorphism-as-switch">Polymorphism as switch:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polymorphism">Polymorphism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#duck-typing-and-eafp">Duck typing and EAFP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-review">Code Review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lightning-talks">Lightning Talks:</a></li>
 </ul>
 </li>
@@ -106,10 +113,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#deleters">Deleters</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Lightning talks:</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#lab">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#static-and-class-methods">Static and Class Methods</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#static-methods">Static Methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#class-methods">Class Methods</a></li>
@@ -122,7 +126,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#protocols">Protocols</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">LAB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">LAB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#emulating-standard-types">Emulating Standard types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#callable-classes">Callable classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#callables">&#8220;Callables&#8221;</a></li>
@@ -132,8 +136,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#the-sequence-protocol">The Sequence protocol</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">LAB</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Callables:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">LAB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Callables:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sparse-array">Sparse Array:</a></li>
 </ul>
 </li>
@@ -209,7 +213,6 @@
 <div class="section" id="lightning-talks-today">
 <h3>Lightning Talks Today:<a class="headerlink" href="#lightning-talks-today" title="Permalink to this headline">¶</a></h3>
 <p class="medium">Paul Briant</p>
-<p class="medium">Brandon Chavis</p>
 <p class="medium">Jay Raina</p>
 <p class="medium">Josh Hicks</p>
 </div>
@@ -225,7 +228,7 @@
 <li>Ideally, it will be in version control (gitHub)</li>
 <li>I don&#8217;t require any specific python features (i.e. classes): use
 what is appropriate for your project</li>
-<li>Due the Friday after the last class (December 11)</li>
+<li>Due the Sunday after the last class (December 11)</li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -252,10 +255,128 @@ what is appropriate for your project</li>
 </pre></div>
 </div>
 <p>no need for <code class="docutils literal"><span class="pre">!=</span> <span class="pre">{}</span></code> &#8211; an empty dict is &#8220;Falsey&#8221;</p>
-<p><strong>but</strong> no need for that check at all. If the dict (or ist, or tuple) is
+<p><strong>but</strong> no need for that check at all. If the dict (or list, or tuple) is
 empty, then the loop is a do-nothing operation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">atts</span> <span class="o">+=</span> <span class="s1">&#39; {}=&quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will not run if self.attributes is an empty dict.</p>
+</div>
+<div class="section" id="dynamic-typing-and-class-attributes">
+<h3>Dynamic typing and class attributes<a class="headerlink" href="#dynamic-typing-and-class-attributes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>notes on Duck Typing: <a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span class="std std-ref">HTML Renderer Exercise</span></a> and  code review</li>
+<li>what happens if we change a class attribute after creating instances??<ul>
+<li>let&#8217;s try <code class="docutils literal"><span class="pre">Element.indent</span></code> ...</li>
+</ul>
+</li>
+<li>setting an instance attribute overwrites class attributes:</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">self.tag</span> <span class="pre">=</span></code> overrights the class attribute (sort of!)</p>
+<p>Let&#8217;s experiment with that.</p>
+</div>
+<div class="section" id="dict-as-switch">
+<h3>dict as switch<a class="headerlink" href="#dict-as-switch" title="Permalink to this headline">¶</a></h3>
+<p class="medium">What to use instead of &#8220;switch-case&#8221;?</p>
+<p>A number of languages have a &#8220;switch-case&#8221; construct:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">case</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;zero&quot;</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;one&quot;</span><span class="p">;</span>
+    <span class="n">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;two&quot;</span><span class="p">;</span>
+    <span class="n">default</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;nothing&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>How do you spell this in python?</p>
+</div>
+<div class="section" id="if-elif-chains">
+<h3><code class="docutils literal"><span class="pre">if-elif</span></code> chains<a class="headerlink" href="#if-elif-chains" title="Permalink to this headline">¶</a></h3>
+<p>The obvious way to spell it is a chain of <code class="docutils literal"><span class="pre">elif</span></code> statements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">argument</span> <span class="o">==</span>  <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;zero&quot;</span>
+<span class="k">elif</span> <span class="n">argument</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;one&quot;</span>
+<span class="k">elif</span> <span class="n">argument</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;two&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;nothing&quot;</span>
+</pre></div>
+</div>
+<p>And there is nothing wrong with that, but....</p>
+<p>The <code class="docutils literal"><span class="pre">elif</span></code> chain is neither elegant nor efficient.</p>
+<p>There are a number of ways to spell it in python &#8211; one elegant one is to use a dict:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">arg_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">}</span>
+    <span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="s2">&quot;nothing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Simple, elegant, and fast.</p>
+<p>You can do a dispatch table by putting functions as the value.</p>
+<p>Example: Chris&#8217; mailroom2 solution.</p>
+</div>
+<div class="section" id="polymorphism-as-switch">
+<h3>Polymorphism as switch:<a class="headerlink" href="#polymorphism-as-switch" title="Permalink to this headline">¶</a></h3>
+<p>It turns out that a lot of uses of switch-case in non-OO languages is to
+change behaviour depending on teh type of object being worked on:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">case</span> <span class="s1">&#39;html&#39;</span><span class="p">:</span>
+        <span class="n">render_html_element</span><span class="p">;</span>
+    <span class="n">case</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span>
+        <span class="n">render_p_element</span><span class="p">;</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>I saw some of this in the html renderer:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="o">....</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;html&#39;</span><span class="p">:</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="s2">&quot;&lt;html&gt;&quot;</span>
+        <span class="n">end_tag</span> <span class="o">=</span> <span class="s2">&quot;&lt;/html&gt;&quot;</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="s2">&quot;&lt;p&gt;&quot;</span>
+        <span class="n">end_tag</span> <span class="o">=</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span>
+</pre></div>
+</div>
+<p>This will work, of course, but:</p>
+<ul class="simple">
+<li>it means you need to know every tag that you might render when you write this render method.</li>
+<li>In a more complex system, you will need to go update all sorts of things all over teh place when you add a tag.</li>
+<li>It means anyone extending the system with more tags needs to edit the core base class.</li>
+</ul>
+</div>
+<div class="section" id="polymorphism">
+<h3>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">¶</a></h3>
+<p>The alternative is to use polymorphism:</p>
+<p>Your <code class="docutils literal"><span class="pre">render()</span></code> method doesn&#8217;t need to know what all the objects are
+that it may need to render.</p>
+<p>All it needs to know is that they all will have a method
+that does the right thing.</p>
+<p>So the above becomes, simply:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">ind</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="o">....</span>
+    <span class="n">tag</span><span class="p">,</span> <span class="n">end_tag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_tags</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This is known as polymorphism, because many different objects are behave
+the same way.</p>
+<p>This is usally handled by subclassing, so they all get all teh same
+methods by default, and you only need to specialize the ones that need it.</p>
+<p>But in Python &#8211; it can be done with duck-typing instead, as the TextWrapper example.</p>
+</div>
+<div class="section" id="duck-typing-and-eafp">
+<h3>Duck typing and EAFP<a class="headerlink" href="#duck-typing-and-eafp" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>notes on Duck Typing: <a class="reference internal" href="exercises/html_renderer.html#exercise-html-renderer"><span class="std std-ref">HTML Renderer Exercise</span></a></li>
+<li>put the <code class="docutils literal"><span class="pre">except</span></code> as close as you can to where you expect an exception to be raised!</li>
+<li>Let&#8217;s look at a couple ways to do that.</li>
+</ul>
+</div>
+<div class="section" id="code-review">
+<h3>Code Review<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li>anyone stuck that wants to work through your code?</li>
 <li>And/or go through mine...</li>
 </ul>
@@ -264,11 +385,12 @@ empty, then the loop is a do-nothing operation:</p>
 <h3>Lightning Talks:<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
 <div class="medium line-block">
 <div class="line"><br /></div>
-<div class="line-block">
 <div class="line">Paul Briant</div>
 <div class="line"><br /></div>
-<div class="line">Brandon Chavis</div>
+<div class="line">Jay Raina</div>
 <div class="line"><br /></div>
+<div class="line-block">
+<div class="line">Josh Hicks</div>
 </div>
 </div>
 </div>
@@ -396,18 +518,6 @@ what you want.</p>
 <p>Let&#8217;s use some of this to build a nice class to represent a Circle.</p>
 <p>For now, Let&#8217;s do steps 1-4 of:</p>
 <p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span class="std std-ref">Circle Class Excercise</span></a></p>
-<div class="section" id="id2">
-<h3>Lightning talks:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<div class="medium line-block">
-<div class="line"><br /></div>
-<div class="line-block">
-<div class="line">Jay N Raina</div>
-<div class="line"><br /></div>
-<div class="line">Josh Hicks</div>
-<div class="line"><br /></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="static-and-class-methods">
 <h2>Static and Class Methods<a class="headerlink" href="#static-and-class-methods" title="Permalink to this headline">¶</a></h2>
@@ -418,9 +528,6 @@ created.</p>
 the method when it is called.</p>
 <p>And you&#8217;ve seen how you can call <em>unbound</em> methods on a class object so
 long as you pass an instance of that class as the first argument.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <p class="centered"><strong>But what if you don&#8217;t want or need an instance?</strong></p>
 </div>
 <div class="section" id="static-methods">
@@ -617,8 +724,8 @@ some way.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>LAB<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s complete our nifty Circle class:</p>
 <p>Steps 5-8 of:</p>
 <p><a class="reference internal" href="exercises/circle_class.html#exercise-circle-class"><span class="std std-ref">Circle Class Excercise</span></a></p>
@@ -739,11 +846,11 @@ the set of special methods you need:</p>
 </table>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>LAB<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p class="medium">Let&#8217;s do the previous motivating examples.</p>
-<div class="section" id="id5">
-<h3>Callables:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Callables:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Write a class for a quadratic equation.</p>
 <ul class="simple">
 <li>The initializer for that class should take the parameters: <code class="docutils literal"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c</span></code></li>
