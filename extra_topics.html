@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Extra Topics &mdash; Introduction To Python 1.3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Introduction To Python 1.3 documentation" href="index.html"/>
+        <link rel="next" title="Exercises" href="exercises/index.html"/>
+        <link rel="prev" title="Session Ten: Decorators and Context Managers – Wrap Up" href="session10.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Introduction To Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="session01.html">Session One: Introductions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session02.html">Session Two: gitHub, Functions, Booleans and Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session03.html">Session Three: Sequences, Iteration and String Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session04.html">Session Four: Dictionaries, Sets, and Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session05.html">Session Five: Exceptions, Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session06.html">Session Six: Testing, Advanced Argument Passing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session07.html">Object Oriented Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session09.html">Anonymous Functions and Iterators, Iterables, and Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session10.html">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extra Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#closures-and-function-currying">Closures and function Currying</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#closures">Closures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functools-partial"><code class="docutils literal"><span class="pre">functools.partial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading">Reading:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supplements/index.html">Supplemental Materials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Introduction To Python</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Extra Topics</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/extra_topics.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="extra-topics">
+<span id="id1"></span><h1>Extra Topics<a class="headerlink" href="#extra-topics" title="Permalink to this headline">¶</a></h1>
+<p>Here are some extra topics that we didn&#8217;t have time for in the regular class sessions:</p>
+<div class="section" id="closures-and-function-currying">
+<h2>Closures and function Currying<a class="headerlink" href="#closures-and-function-currying" title="Permalink to this headline">¶</a></h2>
+<p>Defining specialized functions on the fly</p>
+<div class="section" id="closures">
+<h3>Closures<a class="headerlink" href="#closures" title="Permalink to this headline">¶</a></h3>
+<p>&#8220;Closures&#8221; and &#8220;Currying&#8221; are cool CS terms for what is really just defining functions on the fly.</p>
+<p>you can find a &#8220;proper&#8221; definition here:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming">https://en.wikipedia.org/wiki/Closure_(computer_programming</a>)</p>
+<p>but I even have trouble following that.</p>
+<p>So let&#8217;s go straight to an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">start_at</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_at</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">incr</span><span class="p">():</span>
+        <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">incr</span>
+</pre></div>
+</div>
+<p>What&#8217;s going on here?</p>
+<p>We have stored the <code class="docutils literal"><span class="pre">start_at</span></code> value in a list.</p>
+<p>Then defined a function, <code class="docutils literal"><span class="pre">incr</span></code> that adds one to the value in the list, and returns that value.</p>
+<p>[ Quiz: why is it: <code class="docutils literal"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">[start_at]</span></code>, rather than just <code class="docutils literal"><span class="pre">count=start_at</span></code> ]</p>
+<p>So what type of object do you get when you call <code class="docutils literal"><span class="pre">counter()</span></code>?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="n">start_at</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="gp">In [38]: </span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gh">Out[38]: </span><span class="go">function</span>
+</pre></div>
+</div>
+<p>So we get a function back &#8211; makes sense. The <code class="docutils literal"><span class="pre">def</span></code> defines a function, and that function is what&#8217;s getting returned.</p>
+<p>Being a function, we can, of course, call it:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">c</span><span class="p">()</span>
+<span class="gh">Out[39]: </span><span class="go">6</span>
+
+<span class="gp">In [40]: </span><span class="n">c</span><span class="p">()</span>
+<span class="gh">Out[40]: </span><span class="go">7</span>
+</pre></div>
+</div>
+<p>Each time is it called, it increments the value by one.</p>
+<p>But what happens if we call <code class="docutils literal"><span class="pre">counter()</span></code> multiple times?</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [41]: </span><span class="n">c1</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="gp">In [42]: </span><span class="n">c2</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [43]: </span><span class="n">c1</span><span class="p">()</span>
+<span class="gh">Out[43]: </span><span class="go">6</span>
+
+<span class="gp">In [44]: </span><span class="n">c2</span><span class="p">()</span>
+<span class="gh">Out[44]: </span><span class="go">11</span>
+</pre></div>
+</div>
+<p>So each time <code class="docutils literal"><span class="pre">counter()</span></code> is called, a new function is created. And that function has its own copy of the <code class="docutils literal"><span class="pre">count</span></code> object. This is what makes in a &#8220;closure&#8221; &#8211; it carries with it the scope in which is was created.</p>
+<p>the returned <code class="docutils literal"><span class="pre">incr</span></code> function is a &#8220;curried&#8221; function &#8211; a function with some parameters pre-specified.</p>
+</div>
+<div class="section" id="functools-partial">
+<h3><code class="docutils literal"><span class="pre">functools.partial</span></code><a class="headerlink" href="#functools-partial" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">functools</span></code> module in the standard library provides utilities for working with functions:</p>
+<p><a class="reference external" href="https://docs.python.org/3.5/library/functools.html">https://docs.python.org/3.5/library/functools.html</a></p>
+<p>Creating a curried function turns out to be common enough that the <code class="docutils literal"><span class="pre">functools.partial</span></code> function provides an optimized way to do it:</p>
+<p>What functools.partial does is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Makes a new version of a function with one or more arguments already filled in.</li>
+<li>The new version of a function documents itself.</li>
+</ul>
+</div></blockquote>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;returns based raised to the give exponent&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
+</pre></div>
+</div>
+<p>Simple enough. but what if we wanted a specialized <code class="docutils literal"><span class="pre">square</span></code> and <code class="docutils literal"><span class="pre">cube</span></code> function?</p>
+<p>We can use <code class="docutils literal"><span class="pre">functools.partial</span></code> to <em>partially</em> evaluate the function, giving us a specialized version:</p>
+<p>square = partial(power, exponent=2)
+cube = partial(power, exponent=3)</p>
+</div>
+<div class="section" id="reading">
+<h3>Reading:<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.pydanny.com/python-partials-are-fun.html">http://www.pydanny.com/python-partials-are-fun.html</a></p>
+<p><a class="reference external" href="https://pymotw.com/3/functools/">https://pymotw.com/3/functools/</a></p>
+<p><a class="reference external" href="http://www.programiz.com/python-programming/closure">http://www.programiz.com/python-programming/closure</a></p>
+<p><a class="reference external" href="https://www.clear.rice.edu/comp130/12spring/curry/">https://www.clear.rice.edu/comp130/12spring/curry/</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exercises/index.html" class="btn btn-neutral float-right" title="Exercises" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="session10.html" class="btn btn-neutral" title="Session Ten: Decorators and Context Managers – Wrap Up" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christopher Barker, Cris Ewing, .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/../../../jsMath-3.6e/easy/load.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

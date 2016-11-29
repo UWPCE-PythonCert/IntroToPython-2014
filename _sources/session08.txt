@@ -713,7 +713,7 @@ Look up the special methods you need and define them.
 There's more to read about the details of implementing these methods:
 
 * https://docs.python.org/3.5/reference/datamodel.html#special-method-names
-* http://www.rafekettler.com/magicmethods.html
+* https://github.com/RafeKettler/magicmethods/blob/master/magicmethods.markdown
 
 ===
 LAB
@@ -854,7 +854,7 @@ https://docs.python.org/3/reference/datamodel.html#emulating-container-types
 
 and
 
-http://www.rafekettler.com/magicmethods.html#sequence
+https://github.com/RafeKettler/magicmethods/blob/master/magicmethods.markdown#sequence
 
 The key ones are:
 
@@ -915,8 +915,6 @@ Lambda:
 http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
 
 https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
-
-Functions as Objects.
 
 
 .. rst-class:: left
