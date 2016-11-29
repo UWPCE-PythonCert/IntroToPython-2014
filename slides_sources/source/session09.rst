@@ -4,9 +4,9 @@
 Anonymous Functions and Iterators, Iterables, and Generators
 ************************************************************
 
-======================
-Lightning Talks Today:
-======================
+====================
+Lightning Talks Now:
+====================
 
 .. rst-class:: medium
 
@@ -93,14 +93,22 @@ map
     In [24]: def fun(x):
                  return x*2 + 10
     In [25]: map(fun, l)
-    Out[25]: [14, 20, 24, 34, 22, 18]
+    Out[25]: <map at 0x104552b38>
 
+Huh? what's a "map" object? It's an iterator (more on that later).
+
+.. code-block:: ipython
+
+    In [19]: list(map(fun, l))
+    Out[19]: [14, 20, 24, 34, 22, 18]
+
+Ah, that's better.
 
 But if it's a small function, and you only need it once:
 
 .. code-block:: ipython
 
-    In [26]: map(lambda x: x*2 + 10, l)
+    In [26]: list(map(lambda x: x*2 + 10, l))
     Out[26]: [14, 20, 24, 34, 22, 18]
 
 
@@ -115,7 +123,7 @@ To get only the even numbers:
 .. code-block:: ipython
 
     In [27]: l = [2, 5, 7, 12, 6, 4]
-    In [28]: filter(lambda x: not x%2, l)
+    In [28]: list(filter(lambda x: not x%2, l))
     Out[28]: [2, 12, 6, 4]
 
 If you pass ``None`` to ``filter()``, you get only items that evaluate to true:
@@ -124,38 +132,9 @@ If you pass ``None`` to ``filter()``, you get only items that evaluate to true:
 
     In [1]: l = [1, 0, 2.3, 0.0, 'text', '', [1,2], [], False, True, None ]
 
-    In [2]: filter(None, l)
+    In [2]: list(filter(None, l))
     Out[2]: [1, 2.3, 'text', [1, 2], True]
 
-
-reduce
-------
-
-``reduce``  "reduces" a sequence of objects to a single object with a function that combines two arguments
-
-To get the sum:
-
-.. code-block:: ipython
-
-    In [30]: l = [2, 5, 7, 12, 6, 4]
-    In [31]: reduce(lambda x,y: x+y, l)
-    Out[31]: 36
-
-
-To get the product:
-
-.. code-block:: ipython
-
-    In [32]: reduce(lambda x,y: x*y, l)
-    Out[32]: 20160
-
-or
-
-.. code-block:: ipython
-
-    In [13]: import operator
-    In [14]: reduce(operator.mul, l)
-    Out[14]: 20160
 
 Comprehensions
 --------------
@@ -177,14 +156,11 @@ Yes:
     In [7]: [i for i in l if i]
     Out[7]: [1, 2.3, 'text', [1, 2], True]
 
-(Except Reduce)
-
-But Guido thinks almost all uses of reduce are really ``sum()``
 
 Functional Programming
 ----------------------
 
-Comprehensions and map, filter, reduce are all "functional programming" approaches}
+Comprehensions, map, and filter are all "functional programming" approaches}
 
 ``map, filter``  and ``reduce``  pre-date comprehensions in Python's history
 
@@ -214,7 +190,7 @@ It is very useful for specifying sorting as well:
     In [59]: lst
     Out[59]: [('Zola', 'Adams'), ('Chris', 'Barker'), ('Fred', 'Jones')]
 
-lambda in keyword arguments
+lambda and keyword arguments
 ----------------------------
 
 .. code-block:: ipython
@@ -239,183 +215,7 @@ Here's an exercise to try out some of this:
 
 :ref:`exercise_lambda_magic`
 
-Lightning Talk
---------------
 
-.. rst-class:: medium
-
-|
-| Paul A Casey
-|
-
-==============
-dict as switch
-==============
-
-What to use instead of "switch-case"?
-
-switch-case
------------
-
-A number of languages have a "switch-case" construct::
-
-    switch(argument) {
-        case 0:
-            return "zero";
-        case 1:
-            return "one";
-        case 2:
-            return "two";
-        default:
-            return "nothing";
-    };
-
-How do you spell this in python?
-
-``if-elif`` chains
--------------------
-
-The obvious way to spell it is a chain of ``elif`` statements:
-
-.. code-block:: python
-
-    if argument ==  0:
-        return "zero"
-    elif argument == 1:
-        return "one"
-    elif argument == 2:
-        return "two"
-    else:
-        return "nothing"
-
-And there is nothing wrong with that, but....
-
-.. nextslide::
-
-The ``elif`` chain is neither elegant nor efficient. There are a number of ways to spell it in python -- but one elgant one is to use a dict:
-
-.. code-block:: python
-
-    arg_dict = {0:"zero", 1:"one", 2: "two"}
-        dict.get(argument, "nothing")
-
-Simple, elegant, and fast.
-
-You can do a dispatch table by putting functions as the value.
-
-Example: Chris' mailroom2 solution.
-
-==============================
-Closures and function Currying
-==============================
-
-Defining specialized functions on the fly
-
-Closures
---------
-
-"Closures" and "Currying" are cool CS terms for what is really just defining functions on the fly.
-
-you can find a "proper" definition here:
-
-https://en.wikipedia.org/wiki/Closure_(computer_programming)
-
-but I even have trouble following that.
-
-So let's go straight to an example:
-
-.. nextslide::
-
-.. code-block:: python
-
-    def counter(start_at=0):
-        count = [start_at]
-        def incr():
-            count[0] += 1
-            return count[0]
-        return incr
-
-What's going on here?
-
-We have stored the ``start_at`` value in a list.
-
-Then defined a function, ``incr`` that adds one to the value in the list, and returns that value.
-
-[ Quiz: why is it: ``count = [start_at]``, rather than just ``count=start_at`` ]
-
-.. nextslide::
-
-So what type of object do you get when you call ``counter()``?
-
-.. code-block:: ipython
-
-    In [37]: c = counter(start_at=5)
-
-    In [38]: type(c)
-    Out[38]: function
-
-So we get a function back -- makes sense. The ``def`` defines a function, and that function is what's getting returned.
-
-Being a function, we can, of course, call it:
-
-.. code-block:: ipython
-
-    In [39]: c()
-    Out[39]: 6
-
-    In [40]: c()
-    Out[40]: 7
-
-Each time is it called, it increments the value by one.
-
-.. nextslide::
-
-But what happens if we call ``counter()`` multiple times?
-
-.. code-block:: ipython
-
-    In [41]: c1 = counter(5)
-
-    In [42]: c2 = counter(10)
-
-    In [43]: c1()
-    Out[43]: 6
-
-    In [44]: c2()
-    Out[44]: 11
-
-So each time ``counter()`` is called, a new function is created. And that function has its own copy of the ``count`` object. This is what makes in a "closure" -- it carries with it the scope in which is was created.
-
-the returned ``incr`` function is a "curried" function -- a function with some parameters pre-specified.
-
-``functools.partial``
----------------------
-
-The ``functools`` module in the standard library provides utilities for working with functions:
-
-https://docs.python.org/3.5/library/functools.html
-
-Creating a curried function turns out to be common enough that the ``functools.partial`` function provides an optimized way to do it:
-
-What functools.partial does is:
-
- * Makes a new version of a function with one or more arguments already filled in.
- * The new version of a function documents itself.
-
-Example:
-
-.. code-block:: python
-
-    def power(base, exponent):
-        """returns based raised to the give exponent"""
-        return base ** exponent
-
-Simple enough. but what if we wanted a specialized ``square`` and ``cube`` function?
-
-We can use ``functools.partial`` to *partially* evaluate the function, giving us a specialized version:
-
-square = partial(power, exponent=2)
-cube = partial(power, exponent=3)
 
 ===
 LAB
@@ -425,17 +225,6 @@ Let's use some of this ability to use functions a objects for something useful:
 
 :ref:`exercise_trapezoidal_rule`
 
-Some reading on these topics:
-
-http://www.pydanny.com/python-partials-are-fun.html
-
-https://pymotw.com/2/functools/
-
-http://www.programiz.com/python-programming/closure
-
-https://www.clear.rice.edu/comp130/12spring/curry/
-
-
 
 =========================
 Iterators and Generators
@@ -444,7 +233,7 @@ Iterators and Generators
 
 .. rst-class:: large centered
 
-  The tools of Pythonicity
+  The Tools of Pythonicity
 
 
 .. rst-class:: medium
@@ -687,18 +476,6 @@ In the ``Examples/session09`` dir, you will find:
   - is range an iterator or an iteratable?
 
 
-===============
-Lightning Talks
-===============
-
-|
-| Jack M Hefner
-|
-| Ninad Naik
-|
-| Simbarashe P Change
-|
-
 
 Generators
 ----------
@@ -789,9 +566,9 @@ So the generator **is** an iterator
 Note: A generator function can also be a method in a class
 
 
-.. More about iterators and generators:
+More about iterators and generators:
 
-.. http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/
+http://www.learningpython.com/2009/02/23/iterators-iterables-and-generators-oh-my/
 
 :download:`yield_example.py <../../Examples/Session09/yield_example.py>`
 
@@ -812,6 +589,8 @@ yet another way to make a generator:
 
 
 More interesting if [1, 2, 3] is also a generator
+
+Note that `map` and `filter` produce iterators.
 
 LAB
 ----
@@ -866,8 +645,6 @@ Next Week
 
 Decorators and Context managers -- fun stuff!
 
-Cris Ewing will come by to talk about the second quarter
-web development class
 
 Homework
 ---------
