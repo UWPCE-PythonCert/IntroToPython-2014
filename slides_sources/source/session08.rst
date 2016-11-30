@@ -700,8 +700,11 @@ implement ``__add__``:
 
 .. rst-class:: centered
 
-[a more complete example may be seen :download:`here <../../Examples/Session08/vector.py>`]
+A more complete example may be seen in:
 
+Examples/Session08/vector.py
+
+or: :download:`here <../../Examples/Session08/vector.py>`
 
 .. nextslide:: Summary
 
@@ -908,16 +911,15 @@ Write a class for a sparse array:
 Homework
 ========
 
-reading:
-
-Lambda:
-
-http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
-
-https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
-
-
 .. rst-class:: left
+
+  Reading:
+
+  Lambda:
+
+  http://www.blog.pythonlibrary.org/2015/10/28/python-101-lambda-basics/
+
+  https://pythonconquerstheuniverse.wordpress.com/2011/08/29/lambda_tutorial/
 
   Complete the Circle class
 

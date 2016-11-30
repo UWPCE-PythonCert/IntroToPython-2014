@@ -51,6 +51,7 @@ In This Course
     .. toctree::
         :maxdepth: 2
 
+        extra_topics
         exercises/index
         supplements/index
 

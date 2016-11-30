@@ -20,7 +20,7 @@ Oftentimes, at least in computation programming, we have large arrays of data th
 
 These are referred to as "sparse" as the information in them is widely scattered, or sparse.
 
-Since they are mostly zeros, it can be memory an computationally efficient to store only the value that are non-zero.
+Since they are mostly zeros, it can be memory and computationally efficient to store only the value that are non-zero.
 
 But you want it to look like a regular array in user code.
 
