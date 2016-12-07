@@ -95,18 +95,17 @@
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#code-review">Code Review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#projects">Projects</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lightning-talks-today">Lightning Talks Today:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Code Review?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-review">Code Review?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#decorators">Decorators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#a-definition">A Definition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#an-example">An Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#callables">Callables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">An Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">An Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nested-decorators">Nested Decorators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples-from-the-standard-library">Examples from the Standard Library</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#property">property()</a></li>
@@ -119,10 +118,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#with-a-little-help"><code class="docutils literal"><span class="pre">with</span></code> a little help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#close-it-automatically">Close It Automatically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#do-it-yourself">Do It Yourself</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">An Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">An Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-contextmanager-decorator">The <code class="docutils literal"><span class="pre">contextmanager</span></code> decorator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">LAB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">LAB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Projects</a></li>
 </ul>
 </li>
 </ul>
@@ -189,11 +188,6 @@
 <p>Homework Questions?</p>
 <p>From any of the Exercises...</p>
 </div>
-<div class="section" id="code-review">
-<h3>Code Review<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h3>
-<p>Anyone unsatisfied with their solution &#8211; or stuck?</p>
-<p>Let&#8217;s do a code review!</p>
-</div>
 <div class="section" id="projects">
 <h3>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h3>
 <p>Due Sunday, Dec 11th</p>
@@ -207,8 +201,9 @@
 <p class="medium">Minghao Yang</p>
 <p class="medium">Sasi Mandava</p>
 </div>
-<div class="section" id="id1">
-<h2>Code Review?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="code-review">
+<h2>Code Review?<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h2>
+<p class="left">Anyone unsatisfied with their solution &#8211; or stuck?</p>
 <p class="left">Do you think you&#8217;ve &#8220;got&#8221; iterators, iterables, and generators?</p>
 <p class="left">Options:</p>
 <blockquote class="left">
@@ -216,6 +211,7 @@
 <li>Look at someone&#8217;s code.</li>
 <li>look at some of my code.</li>
 <li>Go over someone&#8217;s project code &#8211; anyone stuck on something?</li>
+<li>wait till the end of class &#8211; and see how much time we have.</li>
 </ol>
 </div></blockquote>
 </div>
@@ -350,8 +346,8 @@ or a class that implements the <code class="docutils literal"><span class="pre">
 <p class="centered medium">A decorator is a callable that takes a callable as an argument and
 returns a callable as a return value.</p>
 </div>
-<div class="section" id="id2">
-<h3>An Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>An Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Consider a decorator that would save the results of calling an expensive
 function with given arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Memoize</span><span class="p">:</span>
@@ -500,7 +496,7 @@ rebinds it.</p>
                  <span class="s2">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference download internal" href="_downloads/property_ugly.py" download=""><code class="xref download docutils literal"><span class="pre">Examples/Session10/property_ugly.py</span></code></a></p>
+<p><code class="docutils literal"><span class="pre">Examples/Session10/property_ugly.py</span></code></p>
 <p>Note that in this case, the decorator object returned by the property decorator
 itself implements additional decorators as attributes on the returned method
 object. So you could actually do this:</p>
@@ -535,8 +531,8 @@ HTML &#8216;p&#8217; tag:</p>
 <span class="gh">Out[5]: </span><span class="go">&#39;&lt;p&gt; this is a string &lt;/p&gt;&#39;</span>
 </pre></div>
 </div>
-<p>simple test code in
-<a class="reference download internal" href="_downloads/test_p_wrapper.py" download=""><code class="xref download docutils literal"><span class="pre">Examples/Session10/test_p_wrapper.py</span></code></a></p>
+<p>simple test code in:</p>
+<p><code class="docutils literal"><span class="pre">Examples/Session10/test_p_wrapper.py</span></code></p>
 </div>
 <div class="section" id="lightning-talks">
 <h3>Lightning Talks<a class="headerlink" href="#lightning-talks" title="Permalink to this headline">¶</a></h3>
@@ -646,8 +642,8 @@ happen is implemented here.</p>
 <p>If the exception will be handled here, return True. If not, return False.</p>
 <p>Let&#8217;s see this in action to get a sense of what happens.</p>
 </div>
-<div class="section" id="id3">
-<h3>An Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>An Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;from Doug Hellmann, PyMOTW</span>
@@ -666,7 +662,7 @@ happen is implemented here.</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_error</span>
 </pre></div>
 </div>
-<p><a class="reference download internal" href="_downloads/context_managers.py" download=""><code class="xref download docutils literal"><span class="pre">Examples/Session10/context_managers.py</span></code></a></p>
+<p><code class="docutils literal"><span class="pre">Examples/Session10/context_managers.py</span></code></p>
 <p>This class doesn&#8217;t do much of anything, but playing with it can help
 clarify the order in which things happen:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [46]: </span><span class="k">with</span> <span class="n">Context</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">foo</span><span class="p">:</span>
@@ -752,8 +748,8 @@ Because the exit method returns True, the raised error is &#8216;handled&#8217;.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3>LAB<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>LAB<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p><strong>Timing Context Manager</strong></p>
 <p>Create a context manager that will print the elapsed time taken to
 run all the code inside the context:</p>
@@ -768,8 +764,8 @@ run all the code inside the context:</p>
 object as an argument (the default should be sys.stdout). The results of the
 timing should be printed to the file-like object.</p>
 </div>
-<div class="section" id="id5">
-<h3>Projects<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Projects<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Projects due this Sunday. We&#8217;ll review them early next week. If you turn
 it in early, we should review it sooner.</p>
 <dl class="docutils">
@@ -784,7 +780,7 @@ it in early, we should review it sooner.</p>
 <p><a class="reference external" href="mailto:PythonCHB&#37;&#52;&#48;gmail&#46;com">PythonCHB<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 <p>Please do the online course evaluation</p>
 <p>Anyone want office hours Sunday?</p>
-<p>Or antoher time?</p>
+<p>Or another time?</p>
 <p>Keep writing Python!</p>
 </div>
 </div>
