@@ -116,7 +116,7 @@ filter
 ------
 
 ``filter``  "filters" a sequence of objects with a boolean function --
-It keeps only those for which the function is True -- filtering our the rest.
+It keeps only those for which the function is True -- filtering out the rest.
 
 To get only the even numbers:
 
@@ -160,7 +160,7 @@ Yes:
 Functional Programming
 ----------------------
 
-Comprehensions, map, and filter are all "functional programming" approaches}
+Comprehensions, map, and filter are all "functional programming" approaches
 
 ``map, filter``  and ``reduce``  pre-date comprehensions in Python's history
 
@@ -174,7 +174,7 @@ And "map-reduce" is a big concept these days for parallel processing of "Big Dat
 A bit more about lambda
 ------------------------
 
-It is very useful for specifying sorting as well:
+It is very useful for specifying the sorting key:
 
 .. code-block:: ipython
 
