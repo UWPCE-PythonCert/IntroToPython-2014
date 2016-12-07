@@ -20,13 +20,6 @@ Homework Questions?
 
 From any of the Exercises...
 
-Code Review
------------
-
-Anyone unsatisfied with their solution -- or stuck?
-
-Let's do a code review!
-
 
 Projects
 --------
@@ -56,7 +49,12 @@ Lightning Talks Today:
 Code Review?
 ============
 
+
+
+
 .. rst-class:: left
+
+  Anyone unsatisfied with their solution -- or stuck?
 
   Do you think you've "got" iterators, iterables, and generators?
 
@@ -68,6 +66,7 @@ Code Review?
 
     3) Go over someone's project code -- anyone stuck on something?
 
+    4) wait till the end of class -- and see how much time we have.
 
 ==========
 Decorators
@@ -451,7 +450,7 @@ But this could also be accomplished like so:
                      "I'm the 'x' property.")
 
 
-:download:`Examples/Session10/property_ugly.py <../../Examples/Session10/property_ugly.py>`
+``Examples/Session10/property_ugly.py``
 
 
 .. nextslide::
@@ -498,8 +497,9 @@ HTML 'p' tag:
     In [5]: return_a_string("this is a string")
     Out[5]: '<p> this is a string </p>'
 
-simple test code in
-:download:`Examples/Session10/test_p_wrapper.py <../../Examples/Session10/test_p_wrapper.py>`
+simple test code in:
+
+``Examples/Session10/test_p_wrapper.py``
 
 
 Lightning Talks
@@ -676,7 +676,7 @@ Consider this code:
             print('__exit__({}, {}, {})'.format(exc_type, exc_val, exc_tb))
             return self.handle_error
 
-:download:`Examples/Session10/context_managers.py <../../Examples/Session10/context_managers.py>`
+``Examples/Session10/context_managers.py``
 
 
 .. nextslide::
@@ -823,6 +823,6 @@ Please do the online course evaluation
 
 Anyone want office hours Sunday?
 
-Or antoher time?
+Or another time?
 
 Keep writing Python!
