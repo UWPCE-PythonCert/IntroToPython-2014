@@ -4,16 +4,6 @@
 Session Ten: Decorators and Context Managers -- Wrap Up
 *******************************************************
 
-=====================
-Web Development Class
-=====================
-
-.. rst-class:: large centered
-
-  Internet Programming in Python
-
-  Cris Ewing
-
 ================
 Review/Questions
 ================
@@ -21,40 +11,14 @@ Review/Questions
 Review of Previous Class
 ------------------------
 
+Any questions???
+
 Homework review
 ---------------
 
 Homework Questions?
 
-Did you all get a trapedzoidal rule function working?
-
-Anyone get the "passing through of arguments"?
-
-How about the adaptive solutions?
-
-
-Notes on Floating point
------------------------
-
-Did anyone look at the isclose() function?
-
-How to make a range of numbers in floating point?
-
-Anyone do something like this?:
-
-.. code-block:: python
-
-  s = []
-  x = a
-  while x <= b:
-      s.append(x)
-      x += delta_x
-
-  -- see my solution.
-
-Some notes about FP issues:
-
-https://docs.python.org/3.5/tutorial/floatingpoint.html
+From any of the Exercises...
 
 Code Review
 -----------
@@ -64,20 +28,14 @@ Anyone unsatisfied with their solution -- or stuck?
 Let's do a code review!
 
 
-
-Iterators
-
-Generators
-
-
 Projects
 --------
 
-Due Dec Friday, Dec 11th, 11:59pm PST
+Due Sunday, Dec 11th
 
 .. rst-class:: medium
 
-  (that's three days!)
+  (that's five days!)
 
 Push to github or email them to me.
 
@@ -123,7 +81,7 @@ Decorators
 
     In Python, functions are first-class objects.
 
-    This means that you can bind names to them, pass them around, etc, just like
+    This means that you can bind names to them, pass them around, etc., just like
     other objects.
 
     Because of this fact, you can write functions that take functions as
@@ -263,7 +221,9 @@ Rebinding the name of a function to the result of calling a decorator on that
 function is called **decoration**.
 
 Because this is so common, Python provides a special operator to perform it
-more *declaratively*: the ``@`` operator -- I told you I'd eventually explain what was going on under the hood with that wierd `@` symbol:
+more *declaratively*: the ``@`` operator
+-- I told you I'd eventually explain what was going on under the hood with
+that wierd `@` symbol:
 
 .. code-block:: python
 
@@ -275,7 +235,8 @@ more *declaratively*: the ``@`` operator -- I told you I'd eventually explain wh
     def add(a, b):
         return a + b
 
-The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.
+The declarative form (called a decorator expression) is far more common,
+but both have the identical result, and can be used interchangeably.
 
 (demo)
 
@@ -287,7 +248,7 @@ incomplete.
 
 In reality, decorators can be used with anything that is *callable*.
 
-Remember from two weeks ago, a *callable* is a function, a method on a class,
+Remember from last week, a *callable* is a function, a method on a class,
 or a class that implements the ``__call__`` special method.
 
 So in fact the definition should be updated as follows:
@@ -338,12 +299,14 @@ Let's try that out with a potentially expensive function:
     In [58]: sum2x(10000000)
     Out[58]: 99999990000000
 
-It's nice to see that in action, but what if we want to know *exactly* how much difference it made?
+It's nice to see that in action, but what if we want to know *exactly*
+how much difference it made?
 
 Nested Decorators
 -----------------
 
-You can stack decorator expressions.  The result is like calling each decorator in order, from bottom to top:
+You can stack decorator expressions.  The result is like calling each
+decorator in order, from bottom to top:
 
 .. code-block:: python
 
@@ -629,7 +592,7 @@ lines of defensive code have been replaced with this simple form:
 
 ``open`` builtin is defined as a *context manager*.
 
-The resource it returnes (``file_handle``) is automatically and reliably closed
+The resource it returns (``file_handle``) is automatically and reliably closed
 when the code block ends.
 
 .. _pep343: http://legacy.python.org/dev/peps/pep-0343/
@@ -656,19 +619,19 @@ There are a couple of ways you can go.
 If the resource in questions has a ``.close()`` method, then you can simply use
 the ``closing`` context manager from ``contextlib`` to handle the issue:
 
-** check example for py3 -- urlib depricated!
-
 .. code-block:: python
 
-    import urllib
+    from urllib import request
     from contextlib import closing
 
-    with closing(urllib.urlopen('http://google.com')) as web_connection:
+    with closing(request.urlopen('http://google.com')) as web_connection:
         # do something with the open resource
     # and here, it will be closed automatically
 
 But what if the thing doesn't have a ``close()`` method, or you're creating
 the thing and it shouldn't have a close() method?
+
+(full confession: urlib.request was not a context manager in py2 -- but it is in py3)
 
 Do It Yourself
 --------------
@@ -678,9 +641,11 @@ You can also define a context manager of your own.
 The interface is simple.  It must be a class that implements two
 more of the nifty python *special methods*
 
-**__enter__(self)**  Called when the ``with`` statement is run, it should return something to work with in the created context.
+**__enter__(self)**  Called when the ``with`` statement is run, it should
+return something to work with in the created context.
 
-**__exit__(self, e_type, e_val, e_traceback)**  Clean-up that needs to happen is implemented here.
+**__exit__(self, e_type, e_val, e_traceback)**  Clean-up that needs to
+happen is implemented here.
 
 The arguments will be the exception raised in the context.
 
@@ -697,7 +662,7 @@ Consider this code:
 
     class Context(object):
         """from Doug Hellmann, PyMOTW
-        http://pymotw.com/2/contextlib/#module-contextlib
+        https://pymotw.com/3/contextlib/#module-contextlib
         """
         def __init__(self, handle_error):
             print('__init__({})'.format(handle_error))
@@ -844,15 +809,20 @@ timing should be printed to the file-like object.
 Projects
 --------
 
-Projects due this Friday. We'll review them over the weekend.
+Projects due this Sunday. We'll review them early next week. If you turn
+it in early, we should review it sooner.
 
 To turn in:
  * Put up it up gitHub, and do a pull request
  * Put it in its own gitHub repository and point me to it.
  * zip up the code an email it to me.
 
+PythonCHB@gmail.com
+
 Please do the online course evaluation
 
-Anyone want office hours Thursday evening?
+Anyone want office hours Sunday?
+
+Or antoher time?
 
 Keep writing Python!

@@ -23,7 +23,7 @@ incremented by an increasing number.
 
 Use a for loop, ``lambda``, and a keyword argument
 
-( Extra credit ):
+**Extra credit:**
 
 Do it with a list comprehension, instead of a for loop
 
@@ -56,6 +56,6 @@ Example calling code
 
 .. nextslide::
 
-See the test code in Examples/Session06
+See the test code in Examples/Session09
 
 

@@ -92,11 +92,9 @@
 <li class="toctree-l1"><a class="reference internal" href="session08.html">Session Eight: More OO: Properties, Special methods.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="session09.html">Anonymous Functions and Iterators, Iterables, and Generators</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Session Ten: Decorators and Context Managers &#8211; Wrap Up</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#web-development-class">Web Development Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#review-questions">Review/Questions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#review-of-previous-class">Review of Previous Class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#homework-review">Homework review</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#notes-on-floating-point">Notes on Floating point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#code-review">Code Review</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#projects">Projects</a></li>
 </ul>
@@ -180,51 +178,26 @@
             
   <div class="section" id="session-ten-decorators-and-context-managers-wrap-up">
 <h1>Session Ten: Decorators and Context Managers &#8211; Wrap Up<a class="headerlink" href="#session-ten-decorators-and-context-managers-wrap-up" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="web-development-class">
-<h2>Web Development Class<a class="headerlink" href="#web-development-class" title="Permalink to this headline">¶</a></h2>
-<p class="large centered">Internet Programming in Python</p>
-<p class="large centered">Cris Ewing</p>
-</div>
 <div class="section" id="review-questions">
 <h2>Review/Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="review-of-previous-class">
 <h3>Review of Previous Class<a class="headerlink" href="#review-of-previous-class" title="Permalink to this headline">¶</a></h3>
+<p>Any questions???</p>
 </div>
 <div class="section" id="homework-review">
 <h3>Homework review<a class="headerlink" href="#homework-review" title="Permalink to this headline">¶</a></h3>
 <p>Homework Questions?</p>
-<p>Did you all get a trapedzoidal rule function working?</p>
-<p>Anyone get the &#8220;passing through of arguments&#8221;?</p>
-<p>How about the adaptive solutions?</p>
-</div>
-<div class="section" id="notes-on-floating-point">
-<h3>Notes on Floating point<a class="headerlink" href="#notes-on-floating-point" title="Permalink to this headline">¶</a></h3>
-<p>Did anyone look at the isclose() function?</p>
-<p>How to make a range of numbers in floating point?</p>
-<p>Anyone do something like this?:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
-<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">:</span>
-    <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="n">delta_x</span>
-
-<span class="o">--</span> <span class="n">see</span> <span class="n">my</span> <span class="n">solution</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>Some notes about FP issues:</p>
-<p><a class="reference external" href="https://docs.python.org/3.5/tutorial/floatingpoint.html">https://docs.python.org/3.5/tutorial/floatingpoint.html</a></p>
+<p>From any of the Exercises...</p>
 </div>
 <div class="section" id="code-review">
 <h3>Code Review<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h3>
 <p>Anyone unsatisfied with their solution &#8211; or stuck?</p>
 <p>Let&#8217;s do a code review!</p>
-<p>Iterators</p>
-<p>Generators</p>
 </div>
 <div class="section" id="projects">
 <h3>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h3>
-<p>Due Dec Friday, Dec 11th, 11:59pm PST</p>
-<p class="medium">(that&#8217;s three days!)</p>
+<p>Due Sunday, Dec 11th</p>
+<p class="medium">(that&#8217;s five days!)</p>
 <p>Push to github or email them to me.</p>
 </div>
 </div>
@@ -251,7 +224,7 @@
 <p><strong>A Short Reminder</strong></p>
 <p class="left">Functions are things that generate values based on input (arguments).</p>
 <p class="left">In Python, functions are first-class objects.</p>
-<p class="left">This means that you can bind names to them, pass them around, etc, just like
+<p class="left">This means that you can bind names to them, pass them around, etc., just like
 other objects.</p>
 <p class="left">Because of this fact, you can write functions that take functions as
 arguments and/or return functions as values:</p>
@@ -350,7 +323,9 @@ statements</em> leads you to this form:</p>
 <p>Rebinding the name of a function to the result of calling a decorator on that
 function is called <strong>decoration</strong>.</p>
 <p>Because this is so common, Python provides a special operator to perform it
-more <em>declaratively</em>: the <code class="docutils literal"><span class="pre">&#64;</span></code> operator &#8211; I told you I&#8217;d eventually explain what was going on under the hood with that wierd <cite>&#64;</cite> symbol:</p>
+more <em>declaratively</em>: the <code class="docutils literal"><span class="pre">&#64;</span></code> operator
+&#8211; I told you I&#8217;d eventually explain what was going on under the hood with
+that wierd <cite>&#64;</cite> symbol:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <span class="n">add</span> <span class="o">=</span> <span class="n">logged_func</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
@@ -360,7 +335,8 @@ more <em>declaratively</em>: the <code class="docutils literal"><span class="pre
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
-<p>The declarative form (called a decorator expression) is far more common, but both have the identical result, and can be used interchangeably.</p>
+<p>The declarative form (called a decorator expression) is far more common,
+but both have the identical result, and can be used interchangeably.</p>
 <p>(demo)</p>
 </div>
 <div class="section" id="callables">
@@ -368,7 +344,7 @@ more <em>declaratively</em>: the <code class="docutils literal"><span class="pre
 <p>Our original definition of a <em>decorator</em> was nice and simple, but a tiny bit
 incomplete.</p>
 <p>In reality, decorators can be used with anything that is <em>callable</em>.</p>
-<p>Remember from two weeks ago, a <em>callable</em> is a function, a method on a class,
+<p>Remember from last week, a <em>callable</em> is a function, a method on a class,
 or a class that implements the <code class="docutils literal"><span class="pre">__call__</span></code> special method.</p>
 <p>So in fact the definition should be updated as follows:</p>
 <p class="centered medium">A decorator is a callable that takes a callable as an argument and
@@ -408,11 +384,13 @@ function with given arguments:</p>
 <span class="gh">Out[58]: </span><span class="go">99999990000000</span>
 </pre></div>
 </div>
-<p>It&#8217;s nice to see that in action, but what if we want to know <em>exactly</em> how much difference it made?</p>
+<p>It&#8217;s nice to see that in action, but what if we want to know <em>exactly</em>
+how much difference it made?</p>
 </div>
 <div class="section" id="nested-decorators">
 <h3>Nested Decorators<a class="headerlink" href="#nested-decorators" title="Permalink to this headline">¶</a></h3>
-<p>You can stack decorator expressions.  The result is like calling each decorator in order, from bottom to top:</p>
+<p>You can stack decorator expressions.  The result is like calling each
+decorator in order, from bottom to top:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@decorator_two</span>
 <span class="nd">@decorator_one</span>
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -624,7 +602,7 @@ lines of defensive code have been replaced with this simple form:</p>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">open</span></code> builtin is defined as a <em>context manager</em>.</p>
-<p>The resource it returnes (<code class="docutils literal"><span class="pre">file_handle</span></code>) is automatically and reliably closed
+<p>The resource it returns (<code class="docutils literal"><span class="pre">file_handle</span></code>) is automatically and reliably closed
 when the code block ends.</p>
 <p>At this point in Python history, many functions you might expect to behave this
 way do:</p>
@@ -643,25 +621,27 @@ context managers.</li>
 <p>There are a couple of ways you can go.</p>
 <p>If the resource in questions has a <code class="docutils literal"><span class="pre">.close()</span></code> method, then you can simply use
 the <code class="docutils literal"><span class="pre">closing</span></code> context manager from <code class="docutils literal"><span class="pre">contextlib</span></code> to handle the issue:</p>
-<p>** check example for py3 &#8211; urlib depricated!</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span>
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">closing</span>
 
-<span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://google.com&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">web_connection</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://google.com&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">web_connection</span><span class="p">:</span>
     <span class="c1"># do something with the open resource</span>
 <span class="c1"># and here, it will be closed automatically</span>
 </pre></div>
 </div>
 <p>But what if the thing doesn&#8217;t have a <code class="docutils literal"><span class="pre">close()</span></code> method, or you&#8217;re creating
 the thing and it shouldn&#8217;t have a close() method?</p>
+<p>(full confession: urlib.request was not a context manager in py2 &#8211; but it is in py3)</p>
 </div>
 <div class="section" id="do-it-yourself">
 <h3>Do It Yourself<a class="headerlink" href="#do-it-yourself" title="Permalink to this headline">¶</a></h3>
 <p>You can also define a context manager of your own.</p>
 <p>The interface is simple.  It must be a class that implements two
 more of the nifty python <em>special methods</em></p>
-<p><strong>__enter__(self)</strong>  Called when the <code class="docutils literal"><span class="pre">with</span></code> statement is run, it should return something to work with in the created context.</p>
-<p><strong>__exit__(self, e_type, e_val, e_traceback)</strong>  Clean-up that needs to happen is implemented here.</p>
+<p><strong>__enter__(self)</strong>  Called when the <code class="docutils literal"><span class="pre">with</span></code> statement is run, it should
+return something to work with in the created context.</p>
+<p><strong>__exit__(self, e_type, e_val, e_traceback)</strong>  Clean-up that needs to
+happen is implemented here.</p>
 <p>The arguments will be the exception raised in the context.</p>
 <p>If the exception will be handled here, return True. If not, return False.</p>
 <p>Let&#8217;s see this in action to get a sense of what happens.</p>
@@ -671,7 +651,7 @@ more of the nifty python <em>special methods</em></p>
 <p>Consider this code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Context</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;from Doug Hellmann, PyMOTW</span>
-<span class="sd">    http://pymotw.com/2/contextlib/#module-contextlib</span>
+<span class="sd">    https://pymotw.com/3/contextlib/#module-contextlib</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle_error</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;__init__({})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handle_error</span><span class="p">))</span>
@@ -790,7 +770,8 @@ timing should be printed to the file-like object.</p>
 </div>
 <div class="section" id="id5">
 <h3>Projects<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>Projects due this Friday. We&#8217;ll review them over the weekend.</p>
+<p>Projects due this Sunday. We&#8217;ll review them early next week. If you turn
+it in early, we should review it sooner.</p>
 <dl class="docutils">
 <dt>To turn in:</dt>
 <dd><ul class="first last simple">
@@ -800,8 +781,10 @@ timing should be printed to the file-like object.</p>
 </ul>
 </dd>
 </dl>
+<p><a class="reference external" href="mailto:PythonCHB&#37;&#52;&#48;gmail&#46;com">PythonCHB<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 <p>Please do the online course evaluation</p>
-<p>Anyone want office hours Thursday evening?</p>
+<p>Anyone want office hours Sunday?</p>
+<p>Or antoher time?</p>
 <p>Keep writing Python!</p>
 </div>
 </div>
@@ -857,7 +840,7 @@ timing should be printed to the file-like object.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/../../../jsMath-3.6e/easy/load.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -165,15 +165,15 @@
 <span id="exercise-trapezoidal-rule"></span><h1>Trapezoidal Rule<a class="headerlink" href="#trapezoidal-rule" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="passing-functions-around">
 <h2>Passing functions around<a class="headerlink" href="#passing-functions-around" title="Permalink to this headline">¶</a></h2>
-<p class="large left">Goal:</p>
-<p class="medium left">Making use of functions as objects &#8211; functions that act on functions.</p>
+<p class="medium left">Goal:</p>
+<p class="left">Making use of functions as objects &#8211; functions that act on functions.</p>
 <div class="section" id="id1">
 <h3>Trapezoidal rule<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p class="medium">The &#8220;trapezoidal rule&#8221;:</p>
-<p class="medium"><a class="reference external" href="https://en.wikipedia.org/wiki/Trapezoidal_rule">https://en.wikipedia.org/wiki/Trapezoidal_rule</a></p>
-<p class="medium">Is one of the easiest &#8220;quadrature&#8221; methods.</p>
-<p class="medium">Otherwise known as computing a definite integral, or, simply,</p>
-<p class="medium">Computing the area under a curve.</p>
+<p>The &#8220;trapezoidal rule&#8221;:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Trapezoidal_rule">https://en.wikipedia.org/wiki/Trapezoidal_rule</a></p>
+<p>Is one of the easiest &#8220;quadrature&#8221; methods.</p>
+<p>Otherwise known as computing a definite integral, or, simply,</p>
+<p>Computing the area under a curve.</p>
 </div>
 <div class="section" id="the-task">
 <h3>The task<a class="headerlink" href="#the-task" title="Permalink to this headline">¶</a></h3>
@@ -218,7 +218,7 @@
 </div>
 <p>In the function, you want to compute the following equation:</p>
 <div class="math">
-area = \frac{b-a}{2N}(f(x_0) + 2f(x_1) + 2f(x_2) + \dotsb + 2f(x_{N-1}) + f(x_N))</div>
+\[area = \frac{b-a}{2N}(f(x_0) + 2f(x_1) + 2f(x_2) + \dotsb + 2f(x_{N-1}) + f(x_N))\]</div>
 <p>So you will need to:</p>
 <blockquote>
 <div><ul class="simple">
@@ -230,7 +230,7 @@ area = \frac{b-a}{2N}(f(x_0) + 2f(x_1) + 2f(x_2) + \dotsb + 2f(x_{N-1}) + f(x_N)
 </div></blockquote>
 <p>Note that the first and last values are not doubled, so it may be more efficient to rearrange it like this:</p>
 <div class="math">
-area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i) \right)</div>
+\[area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i) \right)\]</div>
 <p>Can you use comprehensions for this?</p>
 <p>NOTE: <code class="docutils literal"><span class="pre">range()</span></code> only works for integers &#8211; how can you deal with that?</p>
 <p>Once you have that, it should work for any function that can be evaluated between a and b.</p>
@@ -243,13 +243,13 @@ area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i
 <p>A simple horizontal line &#8211; see above.</p>
 <p>A sloped straight line:</p>
 <div class="math">
-\int_a^b  y = mx + B = \frac{1}{2} m (b^2-a^2) + B (b-a)</div>
+\[\int_a^b  y = mx + B = \frac{1}{2} m (b^2-a^2) + B (b-a)\]</div>
 <p>The quadratic:</p>
 <div class="math">
-\int_a^b  y = Ax^2 + Bx + C = \frac{A}{3} (b^3-a^3) + \frac{B}{2} (b^2-a^2) + C (b-a)</div>
+\[\int_a^b  y = Ax^2 + Bx + C = \frac{A}{3} (b^3-a^3) + \frac{B}{2} (b^2-a^2) + C (b-a)\]</div>
 <p>The sine function:</p>
 <div class="math">
-\int_a^b \sin(x) = \cos(a) - \cos(b)</div>
+\[\int_a^b \sin(x) = \cos(a) - \cos(b)\]</div>
 </div>
 <div class="section" id="computational-accuracy">
 <h3>Computational Accuracy<a class="headerlink" href="#computational-accuracy" title="Permalink to this headline">¶</a></h3>
@@ -259,13 +259,13 @@ area = \frac{b-a}{N} \left( \frac{f(x_0) + f(x_{N})}{2} + \sum_{i=1}^{N-1} f(x_i
 <p>In py3.5 &#8211; there is an <code class="docutils literal"><span class="pre">isclose()</span></code> function (PEP485)</p>
 <p><a class="reference external" href="https://www.python.org/dev/peps/pep-0485/">https://www.python.org/dev/peps/pep-0485/</a></p>
 <p>In earlier pythons &#8211; you&#8217;ll need your own. There is one in:</p>
-<p><code class="docutils literal"><span class="pre">Examples/Session06/test_trapz.py</span></code></p>
+<p><code class="docutils literal"><span class="pre">Examples/Session09/test_trapz.py</span></code></p>
 </div>
 <div class="section" id="stage-two">
 <h3>Stage two:<a class="headerlink" href="#stage-two" title="Permalink to this headline">¶</a></h3>
 <p>Some functions need extra parameters to do their thing. But the above will only handle a single parameter. For example, a quadratic function:</p>
 <div class="math">
-y = A x^2 + Bx + C</div>
+\[y = A x^2 + Bx + C\]</div>
 <p>Requires values for A, B, and C in order to compute y from an given x.</p>
 <p>You could write a specialized version of this function for each A, B, and C:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quad1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -300,14 +300,14 @@ y = A x^2 + Bx + C</div>
 </div>
 <p><strong>NOTE:</strong> Make sure this will work with ANY function, with <strong>ANY</strong> additional positional or keyword arguments &#8211; not just this particular function.</p>
 <p>This is pretty conceptually challenging &#8211; but it&#8217;s very little code!</p>
-<p>If you are totally lost &#8211; look at the lecture notes from last class &#8211; how can you both accept and pass arbitrary arguments to/from a function?</p>
+<p>If you are totally lost &#8211; look at the lecture notes from previous classes &#8211; how can you both accept and pass arbitrary arguments to/from a function?</p>
 <p>You want your trapz function to take ANY function that can take ANY arbitrary extra arguments &#8211; not just the quadratic function, and not just <code class="docutils literal"><span class="pre">A,B,</span> <span class="pre">and</span> <span class="pre">C</span></code>. So good to test with another example.</p>
 <p>The generalized sine function is:</p>
 <div class="math">
-A \sin(\omega t)</div>
-<p>where <span class="math">A</span> is the amplitude, and <span class="math">\omega</span> is the frequency of the function. In this case, the area under the curve from a to b is:</p>
+\[A \sin(\omega t)\]</div>
+<p>where <span class="math">\(A\)</span> is the amplitude, and <span class="math">\(\omega\)</span> is the frequency of the function. In this case, the area under the curve from a to b is:</p>
 <div class="math">
-\frac{A}{\omega} \left( \cos(\omega a) - \cos(\omega b) \right)</div>
+\[\frac{A}{\omega} \left( \cos(\omega a) - \cos(\omega b) \right)\]</div>
 <p>The test code has a test for this one, too.</p>
 </div>
 <div class="section" id="currying">
@@ -380,7 +380,7 @@ A \sin(\omega t)</div>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/../../../jsMath-3.6e/easy/load.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

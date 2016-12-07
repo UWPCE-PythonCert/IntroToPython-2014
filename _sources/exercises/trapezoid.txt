@@ -8,11 +8,11 @@ Passing functions around
 =========================
 
 
-.. rst-class:: large left
+.. rst-class:: medium left
 
     Goal:
 
-.. rst-class:: medium left
+.. rst-class:: left
 
     Making use of functions as objects -- functions that act on functions.
 
@@ -20,17 +20,15 @@ Passing functions around
 Trapezoidal rule
 ----------------
 
-.. rst-class:: medium
+The "trapezoidal rule":
 
-  The "trapezoidal rule":
+https://en.wikipedia.org/wiki/Trapezoidal_rule
 
-  https://en.wikipedia.org/wiki/Trapezoidal_rule
+Is one of the easiest "quadrature" methods.
 
-  Is one of the easiest "quadrature" methods.
+Otherwise known as computing a definite integral, or, simply,
 
-  Otherwise known as computing a definite integral, or, simply,
-
-  Computing the area under a curve.
+Computing the area under a curve.
 
 The task
 --------
@@ -163,7 +161,7 @@ https://www.python.org/dev/peps/pep-0485/
 
 In earlier pythons -- you'll need your own. There is one in:
 
-``Examples/Session06/test_trapz.py``
+``Examples/Session09/test_trapz.py``
 
 
 
@@ -232,7 +230,7 @@ or
 
 This is pretty conceptually challenging -- but it's very little code!
 
-If you are totally lost -- look at the lecture notes from last class -- how can you both accept and pass arbitrary arguments to/from a function?
+If you are totally lost -- look at the lecture notes from previous classes -- how can you both accept and pass arbitrary arguments to/from a function?
 
 .. nextslide::
 

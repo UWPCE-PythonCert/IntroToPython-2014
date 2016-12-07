@@ -257,7 +257,7 @@
 <div class="section" id="filter">
 <h3>filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal"><span class="pre">filter</span></code>  &#8220;filters&#8221; a sequence of objects with a boolean function &#8211;
-It keeps only those for which the function is True &#8211; filtering our the rest.</p>
+It keeps only those for which the function is True &#8211; filtering out the rest.</p>
 <p>To get only the even numbers:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="gp">In [28]: </span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>, l))
@@ -291,7 +291,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 </div>
 <div class="section" id="id1">
 <h3>Functional Programming<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Comprehensions, map, and filter are all &#8220;functional programming&#8221; approaches}</p>
+<p>Comprehensions, map, and filter are all &#8220;functional programming&#8221; approaches</p>
 <p><code class="docutils literal"><span class="pre">map,</span> <span class="pre">filter</span></code>  and <code class="docutils literal"><span class="pre">reduce</span></code>  pre-date comprehensions in Python&#8217;s history</p>
 <p>Some people like that syntax better</p>
 <p>And &#8220;map-reduce&#8221; is a big concept these days for parallel processing of &#8220;Big Data&#8221; in NoSQL databases.</p>
@@ -299,7 +299,7 @@ It keeps only those for which the function is True &#8211; filtering our the res
 </div>
 <div class="section" id="a-bit-more-about-lambda">
 <h3>A bit more about lambda<a class="headerlink" href="#a-bit-more-about-lambda" title="Permalink to this headline">¶</a></h3>
-<p>It is very useful for specifying sorting as well:</p>
+<p>It is very useful for specifying the sorting key:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [55]: </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Chris&quot;</span><span class="p">,</span><span class="s2">&quot;Barker&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Fred&quot;</span><span class="p">,</span> <span class="s2">&quot;Jones&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Zola&quot;</span><span class="p">,</span> <span class="s2">&quot;Adams&quot;</span><span class="p">)]</span>
 
 <span class="gp">In [56]: </span><span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -711,7 +711,7 @@ build an iterator that iterates over sequences in various common ways</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/../../../jsMath-3.6e/easy/load.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
