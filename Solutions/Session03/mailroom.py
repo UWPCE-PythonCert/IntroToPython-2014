@@ -19,7 +19,7 @@ donor_db = [("William Gates, III", [653772.32, 12.17]),
             ("Mark Zuckerberg", [1663.23, 4300.87, 10432.0]),
             ]
 
-
+#loop through the donor list and print the 0th element of the list
 def print_donors():
     print("Donor list:\n")
     for donor in donor_db:

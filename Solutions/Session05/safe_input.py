@@ -25,7 +25,7 @@ def safe_input(prompt_string=""):
     print user for input -- returning a string.
 
     This is just like the built-in input(), but it will return None
-    if the user hits ctrl+c, rather than raise an Exception.
+    if the user hits ctrl+c, (or ctrl+D) rather than raise an Exception.
     """
     try:
         response = input(prompt_string)
@@ -35,4 +35,7 @@ def safe_input(prompt_string=""):
 
 if __name__ == "__main__":
     response = safe_input("Say Something: ")
-    print("You said:", response)
+    if response is None:
+        print("Hey! you cancled out!!!")
+    else:
+        print("You said:", response)

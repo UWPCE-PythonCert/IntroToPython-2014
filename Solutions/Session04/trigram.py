@@ -7,7 +7,7 @@ A solution to the trigram coding Kata:
 
 http://codekata.com/kata/kata14-tom-swift-under-the-milkwood/
 
-Chris Barker's Solution
+Chris Barker's Solution -- with improvements by Maria Mckinley
 
 This one is pretty straight forward -- really a quickie script
 
@@ -15,43 +15,29 @@ There is lots of room to make it fancier of you want
 """
 
 import sys
-import string
 import random
 
 
-def strip_punctuation(text):
-    """
-    strips the punctuation from a bunch of text
-    """
-    # build a translation table for string.translate:
-    # there are other ways to do this:
-
-    # create a translation table to replace all punctuation with spaces
-    #    -- then split() will remove the extra spaces
-    punctuation = string.punctuation
-    punctuation = punctuation.replace("'", "")  # keep apostropies
-    punctuation = punctuation.replace("-", "")  # keep hyphenated words
-    # building a translation table
-    table = {}
-    for c in punctuation:
-        table[ord(c)] = ' '
-    # remove punctuation with the translation table
-    text = text.translate(table)
-    # remove "--" -- can't do multiple characters with translate
-    text = text.replace("--", " ")
-
-    return text
-
-
 def make_words(text):
-
     """
     make a list of words from a large bunch of text
 
-    strips all the punctuation and other stuff from a string
+    Strips all the punctuation and other stuff from a
+    large string, and returns a list of words
     """
-    text = strip_punctuation(text)
+    replace_punc = [('-', ' '),
+                    (',', ''),
+                    (',', ''),
+                    ('.', ''),
+                    (')', ''),
+                    ('(', ''),
+                    ('"', '')]
 
+    # make a translation table for str.translate
+    table = {}
+    for orig, replace in replace_punc:
+        table[ord(orig)] = replace
+    text = text.translate(table)
     # lower-case everything to remove that complication:
     text = text.lower()
 
@@ -68,21 +54,27 @@ def make_words(text):
     # could be done with list comprehension too -- next week!
     # words2 = [("I" if word == 'i' else word) for word in words if word != "'"]
     return words2
+    print(words)
+    return words
 
 
 def read_in_data(infilename):
+    """
+    read the contents of a project Gutenberg book
 
-    infile = open(infilename, 'r')  # text mode is default
-    # strip out the header, table of contents, etc.
-    for i in range(61):
-        infile.readline()
+    returns it as one big string
+    """
+    with open(infilename, 'r') as infile:  # text mode is default
+        # strip out the header, table of contents, etc.
+        for i in range(61):
+            infile.readline()
 
-    full_text = []
-    # read the rest of the file line by line
-    for line in infile:
-        if line.startswith("End of the Project Gutenberg EBook"):
-            break
-        full_text.append(line)
+        full_text = []
+        # read the rest of the file line by line -- stopping at the footer
+        for line in infile:
+            if line.startswith("End of the Project Gutenberg EBook"):
+                break
+            full_text.append(line)
 
     # put all the lines together into one big string:
     return " ".join(full_text)

@@ -15,7 +15,7 @@ def test_list_donors():
     listing = mailroom.list_donors()
 
     # hard to test this throughly -- better not to hard code the entire
-    # thing. But check for a few aspects -- this will catch the likley
+    # thing. But check for a few aspects -- this will catch the likely
     # errors
     assert listing.startswith("Donor list:\n")
     assert "Jeff Bezos" in listing
@@ -24,7 +24,7 @@ def test_list_donors():
 
 
 def test_find_donor():
-    """ checks a donor that isthere, but with odd case and spaces"""
+    """ checks a donor that is there, but with odd case and spaces"""
     donor = mailroom.find_donor("jefF beZos ")
 
     assert donor[0] == "Jeff Bezos"
@@ -63,19 +63,33 @@ def test_generate_donor_report():
 
     report = mailroom.generate_donor_report()
 
-    # print(report)  # printing so you can see it if it fails
+    print(report)  # printing so you can see it if it fails
+    # this is pretty tough to test
+    # these are not great, because they will fail if unimportant parts of the
+    # report are changed.
+    # but at least you know that codes working now.
     assert report.startswith("Donor Name                | Total Given | Num Gifts | Average Gift")
 
-    assert "Jeff Bezos                       877.33           1         877.33" in report
+    assert "Jeff Bezos                  $    877.33           1   $     877.33" in report
 
 
 def test_save_letters_to_disk():
-    """This only tests that the files get created, but that's a start"""
+    """
+    This only tests that the files get created, but that's a start
+
+    Note that the contents of the letter was already
+    tested with test_gen_letter
+    """
 
     mailroom.save_letters_to_disk()
 
     assert os.path.isfile('Jeff_Bezos.txt')
     assert os.path.isfile('William_Gates_III.txt')
+    # check that it'snot empty:
+    with open('William_Gates_III.txt') as f:
+        size = len(f.read())
+    assert size > 0
+
 
 if __name__ == "__main__":
     # this is best run with a test runner, like pytest

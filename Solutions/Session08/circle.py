@@ -1,92 +1,47 @@
-#!/usr/bin/env python
-
 """
-nifty Circle class
-
-Used to demo propeties and "magic methods"
+circle lab
 """
+import math
 
-from math import pi
-import functools
-
-
-# this is a trick to make all the greater than, less than, etc work.
-# see: https://docs.python.org/3.5/library/functools.html#functools.total_ordering
-@functools.total_ordering
-class Circle(object):
-
+class Circle:
     def __init__(self, radius):
-        self.radius = float(radius)
+        self.radius = radius
 
     @classmethod
     def from_diameter(cls, diameter):
-        return cls(diameter / 2.0)
+        self = cls(diameter / 2)
+        return self
+
+    def __str__(self):
+        return "A circle object with radius: {}".format(self.radius)
+
+    def __repr__(self):
+        return "Circle({})".format(self.radius)
 
     @property
     def diameter(self):
-        return self.radius * 2.0
+        return self.radius * 2
     @diameter.setter
-    def diameter(self, value):
-        self.radius = value / 2.0
+    def diameter(self, val):
+        self.radius = val / 2
 
     @property
     def area(self):
-        return self.radius**2 * pi
-
-    def __repr__(self):
-        return "Circle({})".format(repr(self.radius))
-
-    def __str__(self):
-        return "Circle with radius: {:.4f}".format(self.radius)
+        return self.radius**2 * math.pi
 
     def __add__(self, other):
         return Circle(self.radius + other.radius)
 
-    def __iadd__(self, other):
-        """
-        for "augmented assignment" -- can be used for in-place addition
+    def __mul__(self, other):
+        return Circle(self.radius * other)
 
-        Generally used that way for mutable types. This approach returns
-        self, so that the object is changed in place -- i.e. mutated
-        """
-        self.radius += other.radius
-        return self
-
-    def __mul__(self, factor):
-        return Circle(self.radius * factor)
-
-    def __imul__(self, factor):
-        """see __iadd__"""
-        self.radius *= factor
-        return self
-
-    def __rmul__(self, factor):
-        return Circle(self.radius * factor)
+    def __rmul__(self, other):
+        return Circle(self.radius * other)
 
 
-    # You can define them all:
-    #  Might be useful for odd situations
-    # def __eq__(self, other):
-    #     return self.radius == other.radius
-    # def __ne__(self, other):
-    #     return self.radius != other.radius
-    # def __gt__(self, other):
-    #     return self.radius > other.radius
-    # def __ge__(self, other):
-    #     return self.radius >= other.radius
-    # def __lt__(self, other):
-    #     return self.radius < other.radius
-    # def __le__(self, other):
-    #     return self.radius <= other.radius
+class Sphere(Circle):
+    def volume(self):
+        return 4/3 * math.pi * self.radius**3
 
-    # Or you can put the @total_ordering decorator on the class definition
-    # and do only thesethis:
-    def __eq__(self, other):
-        return self.radius == other.radius
-    def __gt__(self, other):
-        return self.radius > other.radius
-
-
-# class SubCircle(Circle):
-#     pass
-
+    def area(self):
+        raise NotImplementedError("Spheres don't have an area")
