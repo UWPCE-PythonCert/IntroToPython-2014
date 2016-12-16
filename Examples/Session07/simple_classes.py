@@ -46,6 +46,18 @@ class Point3:
     def get_color(self):
         return self.color
 
+    def get_size(self):
+        return  self.size
+
+class Rect:
+
+    def __init__(self, w, h):
+        self.w = w
+        self.h = h
+
+    def get_size(self):
+        return self.w * self.h
+
 
 p3 = Point3(4, 5)
 print(p3.size)

@@ -28,5 +28,5 @@ Vosper, Paul: C#, macscript, python
 Weidner, Matthew T: German, python, html
 Williams, Marcus D: python
 Wong, Darryl: perl, php
-Yang, Minghao
+Yang, Minghao: None
 Hagi, Abdishu: python, bash

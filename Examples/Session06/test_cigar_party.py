@@ -61,3 +61,4 @@ def test_10():
 
 def test_11():
     assert cigar_party(39, True) is False
+

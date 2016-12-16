@@ -9,4 +9,16 @@ import math
 
 
 class Circle:
-    pass
+    @staticmethod
+    def a_method(x):
+        return x**2
+
+    def regular_method(self):
+        print(self)
+
+    @classmethod
+    def class_method(cls):
+        print(cls)
+
+
+
