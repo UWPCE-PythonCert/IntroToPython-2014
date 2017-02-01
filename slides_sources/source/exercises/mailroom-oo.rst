@@ -72,7 +72,7 @@ Creating a Report
 * From the original prompt, the user should be able to quit the script cleanly
 
 
-Your report should look somethign like this::
+Your report should look something like this::
 
     Donor Name                | Total Given | Num Gifts | Average Gift
     ------------------------------------------------------------------
