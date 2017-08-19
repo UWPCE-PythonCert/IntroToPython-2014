@@ -332,7 +332,7 @@ Windows provides the "DOS" command line, which is OK, but pretty old and limited
 
 If you are comfortable with either of these -- go for it.
 
-If not, you can use the "git Bash" shell -- which is much like the bash shell on OS-X and Linux.
+If not, you can use the "git Bash" shell -- which is much like the bash shell on OS-X and Linux. Or, on Windows 10, look into the "bash shell for Windows" otherwise known as the "Linux system" - - more info here: `PythonResources--Windows Bash  <http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/windows_bash.html>`_
 
 
 LAB: Getting set up
@@ -356,8 +356,7 @@ http://uwpce-pythoncert.github.io/PythonResources/Installing/python_for_linux.ht
 
 We'll run through some of that together.
 
-If you already have a working environment, please feel free to help your neighbor
-or look at the Python Resources pages, particularly reviewing/learning the shell and git.
+If you already have a working environment, please feel free to help your neighbor or look at the Python Resources pages, particularly reviewing/learning the shell and git.
 
 http://uwpce-pythoncert.github.io/PythonResources
 
@@ -381,7 +380,7 @@ Step 1: Python 3
 .. code-block:: bash
 
   $ python
-  Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 26 2016, 10:47:25)
+  Python 3.6.1 (v3.5.2:4def2a2901a5, Jun 26 2016, 10:47:25)
   [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
@@ -517,7 +516,7 @@ MS Word is **not** a text editor.
 
 Nor is *TextEdit* on a Mac.
 
-``Notepad`` is a text editor -- but a crappy one.
+``Notepad`` on Windows is a text editor -- but a crappy one.
 
 You need a real "programmers text editor"
 
@@ -547,6 +546,10 @@ If not, I suggest ``SublimeText``: http://www.sublimetext.com/
 (Use version 3, even though it's "beta")
 
 http://uwpce-pythoncert.github.io/PythonResources/DevEnvironment/sublime_as_ide.html
+
+"Atom" is another good open source option.
+
+And, of course, vi or Emacs on Linux, if you are familiar with those.
 
 Why No IDE?
 -----------
@@ -676,7 +679,19 @@ To run it, you have a couple options:
 
   $ python the_name_of_the_script.py
 
-2) run ``iPython``, and run it from within iPython with the ``run`` command
+2) On *nix (linux, OS-X, Windows bash), you can make the file "executable"::
+
+       chmod +x the_file.py
+
+   And make sur it has a "shebang" line at the top::
+
+       #!/usr/bin/env python
+
+   Then you can run it directly::
+
+       ./the_file.py
+
+3) run ``iPython``, and run it from within iPython with the ``run`` command
 
 .. code-block:: ipython
 
@@ -706,13 +721,13 @@ Values
 
 All of programming is really about manipulating values.
 
-* Values are pieces of unnamed data: ``42, 'Hello, world',``
+* Values are pieces of unnamed data: ``42``, ``'Hello, world'``
 
 * In Python, all values are objects
 
   - Try ``dir(42)``  - lots going on behind the curtain!
 
-* Every value belongs to a type
+* Every value has a type
 
   - Try ``type(42)`` - the type of a value determines what it can do
 
@@ -739,8 +754,10 @@ Boolean values:
   -  ``True``
   -  ``False``
 
-(There are intricacies to all of these that we'll get into later)
+The nothing object:
+  - ``None``
 
+(There are intricacies to all of these that we'll get into later)
 
 Code structure
 --------------
@@ -885,6 +902,7 @@ Make sure your editor is set to use spaces only --
 
 Even when you hit the <tab> key
 
+[Python itself allows any number of spaces (and tabs), but you are just going to confuse yourself and others if you do anything else]
 
 Expressions
 ------------
@@ -900,8 +918,7 @@ An *expression* is made up of values and operators.
 * Integer vs. float arithmetic
 
   * (Python 3 smooths this out)
-  * Always use ``/`` when you want float results, ``//`` when you want
-    floored (integer) results
+  * Always use ``/`` when you want division with float results, ``//`` when you want floored (integer) results (no remainder).
 
 * Type conversions
 
@@ -963,6 +980,7 @@ it is bound.
     In [26]: type(a)
     Out[26]: float
 
+*wait!* a has a different type?!? -- yes, because it's the type of teh value: "3.14", names don't actually have a type, they can refer to any type.
 
 Assignment
 ----------
@@ -974,7 +992,6 @@ A *name* is **bound** to a *value* with the assignment operator: ``=``
 * This attaches a name to a value
 * A value can have many names (or none!)
 * Assignment is a statement, it returns no value
-
 
 .. nextslide::
 
@@ -1093,7 +1110,7 @@ Multiple assignment and name swapping can be very useful in certain contexts
 Deleting
 --------
 
-You can't actually delete anything in python...
+You can't actually directly delete values in python...
 
 ``del`` only deletes a name (or "unbinds" the name...)
 
@@ -1186,6 +1203,7 @@ object** using the ``is`` operator:
 
         [demo]
 
+**NOTE:** checking the id of an object, or using "is" to check if two objects are the same is rarely used except for debugging and understanding what's going on under the hood. They are not used regularly in production code.
 
 Equality
 --------
@@ -1206,12 +1224,34 @@ You can test for the equality of certain values with the ``==`` operator
     In [81]: val1 == val3
     Out[84]: False
 
+A string is never equal to a number!
+
 .. ifslides::
 
     .. rst-class:: centered
 
         [demo]
 
+For the numerical values, there is also::
+
+    >, <, >=, <=, !=
+
+Singletons
+----------
+
+Python has three "singletons" -- value fro which there is only one instance:
+
+  ``True``, ``False``, and ``None``
+
+To check if a name is bound to one of these, you use ``is``::
+
+    a is True
+
+    b is False
+
+    x is None
+
+Note that in contrast to english -- "is" is asking a question, not making an assertion -- ``a is True`` means "is a the True value?"
 
 Operator Precedence
 -------------------
@@ -1222,8 +1262,11 @@ Operator Precedence determines what evaluates first:
 
     4 + 3 * 5 != (4 + 3) * 5
 
-To force statements to be evaluated out of order, use parentheses.
+To force statements to be evaluated out of order, use parentheses -- expressions in parentheses are always evaluated first:
 
+   (4 + 3) * 5 != 4 + (3 * 5)
+
+Python follows the "usual" rules of algebra.
 
 Python Operator Precedence
 --------------------------
@@ -1318,6 +1361,10 @@ You define a "string" value by writing a string *literal*:
     In [7]: r'a "raw" string, the \n comes through as a \n'
     Out[7]: 'a "raw" string, the \\n comes through as a \\n'
 
+Python3 strings are fully support Unicode, which means that it can suport literally all the languages in the world (and then some -- Klingon, anyone?)
+
+Because Unicode is native, you can get very far without even thinking about it. Anything you can type in your editor will work fine.
+
 
 Keywords
 --------
@@ -1380,7 +1427,6 @@ Try this:
      'BaseException',
      'BufferError',
      ...
-     'unicode',
      'vars',
      'xrange',
      'zip']
@@ -1404,7 +1450,7 @@ You are free to rebind these names:
 
     TypeError: 'str' object is not callable
 
-In general, this is a **BAD IDEA**.
+In general, this is a **BAD IDEA** -- hopefully your editor will warn you.
 
 
 Exceptions
@@ -1419,8 +1465,11 @@ There are several exceptions that you are likely to see a lot of:
 .. rst-class:: build
 
 * ``NameError``: indicates that you have tried to use a name that is not bound to a value.
+
 * ``TypeError``: indicates that you have tried to use the wrong kind of object for an operation.
+
 * ``SyntaxError``: indicates that you have mis-typed something.
+
 * ``AttributeError``: indicates that you have tried to access an attribute or
   method that an object does not have (this often means you have a different
   type of object than you expect)
@@ -1438,7 +1487,7 @@ A function is a self-contained chunk of code
 You use them when you need the same code to run multiple times,
 or in multiple parts of the program.
 
-(DRY)
+(DRY) -- "Don't Repeat Yourself"
 
 Or just to keep the code clean
 
@@ -1446,7 +1495,7 @@ Functions can take and return information
 
 .. nextslide::
 
-Minimal Function does nothing
+The minimal Function has at least one statement
 
 .. code-block:: python
 
@@ -1455,13 +1504,14 @@ Minimal Function does nothing
 
 .. nextslide::
 
-Pass Statement (Note the indentation!)
+Pass Statement does nothing (Note the indentation!)
 
 .. code-block:: python
 
     def minimal():
         pass
 
+This, or course, is not useful -- you will generally have multiple statements in a function.
 
 Functions: ``def``
 ------------------
@@ -1473,6 +1523,7 @@ Functions: ``def``
   * it is executed
   * it creates a local name
   * it does *not* return a value
+
 .. nextslide::
 
 function defs must be executed before the functions can be called:
@@ -1506,17 +1557,20 @@ You **call** a function using the function call operator (parens):
 
     In [2]: type(simple)
     Out[2]: function
+
     In [3]: simple
     Out[3]: <function __main__.simple>
+
     In [4]: simple()
     I am a simple function
 
 Calling a function is how you run the code in that function.
 
+
 Functions: Call Stack
 ---------------------
 
-functions call functions -- this makes an execution stack -- that's all a trace back is
+functions can call other functions -- this makes an execution stack -- that's what a "trace back" is:
 
 .. code-block:: ipython
 
@@ -1561,7 +1615,7 @@ Functions: Tracebacks
 
     ZeroDivisionError: integer division or modulo by zero
 
-
+The error occurred in the ``doer`` function -- but the traceback shows you where that was called from. In a more complex system, this can be VERY useful -- learn to read tracebacks!
 
 Functions: ``return``
 ---------------------
@@ -1620,7 +1674,7 @@ However, functions *can* return multiple results:
 .. code-block:: ipython
 
     In [16]: def fun():
-       ....:     return (1, 2, 3)
+       ....:     return 1, 2, 3
        ....:
     In [17]: fun()
     Out[17]: (1, 2, 3)
@@ -1632,7 +1686,7 @@ Remember multiple assignment?
 
 .. code-block:: ipython
 
-    In [18]: x,y,z = fun()
+    In [18]: x, y, z = fun()
     In [19]: x
     Out[19]: 1
     In [20]: y
@@ -1669,6 +1723,19 @@ When you call a function, you pass values to the function parameters as
     3 4 5 12
 
 The values you pass in are *bound* to the names inside the function and used.
+
+The name used outside the object is separete from the name used inside teh function:
+
+.. code-block:: python
+
+    x = 5
+
+    def fun(a):
+        print(a)
+
+    fun(x)
+
+The "a" printed inside the function is the *same* object as the "x" outside the function.
 
 The ``if`` Statement
 ---------------------
@@ -1723,7 +1790,7 @@ Python 2-3 Differences
 
 Much of the example code you'll find online is Python2, rather than Python3
 
-For the most part, they are the same -- so you can sue those examples to learn from.
+For the most part, they are the same -- so you can use those examples to learn from.
 
 There are a lot of subtle differences that you don't need to concern yourself with just yet.
 
@@ -1732,7 +1799,7 @@ But a couple that you'll need to know right off the bat:
 print()
 -------
 
-In python2, ``print`` is a "statement", rather than a function. That means it didn't require parenthes around what you want printed::
+In python2, ``print`` is a "statement", rather than a function. That means it didn't require parentheses around what you want printed::
 
   print something, something_else
 
@@ -1753,7 +1820,7 @@ So -- if you get this error, simply add the parentheses::
 
 .. nextslide:: division
 
-In python 3, the divsion operator is "smart" when you divide integers::
+In python 3, the division operator is "smart" when you divide integers::
 
   In [17]: 1 / 2
   Out[17]: 0.5
