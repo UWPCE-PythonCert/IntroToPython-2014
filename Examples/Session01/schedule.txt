@@ -1,35 +1,35 @@
-week 2:  Chantal Huynh
-week 2:  Eric Buer
-week 2:  Ian M Davis
-week 2:  Schuyler Alan Schwafel
-week 3:  James Brent Nunn
-week 3:  Lauren Fries
-week 3:  Lesley D Reece
-week 3:  Michel Claessens
-week 4:  Benjamin C Mier
-week 4:  Robert W Perkins
-week 4:  Vinay Gupta
-week 4:  Wayne R Fukuhara
-week 5:  Darcy Balcarce
-week 5:  David Fugelso
-week 5:  Henry B Fischer
-week 5:  Kyle R Hart
-week 6:  Aleksey Kramer
-week 6:  Alexander R Galvin
-week 6:  Gideon I Sylvan
-week 6:  Hui Zhang
-week 7:  Andrew P Klock
-week 7:  Danielle G Marcos
-week 7:  Ousmane Conde
-week 7:  Salim Hassan Hamed
-week 8:  Alireza Hashemloo
-week 8:  Arielle R Simmons
-week 8:  Eric W Westman
-week 8:  Ryan J Albright
-week 9:  Alexandra N Kazakova
-week 9:  Erik Ivan Lottsfeldt
-week 9:  Louis John Ascoli
-week 9:  Ralph P Brand
-week 10:  Bryan L Davis
-week 10:  Carolyn J Evans
-week 10:  Changqing Zhu
+week 2:  Gideon I Sylvan
+week 3:  Benjamin C Mier
+week 4:  Eric Buer
+week 5:  Lesley D Reece
+week 6:  Henry B Fischer
+week 7:  Vinay Gupta
+week 8:  Michel Claessens
+week 9:  James Brent Nunn
+week 10:  Arielle R Simmons
+week 11:  Schuyler Alan Schwafel
+week 12:  Bryan L Davis
+week 13:  Andrew P Klock
+week 14:  Alexandra N Kazakova
+week 15:  Alireza Hashemloo
+week 16:  Ian M Davis
+week 17:  Ousmane Conde
+week 18:  Erik Ivan Lottsfeldt
+week 19:  Louis John Ascoli
+week 20:  Danielle G Marcos
+week 21:  Lauren Fries
+week 22:  Hui Zhang
+week 23:  Carolyn J Evans
+week 24:  Aleksey Kramer
+week 25:  Ralph P Brand
+week 26:  Wayne R Fukuhara
+week 27:  Kyle R Hart
+week 28:  Alexander R Galvin
+week 29:  Darcy Balcarce
+week 30:  Ryan J Albright
+week 31:  Salim Hassan Hamed
+week 32:  Chantal Huynh
+week 33:  Changqing Zhu
+week 34:  David Fugelso
+week 35:  Robert W Perkins
+week 36:  Eric W Westman
